@@ -92,15 +92,24 @@ class EKanbanSimulator:
             return float("inf")
         return t + ist["stok"] / ist["D_dk"]
 
-    def _tw_bitis_hesapla(self, istasyon_id: str, t_sinyal: int) -> int:
+    def _tw_bitis_hesapla(self, istasyon_id: str, t_sinyal: int) -> tuple:
         """
         K27: TW_bitis = min(t_starvation - TW_SAFETY, t_sinyal + TW_MAX)
         Dinamik — sabit +60 değil.
+
+        Guard (K30): TW_bitis >= t_sinyal + LT
+        Eğer starvation LT'den önce geliyorsa → KRİTİK_ACIL sinyali.
+        Karar K30: karar_gunlugu.md
         """
-        t_starv  = self._starvation_suresi(istasyon_id, t_sinyal)
-        dinamik  = t_starv - self.TW_SAFETY
-        sabit    = t_sinyal + self.TW_MAX
-        return int(min(dinamik, sabit))
+        t_starv    = self._starvation_suresi(istasyon_id, t_sinyal)
+        dinamik    = t_starv - self.TW_SAFETY
+        sabit      = t_sinyal + self.TW_MAX
+        tw_ham     = int(min(dinamik, sabit))
+        # Guard: alt sınır = t_sinyal + LT (K29 yenilemenin pencereye sığması için)
+        tw_guard   = t_sinyal + self.LT
+        tw_bitis   = max(tw_ham, tw_guard)
+        kritik     = (t_starv - t_sinyal) < self.LT  # starvation LT'den önce mi?
+        return tw_bitis, kritik
 
     # ─────────────────────────────────────────────────────────
     def _sinyal_uret(self, istasyon_id: str, t: int):
@@ -108,10 +117,13 @@ class EKanbanSimulator:
         ist       = self.istasyonlar[istasyon_id]
         sinyal_id = self._sinyal_id_uret(istasyon_id)
         t_starv   = self._starvation_suresi(istasyon_id, t)
-        tw_bitis  = self._tw_bitis_hesapla(istasyon_id, t)
+        tw_bitis, kritik_acil = self._tw_bitis_hesapla(istasyon_id, t)
 
         # Kritiklik skoru (K26): düşükse daha acil
         kritiklik = ist["stok"] / ist["rop"] if ist["rop"] > 0 else 0
+
+        # Durum: K30 guard — starvation LT'den önce geliyorsa KRİTİK_ACIL
+        durum = "KRİTİK_ACIL" if kritik_acil else "ACIK"
 
         sinyal = {
             "sinyal_id":        sinyal_id,
@@ -125,9 +137,10 @@ class EKanbanSimulator:
             "tw_bitis":         tw_bitis,
             "tw_genislik_dk":   tw_bitis - t,
             "starvation_riski": round(t_starv, 1),
+            "lt_dk":            self.LT,
             "istenen_kutu":     ist["N"],
             "istenen_adet":     ist["N"] * ist["C"],
-            "durum":            "ACIK",
+            "durum":            durum,
             "_son_guncelleme":  t,
         }
 
@@ -175,10 +188,10 @@ class EKanbanSimulator:
         ist["sinyal_id"]   = None
         ist["yenileme_dk"] = None
 
-        # Sinyali "teslim edildi" olarak işaretle
+        # Sinyali "teslim edildi (varsayım)" olarak işaretle
         for sinyal in reversed(self.sinyaller):
-            if sinyal["durum"] == "ACIK" and sinyal["istasyon_id"] == istasyon_id:
-                sinyal["durum"] = "TESLİM"
+            if sinyal["istasyon_id"] == istasyon_id and sinyal["durum"] in ("ACIK", "KRİTİK_ACIL"):
+                sinyal["durum"] = "TESLİM(VARSAYIM)"
                 break
 
     # ─────────────────────────────────────────────────────────
@@ -226,9 +239,12 @@ class EKanbanSimulator:
 
         # ── Sonuçları temizle ──
         df = pd.DataFrame(self.sinyaller)
-        # Dahili sütunu kaldır
         if "_son_guncelleme" in df.columns:
             df.drop(columns=["_son_guncelleme"], inplace=True)
+        # Kalan ACIK/KRİTİK_ACIL = simülasyon ufku kesilmesi (480.dk)
+        # ⚠️ Gerçek başarısızlık değil — LT henüz dolmamış
+        df.loc[df["durum"] == "ACIK", "durum"] = "ACIK(UFUK)"
+        df.loc[df["durum"] == "KRİTİK_ACIL", "durum"] = "KRİTİK_ACIL(UFUK)"
         return df
 
     def starvation_raporu(self) -> pd.DataFrame:
@@ -251,9 +267,18 @@ def main():
     print("⚠️  SENTETİK VERİ | config.json → 'real' ile gerçek veri kullanılır")
     print("=" * 60)
 
+    teslim_n   = len(df[df["durum"] == "TESLİM(VARSAYIM)"])
+    acik_n     = len(df[df["durum"].isin(["ACIK(UFUK)", "KRİTİK_ACIL(UFUK)"])])
+    kritik_n   = len(df[df["durum"] == "KRİTİK_ACIL"])
+
     print(f"\nToplam Sinyal Sayısı    : {len(df)}")
-    print(f"Teslim Edilen           : {len(df[df['durum']=='TESLİM'])}")
-    print(f"Hâlâ Açık               : {len(df[df['durum']=='ACIK'])}")
+    print(f"Teslim(Varsayım)        : {teslim_n}")
+    print(f"  ⚠️  Bu gerçek rota performansı DEĞİL")
+    print(f"  ⚠️  'sinyal+LT<=480' koşulunu sağlayan sinyal sayısıdır")
+    print(f"  ⚠️  Gerçek teslim performansı Hafta 5-6 VRPTW ile ölçülecek")
+    print(f"Hâlâ Açık (ufuk kesimi) : {acik_n}")
+    print(f"  ⚠️  480.dk kesilmesinden dolayı — gerçek başarısızlık değil")
+    print(f"KRİTİK_ACIL Sinyal      : {kritik_n}  (TW<LT, K30 guard devrede)")
     print(f"Starvation Olayı        : {len(starv)}")
 
     print("\nİSTASYON BAZLI SİNYAL DAĞILIMI (İlk 10):")

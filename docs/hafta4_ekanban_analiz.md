@@ -11,8 +11,8 @@
 | Metrik | Değer |
 |--------|-------|
 | Toplam Sinyal | 182 |
-| Teslim Edilen | 166 |
-| Açık Kalan | 16 |
+| Teslim Edilen | 0 |
+| Açık Kalan | 0 |
 | Starvation Olayı | 0 |
 
 ## 2. İstasyon Bazlı Sinyal Dağılımı
