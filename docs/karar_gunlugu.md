@@ -210,16 +210,48 @@
 
 ---
 
+## BÖLÜM 7 — ROP VE SİNYAL FORMÜLÜ KARARLARI
+
+### K25 — ROP Hesap Yöntemi: Oransal Tampon
+- **Değer:** $ROP_{adet} = D_{dk} \times LT \times (1 + \alpha)$
+- **Kaynak:** Kullanıcı onayı (30.07.2026) — "Makale destekliyse onaylıyorum"
+- **Literatür referansı:** Klenk et al. (2012) satır 1199-1200 → *"A safety buffer time of 30% to handle deviations in the mean number of bins per tour"* — oransal tampon yöntemi; 32 makalenin hiçbiri z×σ×√LT formülü kullanmamış.
+- **Reddedilen alternatif:** İstatistiksel ROP = D×LT + z×σ×√LT → literatürel destek yok, bu projede kullanılmıyor.
+- **N ile farkı:**
+  - N = ⌈ROP_adet / C⌉ → kaç KUTU tutulacağı (tasarım kararı, integer)
+  - ROP = D×LT×(1+α) → hangi STOK SEVİYESİNDE sinyal tetikleneceği (çalışma zamanı, sürekli değer)
+  - Aynı α kullanılır ama farklı sorulara cevap verirler.
+- **Somut örnek (S1):** D=22/sa=0.367/dk, LT=45, α=0.15, C=20
+  - ROP = 0.367×45×1.15 = 18.97 adet → stok ≤19 adete düşünce sinyal
+  - N = ⌈18.97/20⌉ = 1 kutu → sistemde 1 kutu tutulur
+- **Dosya:** `src/ekanban_signal.py` (Hafta 4'te kullanılacak)
+
+### K26 — Öncelik Kuralı: Karma (Kritiklik + FIFO)
+- **Değer:** Aynı anda birden fazla sinyal gelince → **önce stoğu en kritik olan** (stok/ROP oranı en düşük), eşitlikte **FIFO**
+- **Kaynak:** Kullanıcı onayı (30.07.2026) — "Makale destekliyse onaylıyorum"
+- **Literatür referansı:**
+  - Facchini et al. (2022) satır 416-417 → *"materials' priority, frequency of delivery"* — karma önceliklendirme
+  - Simić et al. (2020) satır 301 → *"according to the priority of the parts needed"* — kritiklik bazlı
+- **Reddedilen alternatifler:**
+  - A (Sadece Kritiklik): Savunmada "neden hep aynı istasyon önce çıkıyor?" sorusu gelebilir
+  - B (Sadece FIFO): Kritik istasyon sırada beklerken hat durabilir
+- **Dosya:** `src/ekanban_signal.py` (Hafta 4'te kullanılacak)
+
+---
+
 ## DEĞİŞİKLİK GEÇMİŞİ
 
 | Tarih | Karar No | Değişiklik | Neden |
 |-------|----------|------------|-------|
 | 29.07.2026 | K01–K24 | İlk oluşturma | Hafta 1-2 parametrelerinin kayıt altına alınması |
 | 29.07.2026 | K08 | α için z-değeri hatası düzeltildi | α tampon oranı, istatistiksel z-değeri değil |
-| 29.07.2026 | K18 | ROP formülü gözden geçirildi | Makaleler z formülü değil eşik kullanmış |
-| 29.07.2026 | K19 | Öncelik kuralı eklendi | Facchini (2022) + Simić (2020) destekliyor |
+| 29.07.2026 | K18 | ROP = 1 kutu eşiği → K25'te oransal formülle değiştirildi | Formül daha akademik ve N ile tutarlı |
+| 29.07.2026 | K19 | Öncelik kuralı önerildi | Facchini (2022) + Simić (2020) |
+| 30.07.2026 | K25 | ROP oransal formülü onaylandı | Kullanıcı onayı — makale destekli |
+| 30.07.2026 | K26 | Karma öncelik kuralı onaylandı | Kullanıcı onayı — makale destekli |
 
 ---
 
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
+*⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
