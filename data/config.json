@@ -1,0 +1,7 @@
+{
+    "data_source": "synthetic",
+    "_comment": "Gercek veri geldiginde 'synthetic' -> 'real' degistir. Baska hicbir sey degistirmene gerek yok.",
+    "_options": ["synthetic", "real"],
+    "_last_updated": "2026-07-29",
+    "_approved_by": "kullanici onayladi"
+}
