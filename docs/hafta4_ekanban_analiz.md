@@ -8,12 +8,12 @@
 
 ## 1. Genel Özet
 
-| Metrik | Değer |
-|--------|-------|
-| Toplam Sinyal | 182 |
-| Teslim Edilen | 0 |
-| Açık Kalan | 0 |
-| Starvation Olayı | 0 |
+| Metrik | Isınma (0-45dk) | Kararlı (45-480dk) | Toplam |
+|--------|-----------------|--------------------|--------|
+| Sinyal Sayısı | 23 | 159 | 182 |
+| Teslim (Varsayım) | 23 | 143 | 166 |
+| Açık (Ufuk Kesimi) | 0 | 16 | 16 |
+| Starvation | 0 | 0 | 0 |
 
 ## 2. İstasyon Bazlı Sinyal Dağılımı
 
