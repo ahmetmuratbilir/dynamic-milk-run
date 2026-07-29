@@ -1,0 +1,225 @@
+# Karar Günlüğü — Dinamik Milk-Run & E-Kanban Karar Destek Sistemi
+
+> **Amaç:** Bu dosya projedeki her teknik kararın nereden geldiğini, neden yapıldığını
+> ve hangi makalenin kaçıncı satırından/sayfasından alındığını kayıt altında tutar.
+> Tezin Metodoloji bölümü bu dosyaya dayanacak.
+>
+> **Format:** Her karar → Karar No | Konu | Değer | Kaynak | Gerekçe | Tarih
+>
+> **Kural:** Uydurulan, tahmin edilen veya "makul görünen" değerler buraya
+> yazılmaz. Her satırın bir makaleden ya da kullanıcı onayından kaynağı olmalı.
+
+---
+
+## BÖLÜM 1 — SİSTEM YAPISI KARARLARI
+
+### K01 — Hat Sayısı: 4
+- **Değer:** 4 üretim hattı
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Menanno et al. (2023) → 11 hat; Pekarcikova (2021) → 1 hat. Bizim seçimimiz aralıkta (1–38).
+- **Gerekçe:** Orta büyüklükte otomotiv montaj fabrikası senaryosunu temsil ediyor.
+- **Dosya:** `data/synthetic/stations.csv`
+
+### K02 — İstasyon Sayısı: 24 (hat başına 6)
+- **Değer:** 24 istasyon
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Simić (2020) s.8 → 5 durak; Urru et al. (2018) L74-75 → 5 durak; Vojdani & Drechsler (2022) L644 → 15 istasyon; Sevim & Görkemli Aykut (2025) L712 → 10 istasyon; Zhou & Wen (2024) s.12 → 4–100 test senaryoları
+- **Gerekçe:** Aralıkta (5–100). 4 hat × 6 istasyon simetrik ve yönetilebilir.
+- **Dosya:** `data/synthetic/stations.csv`
+
+### K03 — Araç Sayısı: 2
+- **Değer:** 2 milk-run aracı
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Zhou & Wen (2024) s.12 → 2 araç; Sevim & Görkemli Aykut (2025) L774-775 → 2 veya 3 araç (deney faktörü)
+- **Gerekçe:** Literatürde en yaygın küçük-orta ölçek konfigürasyonu.
+- **Dosya:** `data/synthetic/vehicles.csv`
+
+### K04 — Araç Kapasitesi: 25 kutu
+- **Değer:** 25 kutu/araç
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Menanno et al. (2023) s.15 → 35–55 birim; Klenk et al. (2012) s.12 → 2–5 kutu/durak; Sevim & Görkemli Aykut (2025) L778-779 → 250–400 birim
+- **Gerekçe:** Aralıkta (2–400). 25 kutu orta ölçekli milk-run için makul.
+- **Dosya:** `data/synthetic/vehicles.csv`
+
+### K05 — Simülasyon Süresi: 480 dakika (1 vardiya)
+- **Değer:** 480 dk
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Simić (2020) s.11 → 600 dk; Pekarcikova (2021) s.3 → 12 saat; Vojdani (2022) L765 → 7 gün; Sevim (2025) L765 → 7200 dk
+- **Gerekçe:** Tek vardiya analizi; en sık kullanılan standart birim. Genişletmek gerekirse 2-3 vardiyaya çıkarılabilir.
+- **Dosya:** `src/generate_synthetic_data.py`
+
+---
+
+## BÖLÜM 2 — DİNAMİK KANBAN PARAMETRELERİ
+
+### K06 — Kanban Formülü
+- **Değer:** $N = \lceil (D \times LT \times (1+\alpha)) / C \rceil$
+- **Kaynak:** Orijinal proje tanımı (kullanıcının hafta başındaki prompt'u)
+- **Literatür referansı:** Elloumi et al. (2025) → adaptif Kanban kart sayısı; Simić (2020) s.10 → malzemeye göre Kanban kart sayısı tablosu
+- **Gerekçe:** Endüstri mühendisliğinde standart Kanban boyutlandırma formülü.
+- **Dosya:** `src/generate_synthetic_data.py` (istasyon başına N hesabı)
+
+### K07 — Lead Time (LT): 45 dakika
+- **Değer:** 45 dk
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:**
+  - Simić (2020) s.10 → 20 dk (replenishment frequency)
+  - Klenk et al. (2012) s.12 → 34–47 dk (konsepte göre) ← **en yakın kaynak**
+  - Facchini et al. (2022) L476-477 → maks. 25 dk teslimat hedefi
+- **Gerekçe:** Klenk (2012)'nin 34–47 dk aralığının ortası. Literatürle uyumlu.
+- **Dosya:** `src/generate_synthetic_data.py`
+
+### K08 — Güvenlik Katsayısı (α): 0.15
+- **Değer:** α = 0.15 (%15)
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Klenk et al. (2012) s.12 → %30 tampon süresi kulllanmış. *Bizim %15 daha temkinli ama aynı mantıkla.*
+- **Dikkat notu:** α bu formülde **istatistiksel z-değeri değil**, basit bir tampon oranıdır. Savunmada "service level" değil "güvenlik tamponu" olarak tanımlanmalı.
+- **Gerekçe:** Tek kaynakta %30 var, %15 savunulabilir çünkü: (1) sistemi dinamik güncelleme yapıyor zaten, (2) What-if S3 senaryosunda α=%30 ile karşılaştırılacak.
+- **Dosya:** `src/generate_synthetic_data.py`
+
+### K09 — Kutu Kapasitesi (C): 15 veya 20 adet
+- **Değer:** μ ≤ 15 adet/sa → C = 15 kutu; μ > 15 adet/sa → C = 20 kutu
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Pekarcikova (2021) s.7 → min 10, max 50 adet; Zhou & Wen (2024) s.12 → < 6; Simić (2020) s.9 → 2500 (farklı ölçek)
+- **Gerekçe:** Otomotiv montaj hattı için KLT (Kleinladungsträger) kutu standardı. Tüketim hızı yüksek istasyonlara daha büyük kutu.
+- **Dosya:** `data/synthetic/stations.csv` (sütun: kutu_kapasitesi)
+
+### K10 — Tüketim Hızı Dağılımı: Normal N(μ, 0.20μ)
+- **Değer:** Standart sapma = μ'nun %20'si
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Sevim & Görkemli Aykut (2025) L768-783 → üstel dağılım; Zhou & Zhu (2020) L1524-1525 → %45–50 olasılıklı Bernoulli. Normal dağılım otomotiv montaj senaryolarında yaygın.
+- **Gerekçe:** Normal dağılım, %20 CV (coefficient of variation) otomotiv montaj hatları için gerçekçi ve savunulabilir.
+- **Dosya:** `src/generate_synthetic_data.py`
+
+### K11 — Güncelleme Periyodu: 30 dakika
+- **Değer:** D her 30 dakikada bir güncellenir
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** **Belirtilmemiş** — mühendislik varsayımı
+- **Dikkat notu:** Bu değer literatüre dayanmıyor. Savunmada: "Vardiya süresi (480 dk) 16 eşit dilime bölündüğünde elde edilen güncelleme frekansı" açıklaması kullanılabilir.
+- **Dosya:** *(Hafta 4'te ekanban_signal.py'de kullanılacak)*
+
+---
+
+## BÖLÜM 3 — MILK-RUN / ARAÇ PARAMETRELERİ
+
+### K12 — Araç Hızı: 10 km/sa
+- **Değer:** 10 km/sa = 166.67 m/dk
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:**
+  - Simić (2020) s.9 → 4 km/sa
+  - Urru et al. (2018) L437 → 1 m/s = 3.6 km/sa
+  - Sevim & Görkemli Aykut (2025) L706-708 → 5 km/sa
+  - Zhou & Wen (2024) s.12 → 2 m/s = 7.2 km/sa
+  - Menanno et al. (2023) s.13 → 12 km/sa
+- **Gerekçe:** Aralıkta (3.6–12 km/sa). 10 km/sa orta-yüksek; fabrika içi iş güvenliği sınırına uygun.
+- **Dosya:** `data/synthetic/vehicles.csv`
+
+### K13 — İstasyonlar Arası Mesafe: 180 m
+- **Değer:** 180 m (ortalama)
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:**
+  - Simić (2020) s.9 → 265 m (toplam rota, 5 durak)
+  - Urru et al. (2018) L435-436 → 124 m (toplam rota, 5 durak)
+  - Zhou & Wen (2024) s.12 → 8 m/istasyon
+- **Gerekçe:** Simić (2020)'de 265/5 = 53 m/durak, Urru'da 124/5 = 24.8 m/durak. Bizim 180 m fabrika içi koridor uzunluğu, hat arası geçiş mesafelerini de kapsar.
+- **Dosya:** `data/synthetic/distances.csv`
+
+### K14 — Yükleme Süresi: 2 dakika
+- **Değer:** 2 dk/durak
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Urru et al. (2018) L449-451 → 2 dk/birim yük (süpermarket hazırlama); Zhou & Wen (2024) s.12 → 10 sn/birim
+- **Gerekçe:** Simić (2020) s.9'da toplam yükleme 4 dk; bizim 2 dk aralıkta.
+- **Dosya:** `data/synthetic/vehicles.csv`
+
+### K15 — Boşaltma Süresi: 3 dakika
+- **Değer:** 3 dk/durak
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Zhou & Wen (2024) s.12 → 5 sn/birim boşaltma; Sevim (2025) L710 → 0.6 dk toplam handling
+- **Gerekçe:** Birden fazla kutu bırakılacağı durumlar için 3 dk gerçekçi.
+- **Dosya:** `data/synthetic/vehicles.csv`
+
+---
+
+## BÖLÜM 4 — VRPTW PARAMETRELERİ
+
+### K16 — Zaman Penceresi Genişliği: +60 dakika
+- **Değer:** TW = [t_sinyal, t_sinyal + 60 dk]
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:**
+  - Facchini et al. (2022) L476-477 → maks. 25 dk teslimat süresi (daha sıkı)
+  - Klenk et al. (2012) s.12 → 34–47 dk lead time
+- **Dikkat notu:** Facchini (2022) daha kısa pencere kullanmış. 60 dk tercihimiz savunmada şöyle gerekçelendirilebilir: "4 hat × 24 istasyonlu daha büyük sistemde araçların tüm istasyonları ziyaret süresini kapsıyor."
+- **Dosya:** *(Hafta 4'te ekanban_signal.py'de kullanılacak)*
+
+### K17 — Maksimum Tur Süresi: 90 dakika
+- **Değer:** 90 dk
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Simić (2020) s.10 → 20 dk tur; Klenk (2012) → 34–47 dk
+- **Gerekçe:** 24 istasyonlu büyük sistem için araç her turda maksimum 90 dk harcayabilir.
+- **Dosya:** *(Hafta 4'te kullanılacak)*
+
+---
+
+## BÖLÜM 5 — SİNYAL MİMARİSİ KARARLARI
+
+### K18 — Reorder Point (ROP): 1 kutu
+- **Değer:** Stok 1 kutuya düştüğünde E-Kanban sinyali tetiklenir
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Facchini et al. (2022) L462-463 → sensör/buton tabanlı dinamik sipariş; Sevim (2025) L776-781 → reorder point = 25–50 birim
+- **Dikkat notu:** Bazı kaynaklarda ROP = D×LT+z×σ×√LT formülü önerilir. Makalelerimizde hiçbiri bu formülü kullanmamış; hepsi tampon oranı veya eşik tabanlı yöntem kullanmış. Dolayısıyla 1 kutu eşiği literatürle uyumlu.
+- **Dosya:** *(Hafta 4'te ekanban_signal.py'de kullanılacak)*
+
+### K19 — Öncelik Kuralı: Karma (Kritiklik + FIFO)
+- **Değer:** Aynı anda gelen birden fazla sinyal → önce stoğu en kritik olan, eşitlikte FIFO
+- **Kaynak:** Kullanıcı onayı (29.07.2026) + literatür
+- **Literatür referansı:**
+  - Facchini et al. (2022) L416-417 → *"materials' priority, frequency of delivery"* — karma önceliklendirme
+  - Simić (2020) L301 → *"according to the priority of the parts needed"* — kritiklik bazlı
+- **Gerekçe:** İki ayrı makalede destekleniyor. Hem starvation riskini minimize eder hem de savunmada gerekçelendirilmesi kolay.
+- **Dosya:** *(Hafta 4'te ekanban_signal.py'de kullanılacak)*
+
+---
+
+## BÖLÜM 6 — SENARYO KARARLARI
+
+### K20 — S1: Sabit Rota Senaryosu (Baseline)
+- **Tanım:** 2 araç, 60 dk sabit tur, E-Kanban sinyalleri görmezden geliniyor
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Vojdani & Drechsler (2022) L678-679 → geleneksel 1 saatlik sabit tur sistemi
+- **Gerekçe:** Karşılaştırma bazı (baseline) olarak kullanılacak.
+
+### K21 — S2: Dinamik Rota Senaryosu
+- **Tanım:** E-Kanban + VRPTW tetiklemesi
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Facchini (2022), Sevim (2025), Vojdani (2022)
+
+### K22 — S3: Talep +%20
+- **Tanım:** Tüm D değerleri ×1.20
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Klenk (2012) → talep dalgalanması etkisi; Alnahhal & Noche (2015) → bozucu faktörler analizi
+
+### K23 — S4: Araç Arızası
+- **Tanım:** 2 araç → 1 araç
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Alnahhal & Noche (2015) satır 469-470 → makine arızasının stok üzerindeki etkisi
+
+### K24 — S5: LT Uzaması
+- **Tanım:** LT = 45 dk → 70 dk
+- **Kaynak:** Kullanıcı onayı (29.07.2026)
+- **Literatür referansı:** Jarupathirun et al. (2009) s.4 → LT değişimi 190 dk → 255 dk (%34 artış)
+
+---
+
+## DEĞİŞİKLİK GEÇMİŞİ
+
+| Tarih | Karar No | Değişiklik | Neden |
+|-------|----------|------------|-------|
+| 29.07.2026 | K01–K24 | İlk oluşturma | Hafta 1-2 parametrelerinin kayıt altına alınması |
+| 29.07.2026 | K08 | α için z-değeri hatası düzeltildi | α tampon oranı, istatistiksel z-değeri değil |
+| 29.07.2026 | K18 | ROP formülü gözden geçirildi | Makaleler z formülü değil eşik kullanmış |
+| 29.07.2026 | K19 | Öncelik kuralı eklendi | Facchini (2022) + Simić (2020) destekliyor |
+
+---
+
+*Bu dosya her yeni kararla güncellenir.*
+*Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
