@@ -2,7 +2,7 @@
 ## Dinamik Milk-Run & E-Kanban Karar Destek Sistemi
 
 **Dönem:** Hafta 2 — Hat İçi Tüketim ve Stok Verilerinin Analizi
-**Durum:** ⏳ Kontrol Onayı Bekliyor (29.07.2026)
+**Durum:** ✅ KAPATILDI — Kullanıcı onayı alındı (29.07.2026)
 
 ---
 
