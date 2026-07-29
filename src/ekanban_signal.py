@@ -124,12 +124,15 @@ class EKanbanSimulator:
 
         # Durum: K30 guard — starvation LT'den önce geliyorsa KRİTİK_ACIL
         durum = "KRİTİK_ACIL" if kritik_acil else "ACIK"
+        # K32: Isınma Periyodu Etiketi (0-45 dk)
+        periyot = "ISINMA (0-45dk)" if t < self.LT else "KARARLI (45-480dk)"
 
         sinyal = {
             "sinyal_id":        sinyal_id,
             "istasyon_id":      istasyon_id,
             "hat":              ist["hat"],
             "sinyal_dk":        t,
+            "periyot":          periyot,
             "stok_o_an":        round(ist["stok"], 3),
             "rop_esigi":        round(ist["rop"], 3),
             "kritiklik_skoru":  round(kritiklik, 4),
@@ -267,18 +270,18 @@ def main():
     print("⚠️  SENTETİK VERİ | config.json → 'real' ile gerçek veri kullanılır")
     print("=" * 60)
 
-    teslim_n   = len(df[df["durum"] == "TESLİM(VARSAYIM)"])
-    acik_n     = len(df[df["durum"].isin(["ACIK(UFUK)", "KRİTİK_ACIL(UFUK)"])])
-    kritik_n   = len(df[df["durum"] == "KRİTİK_ACIL"])
+    isinma_df = df[df["periyot"] == "ISINMA (0-45dk)"]
+    kararli_df = df[df["periyot"] == "KARARLI (45-480dk)"]
 
     print(f"\nToplam Sinyal Sayısı    : {len(df)}")
-    print(f"Teslim(Varsayım)        : {teslim_n}")
-    print(f"  ⚠️  Bu gerçek rota performansı DEĞİL")
-    print(f"  ⚠️  'sinyal+LT<=480' koşulunu sağlayan sinyal sayısıdır")
+    print(f"  ├─ Isınma Periyodu (0-45 dk)  : {len(isinma_df)} sinyal")
+    print(f"  └─ Kararlı Hal (45-480 dk)    : {len(kararli_df)} sinyal")
+    print(f"\nTeslim(Varsayım)        : {len(df[df['durum'] == 'TESLİM(VARSAYIM)'])}")
+    print(f"  ⚠️  Bu gerçek rota performansı DEĞİL ('sinyal+LT<=480' şartı)")
     print(f"  ⚠️  Gerçek teslim performansı Hafta 5-6 VRPTW ile ölçülecek")
-    print(f"Hâlâ Açık (ufuk kesimi) : {acik_n}")
+    print(f"Hâlâ Açık (ufuk kesimi) : {len(df[df['durum'].isin(['ACIK(UFUK)', 'KRİTİK_ACIL(UFUK)'])])}")
     print(f"  ⚠️  480.dk kesilmesinden dolayı — gerçek başarısızlık değil")
-    print(f"KRİTİK_ACIL Sinyal      : {kritik_n}  (TW<LT, K30 guard devrede)")
+    print(f"KRİTİK_ACIL Sinyal      : {len(df[df['durum'] == 'KRİTİK_ACIL'])}  (TW<LT, K30 guard devrede)")
     print(f"Starvation Olayı        : {len(starv)}")
 
     print("\nİSTASYON BAZLI SİNYAL DAĞILIMI (İlk 10):")

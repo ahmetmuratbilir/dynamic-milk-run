@@ -262,6 +262,24 @@
 - **Savunma notu:** "Hafta 4, E-Kanban sinyal mantığını bağımsız test etmek için yapıldı. Hafta 5-6'da gerçek rota süresiyle entegre edildi."
 - **Dosya:** `src/ekanban_signal.py`
 
+### K30 — Zaman Penceresi Alt Sınır (Guard) Kuralı
+- **Değer:** $TW_{bitis} = \max(\min(t_{starvation} - 5, t_{sinyal} + 60), t_{sinyal} + LT)$
+- **Kaynak:** Kullanıcı ve AI sorgulaması (30.07.2026)
+- **Gerekçe:** $t_{starvation} - t_{sinyal} < LT$ durumlarında pencerenin LT'den dar çıkmasını önlemek için alt sınır eklendi. Starvation LT'den önce gelirse sinyal `KRİTİK_ACIL` işaretlenir.
+- **Dosya:** `src/ekanban_signal.py`
+
+### K31 — S13 Sınır Durumu (Edge Case) Belgelemesi
+- **Değer:** S13 ($D=23$ adet/sa) için $ROP = 19.84$, $N \times C = 20$ olup marj %0.8'dir.
+- **Analiz:** 24 istasyon taranmış, marjı >%95 olan **tek istasyon S13** çıkmıştır (diğerleri %51.7–%94.9).
+- **Sonuç:** Bu durum bir sistem hatası değil, Kanban boyutlandırmasının doğal bir sınır durumudur. Stok yapısı bozulmamıştır ($N \times C$ sabit tutulmuştur).
+- **Dosya:** `docs/karar_gunlugu.md`, `src/ekanban_signal.py`
+
+### K32 — Isınma Periyodu (Warm-up Period) Raporlama
+- **Değer:** Simülasyonun ilk 45 dakikasındaki (1 LT) sinyaller engellenmez, ancak KPI raporlarında `ISINMA_PERIYODU` olarak ayrı tutulur.
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Gerekçe:** Sinyal engellemek stok tükenmesini maskeleyeceği için engelleme yapılmaz; istatistiksel şeffaflık için ısınma ve kararlı hal ayrılır.
+- **Dosya:** `src/ekanban_signal.py`
+
 ---
 
 ## DEĞİŞİKLİK GEÇMİŞİ
@@ -276,6 +294,9 @@
 | 30.07.2026 | K27 | TW_bitis sabit +60 → dinamik starvation bazlı | S16 örneğinde pencere starvation'dan sonra kapanıyordu |
 | 30.07.2026 | K28 | Açık sinyal: yeni üretme, kritiklik güncelle | Kullanıcı onayı — Soru 1 A |
 | 30.07.2026 | K29 | Stok yenileme sinyal+LT=45dk (GEÇİCİ) | Kullanıcı onayı — Soru 2 A; Hafta 5-6'da değişecek |
+| 30.07.2026 | K30 | TW alt sınır guard eklendi | Pencere daralması ve kritik sinyal tespiti için |
+| 30.07.2026 | K31 | S13 sınır durum olarak belgelendi | 24 istasyondan tek marjlı istasyon |
+| 30.07.2026 | K32 | Isınma periyodu (0-45dk) ayrıştırıldı | Sinyal engellenmedi, KPI şeffaflığı sağlandı |
 
 ---
 
