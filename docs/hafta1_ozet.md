@@ -2,7 +2,7 @@
 ## Dinamik Milk-Run & E-Kanban Karar Destek Sistemi
 
 **Dönem:** Hafta 1 — Kapsam Belirleme & Literatür
-**Durum:** ✅ Tamamlandı
+**Durum:** ✅ KAPATILDI — Kullanıcı onayı alındı (29.07.2026)
 
 ---
 
