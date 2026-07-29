@@ -1,0 +1,1368 @@
+
+
+--- SAYFA 1 ---
+
+
+--- SAYFA 2 ---
+Enabling Manufacturing Competitiveness  
+and Economic Sustainability 
+
+
+--- SAYFA 3 ---
+Hoda A. ElMaraghy 
+Editor 
+Enabling Manufacturing Competitiveness 
+and Economic Sustainability 
+Proceedings of the 4th International Conference on Changeable, 
+Agile, Reconfigurable and Virtual production (CARV2011), 
+123
+Montreal, Canada, 2–5 October 2011 
+
+
+--- SAYFA 4 ---
+Editor
+Professor Hoda A.ElMaraghy
+University of Windsor
+Intelligent Manufacturing Systems Center
+204 Odette Building
+401 Sunset Avenue
+Windsor, Ontario
+Canada N9B 3P4
+hae@uwindsor.ca
+ISBN 978-3-642-23859-8
+e-ISBN 978-3-642-23860-4
+DOI 10.1007/978-3-642-23860-4
+Springer Heidelberg Dordrecht London New York
+c⃝
+This work is subject to copyright. All rights are reserved, whether the whole or part of the material is concerned, speciﬁcally the rights of translation,
+reprinting, reuse of illustrations, recitation, broadcasting, reproduction on microﬁlm or in any other way, and storage in data banks. Duplication of this
+publication or parts thereof is permitted only under the provisions of the German Copyright Law of September 9, 1965, in its current version, and permission
+for use must always be obtained from Springer. Violations are liable to prosecution under the German Copyright Law.
+The use of general descriptive names, registered names, trademarks, etc. in this publication does not imply, even in the absence of a speciﬁc statement, that
+such names are exempt from the relevant protective laws and regulations and therefore free for general use.
+Cover design: eStudio Calamar S.L., Heidelberg
+Printed on acid-free paper
+Springer is part of Springer Science+Business Media (www.springer.com)
+Library of Congress Control Number: 2011938236
+Springer-Verlag Berlin Heidelberg 2012
+
+
+--- SAYFA 5 ---
+
+
+
+
+Preface
+
+Globalization, unpredictable markets, increased product customization and the quest for competitive 
+advantages are but a few of the many challenges facing manufacturing enterprises now and in the foreseeable 
+future. Frequent changes in product, production technologies and manufacturing systems are evident today 
+along with their significant implementation costs. Increased competitiveness requires enhanced quality and 
+value through increasingly innovative products, materials and production technologies.  One key strategy for 
+manufacturing success and economic sustainability is to satisfy the market demand for increased product 
+variants while reducing the resulting variations in their manufacturing and associated cost and complexity. This 
+trend is on the rise as evidenced by the paradigm shifts witnessed in manufacturing systems and their increased 
+flexibility and responsiveness to cope with the evolution of both products and manufacturing systems.  
+A host of external and internal change drivers exist that affect manufacturing enterprises at various levels 
+from strategic planning for re-positioning the business, to tactical control of production plans and facilities to 
+achieve a high degree of responsiveness. The changing manufacturing environment requires careful effort to 
+prolong the life of manufacturing systems by making them easily adaptable and facilitating the integration of 
+new technologies and new functions. This requires pre-designing effective paths for change and providing 
+innovative change enablers and adaptation mechanisms.  
+The availability of solutions that go beyond adaptability and flexibility will thus be crucial for enhancing 
+productivity and ensuring competitiveness and economic sustainability in the manufacturing sector.  
+The theme of the 4th International Conference on Changeable, Agile, Reconfigurable and Virtual production 
+(CARV2011) is “Enabling Manufacturing Competitiveness and Economic Sustainability.” The leading edge 
+research and best implementation practices and experiences, which address these important issues and 
+challenges, presented in the CARV2011conference are included in this book. It is organized in 5 Parts and 
+contains 107 papers contributed by 242 authors from around the world. The topics cover leading edge advances 
+in manufacturing systems design, planning, evaluation, control and evolving paradigms such as mass 
+customization, personalization, changeability, reconfigurability and flexibility. It treats new and important 
+concepts such as the dynamic product families and platforms, and co-evolution of products and systems, and 
+methods for enhancing manufacturing systems’ economic sustainability and prolonging their life for use to 
+produce more than one product generation. Enablers of change in manufacturing systems, production volume 
+and capability scalability and managing the volatility of markets, competition among global enterprises and the 
+increasing complexity of products, manufacturing systems and management strategies are discussed. An outline 
+of industry challenges and future directions for research and development needed to help both practitioners and 
+academicians are presented. 
+ 
+ 
+Canada Research Chair (CRC) in Manufacturing Systems  
+Chair, CARV2011 Conference 
+ 
+ 
+Professor Hoda A. ElMaraghy, PhD, PEng, FCIRP, FSME, FCSME 
+
+
+--- SAYFA 6 ---
+
+
+Acknowledgements
+
+The 4th International Conference on Changeable, Adaptable, Reconfigurable and Virtual Production 
+(CARV2011) was held in Montreal, Canada. The conference was organized by the Intelligent Manufacturing 
+System (IMS) Centre, University of Windsor, Canada and the Institute for Machine Tools and Industrial 
+Management (iwb), Technical University of Munich, Germany. It is sponsored by the International Production 
+Engineering Academy (CIRP) and the Canadian Society for Mechanical Engineering (CSME). 
+CARV2011 provided an excellent forum for engineers, scientists and researchers from academia and 
+industry to discuss current practices and future challenges germane to the success and survival of 
+manufacturing in a changing and globally competitive environment. It offered an environment conducive to 
+networking and exchange among researchers and practitioners in academia and industry.  
+On behalf of the conference Co-Chairs, Professor Michael Zaeh, Professor Gunther Reinhart and Professor 
+Waguih ElMaraghy, I thank all authors for their high quality contributions and their cooperation in the 
+manuscript preparation process. We also extend our thanks and appreciation to the International Scientific 
+Committee members who provided valuable input and expert judgement during the review and evaluation 
+process.  
+We express our gratitude to all members of the teams (too many to list) of qualified and expert assistants 
+from the Intelligent Manufacturing Systems (IMS) Centre, University of Windsor, Canada and the Institute for 
+Machine Tools and Industrial Management (iwb), Technical University of Munich, Germany, who 
+demonstrated a high level of dedication, professionalism and collaboration. I am particularly grateful to Dr. 
+Tarek AlGeddawy and Dr. Sameh Badrous (IMS Centre) for their expert assistance in putting this document 
+together in record time. Thanks also go out to Ms. Erica Lyons (IMSC) for her continued assistance throughout 
+and to Mr. Michael Niehues (iwb) for his participation in the conference organization and logistical support. 
+ 
+Dr. Hoda A. ElMaraghy 
+
+
+
+
+--- SAYFA 7 ---
+
+
+
+
+
+
+Conference Chair 
+Professor Hoda A. ElMaraghy (Canada) 
+Co-Chairs: 
+Professor Michael F. Zaeh (Germany) 
+Professor Waguih H. ElMaraghy (Canada) 
+Professor Gunther Reinhart (Germany) 
+INTERNATIONAL SCIENTIFIC COMMITTEE  
+ 
+ 
+Prof. Abele, E (Germany) 
+Prof. Azab, A. (Canada) 
+Prof. Balazinski, M. (Canada) 
+Prof. Bernard, A. (France) 
+Prof. Bley, H. (Germany) 
+Prof. Chryssolouris, G. (Greece) 
+Prof. Cunha, P.F. (Portugal) 
+Prof. Deif, A. (Egypt) 
+Prof. ElMaraghy, H.A. (Canada) 
+Prof. ElMaraghy, W.H. (Canada) 
+Prof. Hu, S.J. (USA) 
+Prof. Jovane, F. (Italy) 
+Prof. Kuhlang, P. (Austria) 
+Prof. Kuzgunkaya, O. (Canada) 
+Prof. Laperrière, L. (Canada) 
+Prof. Maropoulos, P.G. (UK) 
+Prof. Monostori, L. (Hungary) 
+Prof. Müller, E. (Germany) 
+Prof. Nee, A. (Singapore) 
+Prof. Newman, S. (UK) 
+Prof. Nyhuis, P. (Germany) 
+Prof. Pasek, Z. (Canada) 
+Prof. Perrone, G. (Italy) 
+Prof. Reinhart, G (Germany)  
+Prof. Schönsleben, P. (Switzerland)  
+Prof. Schuh, G. (Germany)  
+Prof. Shea, K. (Germany) 
+Prof. Sihn, W. (Austria) 
+Prof. Soderberg, R. (Sweden) 
+Prof. Teti, R. (Italy) 
+Prof. Tichkiewitch, S. (France) 
+Prof. Tolio, T. (Italy) 
+Prof. Torvinen, S. (Finland) 
+Prof. Tracht, K. (Germany) 
+Prof. Tseng, M. (Hong Kong) 
+Prof. Urbanic, J. (Canada) 
+Prof. Vancza, J. (Hungary) 
+Prof. van Houten, F. (Netherlands) 
+Prof. Westkämper, E. (Germany) 
+Prof. Windt, K. (Germany)  
+Prof. Zaeh, M. F. (Germany) 
+ 
+
+
+--- SAYFA 8 ---
+
+
+
+Contents
+
+
+
+PARTI:
+VISIONANDFUTUREPRESPECTIVES...........................................................................................................1
+ChangeinManufacturing–ResearchandIndustrialChallenges.....................................................................................2
+H.ElMaraghy,T.AlGeddawy,A.Azab,W.ElMaraghy
+AdaptiveJobControlintheCognitiveFactory...............................................................................................................10
+M.F.Zaeh,M.Ostgathe,F.Geiger,G.Reinhart
+MassCustomisationasaCompetitiveFactorforSustainability.....................................................................................18
+A.Bernard,J.Daaboul,F.Laroche,C.DaCunha
+PARTII:
+MANUFACTURINGSYSTEMS.....................................................................................................................27
+MANUFACTURINGSYSTEMDESIGN,PLANNING,OPERATION,ANDCONTROL......................................................................................28
+LinnaeanandCladisticClassificationsofManufacturingSystems.................................................................................29
+J.S.Baldwin,C.RoseAnderssen,K.Ridgway
+IntegratingAbilityLimitationsintoAssemblySystemDesign........................................................................................35
+G.Reinhart,J.Egbers
+SelectionCatalogueofKinematicConfigurationforPickandPlaceApplication...........................................................41
+K.Chandrasekaran,A.Djuric,W.H.ElMaraghy
+ATransitioninProductionandPlanningforaChangeableMicroManufacturingSystem............................................47
+B.Röhlig,J.P.Wulfsberg
+Usingformalmethodstomodelhybridmanufacturingprocesses................................................................................52
+AydinNassehi,StephenNewman,VimalDhokia,ZichengZhu,RezaImaniAsrai
+ConsideringReconfigurabilityCharacteristicsinProductionSystemDesign.................................................................57
+CarinRösiö
+OntologydrivenRequirementsElicitationinProductConfigurationSystems...............................................................63
+Wicaksono,H.;Schubert,V.;Rogalski,S.;AitLaydi,Y.;Ovtcharova,J
+EarlyAlertCockpitsforChangeableManufacturingSystems........................................................................................68
+Spath,D.;Gerlach,S.;Scholtz,O.;Hämmerle,M.;Krause,T.
+NewMethodstoCreateVariantsof3DSimulationModelsofManufacturingSystems..............................................74
+R.Wischnewski,J.Rossmann,O.Stern
+Productvariety,flexibilityandenergyuseinhotrollingmills.......................................................................................80
+J.Storck
+LostValueMapping–AFastMethodtoTrackLostValueinaProductionFlow...........................................................86
+PawelPawlewski,ZbigniewJ.Pasek
+CHANGEABILITY,FLEXIBILITY,RECONFIGURABILITYANDTHEIRMETRICS.........................................................................................92
+Asurveyonchangeabilityofmachinetools...................................................................................................................93
+PhilipHollstein;HeinerLasi;HansGeorgKemper
+QuantifyingtheEffectofEnterpriseStrategicFlexibility................................................................................................99
+A.Arafa,W.H.ElMaraghy
+DecisionMakingDuringDesignandReconfigurationofModularAssemblyLines......................................................105
+K.Tracht,S.Hogreve
+Developmentofmanufacturingprocesschainsconsideringuncertainty....................................................................111
+S.O.Schmitt,J.Avemann,P.Groche
+OptimalSequencingofMachiningOperationsforChangeableManufacturing..........................................................117
+AhmedAzab,AttiaH.Gomaa
+ManufacturingConceptsoftheFuture–UpcomingTechnologiesSolvingUpcomingChallenges..............................123
+R.Hadar,A.Bilberg
+.
+
+
+--- SAYFA 9 ---
+
+
+
+
+AnalysisofReconfigurable2DOFMachineryforIntelligentManufacturingSystems..................................................129
+AnaDjuric;WaguihH.ElMaraghy
+MobileSystemsforMachiningLargeWorkPieces.......................................................................................................135
+Neugebauer,R.,Priber,U.,Rentzsch,H.,Ihlenfeldt,S.,Hoffmann,D.
+MethodologyforFlexibilityMeasurementinSemiautomaticProduction..................................................................141
+Rogalski,S.;Wicaksono,H.
+AutomaticConfiguration(Plug&Produce)ofRobotSystems–DataInterpretationandExchange...........................147
+G.Reinhart,S.Krug
+ADAPTABILITYANDEMERGENCE..............................................................................................................................................153
+EnhancedSurvivabilityaFrameworkofSelfHealingMechanisms’InstallationUsingAxiomaticDesign..................154
+T.M
+
+Dealingwiththeunpredictable:AnEvolvableRoboticAssemblyCell.........................................................................160
+M.Onori,P.Neves,H.Akillioglu,A.Maffei,A.Hofmann,N.Siltala
+TheManufacturingAdaptabilityScorecardatooltoanalyzethebenefitofautonomousproductionprocesses....166
+CorinnaFohrholz,NorbertGronau
+FrameworkforDistributedManufacturingSystems....................................................................................................172
+H.Nylund,K.Salminen,P.H.Andersson
+Conceptionandevaluationofanagedifferentiatedtaskanalysisandscreeningmethod.........................................178
+Keil,SpannerUlmer
+AdaptiveProcessChainOptimisationofManufacturingSystems...............................................................................184
+B.Denkena,J.Henjes,L.E.Lorenzen
+MappingtheTaskTimePerformanceofHumanCentredAssemblySystems.............................................................189
+R.Folgado,E.Henriques,P.Peças
+PARTIII:
+PRODUCTANDPRODUCTIONDEVELOPMENTANDCODEVELOPMENT...................................................195
+COEVOLUTIONOFPRODUCTS,PROCESSESANDMANUFACTURINGSYSTEMS.................................................................................196
+FromDedicatedtoPlatformBasedCoDevelopmentofProductsandManufacturingSystems.................................197
+M.T.Michaelis,H.Johannesson
+NatureInspiredCoevolutionintheManufacturingWorldofArtefacts.....................................................................203
+T.AlGeddawy,H.A. ElMara	
+ 
+Fromproductarchitecturetoassemblysequence:amethodtodevelopconceptualDesignforAssemblybasedon
+interfaceanalysis..........................................................................................................................................................209
+C.Favi,M.Germani
+Networkedproductandproductiondevelopmentforlithiumionbatteries...............................................................215
+Kampker,A.;Franzkoch,B.;Nowacki,C.
+RequirementsManagementasaSuccessFactorforSimultaneousEngineering.........................................................221
+G.Reinhart,J.F.Meis
+VARIANTORIENTEDMODELLINGANDMANAGEMENTOFVARIATION...........................................................................................227
+BottomUpComponentOrientedFEModellingofMachineTools..............................................................................228
+A.Dadalau,A.Verl
+Assessmentoftheproductbasedtimeexpandingeffect............................................................................................234
+Jander,H.,SpannerUlmer,B.
+Featurebasedcomponentdescriptionforfunctionalgradedparts............................................................................239
+F.Bauer,D.Dettmer,J.Gausemeier
+TowardsaFeatureBasedandFineGrainProductRepositoryforHeterogeneousComputerAidedSystems...........245
+M.M.Uddin,Y.S.Ma
+SustainableSystemRiskAnalysis:ATripleBottomLineApproach..............................................................................251
+Z. A.AliQrehi,W.ElMaraghy
+
+PRODUCT,PROCESSANDSYSTEMSMODELLING,PROTOTYPINGANDDEVELOPMENT.......................................................................257
+ConstructionofaDigitalFacebow................................................................................................................................258
+E.Solaberrieta,A.Arias,O.Etxaniz,R.Minguez
+EvaluationofRFIDTechnologyApplicationinProductionofFiberReinforcedPlastics..............................................263
+T.R.Philipp,G.Reinhart
+
+Contents
+
+
+--- SAYFA 10 ---
+
+
+
+
+SelectingVirtualRealityToolsinrelationwiththeirusecontext.................................................................................269
+R.G.J.Damgrave,D.Lutters,J.P.Thalen
+AFrameworkEnablingDataIntegrationforVirtualProduction..................................................................................275
+Reinhard,R.;Meisen,T.;Beer,T.;Schilberg,D.;Jeschke,S.
+AFoundationforIntegratingHandHeldMobileDevicesinaComputerAidedManufacturingEnvironment............281
+R.Hedrick,J.Urbanic
+ParametricInternalMatrixStructuresforComponentsBuiltbyFusedDepositionModelling....................................287
+L.Villalpando,J.Urbanic
+AnExperimentalStudytoDetermineGeometricandDimensionalAccuracyImpactFactorsforFusedDeposition..293
+S.Saqib,J.Urbanic
+FlexibleToolpathGenerationforVariableGeometry.................................................................................................299
+Sawula,D.A.,Lin,Y.P.,Fleisig,R.V.,Spence,A.D.
+ASystemforProvidingVisualFeedbackofMachineFaults.........................................................................................305
+K.Hughes,G.Szkilnyk,B.Surgenor
+Aninnovativecrosswedgerollingpreformingoperationforwarmforging................................................................310
+H.Kache,R.Nickel,B.A.Behrens
+SystemDynamicModelsandRealtimeSimulationofComplexMaterialFlowSystems.............................................316
+S.Hoher,P.Schindler,S.Göttlich,V.Schleper,S.Röck
+Earlyidentificationofmanufacturingprocessinfluencesonproductfailurebehaviour.............................................322
+StefanBracke,StephanHaller
+TheaspectsofenergyintheBodyinWhiteprocessregardingproductdevelopmentandproductionplanning.......328
+M.Schacht,R.Schulte,F.Mantwill
+RefiningProcessLogicFromCNCPartProgrammesforIntegratedSTEPNCCompliantManufacturing....................333
+X.Zhang,A.Nassehi,V.G.Dhokia,S.T.Newman
+ENABLERSOFCHANGE..........................................................................................................................................................339
+SynchronisationofDistributedConfigurationToolsusingFeaturesModels...............................................................340
+Brecher,C.;Karlberger,A.;Herfs,W.
+ChangeManagementasanEnablerofEmployeeKnowledgeIntegrationintotheDesignofPlanningProcedures...346
+Tracht,K.,Weikert,F.,Funke,L.
+Areconfigurationconcepttoenableversatileproductionintheautomotivefactories..............................................352
+SarfrazUlHaqueMinhas,UlrichBerger
+MethodologyfortheSupportofReconfigurationProcessesintheAutomotiveBodyShop.......................................358
+Reinhart,G.;Meling,F.
+GripperwithIntegratedThreeDimensionalForceDetection......................................................................................364
+K.Tracht,S.Hogreve,F.Borchers
+ChangeBeneficialProcessArchitecturesandtheHumanasaChangeEnabler..........................................................370
+DennisGossmann;CarstenWagner;TimKlemke;PeterNyhuis
+PARTIV:
+GLOBALCOMPETITIVENESSANDSUSTAINABILITY..................................................................................383
+DRIVERS,ENABLERS,STRATEGIESANDINDICES..........................................................................................................................384
+AnAsianPerspectiveonGlobalSourcing.....................................................................................................................385
+Schneider,C.,Finke,G.,Sproedt,A.,Alard,R.,Schönsleben,P.
+StrategicEvaluationofTechnologyChainsforProducingCompanies.........................................................................391
+Reinhart,G.,Schindler,S.
+StrategicImpactofGlobalProduction–HowtoFindtheSuccessMeasures..............................................................397
+HeinrichBürstner
+Coopetitionasafacilitatorofmanufacturingcompetitiveness:opportunitiesandthreats.......................................403
+F.Ehrenmann,M.Reiss
+EnablingCompetitiveDesignofNextGenerationReconfigurableManufacturingEnterprises...................................409
+T.Masood,R.H.Weston
+ECONOMICSUSTAINABILITYFORMANUFACTURINGSYSTEMSANDPRODUCTS................................................................................415
+IntegratedEnvironmentalandEconomicAssessmentofProductionSystems............................................................416
+A.Sproedt,J.Plehn,C.Schneider,P.Schönsleben
+Contents
+Adaptive and Selective Assembling of Microscope Objectives 
+..........................................................376
+.......
+...........
+.......
+K.-P. Zocher 
+
+
+--- SAYFA 11 ---
+
+
+
+TowardsSustainableDevelopmentandSustainableProductioninFinnishManufacturingIndustry..........................422
+MikkoKoho,MikkoTapaninaho,SeppoTorvinen
+EmployeeParticipationintheImplementationofLeanProductionSystems..............................................................428
+U.Dombrowski;T.Mielke;S.Schulze
+ChallengesFacingManufacturingtoMovetowardsaGreenSocietywithCleanEnergyVehicles..............................434
+MasaruNakano
+QualitativeGrowthandSustainabilityinOrganizations–AnOverview......................................................................439
+B.Seeberg,M.Monauni
+MANAGINGCOMPLEXITYOFPRODUCTS,PROCESSESANDMANUFACTURINGSYSTEMS....................................................................445
+EnablingCarBodyCustomizationthroughAutomotiveFramingSystemsDesign.......................................................446
+A.AlZaher,W.ElMaraghy,Z.J.Pasek
+PartsandAssemblyEquipmentComplexityDependencyMatrix................................................................................452
+S.N.Samy,H.ElMaraghy
+AnalysisofMarketDemandParametersfortheEvaluationofFlexibilityinFormingTechnology..............................458
+Avemann,J.;Schmitt,S.O.;Ederer,T.;Lorenz,U.;Groche,P.
+PRODUCTIONANDCOOPERATIONWITHINGLOBALNETWORK....................................................................................................464
+EnsuringHumanSafetywithOfflineSimulationandRealtimeWorkspaceSurveillanceforWeldingofAssemblies.465
+C.Thomas,F.Busch,B.Kuhlenkoetter,J.Deuse
+AMethodforMultiScaleModelingofProductionSystems........................................................................................471
+NeumannM.,ConstantinescuC.,WestkämperE.
+Efficientanalysis,handlinganduseofcustomercomplaints.......................................................................................476
+Effey,T.;Schmitt,R.
+Adaptive,LocationbasedShopFloorControl..............................................................................................................482
+Reinhart,G.;Niehues,M.;Ostgathe,M.
+RelocationinProductionnetworksofaMultiNationalEnterprise.............................................................................488
+Ponton,P.;Jaehne,M.;Mueller,E
+AModelingApproachtoAnalyzeRedundancyinManufacturingSystems..................................................................493
+K.Windt,M.T.Hütt,M.Meyer
+InfluenceoftheEuropeanEmissionsTradingSchemeonMROProvideroftheCivilAviationIndustry.....................499
+Tracht,K.;Funke,L.;Weikert,F
+DYNAMICANDGLOBALM NUFACTURINGCAPACITYANDCAPABILITIES.......................................................................................505
+ShiftingBottlenecksinProductionControl..................................................................................................................506
+Schuh,G.;Potente,T.;Fuchs,S.
+SimulationBasedDetailedPlanningforAgileManufacturing......................................................................................512
+BerendDenkena,LeifErikLorenzen,MaxKrüger,JustinSchmidt
+ProductVarietyManagementinDesignandManufacturing:ChallengesandStrategies...........................................518
+TAlGeddawy,HElMaraghy
+CapabilityAssessmentandValuationoftheImplementationofLeanProductionMethods......................................524
+Lanza,G.,Jondral,A.,Book,J.
+PARTV:
+ENTERPRISEANDKNOWLEDGEMANAGEMENT......................................................................................531
+MANUFACTUREANDORGANIZATIONALSTRUCTURES.................................................................................................................532
+ANovelToolforAssessingandImprovingMaketoOrderandAssembletoOrderProductionSystems...................533
+M.Koho,S.Torvinen
+ReferencePlanningProcessesforSeriesProduction...................................................................................................539
+N.Macke,S.Rulhoff,J.Stjepandic
+Theeffectofmanufacturingresponsetimeonmitigatingthedemandriskandfacilitydisruption............................544
+Niroomand,I.;Baygi,M.B.;Kuzgunkaya,O.;Bulgak,A.A.
+TRANSFORMATIONANDCHANGEMANAGEMENT......................................................................................................................550
+CladisticClassificationofAncientManufacturingFormsandTechnologies................................................................551
+C. RoseAnderssen,J. Baldwin,K.Ridgway
+RealtimecapableProductionPlanningandControlintheOrderManagementofbuilttoorderCompanies..........557
+G.Schuh,T.Brosze,S.Kompa,C.Meier
+Contents
+.
+.
+A
+
+
+--- SAYFA 12 ---
+
+
+
+
+V.Stich,C.Schmidt,C.Meier,S.Cuber,S.Kompa
+TypeOrientedFactoryPlanningwithSolutionSpaceManagement............................................................................569
+A.Kampker,B.Franzkoch,R.Hilchner
+OptimumRestorationoftheSharedPalletsDistributionAmongFactoriesandWarehouses.....................................574
+TakafumiMatsuura,SatomiWada,KazumitiNumata
+AConsortiumLeveragedLearningNetwork.................................................................................................................580
+V. Townsend,J.Urbanic
+ExtensionofValueStreamDesignfortheSimulationofAutonomousProductionSystems.......................................586
+Theuer,H.
+BuildingBlocksinanExperimentalandDigitalFactory................................................................................................592
+E.Müller,S.Horbach
+AnewApproachtoSimulationinProductionManagement........................................................................................598
+Lass,S.
+COMPLEX/DYNAMICSUPPLYCHAINSANDLOGISTICS................................................................................................................604
+APlanningApproachforInplantMilkRunProcessestoOptimizeMaterialProvisioninAssemblySystems.............605
+MarkusDroste,JochenDeuse
+ImpactofMachineDrivenCapacityConstellationsonPerformanceandDynamicsofJobShopSystems.................611
+C.Toonen,D.Lappe,R.V.Donner,B.ScholzReiter
+OperatorSchedulingUndertheLeanManufacturingPrinciplesinOverSizeProductManufacturingFacilities........617
+KadirErtogral,AliAkgunduz
+KNOWLEDGEMANAGEMENTAND EARNING............................................................................................................................623
+TrainingconceptandstructureoftheLearningFactoryadvancedIndustrialEngineering..........................................624
+Dinkelmann,M.;Riffelmacher,P.;Westkämper,E.
+SupportingProjectExecutionforAdaptableProductionSystemsusingaflexiblesoftwaretool................................630
+E.Müller,U.Wagner
+Productionpilotforcooperationinfactorydevelopment..........................................................................................636
+D.Chen,T.Kjellberg,R.Svensson,G.Sivard
+SurrogateModellingasanEnablerforSelfOptimisationforProductionProcesses...................................................642
+ReisgenU.,BeckersM.,BuchholzG.,WillmsK.,LoseJ.,Perge,J.,Schmitt,R.
+ApplicationProtocolsforStandardisingofProcessesandDatainDigitalManufacturing...........................................648
+SchallowJ.,MagenheimerK.,DeuseJ.,ReinhartG.
+PartnerSelectioninInnovationAlliance......................................................................................................................654
+Chen,X.;Riedel,R.;Mueller,E.
+HumanCentredModelforApplicationofLeanProductionSystemsinNetworks………………………………………………..….660
+Uygun, Y.;  Straub, N.
+
+
+
+Contents
+
+CrosscompanycoordinationinBuilttoOrderProductionNetworksinMachineryandEquipmentIndustry...........563
+L
+
+
+--- SAYFA 13 ---
+ 
+ 
+ 
+ 
+PART I:
+VISION AND FUTURE PRESPECTIVES 
+ 
+
+
+--- SAYFA 14 ---
+ 
+2
+           
+ 
+Change in Manufacturing – Research and Industrial Challenges 
+H. ElMaraghy, T. AlGeddawy, A. Azab, W. ElMaraghy
+ 
+Intelligent Manufacturing Systems Centre, University of Windsor, ON Canada N9B-3P4 
+ 
+ 
+Abstract 
+Change, in products and systems, has become a constant in manufacturing. This sector continues to witness major market shifts,
+introduction of new materials and processing technologies as well as great changes in consumer preferences and products 
+variety. This presents significant challenges to industrialists, researchers and educators alike. Changes can most often be 
+anticipated but some go beyond the design range. This requires providing innovative change enablers and adaptation 
+mechanisms to mitigate the effects of, and capitalize on, changes in manufacturing. Experiential research and learning is
+essential to enhance responsiveness and prepare production leaders of the future. The training and experimentation could be 
+significantly enhanced if manufacturing systems could be brought into the laboratories of academic and research institutions. 
+This paper describes the latest state-of-the art fully reconfigurable “plug & play” changeable and flexible “Factory-in-the-Lab”
+infrastructure and supporting design innovation and advanced research environment. It discusses the use of the iFactory and
+iDesign system to address these challenges and develop many key technologies and strategies for success. It presents several 
+novel approaches and methods for achieving the desired balance in the wide spectrum of variation in markets, products, 
+processes, systems and manufacturing enterprises.   
+ 
+Keywords:  
+Product Design, Process Design, Manufacturing Systems, Reconfigurable Transformable Factory, Co-Development and 
+Synthesis, Learning Factory, Manufacturing Sustainability 
+1 
+INTRODUCTION 
+The manufacturing sector is vitally important to the economic 
+prosperity of any nation. Manufacturing output makes up one sixth 
+of Canada’s Gross Domestic Product (GDP) and employs more 
+than two million people. Over the past several years, this vital 
+economic sector has faced significant challenges due to 
+globalization, shortage of professional and skilled labour, concern 
+about the environment and need for high quality customized 
+products at a competitively low cost. There is a clear need for 
+innovative product design and manufacturing approaches to ensure  
+competitiveness, responsiveness, and sustainability. 
+While some manufacturers have responded and performed 
+admirably, many have struggled in this changing environment, jobs 
+have 
+been 
+lost 
+and 
+communities 
+have 
+suffered. 
+Today, 
+manufacturers have to continuously upgrade their products, 
+processes and technologies simply to maintain their position in the 
+market; and the pace of change will continue to accelerate due to 
+the 
+development 
+and 
+transformational 
+application 
+of 
+new 
+technologies.  
+Accelerated 
+innovation 
+and 
+product 
+evolution 
+also 
+bring 
+tremendous challenges. This continuous change risks adversely 
+affecting product quality and cost. There are also hidden costs in 
+the form of response time delays and lost business opportunities 
+that 
+result 
+from 
+this 
+complex 
+changeable 
+manufacturing 
+environment. Increased complexity of manufacturing systems and 
+business is a fundamental residue of globalization and the 
+information age. Products design is becoming more complex partly 
+due to the coupling of mechanical and computer controls and 
+software. This new reality necessitates the development of new 
+strategies and enablers for dealing with changeability. While 
+change is inevitable, it is important to take advantage of it and make 
+it happen efficiently. One key strategy for success is to satisfy the 
+market need for product variations and customization, utilizing the 
+new technologies, while reducing the resulting variations and 
+complexity of manufacturing and associated cost. The required 
+agility, flexibility and reconfigurability would not work effectively 
+without the development of new methods and physical and logical 
+change enablers that support modularity, compatibility, inter-
+changeability and scalability. 
+ 
+2 
+THE TRANSFORMABLE MANUFACTURING SYSTEM  
+Modern manufacturing is experiencing a paradigm shift towards 
+more flexibility to respond quickly and efficiently to changing 
+products design, production requirements and market demands. 
+This paper discusses the changeable manufacturing scene and 
+presents a University research facility that is  creating a state-of-
+the-art experiential design, planning and realization environment 
+conducive to innovation in products, processes and systems. It is 
+effectively a “Factory-in-a-Lab” facility consisting of transformable 
+(iFactory), intelligent interactive design (iDesign) and planning 
+(iPlan) environment. This environment will facilitate the co-design 
+and co-development of products, production processes and 
+manufacturing systems synthesis for the whole life cycle and the 
+enabling 
+technologies 
+needed 
+to 
+increase 
+manufacturing 
+competitiveness, agility and flexibility. The new infrastructure, along 
+with the existing facilities in the Intelligent Manufacturing Systems 
+Centre (IMSC), will foster and strengthen the major links in the 
+innovation 
+value 
+chain: 
+innovation, 
+design, 
+development, 
+prototyping, implementation and applications. 
+The infrastructure includes two complementary facilities:  
+1. Innovation Design Studio (iDesign) with state-of-the-art 
+equipment to foster innovative design and group interactions 
+including interactive 3-D graphics tablets and displays supported by 
+powerful PC-based applications and computing environment for 
+design synthesis, configuration, modeling and analysis that 
+integrates 
+products, 
+processes 
+and 
+manufacturing 
+systems 
+development. It allows effective visualization, and assessment of 
+products and manufacturing systems throughout their respective 
+lifecycles. Developed products would be physically realized using 
+rapid prototyping machine. Innovated systems designs and 
+planning and control solutions would be tested and verified using 
+the iFactory. 
+ 
+4th International Conference on Changeable, Agile, Reconfigurable and Virtual Production (CARV2011), Montreal, Canada 2011 
+
+
+--- SAYFA 15 ---
+3
+ 
+2. Transformable Production Platform (iFactory) for products 
+assembly including modules that can be easily reconfigured to 
+change the system layout and functionality. It consists of advanced 
+modules for assembly and inspection. Its unique drive technology, 
+control, interfaces and modularity concept are essential for 
+developing, testing and demonstrating the innovative physical and 
+logical enablers of change such as change-oriented reconfigurable 
+process and production plans and variant-oriented products and 
+manufacturing systems. This new platform for prototyping 
+manufacturing system designs, unique for a university lab in 
+Canada, would be used to demonstrate the new manufacturing 
+paradigms and developed state-of-the-art research concepts and 
+theories to industry and promote joint projects and interactions. 
+The Institute of Industrial Manufacturing and Management, at 
+University of Stuttgart, Germany [1] pioneered this learning factory 
+system in cooperation with Festo Automation. The modular and 
+transformable production system at the University of Windsor, 
+Canada, also developed and supplied by Festo Didactic (Figure 1), 
+is comprised of changeable production cells such as conveyors, 
+various assembly and inspection cells as well as an automated 
+storage 
+and 
+retrieval 
+system. 
+The 
+system 
+structure 
+and 
+configuration can be reconfigured in a matter of minutes using 
+various branches, connectors, and termination conveyor units, as 
+well 
+as 
+its 
+supervisory 
+reconfigurable 
+logic 
+controls 
+and 
+standardized mechanical and electrical interfaces. The material 
+flows on two levels - the upper level transports workpieces via 
+carriers forward while the lower level transports empty carriers 
+backwards. 
+ 
+ 
+Figure 1: A state-of-the-art Festo Didactic transformable iFactory is 
+part of the constructed research and learning environment 
+ 
+The concept of balancing the analtical and theoretical knowledge 
+with integrated physical facilities, in an industrial-like setting for 
+product realization, has been developed through the idea of the 
+‘Learning Factory’ [2]. The goal is to provide an integrated, multi-
+disciplinary engineering research and educational experience that 
+emphasizes the interdependency of design, planning, and 
+manufacturing in a business environment [3]. A learning factory 
+consists of several elements to provide an effective and efficient 
+learning environment: learning cells; best in class processes for 
+machining, assembly and logistics; and didactical concepts for a 
+more rewarding learning experience [4]. The Stuttgart model [1, 5, 
+6] of adaptive, changeable, and virtual enterprises has been 
+designed to organize the information collected from those factories. 
+ 
+3 
+GOALS AND OBJECTIVES OF THE FACILITY 
+The iDesign and iFactory are designed to provide a decentralized 
+system that uses intelligent manufacturing equipment in order to 
+accomplish highly flexible and transformable production as well as a 
+research and applications demonstrator and simulator to test 
+various developed change enablers [7] [8] [9].  It is designed to 
+increase adaptability and responsiveness and reduce complexity 
+and cost of products, processes and manufacturing systems. In 
+particular, it aims to: 
+• Develop new knowledge, better understanding and scientific 
+models of manufacturing systems design, planning and operation 
+under changeable manufacturing conditions; 
+• Develop innovative engineering design methodologies for robust 
+design 
+of 
+competitive 
+complex 
+products 
+and 
+incorporate 
+environmentally friendly features in products and manufacturing 
+systems; 
+• Develop and apply innovative “change enablers” and “productivity 
+tools” that address the needs of the manufacturing sector in a 
+changeable global economic market; 
+• Develop and train a cadre of highly qualified researchers and 
+personnel equipped with the knowledge and skills necessary to 
+function and transfer technology to industry and serve in academia; 
+• Improve the competitiveness and productivity of Canadian 
+manufacturers -the iFactory provides a decentralized system that 
+uses intelligent manufacturing equipment and software in order to 
+accomplish a highly flexible and transformable production and 
+reduce product and production complexity, cost, and time. 
+• Exploit and transfer research results to end-users through 
+applications, joint projects and commercialization. 
+ 
+4 
+MAJOR RESEARCH THRUSTS 
+Modern manufacturing is experiencing a paradigm shift towards 
+more flexibility and reconfigurability (physically and logically) to 
+respond quickly and efficiently to changing production requirements 
+and market demands. Products are also experiencing progressive 
+evolution and this is affecting their manufacturing systems. 
+Changeability is defined as the characteristics to economically 
+accomplish early and foresighted adjustments of the factory 
+structures and processes on all levels including the enterprise, in 
+response to change impulses [10]. Changeability is an umbrella 
+framework that encompasses many paradigms such as agility, 
+adaptability, flexibility and reconfigurability, which are themselves 
+enablers of change. 
+There are two types of change enablers: hard/physical enablers 
+and soft/logical enablers. The “physical/hard” change enablers 
+include the physical attributes that facilitate change. These 
+characteristics are not limited to the machinery but they also apply 
+to the whole factory configuration and layout, physical plants 
+infrastructures and buildings. Hardware changes also require major 
+changes at the “logical/soft” enablers level, such as the software 
+systems used to control individual machines, complete cells, and 
+systems as well as to plan individual operations/processes and to 
+plan and control the whole production. 
+4.1 
+Managing 
+Products 
+Variety 
+and 
+Evolution 
+in 
+Manufacturing – Models and Enablers  
+Many manufacturing challenges emerged due to the proliferation of 
+product variety caused by product evolution and customization and 
+their manufacturing systems [7]. The concept of evolving families 
+for varying parts and products was introduced [11] and led to 
+developing innovative perspectives on product families formation 
+and process and production planning. 
+ElMaraghy et al. [12] introduced for the first time a novel approach 
+for studying the evolution of products and their manufacturing 
+systems using a biological analogy. The new and pioneering 
+hypothesis of co-evolution of products and manufacturing systems 
+in a manner analogous to biological evolution has been investigated 
+using techniques such as Cladistics classification models and 
+adaptive dynamic systems and actual test cases from industry were 
+used for verification [13]. This novel approach and models helps 
+design and configure manufacturing systems with longer life and 
+plan the co-evolution and co-development of products and systems 
+Change in Manufacturing – Research and Industrial Challenges 
+
+
+--- SAYFA 16 ---
+4
+                      
+ 
+ 
+ 
+to prolong the life and utilization of manufacturing resources over 
+time for many product generstions. New design methods for 
+assembly systems layouts were developed, based on this new 
+approach to rationalize and delay products differentiation and 
+effectively manage their variants [14]. A hierarchy for product 
+variants has been proposed to help ifentify the process-neutral and 
+process-specific product variations. Clustering and classification 
+mathematical models and similarity analysis techniques, along with 
+modern optimization methods, are also being used to define the 
+optimal boundaries of products families and platforms to maximize 
+production efficiency and minimize the cost associated with 
+customization over the life of products and systems. These new 
+models will help manufactures to plan their business and 
+manufacturing strategies [15] and [16]. 
+4.2 
+Reconfiguring Process Plans to Minimize Change  
+Unpredictable changes of products design and associated 
+engineering specifications trigger frequent changes in process 
+plans, which often dictate corresponding costly and time consuming 
+changes to jigs, fixtures and machinery. Agility and responsiveness 
+to change is an important requirement in process planning, which is 
+part of the “soft” or “logical” enablers of change in manufacturing as 
+the link between products and their processing steps. Current re-
+planning or pre-planning methods generate new process plans from 
+scratch every time change takes place, which results in production 
+delays, high costs and disruptions on the shop floor. 
+A novel process planning concept and mathematical programming 
+model have been developed to reconfigure plans through insertion 
+not sequencing and to optimize the scope, extent and cost of 
+reconfiguration, thus overcoming the complexity and flaws of 
+existing models. It reconfigures process plans to account for 
+changes in parts’ features beyond the scope of original product 
+families as they evolve [8]. This innovative approach will be 
+extended to new manufacturing processes, and to include set-up 
+planning, features clustering and integration with products CAD 
+models. Industrial case studies will be used for testing and 
+verification. 
+4.3 
+Changeable Production Planning and Control Enablers  
+There is a need, at the shop floor level, to develop models and tools 
+for production planning and control to implement the necessary 
+changes and ensure their effectiveness. An agile Manufacturing 
+Planning and Control (MPC) system design is proposed to respond 
+to the changeability of the manufacturing market uncertainty [9] 
+using Component Based Software Engineering (CBSE). This 
+“Change Ready” MPC system has been applied to aggregate 
+planning and forecasting. It will be tested and demonstrated using 
+the iFactory. 
+Uncertainty associated with managing the dynamic capacity in 
+changeable manufacturing is the main source of its complexity [17]. 
+A system dynamics approach to model and analyze the operational 
+complexity of dynamic capacity in multistage production is being 
+developed to capture the stochastic nature of the main sources of 
+complexity associated with dynamic capacity. The system dynamics 
+model has been extended by Arafa and ElMaraghy [18] to the 
+application operations management theory on volume flexibility to 
+develop new macro measures for the enterprise manufacturing 
+strategy. Short-term sources of flexibility such as inventory or 
+capacity buffers may respond to small market fluctuations in 
+demand, while large market fluctuations are more controlled by the 
+irreversible type of strategy the firm may possess and accumulate 
+over longer time periods regarding production capacity capability. 
+Industrial enterprises will have to adapt their manufacturing 
+capabilities to outperform the evolving industry benchmark.  The 
+benchmark evolution speed, either in market(s) or between industry 
+members, is affected by the evolving customer preferences and the 
+degree of allowed competition governed by policy makers.  The 
+effect of complexity sources on capacity scaling levels and backlog 
+management and the trade-off between controllability and 
+complexity of the dynamic capacity are modeled and guidelines 
+developed to mitigate its effects.  
+A Multiple Performance Measures Analysis for Market-Capacity 
+Integration Policies will be researched using simulation and Design 
+of Experiments (DOE) to model and analyze a Make-To-Order 
+(MTO) Reconfigurable / changeable system with scalable capacity. 
+Unlike classical capacity scaling policies, the proposed hybrid 
+capacity scaling policy including delays will be decided using 
+multiple performance measures that reflect cost, internal stability 
+and responsiveness and the impact of both tactical capacity policies 
+and strategic marketing policies on the overall system performance 
+[18]. 
+4.4 
+Products and Systems Design Innovation  
+Case-based research and development components of this 
+program are planned in collaboration with industry where the design 
+theories and inventiveness methodologies (e.g. using Axiomatic 
+Design, Inventive Problem Solving (TRIZ), and Engineering as 
+Collaborative Negotiation (ECN) [19] and [20], etc.) will be applied 
+to design new products or re-design existing ones (e.g. using 
+patents knowledge mining, Design for Variety, Manufacture and 
+Assembly (DFMA), and service methods and multi-objective 
+optimization). The objective is to develop innovative products that 
+would help companies become differentiated in the market and give 
+them a competitive advantage. A recent example is a new family of 
+automobile engine belt tensioner being developed for a major auto-
+parts supplier in Windsor, Ontario to secure new markets. Another 
+example is the research being conducted for  designing new joining 
+methods, without using the problematic fasteners, welds, etc., for 
+connecting parts within an assembly to make active non-destructive 
+disassembly and efficient recycling possible [21]. 
+Furthermore, 
+products 
+lifecycle 
+analysis 
+and 
+environmental 
+considerations and procedures are being developed to assess the 
+environmental impacts of products and their manufacturing 
+processes. The methodology for evaluating the life-cycle includes 
+performing cost and risk/benefit analysis to provide an inclusive 
+overview of impacts; serving as a powerful tool for planning and 
+forecasting financial and resource requirements, and identifying 
+potential areas of design improvement. 
+For process design and development, novel techniques are being 
+investigated as part-of and on-top-of current state-of-the-art product 
+lifecycle management systems to obtain highly optimized solutions 
+for different throughputs and production schemes. Both new 
+mathematical programming methods and meta-heuristics are being 
+employed. This work would lay the foundation for a new way of 
+linking design and manufacturing performing production planning 
+activities while supporting both evolving parts/products and the 
+current advances in the changeable manufacturing systems. The 
+developed system would be integrated with both up-stream and 
+down-stream process planning activities within advanced higher 
+end CAD/CAM environments [22]. 
+Designed products and assemblies would be digitally prototyped 
+using the modeling and analysis tools in the iDesign Studio, 
+physically prototyped using the 3D printer, their adaptive and 
+reconfigurable process and production plans developed, and the 
+products assembled using the iFactory. The design innovation 
+methodologies will also be applied to the manufacturing systems 
+configuration design (including co-evolution models), and would be 
+developed, implemented and tested using the reconfigurable 
+iFactory. 
+4.5 
+Complexity of Manufacturing and Assembly Systems 
+The complexity of manufacturing systems makes their operation 
+and management more difficult and costly. A new manufacturing 
+systems’ classification code, akin to a biological DNA identifier of 
+the system characteristics, was developed [11]. It is used to classify 
+H. ElMaraghy, T. AlGeddawy, A. Azab, W. ElMaraghy
+
+
+--- SAYFA 17 ---
+5
+ 
+manufacturing systems and capture the structural complexity 
+inherent in the characteristics of their various modules/components 
+and the relationships among them. The code represents a novel 
+contribution in the field –its potential implications for manufacturing 
+systems parallel those of Group Technology (GT) Codes for 
+products and cellular manufacturing. 
+The development of this classification code has been extended to 
+assembly systems. Models and metrics have been developed to 
+characterize and assess the complexity of products arising from 
+their design features as well as their variation and measure the 
+effect on the complexity of assembly [23] [24] [25]. 
+5 
+CHANGE-ORIENTED PROCESS DESIGN 
+Process design is an important enabler that connects product 
+design and definition with the downstream manufacturing planning 
+and production as well as manufacturing system design. Process 
+planning is also a support function that lies at the heart of the 
+production planning and control cycles; it supports the planning 
+activities which take place in both ERP (Enterprise Resource 
+Planning) and MES (Manufacturing Execution System)- two 
+important digital pillars of any of today’s modern enterprises. As can 
+be demonstrated by Figure 2, besides ERP and MES, there is also 
+Product Lifecycle Management (PLM). Those three main elements 
+of any of current state-of-the-art manufacturing digital enterprises 
+communicate well through either standard neutral file formats or via 
+proprietary plugs and interfaces that are made available by their 
+vendors. The overall objective behind such integrable systems is to 
+be able to support the product development lifecycle all the way 
+from its definition and design, passing through the different process 
+and production planning and control support functions all the way to 
+final manufacturing, shipment and other supply chain steps. 
+Process planning functionality exists in the upstream part of the 
+picture (PLM), where mainly micro- and macro-process planning 
+are being performed in both the CAD/CAM and Digital 
+Manufacturing PLM components respectively (Figure 2). These are 
+two distinguished levels of process planning [26]. Macro-level, 
+planning 
+is 
+concerned 
+with 
+identifying 
+the 
+manufacturing 
+technologies to be used and the main processing tasks and their 
+best sequence. Micro-level planning details process parameters, 
+required tools and setups, process time and resources [27]. 
+In CAD/CAM, the final detailed micro-planning includes toolpath 
+generation, definition of process parameters (e.g. cutting patterns, 
+cutting speeds, feeds, etc.). Machinability Data Systems or 
+Machining handbooks, soon to be available as libraries in 
+CAD/CAM systems, help optimize these parametrs. Higher-end 
+macro-level and organizational planning functions are increasingly 
+made available in Digital Manufacturing software such Delmia 
+(Dassault Systeme) and Tecnomatix (Siemens PLM). 
+Macro-level process planning is difficult because of its dependence 
+on declarative process knowledge including part geometry, tools, 
+machine tools, fixtures and technological requirements and also its 
+implied time-dependency represented by the order in which the 
+given features should be machined/processed. The optimization 
+problem involves many criteria, parameters and constraints and is 
+known to be NP-hard [28]. Its complexity has increased with the 
+paradigm shifts in manufacturing towards customizable, focused 
+and agile flexibility. Increased responsiveness is needed to support 
+the increasingly varying product mixes.  
+A number of approaches to deal with the effects of variations have 
+been proposed. Dynamic process planning considers both the static 
+and dynamic capabilities of the manufacturing facility. Integration of 
+production scheduling and process planning can be used to support 
+the dynamicity of shop floor [29]. Accurate description of resources 
+and their availability is a key element of adaptive and practical 
+process planning [30] . Adaptive process planning is the ability to 
+generate a wide range of process plans, including the machine 
+routing and production scheduling for a variety of machine settings. 
+However, these approaches are limited to addressing changes on 
+the manufacturing system level and ignore the real driving source of 
+change on the product level due to changes in features, materials, 
+variants as well as introduction of new technologies. Non-linear 
+process planning entails the generation and ranking of alternative 
+plans for a given part prior to production independent of the 
+resource status on the shop floor. It is inefficient and impractical as 
+it exhaustively generates all possible scenarios. 
+ 
+Figure 2: Process Planning- an important pillar of current digital 
+manufacturing enterprises 
+ 
+Hetem [31], Xu et al. [32], Bley and Zenner [33] considered the 
+changeability of the current and future manufacturing systems and 
+proposed variant-type systems specific to given part families. 
+However, this strictly retrieval-based approach does not support the 
+introduction of new features into the part family caused by the 
+changing demands. Shabaka and ElMaraghy [34] address the 
+problem of reconfiguring machine tools to account for these new 
+changes on the part level. Song [35] suggests dynamic adaptive 
+process planning systems for RMS. He also proposes dynamic 
+process planning [36] as a solution for reconfigurable machine 
+systems and machine tools, where similarity theory is exploited. 
+However, all these approaches do not consider the change and 
+evolution of parts and product families and their effect on process 
+and prodction plans. Azab and ElMaraghy [8] proposed for the first 
+time a model and methodology for reconfiguring process plans 
+(RPP) as needed in response to parts/products changes by 
+insertion and subtraction instead of sequencing and reordering of 
+operations from scratch.  
+It is evident that the field of process planning, with the development 
+of its computer-aided generative- and variant-based modeling and 
+algorithmic means is lagging behind; the gap between Academia 
+and PLM industry is quite wide. One of the main goals and research 
+directions at the Intelligent Manufacturing Systems (IMS) centre, 
+besides developing further the theory and research fronts in the 
+field, is to demonstrate  the robustness of the developed models 
+and methods and  integrate them with existing CAD/CAM and 
+Digital Manufacturing ystems using state-of-the-art professional and 
+commercial deployment tools and realistic case studies. 
+ 
+6 
+THE BALANCE POINT IN MANUFACTURING  
+An important challenge facing manufacturers is finding an 
+appropriate 
+balance 
+among 
+several 
+conflicting 
+objectives 
+Change in Manufacturing – Research and Industrial Challenges 
+
+
+--- SAYFA 18 ---
+6
+                      
+ 
+ 
+ 
+throughout the life of products and manufacturing systems (Figure 
+3). The conflict originates from having diverse customer 
+requirements causing increased product variety, which  creates 
+added uncertainty and complexity in design, management, 
+planning, production and inventory [14, 37]. A desired balance point 
+exists between general regional needs and specific individual 
+requirements; which affects the strategic planning decisions starting 
+from producing product families to products personalization. 
+The degree of homogeneity of customer requirements also affects 
+the balance of product design architectures between integral and 
+modular designs. More integral parts may only require a simple 
+linear processes layout; while having modules may necessitate a 
+more complex system configuration and processes layout which 
+delay the points of product differentiation to realize efficient mass 
+customization. Common unchanged product components are 
+candidates for mass production on a dedicated manufacturing 
+system, while diverse evolving components may require more 
+changeable and adaptable, but more complex and expensive, 
+Flexible and Reconfigurable manufacturing systems (FMS and 
+RMS) [38]. 
+Manufacturers, designers and engineers have to find the right 
+balance between simplicity, commonality, integration and core 
+processes seen in dedicated non-adaptable platforms, and more 
+complexity 
+and 
+higher 
+investments 
+yet 
+more 
+modularity, 
+changeability, customer satisfaction and sustainability through 
+adaptation. 
+6.1 
+Market Diversity 
+There are many diverse market needs : i) general requirements that 
+unify the whole market region, ii) more specific, yet common, 
+requirements for the different segments of that region, and iii)  more 
+individual requirements for different groups of customers (Figure 4). 
+Introducing a new portfolio of products [7] to the market involves 
+deciding on the degree of commonality or differentiation of features 
+between product variants. The objective is to find the right balance 
+that maximizes generality and commonality on one hand, and 
+increases customer satisfaction, sales and market share on the 
+other hand. 
+6.2 
+Products Design Architecture 
+In a modular design; products are composed of modules; whose 
+structural elements serve identifiable functions and are strongly 
+interconnected, while being relatively weakly connected to elements 
+in other modules, and [39]. Modular design architecture helps 
+develop new products quickly using alternative modules or module 
+instances. Common modules may be shared by different products, 
+thus reducing design time and cost [40]. On the other hand; integral 
+design has a fixed architecture oriented to an optimized product. In 
+the classical coupled product design; changes to one component 
+cannot be made without affecting others [41]. However; integral 
+architecture has the advantage of simplifying the design by 
+reducing the number of parts and, hence, assembly errors, 
+uncertainty and complexity, as suggested by the Design for 
+Manufacturing and Assembly (DFMA) techniques [42]. 
+A design of a portfolio of products that has common and different 
+components and parts is a matter of finding the right balance 
+between modular and integral architectures; where modularity and 
+integration are possible for many product variants, despite their 
+conflicting rules. Liaison graphs that show the logical relationships 
+between components, and commonality analysis [43] which identify 
+areas of commonality and differentiation in design, are essential 
+tools for arriving at the desired balance (Figure 5). 
+6.3 
+Processes Layout Complexity 
+Delayed Product Differentiation is a manufacturing strategy used to 
+mitigate some of the complexities raised by proliferation of product 
+variety and the application of mass customization [44]. However 
+such strategy may result in a more complex layout [45]. Conversely, 
+the linear constant-pace line is simpler to simulate and operate but 
+more difficult to handle due to increased number of product 
+variiants [46]. The right balance of linear layout processes platform 
+and complex tree-like delayed product differentiation manufacturing 
+system present a trade-off between layout simplicity and product 
+singularity vs. layout complexity and product variety.  
+ 
+ 
+Figure 3: Balance Point Decision in Manufacturing 
+ 
+ 
+Figure 4: The Diversity Levels of Market Requirements 
+H. ElMaraghy, T. AlGeddawy, A. Azab, W. ElMaraghy
+
+
+--- SAYFA 19 ---
+7
+ 
+6.4 
+Manufacturing Systems Sustainability 
+Very low variety products can be always mass produced on a 
+dedicated manufacturing system (DMS) taking advantage of the 
+economy of scale. However; DMS has fixed capabilities and is not 
+adaptable to product changes and variation. Flexible Manufacturing 
+Systems have well-defined flexibility scope geared towards a 
+specific family of products defined apriori with unchanging 
+boundaries [39]. They capitalize on the economy of scope at the 
+expense of higher initial investments to accommodate the pre-
+defined product variation scope. Reconfigurable Manufacturing 
+Systems can handle some changes and differences beyond the 
+originally defined family boundaries, it acquires capabilities when 
+needed, but it is more complex to design and operate [38]. 
+System designers have to maintain the right balance between 
+dedication, flexibility and reconfigurability to maximize adaptability 
+and changeability and minimize complexity. The iFactory (Figure 6) 
+is used to identify the right choice along the wide spectrum of 
+manufacturing systems paradigms based on commonality analysis 
+in product design and manufacturing processes. 
+ 
+Figure 5: Commonality and Integration vs. Diversity and Modularity 
+in Product Design 
+ 
+6.5 
+Manufacturing Commonality Footprint 
+The new integrated research laboratory iDesign/iPlan/iFactory helps 
+find the best balance point in manufacturing. There is a unified 
+commonality pattern that relates the different domains of 
+manufacturing; a footprint that is almost recurrent (Figure 7).  
+Finding the balance between modularity and integration using 
+designers’ collaboration and physical models from innovation, 
+design and rapid prototyping to test solutions is part of iDesign. The 
+trade-off between linear vs. complex processes layout, and defining 
+the positions of product differentiation points is examined by 
+simulation models in iPlan. Deciding on the dedicated, flexible and 
+reconfigurable manufacturing capabilities in the manufacturing 
+systems is performed through physical simulation in iFactory. 
+ 
+ 
+Figure 6: Studying The Balance Point of Manufacturing Systems 
+Paradigms Using iFactory 
+ 
+ 
+Figure 7: Multi-layer Manufacturing Commonality Footprints 
+ 
+7 
+CONCLUSIONS AND FUTURE DIRECTIONS 
+A number of flexibility enablers are being researched and 
+developed, as part of the Canada Research Chairs (CRC) Program 
+and complemented by NSERC funded research projects and 
+industry collaborations to achieve the desired changeability, 
+adaptability and responsiveness to the continuously varying 
+Change in Manufacturing – Research and Industrial Challenges 
+
+
+--- SAYFA 20 ---
+8
+                      
+ 
+ 
+ 
+conditions and requirements in manufacturing. Examples of these 
+enablers and productivity boosters include new and innovative 
+methods for: 1) Reconfiguring process plans and production plans 
+(schedules) dynamically and adaptively to respond to changes in 
+products features, 2) Developing meta-heuristics to determine the 
+desired optimal process plan (localized/RPP or global/optimization) 
+by combining the mechanisms of reconfigurable process planning 
+with that of sequencing and re-planning, 3) Novel models of co-
+evolution of products and systems inspired by those found in nature 
+for use in manufacturing systems design and planning of products  
+families, platforms and portfolios considering their entire life cycle, 
+which will help companies economically extend the utility and life of 
+their manufacturing facilities and survive in the current turbulent 
+market conditions, 4) New metrics for assessing the changeability 
+of manufacturing enterprises and decision support guidelines and 
+methods for determining its optimal and economical level to ensure 
+their sustainability, and 5) Models that capture the extent of product 
+variety and complexity and their effect on the manufacturing and 
+assembly systems and their design, operation and complexity and 
+optimize the definition of product families and manufacturing 
+platforms, and hence reduce their initial and operation cost. 
+A collaborative product design and manufacturing system synthesis 
+framework is achievable using the described research facilities and 
+technologies. A unified model that brings strategic and operational 
+planning, in the domains of marketing, product design, process 
+planning and system synthesis, is the objective of such 
+collaboration. This model can be mathematically formulated using 
+the suggested manufacturing commonality footprint, mapping 
+together different domains, and verified by the soft and hard 
+capabilities of the iDesign/iPlan/iFactory laboratory. 
+The results of this research can benefit the automotive industry 
+(OEMs and their suppliers), manufacturers of many other products, 
+the aerospace industry, etc., all of which are important to the 
+economic vitality of the manufacturing sector and have many socio-
+economic benefits by creating and maintaining high value jobs and 
+enhancing prosperity. 
+ 
+8 
+ACKNOWLEDGEMENTS  
+The significant funding provided by the Canada Foundation for 
+Innovation (CFI) and Ontario Ministry of Research and Innovation 
+(MRI) has been instrumental in establishing the new facilities and 
+infrastructure [awarded to Professor Hoda ElMaraghy (PI), 
+Professor Waguih ElMaraghy and Professor Ahmed Azab].  
+This research program is also significantly supported by the 
+Canada Research Chairs (CRC) program [awarded to Professor 
+Hoda ElMaraghy].  
+We wish to acknowledge also the support by the Natural Sciences 
+and Engineering Research Council (NSERC) of Canada through 
+the Discovery Research Grants program and the targeted Strategic 
+Research Grants program, and Scholarships. 
+ 
+9 
+REFERENCES 
+[1] 
+Hummel, V. and Westkamper, E. (2007): Learning factory for 
+advanced industrial engineering - integrated approach of the 
+digital learning environment and the physical model factory. 
+Production Engineering, University Publishing House: Krakow, 
+Poland. pp. 215-27. 
+[2] 
+Ssemakula, M., Liao, G., Ellis, D., Kim, K- Y. and Sawilowsky, 
+S. (2009): Introducing a flexible adaptation framework for 
+implementing 'Learning Factory' - Based manufacturing 
+education. in 2009 ASEE Annual Conference and Exposition, 
+14-17 June. Austin, TX, United states: American Society for 
+Engineering Education. 
+[3] 
+Lamancusa, J.S., Jorgensen, J.E., and Zayas-Castro, J.L., 
+(1997): Learning Factory - a new approach to integrating 
+design and manufacturing into the engineering curriculum. 
+Journal of Engineering Education. Vol. 86, No.,  pp. 103-112. 
+[4] 
+Abele, E., Tenberg, R., Wennemer, J., Cachay, J. (2010): 
+Production Skills Development in Learning Factories. ZWF 
+Zeitschrift fur Wirtschaftlichen Fabrikbetrieb. Vol. 105, No.,  pp. 
+909-13. 
+[5] 
+Westkämper, E., et al., (2005): Smart Factory - Bridging the 
+gap between digital planning and reality. in 38th International 
+Seminar on Manufacturing Systems 2005, May. Florianopolis, 
+Brazil. 
+[6] 
+Westkämper, E. and Hummel, V., (2005): The Stuttgart 
+Enterprise Model - Integrated Engineering of Strategic & 
+Operational Functions. in 38th International Seminar on 
+Manufacturing Systems 2005, May. Florianopolis, Brazil. 
+[7] 
+ElMaraghy, H., Changing and Evolving Products and Systems 
+- Models and Enablers, in Changeable and Reconfigurable 
+Manufacturing Systems, ed. H.A. ElMaraghy, Springer-Verlag: 
+London. p. 25-45. 
+[8] 
+Azab, A. and ElMaraghy, H., (2007): Mathematical Modeling 
+for Reconfigurable Process Planning. CIRP Annals 
+- 
+Manufacturing Technology. Vol. 56, No. 1,  pp. 467-472. 
+[9] 
+Ismail, M. and ElMaraghy, H., (2009): Progressive Modeling – 
+An Enabler of Dynamic Changes in Production Planning. CIRP 
+Annals. Vol. 58, No. 1,  pp. 407-412. 
+[10] Wiendahl, H.-P., ElMaraghy, H., Nyhuis, P., Zäh, M.F., 
+Wiendahl, H.-H., Duffie, N. and Brieke, M. (2007): Changeable 
+Manufacturing: Classification, Design, Operation. Keynote 
+Paper, CIRP Annals. Vol. 56, No. 2,  pp. 783-809. 
+[11] ElMaraghy, H., Reconfigurable Process Plans for Responsive 
+Manufacturing Systems, in Digital Enterprise Technology: 
+Perspectives & Future Challenges, F. Cunha and G. 
+Maropoulos, Editors. 2007, Springer Science. p. 35-44. 
+[12] ElMaraghy, H., AlGeddawy, T., and Azab, A., (2008): 
+Modelling evolution in manufacturing: A biological analogy. 
+CIRP Annals - Manufacturing Technology. Vol. 57, No. 1,  pp. 
+467-472. 
+[13] AlGeddawy, T. and ElMaraghy, H., (2010): Co-evolution 
+hypotheses and model for manufacturing planning. CIRP 
+Annals - Manufacturing Technology. Vol. 59, No. 1,  pp. 445-
+448. 
+[14] AlGeddawy, T. and ElMaraghy, H., (2011): Design of Single 
+Assembly line for the delayed differentiation of Product 
+Variants. Flexible Services and Manufacturing Journal. Vol. 22, 
+No. 3,  pp. 163-182. 
+[15] ElMaraghy, H., Azab, A., Schuh, G. and Pulz, C. (2009): 
+Managing variations in products, processes and manufacturing 
+systems. CIRP Annals - Manufacturing Technology. Vol. 58, 
+No. 1,  pp. 441-446. 
+[16] Tolio, T., Ceglarek, D., Elmaraghy, H., Fischer, A., Hu, S.J., 
+Laperrière, L., Newman, S.T. and Váncza, J., (2010): 
+SPECIES-Co-evolution of products, processes and production 
+systems. CIRP Annals - Manufacturing Technology. Vol. 59, 
+No. 1,  pp. 672-693. 
+[17] Deif, A. and ElMaraghy, H., (2007): Assessing Capacity 
+Scalability Policies in RMS Using System Dynamics. 
+H. ElMaraghy, T. AlGeddawy, A. Azab, W. ElMaraghy

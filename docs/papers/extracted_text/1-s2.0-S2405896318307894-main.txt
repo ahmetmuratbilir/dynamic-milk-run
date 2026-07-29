@@ -1,0 +1,812 @@
+
+
+--- SAYFA 1 ---
+IFAC PapersOnLine 51-9 (2018) 404–409
+ScienceDirect
+Available online at www.sciencedirect.com
+2405-8963 © 2018, IFAC (International Federation of Automatic Control) Hosting by Elsevier Ltd. All rights reserved.
+Peer review under responsibility of International Federation of Automatic Control.
+10.1016/j.ifacol.2018.07.066
+© 2018, IFAC (International Federation of Automatic Control) Hosting by Elsevier Ltd. All rights reserved.
+
+1. INTRODUCTION 
+Safety enhancement, traffic reduction and efficiency 
+improvement are the expected benefits of supplying the 
+assembly line with tugger trains, in place of forklifts. For these 
+reasons, tugger trains are becoming popular means of supply 
+in intensive material handling production systems (Schmidt, 
+Meinhardt and Schulze, 2016). However, introducing this 
+material handling system, based on the “pull” principle of 
+Kanban and the milk-run approach, is more complex than the 
+mere replacement of one means of transport by another. A 
+complex planning influenced by a set of interrelated 
+parameters is essential and an impact on the dispatching 
+strategies, layout and current processes is often inevitable. 
+Recently the Association of German Engineers (VDI– Verein 
+Deutscher Ingenieure) has developed and published a 
+standardized approach (VDI 5586, April 2016, still a draft 
+version) to tackle the problem of planning in-plant milk-run 
+systems. The planning method proposed mainly focuses the 
+material-flow and it is bounded to a set of strong assumptions. 
+These assumptions limit the applicability of the methodology 
+only to specific scenarios, where production and logistic 
+systems are designed at the same time and can influence each 
+other during the planning process. Moreover, in the planning 
+method introduced by the VDI, the information flow is only 
+partially considered and the whole tugger train system is 
+dimensioned according to a pure schedule-driven, therefore 
+“push” approach. Dimensioning a logistic system following a 
+schedule-driven approach means: (1) to estimate the items 
+consumption independently from the actual production and (2) 
+to dimension the buffers at the points of use as if production 
+and logistics would be perfectly synchronous (material 
+delivery is synchronous with the material consumption 
+dictated by the production line speed). Any deviation from the 
+plan (either wanted or unwanted) could cause total loss of 
+control on the actual material flow, with problems such as: (1) 
+redundant line-side material, (2) a new material flow of not-
+entirely-empty containers or (3) starvation of items at the point 
+of use with causing slowdown or stop of the production. 
+How could the planning method be complemented in order to 
+consider a demand-driven “pull” approach for material supply, 
+hence the actual material consumption on the line? How could 
+uncertainty be included in the planning so that lineside 
+activities (e.g. assembly) are never stopped because of stock 
+out or material shortage?  
+In this paper, a new planning method will be presented and 
+explained focusing not only the material flow, but also taking 
+into account the current processes of the company and the 
+related information flow. The method proposed will allow the 
+planner to correctly dimension the buffer at the points of use 
+considering existing processes and evaluating the impact of 
+adopting different replenishment methods, such as Kanban 
+cards, e-Kanban or direct order through buttons or sensors.  
+2. STATE OF THE ART 
+In this section, first a brief overview on tugger train systems is 
+given, then the planning method proposed by the VDI is 
+summarized and analyzed. Lastly, the VDI method for buffer 
+dimensioning is explained in detail, laying the foundation for 
+its further development, object of the next section. 
+2.1 Tugger train system 
+A typical tugger train system is a transport concept based on 
+the milk-run principle, where material is transported from a 
+centralized warehouse, also called supermarket (Fig. 1, 
+Warehouse SM), to a defined number of stops (Fig. 1, S1 to 
+S5), along a fixed defined route. Generally, these systems are 
+operating on a fixed schedule (Klenk, Galka, Günthner, 2012). 
+The means of transport is the tugger train, which consists of a 
+Keywords: Milk-run, planning, tugger train, lean logistics, buffer dimension, reordering method  
+Abstract: the appeal of a forklift-free shop floor is pushing enterprises towards lean logistic systems and 
+tugger trains are becoming popular means of supply in intensive material handling production systems. 
+Planning a tugger train system is a complex task influenced by a large set of interrelated parameters. The 
+only standard available to help the planner in designing the tugger train logistic system is the draft norm 
+VDI 5586 (April 2016). However this norm is only applicable under a set of restricting assumptions. In 
+this paper a methodology to complement the approach proposed by the VDI is introduced and then applied 
+to a numerical example. The results are briefly presented and discussed before suggesting forthcoming 
+research.  
+* ** ***ESB - Forschungszentrum Logistik, Reutlingen University  
+Reutlingen, Germany (e-mail:* augusto.urru@reutlingen-university.de **marco.bonini@reutlingen-university.de 
+***wolfgang.echelmeyer@reutlingen-university.de) 
+A. Urru*, M. Bonini**, W. Echelmeyer*** 
+Planning and dimensioning of a milk-run transportation system considering the 
+actual line consumption 
+
+
+--- SAYFA 2 ---
+	
+A. Urru  et al. / IFAC PapersOnLine 51-9 (2018) 404–409	
+405
+tugger and a set of trailers. On each trailer are loaded one or 
+more standard Unit Load (UL). Often, in order to couple the 
+Unit Load with the trailer, a mechanical interface, called 
+trolley, is needed. The number of trailers usually varies from 2 
+to 5. Key components of a tugger train systems are shown in 
+the following Fig. 1. 
+ 
+Fig. 1 Tugger train system layout (example) 
+When looking at Fig. 1, boundaries of the system could be 
+identified together with interfaces with uphill and downhill 
+processes. The tugger train system is interfaced uphill with the 
+warehouse (SM), for instance, through a pre-loading area and 
+downhill with the production line through buffers at each stop. 
+As explained by Harris H. et al. (2003) the process of 
+supplying material along the route could be (1) coupled or (2) 
+decoupled with the uphill commissioning process at the 
+supermarket: (1) coupled means that the commissioning 
+process is performed by the tugger train driver and a path 
+through the shelves of the supermarket is included in the route, 
+(2) decoupled means that material supply and commissioning 
+processes are clearly separated: the tugger train driver enters 
+the supermarket and stops at a specific point (pre loading area 
+Fig. 1) to unload the empty unit loads and load the full ones. 
+The commissioning process at the SM is accomplished by 
+another operator or automated system. Especially in this case, 
+the role played by the information gathering and the 
+commissioning process itself is extremely important when 
+dimensioning the logistic system and the necessary buffers at 
+the point of use (Droste, Deuse, 2011). 
+2.2 VDI 5586 
+The VDI 5586 consists of two parts. The first, “Blatt 1”, 
+concerns an overview on tugger train systems. It lays the 
+foundation for understanding both technical aspects and 
+alternative concepts of system development. Here examples of 
+different system configurations are explained according to two 
+possible paradigms to deliver material to the line: (1) the push 
+paradigm, based on the perfect synchronism between 
+theoretical consumption and real need of material, and (2) the 
+pull principle, which uses techniques like the Kanban to ensure 
+that the only material that is moved to the lines, it is the one 
+that is really needed. In the second part, “Blatt 2”, a method to 
+plan and dimension a tugger train systems is introduced, based 
+however only on the push paradigm. Given that all the 
+parameters characterizing the route such as route length, stops 
+along the route and stops sequence are a priori defined, the 
+method introduced by the VDI could be applied performing 
+the following 8 steps calculation: (1) Throughput (UL/h), (2) 
+Route frequency (lap/h), (3) Route period (h), (4) Route 
+capacity Utilization, (5) Cycle time (𝑡𝑡𝑐𝑐𝑐𝑐𝑐𝑐) (h), (6) Number of 
+trains necessary, (7) Route time Utilization and (8) Buffer 
+dimensions. The method can be applied to one single route at 
+a time. Neither procedures for automatic route determination, 
+nor for optimization fall within the scope of the norm. Key 
+design figure of the tugger train route is the desired average 
+throughput, where average means not only average in quantity, 
+but also average in unit load type. The consumption rate of the 
+items (UL/h) is considered to be constant and not subjected to 
+any kind of variability and it is therefore unmistakably 
+predictable, hence the possibility of using the push paradigm 
+for moving to the line material that is theoretically needed 
+according to the master production schedule. As a result, if the 
+process runs smoothly, the tugger train system will be able to 
+supply what is needed, where is needed and exactly when is 
+needed. 
+2.3 The role of information  
+In the previous sections an overview on tugger train systems 
+and the planning method introduced by the VDI has been 
+given. In this section the role of information in decoupled 
+systems is clarified. As already mentioned in a decoupled 
+system supply and commissioning processes are neatly 
+separated. This neat separation, however, is only possible if the 
+actual material demand is deterministic and used to calculate  
+the optimal delivery times (Klenk, Galka, Günthner, 2012). In 
+other words, the whole planning relies on steady and frozen 
+master production schedules with no margin for last minute 
+adjustments or flexibility for human or system mistakes, 
+sentence material shortage. In order to avoid this risk and 
+supply what is actually needed to the line, a consumption 
+oriented system should be adopted. Items are reordered 
+according to the actual material consumption following the 
+pull principle. Thanks to this information it is possible to 
+synchronize production and logistics. The most common 
+reorder techniques for detecting and communicating the actual 
+need of the line are (1) the Kanban card, (2) the e-Kanban and 
+(3) the direct order through a button or sensor placed lineside. 
+The planning method must consider the whole replenishment 
+process, which starts exactly when the need for a certain item 
+is generated by its actual consumption. In the case of a tugger 
+train system this means that the transportation of a certain item 
+(Unit Load) is authorized only after the transportation order for 
+the specific item has arrived at the supermarket (SM). In other 
+words it is the need that triggers the transport, or, better put, 
+the information of the need triggers the commissioning 
+process. The commissioning process ends when the required 
+unit loads are ready in the pre-loading area of the SM. For this 
+reason the time that the information takes to be communicated 
+to the SM is a key factor for the planning of the system and the 
+dimensioning of the buffers. The planning method introduced 
+by the VDI 5586, however, does not consider the information 
+flow. It is explicitly explained how the whole tugger train 
+logistic system is dimensioned according to a deterministic 
+approach. The commissioning process at the SM starts 
+independently from the production and it is based on the 
+expected consumption rate at the points of use (hence on the 
+
+
+--- SAYFA 3 ---
+406	
+A. Urru  et al. / IFAC PapersOnLine 51-9 (2018) 404–409
+frozen master production schedule). Any deviation from the 
+plan (either wanted or unwanted) could cause total loss of 
+control on the actual material flow, with problems such as: 
+redundant material at the delivery side, a new material flow of 
+not-entirely-empty containers or starvation of items at the 
+point of use causing slowdown or stop of the production. This 
+is evident especially in the last step of the planning method 
+“buffer dimensions”. 
+2.4 Buffer Dimensioning 
+ 
+Following the VDI approach 
+According to the VDI the buffer dimensions should be 
+calculated for each item separately adding one extra position 
+in order to make it possible to exchange the empty unit load 
+with the full one, as shown in the following formulas. 
+𝑞𝑞𝐴𝐴,𝐻𝐻= 1 + ⌈𝑛𝑛𝐿𝐿𝐿𝐿,𝐴𝐴,𝐻𝐻⌉ 
+(1) 
+𝑛𝑛𝐿𝐿𝐿𝐿,𝐴𝐴,𝐻𝐻= 𝜆𝜆𝐴𝐴,𝐻𝐻
+𝑓𝑓𝑟𝑟
+ 
+(2) 
+𝑄𝑄𝑅𝑅= ∑
+𝑞𝑞𝐴𝐴,𝐻𝐻
+𝑛𝑛𝐴𝐴
+ 
+(3) 
+Where 𝑞𝑞𝐴𝐴,𝐻𝐻 is the buffer dimension in number of unit load per 
+item (A) at the stop (H), 𝑛𝑛𝐿𝐿𝐿𝐿,𝐴𝐴,𝐻𝐻 the average consumption in 
+UL of the item A at the stop H in the span of time between two 
+visits to the same stop H (called hereafter “takt”),  𝜆𝜆𝐴𝐴,𝐻𝐻 the 
+average consumption of unit load per hour of item A at the stop 
+H and 𝑓𝑓𝑟𝑟 is the hourly route frequency. 𝑄𝑄𝑅𝑅 represents the total 
+number of buffer positions needed considering the 
+requirements of every stop belonging to the route (R).  
+ 
+Complementing the guideline approach 
+This formula for the calculation of the buffer dimension for 
+each item suits only when material is pushed to the line 
+following the master production schedule and independently 
+on the actual consumption. In the case the system is designed 
+to answer to last-minute fluctuations and unforeseeable events, 
+the actual consumption of items must be considered and 
+therefore the replenishment of the buffers must be triggered 
+through a reordering method (Kanban card, e-Kanban, etc.) 
+rather than pushed according to the master production 
+schedule. In this case the buffer at the stops represents the 
+decoupling point between logistics and production and its 
+dimensioning must be consistent with the pull principle and 
+reordering method upon which the system will work. 
+Dimensioning the buffer without considering the information 
+flow, which is different according to different reordering 
+methods, would lead to its underestimation. In order for the 
+logistic system to work properly and react to disturbances the 
+calculation of the buffer must consider both the gathering of 
+information and the process of commissioning at the SM. 
+3. METHOD 
+The method proposed in this section aims at dimensioning the 
+buffer of a tugger train system, considering the ability of the 
+system of answering to last-minute fluctuations and 
+unforeseeable events; the material is therefore replenished to 
+the lines following the pull paradigm and using different 
+reordering systems. The approach is based on the formula 
+proposed by the VDI 5586; the calculation still considers an 
+extra place at the buffer for the UL exchange, but the average 
+consumption of UL of the item A at the stop H in a takt is 
+weighted by a factor 𝑘𝑘.      
+𝑞𝑞𝐴𝐴,𝐻𝐻= 1 + ⌈𝑘𝑘∗𝑛𝑛𝐿𝐿𝐿𝐿,𝐴𝐴,𝐻𝐻⌉ 
+(4) 
+The factor k is affected by the reordering method and the 
+information gathering process and estimates the maximum 
+number of takt needed in order to accomplish the 
+replenishment activities. The idea that led the authors to 
+introduce this factor is absolute stock-out avoidance, which 
+brings to the necessity of considering a replenishment worst-
+case scenario that could be caused by: traffic delays, changes 
+in the production schedule, production yield variance, etc. For 
+this reason also the cycle time, needed in order to calculate the 
+factor k, should be calculated following the worst case 
+approach.    
+The method hereafter presented is applicable to three different 
+scenarios, which differ in the reordering process and, 
+consequently, in the calculation of the factor k.  
+3.1 Scenario 1  
+Reordering method: Kanban card (attached to the unit load) 
+ Information gathering process description: The driver of the 
+tugger train stops at a stop H along the route, unloads the full 
+unit loads and loads the empty ones on the train. The driver 
+Fig. 2 Scenario 1 -  Reordering process Kanban card  
+
+
+--- SAYFA 4 ---
+	
+A. Urru  et al. / IFAC PapersOnLine 51-9 (2018) 404–409	
+407
+drives back to the supermarket and unloads the empty 
+containers. Only then, the information about what is needed at 
+the points of use it is available at the supermarket and the 
+commissioning process can start.  After the commissioning 
+process has finished, the unit loads are in the pre-loading area, 
+ready to be loaded on the first available tugger train. 
+Considering the information gathering process, the worst case 
+occurs when the demand, represented by the empty blue square 
+in Fig. 2 and by an empty container in reality, appears right 
+after a tugger train has left the stop H (S1 in Fig. 2). The 
+demand can only be detected next time a tugger train stops at 
+the same stop, which happens after one takt. Once the demand 
+has been recognized and the empty container loaded on the 
+trailer, the train continues its tour until he drives back to the 
+SM: this is the time the information takes to be communicated 
+to the SM (𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖). Only after the acknowledgment of the 
+demand the commissioning process can start and will last, for 
+the item A, a specific commissioning time 𝑡𝑡𝑐𝑐𝑐𝑐𝑐𝑐𝐴𝐴. 
+After the unit load has been commissioned it can be loaded on 
+the tugger train. The unit load will then be delivered to the 
+point of use: this is called “delivery time” (𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑). As shown in 
+(6), in this case (𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖) and  (𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑) are always complementary 
+and, put together, equivalent to the cycle time in the worst case 
+(𝑡𝑡𝑐𝑐𝑊𝑊𝑊𝑊), hence the longest time a cycle can last, due to the fact 
+that the train visits the maximum possible amount of stops 
+(loads and unloads UL not in the same, but in different stops 
+of the route). A fundamental role is played by the 
+commissioning time. In fact, if the commissioning is fast 
+enough to make the requested UL available before the tugger 
+train loading process starts (Fig. 2, I Case), the unit load could 
+be delivered within the next tour. Otherwise the ceiling-up 
+function prevents the buffer from being under dimensioned 
+allowing the delivery of the unit load within the tour after the 
+next (Fig. 2, II Case ).  
+3.2 Scenario 2  
+Reordering method: e-Kanban (Barcode) 
+Information gathering process description: The driver of the 
+tugger train stops at a stop H, unloads the full unit loads, scans 
+the barcode of the empty ones and load them on the tugger 
+train. The information is immediately available to the SM and 
+the commissioning process can start immediately after 
+(𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖= 0). The driver continues his tour until he drives back 
+to the supermarket and unloads the empty containers. When 
+calculating the delivery time 𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑, the worst case is considered, 
+meaning that the tugger train will visit the maximum amount 
+of stops between the stop H and the Supermarket, hence 
+𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑𝐴𝐴,𝐻𝐻,𝑤𝑤𝑤𝑤 .  
+𝑘𝑘𝐴𝐴,𝐻𝐻= 1 + ⌈
+𝑡𝑡𝑐𝑐𝑐𝑐𝑐𝑐𝐴𝐴+ 𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑𝐴𝐴,𝐻𝐻,𝑤𝑤𝑤𝑤
+𝑡𝑡𝑇𝑇𝑇𝑇
+⌉,  𝑘𝑘∈𝑁𝑁 
+(7) 
+Considering the information gathering process the worst case 
+occurs again when the demand appears right after a tugger 
+train has left the stop (Fig. 3). If the commissioning process 
+finishes before the train is loaded at the supermarket, the unit 
+load could be delivered within the next tour (Fig. 3, I Case), 
+otherwise the ceiling-up function prevents the buffer from 
+being under dimensioned allowing the delivery of the unit load 
+within the tour after the next (Fig. 3, II Case).  
+Fig. 3 Scenario 2 - Reordering process e-Kanban 
+3.3 Scenario 3 
+Reordering method: direct order line side (button or sensor) 
+Information gathering process description: The reordering 
+process is independent of the tugger train driver. The operator 
+who is working on the assembly or production line (line side) 
+is responsible for pressing the proper button as soon as a unit 
+load is empty (alternatively the presence of an empty container 
+can be detected by a sensor that triggers the demand). The 
+information is immediately transmitted to the supermarket and 
+the commissioning process could start right away (𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖= 0). 
+The driver drives along the route exchanging full unit loads 
+with empty ones and loading at the supermarket what is ready 
+to be loaded.  
+𝑘𝑘𝐴𝐴,𝐻𝐻= 1 + [
+𝑡𝑡𝑐𝑐𝑐𝑐𝑐𝑐𝐴𝐴+ 𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑𝐴𝐴,𝐻𝐻,𝑤𝑤𝑤𝑤
+𝑡𝑡𝑇𝑇𝑇𝑇
+] ,  𝑘𝑘∈𝑅𝑅 
+(8) 
+In order to understand the worst case, the concept of break-
+even time needs to be explained first. Fig. 4, I Case, shows the 
+best case scenario which defines the break-even time. In this 
+case the signal for the demand arrives in the exact same 
+moment the commissioning process should start in order for 
+the UL to be loaded on the tugger train right before its 
+departure from the SM. As a result the UL will be delivered 
+within the next tour. Theoretically, if the demand arrives even 
+one second after the break-even time, the commissioning 
+process will not be finished before the train has departed from 
+the SM. In this case (the worst case indeed), the item will not 
+be delivered in the next tour, but in the one after the next and 
+the buffer available at the stop should be large enough to cover 
+not only the commissioning time and the time of delivery for 
+the train to arrive at the stop, but also one additional takt time 
+as shown in (8) and Fig. 4, II Case. If the demand arrives before 
+the break-even time the item will be delivered within the next 
+departure and so the buffer estimated in (8) will be large 
+enough. For the sake of completeness Fig. 4, III Case shows 
+what would happen with a longer commissioning time,  
+𝑘𝑘𝐴𝐴,𝐻𝐻= 1 + ⌈𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖+ 𝑡𝑡𝑐𝑐𝑐𝑐𝑐𝑐𝐴𝐴+ 𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑
+𝑡𝑡𝑇𝑇𝑇𝑇
+⌉, 𝑘𝑘∈𝑁𝑁 
+(5) 
+𝑡𝑡𝑖𝑖𝑖𝑖𝑖𝑖+ 𝑡𝑡𝑑𝑑𝑑𝑑𝑑𝑑= 𝑡𝑡𝑐𝑐𝑊𝑊𝑊𝑊 
+(6) 
+
+
+--- SAYFA 5 ---
+408	
+A. Urru  et al. / IFAC PapersOnLine 51-9 (2018) 404–409
+Fig. 4 Scenario 3 - Reordering process direct order 
+proving that the formula applies even to this case and that the 
+time between the end of the commissioning and the beginning 
+of the delivery process is always smaller than one takt time. 
+For these reasons the ceiling up function it is no longer 
+necessary and k belongs to the set 𝑅𝑅 and not 𝑁𝑁, which is the 
+only difference between formula (7) and (8). 
+4. RESULTS 
+In this section a numerical example will be introduced and 
+both the method proposed by the VDI and the one presented in 
+this paper applied, in order to estimate the buffer dimensions 
+according to different reordering processes and compare the 
+results. As already mentioned in the introduction planning and 
+dimensioning a tugger train system is a complex topic 
+influenced by a set of interrelated parameters. In order to help 
+the reader focusing the buffer dimensioning problem, the 
+following example is based on few simplifications and 
+assumptions: the variety of articles delivered is limited in 
+number and type, the delivery route is unique and delivery and 
+commissioning process at the supermarket are decoupled.  
+A tugger train supplies an assembly line with different parts (9 
+items) homogeneously stored in a unique type of unit load 
+(UL). The ULs are delivered along one single route made of a 
+set of 5 stops (S1-S5, see layout in  Fig. 1) equally distributed 
+along the route. The route is 124 meters long and the tugger 
+train speed is assumed to be, for the sake of simplicity, 1 (m/s). 
+Also to simplify calculation, instead of considering the true 
+acceleration and deceleration ramps of the vehicle, a 10 
+seconds delay is considered for each stop; following the same 
+approach, an extra delay of 20 seconds (for the whole route) is 
+considered in order to take into account accelerations and 
+decelerations due to corridor, junctions and turns. Exchange 
+time (full UL with empty UL at the stop as well as empty UL 
+with full UL at the SM) for each UL is considered to be 30 
+seconds. The tugger train tows three (3) trailers and each trailer 
+is able to carry one (1) unit load at a time. The UL could be 
+loaded or unloaded on both side of the trailer. The 
+commissioning time at the supermarket is 2 min for each UL, 
+but it is possible to commission up to three (3) unit loads 
+simultaneously, so that the whole train can be commissioned 
+within 2 minutes. Every hour the line generates an output of 5 
+finished products. The following Table 1 summarizes the 
+consumption rates according to each item and stop along the 
+route considering the line throughput variation. These data 
+have been the input for the system dimensioning. 
+Table 1 Consumption rates according to different line 
+throughputs 
+In order to find a numerical evidence of the impact of the 
+proposed method, the tugger train system has been planned 
+according to different line throughputs, keeping other 
+parameters unchanged. The line throughput has been increased 
+first by 100% to 10 product/hour and then by an additional 
+20% to 12 finished product every hour (see Table 2 , forecast-
+driven column). First, the planning has been conducted 
+according to a forecast-driven reordering process, hence 
+following the 8-steps planning method described in the VDI 
+norm, then, with exactly the same data in input, the planning 
+has been repeated applying the method proposed in this paper 
+for three different reordering methods: Kanban card, e-Kanban 
+and direct order.   
+Results are shown in Table 2 and represented in the following 
+Fig. 5. It is clear that applying the method proposed by the VDI 
+a variation in the line throughput does not affect the buffer 
+dimensioning. In fact, a higher route frequency ensures that the 
+needed material is always fed to the line in the right amount. 
+Table 2 Tugger train system dimensioning according to different throughputs and reordering methods 
+Item # Stop 
+(S)
+Unit 
+Load 
+Type
+Consumption 
+[UL/h]
+Consumption 
+at the Stop  
+[UL/h]
+Consumption 
+[UL/h]
+Consumption 
+at the Stop  
+[UL/h]
+Consumption 
+[UL/h]
+Consumption 
+at the Stop  
+[UL/h]
+001
+GLT
+2
+4
+4,8
+006
+GLT
+1
+2
+2,4
+004
+GLT
+3
+6
+7,2
+005
+GLT
+2
+4
+4,8
+002
+GLT
+1
+2
+2,4
+007
+GLT
+3
+6
+7,2
+008
+GLT
+2
+4
+4,8
+009
+S3
+GLT
+1
+1,00
+2
+2,00
+2,4
+2,40
+003
+S5
+GLT
+1
+1,00
+2
+2,00
+2,4
+2,40
+Line Troughput 5 Products Line Troughput 10 Products Line Troughput 12 Products
+S4
+6,00
+12,00
+14,40
+S1
+3,00
+6,00
+7,20
+S2
+5,00
+10,00
+12,00
+Reordering process
+0
+Line Througput 
+[products/h]
+5
+10
+12
+5
+10
+12
+5
+10
+12
+5
+10
+12
+1
+Througput [UL/h]
+16
+32
+38,4
+16
+32
+38,4
+16
+32
+38,4
+16
+32
+38,4
+2
+Route frequency [lap/h]
+6
+12
+15
+6
+12
+15
+6
+12
+15
+6
+12
+15
+3
+Takt time [min]
+10
+5
+4
+10
+5
+4
+10
+5
+4
+10
+5
+4
+4
+Route Utilization 
+(Capacity)
+0,89
+0,89
+0,853
+0,89
+0,89
+0,853
+0,89
+0,89
+0,853
+0,89
+0,89
+0,853
+5
+Cycle time [min]
+5,75
+5,75
+5,65
+5,75
+5,75
+5,65
+5,75
+5,75
+5,65
+5,75
+5,75
+5,65
+6
+Number of trains 
+necessary
+1
+2
+2
+1
+2
+2
+1
+2
+2
+1
+2
+2
+7
+Route Utilization (Time)
+0,575
+0,575
+0,706
+0,575
+0,575
+0,706
+0,575
+0,575
+0,706
+0,575
+0,575
+0,706
+8
+Buffer dimensions (     )
+18
+18
+18
+18
+20
+23
+18
+19
+20
+18
+19
+19
+Forecast-driven (push)
+Kanban Card (pull)
+e- Kanban (pull)
+Direct Order (pull)
+
+
+--- SAYFA 6 ---
+	
+A. Urru  et al. / IFAC PapersOnLine 51-9 (2018) 404–409	
+409
+On the other hand the increased frequency leads to an increase 
+in necessary buffer places when the push paradigm is 
+abandoned and different reordering processes are considered. 
+When this is the case, the buffer dimension tends to grow 
+together with the frequency increase. It is also noticeable how 
+different reordering methods are more or less sensitive to an 
+increase in line throughput, main reason being the different 
+reaction time to disturbances characterizing the logistic 
+system. 
+ 
+Fig. 5 Buffer dimensioning according to different line throughput 
+and reordering processes 
+As expected a pull logistic system where the reordering 
+process is triggered by a direct order (button or sensor) is much 
+more  reactive in comparison to a logistic system based on the 
+Kanban card method. As already explained the tugger train 
+planning is a multidimensional problem and the reordering 
+method is only one of the many aspects one could have 
+influence on in order to increase the reliability of the logistic 
+system. In the specific example, for instance when the line 
+throughput is set to 10 (product/h), replacing the e-Kanban 
+with the direct order brings no benefits in terms of buffer 
+reduction. If reducing the buffer places is the goal and 
+framework conditions cannot be changed other aspects such as 
+the possibility of varying the stops order along the route, the 
+number of items in each container or the commissioning 
+process should be investigated. 
+5. DISCUSSION AND CONCLUSION 
+Built on the strong statement that production should never stop 
+or slow down because of logistics, the introduced method is 
+based on a worst-case approach. Whether considering the 
+worst-case approach is better than considering a probabilistic 
+one does not fall within the scope of this section. However, 
+given that monitoring and improving are inevitable steps for 
+the successful adoption of a lean system, starting from a 
+system which is correctly dimensioned is far better than 
+starting from an under dimensioned one. Following the 
+method proposed in this paper, it is possible to design a tugger 
+train system from scratch, as long as the designer is able to 
+steer and freeze, at each step of the method, several technical 
+aspects such as layout configuration, technical equipment 
+selection, takt time of deliveries, etc.. Consequences of these 
+choices are not only affecting the logistic system itself. As a 
+result the method proposed is useful especially when the 
+design of the logistic system is taken into consideration at an 
+early stage of the factory or line design. For this reason this 
+method applies mainly to recent facilities or production lines 
+of intensive production system, where the simultaneous 
+planning of production and logistic systems is supported 
+(Schmidt, Meinhardt and Schulze, 2016). As a matter of fact 
+the expected benefits of safety enhancement, traffic reduction 
+and efficiency improvement drew small and medium sized 
+enterprises (SME) attention. Especially in this kind of 
+industrial realities it is not always trivial to redesign the 
+production line, modify the layout or change well established 
+existing processes. Exactly under these circumstances, where 
+the freedom of the designer is limited, the buffer dimensioning 
+method plays a fundamental role. Given that the buffer 
+dimension is more a constraint then the goal of the planning 
+process, only through a specific and precise buffer 
+dimensioning method, it is possible to evaluate different 
+design alternatives, to define a threshold in the performance 
+level of up-hill and down-hill processes and to lay the 
+foundation to overturn the methodology proposed by the VDI 
+adapting it to highly constrained scenarios. Further research on 
+this topic is foreseeable: first validating the method results 
+through a simulation model, than developing a new extensive 
+planning methodology in order to help SMEs evaluating the 
+opportunities and risks of investing in a lean logistic system 
+based on tugger trains.   
+ACKNOWLEDGEMENTS 
+Supported by „EFRE Program Baden-Württemberg 2014-
+2020“ Project: ZAFH Intralogistik and by „Forschung an 
+Fachhochschulen mit Unternehmen (FHprofUnt)“ Project: 
+KollRo 4.0 - Kollaborativer Routenzug 
+REFERENCES 
+Droste, M., Deuse, J. (2011). A planning Approach for In-plant 
+Milk Run Processes to Optimize Material Provision in 
+Assembly Systems. In: 4th International Conference on 
+Changeable, 
+Agile, 
+Reconfigurable 
+and 
+Virtual 
+Production (CARV2011). Montreal, Canada. 
+Harris, H.,  Harris, C. and Wilson, E. (2003). Making 
+Materials Flow, MA, USA, The lean Enterprise Institute, 
+pp. 54-58. 
+Klenk, E., Galka, S. and Günthner W. A. (2012). Analysis of 
+parameters influencing in-plant milk-run design for 
+production supply. In: International Material Handling 
+Research Colloquium. Gardanne, France. 
+Klenk, E., Galka, S. and Günthner W. A. (2015). Operating 
+Strategies for In-Plant Milk-Run Systems. IFAC-
+PapersOnLine vol. 48, no. 3, pp. 1882–1887. 
+Klug, F. (2006). Synchronised automotive logistics: an 
+optimal mix of pull and push principles in automotive 
+supply networks. In: Logistics research network 
+conference proceedings, Hsrg. Von Bourlakis, M., et al., 
+Newcastle University, pp. 187-191. 
+Schmidt, T., Meinhardt, I. and Schulze, F. (2016). New design 
+guidelines for in-plant milk-run systems, Chair of logistics 
+Engineering Technische Universität Dresden. 
+Vereine Deutscher Ingenieure (2016). VDI 5586, Blatt 2, 
+Routenzugsysteme 
+Planung 
+und 
+Dimensionierung, 
+Düsseldorf. 

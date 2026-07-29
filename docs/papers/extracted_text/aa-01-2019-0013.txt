@@ -1,0 +1,3759 @@
+
+
+--- SAYFA 1 ---
+Optimally scheduling and loading tow
+trains of in-plant milk-run delivery
+for mixed-model assembly lines
+Binghai Zhou and Zhexin Zhu
+School of Mechanical Engineering, Tongji University, Shanghai, China
+Abstract
+Purpose – This paper aims to investigate the scheduling and loading problems of tow trains for mixed-model assembly lines (MMALs). An in-plant
+milk-run delivery model has been formulated to minimize total line-side inventory for all stations over the planning horizon by specifying the
+departure time, parts quantity of each delivery and the destination station.
+Design/methodology/approach – An immune clonal selection algorithm (ICSA) combined with neighborhood search (NS) and simulated annealing
+(SA) operators, which is called the NSICSA algorithm, is developed, possessing the global search ability of ICSA, the ability of SA for escaping local
+optimum and the deep search ability of NS to get better solutions.
+Findings – The modiﬁcations have overcome the deﬁciency of insufﬁcient local search and deepened the search depth of the original metaheuristic.
+Meanwhile, good approximate solutions are obtained in small-, medium- and large-scale instances. Furthermore, inventory peaks are in control
+according to computational results, proving the effectiveness of the mathematical model.
+Research limitations/implications – This study works out only if there is no breakdown of tow trains. The current work contributes to the in-plant
+milk-run delivery scheduling for MMALs, and it can be modiﬁed to deal with similar part feeding problems.
+Originality/value – The capacity limit of line-side inventory for workstations as well as no stock-outs rules are taken into account, and the
+scheduling and loading problems are solved satisfactorily for the part distribution of MMALs.
+Keywords Scheduling, Mixed-model assembly lines, Line-side inventory, Loading, Material delivery, Tow trains
+Paper type Research paper
+Nomenclature
+S
+= integer parameter: set of
+stations (index s [ S);
+C
+= integer parameter: number of
+work cycles in the planning
+horizon (index c= 1,2,  ,C);
+K
+= integer variable: number of
+tours (index k = 1,2,  ,K);
+R
+= continuous parameter:
+running time of tow trains for
+a round trip;
+d
+= continuous parameter:
+replenishment time of tow
+trains in the supermarket
+between two tours;
+ps
+= continuous parameter:
+the travelling time from the
+supermarket to station,
+including the loading
+and unloading
+time;
+Bs
+= integer parameter: maximum
+capacity of inventory level at
+station s (in number of bins);
+dsc
+= integer parameter: number of
+bins required at station s in
+work cycle c;
+A
+= integer parameter: maximum
+capacity that can be loaded
+onto tow trains (in number of
+bins);
+D(c,s)
+= integer parameter:
+cumulative number of bins of
+parts in demand at station s
+in work cycle c;
+O(c,s)
+= integer parameter:
+cumulative number of bins of
+parts delivered to station s in
+work cycle c;
+IL(s,0)
+= constant parameter: initial
+inventory level at
+station s;
+IL(s,c)
+= integer variable: inventory
+level at station s in work cycle
+c (in number of bins);
+The current issue and full text archive of this journal is available on
+Emerald Insight at: https://www.emerald.com/insight/0144-5154.htm
+Assembly Automation
+40/3 (2020) 511–530
+© Emerald Publishing Limited [ISSN 0144-5154]
+[DOI 10.1108/AA-01-2019-0013]
+Received 13 February 2019
+Revised 22 July 2019
+11 November 2019
+20 December 2019
+Accepted 30 January 2020
+511
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 2 ---
+bks
+= integer variable: the number
+of bins a tow train takes to
+station s on tour k;
+tk
+= continuous parameter: the
+start time from the
+supermarket for a tow train
+on tour k;
+(tk: bk1, bk2, . . .bk|S|)
+= a delivery task for a tow train;
+and
+X = {(tk: bk1, bk2, . . .bk|S|)} = an integrated material
+handling scheme.
+1. Introduction
+Over the past few decades, the pressure of automobile
+industry has been growing as requirements for automobile
+products
+have
+been
+gradually
+increasing
+with
+the
+development of economy. To satisfy diversiﬁed demands of
+individual
+customers,
+mixed-model
+assembly
+lines
+(MMALs) have been widely adopted in today’s automobile
+production (Shahabudeen et al., 2002; Wang et al., 2011).
+Under this circumstance, several models and different types
+of products are assembled on the same assembly line, and
+thus a variety of parts required in assembly line are
+indispensable. Because the available space is extremely
+scarce (Peng and Zhou, 2018), it is impossible to store all
+those parts at the factory in practical applications, let alone
+at assembly workstations. Therefore, enormous amount and
+diversity of parts have to be transported just in time (JIT) to
+multitudinous stations while avoiding shortages, otherwise
+any shortage of parts might lead to line stoppage and
+hundreds of assembly workers being idle (Zhou and Peng,
+2017; Boysen et al., 2015).
+In such a context, the in-plant milk-run handling strategy
+has been used by an increasing number of automobile
+manufacturers for timely and accurate delivery of diversiﬁed
+parts to multiple workstations. In-plant milk-run systems
+are transportation systems, where materials are delivered
+from a central storage area to different destinations on
+predetermined routes in short intervals (Klenk et al., 2015).
+This naturally puts pressure on the delivery as it requires a
+massive amount of frequent small-lot material handling. As
+a consequence, to maintain the MMALs well supplied and
+ensure
+the
+smooth
+operation
+of
+production,
+JIT
+supermarkets
+gradually
+take
+the
+place
+of
+centralized
+warehouses. Within this concept, the supermarket is a
+decentralized logistics area for stacking materials by the side
+of an assembly line, in which materials are replenished by
+industrial
+trucks
+in
+large
+lots
+from
+the
+centralized
+warehouse. When a workstation that the supermarket is in
+charge of requires materials, corresponding bins will be in
+preparation. These bins contain complete kits of parts for
+speciﬁc models. The parts are placed in the same order as
+the
+workpiece
+assembled
+along
+the
+line
+to
+reduce
+unproductive searching and walking time of assembly
+workers. (Bozer and McGinnis, 1992; Limére et al., 2012).
+Moreover, these comparatively small and standardized bins
+can be stored in accessible racks (Finnsgård et al., 2011),
+which leads to the ergonomic improvement.
+Afterward, bins are transported to workstations by tow
+trains, which are wagons with electric towing equipment. First,
+the tow train is loaded in the supermarket with bins of materials
+required by workstations. Then it sets out to deliver the
+corresponding number of bins in sequence to workstations on
+the MMAL that are in demand of materials. Finally, at the end
+of each tour, the tow train returns to the supermarket to be
+replenished for the preparation of the next delivery.
+When it comes to tow trains, it should be noted that they
+usually operate on a ﬁxed schedule, and the tow train
+scheduling is within the scope of in-house logistics. As Emde
+et al. (2012) pointed out that the planning and control of this
+in-house logistics concept amounted to a complex task
+where the following interrelated decision problems had to be
+solved:
+1
+decision on the number and location of decentralized
+supermarkets;
+2
+assignment
+of
+line
+segments
+to
+supermarkets
+and
+determine the number of tow trains per supermarket;
+3
+determination of each tow train’s ﬁxed delivery schedule;
+and
+4
+decision on the bins to be loaded per tour of a tow train.
+The ﬁrst two problems are related to the supermarket, such as the
+supermarket location determination and deciding the number of
+tow trains per supermarket. The last two problems are related to
+the tow train, which means the frequency and time of tow trains
+leaving the supermarket to tour stations on its given route, the
+tow train stopping at which station and the number of bins it
+unloading there. As is known to all, a reasonable and
+comprehensive schedule plan of material delivery can deﬁnitely
+ensure a reliable and steady part supply, but it is hard to be
+achieved without taking into account the number of part bins to
+be loaded to corresponding stations per tour. Moreover, a well-
+scheduled plan can reduce the line-side inventory effectively, and
+because space on the assembly shop is scarce and expensive
+(Emde and Boysen, 2012), it is necessary to develop a scheduling
+plan for tow trains and determine the number of bins to be loaded
+on a tow train in each tour. In other words, the paper focuses on
+decisions 3 and 4. The tow train scheduling and loading
+problems are the most crucial ones in the ﬁeld of part feeding.
+Similar to the digital factory that uses the simulation techniques
+to realize the design and optimization of production processes
+and system (Centobelli et al., 2016; Kuhn, 2006), the scheduling
+and loading problems mentioned before use the simulation
+method to improve the scheduling process of the material
+delivery, so that the corresponding evaluation objective is
+optimized, which can make the optimization of the whole
+scheduling system come true. It is of great signiﬁcance in the
+comprehensive
+process
+management,
+the
+model
+planning
+(Zakoldaev et al., 2019), reducing costs of the manufacturing
+system and improving the core competitiveness of the enterprise.
+An efﬁcient material handling system can effectively reduce the
+operating cost by 20-30 per cent (Zhou and Peng, 2019), second
+only to the optimal assembly sequence, which can reduce the
+total cost by 40-60 per cent (Bahubalendruni and Biswal, 2018;
+Bahubalendruni and Biswal, 2017). Therefore, it is fairly
+essential to do some research on the scheduling and loading
+problems.
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+512
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 3 ---
+To cope with the scheduling and loading problem of the
+material handling for MMALs, this paper adopts the immune
+clonal
+selection
+algorithm
+(ICSA)
+as
+the
+basis.
+The
+contributions of the paper are summarized as follows:
+1
+A material handling scheduling and loading method for
+MMALs based on the milk-run delivery with the constraints
+of capacity of the tow train and the line-sideinventory. The
+objective is to minimize total line-side inventory for stations
+over the planning horizon while ensuring that materials are
+delivered in time so that the stock-out of stations can be
+eliminated.
+2
+Several lemmas and theorems of the research problem are
+proposed and proven to improve the quality of solutions
+and reduce computational complexity to some extent.
+3
+The intelligent ICSA incorporated with the SA and
+neighborhood search (NS) operators, which the authors
+call NSICSA, is used to tackle the problem, and its
+effectiveness
+and
+competitiveness
+are
+proved
+by
+comparing with other two algorithms.
+The remainder of this paper is organized as follows. Section 2
+provides a brief literature review. Section 3 describes the
+problem formulations of the scheduling problem based on in-
+plant milk run delivery. To solve the proposed problems, three
+theorems were put forward. Section 4 presents the NSICSA,
+which overcomes deﬁciencies of the SICSA, such as the
+tendency to trap into local optima and limited search depth.
+Computational experiments are carried out to evaluate and
+validate the proposed algorithm in Section 5. Finally, Section 6
+draws conclusions.
+2. Literature review
+Although tow trains are widely applied in the automotive
+industry, there have been few relevant literatures tackling the
+scheduling of tow trains. As mentioned before, Emde et al.
+(2012) distinguished between four decision problems related to
+organizing the part feeding process with tow trains. To date,
+literatures involving the above four decision problems are
+introduced.
+Regarding
+the
+ﬁrst
+decision
+problem,
+namely,
+the
+supermarket location problem, Battini et al. (2012) described
+the supermarket concept explicitly and did surveys on basic
+decision problems emerging when implanting the supermarket
+concept. Emde and Boysen (2012) studied the supermarket
+location problem with the consideration of optimizing the
+supermarket conﬁguration costs and total material ﬂows, and a
+dynamic programming algorithm was obtained. However, the
+research did not take the capacity limit of the supermarket and
+unavailable
+areas
+in
+the
+workshop
+into
+consideration.
+Afterward, Alnahhal and Noche (2015) dealt with the two
+aspects, and the time complexity of the SLP problem was
+increased. Later, a real genetic algorithm (RGA) was carried
+out to handle the problem.
+The second, third and fourth decisions, namely, the routing,
+scheduling and loading of tow trains, are the subproblems of
+the delivery-to-line (DL) problem. According to different
+handling vehicles, the DL problem can be divided into two
+categories: part distribution by the forklift (DL1) and material
+delivery by
+tow train
+(DL2).
+The two
+problem
+types
+correspond to the point-to-point and the milk-run delivery.
+About the DL1 problem, Kozan (2000) studied the
+assignment
+(DL1-assignment)
+and
+sequencing
+(DL1-
+sequencing) problem of material delivery tasks for the truck
+assembly plant in Australia. The optimization model proposed
+by the authors is an extended application of the traditional
+multi-period vehicle routing problem (VRP). Boysen and Bock
+(2010) focused on Hoist’s material delivery sequencing
+problem
+(DL1-sequencing),
+aiming
+at
+minimizing
+the
+maximum inventory in all stations and production cycles with
+part-dependent
+weights,
+and
+constructed
+a
+dynamic
+programming algorithm and SA algorithm. Rao et al. (2013)
+investigated the scheduling of a single vehicle. To avoid
+material shortage and reduce total costs including inventory
+holding cost and travelling cost, it was necessary to determine
+the departure time and part quantity of each delivery according
+to the predetermined assembly sequence. Despite the reference
+value of aforementioned literature, it is unrealistic for their
+models to be directly applied to the JIT material handling of
+MMALs.
+The second, third and fourth decisions are relevant to the
+part feeding of assembly lines, which are consistent with
+material delivery by tow train (DL2). The modeling and
+optimization problems of material handling for MMALs in this
+paper have certain correlations and similarities with the
+traditional VRP (Ho and Haugland, 2004; Baker and Ayechew,
+2003; Laporte et al., 1988) and inventory routing problem
+(IRP) (Kleywegt et al., 2002; Vidovic et al., 2014), but there are
+three differences:
+1
+Customers in the VRP are visited only once, unlike the
+part feeding in assembly lines that requires multiple
+delivery.
+2
+The classic VRP and its extension problems only deal with
+path optimization problems without considering the end
+demand.
+3
+The end demand of IRP-related problems is set to a
+certain value (or subject to a certain distribution), but the
+end demand of the material delivery of assembly lines
+problem is a time series.
+With regard to the VRP problem, as for the milk-run delivery,
+Vaidyanathan et al. (1999) extended the classical VRP model
+and proposed a JIT capacitated vehicle routing problem
+(JITCVRP) to handle the routing problem of tow trains (DL2-
+routing). The authors assumed that once a route was assigned
+to a tow train, there was no interruption and the demand rate of
+each workstation was constant. To ensure the punctual
+delivery, the optimization objective was to minimize total
+driving time. The quantity of materials delivered each time
+before the next one reaching the workstation was sufﬁcient to
+meet the demand of the station. Therefore, shorter delivery
+cycle meant less line-side inventory. Similar to the VRP
+problem, the DL2 problem was analyzed by Emde and Boysen
+(2010). They dealt with the routing of tow trains (DL2-
+routing) and the scheduling of material delivery (DL2-
+scheduling), and developed a nest dynamic programming
+algorithm to minimize the sum of the line-side inventory cost
+and travelling cost. On the basis, Emde et al. (2012) focused on
+the loading problem of tow trains (DL2-loading), determining
+the replenishment of each workstation with the predetermined
+maximum capacity of tow trains, demand of workstations and
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+513
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 4 ---
+cycle time of each tour. Thus, the bi-objective optimization of
+minimizing the maximum inventory and total inventory was
+accomplished with the construction of an exact polynomial-
+time approach. Golz et al. (2012) took a German automobile
+manufacturer as an example and proposed a heuristic solution
+procedure to investigate the routing problem of tow trains
+(DL2-routing), the scheduling of material delivery (DL2-
+scheduling) and the loading problem of tow trains (DL2-
+loading) simultaneously, aiming at minimizing the required
+number of shuttle drivers without stock-outs. Furthermore,
+Choi and Lee (2002) analyzed the joint optimization problem
+of the three as well and developed a two-stage heuristic
+algorithm to minimize the deviation of optimal handling time.
+According to the above discussion, these research studies have
+provided the authors a useful reference to resolve scheduling
+and loading problems of in-plant milk-run delivery for
+MMALs.
+Because the scheduling and loading problems are proven to
+be NP-hard (Fathi et al., 2015), exact approaches only ﬁt small-
+scale problems. To settle large-scale problems with NP-
+hardness nature within desirable time, many researchers have
+resorted
+to
+metaheuristic
+algorithms
+which
+possess
+the
+outstanding computational efﬁciency and superior solution
+quality. For instance, a novel SA algorithm-based heuristic
+(Fathi et al., 2014a), a novel memetic ant colony optimization-
+based heuristic algorithm (Fathi et al., 2014b) and a modiﬁed
+particle swarm optimization algorithm (Fathi et al., 2015) were
+proposed to tackle the scheduling and loading problems of tow
+trains, all aiming at minimizing the number of tours and line-
+side inventory. In addition, Peng and Zhou (2018) used
+artiﬁcial bee colony–based approach to investigate the JIT in-
+house logistics problem for automotive assembly lines. The
+multi-objective ant colony algorithm (Rubaiee and Yildirim,
+2019) was developed to minimize total completion time and
+energy cost on a single-machine preemptive scheduling.
+Besides, facing the fourth industrial revolution, an improved
+binary grey wolf optimizer was proposed by Jiang et al. (2019)
+to solve the dependent task-scheduling problem.
+Apart from the algorithms mentioned above, there are also a
+bunch of algorithms derived from or similar to the classic
+genetic algorithm (GA) which generates new candidates by
+crossover and mutation operators, such as differential evolution
+(DE) algorithm and ICSA etc. For example, Rao et al. (2013)
+developed a hybrid genetic algorithm and simulated annealing
+(GASA) approach to deal with the scheduling problem with
+high efﬁciency even in large instances. Moreover, an elitism
+genetic algorithm (EGA) combining an elitism strategy was
+proposed by Xie and Chen (2018) address uncertainty job shop
+scheduling problem with interval grey processing time. It can
+be seen that these algorithms show remarkable performance in
+search ability, short computational time and the extensibility,
+which provides inspirations that metaheuristic algorithms can
+be combined with other factors to obtain stronger effectiveness.
+Among these algorithms, the ICSA, which was designed based
+on the clonal selection of biological immune system, retains an
+outstanding
+information
+processing
+and
+problem-solving
+ability, which are embodied in the characteristics of distributed,
+self-learning, self-adaptation, self-organization and robustness.
+It is capable of converging to the global optimal solution rapidly
+in the searching process. Owing to its outstanding global search
+capability, the ICSA has attracted great attention and been
+applied to tackle a number of optimization problems in
+scientiﬁc and engineering applications (Zhou and Wu, 2019),
+including robotic assembly line balancing and ﬂow shop
+scheduling. For instance, regarding the ﬂow shop decision-
+making problem, Liu et al. (2009) applied the ICSA to handle
+the
+hybrid
+ﬂow-shop
+scheduling
+with
+the
+objective
+of
+minimizing makespan. Peng and Zhou (2018) solved the JIT
+part distribution problem for automobile assembly lines by the
+proposed modiﬁed ICSA. Zhou and Wu (2019) developed an
+improved immune clonal selection algorithm (MOICSA) to
+solve bi-objective robotic assemble line balancing problems,
+and the MOICSA showed great search and convergence ability,
+which led to better results compared to the other algorithms. As
+mentioned before, the purpose of the scheduling and loading
+problems tackled in this paper are meant to minimize total line-
+side inventory of all stations over the planning horizon, so it can
+be seen as a typical optimization problem. In addition, to the
+best of the authors’ knowledge, ICSA has not been used to
+tackle the tow train scheduling and loading problems in the
+literature. Consequently, it is worthier evaluating the ICSA’s
+capability of solving the problem tackled in this paper as a
+global search algorithm.
+However, despite the abovementioned advantages, ICSA
+falls short in the local search phase, so in this paper, a novel
+intelligent ICSA incorporated with the SA and NS operators,
+which the authors call the NSICSA, is developed to solve the
+scheduling and loading problems of tow trains with line-side
+and tow train inventory capacity constraints. The proposed
+NSICSA possesses the global search ability of ICSA, the ability
+of getting rid of local optimum of SA and the deep search ability
+of NS. Owing to comprehensive advantages, it can enhance the
+quality
+of
+solutions,
+effectively
+solve
+the
+problems
+of
+optimization with constraints and has a fast convergence speed.
+Experimental results show that the NSICSA is of better
+performance compared with the ICSA in that it has the
+advantage of higher quality solutions and outstanding searching
+efﬁciency as well as avoiding prematurely converging to local
+optimum by means of chaos-based initialization.
+3. Problem statement
+3.1 Problem description and notations
+Figure 1 reveals a representative layout of an assembly line with
+a supermarket described in the paper, and for the sake of
+convenience, the notations and explanations are generalized in
+notations
+and
+explanations.
+Using
+these
+notations,
+the
+scheduling and loading problem can be described as follows. In
+the in-plant milk-run delivery system for the automotive
+MMAL addressed in this paper, tow trains are used to make a
+frequent small-lot material handling to stations, which is
+denoted by s [ S in the assembly line. Typically, a tow train
+carrying materials packaged in uniform standard-size bins sets
+off from a central supermarket to visit these stations in a ﬁxed
+order (Emde and Gendreau, 2017). The production sequence
+is predetermined a few weeks before production, thus whether
+materials are required at station s in work cycle c (dsc =1) or not
+(dsc = 0) is known with certainty. Because all bins are of the
+same capacity and size, the exact contents of bins are
+insigniﬁcant for the scheduling and loading problem. In this
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+514
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 5 ---
+case, the proper number of bins to be delivered to the accurate
+corresponding stations is a matter of concern.
+The tow train with full bins travels from the supermarket
+to station s takes a certain amount of time ps, including the
+loading and unloading time. It then travels around the
+assembly area, driving by all stations on the route and
+returning to the supermarket as an end, which takes time R.
+Moreover, the replenishment time of tow trains in the
+supermarket
+between
+two
+tours
+is
+d .
+All
+times
+are
+normalized to the cycle time and all the time related
+parameters can be fractional. However, for convenience’s
+sake, it is assumed that the tow train only sets off at integral
+points in time, namely, full work cycles (Emde and
+Gendreau, 2017), which has been proven to be a tolerable
+simpliﬁcation. In addition, from a practical perspective, it is
+hard to communicate an accurate and continuous timetable
+to operators when the demand occurs owing to the higher
+precision.
+Furthermore, given the limited space at stations, the
+maximum capacity of inventory level at station s is Bs, and
+tow trains are usually restricted to a small number of wagons
+and thus leads to constraints on the number of bins being
+loaded on a tow train.
+In addition, two auxiliary functions are deﬁned as follows for
+the convenience of the model formulation:
+m1 u; v
+ð
+Þ ¼
+1 u  v
+0 u > v
+;
+m2 u; v
+ð
+Þ ¼
+1 u ¼ v
+0 u 6¼ v
+(
+(
+In this paper, the objective of the scheduling problem is to
+minimize the total line-side inventory for all stations over the
+planning horizon. Clearly, multiple factors can affect the stock
+level at workstations. However, the departure time of each cycle
+and the number of bins for respective stations can be regarded
+as the most important issues in the tow train scheduling to
+prevent the stock-out of workstations.
+3.2 Mathematical model
+In this subsection, a mathematical model is established on the
+basis of the following assumptions:
+
+Cycle time is selected as the basic unit time for the system.
+
+No
+tow
+train
+idle
+time
+is
+allowed
+between
+two
+consecutive jobs. Note that if idle time is allowed, more
+degrees of freedom concerning the objective function
+will exist. To avoid extra investment costs, a no-wait
+policy is applied.
+
+The
+location
+of
+the
+material
+supermarket
+and
+the
+workstation is predetermined. In addition, the routes and
+driving distances of each tow train are known.
+
+The processing time of part deliveries by tow trains from
+the supermarket to each station as well as the operating
+time for picking up and dropping off bins are static and
+deterministic.
+
+The production sequence is determined a few weeks
+before production, thus the demand of each station within
+planning horizon is known with certainty.
+
+Materials are stored in bins of uniform size, thus, the capacity
+constraint of tow trains and the inventory level at workstations
+are denoted by the number of standardized bins.
+According to the assumption (equation 2), because of the
+no-wait policy as well as the material delivery for automotive
+assembly lines on the basis of in-plant milk-run delivery, the
+cycle of each handling task is (R 1 d ), that is to say, the total
+number of deliveries K in the planning horizon is ﬁxed.
+Concerning the objective of material handling, the classic
+objective of minimizing total cost including inventory cost
+and transportation cost of tow train is applicable, which also
+achieves the wide application in many other literatures
+(Emde et al., 2014). Because the number of deliveries is
+predetermined,
+the
+only
+outstanding
+problem
+is
+the
+inventory cost. As a result, the objective of this paper is to
+minimize total line-side inventory for all stations over the
+planning horizon. In the light of the assumptions and
+notation deﬁnitions above, the scheduling model can be
+formulated as the following objective function subject to
+feasibility constraints in equations (2)-(5).
+Objective function:
+Minimize
+X
+C
+c¼1
+X
+jSj
+s¼1
+IL s; c
+ð
+Þ
+(1)
+Subject to:
+X
+K
+k¼1
+bks 1 IL s; 0
+ð
+Þ ¼
+X
+C
+c¼1
+dsc
+8s 2 S
+(2)
+0  IL s; c
+ð
+Þ  Bs
+8s 2 S; c ¼ 1; 2;    ; C
+(3)
+0 <
+X
+jSj
+s¼1
+bks  A
+8k ¼ 1; 2;    ; K
+(4)
+Figure 1 Illustration of milk-run delivery system for automotive
+MMALs
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+515
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 6 ---
+tk 1 R 1 d ¼ tk 1 1 and t1 ¼ 1; tk  C
+8k ¼ 1; 2;    ; K
+(5)
+where:
+O c; s
+ð
+Þ ¼
+X
+K
+k¼1
+bksm1 tk 1 dpse; c
+ð
+Þ
+8s 2 S; c ¼ 1; 2;    ; C
+(6)
+D c; s
+ð
+Þ ¼
+X
+c
+c0
+dsc0
+8s 2 S; c ¼ 1; 2;    ; C
+(7)
+IL s; c
+ð
+Þ ¼ IL s; 0
+ð
+Þ 1 O c; s
+ð
+Þ  D c; s
+ð
+Þ
+8s 2 S; c ¼ 1; 2;    ; C
+(8)
+Objective function (1) aims at minimizing total line-side
+inventory
+for
+all
+stations
+over
+the
+planning
+horizon.
+Equation (2) ensures that the materials delivered meet the total
+demand of workstations. Constraint [equation (3)] indicates
+that parts must be conveyed to the station timely to avoid stock-
+out, and the inventory for each station does not exceed capacity
+limits. Constraint [equation (4)] makes sure that part quantity
+within each tour would not violate the capacity constraint of
+tow trains. Equation (5) shows that the departure time of a tow
+train
+is
+cyclical
+and
+accords
+with
+the
+no-wait
+policy.
+Additionally, the cumulated number of parts delivered to
+station s and required at station s in work cycle c is given by
+equations
+(6)
+and
+(7),
+respectively.
+The
+mathematical
+expression of inventory level of the workstation is deﬁned in
+equation (8).
+3.3 Theorems of the research problem
+This
+subsection
+mainly
+aims
+to
+enlighten
+the
+solution
+mechanism
+and
+eliminate
+some
+non-improvement-added
+adjustments without comprehensively evaluating the achieved
+solutions. Consequently, the following theorems are proposed
+on the basis of analysis of the problem domain.
+Lemma 1: Without the consideration of capacity limitations
+of the inventory of workstations, any feasible solution should
+satisfy the following constraint:
+X
+jSj
+s¼1
+ILsk  Uk; 8k ¼ 1; 2;    ; K
+where ILsk denotes the inventory of workstation s after the
+delivery k, Uk means the minimum inventory of the workstation
+that meets the condition of no stock-out after the delivery k.
+Proof: Based on the deﬁnition of ILsk, Uk mentioned above,
+we can conclude that without the consideration of capacity
+limit
+of
+line-side
+inventory
+for
+workstations,
+when
+XjSj
+s¼1ILsk  Uk, it meets no shortage constraint, and any
+feasible solution should satisfy the constraint, thus any feasible
+solution of the problem meets
+XjSj
+s¼1ILsk  Uk.
+Theorem 1: Without the consideration of capacity limit of
+line-side inventory for workstations, the lower bound of the
+scheduling problem LB(fsum) is given by:
+LB fsum
+ð
+Þ ¼
+X
+K
+k¼1
+X
+jSj
+s¼1
+X
+tk 1 1 1 dpse1
+c¼tk 1 dpse
+X
+tk 1 1 1 dpse1
+c0 ¼tk 1 dpse
+dsc0 
+X
+c
+c0 ¼tk 1 dpse
+dsc0
+0
+@
+1
+A 1
+X
+K
+k¼1
+Uk
+where dsk represents material required at station s on tour k and
+EDk denotes additional material requirements on tour k.
+Proof: First, it is essential to clarify the implication of
+variables such as dsk, EDk, Uk, ILsk:
+dsk : dsk ¼
+X
+tk 1 1 1 dpse1
+c¼tk 1 dpse
+dsc; k ¼ 1; 2;    ; K
+X
+C
+c¼tk 1 dpse
+dsc; k ¼ K
+8
+>
+>
+>
+>
+>
+>
+<
+>
+>
+>
+>
+>
+>
+:
+EDk : EDk ¼
+X
+jSj
+s¼1
+dsk  A; 8k ¼ 1; 2;    ; K
+If the result is positive, it not only reﬂects the loading capacity
+of tow trains but also indicates that materials fail to be delivered
+in time on tour k and therefore should be conveyed ahead of
+time.
+Uk : Uk ¼ max 0; Uk 1 1 1 EDk 1 1
+f
+g; 8k ¼ 1; 2;    ; K
+where Uk = 0.
+ILsk : ILsk ¼
+X
+k
+k0
+bsk0 
+X
+k
+k0
+dsk0 ; 8k ¼ 1; 2;    ; K; s 2 S
+tK 1 1 : Let tK 1 1 ¼ C
+be the ﬁctitious departure time for the sake of subsequent
+descriptions. The material requirement dsc exceeding the work
+cycle C is 0.
+Then, the signiﬁcance of total inventory fsum is under
+thorough analysis. It consists of two parts: one is inventory f1
+emerging before the next delivery, which exists inevitably, and
+the other is inventory f2 due to the delivery in advance. Let
+1k ¼
+X
+jSj
+s¼1
+X
+tk 1 1 1 dpse1
+c¼tk 1 dpse
+X
+tk 1 1 1 dpse1
+c0 ¼tk 1 dpse
+dsc0 
+X
+c
+c0 ¼tk 1 dpse
+dsc0
+0
+@
+1
+A
+be the inventory emerging between tour k and tour k 1 1, hence
+f1 ¼
+XK
+k¼11k is a constant and f2 ¼
+XK
+k¼1
+XjSj
+s¼1ILsk is a
+variable, so to minimize fsum is to minimize f2. According to
+Lemma
+1,
+any
+feasible
+solution
+satisﬁes
+the
+constraint
+XjSj
+s¼1ILsk  Uk,
+thus
+f2 ¼
+XK
+k¼1
+XjSj
+s¼1ILsk 
+XK
+k¼1Uk,
+fsum  f1 1
+XK
+k¼1Uk, namely, the lower bound of fsum is :
+LB fsum
+ð
+Þ ¼
+X
+K
+k¼1
+X
+jSj
+s¼1
+X
+tk 1 1 1 dpse1
+c¼tk 1 dpse
+X
+tk 1 1 1 dpse1
+c0 ¼tk 1 dpse
+dsc0 
+X
+c
+c0 ¼tk 1 dpse
+dsc0
+0
+@
+1
+A 1
+X
+K
+k¼1
+Uk
+Theorem 1 is proven.
+Theorem 2: If w 1, w2 [ {1,2,  ,K} (w 1 < w 2) denote two
+delivery jobs of the integrated material handling scheme X, then
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+516
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 7 ---
+when Vs [ S and Vk [ {w 1 1 1,. . ., w 2 – 1} satisﬁes
+bw1s 6¼ 0
+bw2s 6¼ 0
+bks ¼ 0
+8
+<
+:
+,
+IL(s, c) which decreases progressively in the interval of
+tw1 1 dpse; tw 2 1 dpse  1
+
+
+obtains
+the
+maximum
+and
+minimum values at both ends. Theorem 2 is clearly established
+and the proof is omitted.
+Based on Theorem 2, it can be concluded that when delivery
+jobs of scheme X denoted by w1, w2 can satisfy the above
+conditions, the inventory of station s at time t ¼ tw 1 1 dpse
+might violate the capacity restriction of line-side inventory, and
+a stock-out may take place at station s at time t ¼ tw2 1 ps  1.
+Accordingly, the feasibility of solutions can be judged by the
+construction of the maximum and minimum inventory set
+which are denoted by Cmax, Cmin and can be calculated by the
+following equations (9) and (10).
+Cmax ¼
+IL s; t
+ð
+Þ jt ¼ min tk 1 dpse; C
+ð
+Þ; k 2 1; 2;    ; K
+f
+g
+
+
+(9)
+Cmin ¼
+IL s; t
+ð
+Þ jt ¼ min tk 1 dpse  1; C
+ð
+Þ; k 2 1; 2;    ; K
+f
+g
+
+
+(10)
+If Ag b > 0 (g b [ Cmin), there exists a stock-out in the assembly
+line, consequently the scheme X is an infeasible solution. If Ag a
+> Bs (g a [ Cmin), it indicates that the capacity constraint of line-
+side workstations is violated, and the scheme is also an
+infeasible solution.
+Theorem 3: If the minimum number of bins delivered to
+station s on tour w 1 is denoted by bmin
+w1s, and if w1, w 2 [ {1,2,  ,
+K}(w1 < w 2) denote two delivery jobs of the integrated material
+handling scheme X, then when Vs [ S and Vk [ {w1 1 1,. . ., w 2 –
+1}satisﬁes
+bw1s 6¼ 0
+bw2s 6¼ 0
+bks ¼ 0
+8
+<
+:
+,
+there
+exists
+bw1smin ¼
+Xtw2 1 dpse1
+j¼1
+dsj  IL s; 0
+ð
+Þ 
+Xw11
+i¼1 bis.
+Proof: If Vk [ {w1 1 1,. . ., w 2 – 1} satisﬁes
+bw1s 6¼ 0
+bw2s 6¼ 0
+bks ¼ 0
+8
+<
+:
+, then it
+can be concluded that w 1 and w2 are two delivery jobs adjacent
+to station s, thus bmin
+w1s which is the inventory at station s at time
+tw2 1 dpse  1
+
+
+on tour
+w2
+is
+just
+0,
+that
+is
+to
+say,
+IL s; tw2 1 dpse  1
+
+ ¼ 0.
+Theorem 3 is proven.
+4. NSICSA design
+As discussed in the above section, the problem in this article
+falling under the category of NP-hard brings signiﬁcant
+difﬁculty in obtaining optimal solutions for exact algorithms.
+Consequently, ICSA is introduced as the main framework for
+the optimization algorithm. The ICSA is distinguished for its
+excellent data and information processing but comes short on
+local search processes. To ameliorate the capability of the
+proposed algorithm, NS is incorporated with ICSA to improve
+the exploitation ability in local search. And in the meanwhile,
+SA is integrated into the hybrid algorithm to avoid local
+equilibrium when the algorithm evolves to a certain extend.
+Accordingly, in this paper, an ICSA combined with the NS and
+SA operators which the authors call the NSICSA is developed,
+possessing the global search ability of ICSA, the ability
+of getting rid of local optimum of SA and the deep search ability
+of NS to get better solutions. The detailed descriptions of
+NSICSA are presented as follows.
+4.1 Encoding schemes
+Two of the key procedures of the immune algorithm are the
+antibody identiﬁcation and the antibody coding. According to
+the problem characteristics, an antibody denotes a material
+handling scheme, namely, a solution, and a coding scheme
+example is illustrated in Figure 2, where K = 3, |S|=8. The
+scheme has |S| columns the and K rows, in which each column
+represents the workstation s(s [ S), each row represents the tour
+k(k = 1,2,  ,K), and bks denotes the element xks, which means
+the bins delivered to the workstation s on tour k. The sum of
+each row of the scheme should be less than the loading capacity
+of the tow train to satisfy the equation (4). In addition, the sum
+of each column of the scheme should be equal to the total
+demand of workstations to satisfy the equation (2).
+4.2 Population initialization
+The initialization of the antibody is crucial to the convergence
+of algorithms and the quality of solutions. Hence, an approach
+based on chaos is proposed to initialize the antibody. The
+chaotic iteration parameter CI and the population size Npop are
+given, and the main procedures are illustrated as follows:
+Step 1: Let AP0 / Ø, i = 1, j = 1.
+Step 2: Generate K  |S| different random numbers
+D0
+mn m ¼ 1; 2;    ; K; n ¼ 1; 2;    ; jSj
+ð
+Þ 2 0; 1
+½
+Þ.
+Step
+3:
+8Dmni m ¼ 1; 2;    ; K; n ¼ 1; 2;    ; jSj
+ð
+Þ,
+the
+following chaotic operations are performed until the generation
+of DmnCI:
+for i = 1: CI
+Di
+mn ¼ sin p  Di1
+mn
+
+	
+end for
+Step 4: LBks ¼ min A 
+Xs
+s0¼1 bks0 ;
+Xk
+k0 ¼1 dsk0 
+Xk1
+k0 ¼1 bk0 s
+n
+o
+« ¼ min A 
+Xs
+s0 ¼1 bks0  LBks;
+XK
+k¼1 dsk 
+Xk1
+k0 ¼1 bk0 s 
+Xk
+k0 ¼1 dsk0
+n
+o
+,
+then bks ¼ LBks 1 rand DCI
+mn  «
+
+	
+, until the antibody X1 is
+generated.
+Repeat the steps above Npop times to generate the initial
+antibody group AP0 ¼
+X1; X2; . . . ; XNpop
+
+.
+4.3 Termination condition judgement
+If the number of iterations reaches the speciﬁed upper limit
+MAXGEN, the solution result is output; otherwise, proceed to
+step 4.4.
+Figure 2 Coding scheme example
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+517
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 8 ---
+4.4 Construction of afﬁnity function
+Owing to the omission of considering the inventory shortage and
+capacity constraints of workstations in the coding scheme,
+infeasible solutions may exist in the antibody population if the line-
+side inventory level meets the condition proposed in Theorem 2.
+Under the circumstance, the penalty value should be introduced to
+the objective function when it comes to the afﬁnity evaluation.
+The performance of antibodies is evaluated by its afﬁnity.
+Because the objective of the problem is to minimize total line-
+side inventory for all stations over the planning horizon, the
+afﬁnity function for an antibody X is calculated as follows:
+Affinity X
+ð Þ ¼
+1
+IL X
+ð Þ 1 pena X
+ð Þ
+(11)
+where IL(X) is the corresponding objective function of antibody
+X, and pena(X) denotes the penalty function. Based on Theorem
+2, the Cmax and Cmin of scheme X can be constructed.
+Furthermore, if Ag a > Bs(g a [ Cmax) or Ag a > Bs(g b [ Cmin),
+which means that X is an unfeasible solution, the corresponding
+penalty measures are forced to take place in the afﬁnity
+evaluation. The penalty function pena(X) is deﬁned as follows:
+pena X
+ð Þ ¼ 
+XjCmaxj
+i¼1
+l 1  max g a
+i  Bs; 0
+
+
+
+1
+XjCminj
+j¼1
+l 2  min g b
+j ; 0
+
+		
+(12)
+where l 1 and l 2 are the penalty coefﬁcients for the stock-out of
+workstations and the stock exceeding the inventory capacity of
+workstations, respectively. For the convenience in programming,
+the performance of antibodies is directly evaluated by total inventory
+which is denoted by ILsum, where ILsum = IL(X) 1 pena(X).
+4.5 Clonal selection operation
+The afﬁnity of each antibody is evaluated, and then the top
+Nc antibodies are selected and stored in the memory bank in
+the descending order of size, and the position of which in the
+sequence is denoted by r. They are then cloned separately,
+and the number of clones is (Nc – r 1 1), thus the total
+number of antibodies after the completion of cloning is
+Nc(Nc 1 1)/2. The afﬁnity of the antibody population is
+improved through the cloning operation. An illustrative
+example is depicted in Figure 3.
+4.6 Neighborhood search
+Considering the signiﬁcant inﬂuence of the current optimum
+solution on the convergence of the algorithm, the NS operator
+is used to perform deep search on the individuals in the current
+memory bank to ﬁnd the “critical chain” of the antibody and
+the corresponding “key station” denoted by s. The operator
+can make the solution develop in a better direction without
+destroying the memory bank. s is given by:
+s ¼ arg
+max IL s; c
+ð
+Þ
+s 2 S; c ¼ 1; 2;    ; C
+ð
+Þ
+(13)
+For the antibody X
+Mi, X XMi, s is obtained by the formula
+(13), the total inventory of
+XC
+c¼1IL s; c
+ð
+Þ will be the minimum
+if satisfying the following constraints:
+bks  A 
+X
+j2S and j6¼s
+bkj
+X
+K
+k¼1
+bks ¼
+X
+C
+c¼1
+dsc
+; 8k ¼ 1; 2;    ; K
+8
+>
+>
+>
+>
+<
+>
+>
+>
+>
+:
+(14)
+Figure 3 Clonal operation
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+518
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 9 ---
+4.7 Hyper-mutation operations
+Unlike GAs, immune algorithms mutate all antibodies in a
+cloned
+population
+according
+to
+their
+afﬁnity
+values
+(Abdollahpour and Rezaeian, 2015). Given the coefﬁcient of
+mutation 0 < M1 < M2, the antibody is subjected to the
+following mutations:
+Step 1: Given the scheme X, Vk = 1,2,  ,K, s [ S, bksmin is
+calculated according to Theorem 3. If bksmin < 0; which indicates
+that the line-side inventory of s is in high level, so the ﬁrst (k – 1)
+times of delivery can meet the demand. Therefore, the delivery
+on tour k0(k0 > k) is randomly selected, and there exits bk0s / bk0s
+1 bks, bks / 0. If bksmin > A, then the inventory of s is in low level,
+hence the delivery needs to be arranged in advance. The previous
+delivered bins are given by bk–1,s / bk–1,s 1 rand(0,1) · D, where
+D ¼ min A 
+XjSj
+s¼1bk1;s; bks
+n
+o
+, which constitutes X0, X /
+X0.
+Step 2: If r < M1, then go to
+step3; else if M1 < r < M2, then go to step 4.
+Step 3: Choose
+Vs [ S, if Ak1, k2[{1,2,  ,K}, satisfying bk2s  A 
+XjSj
+j¼1bk1j,
+then bk1s bk1s 1 bk2s, bk2s 0, which constitutes X0, X / X0,
+and then go to step5.The procedure is performed as shown in
+Figure 4(a).
+Step 4: Choose Vs [S, if Ak, k0[{1,2,  ,K}, satisfying bks > 1,
+then Vb0 [ {1,2,  ,bks – 1} and b
+0  A 
+XjSj
+j¼1bk0 j, bks / bks – b0,
+bk0s / bk0s 1 b0. Go to step5. The procedure is carried out as
+shown in Figure 4(b).
+Step 5: Antibody mutation ends.
+4.8 Simulated annealing operations
+The immune clone selection algorithm may fall into local
+equilibrium after evolving to a certain extent. Consequently, when
+the algorithm runs to the later stage, the SA operation is
+introduced to help the algorithm escape from the local equilibrium
+state. Finally, update the population and go to step 4.3. The
+pseudo codes of SA operations are shown in Procedure of SA:
+Figure 4 Procedure of hyper-mutation operations
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+519
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 10 ---
+begin
+Initialize the initial temperature t = t0, the initial state s =
+s0, k = 0
+Repeat
+Repeat
+Generate new state Sj = Generate(s);
+while sampling stability criteria is not met do
+if min{1, exp[-c(sj-c(s)/tk)]}  random(0, 1)
+s = sj
+end
+end
+while algorithm termination criteria are not met do
+Annealing tk11 = update(tk)
+k / k 1 1
+end
+Input the searching results
+4.9 Overall procedure of NSICSA algorithm
+Based on detailed descriptions in subsections 4.1-4.8, the
+overall procedure of NSICSA algorithm is depicted in Figure 5.
+5. Computational experiments
+To assess the performance of the NSICSA proposed in this
+article, we implemented our algorithms in MATLAB(R2016a)
+to solve a set of test problem instances with distinct
+characteristics on a PC equipped with an Intel Core i5 1.8GHz
+CPU, 8 GB RAM and Windows 10 operating system. The
+generation of test instances is detailed in section 5.1. Section
+5.2 shows the comparison among the proposed NSICSA and
+two benchmark algorithms by 60 computational tests with
+boxplots and convergence curves. A series of analyses on
+computational complexity and the effect of inventory capacity
+Figure 5 Procedure of NSICSA algorithm
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+520
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 11 ---
+on inventory levels are carried out in sections 5.3 and 5.4.
+Finally, studies on managerial applications are discussed in
+section 5.5 to get managerial insights.
+5.1 Experimental settings
+5.1.1 Instances generation.
+To verify the effectiveness of the NSICSA, the test examples
+(|S|, C) are constructed as follows referring to Boysen and
+Emde (2014). Three problem sizes have been considered:
+small (fewer than 25 workstations and 40 work cycles,
+namely, |S|  25, C  40), medium (between 40 and 80
+work cycles, 30 and 50 workstations, namely, 30  |S| 
+50, 40  C  80) and large (more than 50 workstations and
+80 work cycles, namely, |S| > 50, C > 80). The round-trip
+time of each tow train is R ¼ dpjsj 1 rand 0:05; 0:2
+ð
+Þe, and the
+driving time from the supermarket to the ﬁrst workstation is
+p1 = rand(0.05,0.2) whilst the driving time from the
+supermarket to the other workstations is ps = ps–1 1 rand
+(0.05,0.2), Vs [ {2,3,  ,|S|}, and the loading capacity of
+the tow train is set to
+A ¼
+XjSj
+s¼1
+XC
+c¼1dsc
+
+	
+=K 1 1. In
+addition, dsc = 1 or 0, and the probability of dsc = 1 is 45 per
+cent to 50 per cent. Table I summarizes the other parameter
+settings for the instance generation where each instance is
+labeled in the form of (|S|, C). For example, instance (5,27)
+denotes the scheduling problem with 5 workstations and 27
+work cycles.
+Table I Parameter settings for instance generation
+Notations
+Explanation
+Values
+Small
+Medium
+Large
+|S|
+Number of workstations
+5/10/15/20/25
+30/35/40/45/50
+55/60/65/70/75
+C
+Work cycles
+9/18/27/36
+45/54/63/72
+81/90/99/108
+d
+Material replenishment time in the supermarket
+4
+8
+12
+IL(s,0)
+Initial inventory of each workstation
+1
+1
+1
+Bs
+Inventory capacity of each workstation
+3
+3
+3
+Table II Parameters of metaheuristic algorithms
+Algorithms
+Parameter
+Value
+Low
+Middle
+High
+NSICSA
+Number of population
+55
+80
+105
+Starting generation of SA
+300
+350
+400
+Coefﬁcient of mutation
+(0.4,0.8)
+(0.4,0.8)
+(0.4,0.8)
+Initial temperature
+1,000
+1,250
+1,500
+Cooling rate of temperature
+0.9
+0.94
+0.98
+Maximum number of SA
+20
+25
+30
+Maximum generation
+1,000
+1,500
+2,000
+GASA
+Number of population
+55
+80
+105
+Starting generation of SA
+300
+350
+400
+Crossover probability
+0.6
+0.65
+0.7
+Mutation probability
+0.4
+0.45
+0.5
+Initial temperature
+1,000
+1,250
+1,500
+Cooling rate of temperature
+0.9
+0.94
+0.98
+Maximum number of SA
+20
+25
+30
+Maximum generation
+1,000
+1,500
+2,000
+SICSA
+Number of population
+55
+80
+105
+Coefﬁcient of mutation
+(0.4,0.8)
+(0.4,0.8)
+(0.4,0.8)
+Maximum generation
+1,000
+1,500
+2,000
+Figure 6 Convergence curves of different algorithms
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+521
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 12 ---
+5.1.2 Parameters setting
+We compared our proposed NSICSA to the GASA (Rao et al.,
+2013) and the standard immune clonal selection algorithm
+(SICSA) and executed each algorithm 10 times with different
+random seeds. The algorithms are selected for the following
+two reasons: First, the structure and framework of GASA and
+SICSA are similar to our proposed algorithm; thus, they can be
+comparable. Second, the basic algorithm of GASA, namely,
+GA and SICSA are widely used as benchmark algorithms in
+many articles to provide baseline results when evaluating
+Table III Computational results of small-scale instances
+No.
+(|S|,C)
+LB
+NSICSA
+GASA
+SICSA
+ILsum
+PD(%)
+ILsum
+PD(%)
+GAP(%)
+ILsum
+PD(%)
+GAP(%)
+1
+(5,9)
+22
+22
+0
+22
+0
+0
+22
+0
+0
+2
+(5,18)
+43
+43
+0
+43
+0
+0
+43
+0
+0
+3
+(5,27)
+76
+76
+0
+76
+0
+0
+79
+3.95
+3
+4
+(5,36)
+98
+99
+1.02
+101
+3.06
+2.02
+103
+5.10
+4.04
+5
+(10,9)
+45
+45
+0
+45
+0
+0
+45
+0
+0
+6
+(10,18)
+81
+81
+0
+83
+2.47
+2.47
+84
+3.70
+3.70
+7
+(10,27)
+149
+154
+3.36
+156
+4.70
+1.30
+157
+5.37
+1.95
+8
+(10,36)
+184
+192
+4.35
+195
+5.98
+1.56
+198
+7.61
+3.13
+9
+(15,9)
+74
+74
+0
+74
+0
+0
+75
+1.35
+1.35
+10
+(15,18)
+156
+162
+3.84
+165
+5.77
+1.85
+166
+6.41
+2.47
+11
+(15,27)
+214
+225
+5.14
+228
+6.54
+1.33
+231
+7.94
+2.67
+12
+(15,36)
+278
+293
+5.40
+296
+6.48
+1.02
+302
+8.63
+3.07
+13
+(20,9)
+102
+104
+1.96
+106
+3.92
+1.92
+108
+5.88
+3.85
+14
+(20,18)
+192
+201
+4.67
+204
+6.25
+1.49
+207
+7.81
+2.99
+15
+(20,27)
+285
+301
+5.61
+304
+6.67
+1.00
+310
+8.77
+2.99
+16
+(20,36)
+364
+387
+6.31
+395
+8.52
+2.07
+397
+9.06
+2.58
+17
+(25,9)
+137
+141
+2.92
+143
+4.38
+1.42
+145
+5.84
+2.84
+18
+(25,18)
+232
+244
+5.17
+247
+6.47
+1.23
+251
+8.19
+2.87
+19
+(25,27)
+359
+385
+7.24
+393
+9.47
+2.08
+391
+8.91
+1.56
+20
+(25,36)
+458
+495
+8.08
+506
+10.48
+2.22
+511
+11.57
+3.23
+Average
+–
+177.5
+186.2
+4.93
+189.1
+6.57
+1.56
+191.3
+7.78
+2.71
+Table IV Computational results of medium-scale instances
+No.
+(|S|,C)
+LB
+NSICSA
+GASA
+SICSA
+ILsum
+PD(%)
+ILsum
+PD(%)
+GAP(%)
+ILsum
+PD(%)
+GAP(%)
+1
+(30,45)
+684
+748
+9.36
+761
+11.26
+1.74
+769
+12.43
+2.81
+2
+(30,54)
+790
+873
+10.51
+892
+12.9
+2.18
+897
+13.54
+2.75
+3
+(30,63)
+926
+1,029
+11.12
+1,049
+13.28
+1.94
+1,056
+14.04
+2.62
+4
+(30,72)
+1,049
+1,175
+12.01
+1,201
+14.49
+2.21
+1,216
+15.92
+3.49
+5
+(35,45)
+782
+860
+9.97
+876
+12.02
+1.86
+883
+12.92
+2.67
+6
+(35,54)
+938
+1,046
+11.51
+1,067
+13.75
+2.00
+1,078
+14.93
+3.06
+7
+(35,63)
+1,097
+1,231
+12.22
+1,261
+14.95
+2.44
+1,274
+16.13
+3.49
+8
+(35,72)
+1,225
+1,389
+13.39
+1,416
+15.59
+1.94
+1,427
+16.49
+2.74
+9
+(40,45)
+891
+989
+11.00
+1,008
+13.13
+1.92
+1,014
+13.80
+2.53
+10
+(40,54)
+1,047
+1,172
+11.94
+1,207
+15.28
+2.99
+1,217
+16.24
+3.84
+11
+(40,63)
+788
+868
+10.15
+882
+11.93
+1.61
+887
+12.56
+21.89
+12
+(40,72)
+1397
+1,599
+14.46
+1,625
+16.32
+1.62
+1,658
+18.68
+3.69
+13
+(45,45)
+1,009
+1,127
+11.69
+1,156
+14.57
+2.57
+1,164
+15.36
+3.28
+14
+(45,54)
+1,186
+1,334
+12.48
+1,369
+15.43
+2.62
+1,381
+16.44
+3.52
+15
+(45,63)
+1,403
+1,614
+15.04
+1,648
+17.46
+2.11
+1,674
+19.32
+3.72
+16
+(45,72)
+1,572
+1,817
+15.59
+1,868
+18.84
+2.81
+1,894
+20.48
+4.24
+17
+(50,45)
+1,127
+1,265
+12.24
+1,296
+15.00
+2.45
+1,309
+16.15
+3.48
+18
+(50,54)
+1,304
+1,489
+14.19
+1,511
+15.87
+1.48
+1,537
+17.87
+3.22
+19
+(50,63)
+1,553
+1,791
+15.33
+1,835
+18.16
+2.46
+1,861
+19.83
+3.91
+20
+(50,72)
+1,741
+2,051
+17.81
+2,107
+21.02
+2.73
+2,194
+26.02
+6.97
+Average
+–
+1,125.5
+1,273.4
+13.14
+1301.8
+15.66
+2.23
+1,319.5
+17.24
+3.62
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+522
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 13 ---
+brand-new optimization algorithms. The values of parameters
+are shown in Table II.
+5.2 Computational results of NSICSA compared with
+GASA and SICSA
+In this section, we will get the computational results of the
+NSICSA in comparison with the GASA and SICSA. First, we
+compare the convergence performance of the NSICSA, GASA
+and SICSA for one typical instance under the moderate problem
+scale, which is plotted in Figure 6. It is obvious that the
+convergence performance of the proposed NSICSA is signiﬁcantly
+better than benchmark algorithms. The GASA and SICSA have a
+slower convergence rate and are easy to fall into local optima. It
+can also be seen that the NSICSA is superior to the GASA and
+SICSA in the quality of solutions. Solutions found by NSICSA
+appear to be of lower inventory level than the other two algorithms.
+Then we compare the three algorithms by 60 test cases which are
+divided into three groups on the basis of the problem scale (small,
+medium and large), each of which contains 20 cases.
+The NSICSA and two benchmark algorithms are performed
+ten times for each case, and the average total inventory level
+ILsum, the lower bound LB proposed in Theorem 1, the
+percentage deviation (PD) and the gap (GAP) are calculated.
+The PD and GAP are given by the following equations:
+PD ¼ ILsum  LB
+LB
+ 100%
+(15)
+GAP ¼ ILGASAsum  ILNSICSAsum
+ILNSICSAsum
+ 100%
+(16)
+GAP ¼ ILSICSAsum  ILNSICSAsum
+ILSICSAsum
+ 100%
+(17)
+where ILNSICSAsum, ILGASAsum and ILSICSAsum denote the ILsum
+of the NSCISA, GASA and SCISA respectively. Tables III-V
+summarize the computational results of different problem
+scales.
+Moreover, to better visualize the performance of the
+proposed NSICSA and two benchmark algorithms in problems
+of different scales, the boxplot (Figures 7-9) is used, where the
+total inventory values of each algorithm generated in ten runs
+are shown.
+According to the computational results, the following
+conclusions are summarized:
+
+With respect to the ILsum column, the solutions obtained
+by the NSICSA are signiﬁcantly lower in most cases
+compared with the GASA and SICSA, especially when the
+problem scale gets larger. It demonstrates that the
+solutions obtained by the NSICSA are of higher quality.
+In addition, this proves that the convergence performance
+of the NSICSA is more superior than the other two
+benchmark algorithms, which conﬁrms the convergence
+speed shown in Figure 6.
+
+For the PD(%) column, it can be concluded that the PD
+(%) of NSICSA is always within 25 per cent, which
+indicates that the effectiveness validation of NSICSA is
+conﬁrmed.
+In
+addition,
+compared
+with
+the
+other
+benchmark algorithms, the optimization performance of
+the proposed algorithm is signiﬁcantly better. As the
+problem scale increases, the advantage is more obvious
+especially when the PD of the GASA and SICSA reach
+Table V Computational results of large-scale instances
+No.
+(|S|,C)
+LB
+NSICSA
+GASA
+SICSA
+ILsum
+PD(%)
+ILsum
+PD(%)
+GAP(%)
+ILsum
+PD(%)
+GAP(%)
+1
+(55,81)
+2,188
+2,591
+18.42
+2,692
+23.03
+3.9
+2,807
+28.29
+8.34
+2
+(55,90)
+2,395
+2,862
+19.50
+3,009
+25.64
+5.14
+3,161
+31.98
+10.44
+3
+(55,99)
+2,684
+3,248
+21.01
+3,425
+27.61
+5.45
+3,570
+33.01
+9.91
+4
+(55,108)
+2,867
+3,453
+20.44
+3,681
+28.39
+6.6
+3,872
+35.05
+12.13
+5
+(60,81)
+2,376
+2,842
+19.61
+2,960
+24.58
+4.15
+3,089
+30.01
+8.69
+6
+(60,90)
+2,609
+3,134
+20.12
+3,315
+27.1
+5.78
+3,497
+34.04
+11.58
+7
+(60,99)
+2,915
+3,527
+20.99
+3,789
+29.98
+7.43
+3,944
+35.3
+11.82
+8
+(60,108)
+3,112
+3,796
+21.98
+4,273
+37.31
+12.57
+4,456
+43.19
+17.39
+9
+(65,81)
+2,583
+3,100
+20.02
+3,354
+29.85
+8.19
+3,659
+41.66
+18.03
+10
+(65,90)
+2,817
+3,386
+20.20
+3,679
+30.60
+8.65
+3,897
+38.34
+15.09
+11
+(65,99)
+3,159
+3,851
+21.91
+4,286
+35.68
+11.30
+4,495
+42.29
+16.72
+12
+(65,108)
+3,385
+4,152
+22.66
+4,798
+41.74
+15.56
+5,075
+49.93
+22.23
+13
+(70,81)
+2,816
+3,379
+19.99
+3,684
+30.82
+9.03
+3,873
+37.54
+14.62
+14
+(70,90)
+3,051
+3,698
+21.21
+4,109
+34.68
+11.11
+4,350
+42.58
+17.63
+15
+(70,99)
+3,462
+4,248
+22.70
+5,012
+44.77
+17.98
+5,312
+53.44
+25.05
+16
+(70,108)
+3,668
+4,523
+23.31
+5,529
+50.74
+22.24
+5,612
+53.00
+24.08
+17
+(75,81)
+3,014
+3,641
+20.80
+3,936
+30.59
+8.10
+4,369
+44.96
+19.99
+18
+(75,90)
+3,260
+3,978
+22.02
+4,568
+40.12
+14.83
+4,863
+49.17
+22.25
+19
+(75,99)
+3,657
+4,498
+23.00
+5,394
+47.49
+19.92
+5,823
+59.23
+29.46
+20
+(75,108)
+3,924
+4,902
+24.92
+6,283
+60.12
+28.17
+6,835
+74.18
+39.43
+Average
+–
+2,997.1
+3,640.5
+21.47
+4,088.8
+36.43
+12.32
+4,328.0
+44.40
+18.89
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+523
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 14 ---
+Figure 8 Boxplots of total inventory level in the medium-scale instance
+Figure 7 Boxplots of total inventory level in the small-scale instance
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+524
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 15 ---
+60.12 and 74.18 per cent, respectively, in the largest scale
+instance.
+
+For the GAP(%) column, we can see that the gap between
+two benchmark algorithms and the NSICSA is positive in
+most cases of every scale, and it gradually becomes
+apparent when the problem scale increases. It means that
+the results obtained by the NSICSA are signiﬁcantly
+better than those of GASA and SICSA. Consequently, the
+computational results show that the NSICSA is capable of
+solving the scheduling and loading problem of tow trains
+more effectively.
+
+From the three boxplots of total inventory level in each
+scale case, it can be noticed that the NSICSA has a good
+performance because its computational results have better
+mean
+values
+with
+low
+variabilities
+in
+most
+cases.
+Therefore, it can be concluded that the NSCISA is more
+stable than the other two benchmark algorithms.
+
+With regard to the main results, solutions obtained by the
+NSICSA algorithm appear to be of lower inventory level
+than the other two algorithms. In addition, it is obvious
+that the distribution of the NSICSA is more concentrated
+than that of the GASA and SICSA, which indicates that
+the NSICSA is superior to other two algorithms in terms
+of stability. The inventory level remains low and stable
+even when the problem scale increases to the real-world
+scale that is extremely similar to the scale of the actual
+assembly line in application. Under this circumstance, the
+solution obtained by the NSICSA algorithm is of great
+managerial signiﬁcance in cutting down the inventory
+cost, thus cutting down the total system cost including the
+material delivery cost and the inventory cost. Moreover,
+the stability of the inventory level greatly reduces the
+inaccuracy of predictions by the operator and improves
+the service quality accordingly.
+Considering the stochastic characteristics of the NSICSA,
+GASA and SICSA, statistical tests ought to be performed.
+The
+one-way
+ANOVA
+test
+is
+adopted
+to
+analyze
+computational results based on problems of three scales. It
+is obvious that the algorithm section is the single factor in
+the one-way ANOVA under study, and the null hypothesis is
+that there is no signiﬁcant difference about the algorithm
+section in different instances. Statistical results are shown in
+Table VI, where the conﬁdence level is set to 95 per cent as
+normal. Consequently, the null hypothesis will be rejected if
+Figure 9 Boxplots of total inventory level in large-scale instance
+Table VI One-way ANOVA table
+Scale
+Source
+Degree of freedom
+Sum of squares
+Mean of squares
+F-value
+P-value
+Small
+Factor
+2
+257
+128
+0.01
+0.993
+Error
+57
+1,010,643
+17,731
+Total
+59
+1,010,900
+Medium
+Factor
+2
+21,676
+10,838
+0.08
+0.925
+Error
+57
+7,883,815
+138,313
+Total
+59
+7,905,492
+Large
+Factor
+2
+4,872,445
+2,436,222
+3.18
+0.049
+Error
+57
+43,682,125
+766,353
+Total
+59
+48,554,570
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+525
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 16 ---
+the P-value is less than 0.05 and the F-value is much larger
+than 1, that is to say, the different algorithm has a signiﬁcant
+impact
+on
+the
+observed
+solutions
+from
+a
+statistical
+perspective. It can be seen from the table that the proposed
+NSICSA exceeds the GASA and SICSA in a statistically
+signiﬁcant manner in the large-scale instance, which is
+usually the real-world scale instance because the P-value
+(0.049) meets the rejection condition.
+5.3 Inventory level of each work cycles
+Figure 10 shows that the ladder diagram of the inventory level
+of the ﬁrst workstation under the moderate problem scale. It
+can be seen from the ﬁgure that because of the capacity
+limitation of the inventory of workstations, the inventory level
+of the station in each cycle is kept within 3, which is a relatively
+low level. For the two adjacent delivery jobs of the same
+workstation, which are denoted by w1, w2, the local minimum
+of inventory level in the workstation s is reached at the time of
+t ¼ tw2 1 ps  1, and the local maximum of inventory level in
+the workstation s is reached at the time of t ¼ tw1 1 ps as
+described previously in Theorem 2.
+To prove the superiority of the inventory level obtained by the
+NSCISA algorithm, the improved GA (Xiong et al., 2018) (IGA)
+is selected as the exact comparison. Table VII shows the inventory
+level of the ﬁrst workstation in each cycle under the NSCISA
+algorithm and the IGA algorithm, as well as the gap between them.
+According to the statistical analysis results in Table VII,
+among the 50 cases, there are 42 cases demonstrating that the
+inventory level obtained by the NSICSA is lower than that of
+the IGA. In the meanwhile, the upper limit of the inventory
+level under the NSICSA is 3 while the upper limit of the
+inventory level obtained by the IGA is 5. Therefore, it can be
+concluded that the NSCISA algorithm plays an effective and
+signiﬁcant role in the inventory level reduction compared with
+the IGA.
+5.4 Computational complexity
+To evaluate the computational complexity, the average total
+runtime of each algorithm for different problem scales of all
+case tests
+are
+measured. The results are presented in
+Table VIII, which shows that owing to the advanced global
+exploitation ability, the proposed NSICSA does involve an
+additional computational cost that slightly affects the runtime.
+However, such an increase in runtime is slight and acceptable.
+In particular, the additional computational cost does actually
+decrease the average total inventory level and improve the
+Figure 10 Ladder diagram of inventory level of the ﬁrst workstation
+Table VII Inventory level under the NSCISA and the IGA
+Work cycle
+NSICSA
+IGA
+Gap
+Whether superior
+1
+1
+0
+1
+N
+2
+3
+4
+1
+Y
+3
+3
+5
+2
+Y
+4
+1
+3
+2
+Y
+5
+1
+1
+0
+N
+6
+0
+1
+1
+Y
+7
+0
+0
+0
+N
+8
+3
+3
+0
+N
+9
+2
+3
+1
+Y
+10
+1
+2
+1
+Y
+11
+0
+2
+2
+Y
+12
+0
+0
+0
+N
+13
+2
+4
+2
+Y
+14
+2
+3
+1
+Y
+15
+2
+3
+1
+Y
+16
+1
+3
+2
+Y
+17
+0
+1
+1
+Y
+18
+0
+1
+1
+Y
+19
+0
+0
+0
+N
+20
+3
+5
+2
+Y
+21
+3
+5
+2
+Y
+22
+2
+4
+2
+Y
+23
+2
+1
+1
+N
+24
+1
+3
+2
+Y
+25
+1
+2
+1
+Y
+26
+0
+2
+2
+Y
+27
+0
+1
+1
+Y
+28
+2
+3
+1
+Y
+29
+2
+1
+1
+N
+30
+1
+2
+1
+Y
+31
+0
+1
+1
+Y
+32
+0
+1
+1
+Y
+33
+0
+5
+5
+Y
+34
+3
+5
+2
+Y
+35
+3
+2
+1
+N
+36
+2
+3
+1
+Y
+37
+2
+3
+1
+Y
+38
+1
+3
+2
+Y
+38
+1
+2
+1
+Y
+40
+0
+2
+2
+Y
+41
+2
+5
+3
+Y
+42
+2
+4
+2
+Y
+43
+2
+4
+2
+Y
+44
+1
+3
+1
+Y
+45
+1
+2
+1
+Y
+46
+0
+2
+2
+Y
+47
+3
+5
+2
+Y
+48
+3
+4
+1
+Y
+49
+2
+4
+2
+Y
+50
+1
+4
+3
+Y
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+526
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 17 ---
+quality of results according to the comparison between the
+proposed algorithm and the others in most realistic problem
+instances as is shown in Tables III-V. Consequently, it can be
+concluded that the computational complexity of NSICSA is
+worthwhile owing to its convergence performance and search
+ability.
+In addition, to better visualize the ﬂuctuation pattern of
+computational time of three algorithms, the runtime can be
+observed in Figure 11(a), and the time arranged according to
+the values of |S|·C in an ascending order is shown in Figure 11
+(b). It can be conﬁrmed that the computational time rises
+rapidly
+when
+problem
+scales
+and
+parameters
+increase
+signiﬁcantly according to Table II, especially at the junction of
+medium-scale instances and large-scale instances. Larger scale
+problems show more computationally expensive performances
+owing to the larger number of iterations and antibodies, which
+provides the NSICSA with a greater diversity of solutions and
+leads to superior results. Hence, it can be drawn that the
+computational complexity of the NSICSA is acceptable.
+5.5 Managerial applications
+When the number of workstations is considerably large and
+the inventory capacity of each workstation needs to maintain
+a low level, given the limitation of loading capacity of tow
+trains, the speed of driving, loading and unloading and the
+time of material replenishment in the supermarket, a fairly
+comprehensive
+scheduling
+method
+may not
+meet
+the
+requirement. Consequently, it is necessary to increase the
+number of tow trains to carry out delivery tasks. The
+workstations need to be partitioned to reduce the driving
+time and transmit time of tow trains, so as to achieve an
+efﬁcient delivery scheme. The cost of material inventory can
+be substantially reduced despite a slightly increase in the
+ﬁxed cost. So, in the long run, the total cost can be saved.
+Accordingly,
+when
+implementing
+the
+comprehensive
+scheduling scheme, it is inevitable to consider the actual
+demand of the workshop and think over if the number of tow
+trains need to be increased, which will reduce the overall
+cost and obtain an efﬁcient operation of the MMAL.
+Figure 12 plots the experimental results of total inventory
+when increasing the number of the tow train under a
+moderate problem scale.
+This
+section
+provides
+real-situation
+scheduling
+operators
+and
+managers
+with
+feasible
+scheduling
+applications. When the inventory needs to maintain a
+certain low level and the number of workstations is large,
+the similar analysis can be used to determine the number
+of tow trains and inventory capacity limit so that the
+Table VIII Computational time of 60 instances
+Group
+(|S|,C)
+|S|·C
+NSICSA
+GASA
+SICSA
+1
+(5,9)
+45
+12.4
+11.7
+9.5
+2
+(5,18)
+90
+25.6
+22.3
+10.9
+3
+(5,27)
+135
+36.3
+33.9
+27.2
+4
+(5,36)
+180
+39.6
+42.5
+29.3
+5
+(10,9)
+90
+24.9
+20.8
+17.3
+6
+(10,18)
+180
+58.7
+41.5
+30.2
+7
+(10,27)
+270
+76.4
+71.5
+56.3
+8
+(10,36)
+360
+102.4
+95.7
+66.8
+9
+(15,9)
+135
+39.5
+32.8
+25.7
+10
+(15,18)
+270
+65.7
+66.1
+59.4
+11
+(15,27)
+405
+118.2
+93.6
+87.3
+12
+(15,36)
+540
+160.8
+148.2
+101.1
+13
+(20,9)
+180
+81.7
+51.3
+39.8
+14
+(20,18)
+360
+99.3
+92.6
+64.2
+15
+(20,27)
+540
+156.8
+126.2
+113.2
+16
+(20,36)
+720
+207.5
+187.9
+127.6
+17
+(25,9)
+225
+55.3
+51.2
+48.4
+18
+(25,18)
+450
+128.8
+103.4
+93.7
+19
+(25,27)
+675
+197.2
+175.9
+146.3
+20
+(25,36)
+900
+256.9
+236.6
+158.3
+21
+(30,45)
+1,350
+376.9
+337.1
+294.2
+22
+(30,54)
+1,620
+446.2
+417.4
+326.5
+23
+(30,63)
+1,890
+497.5
+482.5
+394.6
+24
+(30,72)
+2,160
+569.3
+529.8
+419.2
+25
+(35,45)
+1,575
+433.1
+362.3
+338.4
+26
+(35,54)
+1,890
+471.8
+422.2
+358.3
+27
+(35,63)
+2,205
+553.5
+556.9
+478.1
+28
+(35,72)
+2,520
+688.9
+627.6
+483.7
+29
+(40,45)
+1,800
+479.7
+427.4
+352.6
+30
+(40,54)
+2,160
+526.4
+485.2
+416.1
+31
+(40,63)
+2,520
+672.2
+638.6
+463.9
+32
+(40,72)
+2,880
+754.0
+741.2
+527.3
+33
+(45,45)
+2,025
+558.3
+501.7
+405.2
+34
+(45,54)
+2,430
+660.8
+596.4
+466.0
+35
+(45,63)
+2,835
+832.9
+709.1
+543.1
+36
+(45,72)
+3,240
+883.4
+815.8
+614.8
+37
+(50,45)
+2,250
+587.5
+539.6
+463.7
+38
+(50,54)
+2,700
+725.2
+568.1
+505.2
+39
+(50,63)
+3,150
+943.1
+791.2
+624.8
+40
+(50,72)
+3,600
+1,086.3
+891.4
+709.1
+41
+(55,81)
+4,455
+1,208.4
+1,203.7
+903.4
+42
+(55,90)
+4,950
+1,337.3
+1,211.9
+968.2
+43
+(55,99)
+5,445
+1,454.9
+1,365.8
+1,064.2
+44
+(55,108)
+5,940
+1,594.5
+1,339.2
+1,124.9
+45
+(60,81)
+4,860
+1,125.7
+1,056.2
+964.7
+46
+(60,90)
+5,400
+1,430.9
+1,138.3
+1,032.8
+47
+(60,99)
+5,940
+1,473.2
+1,369.5
+1,188.4
+48
+(60,108)
+6,480
+1,733.6
+1,599.8
+1,357.5
+49
+(65,81)
+5,265
+1,261.7
+1,163.2
+1,035.7
+50
+(65,90)
+5,850
+1,659.2
+1,224.5
+1,153.1
+51
+(65,99)
+6,435
+1,789.5
+1,524.8
+1,307.2
+52
+(65,108)
+7,020
+1,893.1
+1,626.3
+1,226.5
+53
+(70,81)
+5,670
+1,317.2
+1,254.7
+1,178.4
+54
+(70,90)
+6,300
+1,675.8
+1,353.1
+1,224.2
+55
+(70,99)
+6,930
+1,824.7
+1,525.6
+1,354.6
+(continued)
+Table VIII
+Group
+(|S|,C)
+|S|·C
+NSICSA
+GASA
+SICSA
+56
+(70,108)
+7,560
+2,019.4
+1,669.8
+1,539.7
+57
+(75,81)
+6,075
+1,513.2
+1,362.3
+1,213.2
+58
+(75,90)
+6,750
+1,796.9
+1,668.3
+1,275.9
+59
+(75,99)
+7,425
+1,927.1
+1,816.9
+1,499.3
+60
+(75,108)
+8,100
+2,088.5
+2,037.1
+1,809.8
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+527
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 18 ---
+assembly line can gain the best production efﬁciency and
+economic beneﬁts.
+6. Conclusions
+In this paper, we have investigated the scheduling and
+loading of tow trains of in-plant milk-run delivery for
+MMALs. A combined scheduling and loading distribution
+model was formulated to minimize total inventory for all
+workstations over the planning horizon. We proposed a
+novel
+optimal
+method
+NSICSA,
+consisting
+of
+the
+mechanism of ICSA with the mechanism of SA and NS. The
+solution obtained provided us a suitable timetable for tow
+trains and the quantity of bins to be delivered to each
+workstation under the precedence constrain. It is observed
+that the NSICSA outperforms other methods on the
+performance of convergence and the quality of solutions,
+especially when the problem scale increases to the real-
+world scale. It is able to obtain solutions with lower
+variabilities
+within
+an
+acceptable
+computational
+time.
+Furthermore, it veriﬁes the validity of the capacity limit of
+line-side inventory. The current work is capable of solving
+the scheduling and loading problems of in-plant milk-run
+delivery, and it can be modiﬁed to solve similar part feeding
+problems.
+The problem discussed in this paper is based on the
+assumption that tow trains will not break down during the
+distribution process, and demands over the planning horizon is
+known, but uncertainties are likely to occur in the actual
+situation. Therefore, uncertain factors such as tow train
+breakdowns, short-term adjustments of production planning
+and downtime of the assembly line may be taken into account,
+that is to say, the future work will focus on the real-time
+scheduling which is dynamically scheduled according to the
+system status (such as the demand of each workstation, the tow
+train status, etc.), thus having the ability to cope well with the
+dynamic environment and having wide applications in the
+practical production.
+Figure 11 Computational time of NSICSA, GASA and SICSA
+Figure 12 Total inventory when increasing the number of tow train
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+528
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 19 ---
+References
+Abdollahpour, S. and Rezaeian, J. (2015), “Minimizing
+makespan
+for
+ﬂow
+shop
+scheduling
+problem
+with
+intermediate buffers by using hybrid approach of artiﬁcial
+immune system”, Applied Soft Computing, Vol. 28, pp. 44-56.
+Alnahhal, M. and Noche, B. (2015), “A genetic algorithm for
+supermarket
+location
+problem”,
+Assembly
+Automation,
+Vol. 35 No. 1, pp. 122-127.
+Bahubalendruni,
+M.R.
+and
+Biswal,
+B.B.
+(2018),
+“An
+intelligent approach towards optimal assembly sequence
+generation”, Proceedings of the Institution of Mechanical
+Engineers, Part C: Journal of Mechanical Engineering Science,
+Vol. 232 No. 4, pp. 531-541.
+Bahubalendruni, M.V.A.R. and Biswal, B.B. (2017), “A novel
+concatenation
+method
+for
+generating
+optimal
+robotic
+assembly
+sequences”,
+Proceedings
+of
+the
+Institution
+of
+Mechanical
+Engineers,
+Part
+C:
+Journal
+of
+Mechanical
+Engineering Science, Vol. 231 No. 10, pp. 1966-1977.
+Baker, B.M. and Ayechew, M.A. (2003), “A genetic algorithm
+for the vehicle routing problem”, Computers & Operations
+Research, Vol. 30 No. 5, pp. 787-800.
+Battini, D., Boysen, N. and Emde, S. (2012), “Just-in-time
+supermarkets for part supply in the automobile industry”,
+Journal of Management Control, Vol. 24 No. 2, pp. 209-217.
+Boysen, N. and Bock, S. (2010), “Scheduling just-in-time part
+supply for mixed-model assembly lines”, European Journal of
+Operational Research, Vol. 211 No. 1, pp. 15-25.
+Boysen, N. and Emde, S. (2014), “Scheduling the part supply
+of
+mixed-model
+assembly
+lines
+in
+line-integrated
+supermarkets”, European Journal of Operational Research,
+Vol. 239 No. 3, pp. 820-829.
+Boysen, N., Emde, S., Hoeck, M. and Kauderer, M. (2015),
+“Part logistics in the automotive industry: decision problems,
+literature review and research agenda”, European Journal of
+Operational Research, Vol. 242 No. 1, pp. 107-120.
+Bozer, Y.A. and McGinnis, L.F. (1992), “Kitting versus line
+stocking: a conceptual framework and a descriptive model”,
+International Journal of Production Economics, Vol. 28 No. 1,
+pp. 1-19.
+Centobelli, P., Cerchione, R., Murino, T. and Gallo, M.
+(2016), “Layout and material ﬂow optimization in digital
+factory”, International Journal of Simulation Modelling, Vol. 15
+No. 2, pp. 223-235.
+Choi, W. and Lee, Y. (2002), “A dynamic part-feeding system
+for an automotive assembly line”, Computers & Industrial
+Engineering, Vol. 43 Nos 1/2, pp. 123-134.
+Emde, S. and Boysen, N. (2010), “Optimally routing and
+scheduling tow trains for JIT-supply of mixed-model
+assembly lines”, European Journal of Operational Research,
+Vol. 217 No. 2, pp. 287-299.
+Emde, S. and Boysen, N. (2012), “Optimally locating in-house
+logistics areas to facilitate JIT-supply of mixed-model
+assembly lines”, International Journal of Production Economics,
+Vol. 135 No. 1, pp. 393-402.
+Emde, S. and Gendreau, M. (2017), “Scheduling in-house
+transport vehicles to feed parts to automotive assembly
+lines”, European Journal of Operational Research, Vol. 260
+No. 1, pp. 255-267.
+Emde, S., Fliedner, M. and Boysen, N. (2012), “Optimally
+loading tow trains for just-in-time supply of mixed-model
+assembly
+lines”,
+IIE
+Transactions,
+Vol.
+44
+No.
+2,
+pp. 121-135.
+Fathi, M., Alvareza, M.J., Rodríguezb, V. and Mehrabanc, F.
+H. (2014a), “A multiobjective optimization algorithm to
+solve the part feeding problem in mixed-model assembly
+lines”, Mathematical Problems in Engineering, Vol. 11 No. 1,
+pp. 809-812.
+Fathi, M., Rodríguez, V. and Alvarez, M.J. (2014b), “A novel
+memetic ant colony optimization-based heuristic algorithm
+for solving the assembly line part feeding problem”, The
+International Journal of Advanced Manufacturing Technology,
+Vol. 75 Nos 1/4, pp. 629-643.
+Fathi, M., Rodríguez, V., Fontes, D.B.M.M. and Alvarez, M.J.
+(2015), “A modiﬁed particle swarm optimisation algorithm
+to solve the part feeding problem at assembly lines”,
+International Journal of Production Research, Vol. 54 No. 3,
+pp. 878-893.
+Finnsgård, C., Wänström, C., Medbo, L. and Neumann, W.P.
+(2011),
+“Impact
+of
+materials
+exposure
+on
+assembly
+workstation performance”, International Journal of Production
+Research, Vol. 49 No. 24, pp. 7253-7274.
+Golz, J., Gujjula, R., Günther, H.O., Rinderer, S. and Ziegler,
+M. (2012), “Part feeding at high-variant mixed-model
+assembly lines”, Flexible Services and Manufacturing Journal,
+Vol. 24 No. 2, pp. 119-141.
+Ho, S.C. and Haugland, D. (2004), “A tabu search heuristic
+for the vehicle routing problem with time windows and split
+deliveries”, Computers & Operations Research, Vol. 31 No. 12,
+pp. 1947-1964.
+Jiang, K.H., Ni, H., Sun, P. and Han, R. (2019), “An improved
+binary grey wolf optimizer for dependent task scheduling in
+edge computing”, in 2019 21st International Conference on
+Advanced Communication Technology (ICACT), 17-20 Feb.
+2019, Bongpyeong, South Korea, IEEE, Piscataway, NJ,
+pp. 182-186.
+Klenk, E., Galka, S. and Günthner, W.A. (2015), “Operating
+strategies
+for
+in-plant
+milk-run
+systems”,
+IFAC-
+PapersOnLine, Vol. 48 No. 3, pp. 1882-1887.
+Kleywegt, A.J., Nori, V.S. and Savelsbergh, M.W.P. (2002),
+“The stochastic inventory routing problem with direct
+deliveries”, Transportation Science, Vol. 36 No. 1, pp. 94-118.
+Kozan, E. (2000), “An integrated material handling system for
+a truck assembly plant”, Journal of the Operational Research
+Society, Vol. 51 No. 3, pp. 263-271.
+Kuhn, W. (2006), “Digital factory - simulation enhancing the
+product and production engineering process”, in Proceedings
+of the 2006 Winter Simulation Conference , WSC, Institute of
+Electrical
+and
+Electronics
+Engineers,
+Piscataway,
+NJ,
+pp. 1899-1906.
+Laporte, G., Nobert, Y. and Taillefer, S. (1988), “Solving a
+family of multi-depot vehicle routing and location routing
+problems”, Transportation Science, Vol. 22 No. 3, pp. 161-172.
+Limére, V., Van Landeghem, H., Goetschalckx, M., Aghezzaf,
+E.-H. and McGinnis, L.F. (2012), “Optimising part feeding
+in the automotive assembly industry: deciding between
+kitting and line stocking”, International Journal of Production
+Research, Vol. 50 No. 15, pp. 4046-4060.
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+529
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 20 ---
+Liu, F., Zhang, X.P., Zou, F.X. and Zeng, L.L. (2009),
+“Immune clonal selection algorithm for hybrid ﬂow-shop
+scheduling problem”, in 2009 Chinese Control and Decision
+Conference,
+IEEE
+Computer
+Society,
+Piscataway,
+NJ,
+pp. 2605-2609.
+Peng, T. and Zhou, B.H. (2018), “Just-in-time distribution
+algorithm of line-side parts for automobile assembly lines”,
+Control Theory & Applications, Vol. 33 No. 6, pp. 779-786.
+Peng, T. and Zhou, B.H. (2018), “Scheduling multiple servers
+to facilitate just-in-time part-supply in automobile assembly
+lines”, Assembly Automation, Vol. 38 No. 3, pp. 347-360.
+Rao, Y.Q., Wang, M.C., Wang, K.P. and Wu, T.M. (2013),
+“Scheduling a single vehicle in the just-in-time part supply
+for a mixed-model assembly line”, Computers & Operations
+Research, Vol. 40 No. 11, pp. 2599-2610.
+Rubaiee, S. and Yildirim, M.B. (2019), “An energy-aware
+multi-objective ant colony algorithm to minimize total
+completion time and energy cost on a single-machine
+preemptive scheduling”, Computers & Industrial Engineering,
+Vol. 127, pp. 240-252.
+Shahabudeen, P., Gopinath, R. and Krishnaiah, K. (2002),
+“Design of bi-criteria kanban system using simulated
+annealing technique”, Computers & Industrial Engineering,
+Vol. 41 No. 4, pp. 355-370.
+Vaidyanathan, B.S., Matson, J.O., Miller, D.M. and Matson, J.
+E. (1999), “A capacitated vehicle routing problem for just-
+in-time
+delivery”,
+IIE
+Transactions,
+Vol.
+31
+No.
+11,
+pp. 1083-1092.
+Vidovic, M., Popovic, D. and Ratkovic, B. (2014), “Mixed
+integer and heuristics model for the inventory routing
+problem in fuel delivery”, International Journal of Production
+Economics, Vol. 147, pp. 593-604.
+Wang, J.F., Chang, Q., Xiao, G.X., Wang, N. and Li, S.Q.
+(2011), “Data driven production modeling and simulation of
+complex automobile general assembly plant”, Computers in
+Industry, Vol. 62 No. 7, pp. 765-775.
+Xie, N.M. and Chen, N.L. (2018), “Flexible job shop
+scheduling problem with interval grey processing time”,
+Applied Soft Computing, Vol. 70, pp. 513-524.
+Xiong, T.Y., Tang, Q., Huang, T., Shen, Z.Y. and Zhou, H.
+(2018),
+“Delivery
+vehicle
+scheduling
+modeling
+and
+optimization for automobile mixed milk-run mode involved
+indirect
+suppliers”,
+Communications
+in
+Computer
+and
+Information Science, Vol. 923, pp. 169-178.
+Zakoldaev, D.A., Shukalov, A.V., Zharinov, I.O. and Baronov,
+D.E. (2019), “Components and technologies of system
+projection of digital and smart factories of the industry 4.0”,
+IOP Conference Series: Materials Science and Engineering,
+Vol. 537, pp. 032014.
+Zhou, B.H. and Peng, T. (2017), “Scheduling the in-house
+logistics distribution for automotive assembly lines with just-in-
+time principles”, Assembly Automation, Vol. 37 No. 1, pp. 51-63.
+Zhou, B.H. and Peng, T. (2019), “Scheduling just-in-time part
+replenishment
+of
+the
+automobile
+assembly
+line
+with
+unrelated parallel machines”, Proceedings of the Institution of
+Mechanical
+Engineers,
+Part
+C:
+Journal
+of
+Mechanical
+Engineering Science, Vol. 233 No. 14, pp. 5113-5130.
+Zhou, B.H. and Wu, Q. (2019), “An improved immune clonal
+selection algorithm for bi-objective robotic assemble line
+balancing problems considering time and space constraints”,
+Engineering Computations, Vol. 36 No. 6, pp. 1868-1892.
+Further reading
+Artmeier, A., Haselmayr, J., Leucker, M. and Sachenbacher,
+M. (2010), “The shortest path problem revisited: optimal
+routing for electric vehicles”, Annual Conference on Artiﬁcial
+Intelligence, Vol. 6359, pp. 309-316.
+Mishra, A. and Deb, S. (2018), “An improved hybrid ﬂower
+pollination algorithm for assembly sequence optimization”,
+Assembly Automation, Vol. 39 No. 1, pp. 165-185.
+Schaller, J. and Valente, J.M.S. (2019), “Heuristics for
+scheduling jobs in a permutation ﬂow shop to minimize total
+earliness and tardiness with unforced idle time allowed”,
+Expert Systems with Applications, Vol. 119, pp. 376-386.
+Corresponding author
+Binghai Zhou can be contacted at: bhzhou@tongji.edu.cn
+For instructions on how to order reprints of this article, please visit our website:
+www.emeraldgrouppublishing.com/licensing/reprints.htm
+Or contact us for further details: permissions@emeraldinsight.com
+Optimally scheduling and loading tow trains
+Binghai Zhou and Zhexin Zhu
+Assembly Automation
+Volume 40 · Number 3 · 2020 · 511–530
+530
+Downloaded from http://www.emerald.com/ria/article-pdf/40/3/511/35824/aa-01-2019-0013.pdf by Sakarya University user on 26 July 2026

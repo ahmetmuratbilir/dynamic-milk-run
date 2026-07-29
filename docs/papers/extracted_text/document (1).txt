@@ -1,0 +1,975 @@
+
+
+--- SAYFA 1 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+1 
+Article is protected by German copyright law 
+Simulationsbasierte Analyse eines innerbetrieblichen    
+digitalisierten Milk Run Systems 
+Simulation-based analysis of an in-plant digitized milk run system 
+Nina Vojdani  
+Patrick Drechsler 
+ 
+Lehrstuhl für Produktionsorganisation und Logistik  
+Fakultät für Maschinenbau und Schiffstechnik 
+Universität Rostock 
+ 
+ 
+ 
+ m Produktionsprozess benötigte Verbrauchsmateria-
+lien müssen fortwährend in ausreichenden Mengen be-
+reitgestellt werden. Bei der Bereitstellung der Hilfs- und 
+Betriebsstoffe am Arbeitsplatz gilt es, Verschwendungen 
+zu vermeiden und den Fluss so effizient wie möglich zu 
+gestalten. Dementsprechend wird in diesem Beitrag die 
+Einführung eines digitalisierten Milk Run Systems in 
+Kombination mit eKanban untersucht. Mit der Entwick-
+lung eines Simulationsmodells werden das Konzept eines 
+digitalisierten Systems abgebildet sowie Auswirkungen der 
+Einführung eines solchen Systems untersucht und anhand 
+entsprechender KPIs diskutiert.  
+[Schlüsselwörter: Milk Run, eKanban, Simulation] 
+ onsumables required in the production process must be 
+provided in sufficient quantities at all times. When 
+providing consumables at the workplace, it is important to 
+avoid waste and to make the flow as efficient as possible. Ac-
+cordingly, this paper examines the introduction of a digital-
+ized milk run system in combination with eKanban. With the 
+development of a simulation model, the concept of the system 
+is illustrated and the effects of the introduction of such a dig-
+italized system are examined and discussed on the basis of 
+corresponding KPIs.  
+[Keywords: in-plant milk run, ekanban, simulation] 
+1 
+EINLEITUNG 
+Die 
+Eliminierung 
+von 
+nicht 
+wertschöpfenden 
+Tätigkeiten ist ein entscheidender Wettbewerbsfaktor in 
+Unternehmen. Im Bereich der Produktion gilt es unter 
+anderem, das richtige Material in der richtigen Menge und 
+zur richtigen Zeit zur Verfügung zu stellen, um 
+Unterbrechungen und Ausfälle in der Produktion zu 
+vermeiden. In diesem Zusammenhang bietet die 
+Einführung eines Milk Run Systems eine Möglichkeit, um 
+die Versorgung der Arbeitsstationen mit Hilfs- und 
+Betriebsstoffen zu gewährleisten.  
+Schwankungen in der Nachfrage der Materialien stellen 
+Materialflusssysteme hierbei vor Herausforderungen. 
+Hohe 
+Bestände 
+am 
+Arbeitsplatz 
+können 
+diese 
+Schwankungen 
+zwar 
+ausgleichen, 
+nehmen 
+jedoch 
+wertvolle Fläche in Anspruch. Zu kleine Bestände und 
+eine somit hochfrequente Überwachung dieser durch 
+Personal sollten jedoch vermieden werden, da die 
+Überwachung selbst keine wertschöpfende Tätigkeit 
+darstellt. Zudem gilt es, überflüssige Leerfahrten bei der 
+Versorgung der Arbeitsstationen zu vermeiden. Die 
+Digitalisierung der intralogistischen Transport- und 
+Informationsprozesse 
+bietet 
+hierbei 
+verschiedene 
+Potenziale in Bezug auf Effizienzsteigerung, Vernetzung 
+und Transparenz. [HEK+19]  
+Demzufolge wird im Rahmen dieses Beitrages ein 
+digitalisiertes, dynamisches, bedarfsgesteuertes Milk Run 
+System untersucht. Bei diesem wird die pull-gesteuerte 
+Auftragsgenerierung über ein Kanban-System umgesetzt. 
+Um die Kombination aus Milk Run und Kanban zu 
+digitalisieren, werden bestehende Systeme miteinander 
+vernetzt. 
+Somit 
+wird 
+es 
+möglich, 
+ideale 
+Abfahrtszeitpunkte und optimale Routen zu berechnen.  
+2 
+KANBAN 
+Kanban ist ein Werkzeug zur Produktionsprozess-
+steuerung, welches nach dem verbrauchsgesteuerten Pull-
+Prinzip funktioniert. Es kann in die Arten Lieferanten-, 
+Transport- 
+und 
+Produktions-Kanban 
+unterschieden 
+werden.  Traditionell wurde das System mit sogenannten 
+Kanban-Karten 
+betrieben. 
+Diese 
+Karten 
+enthalten 
+Informationen über das Arbeitselement und über die 
+abzuarbeitende Aufgabe. Die fortschreitende Entwicklung 
+der Informations- und Kommunikationstechnologien 
+ermöglicht jedoch auch eine Digitalisierung des Kanban-
+Ansatzes. 
+Dank 
+des 
+Internets 
+ist 
+es 
+möglich, 
+Informationen 
+automatisiert 
+zu 
+übermitteln. 
+Dies 
+ermöglicht eKanban-Systeme, bei denen die Bestellungen 
+teilweise oder komplett automatisch ausgelöst werden, 
+sodass der Mitarbeiter nur noch teilweise oder gar nicht 
+I 
+C 
+
+
+--- SAYFA 2 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+2 
+Article is protected by German copyright law 
+mehr einwirken 
+muss. [HAA17] Zudem 
+können 
+Informationen über den Zustand des Behälters in Echtzeit 
+geteilt werden. [PTK+20] Bei der Digitalisierung von 
+Kanban-Systemen können neben den einfachen Barcodes 
+auch eine Vielzahl von Sensoren zum Einsatz kommen. 
+Durch den Einsatz dieser Sensoren wird der manuelle 
+Aufwand beim Handling von Kanban-Karten reduziert. Es 
+kann nicht mehr zum Verlust oder zur Verwechslung von 
+Kanban-Karten kommen. Das digitale System verbessert 
+zudem die Transparenz sowie die Sichtbarkeit von 
+Signalen und vereinfacht die Kommunitkation. Die 
+genannten Vorteile führen zu einer Minimierung von 
+Materialengpässen. [HAA17]  
+Bei der Digitalisierung mittels Barcodes werden die 
+physischen Karten mit diesem ausgestattet. Durch das 
+Einscannen des Barcodes können die Daten der Karte 
+gelesen und der Bedarf elektronisch an das System 
+übermittelt werden. [NRS20] Der Prozessschritt des 
+Einscannens kann jedoch auch durch die Anwendung von 
+Sensoren substituiert werden.  
+Hierbei können Sensoren verwendet werden, welche 
+die Veränderung der Position wahrnehmen. Gotthardt et 
+al. untersuchen in diesem Zusammenhang die Anwendung 
+der RFID-Technologie, um automatisch Aufträge zu 
+generieren. Sofern ein mit einem Tag ausgestatteter 
+Behälter geleert wurde, wird dieser ein Regalfach tiefer 
+einsortiert. Die Positionsänderung wird durch am Regal 
+integrierte RFID-Lesegeräte registriert. Daraufhin wird 
+eine Bestellung ausgelöst. Ein Mitarbeiter, welcher 
+fortwährend die Behälter kontrolliert und die Kanban-
+Karten einsammelt, ist somit nicht mehr notwendig. Durch 
+dieses System konnte in einer Lernfarbrikumgebung die 
+Informationsweitergabe 
+automatisiert 
+werden. 
+[GEHE+19] Anbieter wie WÜRTH bieten in diesem 
+Bereich bereits vielfältige RFID-Kanban-Lösungen für 
+Industrieanwendungen an. Sie offerieren beispielsweise 
+Regalsysteme, 
+welche 
+mit 
+intelligenten 
+Böden 
+ausgestattet 
+sind 
+und 
+Behälter 
+mit 
+RFID-Chips 
+wahrnehmen können. [WÜR21] 
+Neben RFID-Tags können auch andere Sensoren 
+eingesetzt werden, welche im Gegensatz zu diesen, 
+Auskunft über den Füllstand des Behälters geben. Durch 
+optische Messungen können hierbei die Füllstände der 
+Behälter berechnet werden. Bei Unterschreitung des 
+Meldebestandes 
+kann 
+daraufhin 
+automatisch 
+eine 
+Bestellung 
+ausgelöst 
+werden. 
+In 
+diesem 
+Forschungsbereich befassen sich Kreutz et al. mit der 
+Anwendung 
+kostengünstiger 
+autonomer 
+Füllstandssensoren. Der Schwerpunkt ihrer Arbeit liegt in 
+der Messintervallanpassung der Sensoren. Zur Anpassung 
+wird der Reinforcement Learning Ansatz genutzt. 
+Dadurch können die Intervalle so festgelegt werden, dass 
+einerseits Energie gespart wird und dennoch sichergestellt 
+wird, dass signifikante Änderungen des Füllstandes 
+wahrgenommen werden. [KAL+21] Der Vorteil des 
+Einsatzes von Füllstandssensoren liegt darin, dass die 
+Erfassung der Positionsänderung der Behälter bei deren 
+Leerung entfällt.  
+Jagtap et al. nutzen Kraftsensoren, um die Anzahl von 
+Komponenten in einem Regal aufgrund des Gewichtes zu 
+überwachen. Die Sensoren werden verwendet, um den 
+Bestand in einem Store auf Grundlage des Gewichtes zu 
+überwachen. [JBM+15] 
+Die Digitalisierung der Systeme führt dazu, dass viele 
+Regelkreise einfacher gehandhabt werden können. Das 
+automatische 
+Senden 
+der 
+Bestandsinformationen 
+vermeidet zudem nicht wertschöpfende Tätigkeiten. 
+Durch die Digitalisierung wird die Transparenz des 
+Systems erhöht, was genauere Analysen und eine 
+automatische Berechnung von Kennzahlen ermöglicht.    
+3 
+MILK RUN 
+Die Idee des Milk Runs ist auf die amerikanischen 
+Milchmänner zurückzuführen, welche Häuser mit Milch 
+belieferten. Leere Flaschen einer Vielzahl von Häusern 
+wurden in einem Durchlauf mit gefüllten Flaschen ausge-
+wechselt. [KHZ19] Dieses Prinzip wurde adaptiert und hat 
+in den letzten Jahren immer mehr Einzug in die Intralogis-
+tik erhalten. [DGR14] Das Prinzip des Milk Runs basiert 
+auf der Idee, das Material zur Verfügung zu stellen, das 
+verbraucht wurde. Nach dieser Vorgehensweise können so-
+wohl inner- als auch außerbetrieblich Verbrauchswerte ge-
+nutzt werden, um den Nachschub zu steuern. Diese Steue-
+rung kann in der Intralogistik beispielsweise durch 
+Kanban-Karten oder ein elektronisches Kanban-System re-
+alisiert werden. Somit kann ein automatischer Versor-
+gungskreislauf entstehen, welcher die Nachfrage bedient. 
+Sofern Kanban-Systeme genutzt werden, ist der Milk Run 
+Teil eines klassischen Pull-Systems. Leere Boxen an den 
+Arbeitsstationen werden gegen gefüllte Boxen ausge-
+tauscht. Um zeitliche Verzögerungen bei der Nutzung von 
+Kanban-Karten zu vermeiden, kann im Rahmen eines e-
+Kanban-Systems auf Sensoren zurückgegriffen werden. 
+Durch die Digitalisierung des Milk Run Systems kann die-
+ses somit schneller auf den Bedarf an den Arbeitsstationen 
+reagieren. Weitere zu betrachtende Aspekte auf dem Weg 
+zu einem vollständig digitalisierten und automatisierten 
+Milk Run sind die Routen- und Fahrplanung, die Fahrt 
+selbst sowie die Be- und Entladung des Routenzuges. 
+[GEHE+19], [Tak18]  
+Seitens der Logistik, Produktion und IT werden 
+verschiedene Anforderungen an ein innerbetriebliches 
+Milk Run System gestellt. So ist eine Grundanforderung 
+von digitalisierten Milk Run Systemen die Einbindung in 
+IT-Systeme zur reibungslosen Informationsweitergabe. 
+Das System muss eine Kapazität aufweisen, welche eine 
+durchgängige 
+Versorgung 
+der 
+Arbeitsstationen 
+ermöglicht. Störungen des Milk Run Systems können eine 
+Unterversorgung der Arbeitsstationen zur Folge haben. 
+[Alnahal 14] Dementsprechend gilt es, Störungen zu 
+vermeiden und die Ausfallraten so gering wie möglich zu 
+
+
+--- SAYFA 3 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+3 
+Article is protected by German copyright law 
+halten. Beim Einsatz von automatisierten Routenzügen ist 
+es von Bedeutung, weitere Aspekte zu betrachten. Die 
+eingesetzten 
+fahrerlosen 
+Transportsysteme 
+müssen 
+Geschwindigkeits- 
+sowie 
+Sicherheitsanforderungen 
+erfüllen und dürfen keine Mitarbeiter gefährden. 
+Weiterhin sollte das System in seiner Benutzung 
+möglichst 
+bedienerfreundlich 
+ausgelegt 
+und 
+nachvollziehbar sein. [Gru14], [KK15], [Alnahal 14] 
+Entsprechend dieser Grundanforderungen ergibt sich je 
+nach Versorgungsanforderungen ein Handlungsraum für 
+die Auslegung des Milk Run Systems. Innerhalb dieses 
+Handlungsrahmens 
+existieren 
+verschiedene 
+Entscheidungsprobleme bezüglich der Auslegung der 
+Systeme. Es ist die Art des Förderers sowie deren Anzahl 
+festzulegen. Zudem ist zu entscheiden, ob das System 
+bedarfsorientiert oder verbrauchsgesteuert geregelt wird. 
+Die Bestimmung der zu fahrenden Routen und die 
+Terminierung sind weitere Entscheidungsprobleme bei der 
+Auslegung von Milk Run Systemen. [ARN14]  Mit der 
+Routenpanung und der Informationsweitergabe bei der 
+Digitalisierung des Milk Runs befassen sich unter 
+anderem Gotthardt et al. Bei Ihrer Untersuchung wird ein 
+digitalisiertes Milk Run System in einer Lernfabrik 
+eingeführt. Bei diesem System lösen RFID-Tags, welche 
+an Behältern der Arbeitsstationen angebracht sind, 
+automatisch 
+Bestellungen 
+aus. 
+Die 
+Routen- 
+und 
+Fahrplanplanung wird anhand der gemeldeten Bedarfe 
+mittels eines A-star Algorithmus durchgeführt. Dieser 
+Algorithmus 
+findet 
+die 
+kürzeste 
+Route 
+zu 
+den 
+Arbeitsstationen. [GEHE+19] 
+Takvir befasst sich mit der Digitalisierung des 
+Informationsflusses und der Einbindung eines Milk Run 
+Systems. Dieses System nutzt Barcodes und wird in ein 
+bestehendes Produktionsplanungs- und -steuerungssystem 
+eines Unternehmens integriert. Durch die Digitalisierung 
+wird ein effizienter und flexibler Materialfluss erreicht. 
+[Tak18] 
+Korytkowski and Karkoszka untersuchen die 
+Effizienz und Wechselwirkungen eines Milk Run 
+Bedieners an einer typischen Montagelinie. Zur Analyse 
+und 
+Bewertung 
+nutzen 
+sie 
+ein 
+ereignisdiskretes 
+Simulationsmodell. In diesem sind die Montagelinie sowie 
+die Elemente des Milk Runs enthalten. Mit der Simulation 
+werden die Auswirkungen von Störungen, welche in 
+Produktionsumgebungen auftreten, untersucht. [KK15] 
+Um Fehler in der Auslegung von Milk Run Systemen 
+zu 
+identifizieren, 
+nutzen 
+Fedorko 
+et 
+al. 
+ein 
+Simulationsmodell. Mithilfe des Simulationsmodells 
+können fehlende Kapazitäten beim Routenzug identifiziert 
+werden. Durch die Erhöhung dieser Kapazitäten konnte 
+eine 
+durchgängige 
+Versorgung 
+der 
+Montagelinien 
+gewährleistet werden. [FMH18] 
+Die Beladung des Routenzuges selbst kann sowohl 
+manuell als auch automatisiert vollzogen werden. Beim 
+manuellen Beladen können die Behälter entweder 
+vorkommissioniert werden oder erst beim Eintreffen des 
+Routenzugfahrers durch diesen gepackt werden. In einem 
+simulativen Vergleich zeigten Klenk et al., dass sich die 
+Milk Run Zykluszeit durch das Vorkommissionieren und 
+Puffern der Aufträge deutlich reduzieren lässt. [KGG12] 
+4 
+INNERBETRIEBLICHER TRANSPORT 
+Nachfolgend wird der innerbetriebliche Material- und 
+Informationsfluss betrachtet. Zuerst wird der klassische 
+innerbetriebliche Direkttransport behandelt. Daraufhin 
+wird der Milk Run mit eKanban beleuchtet, welcher den 
+Use Case innerhalb dieses Beitrages darstellt und 
+darauffolgend simulativ genauer untersucht wird.  
+4.1 INNERBETRIEBLICHER DIREKTTRANSPORT 
+Die 
+innerbetriebliche 
+Materialzufuhr 
+an 
+der 
+Produktionslinie ist ein wichtiger Prozess, da nicht 
+gedeckte Bedarfe zu Verzögerungen entlang der gesamten 
+Linie führen können. Um die Nachfrage zu decken, bedarf 
+es einer Strategie bei der Versorgung der Arbeitsstationen. 
+Das traditionelle Kanban-Karten-System stellt hierbei eine 
+einfache und effektive Lösung dar, um den Nachschub 
+nach Lean Prinzipien zu steuern. [HAA17] Es werden 
+somit nur Verbrauchsmaterialien an den Bestimmungsort 
+geliefert, die auch benötigt werden. Um das zu 
+gewährleisten, muss ein Mitarbeiter die Bestände an den 
+Stationen in zeitlich definierten Intervallen kontrollieren 
+und die Kanban-Karten der leeren Behälter einsammeln. 
+Ausgehend von diesen Bedarfen werden Lieferaufträge 
+erstellt, 
+welche 
+ein 
+Staplerfahrer 
+abarbeitet. 
+Die 
+entsprechenden Behälter werden im Lager gepackt. Der 
+Stapler nimmt die Behälter für die jeweilige Arbeitsstation 
+auf und liefert sie auf direktem Weg zu dieser, Abbildung 
+1. Dabei werden volle gegen leere Behälter ausgetauscht. 
+Danach fährt der Staplerfahrer auf direktem Weg zum 
+Lager 
+zurück, 
+um 
+den 
+nächsten 
+Auftrag 
+entgegenzunehmen. Bei dieser Art des Transportprozesses 
+fallen viele Leerfahrten an. Für die Versorgung mehrerer 
+Arbeitsstationen 
+wäre 
+eine 
+Konsolidierung 
+der 
+Transportaufträge zur Reduzierung der Leerfahrten 
+deutlich effizienter. Zudem sind die Limitierungen des 
+traditionellen 
+Kanban-Karten-Systems 
+zu 
+beachten. 
+Kanban-Karten müssen eingesammelt und gegen neue 
+ausgetauscht werden, was Zeit in Anspruch nimmt. 
+[ML99] Dabei können Fehler passieren, Karten können 
+verloren gehen oder falsch positioniert werden, was zu 
+Problemen bei der Versorgung führen kann. [KP07] 
+ 
+
+
+--- SAYFA 4 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+4 
+Article is protected by German copyright law 
+ 
+Abbildung 1: Direkttransport 
+4.2 DIGITALISIERTER MILK RUN UND EKANBAN 
+Zur Umgehung der Limitationen des klassischen 
+Kanban-Karten-Systems 
+kann 
+im 
+Rahmen 
+der 
+Digitalisierung von Transportsystemen auf ein eKanban-
+System zurückgegriffen werden. Anders als bei der 
+Nutzung von klassischen Kanban-Karten werden die 
+Informationen bei diesem elektronisch in Echtzeit 
+übermittelt. Abbildung 2 zeigt den Informationsfluss. An 
+den Behältern befinden sich RFID-Tags, welche von 
+einem an der Arbeitsstation angebrachten Lesegerät 
+wahrgenommen werden können. Sofern ein Behälter 
+geleert wird, stellt der Produktionsmitarbeiter den 
+Behälter auf den vorgesehen Platz für die leeren Behälter. 
+Das Lesegerät registriert die Positionsänderung des 
+spezifischen Behälters und gibt die Information über den 
+Bedarf 
+weiter. 
+Die 
+Informationen 
+werden 
+vom 
+Lagerverwaltungssystem 
+empfangen 
+und 
+weiter-
+verarbeitet. In diesem fließen die Informationen über den 
+Bedarf an allen Arbeitsstationen zusammen. Ausgehend 
+von diesen werden Aufträge für die Lieferungen der 
+Materialien generiert. In Abhängigkeit der Strategie bei 
+der Belieferung wird die Frequenz der Lieferungen 
+angepasst.  
+ 
+ 
+Abbildung 2: Informationsfluss  
+ 
+Durch die Nutzung des eKanban-Systems entfallen 
+manuelle Schritte, für die Personal benötigt wird. Die 
+Sensoren 
+können 
+die 
+Bestandsinformationen 
+der 
+Arbeitsstationen ermitteln und in Echtzeit an das 
+Lagerverwaltungssystem weiterleiten. Durch die schnelle 
+Reaktionszeit sinkt zudem die Wahrscheinlichkeit, dass 
+Materialengpässe 
+aufgrund 
+eines 
+langsamen 
+Informationsflusses entstehen. Die Prinzipien des Pull-
+gesteuerten Kanban-Systems bleiben die gleichen, jedoch 
+ist das eKanban-System selbst deutlich transparenter und 
+auch 
+historische 
+Bewegungen 
+können 
+jederzeit 
+nachvollzogen werden. Diese Daten können analysiert und 
+dafür genutzt werden, das gesamte System weiter zu 
+optimieren. [HAA17] 
+Um Leerfahrten zu reduzieren, wird anstelle des 
+Dirkettransportes der Transport über den sogenannten 
+Milk Run vollzogen. Die Aufträge, welche aus den 
+Bedarfen der einzelnen Stationen resultieren, werden 
+zusammengefasst und in einem Kreislauf abgearbeitet. 
+Das Transportmittel wird mit vorkommisionierten 
+Behältern für verschiedene Stationen gleichzeitig beladen 
+und fährt diese nacheinander an, ohne zwischendurch 
+wieder zum Lager zu fahren. Dabei werden die leeren 
+Behälter gegen gefüllte Behälter getauscht.  
+Bei der Anwendung des Milk Run-Konzepts müssen 
+beim Transport mittels Stapler die begrenzten Kapazitäten 
+bezüglich der zu transportierenden Behälter beachtet 
+werden. Die begrenzte Aufnahmefähigkeit limitiert 
+hierbei die Anwendung des Milk Run-Konzepts auf eine 
+geringere Anzahl an abzuarbeitenden Arbeitsstationen. 
+Als Alternative zum Stapler kann auch ein Routenzug zur 
+Versorgung der Arbeitsstationen genutzt werden. Der 
+Routenzug selbst besteht aus einem Schleppfahrzeug und 
+mehreren Anhängern. [MSD18] Durch die Nutzung 
+mehrerer Anhänger weist der Routenzug eine höhere 
+Kapazität für Behälter auf als ein einzelner Stapler ohne 
+Anhänger. Ein wesentlicher Vorteil beim Einsatz von 
+Routenzügen ist die Reduzierung der Gesamtzahl an 
+Fahrten. [MSD18] Demzufolge werden Routenzüge bei 
+der Versorgung im innerbetrieblichen Materialfluss über 
+Milk Runs oft eingesetzt.  
+ 
+ 
+Abbildung 3: digitalisierter Milk Run vgl. [GHE+19] 
+5 
+EXPERIMENTELLES DESIGN 
+Konzeptionell erstellte Systeme können vor ihrer 
+Einführung in einer Produktionsumgebung simuliert 
+werden. In der Simulationsumgebung kann das System 
+getestet, die Parameter variiert und die Auswirkungen der 
+Variation analysiert werden. So können frühzeitig Fehler 
+als auch Optimierungspotenziale im Material- und 
+Informationsfluss entdeckt werden. [FMH18]  
+In diesem Beitrag sollen mittels Simulation die 
+folgenden Fragen bei der Auslegung eines Milk Run 
+Systems beantwortet werden. Welche Vorteile bietet ein 
+Milk Run System, bei dem die Aufträge über ein eKanban-
+System generiert werden? Welche Vorteile bieten eine 
+flexible Routenführung und ein bedarfsgesteuerter 
+Algorithmus zur Auftragsfreigabe?   
+
+
+--- SAYFA 5 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+5 
+Article is protected by German copyright law 
+Um die Vorteile als auch die Nachteile zu ermitteln, 
+wird die Performance eines digitalisierte Milk Run-
+Systems mit flexibler Routenführung mit der eines Milk 
+Run-Systems mit starrer Route verglichen. Bei diesem 
+nicht digitalisierten System wird der Nachschub über ein 
+Kanban-Karten-System geregelt. Ein Mitarbeiter muss 
+dementsprechend in festgelegten zeitlichen Intervallen die 
+Karten einsammeln und auf deren Grundlage die Behälter 
+im Lager kommissionieren. Die beiden Systeme weisen 
+ein identisches Layout und identische Taktzeiten an den 
+Arbeitsstationen auf. Anhand verschiedener Kennzahlen 
+werden die beiden Systeme letztendlich miteinander 
+verglichen.  
+5.1 AUFBAU DES SIMULATIONSMODELLS 
+Das Simulationsmodell selbst lässt sich in die 
+Bereiche Lager und Produktion unterteilen. Im Lager 
+werden die Kanban-Behälter in Abhängigkeit der 
+Auftragslage kommissioniert und auf den Routenzug  
+geladen. In der Produktion werden die an die 
+Arbeitsstationen gelieferten Hilfs- und Betriebsstoffe 
+fortwährend verbraucht.  
+Der Fokus der Simulation liegt auf der Versorgung 
+der Arbeitsstationen mit dem benötigten Material. Der 
+Transport 
+der 
+Halberzeugnisse 
+zwischen 
+den 
+Arbeitsstationen wird nicht genauer betrachtet. Der 
+Routenzug wird im Lager mit Behältern bestückt, welche 
+er zu den 15 Arbeitsstationen transportiert. Der Verbrauch 
+der Materialien ist von der Auftragslage abhängig. Die 
+Auftragslast und reihenfolge bleiben für den simulativen 
+Vergleich der beiden Syteme gleich. Die Stationen selbst 
+sind, wie in Abbildung 4 zu sehen, drei Arbeitsbereichen 
+in der Produktion zugeordnet. Der Routenzug des 
+digitalisierten Milk Run Systems kann die drei Bereiche 
+sowohl einzeln als auch alle zusammen in einem 
+Durchgang 
+anfahren. 
+Diese 
+Flexibilität 
+bei 
+der 
+Routenplanung erlaubt es, dass Bereiche, in denen zum 
+jeweiligen Zeitpunkt kein Bedarf vorhanden ist, nicht 
+angefahren werden müssen.  
+ 
+ 
+   
+Die Versorgung der Stationen wird über ein Zwei-
+Behälter-Kanban-System 
+gewährleistet. 
+Sobald 
+ein 
+Kanban-Behälter an einer der Arbeitsstationen geleert ist, 
+geht 
+im 
+Falle 
+des 
+digitalisierten 
+Systems 
+eine 
+elektronische Meldung an das Lagerverwaltungssystem. 
+Beim System mit Kanban-Karten muss ein Mitarbeiter 
+stündlich die Stationen kontrollieren und die Karten 
+einsammeln. Die eingehenden Aufträge werden daraufhin 
+im Lagerbereich eingelastet. Beim digitalisierten System 
+findet hierbei ein Abgleich statt. Die Aufträge werden 
+zunächst 
+nach 
+ihren 
+Bedarfszeitpunkten 
+an 
+den 
+Arbeitsstationen sortiert. Auf dieser Grundlage werden 
+neue Aufträge eingelastet. Dabei wird geprüft, ob die 
+bereits eingelasteten Aufträge auch bei Einlastung des 
+neuen Auftrags noch rechtzeitig am Bedarfsort eintreffen 
+werden. Bei diesem Abgleich wird die mögliche 
+Veränderung der Route und der Reihenfolge, in der die 
+Aufträge abgearbeitet werden können, mit einbezogen. 
+Abbildung 4: Simulationsmodell – Milk Run 
+
+
+--- SAYFA 6 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+6 
+Article is protected by German copyright law 
+Für jeden bereits eingelasteten Auftrag müssen die 
+aktualisierten Abfahrtszeiten berechnet werden. Sofern 
+alle Behälter rechtzeitig an ihren Verbrauchsort gelangen, 
+kann der neue Auftrag eingelastet werden. Der Routenzug 
+fährt ab, bevor einer der geladenen Aufträge zu spät am 
+Bedarfsort eintrifft. Ausschlaggebend für die Bestimmung 
+dieses Zeitpunktes ist das Minimum der berechneten 
+Abfahrtszeitpunkte. Bei dem System mit Kanban-Karten 
+werden die Aufträge im Stundentakt abgearbeitet. So fährt 
+der verantwortliche Mitarbeiter in festen zeitlichen 
+Abständen auf einer festen Route, welche an allen 
+Arbeitsstationen entlangführt, die Materialien zu den 
+Bedarfsorten.  
+6 
+ERGEBNISSE 
+Eine Grundvoraussetzung bei der Auslegung des 
+Milk Runs ist die durchgängige Versorgung der 
+Arbeitsstationen. Die abzuarbeitende Auftragsreihenfolge 
+ist bei beiden Systemen gleich. Ausfallzeiten und 
+Störungen der Arbeitsstationen selbst werden nicht 
+betrachtet. Der Algorithmus der Auftragsfreigabe und 
+Bestimmung des Abfahrtszeitpunktes des Routenzuges, 
+des flexiblen digitalisierten Systems, ist so determiniert, 
+dass alle Aufträge rechtzeitig bearbeitet werden. Es 
+entstehen 
+keine 
+Wartezeiten 
+aufgrund 
+von 
+Materialengpässen. Beim nicht digitalisierten System ist 
+der Kontrollrhythmus entsprechend eng getaktet, sodass 
+jede Stunde eine Kontrollfahrt vollzogen wird.  
+Wie in der Abbildung 5 ersichtlich, schwankt die 
+Anzahl je Fahrt transportierter Behälter stark. Das 
+digitalisierte System weist jedoch eine geringere Varianz 
+auf. Diese ist darauf zurückzuführen, dass nicht stündlich 
+ein Milk Run initiiert wird, sondern nur in Abhängigkeit 
+der Bedarfe an den Arbeitsstationen. Dadurch werden 
+durchschnittlich, ohne Betrachtung der Kontrollfahrten 
+zum einsammeln der Kanban-Karten, 27 % weniger 
+Fahrten 
+zur 
+Versorgung 
+der 
+Arbeitsstationen 
+durchgeführt. 
+ 
+ 
+Abbildung 5: Aufträge je Fahrt 
+Weiterhin kann der Fahrtweg durch die variable Rou-
+tenführung verkürzt werden. Aufgrund der Reduzierung 
+der Anzahl an Fahrten und der Verringerung der Wegstre-
+cke durch die flexible Routenführung konnten im Betrach-
+tungszeitraum von sieben Tagen 29,39% Fahrtweg bei den 
+Versorgungsfahrten eingespart werden. Sofern man die 
+stündlichen Kontrollfahrten zum Sammeln der Kanban-
+Karten in den Vergleich mit einbezieht, legt der Routen-
+zug des nicht digitalisierten Milk Run Systems das 2,8-fa-
+che an Weg zurück. Diese Reduzierung der Strecke geht 
+mit sinkenden Energiekosten für den Betrieb des 
+Routenzuges einher. Aufgrund der geringeren Laufleis-
+tung verringert sich zudem der Wartungsaufwand für ein-
+gesetzte Routenzüge. 
+Die durchschnittliche Zykluszeit der Versorgungs-
+fahrten ist beim nicht digitalisierten System mit 8 min und 
+55 s geringer als die des digitalisierten Systems, welches 
+eine Zykluszeit von 11 min und 29 s aufweist. Dies ist da-
+rauf zurückzuführen, dass beim digitalisierten System 
+nicht fest nach Takt gefahren wird. Aufgrund des Algo-
+rithmus werden durchschnittlich mehr Behälter je Fahrt 
+transportiert. Entsprechend dieser Vorgehensweise kann 
+die Anzahl an Fahrten deutlich reduziert werden, ohne die 
+Versorgung der Arbeitsstationen zu beeinträchtigen. Die 
+Fahrzeit der beiden Systeme im Betrachtungszeitraum von 
+sieben Tagen ist in Abbildung 6 zu sehen. Insgesamt kön-
+nen durch die Digitalisierung des Systems 38,5 % der Zeit 
+bei den Versorgungsfahrten eingespart werden.  
+ 
+Abbildung 6: Fahrzeiten der Routenzüge  
+Da Bereiche, in denen kein Bedarf besteht, nicht an-
+gefahren und Kontrollfahrten vermieden werden, lassen 
+sich Leerfahrten deutlich reduzieren. Demzufolge ist der 
+Routenzug schneller wieder am Lager und kann neue Auf-
+träge entgegennehmen. Durch die höhere Verfügbarkeit 
+des Routenzuges können Engpässe mit höherer Wahr-
+scheinlichkeit vermieden werden. Infolge dieser gesteiger-
+ten Verfügbarkeit können mehr Arbeitsstationen in der 
+gleichen Zeitspanne versorgt werden. 
+7 
+ZUSAMMENFASSUNG 
+In diesem Beitrag wurde mittels Simulation ein 
+digitalisiertes Milk Run System untersucht. Bei diesem 
+werden Aufträge automatisch über das eKanban-System 
+generiert. Durch die Messung der Performance konnten 
+die Vorteile, welche eine flexible Routenführung und ein 
+bedarfsgesteuerter Algotrithmus zur Auftragsfreigabe mit 
+sich bringen, aufgezeigt werden. Durch die Sortierung der 
+Aufträge und Wahl der kürzesten Route konnte die 
+
+
+--- SAYFA 7 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+7 
+Article is protected by German copyright law 
+Fahrzeit um 38,5 % reduziert werden. Durch die 
+Reduzierung der Fahrzeit und Strecke sinken zudem die 
+Transportkosten. Die Kombination dieser Eigenschaften 
+mit einem eKanban-System führt zu mehr Flexibilität und 
+einer höheren Reaktionsfähigkeit. Zukünftig können die 
+erhobenen Daten genutzt werden, um auf deren Grundlage 
+Prognosen über Lasten und Aufträge zu treffen. Dies 
+ermöglicht es einem Leitstand, Aufträge zu bearbeiten, 
+bevor der Bedarf an der Arbeitsstation auftritt. 
+ 
+LITERATUR  
+[ARN14] 
+Alnahhal, M.; Ridwan, A.; Noche, B.: 
+In-plant milk run decision problems. 
+Proceedings of 2nd IEEE International 
+Conference on Logistics Operations 
+Management, GOL 2014. 
+[DGR14]  
+Dewitz, M.; Günthner, W.; Arlt, T.: Ti-
+metable Optimization for In-Plant Milk-
+Run Systems, München: Technische Uni-
+versität München, 2014. 
+[FMH18] 
+Fedorko, G.; Molnar, V.; Honus, S. Ne-
+radilova, H; Kampf, R.: The Application 
+Of Simulation Model Of A Milk Run To 
+Identify The Occurence Of Failures. 
+Technical Univerity of Kosice, 2018. 
+[GHE+19] 
+Gotthardt, S.; Hulla, M.; Eder, M.; 
+Karre, H.; Ramsauer, C.: Digitalized 
+milk-run system for a learning factory 
+assembly line. Univerity of Technology 
+Graz, 2019.  
+[Gru14] 
+Grunewald, M.: Planung von Milkruns 
+in der Beschaffungslogistik der Automo-
+bilindustrie. Springer Gabler, 2014. 
+[HAA17] 
+Houti, M.; Abbadl, L.; Abouabdellah, 
+A.: E-Kanban the new generation of tra-
+ditional Kanban systems, and the impact 
+of ist implementation in the enterprise. 
+Universite Ibn Tofall, 2017.  
+[HEK+19] 
+Hulla, M.; Eder, M.; Karre, H.; 
+Ramsauer, C.: Digitalized milk-run sys-
+tem for a learning factory. Graz Univer-
+ity of Technology, 2019.  
+[JBM+15] 
+Jagtap, K.; Bhavsar, N; Mewal, P.; 
+Shejwal, S.: Electronic Store Using e-
+Kanban Technology. International Jour-
+nal of Advanced Reasarch in Electron-
+ics and Communication Engineering, 
+Volume 4, Issue 1, 2015. 
+[KGG12] 
+Klenk, E.; Galka, S.; Güthner, W.: anal-
+ysis of parameters influencing in-plant 
+milk run design for production supply. 
+12th IMHRC Proceedings, Gardanne, 
+France, 2012. 
+[KHZ19]  
+Kluska, 
+K.; 
+Hoffa-Dabrowska, 
+P.; 
+Zwolankiewicz, A.: Simulation Model-
+ing of Milk-Run Internal Logistics Sys-
+tem – Case Study, Poznan: Poznan Uni-
+versity of Technology, 2019. 
+[KK15] 
+Korytkowski, P.; Karkoszka, R.: Simula-
+tion-based efficiency analysis of an in-
+plant milk-run operator under disturb-
+ances. Springer, 2015.   
+[KAL+21] 
+Kreutz, M.; Alla, A.; Lütjen, M.; 
+Freitag, M.: Energy-efficient eKanban 
+system with autonomous sensor modules 
+for level measurement and reinforce-
+ment learning for measurement interval 
+adaptation. Universität Bremen, 2021. 
+[KP 07] 
+Kumar, s.; Panneerselvam, R.: Litera-
+ture review of JIT-KANBAN system. In-
+ternational Journal of Advanced Manu-
+facturing Technology, vol. 32, pp.393-
+408, 2007. 
+[MSD18] 
+Meinhardt, I.; Schmidt, T.; Doernbrack, 
+M.: Routenzug – Nach Plan wie die 
+Bahn! Technische Universität Dresden. 
+2018.  
+[ML99] 
+Mertins, K.; Lewandrowski, U.: Inven-
+tory safety stocks of Kanban control sys-
+tems, Production Planning & Control: 
+The Management Operations. Vol.10 
+no. 6, pp. 520-529, 1999. 
+[NRS20] 
+Niemann, J.; Reich, B.; Stöhr, C.: Lean 
+Six Sigma Methoden zur Produktionsop-
+timierung. Springer Verlag, 2020.  
+[PTK+20] 
+Pekarcikova, M.; Trebuna, P.; Kliment, 
+M.; Rosocha, L.: Material Flow Opti-
+mization Through E-Kanban System Si-
+mulation. Int j simul model 19 (2020) 2: 
+243-254, 2020. 
+
+
+--- SAYFA 8 ---
+DOI: 10.2195/lj_proc_vojdani_de_202211_02  
+URN: urn:nbn:de:0009-14-56098 
+ 
+ 
+© 2022 Logistics Journal: Proceedings – ISSN 2192-9084  
+ 
+ 
+ 
+ 
+    Seite 
+8 
+Article is protected by German copyright law 
+[Tak18] 
+Takvir, A.: Milkrun 4.0 for Smart Man-
+ufacturing. 
+International 
+Research 
+Journal of Advanced Engineering and 
+Science, Volume 3, Issue 2, pp. 125-
+127, 2018. 
+[WÜR21] 
+WÜRTH Industry Service CPS RFID: 
+https://me-
+dia.witglobal.net/bkmedia/wuerth/1543
+/de/BroschuereCPSRFIDde/#page_1.n 
+.Abrufdatum: 24.05.2022.  
+ 
+ 
+Prof. Dr.-Ing. Nina Vojdani ist Lehrstuhlinhaberin des 
+Lehrstuhls für Produktionsorganisation und Logistik an 
+der Universität Rostock. 
+Patrick Drechsler, M. Sc. ist wissenschaftlicher Mitar-
+beiter am Lehrstuhl für Produktionsorganisation und Lo-
+gistik an der Universität Rostock. 
+Adresse: Lehrstuhl Produktionsorganisation und Logistik, 
+Universität Rostock, Richard-Wagner-Str. 31, 18119 
+Rostock, Deutschland, Tel: +49 381 498-9250, Fax: +49 
+381 498-9252, E-Mail: lpl@uni-rostock.de 

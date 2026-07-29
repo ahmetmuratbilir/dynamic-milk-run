@@ -1,0 +1,465 @@
+
+
+--- SAYFA 1 ---
+Int j simul model 19 (2020) 2, 243-254 
+ISSN 1726-4529                                                                                   Original scientific paper 
+https://doi.org/10.2507/IJSIMM19-2-513 
+243 
+ 
+MATERIAL FLOW OPTIMIZATION THROUGH  
+E-KANBAN SYSTEM SIMULATION 
+Pekarcikova, M.; Trebuna, P.; Kliment, M. & Rosocha, L. 
+Technical University in Kosice, Faculty of Mechanical Engineering, Institute of Management, 
+Industrial and Digital Engineering, Nemcovej 32, 04 200 Kosice, Slovakia 
+E-Mail: miriam.pekarcikova@tuke.sk, peter.trebuna@tuke.sk, marek.kliment@tuke.sk, 
+ladislav.rosocha@tuke.sk 
+Abstract 
+The digital evolution of lean thinking increases visibility along the whole value chain. It spreads and 
+intensifies the potential of Supply Chain Collaboration in the network through the digitalization of 
+orders, tracking deliveries and supplies in real-time, optimizing material and informational flows, and 
+streamlining delivery time. Industry 4.0 transforms the business by creating a favourable environment 
+for implementing well-known technologies from JIT/JIS and Kanban. The article aimed to map and 
+create a simulation model of the production-assembly process and to propose the introduction of 
+Kanban logic into material flow control. The implementation of the Kanban system and the testing of 
+variant solutions using the simulation software Tecnomatix Plant Simulation made it possible to find 
+the optimal solution. 
+(Received in February 2020, accepted in May 2020. This paper was with the authors 1 week for 1 revision.) 
+Key Words:  E-Kanban, Modelling, Simulation, Visibility, Digitalization 
+1. INTRODUCTION 
+1.1  Digital supply chain 
+According to [1], European supply chain managers are talking about a key issue in 
+digitization for their companies – IT integration. It is also reported that more than 80 % of 
+respondents expect the integration of IT systems and data within their group to offer 
+significant, high, or very high potential to improve their supply chain, and 77 % expect the 
+same from IT networks with partner vendors and customers supply chain. 
+ 
+ 
+Figure 1: Digital SC framework (left), digital enablers, and select implications for SC (right) [2]. 
+      Businesses that invest intelligently and quickly in supply chain configurations can create a 
+competitive advantage for the entire business model. Digital planning, digital delivery, digital 
+
+
+--- SAYFA 2 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+244 
+production, and digital logistics can be included among the key dimensions of digital supply 
+chain management (see Fig. 1). 
+      However, achieving the optimum result is conditioned by a system solution. Globalization 
+affects the design requirements of businesses, which must flexibly adapt to peak performance 
+and ensure high production variability if they want to maintain a high degree of resilience to 
+competitors. This production goal can be achieved by focusing on the modularity of the 
+system concept supported by functional integration, the introduction of standardization, 
+standardization in product design [3-6]. 
+1.2  The impact of Industry 4.0 on the Kanban concept 
+The Kanban concept can be characterized as a turn-based inventory management system in an 
+enterprise. The basic ideas are production to challenge and control the maximum level of 
+inventory in the production system through a specified number of Kanban cards (or 
+cartridges, containers). As it is strictly demand-oriented, relatively small production/transport 
+batches mitigate the impact of the so-called bullwhip effect, which is one of the main 
+challenges in supply chain management. 
+      Kanban is suitable for low demand fluctuations and high product quality and delivery 
+times. Flexible working time modifications are appropriate, as labour capacity should be 
+coordinated according to actual production needs. In the traditional Kanban system, stock 
+replenishment is oriented through the stock status, and the introduction of RFID technology 
+will allow real-time stock monitoring. Instead of signalling material requirements via cards, 
+resp. containers can be digitized using CPS/Cyber-physical system. This is the introduction of 
+the so-called intelligent containers (iBin), which increase the flexibility of the supply system. 
+      With the introduction of CPS, the Kanban concept aims to automate with limited and no 
+human interaction, e.g. intelligent storage tanks operate on the principle of self-regulation, 
+which contributes to the decentralization of the data collection and transfer process. The next 
+phase concerning the coexistence of humans and robots is the question of creating fully-
+fledged autonomous robotized systems, where one will provide monitoring and control 
+activities [7-10]. 
+In this sense, the potential is created through: 
+ extension of applications such as e-Kanban, RFID technology, scanning devices with real-
+time signal transmission, full visibility of all processes that are part of the Kanban system, 
+ the introduction of an integrated camera system, containers equipped with CPS, which 
+send data directly to the supplier, 
+ equipping Kanban tanks with sensors, which in real-time, in addition to monitoring the 
+stock level, also monitor other data e.g. temperature, air pressure, vibration, dustiness 
+(sensitive material), 
+ vertical integration in the enterprise information system, 
+ decentralized decision-making and self-regulation through CPS, 
+ virtualization and process simulation, 
+ the introduction of autonomous transport systems of supply (dynamic Milk run) directly in 
+the production hall, 
+ telematics units to enable the positioning of automatic conveyors in the system. 
+ 
+ 
+ 
+ 
+
+
+--- SAYFA 3 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+245 
+Table I: Kanban concept in terms of Industry 4.0 technology implementation; adapted to [5-7, 10-14]. 
+ 
+2. E-KANBAN SYSTEM USING THE SIMULATION MODELS IN TX 
+PLANT SIMULATION 
+The E-Kanban system is based on a virtual system in which the card is not tangible but is 
+transmitted by an electronic signal to the supplier. The electronic request is automatically 
+generated and sent to the vendor indicating the required quantity of products. Many of the 
+required products are processed as a request, which is created using a barcode or a more 
+modern QR code, which is found on all necessary components. The system uses software 
+applications to create orders. An ideal type of Kanban system is E-Kanban, whose task is to 
+track a certain amount of material that has been consumed or pulled by an electronic signal. 
+The signal is sent directly to internal or external subcontractors. For these suppliers, the order 
+is automatically processed, where the same item is replaced in the required quantity to be 
+delivered within the agreed time. Electronic Kanban differs from classic Kanban in that it 
+replaces Kanban cards with barcodes. It uses technology to improve the movement of material 
+within production. 
+2.1  Modelling and simulation the E-Kanban using Tecnomatix Plant Simulation 
+Kanban system in the term of Tx Plant Simulation is consumption regulated job control in the 
+area of self-regulating loops created between each successive step in the material flow. To 
+create an effective Kanban system is important to [15]: 
+ create linked self-regulating control loops between producer and customer, 
+ implement a pick-up principle for each subsequent consumption level, 
+ use the flexibility of workers and resources, 
+ transfer a short-term control to the executive staff, 
+ use a special Kanban card or containers to transfer information. 
+      It is possible to make changes in these modular libraries are open for changes so that the 
+user can modify them to meet the specific requirements. These modular libraries allow very 
+efficiently creating the simulation models suitable for solving the problem of branches of 
+
+
+--- SAYFA 4 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+246 
+industrial practice. The simulation is created using individual frames, as Tx Plant Simulation 
+is software that supports a hierarchical approach to model creation. After clicking on the 
+selected frame, the individual machines are displayed. The illustration is shown in Fig. 2. 
+When creating the simulation, it is necessary to create a basic frame (master), in which the 
+individual Frames (machines and manual workstation) are subsequently stored. 
+ 
+ 
+Figure 2: Simulation with Kanban system. 
+ 
+      E-Kanban System advantages [15-17]: 
+ "real-time" availability of all relevant Kanban information and online in the Cloud, 
+ automated Kanban loops allows sent and visible the signals in real-time and on the screen 
+immediately, 
+ minimal effort with the fast print of Kanban cards and capture of Kanban movements, 
+ low effort for the IT department and low maintenance costs, 
+ visualization and control of all Kanban information in real-time, pull control available 
+through E-Kanban boards, 
+ available in different languages, 
+ analysis and optimization – inventory levels and delivery lead-times optimization based on 
+historical data; Kanban levels adjustment based on variation in demand – the potential for 
+optimizations. 
+3. CASE STUDY 
+3.1  Description of the production process 
+The case study was based on input data from a selected company whose main activity is the 
+manufacture of medical devices. The company manufactures several second products that are 
+used every day not only in the healthcare sector but also in the patient's home environment. 
+The input material is tubing, foil, inlet valve, and boxes with appropriate instructions for the 
+product. The output product is finished urinal collection bags. There are machines in the 
+production process that use PLC systems designed to control machines. The machine works 
+based on sliding parts that feed the foil, hose, and valve with a given dimension into a 
+pressing form, which must have the exact dimensions of the urinal collecting bag. The design 
+
+
+--- SAYFA 5 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+247 
+of each form must match the specific type of urinal collection bag produced. The machine 
+producing the above products works on the principle of a press using which it welds and cuts 
+the foil together with the tube in a 10-second interval. Next to the machine is an input material 
+which is inserted into the machine using a lifting tool. 
+      Another part of the production is a manual workplace where valves for the machines are 
+produced and then used in the production process. The valves are manufactured using a 
+manual lever press. The valve consists of two parts, the lower part of the valve and the upper 
+part of the so-called valve housing. When both parts are inserted into the movement, a valve 
+is formed by pressing. There are several jobs in the workplace such as production operator, 
+supplier, quality manager, and shift master. Two production operators work on one machine. 
+      The first operator services the machine, exchanges the material, set the necessary 
+dimensions and tests for damage that may occur on the final product (e.g. damaged weld, 
+insufficiently welded tube). The second operator carries out the packaging of the products in 
+boxes and at the same time performs a visual inspection of the individual products. After the 
+packaging process, the operator inserts instructions for product use. During the manufacturing 
+process that is in progress on the machine, mutual assistance between production operators is 
+possible. In the event of a serious machine failure, operators leave for a manual workstation 
+where time can be compensated for by producing valves. Operators change every shift so that 
+the work is not monotonous. They are ranked by their shift master for a particular machine. 
+3.2  Creating a simulation model in Tx Plant Simulation 
+The proposed model was elaborated based on layout and data from a real functioning 
+production line (process times, machines, containers, workers, output products, etc.). The 
+Assembly icon was used to model the machines and packaging. Assembly station is designed 
+for joining individual parts or adding components to the assembled part. It allows the 
+simulation of assembly processes. Simulation of the production line in 2D – the initial state is 
+processed in Fig. 3. Input information on the manufacturing process is in Table II. 
+ 
+Table II: Input information of manufacturing process. 
+ 
+      Its processing times are set using Table file, which is in the 10-second interval and the 
+package is set to 5 minutes. Another item is to create entities that will be produced. Each 
+machine produces a different product, divided by entities. The products are divided into 
+entities for children bags, valve bags, bed bags, travel bags, disposable bags. The manual 
+workstation will produce valves that are weighed gradually to specific machines. 
+      Using the Event Controller sets the time of one change, which lasts 12 hours. Production 
+is carried out by the following system, where the machine enters the foil with tubing. The 
+welding process takes place in the machine and the moulding is then placed on a sliding belt 
+which is moved towards the packaging. In the package, the worker performs a visual 
+inspection and gradually puts it into a box of 25 bags, which form one bundle. Subsequently, 
+8 of these bundles are placed in one box. 200 bags are placed in one box. After packing in 
+
+
+--- SAYFA 6 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+248 
+boxes, the boxes are weighed into intermediate storage. The products are again removed from 
+the intermediate warehouse to the main warehouse, where they are shipped to a specific 
+customer. 
+ 
+ 
+Figure 3: Simulation of the production line in 2D – initial state. 
+ 
+      One way to analyse the entire system is through the Experiment Manager icon. 
+Experiment Manager lets you run multiple experiments at once. The Experiment Manager 
+performs different simulations during the experiment and provides the results of these 
+experiments when finished. At the end of the experiment, an overall analysis is displayed, 
+showing min. and max. final products (see Fig. 4). 
+3.3  Simulation model of E-Kanban in Tx Plant Simulation 
+After reviewing the values, as many products as are required are not produced. One way to 
+increase production efficiency is to introduce an E-Kanban system. Kanban is a well-known 
+Japanese management system whose management is based on the use of cards with different 
+colours to indicate stock levels and production. The main benefit of the Kanban system is to 
+reduce inventory without major investment while ensuring the most perfect production 
+process. The E-Kanban system is based on a virtual system in which the card is not tangible 
+but is transmitted by an electronic signal to the supplier. The electronic request is 
+automatically generated and sent to the vendor indicating the required quantity of products. 
+Many of the required products are processed as a request, which is created using a barcode or 
+a more modern QR code, which is found on all necessary components. 
+      The system uses software applications to create orders. The ideal type of Kanban system 
+is E-Kanban, whose task is to track a certain amount of material that has been consumed or 
+pulled by an electronic signal. The signal is sent directly to internal or external subcontractors. 
+For these suppliers, the order is automatically processed, where the same item is replaced in 
+the required quantity to be delivered within the agreed time. Electronic Kanban differs from 
+classic Kanban in that it replaces Kanban cards with barcodes. It uses technology to improve 
+the movement of material within production [18, 19]. 
+ 
+
+
+--- SAYFA 7 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+249 
+ 
+ 
+ 
+Figure 4: Total view of experiment statistics – Experiment manager. 
+
+
+--- SAYFA 8 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+250 
+      The simulation is created using individual frames since the software supports a 
+hierarchical modeling approach. After clicking on the selected frame, the individual machines 
+are displayed. The illustration is shown in Fig. 5. When creating a simulation, it is necessary 
+to create a basic frame (master), in which the individual frames (machines and manual 
+workstation) are subsequently stored. 
+ 
+ 
+Figure 5: Simulation model of the E-Kanban system with the illustration of selected frames – proposed 
+state. 
+ 
+      To create individual machines it is necessary to select the item Kanban from the Manage 
+Class Library and then in tools, it is necessary to select the elements that control the 
+machines. The Kanban input and Kanban buffer are set using Table File and Method. The 
+role of these features is to control the input of plastic foils. The tubing inlet is set using 
+Kanban Singl Proc, which is used to order the tubing. The selected setting is for the machine 
+that enters the foil and tubing at the process interval as in the previous simulation with given 
+process times. The formed bags proceed along the conveyor belt to Assembly 1, where they 
+are subsequently packed. Input packs are bags and cartons that are pulled using Kanban singl 
+proc from Kanban buffer. The buffer function secures the boxes by the pull principle from the 
+Kanban Source input. The created machine in the frame must be terminated by output using 
+the Interface function, which is needed to connect to the mainframe through which products 
+are shipped to Drain. 
+      The whole simulation is carried out using the thrust principle that controls the Kanban 
+single proc. Kanban singl proc is set to a processing time that is zero (no production delay). 
+Its function is to order material. The simulation is set to a 12-hour change that only works as a 
+whole. This means that individual frames are not functional separately (they cannot be run 
+separately), only as a whole. The Worker Chart function must be specified for each frame 
+separately because of the use of multiple frames. The simulation procedure and output 
+statistics are shown in Fig. 6. 
+
+
+--- SAYFA 9 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+251 
+ 
+ 
+Figure 6: Total view of simulation statistics after the second simulation run. 
+ 
+Figure 7: Use of operators during the working shift. 
+
+
+--- SAYFA 10 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+252 
+      In this simulation, statistics are shown for only one frame. This statistic only shows 
+product pick-up and total boxes produced. The above statistics show that for bags in which 
+valves are used for their production (travel bags, bags with valves) there is a smaller quantity 
+of pieces (boxes) produced. In the simulation with Kanban system, we can see an increase in 
+the number of boxes produced compared to the previous simulation, for example, 87 
+disposable bags were produced in 12-hour change, which means that 17400 bags were 
+packed. For machine statistics, it is necessary to enter the Html report in all frame machines 
+where it is necessary to play the whole simulation. The statistics will only show the statistics 
+of the percentage utilization of machines. The use of operators during the working shift is 
+shown in Fig. 7. 
+4. CONCLUSION AND OUTLOOK 
+The simulations were created with the same processing times and the same arrangement of 
+machines and workers. The first simulation, which was created from a real working company, 
+used a toolbar with ordinary elements. To increase capacity, Experiment Manager was used to 
+increase productivity only when using an additional supply or to set process times. Process 
+times would lead to increased workload, which would harm product quality. Productivity 
+increased by 23 % after adding a reservoir. If there were two feeders, it would represent an 
+increase in further investment. With the statistics shown, it is possible to observe an increase 
+in the products in the second simulation using the E-Kanban system. The E-Kanban system 
+has improved not only product growth but also machine utilization and working time. 
+ 
+Table III: Comparison of realized simulation runs. 
+ 
+Travel 
+bags 
+Baby bags Disposable 
+bags 
+Bed bags 
+Bags with 
+valves 
+Bags with 
+hanger 
+1st simulation 
+51 
+45 
+54 
+53 
+45 
+52 
+2nd simulation 
+76 
+88 
+87 
+87 
+76 
+87 
+Difference 
+33 % 
+49 % 
+38 % 
+39 % 
+41 % 
+40 % 
+      Table III and Fig. 8 show the percentage difference between the two simulations. Using an 
+E-Kanban system, production increased by an average of 40 %. 
+ 
+Figure 8: Graphical display after two simulation runs. 
+
+
+--- SAYFA 11 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+253 
+      Compared to the simulation, the operator load is also shown. In the first simulation, the 
+average utilization is 68 % and the second simulation moves with a utilization rate of 82 %. 
+The second simulation points out that after the introduction of Kanban the performance 
+increased by 14 % while maintaining the same process times. The introduction of the E-
+Kanban system directs production towards a steady production, which results from statistics. 
+The E-Kanban system produces the same number of bags produced, except for machines that 
+use valves. The reason for delaying production on these machines is the more complicated 
+procedure since the use of valves is required to produce bags. The simulation aimed to 
+effectively increase the productivity of the finished products without changing the process 
+times. The desired result was achieved using the E-Kanban system in the second simulation. 
+Traditional demand forecasting and scheduling tools are unable to flexibly synchronize 
+supply and demand. 
+      According to sources [10-12], Industry 4.0 will increase the complexity of supply-
+customer networks, increasingly need to adapt to the customer, and respond at a time that he 
+is willing to accept while waiting for the product. The traditional perception of the supply 
+chain as a linear system (stability and predictability) that enables the optimization of 
+individual subsystems and thus obtains an optimized supply chain as a whole is no longer 
+sufficient. The vision of the future is the self-regulation of enterprises, which will be based on 
+the autonomous functioning and mutual communication of machines, mainly robots and 
+products according to real-time information. Sensors will monitor the entire production 
+process, system integration will enable customers to interact with the design and 
+manufacturing process, increased machine and equipment availability, shorter production 
+cycle times, faster response to customer requests due to self-regulation of entering 
+transactions (without human interaction). Modern technologies based on cloud computing 
+enable the transition from push systems to pull. This is because of working with information 
+that is updated and supplemented daily [14, 18-24]. 
+ACKNOWLEDGEMENT 
+This article was created by the implementation of the grant project APVV-17-0258 “Digital 
+engineering elements application in innovation and optimization of production flows”, VEGA 
+1/0438/20 “Interaction of digital technologies to support software and hardware communication of the 
+advanced production system platform” and KEGA 001TUKE-4/2020 “Modernizing Industrial 
+Engineering education to Develop Existing Training Program Skills in a Specialized Laboratory”. 
+REFERENCES 
+[1] TRACC. Continuous improvement: Will Industry 4.0 spell the end of lean manufacturing?, from 
+https://traccsolution.com/blog/industry-4-0/, accessed on 10-02-2020 
+[2] Kearney. Digital supply chains: increasingly critical for competitive edge, WHU Logistics Study 
+2015, from https://www.atkearney.com/operations-performance-transformation/article?/a/digital-
+supply-chains-increasingly-critical-for-competitive-edge, accessed on 10-02-2020 
+[3] Zivanic, D.; Zelic, A.; Lalic, B.; Simeunovic, N.; Szabo, L. (2019). Improving the order picking 
+efficiency by optimising the orders' sequence, International Journal of Simulation Modelling, 
+Vol. 18, No. 1, 125-137, doi:10.2507/IJSIMM18(1)469 
+[4] Chromjakova, F.; Bobak, R.; Hrusecka, D. (2017). Production process stability – core assumption 
+of INDUSTRY 4.0 concept, 5th International Conference on Manufacturing, Optimization, 
+Industrial and Material Engineering, 143-154 
+[5] Kuperova, M.; Zatrochova, M. (2014). Logistics conceptions in the production management in 
+small-and medium-sized industrial companies in the Slovak republic, Borkowski, S.; Ipavec, V. 
+M. (Eds.), Toyotarity. Change Management, Aeternitas Publishing House, Alba Iulia, 135-146 
+
+
+--- SAYFA 12 ---
+Pekarcikova, Trebuna, Kliment, Rosocha: Material Flow Optimization through E-Kanban … 
+254 
+[6] Moon, S.; Ji, W.; Moon, H.; Kim, D. (2018). A simulation of order resonance phenomenon in a 
+supply chain triggered by reinforcing loop, International Journal of Simulation Modelling, Vol. 
+17, No. 2, 231-244, doi:10.2507/IJSIMM17(2)421 
+[7] Rajnoha, R.; Galova, K.; Rozsa, Z. (2018). Measurement of impact of selected industrial 
+engineering practices on companies’ economic performance, Inzinerine Ekonomika – 
+Engineering Economics, Vol. 29, No. 2, 176-187, doi:10.5755/j01.ee.29.2.19871 
+[8] Micieta, B.; Edl, M.; Krajcovic, M.; Dulina, L.; Bubenik, P.; Durica, L.; Binasova, V. (2018). 
+Delegate MASs for coordination and control of one-directional AGV systems: a proof-of-
+concept, International Journal of Advanced Manufacturing Technology, Vol. 94, No. 1-4, 415-
+431, doi:10.1007/s00170-017-0915-8 
+[9] Zhu, J.; Shao, Z. H.; Chen, C. (2019). An improved whale optimization algorithm for job-shop 
+scheduling based on quantum computing, International Journal of Simulation Modelling, Vol. 
+18, No. 3, 521-530, doi:10.2507/IJSIMM18(3)CO13 
+[10] Bousonville, T. (2017). Logistik 4.0: Die digitale Transformation der Wertschöpfungskette, 
+Springer Gabler, Wiesbaden 
+[11] Grant, D. B.; Trautrims, A.; Wong, C. Y. (2017). Sustainable logistics and supply chain 
+management, 2nd edition, Kogan Page, New York 
+[12] Hofmann, E.; Rüsch, M. (2017). Industry 4.0 and the current status as well as future prospects on 
+logistics, Computers in Industry, Vol. 89, 23-34, doi:10.1016/j.compind.2017.04.002 
+[13] Grznar, P.; Gregor, M.; Mozol, S.; Krajcovic, M.; Dulina, L.; Gaso, M.; Major, M. (2019). A 
+system to determine the optimal work-in-progress inventory stored in interoperation 
+manufacturing buffers, Sustainability, Vol. 11, No. 14, Paper 3949, 36 pages, doi:10.3390/ 
+su11143949 
+[14] Fedorko, G.; Vasil, M.; Bartosova, M. (2019). Use of simulation model for measurement of 
+MilkRun system performance, Open Engineering, Vol. 9, No. 1, 600-605, doi:10.1515/eng-2019-
+0067 
+[15] Bangsow, S. (2015). Tecnomatix Plant Simulation. Modeling and Programming by Means of 
+examples, Springer, Cham 
+[16] Zupancic, D.; Buchmeister, B.; Aljaz, T. (2017). Reducing the time of task execution with 
+existing resources – comparison of approaches, International Journal of Simulation Modelling, 
+Vol. 16, No. 3, 484-496, doi:10.2507/IJSIMM16(3)10.394 
+[17] Krajcovic, M.; Hancinsky, V.; Dulina, L.; Grznar, P.; Gaso, M.; Vaculik, J. (2019). Parameter 
+setting for a genetic algorithm layout planner as a toll of sustainable manufacturing, 
+Sustainability, Vol. 11, No. 7, Paper 2083, 26 pages, doi:10.3390/su11072083 
+[18] Stefanik, A.; Grznar, P.; Micieta, B. (2003). Tools for continual process improvement – 
+simulation and benchmarking, Proceedings of the 14th International DAAAM Symposium, 443-444 
+[19] Ignacz, P. (2019). Use of digital tools in logistic and production facility management for effective 
+information flow, Acta Logistica, Vol. 6, No. 4, 141-146, doi:10.22306/al.v6i4.141 
+[20] Straka, M.; Malindzak, D. (2009). Algorithms of capacity balancing of printing machineries for 
+Alfa Foils, a.s. planning system, Acta Montanistica Slovaca, Vol. 14, No. 1, 98-102 
+[21] Straka, M.; Rosova, A.; Malindzakova, M.; Khouri, S.; Culkova, K. (2018). Evaluating the waste 
+incineration process for sustainable development through modelling, logistics, and simulation, 
+Polish Journal of Environmental studies, Vol. 27, No. 6, 2739-2748, doi:10.15244/pjoes/81062 
+[22] Pribulova, A.; Pokusova, M. (2019). Using a simulation programme to predict distortion of cast 
+iron castings, Proceedings of the 19th International Multidisciplinary Scientific GeoConference, 
+713-720, doi:10.5593/sgem2019/2.1/S07.093 
+[23] Istokovic, D.; Perinic, M.; Dobovicek, S.; Bazina, T. (2019). Simulation framework for 
+determining the order and size of the product batches in the flow shop: A case study, Advances in 
+Production Engineering & Management, Vol. 14, No. 2, 166-176, doi:10.14743/apem2019.2.319 
+[24] Prester, J.; Buchmeister, B.; Palčič, I. (2018). Effects of advanced manufacturing technologies on 
+manufacturing company performance, Strojniski vestnik – Journal of Mechanical Engineering, 
+Vol. 64, No. 12, 763-771, doi:10.5545/sv-jme.2018.5476 
+ 

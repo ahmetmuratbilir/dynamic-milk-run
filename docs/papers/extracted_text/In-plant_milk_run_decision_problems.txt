@@ -1,0 +1,1076 @@
+
+
+--- SAYFA 1 ---
+In-plant Milk Run Decision Problems 
+ 
+Mohammed Alnahhal, Asep Ridwan, Bernd Noche  
+Transport systems and logistics  
+Duisburg-Essen University 
+Duisburg, Germany 
+ 
+ 
+ 
+Abstract— This study investigates the general framework of the 
+decisions in in-plant milk run systems, and also the other related 
+decisions that affect or affected by milk run systems. Emphasis 
+was placed on lean-oriented decisions and objectives. This was 
+accomplished conceptually using extensive literature review. The 
+study shows that there is a lack of studies regarding in-plant milk 
+run system as a whole, and also in certain areas of the system 
+such as manual feeding. The study shows also a tendency in some 
+studies to deviate from lean manufacturing philosophy looking 
+for optimality based on restrictive objectives. Furthermore, some 
+differences in literature in defining some concepts related to in-
+plant milk run system were illustrated. The study presents new 
+directions for future research especially those related to fast-
+response delivery in very changing environments. 
+Keywords— In-plant milk run; decision making, lean 
+manufacturing, JIT 
+I. 
+ INTRODUCTION  
+In manufacturing facilities, there are two types of activities, 
+namely, making goods and operations needed to deliver these 
+goods. The second type is “logistics”. If it is inside the 
+boundaries of the facility, containing the material flows 
+between plants and between production lines within a plant, 
+then it is under control of the management of the company. 
+However inbound and outbound logistics are outside the 
+control of this management [1]. 
+Production logistics is one of the most important aspects 
+that must be optimized to enhance the performance of 
+assembly systems. Automotive companies started to utilize the 
+concept of in-plant milk run, in which a train or manual cart 
+takes bins full with parts from inventory position (a store) to 
+consumption points (stations) in a predetermined route and 
+schedule [2]. So, a group of stations is supplied by the same 
+train in the same route and in the same service period. Bozer 
+and Ciemnoczolowski [3] described milk run systems as 
+“route-based, cyclic material handling systems that are used 
+widely to enable frequent and consistent deliveries of 
+containerized parts on an as-needed basis from a central storage 
+area (the ‘supermarket’) to multiple line-side deposit points on 
+the factory floor”. Fig 1 shows the components of milk run 
+system. This system depends on frequent delivery of small 
+amount of materials. Usually, there are two separate tugger 
+routes — one delivering purchased parts, and the other 
+removing finished goods [4]. In spite of its importance, the 
+principle of in-plant milk run did not take the appropriate 
+attention by researchers [5].  
+ 
+Fig.1. In-plant milk run system 
+Forklift is not appropriate for repeatable flow of items 
+between the same locations [1]. In this system, large quantities 
+of purchased parts arrive at the receiving dock, typically on 
+pallets or in boxes, and are delivered directly to the production 
+floor in an unorganized manner. So it is difficult in such a 
+system to know how many purchased parts are on the floor, 
+cells running out of parts, and operators unable to sustain takt 
+time because they have to go searching for parts [6]. Using 
+frequent delivery cycles results in more space efficient, 
+transparent and less variable process. Conventional material 
+feeding transporters such as forklifts or automated guided 
+vehicles (AGVs) are inappropriate to address the special 
+demands of a lean production system [2].  
+Pushcarts or trains of tow carts picking up and dropping off 
+quantities of materials that are usually less than full pallet 
+loads, provide a cheaper, more reliable, and more predictable 
+service [1]. Material supply by this system occurs on a just-in-
+time basis [7]. Moreover, tuggers or tow-train have been 
+proven to reduce material handling distances within facilities 
+[8]. Furthermore, tuggers are safer, more maneuverable, and 
+less expensive than forklifts [4].  
+Because milk run system provides material in small lot 
+sizes with high frequency, it is used especially in automotive 
+industry in which the number of unique assembled products on 
+the production line is constantly increasing. Actually, in the 
+automotive industry, a large number of different materials 
+should be delivered to production line. The space for material 
+provision, which is near the assembly line, is not adequate. 
+There are only few bins that can be stored next to the assembly 
+line. As a result, the company has to find a rapid, continual and 
+ 
+Supermarket 
+Station 1
+Station 2
+Station n
+………
+Line-side 
+Inventory 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 2 ---
+reliable in-plant supply process to deliver different materials. 
+The in-plant milk run system can satisfy the requirement 
+above. That is the reason, why in-plant milk run system is 
+applied in automotive industry. However, because of its 
+complexity in planning and dimensioning, in-plant milk run 
+system can hardly be applied in other industries [2].  
+In this study, the different decisions problems in in-plant 
+milk run systems will be investigated depending on extensive 
+literature review. The remainder of this paper is organized as 
+follows. Section 2 is about literature review of using in-plant 
+milk run and, in particular, the conceptual previous studies 
+about decisions in milk run systems. Section 3 will focus on 
+summarizing decisions and objectives found in the literature 
+regarding milk run systems. Section 4 considers the other 
+related decisions affecting or affected by the milk run system. 
+Section 5 will shed the light on lean-oriented decisions and 
+objective in milk run systems. Section 7 presents directions for 
+future research. And finally, section 6 will contain conclusion. 
+II. 
+LITERATURE REVIEW 
+Inbound logistics means transporting parts from suppliers 
+to the manufacturing plant, but outbound logistics means 
+transporting parts from the manufacturing plant to its 
+customers. As stated before, most of the literature about milk 
+run systems investigated inbound or outbound logistics. Maybe 
+one reason for that is that external milk runs are more 
+complicated to set up than in-plant milk runs [1]. Brar and 
+Saini [9] reviewed the literature on milk run logistics outside 
+the manufacturing plant especially in automotive industry. 
+Most of the literature found about the internal milk run systems 
+was about feeding assembly lines. For example, Alnahhal and 
+Noche [10], Faccio et al. [11], and Faccio et al. [12] studied the 
+use of milk run system to feed mixed model assembly lines. 
+However, milk run operator can also move the items to the 
+regular manufacturing stations and from the assembly lines to 
+the testing, repairing, final packaging, and output buffer [1]. 
+Using in-plant milk run system was investigated for work 
+improvement by several studies such as Sihn and Schmitz [13], 
+Wong and Wong [14], and Kasperk et al. [15]. Furthermore, 
+milk runs and their tugger trains were recommended by many 
+studies to make improvement inside facilities [16, 17, 18, 19].  
+In-plant milk run system supports lean manufacturing 
+philosophy in which seven wastes are reduced [20, 21]. These 
+wastes are  
+• 
+Waste from producing defects  
+• 
+Waste in transportation  
+• 
+Waste from inventory  
+• 
+Waste from overproduction  
+• 
+Waste of waiting time  
+• 
+Waste in processing  
+• 
+Waste of motion  
+The second waste is the focus of our study. If material is 
+delivered just in time, another type of waste, namely, inventory 
+cost, is decreased. Also, providing materials, after they are 
+needed, causes starvation for workstation. This will cost a lot 
+because of lost sales and resources underutilization [11]. So in 
+JIT, material must be supplied not before and not after it is 
+needed. JIT is a major factor in Toyota production system in an 
+assembly industry such as automotive manufacturing. Only the 
+necessary parts, at the necessary time, in necessary quantity are 
+delivered, and in addition, the stock on hand is held down to a 
+minimum. JIT is able to shorten the lead time from the entry of 
+materials to the completion of job. It also discloses existence of 
+surplus equipment and workers [22]. To achieve lean 
+manufacturing, some tools that form the “house of lean” are 
+used. These tools contain value stream mapping, standardized 
+work, 5S, and so on. Later we will explain their relation to milk 
+run system. 
+A. Advantages and Disadvantages 
+The most important decision is to use milk run or not, based 
+on its advantages and disadvantages, which depend on the 
+particular conditions of each environment. The positive impact 
+of using in-plant milk run system was investigated in some 
+studies. Hanson and Finnsgard [23] presented a case study in 
+which the transition from using mainly the forklifts to milk run 
+tugger trains to replace the pallet loading units with plastic 
+containers loading units. This was to achieve compact 
+assembly stations with parts presentation that could support 
+efficient assembly. As a result of the changes, it was possible 
+for the company to reduce the work force at the assembly line 
+by 13.5 FTE (full-time equivalent) assemblers. Another result 
+was reducing the inventory size beside the workstations. 
+Moreover, they get rid of the capacity problems, which in turn 
+result in unpredictable delivery times and delayed deliveries. 
+Furthermore, tuggers were more directly connected to 
+consumption than the forklift system. Moreover, Rother [24] 
+showed several advantages for using in-plant milk run tow 
+trains after using them in an automotive company in Germany 
+such as increasing productivity, enormous cost savings, 15 % 
+less empty runs, reducing traffic volume, less amount of 
+resources, saving a huge amount of space, and enhancing 
+safety. 
+Moreover, Finnsgard et al. [25] examined in a case study 
+how the choice of materials exposure impacts workstation 
+performance, in terms of non-value-adding work, space 
+requirements and ergonomics. The transition from pallet sized 
+unit load transported by forklifts to smaller plastic containers 
+sized unit loads transported by tugger train has a great impact 
+where the space required for materials was reduced by 67%, 
+non-value-adding work was decreased by 20%, and walking 
+distance was reduced by 52%. Furthermore, the ergonomics for 
+the assembly operator improved greatly, with a 92% reduction 
+of potentially harmful picking activities, thereby almost 
+eliminating potentially harmful body movements. The positive 
+ergonomic effect of using narrow bins compared to using big 
+boxes was investigated in a study by Neumann and Medbo [26] 
+which also considers the effect on performance times, walking 
+distances, and layout space requirements. 
+However, the planning process for transition from 
+traditional system to milk run must take a lot of deep analysis 
+and thinking, because sometimes the costs for this transition 
+are very high. For example, Hanson [27] presented a case study 
+about “Minomi” which is a unit load where no container is 
+used, and identified the effects of using minomi in the materials 
+supply within an assembly plant. To facilitate using this 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 3 ---
+concept, milk run tugger train was used instead of the 
+traditional forklift system. However, in that case study the parts 
+should, also after the introduction of minomi, be placed and 
+handled in their original steel containers in order for efficient 
+handling and storage to be maintained. With this solution, 
+forklifts were still required for lifting the containers from the 
+storage area onto the tugger train, meaning that the total 
+number of handling operations increased in the materials 
+supply operations. The combination of increased handling 
+necessary for each delivery and increased delivery frequency 
+resulted in a 326 percent increase in the man hour consumption 
+for performing the deliveries. Furthermore, in the case study 
+illustrated above in the study by Hanson and Finnsgard [23], 
+the main disadvantage of the new system was in introducing a 
+new activity which is repacking the pallets coming from the 
+suppliers to the new plastic container size and also the 
+sequenced deliveries which needed additional 13 workers. So 
+applying the principle of in-plant milk run is not always 
+without side effects. As a matter of fact, beside additional work 
+on transferring materials from big containers to smaller bins, 
+milk run systems increase the number of bins in the system and 
+increase the stress on routing operators [4]. 
+B. Designing Milk Run Systems 
+The planning of designing milk run systems was 
+investigated in literature. Abele and Brungs [28] formulated 
+fundamental concepts to optimally design and develop milk 
+runs. In a study by Alizon et al. [29], milk run trains and 
+forklift system were used in the same time to feed the same 
+assembly workshop. Michael and Claudia [30] presented 
+several characteristics of milk run and showed that a higher 
+delivery frequency has a positive effect on a marked reduction 
+of inventory volume at the production stations. Furthermore, 
+they presented approaches regarding demand requirements, 
+supply, and transport control that must be considered in the 
+system so that efficient and ecologically beneficial delivery 
+system can be implemented.  
+Classification of milk run design decisions was also 
+investigated in previous studies, but in a limit range. For 
+example, Droste and Deuse [2] defined four design alternatives 
+the decision maker should focus on when he wants to use milk 
+run system, these alternatives are material control, warehouse, 
+means of transport, and Point of Use (PoU). In material 
+control, the planner can decide between just in time, just in 
+sequence, and also between Kanban and CONWIP systems. In 
+the warehouse, there is direct and parallel picking from flow 
+rack, pallet rack, shelf, etc. In means of transport, the planner 
+can consider the types of conveyor, manually operated cart or 
+propelled towing train. In PoU, the planner can consider 
+provision directly to stations in flow rack or provision on a spot 
+close to station. However, Droste and Deuse [2] did not 
+concentrate on other importance decisions such as routing and 
+scheduling. 
+Moreover and based on the observations in real 
+manufacturing environment and limited literature, milk-run 
+distribution problem was categorized and explained in a study 
+by Kilic et al. [5]. Their classification was related to the routes 
+and their time periods. There are three categories of problems: 
+general assignment problem, dedicated assignment problem, 
+and determined time periods assignment problem. In “general 
+assignment problem”, the routes and time periods are not 
+known. “Dedicated assignment problem” is the second 
+category where the routes are known but the problem is to 
+determine the time periods of the vehicles on the related routes. 
+The last category is “determined time periods assignment 
+problem” in which time periods are known but the routes are 
+not known. As obvious in the study by Kilic et al. [5], the 
+concentration is on routes and time periods, which means that 
+they did not consider the other types of decisions. 
+As can be seen from the previous literature, there is a need 
+for a comprehensive study that not only takes into 
+consideration the decisions problems in in-plant milk run 
+system, but also the other related decisions that affect or 
+affected by the in-plant milk run system decisions. This is what 
+this study tries to do. 
+III. 
+IN-PLANT MILK RUN DECISIONS AND 
+OBJECTIVES 
+In-plant milk run as a principle is new. Its complex nature 
+from different sides is not well explained in literature. One of 
+the objectives of this study is to give the reader the knowledge 
+about the environment of milk run application and its decisions 
+since it needs a lot of complex planning tasks. The study also 
+explains the relations among different decisions, and warns the 
+decision makers not to make fast judgment about in-plant milk 
+run before taking enough planning into consideration. It also 
+gives the researchers hints about future research trends 
+regarding in-plant milk run especially the areas that have not 
+been covered yet by literature. 
+A lean material-handling system should deliver materials to 
+the operators' fingertips. This step involves determining 
+delivery aisles, selecting a conveyance method, such as 
+tuggers, determining the stops and delivery points for the route, 
+and creating correctly sized point-of-use gravity racks at 
+delivery points [6]. Drivers should fill the racks from the 
+outside, so they don’t interrupt the working operators [4]. 
+Harris and Harris [6] defined 5 major steps for the 
+transition from traditional material flow to the lean material 
+flow using the milk run systems: 
+1. Develop a plan for every part (PFEP). 
+2. Build the purchased-parts market 
+3. Design delivery routes 
+4. Implement pull signals 
+5. Continuously improve the system 
+ 
+During doing these five steps, most of the decisions can be 
+made. For more information about applying these steps, the 
+reader may refer to Marchwinski [4] who presented a case 
+study about that. Enough information should be available for 
+every part in the system in the first step. In the second step, the 
+major steps in designing the market are figuring the maximum 
+inventory level for each part, and establishing rules for 
+operating the market. After determining the maximum 
+inventory level, the maximum space level for the inventory 
+should be determined. In the third step, decisions such as 
+choosing the transporter type, routing, scheduling, design of 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 4 ---
+racks, and number of containers in the racks can be made. In 
+the fourth step, the configuration of the kanban system can be 
+determined such as the number of kanbans based on the type of 
+routes, coupled or decoupled (will be explained later). 
+Different standardized procedures should be followed to 
+continuously improve the work. 
+Table 1 shows different studies with the decisions 
+investigated, objectives, type of transporter (tow train (T) or 
+manual cart (C)), and the feeding system used (pull Kanban 
+(K) or demand-oriented (D-O)). D-O means working based on 
+certain and known stations demand for just short periods. As 
+can be seen from the table, there are some studies which used 
+demand-oriented system in milk run. These studies investigated 
+assembly lines in automotive industry. Difficulties come in the 
+case of high variant mixed model assembly when the demand 
+of stations changes every day because of the ever changing 
+daily production sequences. What makes it even harder is the 
+fact that materials must be there when they are needed to avoid 
+disruptions in the assembly process. So in this case, demand-
+oriented system performs superior to the popular Kanban 
+systems [31]. In this demand-oriented system, using small 
+frequent deliveries of raw materials facilitates using the JIT 
+principle, and “forecasting” the demand of stations is only for 
+three or four days. This could be better than waiting to be 
+‘‘surprised’’ by low stocks, which may make it very necessary 
+to make necessitate emergency deliveries if the next scheduled 
+stopover at the station is too far off [32]. As obvious in table 1, 
+most of the researches concentrated on the case of using tow 
+trains. The only decision about manual carts was just to 
+determine to choose them or to choose the tow trains instead. 
+The decisions can be summarized as follows: 
+• 
+Choosing kind of conveyor (KC)  
+• 
+Choosing demand-oriented or Kanban systems  
+• 
+The number of kanban required in the system (K) 
+• 
+Determining number of trains (N) 
+• 
+Number of handling operators (NO) 
+• 
+Routing problem (R) 
+• 
+Scheduling problem (S) 
+• 
+Determining service period (P) 
+• 
+Loading problem (L) 
+• 
+Frequency of routing (F) 
+• 
+Parts service level (SL) 
+Decisions introduced by Droste and Deuse [2] which were 
+mentioned in the previous section can be added to the list. In 
+table 1, the study by Battini et al. [33] is a conceptual one 
+reviewing the previous researches investigating the decision 
+problems in the case of using decentralized supermarket 
+system. Choosing the means of transport depends mainly on 
+the distance traveled beside the layout of the facility. 
+Generally, for long distances, tow trains are better. On the other 
+hand, sometimes there is no enough space for the tow trains. 
+As stated by Baudin [1], “push carts are not adequate to deliver 
+thousands of items in box quantities at multiple locations every 
+half hour, which is commonly needed in the automobile 
+industry”. The number of trains is a decision variable and an 
+objective in the same time where the objective of course is to 
+reduce it. As stated by Kilic et al. [5], the route for the train can 
+be fixed or variable.  
+TABLE I. IN-PLANT MILK RUN STUDIES: DECISIONS AND OBJECTIVES. 
+Study 
+K 
+D-
+O 
+T 
+C 
+Decisions 
+Objectives 
+Alnahhal 
+and Noche 
+[10] 
+ 
+X 
+X 
+ 
+R, S, L 
+IC, SV, N 
+Álvarez  et 
+al. [35]  
+X 
+ 
+ 
+X 
+KC, F, R 
+IC, U 
+Battini 
+et 
+al. [33] 
+ 
+X 
+X 
+ 
+R, S, L 
+IC 
+Ciemnocz-
+olowski 
+and Bozer 
+[36]    
+X 
+ 
+X 
+ 
+K 
+SP 
+Costa et al. 
+[37]  
+X 
+ 
+X 
+ 
+N 
+N 
+Domingo et 
+al. [34] 
+X 
+ 
+ 
+X 
+KC, F, R 
+IC, U 
+Emde 
+and 
+Boysen  
+[38] 
+ 
+X 
+X 
+ 
+R, S 
+IC 
+Emde et al. 
+[39] 
+ 
+X 
+X 
+ 
+L 
+IC 
+Faccio 
+et 
+al. [11] 
+X 
+ 
+X 
+ 
+N, K 
+U 
+Faccio 
+et 
+al. [12] 
+X 
+ 
+X 
+ 
+K, NO, SL 
+IC 
+Golz et al. 
+[31]  
+ 
+X 
+X 
+ 
+R, S 
+N 
+Kilic et. al. 
+[5]  
+X 
+ 
+X 
+ 
+R, P 
+N, D 
+Satoglu and 
+Sahin [7].  
+X 
+ 
+X 
+ 
+R, P 
+MH, IC 
+ 
+In the variable one, the train can have different routes. 
+Domingo et al. [34], for example, defined different routings for 
+different hours in the day, since it is not necessary to visit each 
+job with a high frequency. However and from the lean 
+manufacturing point of view, the fixed routing is better since it 
+standardizes the work. The periods in scheduling can also be 
+fixed or variable.  
+Emde and Boysen [38] showed that the variable periods are 
+optimal for reducing inventory costs. However and from the 
+point of view of lean manufacturing, it is better to standardize 
+the system by stabilizing the periods. Some studies even 
+considered fixed periods as a must to call the system as milk 
+run such as Bozer and Ciemnoczolowski [3]. Moreover, 
+Hanson and Finnsgard [23] presented a real case study in 
+which the time period of the tugger train was constant. The 
+routing and scheduling are related to each other. Some studies 
+assumed that routing is input and they investigated the 
+scheduling problem. On the other hand, some studies assumed 
+that the periods are input, and they investigated the routing 
+problem. However, other studies such as Emde and Boysen 
+[38] studied the routing and scheduling together. 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 5 ---
+In the case that for some periods of time the demand is 
+more than the capacity of the trains, loading problem, in which 
+some parts are loaded in previous non bottleneck periods, will 
+be necessary. Therefore, the decision here is about determining 
+for each route which parts and by which quantity should be 
+loaded on the train to minimize the total inventory. This was in 
+the demand-oriented system formulated by Emde et al. [39]. 
+However in the pull system, there is another decision problem 
+regarding kanbans which control the precise times and 
+quantities of parts delivered to stations. It is important to 
+precisely control the number of kanban circulating in the 
+system. The first step is to determine how frequently to deliver 
+material to stations, and whether the route is "coupled" or 
+"decoupled." In a coupled route, the tugger driver loads carts in 
+the market and drives them to the stations, and delivers them to 
+the point of use. In a decoupled route, the work is divided 
+between a market attendant who loads parts, and the driver 
+who delivers them. Decoupled routes require two sets of carts 
+but they improve labor utilization, so routes can be longer and 
+have more carts [6]. In decentralized supermarket system, the 
+decoupled routes seem not very effective because in this case a 
+market attendant should be there for every supermarket which 
+increases the labor costs. Ciemnoczolowski and Bozer [36] 
+determined the number of kanbans and considered the effects 
+of the number of kanban, the physical capacity of the tugger, 
+and the cycle time on workstation starvation defined as the 
+fraction of available time a workstation is idle due to lack of 
+parts.  
+The objectives contain minimizing inventory costs (IC), 
+system variability (SV), number of trains (N), starvation 
+probability (SP), distance traversed (D) and total material 
+handling costs (MH); and increasing utilization of workers (U). 
+Beside the decisions and objective, a very important aspect 
+about in-plant milk run system is its constraints. There are 
+restrictive dimensions of in-plant milk run systems which are 
+time, capacity and ergonomics and have to be considered 
+properly in order to achieve an efficient in-plant milk run 
+system 
+[2]. 
+Obviously, 
+the 
+necessary 
+handling 
+and 
+transportation time of a milk run has to be less than or equal to 
+the milk run cycle time in order to maintain the planned 
+material provision takt. The capacity of the tow train must be 
+considered. The physical strain on the material handlers must 
+also be considered. Beside these restrictions, different 
+restrictions were found in the literature such as starvation 
+introduced 
+by 
+Bozer 
+and 
+Ciemnoczolowski 
+[3] 
+and 
+Ciemnoczolowski and Bozer [36] where they took into 
+consideration determining the level of workstations starvation 
+for given system parameters. Other studies such as Emde and 
+Boysen [38] assumed in their model that the number of part 
+shortages must be zero.  
+IV. 
+OTHER RELATED DECISIONS 
+In-plant milk run system does not stand alone. There are 
+many decisions that are related to this system. Some of them 
+can be considered as inputs to the milk run system and others 
+can be considered as outputs. The in-plant milk run was 
+considered in a study by Kovács [40] as input for the storage 
+assignment problem which involves the placement of a set of 
+items in a warehouse in such a way that some performance 
+measures are optimal. In that case, the most important input 
+from the milk run is routing. In another study by Alizon et al. 
+[29], in which the assembly work shop was fed by tow trains 
+and forklifts in the same time, the assignment problem was 
+performed. However, the major concern of that study was the 
+delivery of components performed by forklifts, so it was 
+assumed that the routes followed by trains are fixed. The 
+problem is then to optimize forklift delivery loops by including 
+congestion caused by loading/unloading in a potential blocking 
+aisle. 
+On the other hand, according to Ramesh [41], a good layout 
+can lead to an effective implementation of milk run concept for 
+the smooth flow of in-process material. Another important 
+input 
+decision 
+that 
+can 
+be 
+investigated 
+is 
+storage 
+centralization/decentralization decision. For example, Battini et 
+al. [42] considered investigating this decision where they 
+studied the usage of supermarkets which are “decentralized 
+storage areas scattered throughout the shop floor which serve 
+as an intermediate store for parts required by nearby line 
+segments”. Some of the advantages of decentralized 
+supermarket system are “shorter delivery times by being closer 
+to the consumer (i.e., the assembly line), freight consolidation 
+by being supplied by industrial trucks, and faster turnover by 
+stocking and delivering parts just as needed”. “On the 
+downside, supermarkets consume space on the factory floor, 
+which is scant and expensive” [32]. Furthermore, a cost model 
+was presented in a study by Sargent et al. [43] where the model 
+can be used to determine if further consideration should be 
+given to decentralized storage in a facility currently utilizing 
+centralized storage. The cost model consists of examining the 
+trade-off between the savings in material handling flow costs 
+due to moving from centralized to decentralized storage and 
+the additional costs associated with implementing and utilizing 
+decentralized storage for a designated period of time. Satogluet 
+al. [44] evaluated the conversion from central storage to 
+decentralized storages in cellular manufacturing environments 
+using activity-based costing. Furthermore, Alizon et al. [29] 
+studied the flow of materials from several internal warehouses 
+to supply the same assembly workshop. Moreover, in a study 
+by Hanson and Finnsgard [23], a case study was explained in 
+which the material feeding was organized by using three drop 
+zones which were close to three assembly lines. These drop 
+zones get the material from the AS/RS system. Then material 
+was transported from the drop zones to the different stations in 
+the assembly lines. One the other hand, in a study by 
+Marchwinski [4], a case study was presented about a company 
+which had 4 storage areas feeding the assembly lines using the 
+traditional forklift system. Then when the company wanted to 
+use milk run tugger train, it used one central supermarket and 
+considered that as an advantage to reduce the inventory costs. 
+Besides, its location near the receiving dock permits quick 
+delivery from receiving to storage racks. 
+So if the decentralization decision has been made, another 
+decision also must be made which is the location of the 
+decentralized supermarkets which was investigated by Emde 
+and Boysen [32]. This means that at first, a decision has to be 
+made about using centralized or decentralized supermarkets. If 
+the decision is to use the decentralized supermarket, the 
+location problem is a must. After that, other milk run decisions 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 6 ---
+can be studied. For example, Emde and Boysen [38] studied 
+the scheduling and routing problem of the tow trains, and 
+Emde et al. [39] studied the loading problem. However, if the 
+decision is to use the centralized system, there is no need for 
+the supermarket location problem such as the way in the study 
+by Golz et al. [31]. The general framework of these decisions 
+can be shown in Fig. 2. 
+It is good to mention here the definition of “supermarket”. 
+There is no universal meaning for it. Some studies considered 
+supermarket as a central storage area such as Golz et al. [31], 
+Bozer and Ciemnoczolowski [3], and Ciemnoczolowski and 
+Bozer [36]. Other studies considered it as decentralized storage 
+area such as Battini et al. [42], Emde et al. [39], Emde and 
+Boysen [38], and Emde and Boysen [32]. Other studies define 
+the supermarket as central picking store in which the kitting 
+process is performed [4]. All these types are also different from 
+the famous “Kanban Supermarket” used in lean Manufacturing 
+[44, 45]. On the other hand, Marchwinski [4] and Harris and 
+Harris [6] named the central warehouse holding the purchased 
+parts as “market”. There are also other decisions that interact 
+with the decisions in the milk run systems such as line stocking 
+and kitting which are two alternative material supply systems 
+that are common in assembly systems. Line-stocking systems 
+supply components to the assembly line in homogeneous 
+individual component containers stored close to the assembly 
+workstations at the border of the line. On the other hand, kitting 
+systems combine various components into one heterogeneous 
+package according to a future assembly schedule. The required 
+quantity of components is stored in kit containers at the border 
+of the line [45].  
+ 
+Fig. 2. General Framework of the milk run system found in the literature in 
+the case of demand-oriented system. 
+The kit assembly operation can be performed in a central 
+picking store or in decentralized areas close to the assembly 
+stations. In the case of using central picking store, the parts are 
+transported to this store from the central warehouse using the 
+tow train or the forklifts. So besides its working in the milk run 
+tours, the tow train can also be used for handling material from 
+the central warehouse to the central picking store of kitting. In 
+this case, the milk run route feeding different stations does not 
+start from the central warehouse but from central picking store. 
+Fig. 3 summarizes the input and output decisions related to 
+milk run system found in the literature. 
+V. LEAN ASPECTS IN MILK RUN SYSTEM 
+The advantages previously mentioned such as reducing 
+inventory costs, workforce requirements, the space required for 
+materials, non-value-adding work, and walking distance 
+coincide with the principle of lean which is about minimizing 
+wastes. Moreover, introducing milk run help in organizing the 
+shop floor, and this coincides with the 5S principle. The basic 
+principle of in-plant milk run is providing small and repetitive 
+amounts of materials for the workstations. This is done 
+according to the JIT principle to minimize inventory costs 
+which coincides with the lean manufacturing philosophy. In 
+most of the cases, the pull system using kanbans was used in 
+the milk run systems. However, in some cases as stated before, 
+the demand-oriented system was also used to predict the 
+demand only for few days which does not contradict severely 
+with the JIT principle. Another tool of lean manufacturing is 
+value stream mapping [44]. External milk runs were 
+extensively used in the literature in value stream mapping. 
+However, only few studies considered using in-plant milk runs 
+in this tool such as the study by Álvarez et al. [35] which used 
+in-plant milk run inside the value stream mapping for 
+redesigning an assembly line. According to the same study, 
+using kanban alone without internal milk run is not enough for 
+reducing the total inventory. One of the most important tools of 
+lean manufacturing is standardized work. The effect of this tool 
+is very obvious in stabilizing the routes periods and the routes 
+themselves. The periods of trains’ routes should be the same 
+even if this is not optimal, because changing the periods for 
+every route is very confusing for material handlers. The same is 
+also for standardizing the trains’ routes. This standardization in 
+routing and scheduling was emphasized by several studies such 
+as Abele and Brungs [28]. 
+ 
+Fig. 3. Input and output decisions, found in the literature, related to milk run 
+Train Routing 
+Problem- 
+Short-term Planning 
+Train Scheduling 
+Problem- 
+Short-term Planning 
+Loading Problem- 
+Short term Planning
+Direction of
+Information
+Yes  
+Supermarket Location 
+Problem- 
+Mid-term Planning 
+Inventory 
+Centralization/decentralization decision 
+Long-term Planning 
+Decentralize
+? 
+No 
+ 
+ 
+Milk run decisions
+ 
+ 
+ 
+Storage 
+assignment 
+problem 
+ 
+ 
+ 
+In-plant 
+milk run 
+decisions 
+Inventory 
+centralization/ 
+decentralization?
+Location problem 
+Facility layout 
+Kitting or line stocking?
+Input decisions 
+Yes 
+Output 
+decisions 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 7 ---
+Some studies such as Emde et al. [39], Emde and Boysen 
+[38], Emde and Boysen [32] assumed using “shooter racks” in 
+tow train systems. These special gravity flow racks are used to 
+automatically load bins on the wagons using elastic springs. 
+These racks reduce the length of a stopover to a few seconds. 
+However, not all the automotive companies use this system. 
+From the point of view of lean manufacturing which makes 
+more 
+emphasis 
+on 
+managerial 
+(not 
+technological) 
+enhancements, consideration should be more for manual 
+loading and unloading. 
+VI. 
+DIRECTIONS FOR FUTURE RESEARCH 
+By looking at the objectives found in the literate in table 1, 
+we realize that these objectives mainly concentrate on reducing 
+the costs of the system. However, there is lack of studies 
+regarding fast response of the system to any changes in 
+material demand. Failure of the system to this fast response 
+means increasing starvation of workstations. One direction is to 
+investigate the impact of changing the type of route from 
+coupled to decoupled one on the response speed of the system. 
+Another factor is the impact of using the centralized or 
+decentralized 
+supermarket 
+system. 
+ 
+Previous 
+studies 
+concentrated on analyzing the decision mainly based on the 
+system costs. Future research, however, can investigate the 
+optimal degree of centralization/ decentralizing of inventory 
+based on the speed of the system. Having decentralized 
+supermarkets will make the inventory not far away from the 
+workstations, and this means that if a shortage in material takes 
+place, the replenishment of material will not take too much 
+time. Another factor that enhances the response speed of the 
+system is using technologies such as radio frequency 
+identification (RFID) which can be used to send the signals for 
+material replenishment. Its effects have a good research 
+opportunity in the future. Using RFID and decoupled routes 
+together gives the opportunity to decrease the service period 
+and decrease the lead time. Besides that, determining the size 
+of resources such as number of tow trains should be 
+reinvestigated based on the new objective. Decisions such as 
+route length, frequency of routing, number of containers per 
+route, and container size can also be investigated to enhance 
+the response speed of the system. Keeping spare trains’ 
+capacity contributes very well in this direction. Beside these 
+operational decisions, fast response-delivery can be considered 
+in higher levels such as supplier selection. One criterion may 
+focus on the agreement with suppliers to supply materials in 
+final small container size to eliminate repackaging time. 
+Future studies can also focus on combining the decisions of 
+the physical characteristics of the tow trains and the managerial 
+aspects of using it. For example, usually there are several types 
+of tow trains available with different widths, and using the 
+appropriate type depends on the aisles width which must be 
+larger than the train width plus a sufficient clearance. 
+Therefore, choosing the appropriate type of tow trains depends 
+on the layout of the factory. It may be wise to consider the two 
+decisions together in the same time. Another aspect is the 
+turning radius of the train which also depends on the layout. 
+This radius also depends on the tow train length which depends 
+on the number of trailers attached to the tow train. Using long 
+tow trains saves material handling costs; however, if the 
+number of the trailers is too large, it will affect the safety, and 
+sometimes could not be attainable because of the layout of the 
+factory. Attention should also be made for the even distribution 
+of the weight over the trailers of the train. Another dimension 
+that can be considered in the future research is the congestion 
+of the tow trains inside the facility during the loading and 
+unloading of these trains in narrow aisles. This problem can be 
+minimized by reducing the number of loading/unloading stops 
+of the tow train without increasing starvation probability or 
+inventory costs. 
+VII. CONCLUSION  
+This conceptual study focused on investigating the general 
+framework of decisions usually made regarding in-plant milk 
+run systems using extensive literature review. The usual 
+addressed objectives were illustrated. The other external 
+decisions which can be considered as inputs for or outputs from 
+the milk run decisions were investigated. The decision maker 
+should take into consideration the different aspects of lean 
+manufacturing in the design of the milk run. Future studies can 
+concentrate on investigating these decisions especially those 
+which have not covered sufficiently in literature to enhance the 
+speed of the response of the system to any changes in parts 
+demand or capacity shortages.  
+REFERENCES 
+[1] M. Baudin, Lean Logistics: The Nuts and Bolts of Delivering Materials 
+and Goods. New York: Productivity Press, 2004. 
+[2] M. Droste and J. Deuse, “A Planning Approach for In-plant Milk Run 
+Processes to Optimize Material Provision in Assembly Systems,” 
+Proceedings of the 4th International Conference on Changeable, Agile, 
+Reconfigurable and Virtual Production (CARV2011), Montreal, Canada, 
+October 2-5, 2011 
+[3] Y. Bozer and D. Ciemnoczolowski, “Performance evaluation of small-
+batch container delivery systems used in lean manufacturing – Part 1: 
+system stability and distribution of container starts,” INT J PROD RES, 
+vol. 51, pp. 555- 567, Jan. 2013.  
+[4] C. Marchwinski, “Following four steps to a lean material-handling 
+system leads to a leap in performance,” Knowledge Center at 
+http://www.lean.org 
+[5] H.S. Kilic, M.B. Durmusoglum, and M. Baskak, “Classification and 
+modeling for in-plant milk-run distribution systems,” INT J ADV 
+MANUF TECH, vol. 62, pp. 1135-1146, 2012. 
+[6] C. Harris and R. Harris, “Steps to Implementing a Lean Material 
+Handling System,” March 2004, http://www.lean.org 
+[7] S.I. Satoglu and I.E. Sahin, “Design of a just-in-time periodic material 
+supply system for the assembly lines and an application in electronics 
+industry, INT J ADV MANUF TECH, vol. 65, pp. 319-332, 2013. 
+[8] R. Owens, “Advancing facility planning,” IND ENG, vol. 43, pp. 45-49, 
+Nov. 2011. 
+[9] G.S. Brar and G. Saini, “Milk Run Logistics: literature review and 
+directions,” Proceedings of the World Congress on Engineering, vol. I. 
+London, U.K, July 6-8, 2011. 
+[10] M. Alnahhal and B. Noche, “Efficient material flow in mixed model 
+assembly lines,” SpringerPlus, vol.  2, pp. 1-12, Aug 2013. 
+[11] M. Faccio, M. Gamberi, and A. Persona, “Kanban number optimization 
+in a supermarket warehouse feeding a mixed-model assembly system,” 
+INT J PROD RES, vol. 51, pp. 2997-3017, Feb 2013. 
+[12] M. Faccio, M. Gamberi, A. Persona, A. Regattieri, and F. Sgarbossa, 
+“Design and simulation of assembly line feeding systems in the 
+automotive sector using supermarket, kanbans and tow trains: a general 
+framework,” J Manag Control, vol. 24, pp. 187–208, May 2013b. 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+
+--- SAYFA 8 ---
+[13] W. Sihn and K. Schmitz, “Extended Multi-Customer Supplier Parks in 
+the Automotive Industry,” CIRP ANN-MANUF TECHN, vol. 56, pp. 
+479– 482, Jun. 2007. 
+[14] Y. Wong and K. Wong, “Approaches and Practices of Lean 
+Manufacturing: The Case of Electrical and Electronics Companies,” 
+AFR J BUS MANAG 5, pp.  2164- 2174, 2011  
+[15] G. Kasperk, J. Mangoldt, and R. Drauz, “Mixing Push & Pull to survive 
+in China: Value Stream Design in an automotive case,” Zukünftige 
+Entwicklungen in der Mobilität, Gabler Verlag pp. 301-313, 2012. 
+[16] R. Owens, “Practical Facility Layout Technology for Industrial 
+Engineers and Educators in Asia,” Proceedings of the11th Asia Pacific 
+Industrial Engineering and Management Systems Conference, Kuala 
+Lumpur, Malaysia, December 7-10, 2010. 
+[17] N.H.A. Halim, A. Jaffar, N. Yusoff, and A.N. Adnan “Gravity Flow 
+Rack’s Material Handling System for Just-In-Time (JIT) Production,” 
+Procedia Engineering, vol. 41, pp. 1714 – 1720, 2012. 
+[18] R. Hanson and M.I. Johansson, “On the choice of approach for materials 
+supply to mass customized line assembly,” Proceedings of the PLANs 
+conference, Jönköping, Sweden, pp. 97-110, September 5-6, 2007. 
+[19] E.J. Williams, O.M. Ulgen, S. Bailiff, and R. Lote, “Material handling 
+resource utilization simulation study for stamping plant,” Proceedings of 
+the 38th conference on Winter simulation, California, USA, pp. 1940-
+1945, December 03- 06, 2006. 
+[20] M. Rother, J. Shook, J. Womack, and D. Jones, Learning to See Version 
+1.3.  MA, Boston: Lean Enterprises Institution Inc 1999.  
+[21] J.P. Womack and D.T. Jones, Lean Thinking: Banish Waste and Create 
+Wealth in Your Corporation. New York: Simon & Schuster, 2003. 
+[22] Y. Sugimori, K. Kusunoki, F. Cho, and S. Uchikawa, “Toyota 
+production system and kanban system materialization of just-in-time and 
+respect-for-human system,” INT J PROD RES, vol. 15, pp. 553-564, 
+1977. 
+[23] R. Hanson and C. Finnsgård, “Impact of unit load size on in-plant 
+materials supply efficiency,” INT J PROD ECON, vol. 147, pp. 46-52, 
+2014. 
+[24] T. Rother, “Less empty runs with milk run and tugger train systems [Per 
+Milkrun und Routenzugsystem  Leerfahrten deutlich verringern] ,” 
+Maschinen Markt 51/52, 2011. 
+[25] C. Finnsgård, C. Wänström, L. Medbo, and W.P. Neumann, “Impact of 
+materials exposure on assembly workstation performance,” INT J PROD 
+RES, vol. 49, pp. 7253-7274, Jan. 2011.  
+[26] W.P. Neumann and L. Medbo, “Ergonomic and technical aspects in the 
+redesign of material supply systems: Big boxes vs. narrow bins” INT J 
+PROD ECON 40, pp. 541-548, Aug. 2010. 
+[27] R. Hanson, “Effects of using minomi in in-plant materials supply,” 
+Journal of Manufacturing Technology Management, vol. 22, pp. 90 – 
+106, 2011  
+[28] E. Abele and F. Brungs, “Optimization of in-plant material provision via 
+milk run [Optimierung der innerbetrieblichen Materialversorgung 
+mittels Milkrun], ”  Industrie Management, vol. 25, pp. 61-64, Sep 2009. 
+[29] F. Alizon, Y. Dallery, I. Essafi, and D. Feillet, “Optimizing material 
+handling costs in an assembly workshop,” INT J PROD RES, vol. 47, 
+pp. 3853-3866, May 2009. 
+[30] M. Michael and N. Claudia, “A Report on the Current Event on the 
+WMS Market,” WMS Market Overview. http://www.wmsfinder.com 
+[31] J. Golz, R. Gujjula, H.-O. Günther, S. Rinderer, and M. Ziegler, “Part 
+feeding at high-variant mixed-model assembly lines,” Flex Serv Manuf 
+J, vol. 24, pp. 119–141, Jun. 2012. 
+[32] S. Emde and N. Boysen, “Optimally locating in-house logistics areas to 
+facilitate JIT-supply of mixed-model assembly lines,” INT J PROD 
+ECON, vol. 135, pp. 393-402, Jul. 2012c. 
+[33] D. Battini, N. Boysen, and S. Emde, “Just-in-Time supermarkets for part 
+supply in the automobile industry,” J Manag Control, vol. 24, pp. 209-
+217, Jul. 2013. 
+[34] R. Domingo, R. Alvarez, M.M. Peña, and R. Calvo, “Materials flow 
+improvement in a lean assembly line: a case study,” ASSEMBLY 
+AUTOM, vol. 27, pp. 141-147, 2007. 
+[35] R. Álvarez, R. Calvo, M.M. Peña, and R. Domingo, “Redesigning an 
+assembly line through lean manufacturing tools,” INT J ADV MANUF 
+TECH, vol. 43, pp. 949-958, Aug. 2009.  
+[36] D. Ciemnoczolowski and Y. Bozer, “Performance evaluation of small-
+batch container delivery systems used in lean manufacturing – Part 2: 
+number of Kanban and workstation starvation,” INT J PROD RES, vol. 
+51, pp. 568-581, Jan 2013.  
+[37] B. Costa, L.S. Dias, J.A. Oliveira, and G. Pereira, “Simulation as a tool 
+for planning a material delivery system to manufacturing lines,” 
+Proceedings 
+of 
+Engineering 
+Management 
+Conference 
+IEEE 
+International, Estoril, Portugal, June 28-30, 2008. 
+[38] S. Emde and N. Boysen, “Optimally routing and scheduling tow trains 
+for JIT supply of mixed-model assembly lines,” EUR J OPER RES, vol. 
+217, pp. 287-299, 2012b. 
+[39] S. Emde, M. Fliedner, and N. Boysen, “Optimally loading tow trains for 
+JIT-supply of mixed-model assembly lines,” IIE TRANS, vol. 44, pp. 
+121-135, Feb. 2012a. 
+[40] A. Kovács, “Optimizing the storage assignment in a warehouse served 
+by milkrun logistics” INT J PROD ECON, vol. 133, pp. 312– 318, 2011. 
+[41] V. Ramesh, K.V. Sreenivasa Prasad, and T.R. Srinivas, “Study on 
+implementation of one-piece lean line design using simulation 
+techniques: A practical approach,” J IND ENGINEERING, vol. 5, pp. 
+20-36, Jan. 2009. 
+[42] D. Battini, M. Faccio, A. Persona, and F. Sgarbossa, “Supermarket 
+warehouses: stocking policies optimization in an assembly-to-order 
+environment,” INT J ADV MANUF TECH, vol. 50, pp. 775-788, Sep. 
+2010. 
+[43] T.A. Sargent, G. Michael, and M.G. Kay, “Implementation and 
+utilization of a decentralized storage system: costing model,” INT J 
+OPER PROD MAN, vol. 15, pp. 210 – 219, 1995. 
+[44] S.I. Satoglu, B. Durmusoglu, and I. Dogan “Evaluation of the 
+conversion from central storage to decentralized storages in cellular 
+manufacturing environments using activity-based costing,” INT J PROD 
+ECON, vol. 103, pp. 616–632, Oct. 2006. 
+[45] V. Limère, H. Van Landeghem, M. Goetschalckx, E.-H. Aghezzaf, and 
+L.F. McGinnis, “Optimizing part feeding in the automotive assembly 
+industry: deciding between kitting and line stocking,” INT J PROD 
+RES, vol. 50, pp. 4046-4060, Mar. 2012b. 
+ 
+ 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on July 27,2026 at 23:16:46 UTC from IEEE Xplore.  Restrictions apply. 

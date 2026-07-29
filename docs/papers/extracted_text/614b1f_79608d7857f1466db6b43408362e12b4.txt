@@ -1,0 +1,602 @@
+
+
+--- SAYFA 1 ---
+DİSİPLİNLERARASI SOSYAL BİLİM 
+ÇALIŞMALARI: KAVRAMLAR, 
+MODELLER VE UYGULAMALAR 
+  
+Editör: Doç. Dr. Ahmet KARDAŞLAR 
+Prof. Dr. Hakkı ÇİFTÇİ 
+ 
+Dr. Öğr. Üyesi Canan YILMAZ  
+ 
+Dr. Öğr. Üyesi Gizem BERBER 
+ 
+Öğr. Gör. Dr. Levent YÜLEK 
+ 
+Dr. Kübra GÖKLER   
+ 
+Dr. Tuğba İBİŞ 
+ 
+Öğr. Gör.  Mesut SELAMOĞLU  
+ 
+Arş. Gör. Mustafa Gökberk ERTAN  
+ 
+Ali İmran TATLIBADEM 
+ISBN: 978-625-5923-50-9 
+Ankara -2025 
+
+
+--- SAYFA 2 ---
+ 
+1 
+ 
+  
+DİSİPLİNLERARASI SOSYAL BİLİM 
+ÇALIŞMALARI: KAVRAMLAR, MODELLER VE 
+UYGULAMALAR 
+EDİTÖR 
+ 
+Doç. Dr. Ahmet KARDAŞLAR  
+ ORCID ID:0000-0002-6415-8822 
+ 
+ 
+YAZARLAR  
+ 
+Prof. Dr. Hakkı ÇİFTÇİ1 
+Dr. Öğr. Üyesi Canan YILMAZ2  
+Dr. Öğr. Üyesi Gizem BERBER3 
+Öğr. Gör. Dr. Levent YÜLEK4 
+Dr. Kübra GÖKLER5   
+Dr. Tuğba İBİŞ6 
+Öğr. Gör.  Mesut SELAMOĞLU7  
+Arş. Gör. Mustafa Gökberk ERTAN8  
+Ali İmran TATLIBADEM9 
+
+
+--- SAYFA 3 ---
+ 
+2 
+ 
+1Çukurova Üniversitesi, İİBF, Adana, Türkiye 
+hciftci@cu.edu.tr 
+ORCID ID: 0000-0003-2912-8051 
+ 
+2Sakarya Üniversitesi, İnsan Kaynakları Yönetimi Bölümü, Sakarya, Türkiye, 
+cananyilmaz@sakarya.edu.tr 
+ORCID ID: 0000-0003-2618-3215 
+ 
+3Giresun Üniversitesi, Tirebolu Mehmet Bayrak MYO, Yönetim ve Organizasyon 
+Bölümü, Giresun, Türkiye. gizem.berber@giresun.edu.tr 
+ORCID:0000-0002-7164-2348 
+ 
+4Çukurova Üniversitesi, Kozan MYO, Adana, Türkiye 
+lyulek@cu.edu.tr 
+ORCID ID: 0000-0001-8138-7398  
+ 
+5Bağımsız Araştırmacı, Halkla İlişkiler ve Tanıtım  
+kubraagokler@gmail.com  
+ORCID ID: 0000-0002-3984-8274 
+ 
+ 6Bağımsız Araştırmacı, Halkla ilişkiler ve Tanıtım 
+tugba_ibisss@hotmail.com  
+ORCID ID: 0000-0001-6980-6422 
+ 
+7Osmaniye Korkut Ata Üniversitesi, Bahçe Meslek Yüksekokulu, Yönetim ve 
+Organizasyon Bölümü, Lojistik Programı, Osmaniye, Türkiye, 
+mesutselamoglu@osmaniye.edu.tr 
+ORCID ID: 0000-0002-5693-4772 
+ 
+8Kapadokya Üniversitesi, İktisadi, İdari ve Sosyal Bilimler Fakültesi, Siyaset Bilimi 
+ve Kamu Yönetimi, Nevşehir, Türkiye 
+gokberk.ertan@kapadokya.edu.tr 
+ORCID ID: 0000-0001-9484-4463 
+ 
+9Gaziantep Üniversitesi, Sosyal Bilimler Enstitüsü, Uluslararası Ticaret ve Lojistik 
+A.D., Gaziantep, Türkiye 
+aliimran@gantep.edu.tr 
+ORCID ID: 0000-0001-6512-7828 
+ 
+DOI: https://doi.org/10.5281/zenodo.15421797 
+ 
+
+
+--- SAYFA 4 ---
+ 
+3 
+ 
+Copyright © 2025 by UBAK publishing house 
+All rights reserved. No part of this publication may be reproduced, distributed or 
+transmitted in any form or by 
+any means, including photocopying, recording or other electronic or mechanical 
+methods, without the prior written permission of the publisher, except in the case of 
+brief quotations embodied in critical reviews and certain other noncommercial uses 
+permitted by copyright law. UBAK International Academy of Sciences Association 
+Publishing House® 
+(The Licence Number of Publicator: 2018/42945) 
+ 
+ 
+E mail: ubakyayinevi@gmail.com 
+www.ubakyayinevi.org 
+It is responsibility of the author to abide by the publishing ethics rules. 
+UBAK Publishing House – 2025© 
+ 
+ 
+ISBN: 978-625-5923-50-9 
+May / 2025 
+Ankara / Turkey 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- SAYFA 5 ---
+144 
+ 
+BÖLÜM 5 
+ 
+TEDARİK ZİNCİRİ YÖNETİMİNDE MİLK-RUN MODELİ: 
+AVANTAJLAR VE ZORLUKLAR 
+Ali İmran Tatlıbadem 
+Öğr. Gör. Mesut Selamoğlu 
+ 
+ 
+GİRİŞ 
+Milk-Run modeli, tedarik zinciri yönetiminde bütünleyici bir 
+lojistik strateji olarak gelişmiş ve çeşitli sektörlerde verimlilik, 
+güvenilirlik ve maliyet tasarrufu gibi kritik ihtiyaçlara yanıt vermiştir. 
+Kökeni otomotiv sektörüne dayanan bu model, başlangıçta, birden fazla 
+tedarikçiden küçük ve sık parça sevkiyatlarının merkezi bir üretim 
+tesisine ulaştırılması sürecini kolaylaştırmak ve üretim hatlarının 
+minimum stokla sürekli çalışmasını sağlamak amacıyla uygulanmıştır. 
+Bu "tam zamanında" (just-in-time) yaklaşımı, geniş ölçekli depolama 
+ihtiyacını en aza indirerek taşıma maliyetlerini düşürmekte ve aşırı 
+üretim riskini azaltarak yalın, talep odaklı bir lojistik yapısı 
+oluşturmaktadır (Veres vd., 2017). 
+Milk-Run modeli, yalnızca otomotiv sektörüyle sınırlı 
+kalmayıp, tedarik zincirinde çeviklik ve tepki verme hızının rekabet 
+açısından belirleyici olduğu diğer sektörlerde de benimsenmiştir. 
+Birden fazla tedarikçiden küçük partiler hâlinde ve sık yapılan 
+teslimatlar sayesinde, gıda sektöründeki işletmeler israfı azaltmakta, 
+ürün tazeliğini korumakta ve kısa raf ömrüne sahip ürünleri etkin 
+
+
+--- SAYFA 6 ---
+145 
+ 
+şekilde yöneterek stokta tükenme riskini en aza indirmektedir. Benzer 
+şekilde, yüksek değerli ve hızla modası geçen bileşenlerin kullanıldığı 
+elektronik sektöründe de Milk-Run modelinin tam zamanında üretim 
+stratejisi büyük önem taşımaktadır. Bu model, geniş depolama alanı 
+ihtiyacını ve teknolojik gelişmeler nedeniyle ortaya çıkan stok riski 
+seviyelerini azaltarak, firmaların dalgalanan talep ve teknolojik 
+trendlere dinamik biçimde yanıt vermesine olanak tanımaktadır (Gil 
+Vilda vd., 2020). 
+E-ticaret ve perakende sektörlerinde ise Milk-Run modeli, farklı 
+tedarikçilerden temin edilen ürünlerin merkezi dağıtım merkezlerinde 
+birleştirilmesi sürecini optimize ederek, müşterilere yönelik son 
+kilometre teslimatlarının hızını ve doğruluğunu artırmaktadır. Bu 
+yaklaşım, özellikle ürün çeşitliliği yüksek olan firmalar için avantaj 
+sağlamaktadır; sevkiyatların birleştirilmesi ve taşımada kullanılan araç 
+sayısının azaltılması, operasyonların daha sürdürülebilir ve çevre dostu 
+hâle gelmesini sağlamaktadır. Ayrıca, bu model günümüz tüketicisinin 
+hızlı ve talep odaklı teslimat beklentileriyle de uyum içerisindedir 
+(Oršič vd., 2022). 
+Milk-Run modelinin sürdürülebilirlik açısından sağladığı 
+katkılar da giderek daha fazla önem kazanmaktadır. Optimum rotalama 
+ve daha yüksek taşıma doluluk oranları sayesinde yakıt tüketimi ve 
+karbon emisyonları azaltılmakta; yalın stok yönetimi ve araç 
+kullanımının optimizasyonu yoluyla işletmeler yalnızca maliyetleri 
+düşürmekle kalmayıp aynı zamanda çevresel hedeflere de katkı 
+sağlamaktadır. Bu yönüyle Milk-Run modeli, kurumsal sosyal 
+
+
+--- SAYFA 7 ---
+146 
+ 
+sorumluluk hedeflerini gözeten işletmeler için cazip bir seçenek hâline 
+gelmektedir. Modelin farklı sektörlerin özgün taleplerine uyum sağlama 
+esnekliği, onu çağdaş tedarik zinciri yönetimi sorunlarına yanıt 
+verebilen güçlü bir lojistik çözüm olarak öne çıkarmaktadır. Bu 
+yaklaşım sayesinde işletmeler, lojistik stratejilerini verimlilik, çeviklik 
+ve çevresel sürdürülebilirlik gibi daha geniş hedeflerle uyumlu hâle 
+getirerek rekabet avantajı elde edebilmektedir (Wong vd., 2018). 
+Milk-Run Modeli: Kavramsal Çerçeve 
+Milk-Run modeli, tedarik zinciri yönetiminde farklı tedarikçilere ait 
+ürünlerin tek bir taşıma aracıyla toplanarak belirli bir merkeze veya 
+fabrikaya ulaştırılmasını optimize eden bir lojistik yaklaşımıdır. 
+Geleneksel çoklu taşıma yöntemlerinden farklı olarak, bu modelde her 
+bir tedarikçinin ürünleri aynı taşıma aracına yüklenmekte, böylece 
+zaman ve maliyet açısından önemli ölçüde verimlilik sağlanmaktadır 
+(Brachman & Brachman, 2015). Ayrıca, Milk-Run modeli taşıma 
+araçlarının kapasitesini maksimize ederek boş taşıma oranlarını 
+düşürmekte ve gereksiz stok birikimini önlemektedir. Bu yönüyle, stok 
+maliyetlerini azaltırken üretim süreçlerinde daha hızlı bir malzeme akışı 
+sağlamaktadır. Ancak, modelin başarısı ancak etkin bir planlama, 
+güzergâhların dikkatli bir şekilde belirlenmesi ve farklı tedarikçiler 
+arasında sağlıklı bir koordinasyon ile mümkün olmaktadır. Bu 
+bağlamda 
+Milk-Run 
+modeli, 
+tedarik 
+zincirinde 
+esneklik 
+ve 
+sürdürülebilirlik sağlayarak lojistik yönetiminde stratejik bir çözüm 
+sunmaktadır (Chapin, 1992). 
+ 
+
+
+--- SAYFA 8 ---
+147 
+ 
+Milk-Run Modelinin Temel İlkeleri 
+Milk-Run modelinin temel ilkeleri, lojistik süreçlerde verimlilik ve 
+maliyet optimizasyonuna dayanmaktadır. Modelin özü, bir taşıma 
+aracının farklı tedarikçilerden küçük hacimli yükleri tek seferde 
+toplayarak belirli bir merkeze ulaştırmasıdır. Bu süreç, taşıma 
+araçlarının maksimum kapasiteyle kullanılması sayesinde boş seferlerin 
+ve gereksiz taşıma maliyetlerinin önüne geçmeyi amaçlamaktadır. 
+Planlama aşamasında, taşıma araçlarının güzergâhları titizlikle 
+belirlenmekte ve tedarik noktaları arasındaki en kısa mesafeler 
+oluşturulmaktadır. Böylece hem yakıt tasarrufu sağlanmakta hem de 
+teslimat süreleri kısalmaktadır. Milk-Run modeli aynı zamanda 
+kesintisiz malzeme akışını desteklemekte ve stok seviyelerini 
+minimumda tutarak stok maliyetlerini düşürmektedir. Bu modelin 
+başarılı bir şekilde uygulanabilmesi için tedarikçilerle etkin 
+koordinasyon, lojistik yazılımlarının kullanımı ve esnek planlama 
+süreçleri gereklidir (Claxton & Doganis, 1976). 
+Uygulama Alanları 
+Milk-Run modeli, farklı sektörlerin lojistik ve tedarik zinciri 
+süreçlerinde verimlilik sağlama ihtiyacı doğrultusunda geniş bir 
+uygulama yelpazesine sahiptir. İlk olarak otomotiv sektöründe 
+kullanılan bu model, otomobil üreticilerinin belirli aralıklarla farklı 
+tedarikçilerden düşük hacimli parçaları toplayarak üretim hatlarına 
+ulaştırmalarını sağlamak amacıyla geliştirilmiştir. Bu sayede, üretim 
+hatlarında malzeme akışı kesintisiz devam ederken stok seviyeleri 
+minimumda tutulmakta ve depolama maliyetleri düşürülmektedir. 
+
+
+--- SAYFA 9 ---
+148 
+ 
+Otomotiv sektöründeki başarısının ardından, Milk-Run modeli; gıda, 
+elektronik, perakende ve tüketim malları gibi hızlı tedarik gerektiren 
+sektörlerde yaygın olarak kullanılmaya başlanmıştır (Akkad & Bányai, 
+2023). Gıda sektöründe, çabuk bozulan ürünlerle çalışılması nedeniyle, 
+zamanında teslimat ve düşük stok seviyeleri açısından Milk-Run büyük 
+önem taşımaktadır. Elektronik endüstrisinde ise yüksek değerli 
+parçaların depolanması yerine, tedarikçiden hızlı ve düzenli temin 
+yoluyla maliyet kontrolü sağlanmaktadır. Ayrıca bu model, e-ticaret ve 
+perakende sektörlerinde, çoklu tedarikçiden dağıtım merkezlerine 
+zamanında ürün teslimi açısından etkin biçimde kullanılmaktadır. Her 
+sektördeki dinamiklerle uyum içinde çalışan Milk-Run modeli, lojistik 
+operasyonlarda daha sürdürülebilir, esnek ve maliyet etkin çözümler 
+sunarak geniş bir uygulama alanı bulmaktadır (Tomczak & Bucoń, 
+2015). 
+Lojistik ve Tedarik Zinciri Yönetimindeki Önemi 
+Milk-Run modeli, lojistik ve tedarik zinciri yönetimi açısından büyük 
+bir değere sahiptir. Şirketlerin kaynaklarını daha etkin şekilde 
+yönetmelerine olanak tanıyan bu model, aynı zamanda işletmelerin özel 
+ihtiyaçlarına da uyum sağlayabilmektedir. İlk olarak otomotiv 
+sektöründe uygulamaya geçirilen model, birçok tedarikçiden düzenli 
+aralıklarla küçük miktarlarda parça veya ürün toplanarak merkezi bir 
+tesise ulaştırılmasına dayanmaktadır. Bu sayede, üretim hatları ve 
+dağıtım merkezleri ihtiyaç duydukları malzemelere aşırı stok yükü 
+oluşturmadan ulaşabilmektedir. Bu durum, büyük çaplı stoklara 
+duyulan ihtiyacı azaltmakta, depolama alanlarını optimize etmekte, 
+
+
+--- SAYFA 10 ---
+149 
+ 
+maliyetleri 
+düşürmekte 
+ve 
+işletmelerin 
+temel 
+faaliyetlerine 
+odaklanmalarına imkân tanımaktadır. Milk-Run modelinin faydaları, 
+yalnızca maliyet tasarrufu ile sınırlı değildir (You & Jiao, 2014). 
+Örneğin, gıda sektöründe sık ve küçük partiler hâlinde yapılan 
+teslimatlar, çabuk bozulan ürünlerin raflara daha taze ulaşmasını 
+sağlayarak israfı azaltmakta ve ürün kalitesini artırmaktadır. Elektronik 
+sektöründe ise, yüksek maliyetli ve hızla eskime potansiyeli taşıyan 
+bileşenlerin depolanması yerine Milk-Run sistemi ile yapılan tedarik 
+hem stok maliyetlerini azaltmakta hem de teknolojik eskime riskini 
+düşürmektedir. Hızla büyüyen e-ticaret ve perakende sektörlerinde ise, 
+çoklu tedarikçiden gelen sevkiyatlar bir araya getirilerek ürünlerin 
+merkezi dağıtım noktalarına ve sonrasında müşterilere ulaştırılma 
+süreci hızlandırılmaktadır. Bu konsolide teslimat yöntemi, yalnızca 
+daha pratik olmakla kalmayıp, aynı zamanda kullanılan araç sayısını 
+azaltarak yakıt tüketimini ve emisyonları düşürdüğü için çevresel 
+açıdan da daha dostane bir yaklaşım sunmaktadır (Nemoto & 
+Rothengatter, 2012). 
+Milk-Run Modelinin Avantajları 
+Milk-Run modeli, lojistik süreçlerde görev alan araçların bekleme 
+sürelerini azaltarak, kamyon/tanker/çekici gibi taşıma araçlarının 
+kullanım oranlarını maksimize etmekte ve lojistik araçlarının 
+zamanında teslimat gerçekleştirmesini sağlamaktadır. Bu sistem hem 
+tedarikçilerin 
+hem 
+de 
+müşterilerin 
+yüksek 
+miktarda 
+stok 
+bulundurmasına gerek bırakmadığı için depolama maliyetlerini 
+azaltmakta ve yalnızca ihtiyaç duyulan kadar ürünün küçük partiler 
+
+
+--- SAYFA 11 ---
+150 
+ 
+hâlinde teslim edilmesine olanak tanımaktadır. Milk-Run sisteminin bir 
+diğer önemli avantajı ise, stok seviyelerinin düşmesine katkı sağlayarak 
+işletmelerin işletme sermayesi ihtiyacını azaltmasıdır; bu durum, 
+depolama ve finansman maliyetlerinde önemli ölçüde tasarruf sağlar 
+(Korytkowski & Karkoszka, 2015). 
+Depolama alanı ihtiyacını azaltması sayesinde, Milk-Run sistemi 
+üretim alanları için daha fazla yer açmakta ve daha sık teslimatları daha 
+düşük maliyetlerle gerçekleştirme imkânı sunmaktadır. Tedarikçi ve 
+müşterilerin senkronize hareket etmelerini sağlayarak, tam dolu 
+araçlarla teslimat yapılamayan durumlarda dahi çok sayıda tedarikçiden 
+malzeme temin edilmesine olanak tanımakta; bu sayede farklı 
+tedarikçilerin uygun fiyat avantajlarından faydalanılmasını mümkün 
+kılmaktadır. Ayrıca, Milk-Run sistemi güzergâh verimsizliğini 
+azaltmada da etkin bir rol oynamaktadır (Klenk vd., 2015). 
+Milk-Run Sisteminin Dezavantajları 
+Milk-Run sisteminde bazı tedarikçiler bu hizmete uygun olmayabilir; 
+sistemin işleyişi yol ve güzergâh koşullarına bağımlı olduğundan, 
+planlama hataları ve tedarikçi gecikmeleri ek seferler ve ilave 
+maliyetlere yol açabilir. Milk-Run sisteminin uygulanması oldukça 
+karmaşıktır ve ürünlerin teslim noktası ile teslimat zamanlamasının 
+kusursuz biçimde senkronize edilmesini gerektirir. Bu nedenle, taşıma 
+hacimleri, teslim süresi ve transit süre gibi birçok faktörün dikkatle 
+değerlendirilmesi gerekir (Yun vd., 2010). 
+
+
+--- SAYFA 12 ---
+151 
+ 
+Sistemde yapılacak hatalar üretimi doğrudan olumsuz etkileyebilir. 
+Milk-Run lojistiği, tüm aşamalara bağlılık gerektirir; zira girdilerin 
+tedarikinde yaşanacak bir gecikme, üretim sürecinin tamamını 
+durdurabilir. Bu nedenle sistemin işleyişi güvenilir tedarikçilere 
+bağlıdır; ancak tedarikçilerin kontrolü dışında gelişen trafik engelleri ya 
+da olumsuz hava koşulları gibi durumlar üretimi aksatabilir. Ayrıca, 
+Milk-Run sistemi geleneksel sistemlere kıyasla maliyetli olabilir. Bu 
+sistemde teslimat sıklığının yüksek olması daha fazla ekipman 
+ihtiyacını beraberinde getirebilir ve bu da yüksek maliyetlere neden 
+olabilir (Staab vd., 2016). 
+Milk-Run Modelinin Uygulama Örnekleri 
+Milk-Run modeli, operasyonel verimliliği artırmak ve maliyetleri 
+minimize etmek amacıyla çeşitli şekillerde uygulanmaktadır. Özellikle 
+otomotiv üretiminde sıkça kullanılan bu iş birliğine dayalı model, 
+tedarikçilerin belirli güzergâhlar üzerinden malzeme teslimatlarını 
+düzenli ve sık aralıklarla yapmasına olanak tanır. Toyota üretim hattında 
+da Milk-Run modeli kullanılmakta ve bu sayede Toyota, ihtiyaç 
+duyduğu parçaları farklı tedarikçilerden düşük stok seviyeleriyle ve 
+zamanında temin edebilmektedir (Grzegorz vd., 2020). Bu uygulama, 
+gereksiz stok birikiminin önüne geçerken taşıma maliyetlerini de 
+düşürmektedir. Gıda endüstrisinde de taze kalması gereken ürünlerin 
+düzenli ve küçük miktarlarda teslim edilmesi için benzer bir yöntem 
+izlenmektedir. Perakende sektöründe ise, farklı türde çok sayıda ürün 
+tek bir teslimatta birleştirilerek tedarik zincirinin belirli bir kısmı 
+verimli bir şekilde yönetilmektedir. Ayrıca, Milk-Run modelinin 
+
+
+--- SAYFA 13 ---
+152 
+ 
+çevreci bir sistem olması da önemli bir avantajdır; daha az araç 
+kullanımı sayesinde yakıt tüketimi ve emisyonlar azaltılmaktadır. 
+Modelin başarısı, doğru lojistik ve tedarik zinciri yönetimi ile sağlanan 
+yüksek düzeyde kullanım ve sürdürülebilirlikte yatmaktadır (JIT, 
+1968). 
+ 
+Şekil 1. Milk-Run Sistemi (Brar & Saini, 2011). 
+Şekil 1, lojistik taşımacılıkta sıklıkla kullanılan milk run tekniğini 
+betimlemektedir. Bu teknikte, bir araç belirlenen rota üzerindeki birden 
+fazla tedarikçiden malzemeleri toplar ve tek seferde üretim tesisine 
+aktarır. Görselde, araçların üretim alanında her bir tedarikçi noktasında 
+durarak ilerlediği gösterilmektedir. Bu yöntem, taşıma maliyetlerinin 
+minimize edilmesi ve araç kullanımının optimize edilmesi gibi 
+unsurlarla lojistik süreçlerin verimliliğini artırmayı hedeflemektedir. 
+Ayrıca, yaklaşım ürünlerin tam zamanında üretimini mümkün kılmakta 
+ve yöneticilere tedarik zinciri kaynaklı baskıları işletme genelinde 
+kontrol imkânı sağlamaktadır (Alnahhal vd., 2014). 
+
+
+--- SAYFA 14 ---
+153 
+ 
+SONUÇ 
+Milk-Run modeli, tedarik zinciri süreçlerinde önemli bir fark 
+yaratmakta ve değişimin yoğun olduğu günümüz iş dünyasında 
+maliyetleri düşürmenin etkili bir aracı olarak öne çıkmaktadır. Bu 
+model yalnızca lojistik açıdan değil, aynı zamanda çevresel 
+sürdürülebilirlik açısından da avantajlar sunar. Milk-Run modeli, 
+taşıma maliyetlerini azaltmak, karbon emisyonlarını düşürmek ve araç 
+kullanımını etkin hale getirmek için çevre dostu bir yöntemdir. 
+Ancak, modelin tam potansiyeline ulaşması için zamanında stratejik 
+iyileştirmelerin 
+uygulanması 
+gerekmektedir. 
+İlk 
+olarak, 
+rota 
+planlamasında optimizasyon sağlayan ve olası gecikmeleri öngörebilen 
+yapay zeka tabanlı ve büyük veri teknolojilerinin kullanımı 
+önerilmektedir. Tedarikçiler ile üreticiler arasında veri şeffaflığını 
+kolaylaştıran dijital platformlar, daha iyi koordinasyon ve tedarik 
+zincirinde hızlı veri akışı sağlayacaktır. Ayrıca, operasyonel esnekliği 
+artırmak 
+amacıyla 
+farklı 
+taşıma 
+modlarının 
+kullanımı 
+değerlendirilebilir. 
+Son 
+olarak, Milk-Run modelinin 
+uzun 
+vadeli 
+bir 
+vizyonla 
+benimsenmesi için yeni fikirlerin geliştirilmesi, lojistik personeline 
+yenilikçi yaklaşımlar konusunda eğitim verilmesi ve sürdürülebilir 
+hedeflerin lojistik planlamaya entegre edilmesi kritik öneme sahiptir. 
+Bu sayede şirketler, maliyet ve kâr marjlarını dengelerken, müşteri 
+memnuniyeti odaklı sürdürülebilir bir rekabet avantajı elde edebilir. 
+ 
+
+
+--- SAYFA 15 ---
+154 
+ 
+KAYNAKÇA 
+Akkad, M. Z., & Bányai, T. (2023). Energy Consumption Optimization 
+of Milk-Run-Based In-Plant Supply Solutions: An Industry 4.0 
+Approach. Processes, 11(3), 
+799. https://doi.org/10.3390/pr11030799 
+Alnahhal, M., Ridwan, A., & Noche, B. (2014). In-plant milk run 
+decision problems. In 2014 International Conference on 
+Logistics 
+and 
+Operations 
+Management 
+(GOL). 
+IEEE. https://doi.org/10.1109/gol.2014.6887421 
+Brachman, M., & Brachman, B. (2015). Milk Run. Independently 
+Published. 
+Brar, G. S., & Saini, G. (2011). Milk run logistics: literature review and 
+directions. 
+In Proceedings 
+of 
+the 
+world 
+congress 
+on 
+engineering (Vol. 1, pp. 6-8). WCE. 
+Chapin, W. (1992). Milk run. Windgate Press. 
+Claxton, J., & Doganis, S. (1976). Milk Run. Penguin Books, Limited. 
+Gil Vilda, F., Yagüe-Fabra, J. A., & Sunyer Torrents, A. (2020). An in-
+plant milk-run design method for improving surface occupation 
+and optimizing mizusumashi work time. CIRP Annals, 69(1), 
+405–408. https://doi.org/10.1016/j.cirp.2020.03.012 
+Grzegorz, B., Izabela, N., Arkadiusz, G., & Zbigniew, B. (2020). 
+Reference 
+model 
+of 
+milk-run 
+traffic 
+systems 
+prototyping. International Journal of Production Research, 1–
+18. https://doi.org/10.1080/00207543.2020.1766717 
+JIT. (1968). Japan international trade directory, 1968. Jit International. 
+
+
+--- SAYFA 16 ---
+155 
+ 
+Klenk, E., Galka, S., & Günthner, W. A. (2015). Operating Strategies 
+for In-Plant Milk-Run Systems. IFAC-PapersOnLine, 48(3), 
+1882–1887. https://doi.org/10.1016/j.ifacol.2015.06.361 
+Korytkowski, P., & Karkoszka, R. (2015). Simulation-based efficiency 
+analysis 
+of 
+an 
+in-plant 
+milk-run 
+operator 
+under 
+disturbances. The 
+International 
+Journal 
+of 
+Advanced 
+Manufacturing 
+Technology, 82(5-8), 
+827–
+837. https://doi.org/10.1007/s00170-015-7442-2 
+Nemoto, T., & Rothengatter, W. (2012). Efficient Green Logistics in 
+Urban Areas: Milk Run Logistics in the Automotive Industry. 
+In Sustainable Transport for Chinese Cities (pp. 319–337). 
+Emerald 
+Group 
+Publishing 
+Limited. https://doi.org/10.1108/s2044-9941(2012)0000003017 
+Oršič, J., Jereb, B., & Obrecht, M. (2022). Sustainable Operations of 
+Last 
+Mile 
+Logistics 
+Based 
+on 
+Machine 
+Learning 
+Processes. Processes, 10(12), 
+2524. https://doi.org/10.3390/pr10122524 
+Staab, T., Klenk, E., Galka, S., & Günthner, W. A. (2016). Efficiency in 
+in-plant milk-run systems—The influence of routing strategies 
+on system utilization and process stability. Journal of 
+Simulation, 10(2), 137–143. https://doi.org/10.1057/jos.2015.6 
+Tomczak, M., & Bucoń, R. (2015). Milk runs model with overtime: 
+application 
+to 
+cluster 
+supply 
+chain. Budownictwo 
+i 
+Architektura, 14(4), 
+139–147. https://doi.org/10.35784/bud-
+arch.1554 
+
+
+--- SAYFA 17 ---
+156 
+ 
+Veres, P., Bányai, T., & Illés, B. (2017). Optimization of In-Plant 
+Production Supply with Black Hole Algorithm. Solid State 
+Phenomena, 261, 
+503–
+508. https://doi.org/10.4028/www.scientific.net/ssp.261.503 
+Wong, E. Y. C., Tai, A. H., & Zhou, E. (2018). Optimising truckload 
+operations in third-party logistics: A carbon footprint 
+perspective in volatile supply chain. Transportation Research 
+Part 
+D: 
+Transport 
+and 
+Environment, 63, 
+649–
+661. https://doi.org/10.1016/j.trd.2018.06.009 
+You, Z., & Jiao, Y. (2014). Development and Application of Milk-Run 
+Distribution Systems in the Express Industry Based on Saving 
+Algorithm. Mathematical Problems in Engineering, 2014, 1–
+6. https://doi.org/10.1155/2014/536459 
+Yun, L., 
+Xian-long, G., 
+& 
+Chao-chun, S. 
+(2010). 
+Inventory-
+transportation Integrated Optimization Based on Milk-run 
+Model. In 2010 International Conference on E-Business and E-
+Government (ICEE). IEEE. https://doi.org/10.1109/icee.2010.847 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

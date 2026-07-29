@@ -1,0 +1,2091 @@
+
+
+--- SAYFA 1 ---
+Georgia Southern University 
+Georgia Southern University 
+Georgia Southern Commons 
+Georgia Southern Commons 
+12th IMHRC Proceedings (Gardanne, France – 
+2012) 
+Progress in Material Handling Research 
+2012 
+Analysis of Parameters Influencing in-plant Milk Run Design for 
+Analysis of Parameters Influencing in-plant Milk Run Design for 
+Production Supply 
+Production Supply 
+Eva Klenk 
+Technische Universität München 
+Stefan Galka 
+Technische Universität München 
+Willibald A. Günthner 
+Technische Universität München 
+Follow this and additional works at: https://digitalcommons.georgiasouthern.edu/pmhr_2012 
+ Part of the Industrial Engineering Commons, Operational Research Commons, and the Operations and 
+Supply Chain Management Commons 
+Recommended Citation 
+Recommended Citation 
+Klenk, Eva; Galka, Stefan; and Günthner, Willibald A., "Analysis of Parameters Influencing in-plant Milk Run 
+Design for Production Supply" (2012). 12th IMHRC Proceedings (Gardanne, France – 2012). 16. 
+https://digitalcommons.georgiasouthern.edu/pmhr_2012/16 
+This research paper is brought to you for free and open access by the Progress in Material Handling Research at 
+Georgia Southern Commons. It has been accepted for inclusion in 12th IMHRC Proceedings (Gardanne, France – 
+2012) by an authorized administrator of Georgia Southern Commons. For more information, please contact 
+digitalcommons@georgiasouthern.edu. 
+
+
+--- SAYFA 2 ---
+ 
+ANALYSIS OF PARAMETERS INFLUENCING IN-PLANT MILK 
+RUN DESIGN FOR PRODUCTION SUPPLY 
+ 
+Eva Klenk 
+Technische Universität München 
+Stefan Galka, Willibald A. Günthner 
+Technische Universität München 
+ 
+ 
+ 
+Abstract 
+ 
+In-plant milkrun systems are a transport concept for in-plant material 
+delivery which is becoming more and more applicable especially in the 
+automotive industry. This is due to the system characteristic of providing 
+materials in small lot sizes and with high frequency. As there is a number 
+of different milk run concepts applied and there are several parameters 
+influencing the efficiency and stability of these systems, this paper aims at 
+presenting an overview of common concepts and their properties together 
+with key figures based on an empirical study. The concepts are further 
+analyzed and evaluated with respect to resulting lead times and stability.  
+ 
+1 
+Motivation 
+ 
+In the automotive industry, in-plant production supply is a critical function in physical 
+logistics, as a shortage of parts at workstations results in an expensive stoppage of the 
+assembly line. The number of automobile derivatives assembled on the same production 
+line is constantly increasing and there are no two cars that are exactly the same, therefore 
+a huge number of different materials need to be supplied to the production line. 
+Considering that the space for material provision next to the assembly line is not 
+sufficient, only a minimal number of bins per material number can be stored there. 
+Therefore, a fast, frequent and reliable in-plant supply process to deliver small lot sizes 
+must be implemented. We assume that in-plant milk run systems are an efficient way to 
+fulfil these requirements (Figure 1) and are being used more and more often. 
+
+
+--- SAYFA 3 ---
+ 
+ 
+A
+vario
+route
+bus s
+trains
+trains
+ 
+ 
+T
+regar
+good
+order
+appli
+T
+syste
+comp
+which
+discu
+F
+An in-plant 
+us points of 
+. In some ca
+ystem in pub
+s may be op
+s consisting 
+Figu
+The milk ru
+rding the so
+s, the numb
+rs are gener
+ed.  
+The decision
+m is often 
+panies. To o
+h describes 
+uss only one
+igure 1:  Obj
+milk run s
+f use in one r
+ases, it is op
+blic transpor
+erating from
+of a tugger a
+ure 2:  Milk r
+un concept 
+urce of the 
+er of workst
+ated. Depen
+n which mil
+based on 
+ur knowledg
+in-plant m
+e specific p
+jectives for 
+system is a 
+run (cf. Figu
+perating on a
+rtation. Depe
+m the same m
+and from thr
+run process i
+is used un
+transported
+tations to su
+nding on the
+k run conce
+planners’ e
+ge, there exi
+milk run pro
+process. Fur
+ 
+introducing 
+transport co
+ure 2) [2]. Ty
+a fixed sched
+ending on th
+material sour
+ree to five tra
+ 
+in compariso
+nder a num
+d goods, the
+upply goods
+ese conditio
+ept to use an
+experience o
+ists only a li
+cesses and 
+thermore, th
+a milk run s
+oncept to su
+ypically, the
+dule. This sy
+he size of the
+rce. Most of
+ailers. 
+on with a for
+mber of diffe
+e amount an
+and the way
+ns, different
+nd planning 
+or on the 
+imited amou
+their param
+he paramete
+system [1] 
+upply  vario
+e milk run is 
+ystem is com
+e system, sev
+ften, milk-ru
+rklift proces
+ferent gener
+nd variety o
+y in which r
+t milk run p
+and dimens
+concepts us
+unt of scient
+meters, and 
+ers influenc
+ 
+ous goods t
+using a fixe
+mparable to 
+veral milk ru
+uns are tugge
+ 
+s 
+al condition
+of transporte
+replenishmen
+processes ar
+sioning of th
+sed by othe
+tific literatur
+these paper
+ing milk ru
+to 
+ed 
+a 
+un 
+er 
+ns 
+ed 
+nt 
+re 
+he 
+er 
+re 
+rs 
+un 
+
+
+--- SAYFA 4 ---
+ 
+systems are numerous and diverse. Companies operating in-plant milk run systems need 
+to coordinate these parameters when designing a milk run process to ensure fast, stable 
+and efficient material provision [3]. 
+  
+2 
+Method 
+ 
+In order to support a decision in favour of the milk run concept and dimensioning of a 
+milk run system, this paper presents different typical concepts for in-plant milk run 
+supply based on an ongoing empirical study of a number of automotive companies and 
+suppliers as well as companies from related industries. The conceptual differences are 
+analyzed and typical processes are described in detail. Parameters relevant for 
+dimensioning of a milk run route are presented and different processes are modeled 
+according to these parameters using Methods Time Measurement (MTM). The resulting 
+lead times and replenishment lead times for different transport volumes / throughput per 
+tour are calculated for each concept to enable a quantitative comparison of the concepts. 
+Furthermore, different aspects that influence stability of the processes are analyzed and 
+evaluated. Finally, there is a recommendation given which concept to use and under 
+which general conditions.  
+  
+3 
+Milk run Concepts and Processes – Qualitative Analysis 
+ 
+To gain an overview of typical milk-run concepts used in the industry, as well as their 
+parameters and resulting key figures, 21 milk run concepts of major automotive 
+companies and suppliers as well as companies from related industries have been 
+investigated [1]. First of all, the concepts are classified using the criteria described in 
+Table 1.   
+ 
+ 
+ 
+ 
+Table 1:  Classification criteria for different milk run concepts 
+ 
+Criterion 
+Values 
+General conditions 
+Material source 
+Automated storage system 
+Manual storage system 
+Production supermarket 
+Buffer area 
+Handling unit 
+Small load carrier (SLC), e.g. bins 
+Large load carrier (LLC), e.g. 
+pallets 
+Special carrier (e.g. for sequenced 
+provision) 
+Mixed carriers 
+Replenishment principle 
+Kanban 
+
+
+--- SAYFA 5 ---
+ 
+Reorder level 
+Sequenced orders 
+Demand-oriented 
+Organizational structure 
+Route 
+Fixed route 
+Dynamically planned route 
+Flexible route 
+Assignment of vehicle to 
+route 
+Fixed assignment 
+Flexible assignment 
+Milk-run control principle 
+Tact / Fixed schedule 
+Workload-oriented 
+Permanent 
+On demand 
+Integration of loading 
+process 
+As part of tour 
+Separate loading, buffering of 
+loaded trailers 
+Integration of empty bins 
+process 
+1:1-exchange 
+Pick-up on demand 
+No integration 
+ 
+Figure 3 shows the morphology of the researched milk run concepts according to the 
+above mentioned criteria. 
+ 
+ 
+ 
+Figure 3:  Morphology of typical milk run concepts based on an empirical study 
+General conditions
+Buffer area
+Production 
+supermarket
+Manual storage
+system
+Organizational design
+Milk-run control 
+principle
+Takted / fixed
+schedule
+Workload-oriented
+Route
+Permanent
+fixFixed route
+Dynamically
+planned route
+Integration of 
+empty bins process
+1:1-Exchange
+Pick-up on demand
+No integration
+Flexible route
+Integration of 
+loading process
+As part of tour
+Separarte loading, 
+buffering of loaded
+trailers
+Replenishment
+principle
+Kanban
+Reorder level
+Sequenced orders
+Demand-oriented
+Material source
+Handling unit
+Automated storage
+system
+Assignment of 
+vehicle to route
+Fixed assignmanet
+Flexible assignment
+On demand
+Small bins
+Large bins
+Special carriers
+Mixed bins
+
+
+--- SAYFA 6 ---
+ 
+ 
+As can be seen, there are no two concepts that are exactly the same, but most share 
+some similarities: 
+• Almost all concepts are operating on fixed routes. 
+• Vehicles are assigned to one single route. 
+• Most small bin processes operate on a fixed schedule; large bin processes run 
+permanently. 
+• The empty bin process is usually integrated into the milk run. 
+ 
+Obviously, the concepts for handling small bins are much more diverse than those 
+for other goods; we therefore focus our further discussions on these concepts. 
+If we assume that an average number of empty bins required to be picked up by the 
+milk run is the same in case of 1:1 exchange and pick-up on demand (which is plausible, 
+as the number of empty bins to pick up is the same as the number of full bins to supply), 
+and  the routes and cycle times need to be defined (even if they are not fixed in the later 
+operating phase) in a planning phase, some major process types can be derived. Different 
+replenishment principles result in different information processes and, therefore, in 
+different lead times, as it is shown below, but physical processes differ only a little (e.g. 
+handling / no handling of kanban cards). If these considerations are taken into account, 
+six major milk run material handling processes can be derived. They are depicted in 
+Figure 4 and described in detail below. 
+ 
+Concept 1: supermarket, self-loading 
+ 
+ 
+ 
+Concept 2: supermarket with pre-picking 
+and buffering 
+ 
+ 
+Concept 3: whole pallets milk run, single 
+small bins supply 
+ 
+Concept 4: automated storage system with 
+buffering and manual loading  
+ 
+4 31 4 4 31 4 431 4 4 31 4
+4 31 4 4 31 4 431 4 4 31 4
+4 31 4 4 31 4 431 4 4 31 4
+4 31 4 4 31 4 431 4 4 31 4
+4 31 4 4 31 4 431 4 4 31 4
+4 31 4 4 31 4 431 4 4 31 4
+43 14 4 31 4 43 14 4 31 4
+43 14 4 31 4 43 14 4 31 4
+43 14 4 31 4 43 14 4 31 4
+WS 1
+WS 2
+WS n
+...
+WS 4
+WS 3
+3
+3
+3
+3
+3
+4
+4
+4
+4
+4
+4
+Supermarket
+3
+5
+43 14 4 31 4 43 14 43 14
+43 14 4 31 4 43 14 43 14
+43 14 4 31 4 43 14 43 14
+4 31 4 4 31 4 43 1 4 43 14
+4 31 4 4 31 4 43 1 4 43 14
+4 31 4 4 31 4 43 1 4 43 14
+43 1 4 43 14 43 14 4 31 4
+43 1 4 43 14 43 14 4 31 4
+43 1 4 43 14 43 14 4 31 4
+2
+1
+6
+Empties buffer
+WS 1
+WS 2
+WS n
+...
+WS 4
+WS 3
+3
+3
+3
+3
+3
+4
+4
+4
+4
+4
+4
+Manual storage system
+3
+5
+2
+1
+6
+Empties buffer
+4314
+4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314
+4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314 4314
+4314
+4314
+4314
+4314
+4314
+4314
+4314
+4314 4314
+4314
+4314 4314
+4314
+4314
+4314
+4314 4314
+4314
+4314
+4314 4314
+4314
+4314 4314
+4314
+4314
+4314
+WS 1
+WS 2
+WS n
+...
+WS 4
+WS 3
+3
+3
+3
+3
+3
+4
+4
+4
+4
+4
+4
+3
+5
+6
+Empties buffer
+1
+7
+2
+
+
+--- SAYFA 7 ---
+ 
+ 
+ 
+Concept 5: automated storage system with 
+half-automated loading and buffering 
+ 
+ 
+Concept 6: automated storage system, 
+drive-thru loading 
+ 
+ 
+ 
+ 
+ 
+Figure 4:  Major milk run concepts 
+ 
+ 
+  
+3.1 
+Concept 1: supermarket, self-loading 
+ 
+A material source for small bins is a production supermarket. A milk run driver himself is 
+loading bins onto his milk run train according to replenishment orders. After finishing the 
+loading, he drives to the production workstations using his fixed route, stops, if he has 
+something to deliver, and unloads the bins at the stations, which ordered the goods, and 
+picks up empty bins. At the end of each tour, the driver unloads the empty bins and waits 
+until he has to start the next tour according to his milk run schedule. The concept 
+provides for orders that are often generated using kanban. In this case, the milk run driver 
+is also responsible for generating the replenishment orders, either by picking up kanban 
+cards, using empty bins as the replenishment kanban, or generating e-kanban orders by 
+scanning empty bins. As there is only one person, who is responsible for the whole 
+process, there are no interfaces in the physical process where time or information may be 
+lost. The process can be implemented without any IT system using kanban cards for 
+example and, therefore, it is simple. On the other hand, it takes little time per tour 
+actually used for delivering material, as loading and order picking in the supermarket 
+consume a significant amount of the available time. Therefore, milk run cycle time for 
+supplying a fixed number of bins per tour is longer than in other concepts.   
+ 
+3.2 
+Concept 2: supermarket with pre-picking and buffer 
+ 
+WS 1
+WS 2
+WS n
+...
+WS 4
+WS 3
+3
+3
+3
+3
+3
+4
+4
+4
+4
+4
+4
+3
+5
+6
+Empties buffer
+1
+7
+2
+WS 1
+WS 2
+WS n
+...
+WS 4
+WS 3
+4
+3
+3
+3
+3
+4
+3
+4
+4
+4
+4
+3
+5
+43 14 4 31 4 43 14 43 14
+43 14 4 31 4 43 14 43 14
+43 14 4 31 4 43 14 43 14
+4 31 4 4 31 4 43 1 4 43 14
+4 31 4 4 31 4 43 1 4 43 14
+4 31 4 4 31 4 43 1 4 43 14
+43 1 4 43 14 43 14 4 31 4
+43 1 4 43 14 43 14 4 31 4
+43 1 4 43 14 43 14 4 31 4
+Empties buffer
+6
+1
+7
+
+
+--- SAYFA 8 ---
+ 
+This concept is similar to concept 1, but an additional supermarket worker is responsible 
+for loading the milk run train. Depending on the type of information system used, the 
+supermarket worker is either loading the train according to replenishment information 
+given to him by the milk run driver, or according to information from the ERP system. 
+After finishing the loading, he forwards the loaded trailers into a buffer area where the 
+milk run driver picks up the trailers and starts the next tour, similarly to concept 1. As in 
+this system, the supermarket process and the milk run process need to be synchronized, 
+both the supermarket worker and the milk run driver operate according to a fixed 
+schedule. Compared to concept 1, material lead time may be longer because of the 
+buffering. If a kanban system is used, the information flow is also delayed because of the 
+interface between the milk run worker and the supermarket worker. On the other hand, a 
+higher milk run tact may be realized, as the milk run driver is solely responsible for 
+delivering goods. Depending on the time needed for loading the trailers in the 
+supermarket, the supermarket worker may supply more than one milk run train. This 
+“pooling” may lead to  engagement of less personnel in large systems. The milk run cycle 
+and the supermarket cycle have to be synchronized in order to create stable lead times 
+and little stock in the buffers. 
+ 
+3.3 
+Concept 3: whole pallets milk run, single small bin supply 
+ 
+In this case, the milk run train transports whole pallets with small bins (only one material 
+per pallet). A warehouse worker loads the pallets onto the trailers by forklift. The milk 
+run driver picks up the trailers and starts the next tour according to a fixed schedule. He 
+stops at each point of use, checks the available stock and fills up the stock to a defined 
+maximum level. He also picks up empty bins. After finishing the tour, he leaves the 
+trailers with the empty bins at the buffer, loads the leftover full bins (if any) on top of the 
+loaded trailers, provided in the buffer, and starts the next tour. This system requires 
+coordination between the milk run and the loading process; therefore the system usually 
+operates in a fixed tact. Materials are fixedly assigned to trailers, therefore only a limited 
+number of different materials (= number of trailers) can be delivered with one milk run, 
+and the demand per material should be high to ensure that the pallets are almost (but not 
+completely) empty at the end of each tour. No information flow is necessary, i.e. the 
+concept is simple and replenishment lead times are short. As whole pallets are loaded 
+onto the trailer, handling times at the warehouse are short which result in short material 
+lead times. 
+ 
+3.4 
+Concept 4: automated storage system with buffering and manual 
+loading 
+ 
+The material source for small bins is an automated miniload warehouse. Bins for a milk 
+run tour are retrieved, sequenced and provided for loading at a roller conveyor. A 
+warehouse worker picks up an empty trailer from a trailer buffer and places it next to the 
+
+
+--- SAYFA 9 ---
+ 
+conveyor. Then he uses a handling tool to load the bins onto the trailer (several bins at 
+once). Loaded trailers are placed in another buffer area, where the milk run driver picks 
+them up and starts the tour. The milk run driver delivers the bins to each point of use and 
+picks up empty bins. At the end of each tour, he places the trailers with empty bins in a 
+buffer area where another warehouse worker unloads the empty bins. The loading process 
+and the milk run process need to be synchronized in the same way as the retrieval 
+process, this system usually operates in a fixed tact. Demand-oriented or kanban systems 
+are used as the information principle. In the case of kanban, the milk run driver may be 
+responsible for creating kanban-orders. If a kanban system is in use, orders have to be 
+buffered in the IT system for a certain time, until retrieval orders for the whole tour can 
+be triggered. In case of a demand-oriented system, orders are known in advance, retrieval 
+orders can be triggered just in time for the next tour, which results in lower stock levels at 
+the assembly line.  
+In this system, several routes may be serviced by the same warehouse worker at the same 
+conveyor. As trailers are buffered outside the storage system, and some empty trailers are 
+always available, the risk of congestions of several routes at the conveyor is low.   
+ 
+3.5 
+Concept 5: automated storage system with half-automated 
+loading and buffering 
+ 
+This system is similar to concept 4, except for the loading process. In this case, the 
+warehouse worker positions the trailer directly in front of the conveyor system. Bins are 
+loaded automatically into the trailer. When the trailer is fully loaded, the warehouse 
+worker puts it in the buffer area where the trailers are picked up by the milk run driver. 
+Similar to system 4, the information flow may be also realized as a kanban system or a 
+demand-oriented system. Compared to system 4, less manual handling is necessary.   
+ 
+3.6 
+Concept 6: automated storage system, drive-thru loading 
+ 
+The material source is also a miniload warehouse. Bins for a milk run tour are retrieved, 
+sequenced and provided for loading in a flow rack. For loading, the milk run driver 
+positions the milk run train in front of the flow rack. The trailers are also designed as 
+flow racks which exactly fit the loading system (cf. Figure 5). The driver triggers the 
+loading process, and all bins roll onto the trailers simultaneously. This results in a quite 
+short loading time, and, as there is no buffering outside the storage system, in short lead 
+times. On the other hand, the retrieval and milk run process have to be synchronized 
+exactly, as there is no buffer in between. Also, if several milk runs are loaded on the same 
+flow racks, an exact schedule has to be ensured. 
+ 
+
+
+--- SAYFA 10 ---
+ 
+ 
+4 
+ 
+In ord
+for se
+In all
+first, 
+work
+area f
+back 
+time 
+the em
+T
+of sto
+numb
+run t
+hand,
+hand 
+traile
+loade
+depen
+numb
+T
+loadi
+retrie
+Parame
+der to be abl
+eparate activ
+l the milk ru
+bins are loa
+kstations, del
+for empty bi
+to the loadin
+(tL), stop tim
+mpty bins or
+The travellin
+ops per tour
+ber of bins d
+technology b
+, the loading
+largely dep
+rs (concept 
+ed trailers fr
+ndent on the
+ber of trailer
+The resulting
+ng the bins 
+eval from sto
+Fig
+eters and K
+le to compar
+vities of the m
+un processes
+aded onto th
+livers full bi
+ins, unloads
+ng area. Con
+me (tS), hand
+r empty trail
+ng time tT de
+r (several b
+delivered per
+but are inde
+g time tL and
+pend on the 
+1), loading 
+om a buffer
+e number of
+s to pick up 
+g material le
+onto the tra
+orage and b
+gure 5:  Driv
+Key Figur
+re the conce
+milk run pro
+s described a
+he milk run
+ns and picks
+ the bins or 
+nsequently, t
+dling time fo
+ers (tE) and t
+epends on th
+bins may be
+r tour. These
+ependent fro
+d the time for
+concept, as 
+the whole b
+r (concepts 2
+f bins to loa
+and, in conc
+ead time com
+ailers, if this
+uffer times. 
+ 
+ 
+e-Thru loadi
+es 
+pts further, i
+cess, loading
+above, one t
+n trailers. Th
+s up empty b
+places traile
+the milk run
+or the deliver
+travelling tim
+he length of 
+ delivered t
+e times may
+om the conc
+r handling th
+loading ma
+batch at onc
+2, 3, 4, 5). In
+ad per tour,
+cept 6, it is in
+mprises the m
+s is not part
+The loadin
+ing concept
+it is necessa
+g process an
+tour provide
+hen, the driv
+bins. Afterw
+ers with emp
+n cycle time 
+ry at each sto
+me (tT) [4]. 
+f the route, t
+to one stop)
+y vary depen
+cepts describ
+he empty tra
+ay mean load
+ce (concept 
+n concept 1
+, in concept
+ndependent 
+milk run cyc
+t of the tour
+g time again
+ary to determ
+nd retrieval p
+es for the sam
+ver stops at 
+wards, he sto
+pty bins ther
+is the sum o
+op (tH), time
+S depends o
+) and tH dep
+nding on the
+bed above. 
+ailers / bins tE
+ding single 
+6) or simpl
+, the loading
+ts 2, 3, 4 an
+from both.  
+cle time plu
+r, as well as
+n depends o
+ 
+mine the time
+process.   
+me activitie
+a number o
+ops at a buffe
+re, and drive
+of the loadin
+e for handlin
+n the numbe
+pends on th
+e chosen mil
+On the othe
+E on the othe
+bins onto th
+ly picking u
+g time is als
+nd 5 - on th
+s the time fo
+s the time fo
+on the chose
+es 
+s: 
+of 
+er 
+es 
+ng 
+ng 
+er 
+he 
+lk 
+er 
+er 
+he 
+up 
+so 
+he 
+or 
+or 
+en 
+
+
+--- SAYFA 11 ---
+conce
+sever
+onto 
+For th
+to the
+T
+as the
+flow 
+inform
+starte
+and th
+milk 
+F
+conce
+case 
+the re
+the m
+cover
+produ
+used.
+calcu
+exact
+(no d
+decis
+etc. b
+ 
+ept and the 
+ral bins may 
+the trailer (c
+he buffer tim
+e time neede
+To calculate
+e time span 
+has to be 
+mation has t
+ed. If a dem
+he retrieval 
+run tour. 
+Figure 6 sho
+ept in combi
+of kanban, t
+eplenishmen
+material is co
+red (assumin
+uction line a
+ Note that th
+ulated stock 
+tly the same
+defective pro
+ion which re
+but not on the
+Figur
+number of b
+be loaded a
+concept 3). T
+me, we assum
+ed for loading
+ the replenis
+from signal
+taken into 
+to be transmi
+mand-oriented
+process can 
+ows the resu
+ination with
+the remainin
+nt lead time, 
+onsumed, ca
+ng a 2-bin-p
+are generally
+he implemen
+level in the 
+e, which is o
+oducts, no r
+eplenishmen
+e milk run sy
+re 6:  Determ
+bins to load
+at once (conc
+The retrieval
+me that one t
+g one tour. 
+shment lead 
+ling a deman
+account to
+itted to the m
+d principle i
+be started b
+ulting lead ti
+h kanban and
+ng material a
+whereas in a
+an be calcul
+principle for
+y lower, wh
+ntation of a d
+IT system a
+only applicab
+rework, no 
+nt principle t
+ystem. 
+mination of le
+ 
+d, as bins m
+cept 4), or al
+l time depen
+tour is buffer
+time for the
+nd until this
+oo. If a kan
+material sour
+is used, futu
+based on this
+ime and rep
+d the lead tim
+at the produc
+a demand-or
+lated and the
+r both cases
+hen a deman
+demand-orie
+and the phys
+ble if materi
+changes in 
+to use is, the
+ 
+ead time and
+may be loade
+ll bins may b
+nds on the nu
+red; therefor
+e different m
+ demand is 
+nban princip
+rce before th
+ure demand 
+s information
+plenishment 
+me for a dem
+ction line m
+riented syste
+erefore only
+s). Conseque
+nd-oriented 
+ented system
+sical stock a
+ial consump
+the produc
+erefore, base
+d replenishm
+ed singly (co
+be loaded si
+umber of bin
+re the buffer
+milk run conc
+fulfilled, the
+ple is used,
+he retrieval o
+is calculated
+n just-in-tim
+lead time fo
+mand-orient
+must be suffic
+em, the mom
+y the lead ti
+ently, stock 
+replenishme
+m will only b
+at the produ
+ption is com
+ction sequen
+ed on produc
+ment lead tim
+oncepts 2, 5
+multaneousl
+ns to retriev
+r time is equa
+cepts, define
+e informatio
+, the kanba
+of bins can b
+d in advance
+me for the nex
+or a milk ru
+ed system. I
+cient to cove
+ment, when a
+me has to b
+levels at th
+ent system 
+e exact, if th
+ction line ar
+mpletely stabl
+nce etc.). Th
+ction method
+ 
+me 
+5), 
+ly 
+e. 
+al 
+ed 
+on 
+an 
+be 
+e, 
+xt 
+un 
+In 
+er 
+all 
+be 
+he 
+is 
+he 
+re 
+le 
+he 
+ds 
+
+
+--- SAYFA 12 ---
+ 
+5 
+Quantitative Analysis 
+ 
+For a quantitative analysis of different concepts, the processes described above are 
+modeled using MTM time modules. As the concepts mainly differ with regard to the 
+loading process, in order to be able  to compare the concepts in a better way, we assume 
+the same travel time for each process. We also assume, that in each concept two bins are 
+provided per stop, with the exception of the “low number of variants” concept (concept 
+type 3; we assume five bins per stop), which only makes sense for a high throughput per 
+material.   
+With these assumptions, loading time, travelling time, stop time, handling time and 
+unloading time are calculated for different numbers of bins per tour. A safety buffer time 
+of 30 % to handle deviations in the mean number of bins per tour (which may result e.g. 
+from unstable demands) is added to the milk run cycle time. Further loading and handling 
+times at the warehouse are also calculated using MTM modules. To determine the cycle 
+times of the automated systems, a material flow simulation is used.  
+Based on these calculations, milk run cycle time, material lead time and 
+replenishment lead time can be determined.  
+The results for 20 and 40 bins per tour are shown in the following tables (Table 2, 
+Table 3). Further results for other throughputs per tour are presented in the appendix. 
+Note that the milk run cycle times differ slightly due to different trailers and tugger trains 
+in the real processes which result in different handling times for the milk run driver.  
+ 
+Table 2:  Key figures [min] for different milk run concepts with a mean throughput of n = 
+20 bins per tour 
+n=20 
+ 
+Milk run cycle 
+time 
+Buffer time 
+Loading / 
+handling 
+at source 
+Retrieval 
+Order 
+creation 
+and info. 
+handling 
+Lead time 
+Reple-
+nishment 
+Lead time 
+Concept 1, 
+kanban 
+34 
+0 
+0 
+0 
+34 
+34 
+68 
+Concept 2, 
+kanban 
+23 
+12 
+12 
+0 
+23 
+47 
+93 
+Concept 3 
+19 
+13 
+13 
+0 
+0 
+45 
+not 
+relevant 
+Concept 4, 
+e-Kanban 
+21 
+7 
+7 
+33 
+42 
+68 
+110 
+Concept 4, 
+demand-or. 
+21 
+7 
+7 
+33 
+0 
+68 
+not 
+relevant 
+Concept 5, 
+e-kanban 
+22 
+7 
+7 
+33 
+44 
+69 
+113 
+Concept 5, 
+demand-or. 
+22 
+7 
+7 
+33 
+0 
+69 
+not 
+relevant 
+Concept 6, 
+e-kanban 
+23 
+0 
+0 
+33 
+46 
+56 
+102 
+Concept 6, 
+demand-or. 
+23 
+0 
+0 
+33 
+0 
+56 
+not 
+relevant 
+ 
+
+
+--- SAYFA 13 ---
+ 
+ 
+Table 3:  Key figures [min] for different milk run concepts with a mean throughput of n = 
+40 bins per tour 
+n=40 
+ 
+Milk run cycle 
+time 
+Buffer time 
+Loading / 
+handling 
+at source 
+Retrieval 
+Order 
+creation 
+and info. 
+handling 
+Lead time 
+Reple-
+nishment 
+Lead time 
+Concept 1, 
+kanban 
+57 
+0 
+0 
+0 
+57 
+57 
+114 
+Concept 2, 
+kanban 
+36 
+22 
+22 
+0 
+36 
+80 
+116 
+Concept 3 
+29 
+13 
+13 
+0 
+0 
+55 
+not 
+relevant 
+Concept 4, 
+e-Kanban 
+32 
+12 
+12 
+52 
+64 
+108 
+172 
+Concept 4, 
+demand-or. 
+32 
+12 
+12 
+52 
+0 
+108 
+not 
+relevant 
+Concept 5, 
+e-kanban 
+35 
+13 
+13 
+52 
+70 
+113 
+183 
+Concept 5, 
+demand-or. 
+35 
+13 
+13 
+52 
+0 
+113 
+not 
+relevant 
+Concept 6, 
+e-kanban 
+36 
+0 
+0 
+52 
+72 
+88 
+160 
+Concept 6, 
+demand-or. 
+36 
+0 
+0 
+52 
+0 
+88 
+not 
+relevant 
+ 
+ 
+6 
+Stability Analysis 
+ 
+Process stability is the minimization of the variation around the desired value of the 
+process performance. A logistics system is stable if it is able to reach the desired values 
+despite of short-term disruptions in the system. Process stability can be achieved by a 
+constant product flow, standardized processes and fixed cycle times under a constant 
+workload. One way to achieve this is to implement certain principles from the well-
+known Toyota production system, particularly the “Just-in-Time” principle which aims at 
+reducing the mean lead time and the spread of the lead times. This enables constant flow 
+in low lot sizes, reliable replenishment lead times, and low stock levels. To continue  and 
+explicitly secure the process against unforeseen disruptions, buffer times and capacity 
+reserves may be additionally planned [5].   
+Milk run systems in general already fulfill some of these requirements. If the milk 
+run routes are operated in high frequency and are synchronized with the production tact, a 
+continuous flow of material through the system is guaranteed. Additionally, mean lead 
+times and the spread of lead times can be reduced, compared to direct transport with a 
+forklift which transports each pallet one by one, as shown in Figure 7. 
+ 
+
+
+--- SAYFA 14 ---
+ 
+ 
+A
+the s
+wheth
+S
+uncer
+cause
+typic
+ 
+ 
+U
+by th
+the s
+show
+by it.
+and th
+0
+10
+20
+30
+40
+50
+60
+Lead time [minn]
+As stock lev
+standard pro
+her the dime
+Still, in each
+rtain parame
+ed or influen
+al sources of
+Figure
+Uneven dem
+he milk run s
+ystem, or m
+wn in Figure 
+. Therefore, 
+he chance to
+0
+0
+0
+0
+0
+0
+0
+10
+20
+Distan
+Lea
+Figure 7
+vels are gene
+ocess and er
+ensioning of 
+h milk run s
+eters. These 
+nced by the 
+f disruption 
+e 8:  Typical 
+mand and con
+system and, 
+may cause a
+8 are cause
+the systems
+o handle pos
+50
+100
+200
+nce source ‐ point of u
+ad times ‐ fo
+7:  Lead time
+erally low a
+rrors becom
+the system i
+system there
+may be cla
+milk run sy
+according to
+disruptions 
+nsequently u
+therefore, h
+an exception
+d by the mil
+s differ with
+sible disrupt
+500
+1000
+se [m]
+orklift
+ 
+ 
+es for 1:1 and
+and exact sch
+me obvious 
+is correct an
+e are some 
+assified into 
+ystem) and 
+o our empiric
+ 
+and deviatio
+uneven trans
+ave to be tak
+n process. T
+lk run system
+h regard to th
+tions. 
+Pallet 1
+Pallet 2
+Pallet 3
+Pallet 4
+0
+10
+20
+30
+40
+50
+60
+Lead time [min]
+d 1:n – trans
+hedules are 
+fast, it is, t
+nd standards 
+possible sou
+ external di
+internal disr
+cal study [1]
+ons in the mi
+sport volume
+ken into acc
+The other di
+m itself or c
+he risk of oc
+10
+20
+5
+Distance
+Lead
+sport 
+defined, dev
+therefore, ea
+are adhered.
+urces of inte
+isruptions (w
+ruptions. Fig
+]. 
+ilk run proce
+es may not b
+count when d
+isruptions an
+can at least b
+ccurrence of
+50
+100
+200
+e source ‐ point of use
+d times ‐ milk
+viations from
+asy to verif
+. 
+erference an
+which are no
+gure 8 show
+ 
+ess 
+be influence
+dimensionin
+nd deviation
+be influence
+f a disruptio
+500
+1000
+e [m]
+k‐run
+ 
+m 
+fy 
+nd 
+ot 
+ws 
+ed 
+ng 
+ns 
+ed 
+on 
+Pallet 1
+Pallet 2
+Pallet 3
+Pallet 4
+
+
+--- SAYFA 15 ---
+ 
+Table 4 compares the risk of the above mentioned disruptions and deviations causing 
+a shortage of materials at the assembly line for each milk run concept. 
+ 
+Table 4:  Risk of disruptions and deviations causing shortage of materials 
+ 
+Concept 1 
+Concept 2 
+Concept 3 
+Concept 4 
+Concept 5 
+Concept 6 
+technical 
+disruption 
+milk run 
+train 
+low 
+low 
+low 
+low 
+low 
+low 
+technical 
+disruption 
+storage 
+system / 
+loading 
+system 
+none 
+(manual 
+process) 
+none 
+(manual 
+process) 
+low 
+(technical 
+defect 
+forklift 
+possible, 
+storage 
+compartmen
+ts still 
+accessible, 
+buffering 
+outside 
+storage 
+system) 
+medium 
+(automated 
+system not 
+accessible, 
+buffering 
+outside 
+storage 
+system) 
+medium 
+(automated 
+system not 
+accessible, 
+buffering 
+outside 
+storage 
+system) 
+high 
+(automated 
+system not 
+accessible, 
+no buffering 
+outside 
+storage 
+system) 
+congestions 
+at the 
+material 
+source 
+low 
+low 
+low 
+low 
+low 
+high 
+errors / 
+problems at 
+the 
+interfaces in 
+the physical 
+process 
+medium 
+(manual 
+process, 
+milk run 
+driver 
+responsible 
+for whole 
+process) 
+high 
+(manual 
+process, 
+shared 
+responsibilit
+ies) 
+high 
+(manual 
+process, 
+shared 
+responsibilit
+ies) 
+medium 
+(half-
+manual 
+process 
+shared 
+responsibilit
+ies) 
+medium 
+(half-
+manual 
+process 
+shared 
+responsibilit
+ies) 
+low (highly 
+automated 
+process, 
+milk-run 
+driver is 
+responsible 
+for whole 
+process) 
+deviations 
+in process 
+time 
+(running out 
+of tact) 
+high 
+(manual 
+process) 
+high 
+(manual 
+process) 
+high 
+(manual 
+process) 
+medium  
+medium  
+medium 
+deviations 
+in process 
+time causing 
+delays on 
+other routes 
+low 
+medium 
+(buffer) 
+medium 
+(buffer) 
+medium 
+(buffer) 
+medium 
+(buffer) 
+high 
+ 
+  
+7 
+Evaluation 
+ 
+Regarding cycle time and lead time, concept 3 guarantees the fastest delivery process 
+with relatively high stability and no IT support. Obviously, it can be applied only for a 
+limited number of different materials and high throughput per material; therefore, 
+
+
+--- SAYFA 16 ---
+ 
+application is limited. The other concepts may be basically used for providing an 
+unlimited number of different materials because the information which materials to 
+transport is either provided by kanban information, or by a demand-oriented system. 
+Comparing the supermarket concepts, concept 1 results in a longer milk run cycle 
+time but shorter replenishment lead time for the considered throughputs per tour. If the 
+number of bins per tour is higher, replenishment lead time is shorter in concept 2. In 
+larger systems with a number of different routes, one supermarket worker may be 
+responsible for picking several routes, which results in a “pooling” effect and the system 
+may be operated with a lower number of workers than in concept 1. To ensure stability in 
+this case, the supermarket and milk run process need to be well synchronized. In concept 
+1, the milk run driver may be able to catch up possible delays without hindering any other 
+routes. Both manual supermarket concepts are usually used in combination with a kanban 
+information principle, often without any IT support.  
+Half-automated concepts 4 and 5 differ only slightly with respect to times and 
+stability. Concept 6 guarantees a remarkably faster delivery process due to shorter 
+loading time and no buffering. In addition to that, the milk run driver is responsible for 
+the complete process, no warehouse worker are necessary. On the other hand, stable cycle 
+times are critical, as delays on one route directly cause delays on other routes. Moreover, 
+as there is no buffer, technical problems in the automated system directly affect the milk 
+run process.  
+Obviously, the information principle determines the replenishment lead time 
+comprehensively and the necessary stock levels at the production line, respectively. As 
+mentioned above, the information principle is not determined by the milk run concept, 
+but each concept may be operated with each information principle. 
+ 
+8 
+Conclusion and Review 
+ 
+During the recent years, milk run systems have become a commonly used transport 
+concept for in-plant material provision. As shown above, diverse concepts are in use. 
+Each concept has some advantages and difficulties. All the concepts differ in resulting 
+cycle times, lead times and stability and each one may be used for a different application.  
+To research stability and risk of material shortages in the different systems further, a 
+dynamic approach may provide further insights. Additionally, we will also research 
+further, in terms of dimensioning the systems and determining the routes based on the 
+considerations and parameters described above.   
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- SAYFA 17 ---
+ 
+Appendix 
+ 
+Table 5:  Key figures [min] for different milk run concepts with a mean throughput of n = 
+30 bins per tour 
+n=30 
+ 
+Milk run cycle 
+time 
+Buffer time 
+Loading / 
+handling 
+at source 
+Retrieval 
+Order 
+creation 
+and info. 
+handling 
+Lead time 
+Reple-
+nishment 
+Lead time 
+Concept 1, 
+kanban 
+50 
+0 
+0 
+0 
+50 
+50 
+100 
+Concept 2, 
+kanban 
+30 
+17 
+17 
+0 
+30 
+64 
+94 
+Concept 3 
+24 
+13 
+13 
+0 
+0 
+50 
+not 
+relevant 
+Concept 4, 
+e-Kanban 
+27 
+10 
+10 
+43 
+54 
+90 
+144 
+Concept 4, 
+demand-or. 
+27 
+10 
+10 
+43 
+0 
+90 
+not 
+relevant 
+Concept 
+5,e-kanban 
+28 
+10 
+10 
+43 
+56 
+91 
+147 
+Concept 5, 
+demand-or. 
+28 
+10 
+10 
+43 
+0 
+91 
+not 
+relevant 
+Concept 6, 
+e-kanban 
+29 
+0 
+0 
+43 
+58 
+72 
+130 
+Concept 6, 
+demand-or. 
+29 
+0 
+0 
+43 
+0 
+72 
+not 
+relevant 
+ 
+ 
+ 
+Table 6:  Key figures [min] for different milk run concepts with a mean throughput of n = 
+50 bins per tour 
+n=50 
+ 
+Milk run cycle 
+time 
+Buffer time 
+Loading / 
+handling 
+at source 
+Retrieval 
+Order 
+creation 
+and info. 
+handling 
+Lead time 
+Reple-
+nishment 
+Lead time 
+Concept 1, 
+kanban 
+68 
+0 
+0 
+0 
+68 
+68 
+136 
+Concept 2, 
+kanban 
+43 
+27 
+27 
+0 
+43 
+97 
+140 
+Concept 3 
+35 
+13 
+13 
+0 
+0 
+61 
+not 
+relevant 
+Concept 4, 
+e-Kanban 
+38 
+15 
+15 
+61 
+76 
+129 
+205 
+Concept 4, 
+demand-or. 
+38 
+15 
+15 
+61 
+0 
+129 
+not 
+relevant 
+Concept 5, 
+e-kanban 
+41 
+17 
+17 
+61 
+82 
+135 
+217 
+Concept 5, 
+41 
+17 
+17 
+61 
+0 
+135 
+not 
+
+
+--- SAYFA 18 ---
+ 
+demand-or. 
+relevant 
+Concept 6, 
+e-kanban 
+42 
+0 
+0 
+61 
+84 
+103 
+187 
+Concept 6, 
+demand-or. 
+42 
+0 
+0 
+61 
+0 
+103 
+not 
+relevant 
+ 
+References 
+ 
+[1] Galka, S., Klenk, E., Knössl, T., Dewitz, M. and Günthner, W.A., “Studie zum 
+Einsatz von Routenzügen in innerbetrieblichen Logistiksystemen” (published July 
+2012).  
+ 
+[2] Takeda, H, “ Das System der Mixed Production”, Landsberg: Verlag Moderne 
+Industrie, (1996).  
+ 
+[3] Meinhard, I., Schmidt, T., Daferner, M., „Einsatz von Routenzügen ohne Simulation 
+planen“ in Hebezeuge und Fördermittel. Berlin: Huss-Verlag,  No. 10, 2011 512-515. 
+ 
+[4] Klenk, E., Galka S., Günthner, W.A., “Dimensioning of tacted in-plant milk run 
+systems for material delivery,” DR-Log 2012 St. Petersburg, (May 18 2012). 
+ 
+[5] Meißner, S., “Logistische Stabilität in der automobilen Variantenfließfertigung,” 
+Dissertation, Garching (2009). 
+ 

@@ -1,0 +1,2966 @@
+
+
+--- SAYFA 1 ---
+Computers & Industrial Engineering 190 (2024) 110080
+Available online 16 March 2024
+0360-8352/© 2024 Elsevier Ltd. All rights reserved.
+A mutli-objective artificial electric field algorithm with reinforcement 
+learning for milk-run assembly line feeding and scheduling problem 
+Binghai Zhou *, Mingda Wen 
+School of Mechanical Engineering, Tongji University, Shanghai 201804, China   
+A R T I C L E I N F O  
+Keywords: 
+Multi-objective artificial electric field 
+algorithm 
+SARSA selection mechanism 
+Milk-run 
+Scheduling 
+Epsilon constraint method 
+A B S T R A C T  
+In automotive mixed-model assembly lines (MMALs), a large number of different parts need to be supplied to the 
+assembly lines on time, which poses significant logistical challenges for manufacturers. However, consistently 
+supplying parts for MMALs is a very complex issue due to factors such as diverse component requirements and 
+logistical coordination in the supply chain. In this paper, we propose a bi-objective optimization problem to 
+minimize the line-side inventory and energy consumption in a milk-run material distribution system. Meanwhile, 
+the number of Kanban and the capacity of the material bin that affect the scheduling is jointly optimized, so that 
+the material distribution scheduling plan is optimized. Considering the character of the problem, a multi- 
+objective artificial electric field algorithm with SARSA mechanism (MOAEFASA) is developed to solve the 
+problem. The algorithm proposed combines the merits of the artificial electric field algorithm (AEFA) and the 
+framework of the non-dominated sorting genetic algorithm (NSGA-II). In addition, several optimization strate­
+gies are used to optimize the performance of the algorithm. Finally, the validity of the mathematical model is 
+verified through the Epsilon constraint method and the superiority of the MOAEFASA is illustrated by numerical 
+experiments with four outstanding meta-heuristics.   
+1. Introduction 
+Today, automotive assembly systems are faced with formidable 
+challenges stemming from the escalating diversity of customer demands. 
+In order to maintain sufficient competitivity, it has been more and more 
+imperative for manufacturing enterprises to simultaneously enhance the 
+flexibility and effectiveness of production lines, promoting the extensive 
+application of MMALs (Zhou & Peng, 2019). The material distribution 
+problem, as one of the key challenges in MMALs, takes responsibility for 
+the timely and efficient delivery of materials to the production line, 
+which is paramount for fulfilling Just-In-Time (JIT) production. 
+The challenge posed by the JIT material distribution problem lies in 
+effectively delivering required parts to specific locations within desig­
+nated time windows (Sipahioglu & Altin, 2019). The milk-run system is 
+an important means of realizing JIT material distribution. Within this 
+system, vehicles commence their journeys from a starting point (such as 
+a warehouse or a line-side integrated supermarket), make stops at pre­
+determined locations, and ultimately return to the initial starting point. 
+Through reasonable scheduling, milk-run systems can obviously reduce 
+line-side inventory, hence decreasing inventory costs. Kilic et al. (2012) 
+propose three categories for milk-run material distribution problems. 
+The first category is the “general assignment problem,” where both the 
+route and time periods are unknown. The second is the “dedicated 
+assignment problem,” wherein the route is predetermined, but the 
+operating time of the vehicle on the specified route remains unknown. 
+Lastly, the “determined time periods assignment problem” involves 
+known time periods for vehicle travel, but unknown routes. At the same 
+time, they gave a mathematical model for the determined time periods 
+assignment problem. However, in real factories with MMALs, vehicles 
+typically have multiple predetermined routes. The time required for a 
+vehicle to deliver parts needs to be determined through scheduling. 
+Employing a milk-run system enables companies to establish reliable 
+and frequent transportation schedules, facilitating the distribution of 
+materials to assembly lines in a JIT manner. This approach ensures a 
+steady supply of parts, reduces the necessity for excessive inventory, and 
+maintains uninterrupted production. Consequently, exploring solutions 
+to the multi-route dedicated assignment problem holds significant 
+practical value. 
+However, with the growing emphasis on sustainable production 
+models and energy-related concerns, solely optimizing inventory costs is 
+* Corresponding author. 
+E-mail addresses: bhzhou@tongji.edu.cn (B. Zhou), 2130229@tongji.edu.cn (M. Wen).  
+Contents lists available at ScienceDirect 
+Computers & Industrial Engineering 
+journal homepage: www.elsevier.com/locate/caie 
+https://doi.org/10.1016/j.cie.2024.110080 
+Received 6 September 2023; Received in revised form 20 December 2023; Accepted 14 March 2024   
+
+
+--- SAYFA 2 ---
+Computers & Industrial Engineering 190 (2024) 110080
+2
+no longer the sole focus of the automotive industry (Briand et al., 2018). 
+Instead, the consideration of energy costs in transportation is drawing a 
+growing concern. However, MMALs following the JIT principle typically 
+distribute materials in small batches, which conflicts with the goal of 
+energy conservation. When vehicles are operated with higher frequency, 
+energy consumption in transportation increases while inventory costs 
+decrease, and vice versa. Therefore, it is of strategic significance and 
+practical value to incorporate energy factors when studying the sched­
+uling problem of MMALs using the milk-run approach. Based on these 
+considerations, the primary motivation of this paper is to concurrently 
+optimize the economic and energy-efficient performance of milk-run 
+material distribution systems in MMALs. 
+In this paper, a milk-run material distribution scheduling problem 
+considering energy factors (MMDSPCE) is proposed for MMALs. The 
+material distribution schedule for heterogeneous AGVs with defined 
+travel routes is developed. Moreover, the Kanban quantity and the ca­
+pacity of material bins that affect the scheduling plan are jointly opti­
+mized to realize the optimization of the material distribution schedule. 
+When formulating the material distribution schedule, the two objectives 
+of minimizing total line-side inventory (TLI) and total energy con­
+sumption (TEC) are considered together, which correspond to the JIT 
+principle and energy efficiency standards respectively. Due to the non- 
+deterministic polynomial (NP-hard) nature of the problem, a multi- 
+objective artificial electric field algorithm with SARSA selection mech­
+anism (MOAEFASA) is developed to generate the optimal dispatch plan 
+of the problem by considering the delivery route, delivery time, and 
+material loading. MOAEFASA is a hybrid algorithm of AEFA and NSGA- 
+II, in which fast non-dominated sort and crowding distance are applied 
+to select offspring. Moreover, the SARSA selection mechanism is intro­
+duced to select the optimal local search scheme and improve the local 
+search ability of the algorithm. Besides, a diagonal linear random 
+initialization strategy is proposed in the phase of population initializa­
+tion to increase the diversity of the population. Finally, experimental 
+results show that the proposed MOAEFASA outperforms the compara­
+tive algorithms, and the obtained solutions have better Pareto fronts. 
+This paper makes the following four contributions:  
+(1) The MMDSPCE for MMALs is proposed. To meet the requirements 
+of JIT delivery and energy saving together, the energy con­
+sumption target is incorporated into the milk-run material dis­
+tribution problem. Consequently, a bi-objective problem is 
+formulated, aiming to simultaneously minimize TLI and TEC. 
+Additionally, a joint optimization is conducted for the Kanban 
+quantity and the material bin capacity, both of which impact the 
+efficiency of the milk-run system.  
+(2) A mathematical model for the optimization of the proposed 
+MMDSPCE is established. Moreover, the accuracy of the model is 
+demonstrated with the help of the Epsilon constraint method.  
+(3) Considering the complexity of the problem, this paper proposes a 
+multi-objective intelligent optimization algorithm, MOAEFASA, 
+to solve the MMDSPCE. To improve population diversity and 
+local search capability of the algorithm, several optimization 
+strategies are proposed.  
+(4) The validity and superiority of the algorithm are verified through 
+the comparison experiment with four multi-objective optimiza­
+tion algorithms. Additionally, a specific instance is employed to 
+exemplify managerial applications, illustrating the practicality 
+and significance of the proposed model and solution method. 
+The remainder of the study is organized as follows: Section 2 presents 
+the literature review. Section 3 describes the problem and introduces the 
+mathematical model and related property theorems. Section 4 develops 
+the MOAEFASA algorithm. Section 5 conducts computational experi­
+ments to evaluate and verify the performance of MOAEFASA. Finally, 
+the study is summarized in Section 6 and an outlook for future research 
+is presented. 
+2. Literature review 
+In recent years, due to the gradual increase of product customization 
+and renewal requirements, the research on the material distribution 
+scheduling problem of MMALs has become more and more urgent, and 
+the material distribution system, as one of the most vital parts, has 
+attracted extensive attention from scholars (Emde & Schneider, 2018; 
+Hou et al., 2023). Furthermore, the milk-run distribution approach, as 
+demonstrated by Domingo et al. (2007), can successfully standardize the 
+material distribution process, making it easy to manage and control in 
+practical implementation. Up till now, the application of milk-run dis­
+tribution systems in plants has been thoroughly investigated. Kilic et al. 
+(2012) systematically partitioned the problem based on distribution 
+routing and cycle time. Then, with the goal of minimizing the fixed and 
+variable costs of vehicles, they developed the mathematical models of 
+the material distribution scheduling problem with fixed distribution 
+times on a single route and multiple routes. Moreover, Ciemnoczolowski 
+and Bozer (2013) pointed out that in a stable milk-run distribution 
+system, the number of Kanbans and the physical volume of vehicles have 
+a greater impact on the shortage of workstations, so they studied the 
+calculation method of the number of Kanbans in the milk-run distribu­
+tion systems. However, their research is limited to the single-route and 
+single-vehicle milk-run distribution systems. Further, Faccio et al. 
+(2013) studied how to apply Kanban and optimize Kanban quantities in 
+multi-model assembly lines. In this study, the product BOM and pro­
+duction mix variations are considered. In addition, Hanson and Finns­
+gård (2014) studied the effect of material bin capacity on material 
+supply efficiency, but they only conducted a qualitative study. Sipa­
+hioglu and Altin (2019) established an integer programming model for 
+an in-plant milk-run distribution system to determine automatic guided 
+vehicle (AGV) distribution routes and cycle time. Their proposed model 
+allows for split deliveries at the workstations and considers increasing 
+AGV capacity by adding trailers. Besides, an excel-based method for 
+optimizing milk-run distribution systems was designed by Francuz and 
+B´anyai (2022). They determined a complete distribution route by 
+establishing routes between delivery objects. Zhou and Zhao (2022) 
+fully considered the impact of fixed usage cost and variable operation 
+cost of EVs on production cost. They developed a mathematical model 
+for scheduling EVs in the milk-run material supply system, aligning with 
+energy-saving objectives by minimizing the quantity of EVs and their 
+maximum driving distance. However, their study focused on the EV 
+handling process without considering the amount of line-side inventory. 
+Miqueo et al. (2023) developed a discrete event simulation model based 
+on the milk-run distribution model using an industrial case study of a 
+global white goods manufacturing company. They simulated four sce­
+narios and presented the simulation results. Finally, Facchini et al. 
+(2023) investigated the practical integration of a milk-run system with 
+an internet of things system, proposing a dynamic routing strategy for 
+the planning of towing trains. An algorithm developed is proposed and 
+applied to a real case study of a global automotive company. Summa­
+rizing the above literature findings, the core issue that needs to be 
+considered in a milk-run distribution system is determining the material 
+distribution route and cycle time. However, factors such as Kanban 
+quantity, material bin capacity, handling vehicle capacity, material 
+distribution method and the introduction of new systems or technologies 
+all have great impacts on the scheduling plans formulated. In particular, 
+Kanban quantity and material bin capacity will have a direct impact on 
+how stable the assembly system is, thus considering their combined 
+optimization is crucial to maintaining the stability of the assembly sys­
+tem and reducing the line-side inventory. However, there is currently 
+very little literature that considers the influence of these two factors 
+together in the milk-run distribution system. 
+From another perspective, the Kanban quantity and the material bin 
+capacity also have impacts on the frequency of material distribution, 
+however, higher distribution frequency also means increased energy 
+consumption. How to achieve the trade-off between the two is an urgent 
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 3 ---
+Computers & Industrial Engineering 190 (2024) 110080
+3
+challenge that needs to be addressed today. Nowadays, with increas­
+ingly stringent government requirements for sustainable development, 
+more and more scholars have conducted research on reducing the en­
+ergy consumption of discrete manufacturing systems (Diaz & Ocampo- 
+Martinez, 2019). For instance, Zhou and Shen (2018) proposed a ma­
+terial distribution scheduling problem considering energy consumption. 
+They designed an automatic material handling system that uses a group 
+of AGVs to complete the material distribution tasks. Finally, under the 
+condition of ensuring the stability of the assembly systems, the control of 
+the energy consumption of the material distribution process is realized. 
+Barak et al. (2021) studied the energy consumption of AGVs in resource- 
+constrained flexible manufacturing systems. A linear energy consump­
+tion function based on load and distance is established. Zhou and Zhu 
+(2021) used mobile robots in the material distribution process. They 
+took the total energy consumption of mobile robots as one of the goals, 
+and hoped to design an energy-saving scheduling system. Vahedi-Nouri 
+et al. (2022) discussed a bi-objective cooperative capacity-constrained 
+electric vehicle routing problem, aiming to minimize total cost and 
+total electrical energy consumption. B´anyai (2023) investigated the 
+application of drones for in-plant transportation of small parts. They 
+proposed a joint AGV-Drone in-plant supply model, which makes 
+possible the joint service of AGV-based milk-run vehicles and drones for 
+in-plant supply. Akkad and B´anyai (2023) described how to transform 
+the traditional in-plant supply solution based on milk-run operation to a 
+physical networked milk-run operation supply. An approach to in-plant 
+supply systems based on industry 4.0 technology is proposed. A math­
+ematical model with the goal of minimizing energy consumption and 
+carbon emissions is given. The proposed approach involves the intro­
+duction of manufacturing execution system and the application of in­
+dustry 4.0 technologies such as digital twins, which have good research 
+and application prospects. In addition, the relationship between the 
+energy consumption of AGVs and factors such as load, distance, time, 
+and acceleration have all been considered, and the energy consumption 
+models for which were also established respectively (Briand et al., 2018; 
+Zhang et al., 2014). To sum up, while paying attention to the stability of 
+the assembly systems, research on the energy consumption index of the 
+distribution process is equally important. 
+In terms of the solution method, since the proposed MMDSPCE is a 
+classical NP-hard problem, it will take a lot of time to solve using the 
+exact algorithm when the problem scale is large (Boysen & Emde, 2014; 
+Emde et al., 2018; Kilic & Durmusoglu, 2013; Kilic et al., 2012). In 
+recent decades, meta-heuristic algorithms have been used more often to 
+solve complex optimization problems due to their excellent computa­
+tional efficiency. Therefore, many well-known meta-heuristic algo­
+rithms have been proposed and widely used to solve NP-hard problems, 
+such as genetic algorithm (GA) (Tasoglu & Ali Ilgin, 2023), particle 
+swarm optimization (PSO) (Wang et al., 2023). In addition, the AEFA is 
+a swarm intelligence algorithm that simulates the motion of charged 
+particles in an electrostatic field. This algorithm was originally proposed 
+by Anita and Yadav (2019), whose main features include few optimi­
+zation parameters, fast convergence, and high accuracy (Cao et al., 
+2022). Subsequently, Anita et al. (2020) extended the AEFA for con­
+strained optimization problems by introducing new velocity and posi­
+tion constraints based on the original AEFA. Izci et al. (2020) proposed 
+an artificial electric field with Nelder-Mead algorithm, which combines 
+AEFA with the simplex method. They compared the proposed algorithm 
+with the original AEFA and several improved AEFAs to verify the 
+effectiveness of the proposed algorithm. Besides, Bi et al. (2022) pro­
+posed an AEFA with inertia and repulsion, which introduced an inertia 
+mechanism and mutual repulsion between charges based on the original 
+AEFA. They applied the proposed algorithm to solve the spherical 
+mining spanning tree problem and the results proved its superiority. 
+Moreover, Niroomand (2021) applied the improved AEFA to solve the 
+linear assembly line balance problem for a single type of product. They 
+use the classical simulated annealing algorithm as a local search 
+mechanism, which effectively improves the local search ability. 
+Adegboye and Deniz Ulker (2023) proposed a hybrid AEFA using cuckoo 
+search algorithm and refraction learning. The cuckoo search method and 
+refraction learning are used to improve the global exploration capability 
+and local exploitation potential of the underlying AEFA algorithm. 
+Furthermore, since the proposed problem is a bi-objective optimi­
+zation problem, the basic single-objective optimization algorithms 
+cannot meet the computational demands. Since Coello (2006) first 
+introduced evolutionary algorithms to solve multi-objective problems, 
+many classic multi-objective optimization algorithms have been pro­
+posed to solve practical engineering problems (Elmi et al., 2023; Hou 
+et al., 2023). In recent years, some new multi-objective optimization 
+algorithms and their variants have been shown to have superior per­
+formance. Peng and Zhou (2019) proposed a hybrid bi-objective gray 
+wolf optimization algorithm that combines a decomposition framework 
+and a gray wolf optimizer when solving a bi-objective truck scheduling 
+problem. Petwal and Rani (2020) proposed a MOAEFA. They utilized 
+Pareto strength for fitness assignment and adopted a fine-grained elite 
+selection mechanism to maintain population diversity. Furthermore, 
+Naderipour et al. (2021) used the MOAEFA to configure wind turbines in 
+power distribution systems. They aimed to reduce power losses and 
+voltage deviations simultaneously. The numerical experiments showed 
+that it outperforms MOGWO and MOPSO. In addition, Premkumar et al. 
+(2022) proposed a multi-objective equilibrium optimizer for complex 
+optimization problems, which combines a non-dominated sorting 
+strategy and a crowding distance mechanism to ensure population di­
+versity. After verification on 33 problems, the results demonstrate that 
+the proposed algorithm performs well in terms of solution efficiency, 
+robustness and exploration ability. More innovatively, Liu et al. (2022) 
+proposed an adaptive multi-objective differential evolution algorithm 
+based on the SARSA method. They applied the SARSA mechanism to 
+adaptively select appropriate constraint processing techniques and 
+generate strategies. Experimental results also showed that it has the best 
+overall performance in solving specific types of multi-objective optimi­
+zation problems. Zhou and Zhao (2023) proposed an adaptive artificial 
+bee colony algorithm enhanced by deep Q-learning network (AABC- 
+DQN) in solving the milk-run vehicle scheduling problem based on the 
+supply hub model considering parts rationing. To extend the search 
+scope, they propose to utilize deep Q-learning network to select the 
+domain search operator. 
+However, according to the No Free Lunch (NFL) theorem (Wolpert & 
+Macready, 1997), no single algorithm is suitable for any scheduling 
+problem. Each algorithm has its advantages and limitations. Therefore, 
+in this study, an efficient hybrid algorithm is proposed to solve the 
+MMDSPCE. First, a diagonal linear random initialization strategy is used 
+to generate the initial population. Then, four local search operators are 
+proposed, and the SARSA mechanism is introduced for selection, which 
+effectively improves the local search ability of the algorithm. Finally, 
+two repair mechanisms are designed to fix infeasible solutions. 
+3. Problem description and mathematical model 
+3.1. Problem description 
+Fig. 1 shows the milk-run material distribution system for MMALs. 
+The overall operation process of the system is as follows. In terms of 
+assembly line inventory, for the production cycle t ∈T, when a bin of 
+part i0 ∈Is is consumed in workstation s ∈S, which corresponds to 
+NKt
+i0 ≤NKi0 −1, workstation s generates a replenishment Kanban for 
+part i0. The earliest replenishment time tmin
+si0 is obtained. For production 
+cycle t, when the line-side inventory quantity Ivts
+i0 of part i0 minus the 
+production demand dts
+i0 of the current production cycle fails to satisfy the 
+production demand dt+1,s
+i0 
+of the next production cycle, which corre­
+sponds to Ivts
+i0 −dts
+i0 ≤dt+1,s
+i0
+, workstation s will issue a mandatory 
+replenishment demand for part i0 to obtain the latest replenishment time 
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 4 ---
+Computers & Industrial Engineering 190 (2024) 110080
+4
+tmax
+si0 . Part i0 needs to be replenished within the replenishment time 
+window Trep
+si0 ∈[tmin
+si0 ,tmax
+si0 ]. In terms of transportation, for production cycle 
+t, the multi-load AGV v ∈V obtains distribution route r ∈R based on a 
+route scheduling decision zt
+vr. Based on the load scheduling decision zst
+ir 
+on the route r, AGV v obtains the parts i to be delivered. The AGV v loads 
+the parts to be delivered at the material supermarket with a loading time 
+of tl per bin. Then AGV v passes by workstation s ∈Sr on route r in turn, 
+and replenishes a bin for part i0 that needs to be restocked, which Ivts
+i0 +
+Cbi0. The unloading time for each bin is tr. At the same time, AGV v gets 
+information about the replenishment Kanbans of the workstations. 
+When the replenishment tasks for all workstations on route r are 
+completed, the AGV v returns to the material supermarket and waits for 
+new allocation tasks for the next production cycle. The notation defi­
+nitions of all parameters are given in Table 1. 
+Based on the problem description above, the Kanban quantity NKi 
+and the material bin capacity Cbi of part i can have a significant impact 
+on the scheduling plan developed. Therefore, optimizing the Kanban 
+quantity and the material bin capacity for each part is considered in this 
+paper to achieve the optimization of the material distribution system. In 
+general, on the one hand, the higher the Kanban quantity of a part, the 
+higher its line-side inventory. While on the other hand, when the 
+maximum actual loading capacity of a bin is reduced, the amount of line- 
+side inventory is effectively reduced with the same Kanban quantity. 
+More specifically, when parts have higher Kanban quantities and lower 
+bin capacities, material is delivered more frequently and therefore 
+consumes significantly more energy, but the number of line-side in­
+ventories stays low. However, when parts have lower Kanban quantities 
+and higher bin capacities, the number of line-side inventories is higher, 
+but the number of part replenishment conditions triggered is signifi­
+cantly lower, so less energy is consumed. In summary, the MMDSPCE 
+studied in this paper establishes and optimizes the material distribution 
+scheduling scheme by setting the optimal Kanban quantity and material 
+bin capacity for each part, achieving the goal of reducing line-side in­
+ventory and reducing energy consumption in the distribution process. 
+3.2. Problem assumption 
+To formulate the problem effectively, the following assumptions are 
+proposed. 
+(1) The production plan and material requirements of each work­
+station are determined in advance.  
+(2) The cycle time is taken as the basic time unit of the assembly line. 
+(3) The AGVs and the border of the line for workstations have ca­
+pacity constraints.  
+(4) The loading and unloading times of a material bin are known and 
+fixed.  
+(5) Alternative material distribution routes are known and fixed.  
+(6) After the completion of one material distribution task, AGVs shall 
+wait until the beginning of the next production cycle to execute 
+the next material distribution task.  
+(7) The AGVs can distribute materials only when the minimum load 
+requirements are met.  
+(8) The AGVs travel at a constant speed. 
+3.3. Mathematical model 
+Table 1 lists the notations and definitions for all the parameters. 
+First, because each part on the assembly line has different Kanban 
+quantity and material bin capacity, each part has a different time win­
+dow for replenishment. The replenishment time window Trep
+si for parts is 
+Fig. 1. Milk-run material distribution system for mixed-model assembly line.  
+Table 1 
+Parameter definition.  
+Notations 
+Definitions 
+Sets 
+T 
+Set of production cycles,t ∈T 
+S 
+Set of workstations, s ∈S. When s = 0, it means material supermarket. 
+V 
+Set of AGVs, v ∈V 
+I 
+Set of parts, i ∈I 
+R 
+Set of routes, r ∈R 
+Parameters 
+Is 
+Set of parts used by workstation s 
+Sr 
+Set of workstations that route r contains 
+dst
+i 
+Number of parts i required by workstation s in production cycle t 
+diss 
+Distance between the material supermarket and workstation s 
+disr 
+Distance traveled by route r 
+CT 
+Duration of a production cycle 
+Cl 
+Maximum line-side inventory capacity of the workstations 
+Cbmin 
+Minimum capacity of material bin 
+Cbmax 
+Maximum capacity of material bin 
+NKmin 
+Minimum Kanban quantity of parts 
+NKmax 
+Maximum Kanban quantity of parts 
+Cv 
+Maximum load capacity of an AGV 
+θ 
+Minimum load rate for an AGV 
+wei 
+Weight of a bin of part i 
+wev 
+Weight of an empty AGV 
+tl 
+Time to load a bin of parts into an AGV 
+tr 
+Time to unload a bin of parts from an AGV 
+w 
+Speed of the AGV 
+Variables 
+Trep
+si 
+Production cycle set of replenishable parts i used in workstation s 
+tmin
+si 
+Earliest production cycle for workstation s to reorder part i 
+tmax
+si 
+Latest production cycle for workstation s to reorder part i 
+Ivst
+i 
+Inventory of part i stored at workstation s during production cycle t 
+trep
+si 
+Replenishment time of part i used in workstation s 
+west
+r 
+Weight of parts distributed by the AGV for workstation s on the route r in 
+production cycle t 
+NKt
+i 
+Bin quantity of part i stored at the assembly line in production cycle t 
+Decision variables 
+zt
+vr 
+Binary variable whose value is 1when the AGV distributes parts for route 
+r in production cycle t and 0 otherwise 
+zst
+ir 
+Binary variable whose value is 1when the AGV distributes part i for 
+workstation s on route r in production cycle t and 0 otherwise 
+NKi 
+Kanban quantity of part i 
+Cbi 
+Quantity of part i loaded in a material bin  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 5 ---
+Computers & Industrial Engineering 190 (2024) 110080
+5
+defined as follows. 
+Trep
+si
+= (tmin
+si , tmax
+si )
+(1)  
+Where, tmin
+si 
+represents the earliest replenishment time of part i, which 
+can be calculated by Eq. (2), tmax
+si 
+represents the latest replenishment 
+time of part i, which can be calculated by Eq. (3). 
+NKt
+i ≤NKi −1, i ∈I, t ∈T
+(2)  
+Ivts
+i −dts
+i ≤dt+1,s
+i
+, i ∈Is, s ∈S, v ∈V
+(3) 
+Then, we define the energy consumption model of multi-load AGV. 
+In this paper, the energy consumption model proposed by Briand et al. 
+(2018) is reasonably simplified by taking no account of the acceleration 
+and deceleration process of AGVs. Therefore, the simplified energy 
+consumption model is as follows. 
+E =
+∫
+γˆA⋅m(t) • v(t)dt
+(4)  
+Where, γ represents energy consumption rate, m(t) and v(t) represent the 
+functions of the mass and velocity of the vehicles with time. 
+Finally, according to the problem assumptions and parameter nota­
+tions, the mathematical model of the problem is as follows, which is 
+completed based on three researches (Kilic et al., 2012; Sipahioglu & 
+Altin, 2019; Zhou & He, 2021). 
+Minimize f = {f1, f2}
+(5)  
+f1 =
+∑
+t∈T
+∑
+s∈S
+∑
+i∈I
+Ivst
+i
+(6)  
+f2 =
+∑
+t∈T
+∑
+v∈V
+∑
+r∈R
+∑
+s∈Sr
+γzt
+vr(wev + west
+r )diss
+(7)  
+Ivst+1
+i
+= Ivst
+i −dst
+i + zst
+irCbi, i ∈Is, s ∈S, t ∈T
+(8)  
+west
+r =
+∑
+i∈Is
+zst
+irwei, s ∈Sr, r ∈R, t ∈T
+(9)  
+∑
+v∈V
+zt
+vr ≤1, r ∈R, t ∈T
+(10)  
+∑
+r∈R
+zt
+vr ≤1, v ∈V, t ∈T
+(11)  
+∑
+s∈Sr
+∑
+i∈Is
+zst
+ir • (tl + tr) + zt
+vrdisr/w ≤nvtCT, v ∈V, r ∈R, t ∈T
+(12)  
+Ivst
+i −dst
+i ≥0, i ∈Is, s ∈S, t ∈T
+(13)  
+tmin
+si
+≤trep
+si ≤tmax
+si , i ∈I, s ∈S
+(14)  
+zt
+vrCv ≥
+∑
+s∈Sr
+∑
+i∈Is
+zst
+ir,
+v ∈V, r ∈R, t ∈T
+(15)  
+θzt
+vrCv ≤
+∑
+s∈Sr
+∑
+i∈Is
+zst
+ir, v ∈V, r ∈R, t ∈T
+(16)  
+NKmin ≤NKi ≤NKmax, i ∈I
+(17)  
+Cbmin ≤Cbi ≤Cbmax, i ∈I
+(18)  
+∑
+i∈Is
+NKi ≤Cl, s ∈S
+(19)  
+zt
+vr, zst
+ir ∈{0, 1}, i ∈I, s ∈S, v ∈V, r ∈R, t ∈T
+(20) 
+In the model, the objective functions (5)-(7) contain two optimiza­
+tion objectives, which are minimizing the TLI on the assembly lines and 
+the TEC of AGVs. Constraint (8) calculates the variation of line-side 
+inventory with production cycle time. Constraint (9) calculates the 
+weight of the parts distributed for the workstations. Constraint (10) 
+indicates that in each production cycle, at most one AGV distributes 
+materials in each route. Constraint (11) ensures that in each production 
+cycle, each AGV distributes parts for at most one route. Constraint (12) 
+determines the time for an AGV to perform a material distribution task. 
+Since this paper assumes that AGV distributes the material at the 
+beginning of the production cycle, nvt is a minimum integer representing 
+the interval between the two material distribution tasks performed by 
+AGV v during the production cycle t. Constraint (13) guaranteed that 
+there will be no shortage of material on the assembly lines. Constraint 
+(14) represents the replenishment time window. Constraint (15) in­
+dicates that only assigned vehicles can perform material distribution 
+tasks. Meanwhile, the vehicle capacity limit is restricted. Constraint (16) 
+obtains the load of the AGV to meet the minimum load requirements. 
+Constraint (17) limits the Kanban quantity for each part. Constraint (18) 
+restricts the material bin capacity for each part. Constraint (19) repre­
+sents the capacity of the border of the lines. Constraint (20) defines bi­
+nary variables. 
+3.4. Domain properties 
+To enlighten the mechanism for generating the solution, we analyze 
+the proposed solution by means of incomplete evaluation. Therefore, the 
+following properties and theorems are presented. 
+Property 1: If dst
+i , Cbi, Cv, Is, Sr, T have been given, then the lower 
+bound of the number of materials to be distributed by route r is MRmin
+r
+=
+⌊⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋⌋
+, where ⌊• ⌋ means round up. 
+Proof: When t ∈T, the total part consumption of workstation on 
+route r can be expressed as dsum
+r
+= ∑
+t∈T
+∑
+s∈Sr
+∑
+i∈Isdst
+i . The number of 
+bins 
+consumed 
+by 
+the 
+workstation 
+on 
+route 
+r 
+is 
+Rbr =
+⌊∑
+t∈T
+∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+. When the AGV is fully loaded each time, the 
+AGV travels the least times on route r. Therefore, MRmin
+r
+= Rbr/Cv =
+⌊⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋⌋
+. Property 1 is proved. 
+Theorem 1: If dst
+i , Cbi, Cv, tl, tr, disr, w, CT, Is, Sr, T, R have been given, 
+without considering the replenishment time window, the lower bound of 
+AGV 
+quantity 
+is 
+Nmin
+v
+=
+∑
+r∈R
+⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋
+/
+⌈
+|T|/
+⌊
+(Cv(tl + tr) + dismin/w)/CT
+⌋⌉
+, where ⌈• ⌉ means round down, dismin is 
+the minimum value of disr, which is the shortest route. 
+Proof: According to property 1, the number of times that route r 
+needs 
+to 
+be 
+distributed 
+material 
+is 
+at 
+least 
+MRmin
+r
+=
+⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋
+. Therefore, the total number of materials 
+distributed of all routes is at least MRmin
+R
+=
+∑
+r∈RMRmin
+r
+=
+∑
+r∈R
+⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋
+. In this case, since AGVs distribute ma­
+terials in the form of full load, according to constraint (12), the interval 
+time between two trips of AGVs in route r to distribute materials is nkr =
+⌊(Cv(tl + tr) + disr/w)/CT⌋, where nkmin
+r
+= min{nk1,nk2,⋯, nkR}. How­
+ever, when AGV v distributes materials with the shortest interval time, it 
+needs to perform the most material distribution time correspondingly. 
+Thus, the material handling time can be expressed as MRmax
+v
+=
+⌈
+|T|/
+nkmin
+r
+⌉
+=
+⌈
+|T|/
+⌊
+(Cv(tl + tr) + dismin/w)/CT
+⌋⌉
+. Therefore, the lower 
+bound of AGV quantity can be expressed as Nmin
+v
+=
+MRmin
+R
+MRmax
+v
+=
+∑
+r∈R
+⌊⌊∑
+s∈Sr
+∑
+i∈Isdst
+i /Cbi
+⌋
+/Cv
+⌋
+/
+⌈
+|T|/
+⌊
+(Cv(tl + tr) +
+dismin/w)/CT
+⌋⌉
+. 
+Theorem 1 is proved. 
+Theorem 2: If dst
+i , Cbi, tl, tr, disr, w, CT, Is, Sr, T have been given, the 
+theoretical lower bound of Kanban quantity of part i is Nkmin
+i
+=
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 6 ---
+Computers & Industrial Engineering 190 (2024) 110080
+6
+⌊∑
+t∈Tdst
+i /(|T|•Cbi) •
+⌊
+(∑
+s∈Sr
+∑
+i∈Isdst
+i (tl + tr)/Cbi + disr/w)/CT
+⌋⌋
+. 
+Proof: Assuming that part i is consumed at a uniform rate, the 
+average consumption rate of part i is τi = ∑
+t∈Tdst
+i /|T|. When t ∈T, the 
+total demand of part i is fixed. Therefore, when Cbi is the maximum, the 
+Kanban quantity of part i is the minimum. Then, the average con­
+sumption rate of the material bin loaded with part i is τbi =
+∑
+t∈Tdst
+i /(|T|•Cbi). When the interval time between two replenishments 
+for part i is the shortest, the quantity of replenishment for each time is 
+the least, then the Kanban quantity of part i is the least. According to 
+constraint (12), the minimum interval time between two replenishments 
+for part i is nki =
+⌊
+(∑
+s∈Sr
+∑
+i∈Isdst
+i (tl + tr)/Cbi + disr/w)/CT
+⌋
+. Therefore, 
+the lower bound of Kanban quantity of part i is Nkmin
+i
+= ⌊τbi • nki⌋=
+⌊∑
+t∈Tdst
+i /(|T|•Cbi) •
+⌊
+(∑
+s∈Sr
+∑
+i∈Isdst
+i (tl + tr)/Cbi + disr/w)/CT
+⌋⌋
+. Theo­
+rem 2 is proved. 
+4. The proposed MOAEFASA algorithm 
+The milk-run material distribution problem with single objective has 
+been proven to be an NP-hard problem. This paper delves into the bi- 
+objective milk-run material distribution problem. Building upon this 
+foundation, we also take into account the influence of Kanban quantity 
+and material bin capacity. Consequently, the proposed problem has a 
+larger solution space, which makes it difficult to find the optimal Pareto 
+solution using the exact algorithm in finite time. Therefore, a multi- 
+objective artificial electric field algorithm with SARSA selection mech­
+anism (MOAEFASA) is proposed to solve the problem. Section 4.1 de­
+scribes the overall framework of the algorithm. Sections 4.2–4.7 discuss 
+the entire content of the algorithm. 
+4.1. Framework of MOAEFASA 
+Fig. 2 shows the algorithm framework of MOAEFASA. First, the 
+diagonally linear random strategy is used to quickly generate a series of 
+well-diversified initial populations. Then, according to the physical 
+characteristics of charged particles moving in the electric field, the po­
+sition change of each individual in the solution space is realized. Next, 
+four local search operators are proposed, and the SARSA selection 
+mechanism is introduced to select the best local optimization scheme to 
+improve the local search ability of the algorithm. Finally, according to 
+the problem constraints and coding principles, two repair mechanisms 
+are proposed to repair the infeasible solutions. In addition, the selection 
+strategy of NSGA-II is introduced. By calculating the Pareto level of all 
+solutions and the crowding distance at the same level, the pre-NP in­
+dividuals are retained as the new offspring. When the number of itera­
+tions reaches the maximum, the algorithm ends and outputs the Pareto 
+Fig. 2. Flowchart of the MOAEFASA.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 7 ---
+Computers & Industrial Engineering 190 (2024) 110080
+7
+optimal solution set. 
+4.2. Encoding and decoding 
+This paper needs to determine the optimal Kanban quantity and 
+material bin capacity for each part to optimize the material distribution 
+scheduling scheme. Therefore, the Kanban quantity and material bin 
+capacity for each part need to be determined first. Then, for each pro­
+duction cycle, the types and quantities of parts that need to be distrib­
+uted to the assembly lines should be identified. In order to facilitate the 
+solution, a double-layer coding method is used to encode the problem. 
+As shown in Fig. 3(a) for the matrix with real number code of 2|Is| in 
+the first-layer coding of workstation s, it represents the corresponding 
+relationship between part ij,s, Kanban quantity nkj,s and material bin 
+capacity cbj,s. ij,s represents the serial number of part j on workstation s. 
+nkj,s represents the Kanban quantity of part j on workstation s, which is a 
+random integer between [nkmin
+j,s , nkmax
+j,s ]. nkmin
+j,s can be calculated by the 
+theorem 2, and nkmax
+j,s 
+is limited by constraints (19). cbj,s represents the 
+material bin capacity of part j on workstation s, which is a random 
+integer between [cbmin, cbmax]. By integrating the coding from each 
+workstation, the complete first-layer coding can be obtained. 
+As shown in Fig. 3(b), the length of the second-layer coding of real 
+number coding for route rt is 1 + |Ir|, where Ir = ∑
+s∈Sr
+∑
+i∈Isi represents 
+the set of all the parts used by the workstations on route r. So, for 
+different route r, the coding length are not exactly the same. But when 
+production cycle t is different, the coding length of the same route is 
+exactly the same. The second-layer coding determines the type and 
+quantity of parts to be distributed to route r by AGVs during production 
+cycle t. Rvr,t is a random real number between [0, 1], which can deter­
+mine whether AGVs distribute parts for route r in production cycle t by 
+descending sorting. Besides, ij,r is the serial number of part j in all parts 
+on route r. Ri1,r is the random real number between [0,1], and the type of 
+parts distributed by AGVs can be determined by descending sorting. The 
+quantity of distributed parts Nij,r is determined by the demand and the 
+line-side inventory. When Ivst
+j
+= nkj,s, in production cycle t, part j is not 
+needed to be distributed, then let Rit
+j,r = 0, otherwise Nij,r = 1. There­
+fore, the first-layer coding will affect the second-layer coding. Mean­
+while, according to constraint (13), when part i must be distributed for 
+route r, let Rvr,t = 1 and Rit
+i,r = 1 to ensure that the assembly lines have 
+sufficient inventory. The complete second-layer coding can be obtained 
+by integrating the coding of each route in all production cycles. Finally, 
+the complete scheduling plan of AGV can be obtained by integrating the 
+first-layer coding and the second-layer coding. 
+In order to help understand the encoding and decoding process, the 
+following examples are given. The number of routes is |R| = 2. Route r1 
+through workstation s1 and s2, route r2 through workstation s3 and s4. In 
+production cycle t, the number of available AGV is 1 and the maximum 
+capacity of AGV is 4. Part i ∈{i1, i2, i3, i4} are used in workstation s1. Part 
+i ∈{i5, i6, i7} are used in workstation s2. Part i ∈{i8, i9, i10} are used in 
+workstation s3. Part i ∈{i11, i12, i13, i14} are used in workstation s4. 
+nkmin
+j,s
+= 2, nkmax
+j,s
+= 4, cbmin = 1,cbmax = 5. Fig. 4 illustrates the encoding 
+and decoding process. The actual inventory and material requirements 
+of each part are shown in Table 2. First, nkj,s and cbj,s generate random 
+integers according to the interval [nkmin
+j,s , nkmax
+j,s ] and [cbmin, cbmax], and 
+Rvr,t and Rit
+j,r generate random numbers according to the interval [0,1]. 
+Then adjust Rvr,t and Rit
+j,r according to nkj,s, cbj,s, Ivnkt
+j,s and Ivt
+j,s, where 
+Ivnkt
+j,s represents the number of bins of part j actually stored at the 
+border of the lines. Finally, Rvr,t is sorted in descending order by rt, and 
+it
+j,r is sorted in descending order by Rit
+j,r. In the decoding process, the 
+AGVs are first assigned to the routes in the order of Rvr,t. Then the type 
+and quantity of parts to be distributed are determined according to the 
+order of Rit
+i,r. Finally, the workstation inventories in production cycle 
+t +1 are determined to ensure that there will be no inventory shortage. 
+4.3. Diagonally linear random initialization strategy 
+For meta-heuristic algorithms, the selection of the initial population 
+can effectively affect the rate of convergence (Rauf et al., 2020). 
+Adopting an appropriate population initialization method can not only 
+obtain a large number of initial populations in a short time but also 
+obtain high-quality initial populations, so as to improve the performance 
+of the algorithm. In order to quickly obtain the initial population with 
+good diversity and uniformity, this paper introduced the diagonal linear 
+initialization strategy to generate the initial population according to the 
+problem attribute (Li et al., 2021). The pseudocode for the diagonally 
+linear random initialization strategy is shown in Fig. 5. This strategy is 
+not only easy to operate but can also greatly improve the diversity and 
+uniformity of the initial population. More importantly, its performance 
+does not decline as the number of dimensions increases, so it can 
+perform well in multi-objective problems. 
+4.4. Search strategy based on AEFA 
+AEFA is a population-based meta-heuristic algorithm proposed by 
+Anita and Yadav (2019). Inspired by Coulomb’s law, AEFA simulates the 
+motion of charged particles in an electrostatic field. Therefore, the 
+search strategy based on AEFA is described as follows. In the search 
+space, each charged particle represents a feasible solution, whose 
+strength is measured by the amount of charge it carries. The larger the 
+amount of charge, the closer the particle is to the theoretical optimal 
+value. Each charged particle is acted upon by the attraction of other 
+particles, which, according to the laws of motion, can form a net force 
+and an acceleration in that direction. The velocity and position of the 
+charge can be calculated from the acceleration of the particle. The po­
+sitions and fitness functions of charged particles determine their charge 
+and unit mass. Finally, when the amount of a certain charge in the search 
+space is large, other charges will be attracted by the large charge so as to 
+get closer to the direction of the large charge. Thus, the algorithm 
+converges to the optimal solution. Therefore, the process of searching 
+for the optimal solution can be visualized as the process of the charged 
+particle with a large charge attracting all the other particles with smaller 
+charges to it. 
+The specific steps of the algorithm are shown as follows. 
+Step 1 In the search space, the population of candidate solutions 
+(charged particles) is initialized, including the position X, velocity V and 
+charge Q of charged particles. 
+In the d-dimensional space, the position Xi of particle i is expressed 
+by equation (21). 
+Xi =
+(
+x1
+i , x2
+i , ⋯, xd
+i
+)
+, ∀i = 1, 2, ⋯, N
+(21)  
+Where, xd
+i represents the position of particle i in the d-dimensional space, 
+and N represents the total number of particles. 
+The initial velocity V of each charged particle is 0. The charge of each 
+particle is Qi, and the initial charge of each particle is equal. 
+Qi(t = 0) = Q, ∀i = 1, 2, ⋯, N
+(22) 
+Fig. 3. The double-layer coding.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 8 ---
+Computers & Industrial Engineering 190 (2024) 110080
+8
+Where, Q is a set constant. 
+AEFA is a memory-based algorithm. So, it uses the global optimum 
+and individual optimum fitness of each particle over all iterations to 
+update its position. In iteration t + 1, the optimal fitness value Pd
+i (t + 1)
+obtained by particle i in the d-dimensional space is expressed by equa­
+tion (23). 
+Pd
+i (t + 1) =
+{
+Pd
+i (t), if f(Pi(t)) < f(Xi(t + 1))
+xd
+i (t + 1),
+else
+(23)  
+Where, Pi represents the optimal fitness value of particle i. 
+Step 2 Calculate the fitness value fit for each particle. 
+The traditional AEFA fitness evaluation method is not suitable for 
+multi-objective problems, while Pareto domination is a common way to 
+judge the merits and disadvantages of low-dimensional multi-objective 
+optimization individuals. Therefore, a fitness evaluation method based 
+on Pareto domination is introduced to evaluate the fitness of the algo­
+rithm, so as to guide the search process. The domination-based fitness 
+evaluation method is represented by equation (24). 
+fiti = DomNi + 1
+N + 1
+(24)  
+Where, DomNi represents the number of other particles in the population 
+dominated by particle i. The optimal fitness value fitbest and the worst 
+fitness value fitworst can be calculated by Eqs. (25) and (26). 
+Fig. 4. Schematic diagram of decoding process.  
+Table 2 
+Parameters of example.   
+i1 
+i2 
+i3 
+i4 
+i5 
+i6 
+i7 
+i8 
+i9 
+i10 
+i11 
+i12 
+i13 
+i14 
+Ivnkt
+j,s 
+2 
+1 
+2 
+2 
+2 
+2 
+2 
+1 
+1 
+2 
+2 
+2 
+4 
+2 
+Ivt
+j,s 
+3 
+1 
+2 
+6 
+2 
+3 
+6 
+5 
+2 
+4 
+2 
+8 
+7 
+4 
+nkj,s 
+3 
+2 
+2 
+3 
+4 
+3 
+3 
+2 
+2 
+4 
+2 
+3 
+4 
+3 
+cbj,s 
+2 
+1 
+1 
+3 
+1 
+2 
+3 
+5 
+2 
+3 
+1 
+4 
+2 
+2 
+dst
+j 
+1 
+1 
+0 
+0 
+1 
+1 
+0 
+1 
+0 
+1 
+0 
+1 
+0 
+0 
+ds,t+1
+j 
+0 
+1 
+0 
+1 
+0 
+1 
+1 
+1 
+0 
+1 
+1 
+0 
+1 
+0  
+Fig. 5. Pseudocode of diagonally linear random initialization strategy.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 9 ---
+Computers & Industrial Engineering 190 (2024) 110080
+9
+fitbest(t) = max(fiti(t) ), i ∈(1, 2, ⋯, N)
+(25)  
+fitbest(t) = min
+(
+fitj(t)
+)
+, j ∈(1, 2, ⋯, N)
+(26) 
+Because this paper needs to calculate the minimum value of the 
+objectives, fitbest is the maximum fit obtained from particle i. 
+Step 3 Calculate the coulomb constant K of the particles. 
+K is determined by the current iteration and the maximum number of 
+iterations. In order to control the search accuracy of the algorithm, it 
+decreases exponentially. In iteration t, K(t) can be calculated by Eq. (27). 
+K(t) = K0*exp(−τite/itemax)
+(27)  
+Where, K0 represents the initial value, τ is a constant, ite represents the 
+current iterations, and itemax represents the maximum number of itera­
+tions. 
+At the initial stage of the algorithm, K is a higher value to facilitate 
+the initial exploration of the algorithm. Then, the search precision of the 
+algorithm is controlled by decrementing K. 
+Step 4 Calculate the charge Q of the particles. 
+In iteration t, the charge Qi(t) of particle i can be calculated through 
+the fitness value, which is expressed by Eqs. (28) and (29). 
+Qi(t) = qi(t)/
+∑
+N
+i=1
+qi(t)
+(28)  
+qi(t) = exp(fiti(t) −fitworst(t)/fitbest (t) −fitworst(t))
+(29)  
+Where qi(t) helps determine the total amount of charge interacting with 
+charge i in iteration t. 
+Step 5 Calculate the coulomb force F of the particles. 
+In iteration t, particle j is subject to the coulomb force Fd
+ij(t) of particle 
+i in d-dimensional space, which is expressed by Eq. (30). 
+Fd
+ij(t) = K(t)Qi(t)Qj(t)
+(
+Pd
+j (t) −Xd
+i (t)
+)
+/Rij(t) + ξ
+(30)  
+Where, ξ is a minuscule constant, Rij means the Euclidean distance be­
+tween particle i and particle j, which can be calculated by Eq. (32). 
+Therefore, the total force Fd
+i (t) acting on particle i in iteration t is 
+expressed by Eq. (31). 
+Fd
+i (t) =
+∑N
+j=1,j∕=irandjFd
+ij(t)
+(31)  
+Where, randj represents the random number between [0,1]. In iteration t, 
+the Euclidean distance Rij(t) of particle i and particle j is expressed by Eq. 
+(32). 
+Rij(t) = ‖Xi(t), Xj(t)‖2
+(32) 
+Step 6 Calculate the acceleration a. 
+The acceleration ad
+i (t) of particle i in d-dimensional space in iteration 
+t is expressed by equation (33). 
+ad
+i (t) = Fd
+i (t)/Qi(t)
+(33) 
+Step 7 Update particle velocity V and position X. 
+In iteration t + 1, the velocity Vd
+i (t + 1) and position Xd
+i (t + 1) of 
+particle i in d-dimensional space is updated according to the acceleration 
+ad
+i . The update modes are expressed by equations (34) and (35). 
+Vd
+i (t + 1) = randi*Vd
+i (t) + ad
+i (t)
+(34)  
+Xd
+i (t + 1) = Xd
+i (t) + Vd
+i (t + 1)
+(35)  
+Where, Vd
+i (t) represents the velocity of particle i in iteration t, Xd
+i (t)
+represents the position of particle i in iteration t, and randi represents the 
+random number between [0,1]. 
+Step 8 Determine whether the stopping condition is satisfied. If so, 
+output the optimal value, otherwise repeat steps 2–8. 
+4.5. Local optimization strategy based on the SARSA selection mechanism 
+In the basic AEFA, only K in equation (27) is used to conduct local 
+search, which leads to the local optimization of the algorithm easily. 
+Therefore, to improve the local search ability of the algorithm, four 
+optimization operators are designed to optimize the algorithm. Local 
+optimization repeats NLS times, and the SARSA mechanism is used to 
+select the best local optimization scheme, so as to effectively improve 
+the local search ability of the algorithm. Among them, the SARSA is a 
+reinforcement learning algorithm proposed by Rummery in 1994 
+(Rummery & Niranjan, 1994). The SARSA uses the actual Q value to 
+update, which is carried out in the order of (st, at, rt+1, st+1, at+1). The 
+specific update mode is represented by equation (36). 
+Q(st, at)←Q(st, at) + α(rt+1 + γQ(st+1, at+1) −Q(st, at))
+(36)  
+Where, st represents the current state, at represents the action selected 
+under the current state, rt+1 represents the reward obtained after 
+selecting action at, st+1 and at+1 respectively represent the subsequent 
+action, Q(st, at) represents the expected reward value of the action at 
+selected by state st, α ∈[0, 1] is the learning rate, γ is the attenuation 
+factor, which represents the decay of future reward. The pseudocode of 
+the SARSA selection mechanism is shown in Fig. 6. 
+4.5.1. Calculation method of states 
+In reinforcement learning, state s represents the environmental 
+condition of the action. For the proposed problem, s describes the per­
+formance of the population based on action a. In this paper, the per­
+formance index hypervolume (HV) is used as the evaluation method of s. 
+HV is a comprehensive index used to evaluate the distribution pattern 
+and convergence of non-dominated solution sets in multi-objective 
+optimization. The calculation method is shown in equation (37). 
+HV(s) = δ(
+∑
+ns∈|NS|
+vns)
+(37)  
+Where, δ represents the Lebesgue measure, vns represents the HV con­
+taining the non-dominated solution ns and the reference point, |NS|
+represents the number of non-dominated solutions. The reference point 
+in this paper is (1, 1). Then, the larger the value of HV, the better the 
+Pareto frontier. 
+4.5.2. Calculation method of actiona 
+To improve the local search ability of the algorithm, four local search 
+operators are designed, LS = {OBL,RCO,LIO,ECO}.  
+(1) Opposition-based learning optimization operator (OBL) 
+As shown in Fig. 7(a), for the current individual Xi = {Xi,1, Xi,2, ⋯,
+Xi,D}, the concept of the reverse point is defined. OXi = {OXi,1, OXi,2, ⋯,
+OXi,D} are the reverse points of current solution Xi. The elements in the 
+reverse point can be represented by equation (38). 
+OXi,d = Xlb
+i,d + XUb
+i,d −Xi,d
+(38)  
+Where, Xlb
+i,d represents the lower bound of particle i in d-dimensional 
+space, and XUb
+i,d represents the upper bound of particle i in d-dimensional 
+space.  
+(2) Random cross optimization operator (RCO) 
+As shown in Fig. 7(b), the current individual Xt
+i and the optimal in­
+dividual Xt
+best of the population are taken as parent 1 and parent 2. Two 
+columns in the code are arbitrarily selected as the crossover boundary, 
+and the coding columns outside the crossover boundary of parent 1 and 
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 10 ---
+Computers & Industrial Engineering 190 (2024) 110080
+10
+the coding columns inside the crossover boundary of parent 2 are 
+reserved to offspring individual Xt+1
+i
+.  
+(3) Line-side inventory optimization operator (LIO) 
+As shown in Fig. 7(c), the Kanban quantity for each part needs to be 
+minimized in order to keep the line-side inventory as small as possible. 
+Therefore, nkj,s in the first-layer coding of individual Xt
+i can be adjusted. 
+Randomly select N parts to adjust the coding according to equation (39), 
+so as to obtain a new offspring individual Xt+1
+i
+. 
+nkt+1
+j,s =
+⌈
+rand •
+(
+nkt
+j,s −nkmin
+j,s
+)
++ nkmin
+j,s
+⌉
+(39)  
+Where, ⌈ˆA⋅⌉ represents rounded down and rand represents the random 
+number between [0,1]. 
+Fig. 6. Pseudocode of the SARSA selection mechanism.  
+Fig. 7. Local search operators.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 11 ---
+Computers & Industrial Engineering 190 (2024) 110080
+11
+(4) Energy consumption optimization operator (ECO) 
+As shown in Fig. 7(d), to minimize the energy consumption of AGVs, 
+the number of distributions needs to be reduced as much as possible, so 
+the material bin capacity of parts can be increased. Therefore, cbj,s in the 
+first-layer coding of individual Xt
+i can be adjusted. Randomly select N 
+parts to adjust the coding according to equation (40), so as to obtain new 
+offspring individual Xt+1
+i
+. 
+cbt+1
+j,s =
+⌊
+rand •
+(
+cbmax
+j,s −cbt
+j,s
+)
++ cbt
+j,s
+⌋
+(40)  
+Where, ⌊ˆA⋅⌋ represents rounded upward and rand represents the random 
+number between (0,1). 
+4.5.3. Calculation method ofγ 
+Immediate reward γ represents a reward or punishment for per­
+forming action a. Action a should be rewarded when the offspring in­
+dividual is better, and action a should be punished when the parent 
+individual is better. Therefore, the calculation method of γ is shown in 
+equation (41). 
+γ = fRr(Rr) • fHV(HV)
+(41)  
+Where, fRr(Rr) represents the evolution degree of the offspring individ­
+ual, which is expressed by equation (42). fHV(HV) is the amount of 
+reward or punishment corresponding to the population performance, 
+which is expressed by equation (44). 
+fRr(Rr) =
+⎧
+⎨
+⎩
+−1, Rr < 0
+0, Rr = 0
+1, Rr > 0
+(42)  
+Where, Rr represents optimization rate, which can be calculated by 
+equation (43). 
+Rr =
+∑
+i∈NP1
+∏
+j∈mfj(xi)/|NP1| −∑
+i∈NP2
+∏
+j∈mfj(yi)/|NP2|
+∑
+i∈NP1
+∏
+j∈mfj(xi)/|NP1|
+(43)  
+Where, NP represents the population size, m represents the number of 
+objectives, xi and yi represent the feasible solutions in the current pop­
+ulation and the previous generation population, respectively. 
+fHV(HV) =
+⎧
+⎨
+⎩
+0.5, HV ∈[0, 0.3)andRr < 0, orHV ∈[0.7, +∞)andRr > 0
+1, HV ∈[0.3, 0.7)
+1.5, HV ∈[0.7, +∞)andRr < 0, orHV ∈[0, 0.3)andRr > 0
+(44) 
+Therefore, there are 6 possible values of γ, including γ = { −1.5, −1,
+−0.5,0,0.5,1,1.5}. 
+4.5.4. Calculation method of adaptive learning rateα 
+Learning rate α, represents the proportion of newly learned infor­
+mation, is used to control the proportion of future rewards in the 
+learning process. A higher learning rate indicates that the algorithm 
+tends to make use of newly learned information, while a lower learning 
+rate indicates that the algorithm tends to make use of existing infor­
+mation. The adaptive learning rate is adopted in this paper. At the early 
+stage of algorithm iteration, a higher learning rate is conducive to 
+accelerating the algorithm convergence speed. With the progress of 
+iteration, the learning rate should be gradually reduced to improve the 
+exploitation performance. The update of α is shown in equation (45). 
+α = 1 −(0.9 × ite/itemax)
+(45)  
+Where, ite represents the current iteration and itemax represents the 
+maximum number of iterations. 
+4.6. Selection strategy based on Pareto domination 
+To keep the population size unchanged after each iteration, it is 
+necessary to select the pre-NP individuals as the new parent population 
+from the mixed population of parent and offspring. Then, the Pareto 
+level and crowding distance of NSGA-II are used to select the offspring 
+population. The general principle of selection is as follows. Individuals 
+with low Pareto levels are preferentially selected. If multiple individuals 
+have the same Pareto level, individuals with large crowding distances 
+are preferred. 
+4.6.1. Pareto level sorting 
+Firstly, the set di and number ni of individuals dominated by each 
+individual i in the population are calculated. Individuals with ni = 0 are 
+placed into the set Level1 and remove their dominant relationships over 
+other individuals. Then, update the n values of all remaining particles 
+according to the newly obtained di. Similarly, the individuals with ni = 0 
+now should be put into the set Level2, repeat the above steps until all the 
+individuals in the population have been graded. 
+4.6.2. Crowding distance 
+The crowding distance is a density index that represents the density 
+of each individual at the same Pareto level. The diversity of solution 
+space is maintained by preserving solutions with less similarity. The 
+crowding distance CDi of individual i is calculated as follows. 
+CDi =
+∑
+j∈M
+pj(i + 1) −pj(i −1)/pmax
+j
+−pmin
+j
+(46)  
+Where, M represents the number of objectives, pj(i +1) and pj(i −1)
+respectively represent the objective values of two adjacent individuals of 
+individual i in objective j, pmax
+j 
+and pmin
+j 
+respectively represent the 
+maximum and minimum values of all individual objective j values. 
+4.7. Repair mechanism 
+The proposed algorithm will generate infeasible solutions during the 
+iterative process, which can be divided into two situations. In the first 
+situation, the reason for the infeasible solution is that the coding value 
+will exceed the coding range (codmin, codmax) during the iteration. 
+Therefore, repair mechanism 1 is defined to regenerate the over-range 
+coding value within the coding range. The second situation is that the 
+coding value does not satisfy the constraints (19). For problems that do 
+not satisfy constraint (19), repair mechanism 2 is defined. If part i 
+belonging to workstation s does not meet the constraint (19), nk,
+j,s =
+⌈
+rand*
+(
+nkj,s −nkmin
+j,s
+)
++ nkmin
+j,s
+⌉
+is used to regenerate nkj,s value for part 
+i. Then, determine whether the constraint is satisfied again, if not, repeat 
+Fig. 8. Principle of algorithm repair mechanisms.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 12 ---
+Computers & Industrial Engineering 190 (2024) 110080
+12
+the above operations. 
+Fig. 8 shows the principle of the two repair mechanisms. For 
+example, the second-layer coding exceeds the upper and lower bounds 
+of coding, repair mechanism 1 can be used to repair this. In addition, in 
+the first-layer coding, the coding value of workstation S1 did not meet 
+constraint (19), which can be repaired by repair mechanism 2. 
+5. Computational experiments 
+In this paper, a MOAEFASA algorithm is designed to solve the 
+MMDSPCE. To evaluate the performance of the algorithm, computa­
+tional experiments are carried out. The proposed algorithm is compared 
+with the Epsilon constraint methods, NSGA-II, improving the strength 
+Pareto evolutionary algorithm (SPEA-II), multi-objective equilibrium 
+optimization algorithm (MOEO), and multi-objective neural network 
+algorithm (MONNA) in small-scale problems. Then, it is compared with 
+NSGA-II, SPEA-II, MOEO and MONNA in medium-scale and large-scale 
+problems. In addition, the optimization strategies of the algorithm are 
+tested. All computational experiments are implemented on Gurobi and 
+Matlab 2021a. The PC is configured with an AMD R7-5800H CPU, 16 GB 
+RAM, and 3.2 GHz. 
+5.1. Experimental settings 
+In a group of instances, we refer to the benchmark example of the 
+traditional automobile assembly line material distribution problem 
+given by Fathi et al. (2015). The relevant parameters of this experiment 
+are described as follows. MMALs assemble three models simultaneously, 
+each with a different bill of materials. In production cycle t, the material 
+demand dst of station s is the uniformly distributed random number in 
+the interval [1, 3], where [•] is rounded to the nearest integer. The 
+Kanban quantity and the material bin capacity for each part are less than 
+6. The weight of each part is a random number evenly distributed in the 
+interval [1, 5]. The distance between adjacent stations is 8m. Besides, 
+T = 90s, w = 2m/s, Cv = 6, wev = 5, tl = 10s, tr = 5s. 
+In this paper, three scenarios of small-scale problems, medium-scale 
+problems and large-scale problems are designed. Four algorithms are 
+used to compare with the proposed MOAEFASA in all the three scale 
+problems. In small-scale problems, T = {8, 10, 15}, |S| = {4, 6, 8, 10}. 
+The rest of the relevant parameters are set as follow. Route number |R|
+= 2. Therefore, the number of workstations passed by each route RS ∈{
+2,3,4,5}, correspondingly. |V| = 2. The initial inventory of each part is 
+4. For small-scale problems, the results obtained by the five algorithms 
+are compared with those obtained by the Epsilon constraint method. 
+However, the Epsilon constraint method is not suitable for solving 
+medium-scale and large-scale problems because Gurobi will take 
+significantly longer time to solve problems as the problem scale in­
+creases. In medium-scale problems, T = {30, 40, 50},|S| = {30,40,50}. 
+In large-scale problems, T = {60, 80, 100},|S| = {60, 80, 100}. The rest 
+of the relevant parameters are setting as follow. RS = 5. Then, |R| =
+|S|/RS. The initial inventory of each part is full. The number of AGVs is 
+calculated by theorem 1. For medium-scale and large-scale problems, 
+five algorithms are used to solve and compare. 
+5.2. Performance measures 
+In order to evaluate the performance of multi-objective algorithms, it 
+is necessary to conduct a comprehensive evaluation of the Pareto sets 
+obtained by each algorithm. In this paper, the following three perfor­
+mance metrics are selected to evaluate the Pareto optimality, unifor­
+mity, distribution and convergence of the solution. Given that HV has 
+been employed as an evaluation metric in the local search strategy, it is 
+no longer utilized for algorithm evaluation.  
+(1) The degree of Pareto optimality of the solution set (DPO) 
+DPOl =⃒⃒NP*
+l⃒⃒/NPl
+(47)  
+Where, NP*
+l represents the number of solutions that are non-dominated 
+by the Pareto solution sets of the other two algorithms among the NPl 
+Pareto solutions obtained by algorithm l. Therefore, the larger the value 
+of DPOl, the better the quality of the Pareto solution obtained by algo­
+rithm l, which means the performance of algorithm l is better.  
+(2) The evenness of the distribution (ES). 
+ESl = 1/D̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+1/|NPl|
+∑
+xi∈NPl
+(Di −D)2
+√
+(48)  
+Where, D =
+1
+|NPl|
+∑
+xi∈NPlDi, Di represents the Euclidean distance between 
+xi and its nearest neighbor solution. Therefore, the smaller the value of 
+ESl, the more evenly distributed the solution set obtained by algorithm l, 
+which means the performance of algorithm l is better.  
+(3) The inverted generational distance (IGD). 
+IGDl =
+∑
+ω∈l
+d(ω, l*)/|l*|
+(49)  
+Where, ω represents a solution in the Pareto solution set obtained by 
+algorithm l; d(ω, l*) is the minimum Euclidean distance between the 
+solution ω and the solution l* in the actual Pareto solution set, |l*| rep­
+resents the number of individuals on the actual Pareto front. Therefore, 
+the smaller the value of IGDl, the smaller the sum of the average dis­
+tances between the Pareto solution set obtained by algorithm l and the 
+actual Pareto solution set, which means the convergence and distribu­
+tion of algorithm l are better. 
+5.3. Parameters settings 
+The solution performance of MOAEFASA is greatly affected by the 
+parameters. Therefore, Taguchi’s experiments are used to optimize the 
+algorithm parameters. Parameters that need to be tuned in MOAEFASA 
+are the initial coulomb constant k0, the control factor of search accuracy 
+τ and the number of local searches NLS. Each parameter contains three 
+levels. k0 ∈{100, 150, 200}, τ ∈{40, 60, 80}, NLS ∈{1, 5, 10}. Taguchi 
+L9(33) orthogonal array is used to find the optimal parameter combi­
+nation for the experiments. 
+According to the L9 orthogonal table, 9 groups of experiments are 
+generated for each problem scale. Each experiment is repeated 10 times. 
+To compare the optimization performance of the algorithm under 
+different parameter levels, DPO is used as the evaluation metric, which 
+represents the proportion of the current solution that is not dominated 
+by other solutions obtained from the other eight groups of experiments. 
+Obviously, the larger the value of DPO, the higher the quality of the 
+solutions. Then, the corresponding parameters are the optimal 
+parameters. 
+Table 3 shows the experimental results generated by Minitab. It can 
+be seen from the table that different problem scales have different 
+optimal parameter combinations. In small-scale problems, the optimal 
+parameter combination is k0 = 100, τ = 40, NLS = 5. In medium-scale 
+problems, the optimal parameter combination is k0 = 150, τ = 40, 
+NLS = 5. In large-scale problems, the optimal parameter combination is 
+k0 = 150, τ = 40, NLS = 10. 
+In addition, the proposed MOAEFASA is compared with four algo­
+rithms with excellent computational performance. The first is MOEO, a 
+recent multi-objective intelligent search algorithm that has been shown 
+to perform well in solving a variety of problems (Premkumar et al., 
+2022). The second is MONNA, which has been designed to obtain rec­
+ommendations for optimal electric vehicle charging station infrastruc­
+ture based on photovoltaic systems (Mehouachi et al., 2023). The other 
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 13 ---
+Computers & Industrial Engineering 190 (2024) 110080
+13
+two are the classical multi-objective evolutionary algorithms NSGA-II 
+and SPEA-II, which are widely used to solve a variety of complex 
+multi-objective problems and are often used as control objectives to 
+validate the performance of the algorithms. Therefore, DOE experiments 
+are carried out for the four comparison algorithms. Then, the optimal 
+parameters of the four algorithms under three scenarios are obtained. 
+The final parameter settings of the five algorithms are shown in Table 4. 
+5.4. Small-scale comparison experiments 
+Firstly, Gurobi is used to solve small-scale problems based on the 
+Epsilon constraint method (Yang et al., 2019). The Epsilon constraint 
+method is the most commonly used exact algorithm for solving bi- 
+objective problems. The principle of the method is to convert one of 
+the objectives into a constraint, so that the problem becomes a single- 
+objective problem with Epsilon constraints. Then by gradually 
+reducing the value of Epsilon, the relationship between the two objec­
+tives is established. Finally, the optimal Pareto frontier is obtained. 
+In this paper, the parameters of the small-scale problems are T = {8,
+10, 15}, |S| = {4, 6, 8, 10}, which can be combined to generate 12 in­
+stances in total. The five algorithms are independently run 10 times for 
+each instance. In order to obtain a uniform and effective solution in a 
+short time, the scale SL of Pareto frontier solution set is set as 10. The 
+upper bound of the running time of Gurobi is 3600 s. The results of 
+Pareto frontier comparison and CPU runtime comparison are given by 
+Fig. 9 and Table 5. 
+Fig. 9 shows the Pareto frontier obtained by six methods. It can be 
+clearly seen that for small-scale problems, the five meta-heuristic algo­
+rithms can obtain high-quality Pareto solutions. In most instances, the 
+Pareto front obtained by MOAEFASA is closer to that obtained by the 
+Epsilon-constraint method, indicating that the quality of the Pareto so­
+lution set obtained by MOAEFASA is better. Then, although the per­
+formance of decreases with the increase in problem scale, the deviation 
+of the results is acceptable. 
+Table 5 shows the results for CPU runtime. The results show that the 
+running time of Gurobi increases significantly as T and S increase. When 
+T = 10, S = 10 and T = 15,S = 10, Gurobi cannot solve the problem in 
+the specified time. On the contrary, the five meta-heuristic algorithms 
+can obtain the solution of the problem in a short time. Therefore, the 
+meta-heuristic algorithms are better than the Epsilon-constraint method 
+in terms of computational efficiency. 
+5.5. Comparison of experimental results of different algorithms 
+To further evaluate and verify the effectiveness of the proposed al­
+gorithm MOAEFASA, it is compared with the other four meta-heuristic. 
+First, the Pareto frontiers of the five algorithms are compared in 9 in­
+stances under medium-scale and large-scale problems, respectively. 
+Each experiment is repeated 10 times. Pareto frontier integrated the 
+results obtained from 10 experiments, which are shown in Fig. 10. As 
+can be seen from Fig. 10, in both medium-scale and large-scale prob­
+lems, MOAEFASA can obtain better solutions than the comparison al­
+gorithms, and the solutions obtained by the comparison algorithms are 
+mostly dominated by those obtained by MOAEFASA. Fig. 11 shows in 
+more detail the Pareto frontier for each algorithm in instance 1 of 
+Fig. 10. 
+Then, the MOAEFASA is systematically evaluated in 18 instances. 
+Based on the scale of S and T, the 18 instances are divided into two 
+groups, corresponding to medium-scale and large-scale problems 
+respectively. Each group contained 9 instances. For each instance, the 
+five algorithms run 10 times independently. The Pareto frontier com­
+bines the results of 10 experiments. The DPO, ES and IGD values ob­
+tained are averaged and used as the final evaluation metrics of the 
+algorithms. Table 6–8 show the experimental results of the five algo­
+rithms under different problem scales, and the optimal value of each 
+instance is marked in bold. Based on the experimental results, the 
+following conclusions can be obtained.  
+(1) First, the DPO values of the five algorithms are compared. On 
+average, the calculation results of the five algorithms have 
+obvious differences. The DPO values obtained by MOAEFASA are 
+significantly better than the four compared algorithms. In 
+Table 3 
+Analyses results of the Taguchi’s experiments.  
+Problem scale 
+Level 
+Parameters 
+k0 
+τ 
+NLS 
+Small 
+1 
+0.185 
+0.173 
+0.086  
+2 
+0.123 
+0.074 
+0.185  
+3 
+0.025 
+0.086 
+0.062  
+Del 
+0.160 
+0.099 
+0.123  
+Rank of major factors 
+1 
+3 
+2  
+Optimal level 
+1 
+1 
+2  
+Optimal combination 
+100 
+40 
+5  
+Medium 
+1 
+0.097 
+0.161 
+0.108  
+2 
+0.172 
+0.075 
+0.140  
+3 
+0.065 
+0.097 
+0.086  
+Del 
+0.108 
+0.086 
+0.054  
+Rank of major factors 
+1 
+2 
+3  
+Optimal level 
+2 
+1 
+2  
+Optimal combination 
+150 
+40 
+5  
+Large 
+1 
+0.067 
+0.143 
+0.067  
+2 
+0.171 
+0.086 
+0.105  
+3 
+0.095 
+0.105 
+0.162  
+Del 
+0.105 
+0.057 
+0.095  
+Rank of major factors 
+1 
+3 
+2  
+Optimal level 
+2 
+1 
+3  
+Optimal combination 
+150 
+40 
+10  
+Table 4 
+Parameter settings of the metaheuristic algorithms.  
+Algorithms 
+Parameters 
+Parameter levels 
+Low 
+Medium 
+High 
+MOAEFASA 
+Number of populations 
+100 
+100 
+100  
+Initial Coulomb constant 
+100 
+150 
+150  
+Search accuracy control factor 
+40 
+40 
+40  
+Local search 
+5 
+5 
+10  
+Maximum generation 
+100 
+100 
+100  
+MOEO 
+Number of populations 
+100 
+100 
+100  
+Global search weight factor 
+1.5 
+1.5 
+2  
+Iterative control factor 
+1.5 
+1.5 
+1  
+Generation rate control factor 
+0.5 
+0.4 
+0.4  
+Maximum generation 
+100 
+100 
+100  
+NSGA-II 
+Number of populations 
+100 
+100 
+100  
+Crossover probability 
+0.7 
+0.8 
+0.8  
+Mutation probability 
+0.15 
+0.2 
+0.2  
+Maximum generation 
+100 
+100 
+100  
+MONNA 
+Number of populations 
+100 
+100 
+100  
+Archive size 
+10 
+50 
+50  
+Grid inflation 
+0.1 
+0.1 
+0.1  
+Number of grids per each dimension 
+10 
+10 
+20  
+Leader selection pressure 
+4 
+4 
+4  
+Extra repository member selection 
+pressure 
+2 
+2 
+2  
+Maximum generation 
+100 
+100 
+100  
+SPEA-II 
+Number of populations 
+100 
+100 
+100  
+Archive size 
+10 
+50 
+50  
+Crossover probability 
+0.6 
+0.6 
+0.7  
+Mutation probability 
+0.15 
+0.25 
+0.3  
+Maximum generation 
+100 
+100 
+100  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 14 ---
+Computers & Industrial Engineering 190 (2024) 110080
+14
+addition, among the 18 instances, the optimal DPO ratio obtained 
+by MOAEFASA is 14/18. The optimal DPO ratio obtained by 
+MOEO and MONNA, SPEA-II and NSGA-II are 2/18, 2/18, 0 and 
+0, correspondingly. Therefore, the MOAEFASA has a significant 
+advantage in the number of Pareto solutions obtained.  
+(2) Then, the ES values of the five algorithms are compared. On 
+average, the ES value obtained by MOAEFASA is the smallest. The 
+ES values obtained by MONNA and SPEA-II have small deviations 
+and are closer to that obtained by MOAEFASA. Then the ES value 
+obtained by MOEO is the largest. In addition, among the 18 in­
+stances, the ratio of optimal ES values obtained by MOAEFASA is 
+10/18. The ratio of optimal ES values obtained by SPEA-II, 
+MONNA, MOEO and NSGA-II are 6/18, 2/18, 0 and 0, 
+correspondingly. The results show that MOAEFASA is more likely 
+to obtain a uniformly distributed Pareto set than the comparison 
+algorithms.  
+(3) Finally, the IGD values of the five algorithms are compared. On 
+average, MOAEFASA has the lowest average IGD values which is 
+significantly lower than those obtained by all the comparison 
+algorithms. The lowest IGD value in the comparison algorithms is 
+obtained for MOEO, which is about 48.9 % higher than that of 
+MOAEFASA. In addition, among the 18 instances, the ratio of 
+optimal IGD values obtained by MOAEFASA is 13/18. The ratio of 
+optimal IGD values obtained by MOEO, MONNA, SPEA-II and 
+NSGA-II are 3/18, 2/18, 0 and 0, correspondingly. The results 
+Fig. 9. Pareto frontiers obtained by Gurobi and meta-heuristic algorithms.  
+Table 5 
+The CPU time of Gurobi and meta-heuristic algorithms.  
+No. 
+T 
+|S| 
+Gurobi 
+MOAEFASA 
+MOEO 
+NSGA-II 
+MONNA 
+SPEA-II 
+1 
+8 
+4 
+27.3  
+2.4  
+1.9  
+1.2  
+1.9  
+1.3 
+2 
+8 
+6 
+64.9  
+5.4  
+3.8  
+2.0  
+3.4  
+2.2 
+3 
+8 
+8 
+134.3  
+6.2  
+4.7  
+2.6  
+4.7  
+2.6 
+4 
+8 
+10 
+328.3  
+6.9  
+5.4  
+3.3  
+4.9  
+3.3 
+5 
+10 
+4 
+418.9  
+3.7  
+3.2  
+2.1  
+2.9  
+2.4 
+6 
+10 
+6 
+1090.4  
+5.2  
+4.6  
+2.8  
+4.5  
+2.9 
+7 
+10 
+8 
+2144.9  
+8.1  
+5.6  
+3.4  
+5.5  
+3.4 
+8 
+10 
+10 
+–  
+9.8  
+6.2  
+4.3  
+6.0  
+4.6 
+9 
+15 
+4 
+798  
+7.5  
+5.5  
+3.5  
+5.0  
+3.7 
+10 
+15 
+6 
+2115.2  
+8.4  
+4.9  
+4.2  
+4.5  
+4.3 
+11 
+15 
+8 
+3570.5  
+8.9  
+6.7  
+6.5  
+6.5  
+6.4 
+12 
+15 
+10 
+–  
+10.5  
+9.3  
+7.4  
+8.4  
+7.8  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 15 ---
+Computers & Industrial Engineering 190 (2024) 110080
+15
+show better convergence and diversity of the Pareto sets obtained 
+by MOAEFASA. 
+To further show the numerical distribution of ES and IGD, six in­
+stances are extracted forming the box plots. The results are shown in 
+Fig. 12 and Fig. 13. It is obvious from the figures that MOAEFASA can 
+achieve better results in ES and IGD in most instances, which indicates 
+that the algorithm has stable solution performance. 
+In addition, the CPU runtimes of the five algorithms for solving 
+different instances are compared. 6 different instances are selected and 
+the average runtime for each instance is calculated. Fig. 14 shows the 
+results of the runtimes. When the instance size is smaller than (60, 60), 
+all five algorithms can obtain experimental results in a short time. 
+However, when the instance size is larger than (60, 60), the runtimes of 
+the algorithm grow significantly. For the largest problem (100, 100), 
+MOAEFASA have the longest runtime of about 1300 s, which is still 
+much smaller than the upper limit of 3600 s of Gurobi runtime set in the 
+small-scale problems. Therefore, the runtimes of all five meta-heuristic 
+algorithms are acceptable. In addition, MOAEFASA has the longest 
+average runtime of all the instances. This is limited by the fact that the 
+localized search strategy used by MOAEFASA takes some time. How­
+ever, considering its outstanding performance on the solution quality 
+proved by DPO, ES, and IGD, although a part of time efficiency is 
+sacrificed as a cost, it can still be concluded that the MOAEFASA has a 
+superior performance. 
+Finally, we first design a one-way ANOVA test for each evaluation 
+metric at each scale problem, which is used to compare whether there 
+are significant differences between multiple sets of experimental data. 
+The significance level is 0.05. The results are shown in Table 9, which 
+shows that the p-values of all the evaluation metrics in all the scale 
+experiments are less than 0.05. Further, the Turkey Test is added to 
+better show the differences between each two arbitrary algorithms. The 
+results are shown in Table 10 and Fig. 15. Table 10 shows the grouping 
+of the five algorithms. It can be found that MOAEFASA is significantly 
+different from the other four compared algorithms under the DPO and 
+IGD metrics, while under the ES metric, MOAEFASA is significantly 
+different from MOEO and NSGA-II. Fig. 15 shows the 95 % confidence 
+intervals for the differences between each of the two algorithms under 
+the Turkey test, which means that if the interval does not contain zeros, 
+the corresponding means are significantly different. In summary, 
+MOAEFASA has superior performance compared to the other four 
+algorithms. 
+5.6. Effectiveness analysis of algorithm optimization strategies 
+The proposed algorithm introduces the diagonal linear random 
+initialization strategy and the local optimization strategy based on the 
+SARSA selection mechanism to optimize the algorithm. The diagonal 
+linear random strategy aims to improve the diversity of the initial 
+populations. The local optimization strategy based on the SARSA se­
+lection mechanism aims to improve the local search ability of the al­
+gorithm. To verify the effectiveness of the algorithm, the following 
+experiments are conducted. 
+Firstly, in order to show the effectiveness of the local search strategy 
+based on the SARSA selection mechanism, MOAEFASA is compared with 
+DIMOAEFA, which does not consider the local search strategy, and basic 
+MOAEFA. Nine instances are chosen in each of the three scales. The 
+three algorithms are run independently 10 times. The average value of 
+Fig. 10. Pareto fronts of meta-heuristic algorithm in different instances.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 16 ---
+Computers & Industrial Engineering 190 (2024) 110080
+16
+the obtained DPO is used as the evaluation metrics. As shown in Fig. 16, 
+the deviation of DPO values of the three algorithms is not large in small- 
+scale instances, and all of them can produce good results. However, as 
+the problem scale increases, the performance of DIMOAEFA and 
+MOAEFA deteriorates seriously, while the performance of DIMOAEFA is 
+usually better than that of MOAEFA. It shows that the local search 
+strategy based on the SARSA selection mechanism can help the 
+algorithm find more Pareto solutions through multiple local searches, 
+and effectively improve the solving accuracy of the algorithm. Mean­
+while, Table 11 presents the ANOVA of the DPO values. The significance 
+level is 0.05. As can be seen from the table, the p-value is greater than 
+0.05 in the small-scale instances. Therefore, in the small-scale instances, 
+there is no obvious difference in the DPO values of the three algorithms. 
+However, in medium-scale and large-scale instances, the p-values of the 
+Fig. 11. Pareto fronts of meta-heuristic algorithms separately.  
+Table 6 
+Comparison of DPO metrics.  
+Group 
+T 
+|S| 
+MOAEFASA 
+MOEO 
+NSGA-II 
+MONNA 
+SPEA-II 
+Middle-scale 
+30 
+30  
+0.832  
+0.680  
+0.429  
+0.486  
+0.386 
+30 
+40  
+0.802  
+0.676  
+0.302  
+0.724  
+0.304 
+30 
+50  
+0.914  
+0.594  
+0.229  
+0.244  
+0.484 
+40 
+30  
+0.978  
+0.618  
+0.306  
+0.737  
+0.503 
+40 
+40  
+0.847  
+0.450  
+0.387  
+0.576  
+0.247 
+40 
+50  
+0.673  
+0.749  
+0.220  
+0.388  
+0.485 
+50 
+30  
+0.891  
+0.651  
+0.224  
+0.345  
+0.552 
+50 
+40  
+0.690  
+0.442  
+0.144  
+0.750  
+0.222 
+50 
+50  
+0.746  
+0.323  
+0.455  
+0.343  
+0.565  
+Large-scale 
+60 
+60  
+0.854  
+0.568  
+0.109  
+0.678  
+0.532 
+60 
+80  
+0.966  
+0.554  
+0.139  
+0.246  
+0.436 
+60 
+100  
+0.615  
+0.585  
+0.303  
+0.727  
+0.312 
+80 
+60  
+0.971  
+0.601  
+0.327  
+0.204  
+0.292 
+80 
+80  
+0.680  
+0.386  
+0.337  
+0.507  
+0.396 
+80 
+100  
+0.755  
+0.720  
+0.365  
+0.200  
+0.208 
+100 
+60  
+0.666  
+0.712  
+0.426  
+0.201  
+0.458 
+100 
+80  
+0.875  
+0.713  
+0.143  
+0.722  
+0.551 
+100 
+100  
+0.963  
+0.672  
+0.476  
+0.239  
+0.369 
+Ave. 
+0.818 
+0.594  
+0.296  
+0.462  
+0.406  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 17 ---
+Computers & Industrial Engineering 190 (2024) 110080
+17
+three algorithms are all less than 0.05, indicating that the performance 
+of MOAEFASA is significantly more advantageous. 
+Then, the MOAEFASA is compared with LMOAEFA, using local 
+search strategy, and basic MOAEFA to verify the effect of the diagonal 
+linear random strategy on the performance of the algorithm. Similarly, 
+nine instances are chosen at each of the three scales and each of the three 
+algorithms run 10 times independently. The average value of the ob­
+tained ES and IGD is used as the evaluation metric. As can be seen from 
+Fig. 17 and Fig. 18, the ES and IGD values of MOAEFASA are usually the 
+smallest in the three scales of experiments, and the advantage is more 
+obvious in large-scale instances. It shows that the algorithm can obtain 
+higher quality Pareto solutions by increasing the diversity of the initial 
+population. Finally, the ANOVA of ES and IGD values is conducted in 
+Table 12. The significance level is 0.05. It can be seen from the table that 
+all p-values are less than 0.05 under the three scales, indicating that 
+MOAEFASA has obvious advantages over the two comparison algo­
+rithms in terms of uniformity, convergence and distribution. 
+5.7. Example application 
+5.7.1. Development of scheduling plans to guide actual production 
+To illustrate the applicability of the proposed model and methodol­
+ogy in real-world situations, we solve a test problem and give the final 
+scheduling plan in this section. In the test problem, the factory has a 
+production order that needs to be completed in 30 beats. The production 
+order is shown in Table 13. In the production order, T represents the 
+production cycle, and A, B and C represent the assembly types that need 
+to be completed in the current production cycle. 
+This assembly work needs to be done on 30 workstations. Table 14 
+gives the parts that need to be assembled on different workstations for 
+different vehicles and the Id of the parts are indicated in the grids below 
+Type. The R on the left side of the table indicates the route to which the 
+workstation s belongs. The rest of the parameters are set as shown in 
+Section 5.1. 
+After calculation, the following solution to the problem is given. The 
+Kanban quantity and material bin capacity corresponding to each part is 
+shown in Table 15. The material distribution scheduling program is 
+shown in Table 16. In the table, r represents the material distribution 
+route, T represents the time for AGVs to distribute the materials, and the 
+Table 7 
+Comparison of ES metrics.  
+Group 
+T 
+|S| 
+MOAEFASA 
+MOEO 
+NSGA-II 
+MONNA 
+SPEA-II 
+Middle-scale 
+30 
+30  
+0.810  
+1.733  
+1.448  
+1.065  
+1.149 
+30 
+40  
+0.772  
+1.780  
+1.330  
+0.981  
+0.928 
+30 
+50  
+0.797  
+1.434  
+1.499  
+1.090  
+1.123 
+40 
+30  
+0.928  
+1.485  
+1.545  
+1.121  
+0.992 
+40 
+40  
+1.031  
+1.873  
+1.148  
+0.992  
+0.928 
+40 
+50  
+1.008  
+1.478  
+1.357  
+1.088  
+0.935 
+50 
+30  
+1.089  
+1.780  
+1.322  
+1.095  
+1.122 
+50 
+40  
+0.980  
+1.405  
+1.382  
+1.139  
+0.932 
+50 
+50  
+1.096  
+1.126  
+1.235  
+1.008  
+1.209  
+Large-scale 
+60 
+60  
+0.953  
+1.334  
+1.390  
+1.234  
+0.992 
+60 
+80  
+1.087  
+1.938  
+1.269  
+1.057  
+1.140 
+60 
+100  
+1.071  
+1.927  
+1.093  
+1.210  
+1.195 
+80 
+60  
+0.978  
+1.286  
+1.654  
+1.139  
+0.939 
+80 
+80  
+0.811  
+1.023  
+1.081  
+1.193  
+1.231 
+80 
+100  
+0.978  
+1.849  
+1.271  
+0.958  
+0.924 
+100 
+60  
+0.713  
+1.031  
+1.588  
+1.135  
+1.094 
+100 
+80  
+0.980  
+1.642  
+1.482  
+1.000  
+0.973 
+100 
+100  
+0.883  
+1.161  
+1.206  
+0.965  
+1.204 
+Ave. 
+0.943 
+1.516  
+1.350  
+1.082  
+1.056  
+Table 8 
+Comparison of IGD metrics.  
+Group 
+T 
+|S| 
+MOAEFASA 
+MOEO 
+NSGA-II 
+MONNA 
+SPEA-II 
+Middle-scale 
+30 
+30  
+0.357  
+0.281  
+0.807  
+0.308  
+0.529 
+30 
+40  
+0.228  
+0.271  
+0.765  
+0.484  
+0.517 
+30 
+50  
+0.296  
+0.413  
+0.607  
+0.532  
+0.794 
+40 
+30  
+0.3  
+0.516  
+0.781  
+0.331  
+0.602 
+40 
+40  
+0.382  
+0.406  
+0.637  
+0.382  
+0.606 
+40 
+50  
+0.151  
+0.357  
+0.818  
+0.503  
+0.749 
+50 
+30  
+0.283  
+0.372  
+0.568  
+0.501  
+0.605 
+50 
+40  
+0.265  
+0.265  
+0.527  
+0.57  
+0.576 
+50 
+50  
+0.414  
+0.521  
+0.687  
+0.396  
+0.748  
+Large-scale 
+60 
+60  
+0.192  
+0.35  
+0.544  
+0.505  
+0.669 
+60 
+80  
+0.116  
+0.362  
+0.863  
+0.371  
+0.522 
+60 
+100  
+0.262  
+0.543  
+0.844  
+0.453  
+0.534 
+80 
+60  
+0.413  
+0.303  
+0.77  
+0.303  
+0.5 
+80 
+80  
+0.324  
+0.277  
+0.778  
+0.391  
+0.648 
+80 
+100  
+0.214  
+0.567  
+0.62  
+0.367  
+0.525 
+100 
+60  
+0.193  
+0.33  
+0.588  
+0.572  
+0.537 
+100 
+80  
+0.393  
+0.337  
+0.854  
+0.494  
+0.785 
+100 
+100  
+0.167  
+0.297  
+0.621  
+0.328  
+0.556 
+Ave. 
+0.275 
+0.376  
+0.704  
+0.433  
+0.611  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 18 ---
+Computers & Industrial Engineering 190 (2024) 110080
+18
+Fig. 12. Boxplots of ES.  
+Fig. 13. Boxplots of IGD.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 19 ---
+Computers & Industrial Engineering 190 (2024) 110080
+19
+corresponding grid denotes the parts to be distributed. Finally, the 
+corresponding values for this solution on the TLI and TEC objectives are 
+14,841 and 117580, respectively. 
+5.7.2. Validate the effectiveness of optimize the Kanban quantity and 
+material bin capacity 
+In order to help the actual production management, the effectiveness 
+for the collaborative optimization of Kanban quantity and material bin 
+capacity is verified. A total of 10 instances, T = 80,S = {10,20,30,40,
+50,60,70,80,90,100}, are selected. According to 5.1 and theorem 2, the 
+theoretical lower bound of Kanban quantity Nkmin
+i 
+for each part can be 
+calculated. Then, the material bin capacity of each part needs to be the 
+maximum value Cbmax
+i
+. Therefore, the actual inventory capacity Ivs
+i of 
+each part at the assembly lines should meet Ivs
+i ≥Nkmin
+i
+ˆA⋅Cbmax
+i
+. In each 
+instance, two real-world scenarios are set up. In the first scenario, the 
+Kanban quantity of each part NKi = Nkmin
+i 
+and the material bin capacity 
+is a random integer in the interval [Cbmax
+i
+, 2Cbmax
+i
+]. In the second sce­
+nario, the material bin capacity of each part is Cbi =
+⌊
+Ivs
+i/Nkmin
+i
+i
+⌋
+, and 
+the Kanban quantity is a random integer in [NKmax
+i
+, 2NKmax
+i
+]. Each 
+instance is run 10 times using MOAEFASA. The two objectives of the 
+Pareto solutions are averaged. The results are compared with the TLI 
+and TEC values calculated by the two actual scenarios. The results are 
+shown in Fig. 19. 
+The GAP value calculation method is shown in Equation (53). 
+Fig. 14. The runtime of five meta-heuristic algorithms for different instances.  
+Table 9 
+ANOVA for DPO, ES, IGD at different scale problems.  
+Problem scales 
+Source 
+DPO 
+ES 
+IGD 
+DF 
+Adj SS 
+Adj MS 
+P 
+DF 
+Adj SS 
+Adj MS 
+P 
+DF 
+Adj SS 
+Adj MS 
+P 
+Medium 
+Algorithm 
+4  
+1.3678  
+0.34195 
+0 
+4  
+2.4351  
+0.60876 
+0 
+4  
+1.0122  
+0.253058 
+0 
+Error 
+40  
+0.768  
+0.0192  
+40  
+0.8463  
+0.02116  
+40  
+0.3744  
+0.00936  
+Total 
+44  
+2.1358   
+44  
+3.2814   
+44  
+1.3866    
+Large 
+Algorithm 
+4  
+1.5684  
+0.3921 
+0 
+4  
+1.632  
+0.40801 
+0 
+4  
+1.2152  
+0.3038 
+0 
+Error 
+40  
+0.9577  
+0.02394  
+40  
+1.805  
+0.04512  
+40  
+0.44  
+0.011  
+Total 
+44  
+2.5261   
+44  
+3.437   
+44  
+1.6552    
+Table 10 
+Turkey test results for DPO, ES, and IGD at all scale problems.   
+Algorithm 
+N 
+Mean 
+Grouping 
+DPO 
+MOAEFASA 
+18 
+0.8177 
+A     
+MOEO 
+18  
+0.5941  
+B    
+MONNA 
+18  
+0.4621  
+B 
+C   
+SPEA-II 
+18  
+0.4057   
+C 
+D  
+NSGA-II 
+18  
+0.2956    
+D 
+ES 
+MOEO 
+18  
+1.5158 
+A     
+NSGA-II 
+18  
+1.35 
+A     
+MONNA 
+18  
+1.0817  
+B    
+SPEA-II 
+18  
+1.0561  
+B    
+MOAEFASA 
+18  
+0.9425  
+B   
+IGD 
+NSGA-II 
+18  
+0.7044 
+A     
+SPEA-II 
+18  
+0.6112  
+B    
+MONNA 
+18  
+0.4328   
+C   
+MOEO 
+18  
+0.376   
+C   
+MOAEFASA 
+18  
+0.275    
+D  
+B. Zhou and M. Wen                                                                                                                                                                                                                           
+
+
+--- SAYFA 20 ---
+Computers & Industrial Engineering 190 (2024) 110080
+20
+Gap = min(ObjSc1, ObjSc2) −ObjAl/ObjAl × 100%
+(50)  
+Where, ObjSc1 and ObjSc2 represent the objective values obtained in 
+scenarios 1 and 2, respectively, and ObjAl represents the average 
+objective value obtained by the algorithm. 
+The experimental results show that on the premise of ensuring no 
+shortages on the assembly lines, compared with the two scenarios of 
+only considering the Kanban quantity or the material bin capacity, the 
+combination optimization of these two can effectively reduce the TLI 
+and the TEC simultaneously. In all instances, the minimum GAP for TLI 
+is 14.2 % and the maximum GAP is 30 %, while the minimum GAP for 
+TEC is 10.1 % and the maximum GAP is 36.2 %. As a result, when 
+compared to optimizing only the Kanban quantity or the material bin 
+capacity, the combination optimization of the Kanban quantity and the 
+Fig. 15. Turkey test results for DPO, ES and IGD at all scale problems.  
+Fig. 16. Radar maps of DPO.  
+B. Zhou and M. Wen                                                                                                                                                                                                                           

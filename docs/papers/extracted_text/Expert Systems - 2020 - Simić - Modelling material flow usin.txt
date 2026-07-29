@@ -1,0 +1,1027 @@
+
+
+--- SAYFA 1 ---
+S P E C I A L I S S U E P A P E R
+Modelling material flow using the Milk run and Kanban
+systems in the automotive industry
+Dragan Simic1
+|
+Vasa Svircˇevic2
+|
+Emilio Corchado3
+|
+José L. Calvo-Rolle4
+|
+Svetislav D. Simic1
+|
+Svetlana Simic5
+1Faculty of Technical Sciences, University of
+Novi Sad, Novi Sad, Serbia
+2Lear D.O.O, Novi Sad, Serbia
+3Departamento de Informática y Automática,
+Universidad de Salmanca, Salamanca, Spain
+4Department of Industrial Engineering,
+University of A Coruña, A Coruña, Spain
+5Faculty of Medicine, University of Novi Sad,
+Novi Sad, Serbia
+Correspondence
+Dragan Simic, Faculty of Technical Sciences,
+University of Novi Sad, Trg Dositeja
+Obradovica 6, 21000 Novi Sad, Serbia.
+Email: dsimic@eunet.rs
+Abstract
+Material flow management refers to the analysis and specific optimization of the
+inventory-production system. Material flow can be characterized as the organized
+flow of material in a production process with the required sequence determined by a
+technological procedure. The Milk run system assures the transportation of materials
+at the right time and in an optimal manner. It should be combined with the Kanban
+system to highlight when something is required in the production process. This paper
+presents biological swarm intelligence, in general, and a particular model, particle
+swarm optimization (PSO), for modelling material flow using a Milk run system
+supported by a Kanban system in the automotive industry. The aim of this study is to
+create a new model for the optimal number of trailers for one train and optimal num-
+ber of containers in a tugger train system when the route time period has been
+defined. A new modified PSO approach for integrating inventory-production in a
+unique optimization model is used. The major modification to the original PSO is
+using the capacity of a container instead of a velocity component. Each new Kanban
+trigger is checked, and the total timing for the Milk run delivery solution is calculated
+for the necessary raw material capacity for each shop floor.
+K E Y W O R D S
+Kanban, material flow, Milk run, particle swarm optimization
+1
+|
+INTRODUCTION
+Material flow management refers to the analysis and specific optimization of material and energy flows that arise during the manufacturing of
+products and provision of services. Material flow can be characterized as an organized flow of material in a production process with the required
+sequence determined by a technological procedure. It is a summary of operations presented by material conveying, storage, packaging and
+weighing, and technological manipulations and other works directly related to the production process. Planning and dimensioning material flow
+challenges are difficult to overcome, especially in scenarios characterized by many hard constraints and by well-established processes
+(Wagner, 2006).
+Furthermore, we should differentiate between internal and cross-company material flow management; whereas internal material flow refers
+to the movements of substances or materials within a company (Simic, 2012), cross-company (external) material flow describes the path of a
+material along the value-added chain (Simic, 2015). Thus, successful material flow management links the structural analysis of material flow with
+data available in business information systems with recent paradigms, such as enterprise resource planning, logistics information systems, big data,
+artificial intelligence, in general, and soft-computing techniques, in particular (Ilin, 2017).
+Received: 15 October 2019
+Revised: 21 December 2019
+Accepted: 7 February 2020
+DOI: 10.1111/exsy.12546
+Expert Systems. 2021;38:e12546.
+wileyonlinelibrary.com/journal/exsy
+© 2020 John Wiley & Sons, Ltd
+1 of 15
+https://doi.org/10.1111/exsy.12546
+
+
+--- SAYFA 2 ---
+A Milk run system is one of the most efficient and popular models used to improve logistic operations in every serial production environment
+such as the automotive industry, electrical industry, electronic industry, mechanical industry, food distribution, and military. It can effectively
+reduce inventory, while increasing the material flow between warehouses and shop floors, and the usage rate of the vehicles, therefore decreas-
+ing costs and improving productivity (Simic-1, 2019a, 2019b). The use of a Milk run system is based on tugger trains for industrial material trans-
+portation, which have shown three important tendencies: (a) tugger train systems are being mainly adopted for material supply; (b) adoption of
+tugger train systems has recently increased following a linear trend and (c) the use of tugger train systems in other sectors is consistently growing
+(Urru, 2018).
+However, a Milk run system has some limitations. It must be implemented with other material flow systems, such as a traditional Kanban sys-
+tem, an E-kanban system, some sets of constant work-in-progress (CONWIP) mechanisms, or software for material needs control. Therefore, this
+study focuses on systems that incorporate the existing Milk run production-delivery system presented in (Simic-2, 2019a, 2019b), which regulates
+both the Kanban system and complete material flow in an inventory-production system. The Milk run system assures that inventory is transported
+at the right time and in an optimal way. The objective of this paper is to present the inception of the pull system and the analyses of system per-
+formance based on simulation study.
+This paper presents biological swarm intelligence, in general, and a particular model, the modified particle swarm optimization (PSO), for
+modelling material flow using a Milk run system supported by a Kanban system for use in the automotive industry. The aim of this research is to
+create model to minimize inventory-production costs.
+The rest of the paper is organized as follows: Section 2 provides an overview of material flow management and a review of related studies.
+Section 3 describes the PSO implemented in material flow using the Milk run system and Kanban system. This section also describes the dataset
+used in the implementation. Experimental results and a discussion are presented in Section 4, and finally, Section 5 gives the concluding remarks.
+2
+|
+MATERIAL FLOW AND RELATED WORK
+The term material flow covers a broad spectrum of methods and approaches in the literature. Most contemporary organizations are facing many
+dilemmas, the most important being determination of ways of acquiring or maintaining their position in a competitive environment. Endeavours
+to reduce inventory, in the context of operation management, are often related to lean manufacturing, which focuses on removing waste from
+activities and processes that do not add value to products, thus creating an efficient inventory-production system (Chen, 2010).
+The strategic aim of all production enterprises is to achieve the highest profit possible. Toward this end, attributes of lean production that are
+related to and support the reduction of production costs are used. By using theoretical knowledge and a detailed analysis of a material flow,
+including mapping of individual production processes, it is possible to obtain the necessary data sets that identify savings options by increasing
+efficiency, including cost savings. The methods for modelling and simulation used for the optimization of material flow are presented in
+(Kodym, 2019).
+Competitive prevalence can be achieved by analysing and optimizing material flow, which contributes to a reduction of the company costs.
+Material flow in a production organization shows how the production system is organized. In research paper (Krolczyk, 2015), the current state of
+material flow in a production company in the automotive sector is analysed. Material flow optimization has been proposed, and it consists of the
+creation of a program of internal transport and optimization of the location of the working stands on the shop floors. Furthermore, the current
+problems of the company's internal transport system are highlighted and solutions to those problems are proposed.
+Material handling of flow is one of the most crucial issues that should be considered to eliminate waste and reduce the cost and delivery of
+the product based on the “just in time” method. An effective transportation management system optimized with the Milk run concept, must be
+implemented to control the cost of transportation and inventory. The Milk run material supply system consists of cyclic trips, where goods are col-
+lected from one supplier and delivered to several customers. The objective of this optimization is minimization of the total material handling and
+inventory holding costs, which could boost sales or increase the profit margin of the organization (Patel, 2017).
+A systematic approach which consists of Milk run route optimization with a mixed integer linear programming model that comprises a con-
+tainer loading heuristic that increases the utilization of Milk run vehicles and a time interval assignment heuristic that prevents overlapping of Milk
+run vehicles at the depots of a manufacturer has been proposed in (Aksoy, 2016).
+A mixed-integer nonlinear programming (MINLP) model to determine the number of Kanban and the transported batch size in a multistage
+supply chain system was developed in (Sarker, 1998). In this regard, the objective was to minimize inventory holding, transportation of each con-
+tainer, and setup costs.
+System metaheuristic methods are used to determine the optimal Kanban quantity and withdrawal lot sizes in a supply chain. A genetic algo-
+rithm and a hybrid of a genetic algorithm and simulated annealing (SA) are used (Widyadana, 2010). To reduce the computational time required to
+obtain an optimal solution, PSO and SA algorithms as metaheuristic methods are used to solve a large MINLP to determine the number of Kanban
+in a cellular manufacturing system with consideration of the rework process (Aghajani, 2012).
+2 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 3 ---
+A case study and simulation analysis on a Kanban system incorporating a Milk run operation used to add raw materials to the production pro-
+cess is presented in (Chee, 2012). Here, the study data were collected for 10 weeks. The proposed Kanban model was simulated to test its various
+performances including total output, average flow time, average work-in-process, and average waiting time. Response surface methodology was
+adopted to generate suitable representative regression models. For all performance measures, the simulation results revealed that the proposed
+system consistently outperforms the push system currently used in the company. The operators in the proposed Kanban system have a lower uti-
+lization, even with the additional material handling task.
+The problems of transportation planning have characteristics that match the specific skills of multi agent systems (MAS). These systems are
+able to cope with inter-organizational and event-oriented planning. The study presented in (Pinheiro, 2019) evaluates different collaboration strat-
+egies for dynamic vehicle routing and autonomous vehicle interaction as well as communication between vehicles in Milk run operations using
+MAS, which allow vehicle interaction and autonomous responses in unplanned events. Auxiliary vehicles are used to meet the tasks that cannot
+be met by regular vehicles with unnecessary additional cost.
+In the logistics system, there are many assembly plants and numerous part suppliers located in close proximity to each other. The suppliers
+collect the parts and transport them to the assembly plants in the small-batch and multi-frequency mode. A multi-factory Milk run pickup problem
+with uncertain demand and frequency in China’s automobile industry is presented in (Wu, 2018). Considering the balance between inventory cost
+and distribution cost, a mixed-integer programming model was built for this problem and converted into a robust optimization model by the
+Chernoff–Hoeffding theorem. Then the adaptive genetic algorithm and local search were combined into a general hybrid heuristic algorithm to
+successful solve the problem.
+The fundamental inventory-production problem that needs to be solved is the problem of bringing each component to the line only at the
+moment and at the quantity needed to feed the assembly line. The introduction of decentralized storage areas, called supermarkets (SM) made it
+possible for frequent deliveries of small batches of components to be made (Emde, 2017). Supermarkets are located between the production line
+and the central warehouse. A discrete event simulation model is developed, and a mathematical model based on a PSO optimization is used to
+support the simulation. The hybrid model is finally applied to practical situations and presented in (Kundua, 2019).
+The practical implementation of a Milk run system by Toyota Group in automotive factories in Indonesia was analysed in (Hardi, 2019). The
+Milk run system was designed to collect goods from two or more suppliers and send them to the customer. At the same time, the capacity of a
+truck was optimized to increase the cargo for fully loaded distribution. The time and number of pickup schedules of the Milk run determine the
+performance of the logistics system, while the route design and scheduling are the key factors that have an impact on the cost and also determine
+the smoothness of the continuous pickup. The key goal of a Milk run operation is to minimize the inventory (holding) cost and transportation cost.
+The advantage of a Milk run operation is cost reduction, but it also supports green logistics by decreasing carbon dioxide emissions (CO2) by
+reducing the number of trucks used.
+An optimization model implemented in a hybrid environment that contains constraint logic programming, mathematical programming, and
+metaheuristics for the capacitated vehicle routing problem with pick-up and alternative delivery is presented in (Sitek, 2019). The zero-inventory
+approach, which has been widely adopted by many automobile companies, seems to be impractical in certain real production contexts as it
+requires an inventory of all parts but in low amounts. A mixed integer programming formulation for a new model that can simultaneously deter-
+mine the trip routes for collecting automobile parts and minimize total production costs and inbound logistics is shown in (Mao, 2019).
+3
+|
+MODELLING THE MILK RUN AND KANBAN SYSTEM IN MATERIAL FLOW
+To obtain a perfect inventory-production system based on the Milk run system, most of the operations should be automated and controlled. Over
+the years, many production control systems have been proposed within various factories, such as push-like buffered production lines, pull-like
+Kanban systems, and hybrid-like CONWIP (Song, 2013). For buffered production lines the input quantities are the sizes of the buffers between
+each of the machines, that is, the workplaces. For Kanban systems, the input quantities are the number of production and transfer Kanbans. For
+CONWIP systems, there is only one input quantity, which is the number of CONWIP cards (Herer, 2000).
+3.1
+|
+Milk run system
+The basic planning process of a Milk run system is divided in four phases, as is shown in Figure 1. Every choice made in one phase impacts the
+next. This impact is not easily assessable until all the planning has been completed. Therefore, the planning process is based on a loop system so
+that, in every planning phase, decisions made in the previous phases can be called into question, and relevant parameters may be adjusted. This
+planning approach requires a high level of expertise and competence to ensure that the right adjustments are made and a consistent and useful
+result is obtained.
+SIMIc ET AL.
+3 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 4 ---
+FIGURE 1
+Planning phases of a Milk run system
+FIGURE 2
+Steps of the dimensioning system of a Milk run system
+4 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 5 ---
+The system dimensioning phase will be tackled here, and a new method will be introduced (Figure 2.). It will, therefore, be possible to follow,
+from the early stage of the dimensioning phase, both the material-flow and the information-flow, together with other requirements that charac-
+terize a typical scenario in enterprises where freedom of logistic planner is often restricted.
+Accordingly, the development of a homogeneous perception of material flows and information flows is one of the central tasks of material
+flow management.
+3.2
+|
+Kanban system
+Kanban systems were initially developed in Japan to manage multistage manufacturing systems. Every manufacturing stage has a target local
+inventory level for the local inventories, where the local inventory can be considered the inventory space at one shop floor. The customer demand
+information is transmitted upward stage by stage.
+More specifically, it states that, whenever an item is withdrawn from the local inventory, a card is issued to the corresponding production unit
+to signal that a new part should be produced (Duri, 2000). This policy also operates on a pull mechanism. Its advantage is that the number of parts
+at each stage is limited by the number of Kanbans at that stage. The disadvantages are the indirect flow of demand information from customers
+to suppliers and the lack of utilization of the inventory information at downstream stages.
+A CONWIP system can be viewed as a single stage Kanban system, in which a single type of card is used to control the total amount of inven-
+tories permitted in the entire system. Essentially, only one target inventory level for the entire system is triggered when the most upstream pro-
+duction unit needs to produce a new part (Takahashi, 2005).
+Traditionally, a Kanban is a tag-like card (Kanban is Japanese meaning “a card” or “visible record”). One Kanban card must be attached to each
+container in the output store. The number of Kanbans is limited, restricting the maximum number of finished items in the system. When a con-
+tainer is withdrawn, the accompanying Kanban is detached from the container and placed on the scheduling board. Alternatively, the Kanban may
+be detached when the last item is removed from the container or box. Figure 3 shows the basic Kanban system with three different products
+(Krieg, 2005).
+3.3
+|
+PSO algorithm
+The original PSO algorithm was inspired by the social behaviour of biological organisms, specifically the ability of groups of some species of ani-
+mals to work, as one, in locating desirable positions in a particular area, for example, birds flocking to a food source.
+PSO is originally attributed to Kennedy and Eberhart (Kennedy, 1995). The PSO algorithm is comprised of a collection of particles that move
+around the search space. An individual particle i is composed of three vectors: its position in the N-dimensional search space of solutions xi! = (xi1,
+xi2,…, xiN), the best position that it has individually found pi! = (pi1, pi2,…, piN), and its velocity vi! = (vi1, vi2,…, viN). Particles were originally initialized
+in a uniform random manner throughout the search space; the velocity was also randomly initialized. These are also weighted matrixes rp, rg
+dimensions—search space x time horizon—where items are random numbers of a unimodal distribution in the range U < 0, 1>. These collections of
+FIGURE 3
+Basic Kanban system with three different products (Krieg, 2005)
+SIMIc ET AL.
+5 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 6 ---
+particles then move throughout the search space influenced by their own best past location and the best past location of the entire swarm or a
+close neighbour.
+The Euclidian neighbourhood model was abandoned in favour of less computationally intensive models for mathematical optimization. Each
+iteration particle’s velocity is updated using.
+vi k + 1
+ð
+Þ ωvi k
+ð Þ + c1rp bi −xi k
+ð Þ
+ð
+Þ + c2rg hi k
+ð Þ−xi k
+ð Þ
+ð
+Þ
+ð1Þ
+where ω = 1 is the inertia weight; c1 = 2 is the personal learning coefficient; c2 = 2 is global learning coefficient; vi(k + 1) is the new velocity for
+the ith particle; xi(k) is the ith particle's position at time k; bi is the ith particle's best-known position; and hi(k) is the best position known to the
+swarm. Furthermore, a random matrix rp(k)  U < 0, 1 > for k ∈[1, N] and another random matrix rg(k)  U < 0, 1 > for k ∈[1, N] are generated. A
+particle’s position is updated using xi(k + 1) xi(k) + νi(k) . In a PSO cycle, this process is repeated for all particles (individuals) in all the next gener-
+ations. Algorithm 1 presents the PSO algorithm used in this study, where the entire swarm is updated at each step by updating the velocity and
+position of each particle in every dimension when the termination criteria is not satisfied or MaxIt maximal number of iterations is not satisfied.
+Algorithm 1 The Particle Swarm Optimization algorithm
+Begin
+Step 1:
+Initialization. A random population of individuals {xi}, i ∈[1,N]
+Each individual’s i-element velocity vector {vi}, i ∈[1,N]
+The best-so-far position of each individuals: bi xi, i ∈[1,N]
+Neighbourhood size σ < N; nPop= 150; Pop. Size; Max. velocity, vmax;
+MaxIt=1000; Max. Num. of Iter. w=1;Inertia weight
+c1=2; Personal Learning Coeff.; c2=2;Global Learning Coeff.
+Step 2:
+While (the termination criteria are not satisfied) or (MaxIt = 1000)
+Step 3:
+for each individual xi, i ∈[1, N]
+Hi {σ nearest neighbors of xi }
+hi arg min x {f(x) : x ∈Hi }
+Generate a random matrix rp(k) U <0, 1> for k ∈[1, N]
+Generate a random matrix rg(k) U <0, 1> for k ∈[1, N]
+vi(k) ω vi(k) + c1 rp (bi −xi(k)) + c2 rg (hi(k) −xi(k))
+if |vi (k)| > vmax then
+vi (k) vi (k) vmax / | vi (k)|
+end if
+xi(k) xi(k) + νi(k)
+bi argmin{f(xi(k)), f(bi)}
+end for i Next individual
+Step 4:
+end while
+Next generation
+Step 5:
+Post-processing the results and visualization;
+End.
+3.4
+|
+Modified particle swarm optimization algorithm for the Milk run and Kanban systems
+Some modifications of the PSO algorithm have been developed for tugger train planning using Milk run and Kanban systems. Daily delivery of
+products from the SM to the Kanban shop floor shelves, in a warehouse in Kanban locations where workers place the products according to the
+plan for every part (PFEP) in their proper positions, hourly, or according to the production plan.
+The major aim of the optimization is to deliver the missing parts from the SM warehouse to the shop floor (assembly location) before the
+parts are needed. As the modified PSO Algorithm is a continuous solution for the problems of dynamic routing of the tugger train transport capac-
+ities and those generated during the inventory-production operations according to the priority of the parts needed, the major modification to the
+original PSO is use of the capacity of a container instead of a velocity component, as the tugger train transport operations and capacities are on
+6 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 7 ---
+predefined paths. At each step, a new trigger is checked, and the total timing for the delivery solution is calculated for the necessary raw material
+capacity of the assembly line:
+f Cj
+t + 1
+
+
+= wtf Cj
+t
+
+
++ c1r1 pj
+t −xj
+t
+
+
++ c2r2 pq
+t −xj
+t
+
+
+ð2Þ
+where f Cj
+t
+
+
+: is the target capacity function as indexed; pq
+t is the global minimum capacity with the selected target among the farthest target; jth
+is the Kanban shop floor; pj
+t is Kanban product level at current time t in position i.
+capj
+toGo =
+XtoWarehouse + XtoAssemblyshop
+rawmaterial replenishment frequency
+ð3Þ
+capp
+toProduction = Abs Ap
+missing −Ak
+production
+
+
+× qk
+ð4Þ
+where Ap
+missing is the assembly number to which the missing part p belongs; Ak
+production is the current assembly not within the assembly location
+k; and qk is time, which is defined as (1/raw material replenishment frequency).
+To optimize the inventory-production system, the main objective is to minimize the total available capacity.
+minimize
+X
+#of trigger
+i = 1
+capp
+toProduction −capj
+toGo
+ð5Þ
+Finally, the most important constraint is 8p∈{trigger} capj
+toGo ≤capp
+toProduction , which provides, on one hand, the minimum capacity in tugger
+train transport, and on the other, the minimum capacity on the shop floor, and a smooth inventory-production process at the same time.
+FIGURE 4
+Inventory-production system layout and space constraints
+SIMIc ET AL.
+7 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 8 ---
+Algorithm 2 The Modified Particle Swarm Optimization algorithm
+Begin
+Step 1:
+Initialization. A random population of individuals {xj}, j ∈[1,N]
+Each individual’s j-element capacity vector {Cj}, j ∈[1,N]
+The best capacity of each individuals: capj xj, j ∈[1,N]
+Neighbourhood size σ< N ; nPop= 150; Pop. Size; Max. capacity,
+capmax; MaxIt = 1000; Max. Num. of Iter. w = 1; Inertia weight
+c1 = 2; Personal Learning Coeff.; c2 = 2; Global Learning Coeff.
+Step 2:
+While (the termination criteria is not satisfied) or (MaxIt = 1000)
+Step 3:
+for each individual xj, j ∈[1,N]
+Hj {σ nearest neighbors of xj}
+Hj {σ nearest neighbors of xj }
+hj arg min x {f(x) : x ∈Hj }
+Generate a random matrix r1(k)  U <0, 1> for j ∈[1, N]
+Generate a random matrix r2(k)  U <0, 1> for j ∈[1, N]
+f Cj
+tþ1
+
+
+¼ wtf Cj
+t
+
+
+þc1r1 pj
+t −xj
+t
+
+
+þc2r2 pq
+t −xj
+t
+
+
+if |Cj
+t+1| > capmax then
+Cj
+t+1 Cj
+t+1 capmax / | Cj
+t|
+end if
+capj
+toGo ¼
+XtoWarehouseþXtoAssemblyshop
+rawmaterial replenishment frequency
+capp
+toProduction ¼ Abs Ap
+missing −Ak
+production
+
+
+× qk
+minimize
+P
+#of trigger
+i¼1
+capp
+toProduction −capj
+toGo
+end for j Next individual
+Step 4:
+end while Next generation
+Step 5:
+Post-processing the results and visualization;
+End.
+3.5
+|
+Collection of input data
+The first step of the method is collection of input data. Generally, the input data are based on the decisions the planner has made in the identifica-
+tion of constraints and system design phases, such as the data concern layout and space constraints of the inventory-production system, and the
+number of buffer places available at each stop (shop floors: S1, S2, S3, S4, and S5), which is presented in Figure 4.The Milk run area is often called
+the SM. It is located between the production line and the central warehouse and allows frequent deliveries of small batches of components.
+This set of data is fundamental because it has a direct influence on the planning results and on the system evaluation, which is the last phase
+of the complete system planning process. Item-related data are usually collected in a document called the PFEP (Harris, 2003). This document,
+which is presented as a table, offers information about every item or part needed for production, logistics, and procurement. Typically, the PFEP
+is an exhaustive document. This means that, for every item, an extensive amount of information is available, most of which is not directly related
+to the dimensioning phase of the tugger train planning.
+The proposed system works in the following way: (a) at the beginning of a production process, the tugger train delivers raw material needed
+for production, which are packed in different container types (small boxes, medium boxes, big boxes, and spools) according to the PFEP (Table 1.),
+from central warehouse to SM (Figure 4); (b) from the SM, the tugger train delivers each item or part needed for production to the shop floors
+(S1, S2, S3, S4, and S5 in Figure 4),where raw materials are stored according to the PFEP; (c) when the production process starts, raw materials
+are used and the number of stored containers decreases; (d) the finished goods are made on the last shop floor, that is, S5; (e) using each raw
+material container generates a trigger signal, which then calculates raw material replenishment after every trigger when Kanban system is gener-
+ated; (f) then the calculation shows the number of raw material containers which are required on the shop floor on which the Kanban trigger is
+generated; (g) the raw material containers are prepared and loaded on to the next tugger train; (h) the tugger train leaves the SM and moves along
+the defined trajectory stopping on each shop floor (S1, S2, S3, S4, and S5), where it is necessary to unload raw material containers; (i) raw material
+containers are unloaded on the last shop floor S5, and the finished goods are picked up; (j) the tugger train goes to the SM, where finish goods get
+8 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 9 ---
+unloaded; (k) while the production process is underway, the Kanban triggers are generated, and the loading of raw material containers continues in
+the SM, and the inventory-production process is repeated in cycles from point (e) to point (k).
+The characteristics of the production system are as follows: time needed to produce one final good is 1 minute, which means 60 pieces are
+produced per hour. The characteristics of the Milk run system are as follows: (a) average speed = 4 [km/hr]; (b) length of route = 265 [m]; and (c) time
+for loading in SM = 4 [minute].
+4
+|
+EXPERIMENTAL RESULTS AND DISCUSSION
+According to the Milk run system characteristics, that is, the average speed, length of route, time for loading in SM, and a plan for every part, which
+was proposed in a previous study (Simic-2, 2019a, 2019b), new optimal characteristics of the Milk run system in the automotive industry are
+shown.
+TABLE 2
+Train parameters for a train sequence of 20 minutes
+Train sequence
+20 (min)
+Needs
+per hour
+Number of containers per
+trailer
+Needed trailers
+per hour
+Needed trailers per
+sequence
+% of train
+space
+Small box
+9.86
+25
+0.3944
+0.131466667
+4%
+Medium box
+5.79
+2
+2.895
+0.965
+27%
+Big box
+6
+1
+6
+2
+56%
+Spool
+2.88
+2
+1.44
+0.48
+13%
+10.7294
+3.576466667
+By the 11 trailer per hour
+Must have 4 trailers per train
+TABLE 1
+Plan for every part (PFEP) and number of pieces in one finished good
+Material
+description
+Bill of Material for
+one FG
+Production needs
+per hour
+Pieces per
+container
+Number of containers
+per hour
+Container
+type
+Material 1
+10
+600
+2,500
+0.2400
+Small box
+Material 2
+10
+600
+600
+1.0000
+Small box
+Material 3
+2
+120
+1,000
+0.1200
+Small box
+Material 4
+5
+300
+6,500
+0.0462
+Small box
+Material 5
+5
+300
+5,000
+0.0600
+Small box
+Material 6
+1
+60
+168
+0.3571
+Medium box
+Material 7
+1
+60
+68
+0.8824
+Medium box
+Material 8
+5
+300
+1,000
+0.3000
+Small box
+Material 9
+32
+1920
+576
+3.3333
+Small box
+Material 10
+1
+60
+60
+1.0000
+Medium box
+Material 11
+1
+60
+52
+1.1538
+Medium box
+Material 12
+1
+60
+20
+3.0000
+Big box
+Material 13
+1
+60
+48
+1.2500
+Small box
+Material 14
+1
+60
+25
+2.4000
+Medium box
+Material 15
+1
+60
+20
+3.0000
+Big box
+Material 16
+1
+60
+54
+1.1111
+Small box
+Material 17
+24
+1,440
+500
+2.8800
+Spool
+Material 18
+20
+1,200
+1,000
+1.2000
+Small box
+Material 19
+20
+1,200
+1,000
+1.2000
+Small box
+Abbreviation: FG, final good.
+SIMIc ET AL.
+9 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 10 ---
+4.1
+|
+Experimental results for the Milk run system
+The goal of this study is to realize an optimal Milk run tact per train (raw material replenishment frequency) of 20 [minute]; therefore, the total num-
+bers of trains per hour is defined as 3 (route frequency). Table 2 shows the Milk run calculation for train parameters for a raw material replenishment
+frequency (train sequence) of 20 minutes, and it presents the average value calculated for 1 hr. The value, 3.57, suggests that four trailers per train
+are necessary for a continuous production process.
+Recent research extends the existing Milk run system in combination with the Kanban system as a raw material trigger to the inventory-
+production system in the automotive industry. As mentioned before, the Milk run system presents only the average value calculated for 1 hr, but
+recent research calculates the raw material replenishment after every trigger when the Kanban system is generated.
+TABLE 3
+Milk run and Kanban inventory-production system in 30 iterations (Itr.); number of Kanban cards—containers (Kanban #); stock level
+in shop floor (Stock Level); raw material replenishment (Replen.); cumulative consumption(Cu. Con.), % until Trigger level (Trigger point)
+10 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 11 ---
+4.2
+|
+Experimental results for the Milk run and Kanban systems
+According to the nature of PSO, the experiment is repeated 100 times with the data collection and experimental results to optimize the
+inventory-production system for minimizing the total available capacity. In particular, (a) the inventory capacity in super market, (b) the capacity in
+tugger train transportation, and (c) material stock level on shop floor should be minimized; furthermore, a smooth inventory-production process
+should be achieved.
+In this research, the term iteration presents the Milk Run tact per train in 20 minutes. The Inventory analysis for 30 Iterations for only three raw
+materials, Material 2, Material 6, and Material 9, is presented in Table 3.
+Table 3 presents the Milk run and Kanban inventory-production system in 30 iterations. It should be noted that there are different numbers of Kan-
+ban cards for different products, thereby indicating that, at the beginning of a production process, there are different numbers of containers on different
+shop floors. The table presents the number of Kanban cards (containers), stock level in shop floor; raw material replenishment; and cumulative consumption
+until the trigger level. The trigger level after every iteration increases, for every raw material, and when it reaches the Trigger point, the Kanban system
+generates information that the existing shop floor needs raw material replenishment—new container(s)—which is marked as YELLOW in Table 3.
+After every iteration, usually, some Trigger points are generated. At that moment, the workers in the SM start to prepare the needed raw
+material containers. One iteration is necessary for preparation of the raw material containers, and the next iteration is used for the delivery of the
+raw material containers. After the Kanban trigger point is reached, two iterations are necessary for delivering the raw material replenishment con-
+tainer to the Kanban shop floor. This point is marked GREEN in Table 3. The entire inventory-production process continues from Trigger point,
+that is, SM preparation of raw material containers, loading of the raw material containers on tugger train trailers in the SM, transportation of the
+raw materials, delivery of the containers to the Kanban shop floor, which generates the Kanban Trigger point, and picking-up of finished goods
+from the last shop floor.
+The capacities of a trailer and loading of the trailer in a tugger train after the Kanban trigger point is reached after the third, thirteenth, twenty-third,
+and twenty-sixth iteration are presented in Tables 4–7. Table 4 presents the experimental results of used capacities in the tugger train in the third itera-
+tion. It is also presents the number of iterations (iteration), number of pieces (pie.), maximum number of pieces per trail for different container types
+(ma.), number of pieces in trailers from one (I) to five (V) in one tugger train, and the capacities for each trailer and for the entire tugger train.
+TABLE 4
+Capacity of a trailer of the
+tugger train after three iterations
+iteration
+pie.
+ma.
+trailers
+3
+I
+II
+III
+IV
+V
+Small box
+1
+25
+1
+Medium b.
+0
+2
+Big box
+2
+1
+1
+1
+Spool
+2
+3
+1.00
+1.00
+0.04
+0.00
+0.00
+2.04
+FIGURE 5
+Capacities of a tugger train after the Kanban trigger;
+loading the containers in the trailers for the first 30 iterations
+SIMIc ET AL.
+11 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 12 ---
+It is important to notice that the used capacities in the tugger train go from a minimum of 2.04 to a maximum of 4.62. The average value is
+3.51, and the SD is ±0.49. The used capacities in the tugger train are presented in Figure 5. This means that the minimum capacity of 2.04 trans-
+lates into three trailers, and the maximum capacity of 4.62 translates into five trailers, which indicates that the used tugger train transportation
+system has five trailers. The characteristic values of the capacities of a trailer and loading the trailer of a tugger train, after the Kanban trigger, are
+presented in Tables 4–7 and in Figure 5.
+It is interesting to compare the existing Milk run production-delivery system presented in (Simic-2, 2019a, 2019b) and experimental results of
+recent research where Milk run is extended with the Kanban system. On one hand, the Milk run production-delivery system shows a value of 3.57,
+which translates into four trailers per train, without PSO optimization. On the other hand, the Milk run and Kanban system supported with PSO
+optimization present a trailer capacity of 3.51 ± 0.49, which also translates into four trailers per train. It could be concluded that, with different ini-
+tial values and some constraints, it is probably possible to optimize this inventory-production process with four trailers per train.
+However, this opens a new chapter of research, “How to Calculate the Initial Value of Iteration” for this optimization and which new constraints
+could be added to the inventory-production process. The problem regarding the initial values can be solved as follows: (a) number of Kanban cards—
+containers at the beginning of a production process, (b) but it opens discussion of inventory space, number of shelves, (c) and design of every shop
+floor, (d) and/or usage of different means for industrial material transportation in inbound logistics. All these ideas open new fields of future research.
+4.3
+|
+Benefits and limitations of the Milk run and Kanban systems
+Companies that implement Milk run and Kanban systems as a concept of internal material flow reap various benefits. This system can be
+implemented in every serial production environment such as those in the electrical industry, electronic industry, mechanical industry. It helps to
+TABLE 5
+Capacity of a trailer of the
+tugger train after 30 iterations
+iteration
+pie.
+ma.
+trailers
+13
+I
+II
+III
+IV
+V
+Small box
+2
+25
+2
+Medium b.
+2
+2
+2
+Big box
+2
+1
+1
+1
+Spool
+1
+2
+1
+7
+1.00
+1.00
+1.00
+0.58
+0.00
+3.58
+TABLE 6
+Capacity of a trailer of the
+tugger train after 23 iterations
+iteration
+pie.
+ma.
+trailers
+23
+I
+II
+III
+IV
+V
+Small box
+2
+25
+2
+Medium b.
+3
+2
+2
+1
+Big box
+2
+1
+1
+1
+Spool
+1
+2
+1
+8
+1.00
+1.00
+1.00
+1.00
+0.08
+4.08
+TABLE 7
+Capacity of a trailer of the
+tugger train after 26 iterations
+iteration
+pie.
+ma.
+trailers
+26
+I
+II
+III
+IV
+V
+Small box
+3
+25
+3
+Medium b.
+4
+2
+2
+2
+Big box
+2
+1
+1
+1
+Spool
+1
+2
+1
+10
+1.00
+1.00
+1.00
+1.00
+0.62
+4.62
+12 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 13 ---
+reduce or eliminate many different types of waste in accordance with the principles of lean production. The Milk run optimizes transport capacity
+usage because of the transportation of both full and empty containers containing raw materials and finished goods. It assures continuous produc-
+tion, eliminating production stoppages due to missing material. Additionally, the Milk run reduces the material handling space in production; thus,
+there is more free space for production activities.
+The Milk run system is combined with the Kanban system because the Kanban system highlights when something is needed in the production
+line, and the Milk run assures that it is transported at the right time and in an optimal way. On the other hand, these systems are suitable for
+extremely big production companies. In general, good implementation takes a relatively long time to achieve. Practice has shown that good imple-
+mentation of the system can be achieved in approximately 2–3 years.
+The implementation of the Milk run and Kanban systems could generate positive economic benefits for companies because of material flow
+optimization. Material lots could become smaller, and there would be a smaller quantity of material in circulation, which translates into significant
+inventory reduction. Furthermore, optimized transport requires less human and transport resources. It is important to note that the inventory is a
+burden to a company because inventory is trapped capital and it is therefore desirable for inventory levels to be as low as possible.
+5
+|
+CONCLUSION AND FUTURE WORK
+A biological swarm intelligence model comprising particle swarm optimization for modelling material flow optimization using Milk run and Kanban
+systems in automotive industry is presented in this paper. The proposed models optimize the inventory-production system for minimizing the
+total available capacity by (a) minimizing inventory capacity in the supermarket, (b) minimizing capacity in tugger train transport, and (c) minimizing
+material stock level on shop floor. At the same time, a smooth inventory-production process is achieved.
+The new modified PSO model for the inventory-production system in a unique optimization model is presented in this paper. The major modifi-
+cation to the original PSO is using the capacity of a container instead of a velocity component. For each Kanban trigger, the total timing for the Milk
+run delivery for the necessary raw materials, capacity of every shop floor, and capacity of the trailers of the tugger train are calculated. In the pro-
+posed system, the capacity of the container and the quantity of material in circulation are decreased, which presents significant inventory reduction.
+Experimental results encourage further research. On one hand, the proposed system could be improved by using soft computing techniques,
+which could stabilize deviation of the number of trails, or changing the number of Kanban cards (containers at the beginning of a production pro-
+cess) and improving the inventory-production process. The optimization method, PSO, has several parameters that determine its behaviour and
+efficacy. Future studies could explore how to calculate the initial value of iteration for this optimization model and which new constraints could
+be added in this specific production process. Future work could focus on extending research on good choice of parameters to various optimization
+scenarios, which should help production managers to achieve different solutions and make better operational solutions and achieve production
+results with little effort.
+CONFLICT OF INTEREST
+None.
+ORCID
+Dragan Simic
+https://orcid.org/0000-0001-7392-9767
+REFERENCES
+Aghajani, M., Keramati, A., & Javadi, B. (2012). Determination of number of kanban in a cellular manufacturing system with considering rework process.
+The International Journal of Advanced Manufacturing Technology, 63, 1177–1189. https://doi.org/10.1007/s00170-012-3973-y
+Aksoy, A., & Öztürk, N. (2016). A two-stage method to optimize the milk-run system. European Journal of Engineering Research and Science, 1, 7–11.
+Chee, S. L., Chong, M. Y., & Chin, J. F. (2012). Milk-run kanban system for raw printed circuit board withdrawal to surface-mounted equipment. Journal of
+Industrial Engineering and Management, 5, 382–405. https://doi.org/10.3926/jiem.352
+Chen, L., & Meng, B. (2010). Application of value stream mapping based lean production system. International Journal of Business and Management, 5,
+203–209.
+Duri, D., Frein, Y., & Di Mascolo, M. (2000). Comparison among three pull control policies: Kanban, base stock, and generalized kanban. Annals of Operations
+Research, 93, 41–69. https://doi.org/10.1023/A:1018919806139
+Emde, S., & Gendreau, M. (2017). Scheduling in-house transport vehicles to feed parts to automotive assembly lines. European Journal of Operational
+Research, 260, 255–267. https://doi.org/10.1016/j.ejor.2016.12.012
+Hardi, H. P., Fitra, A., & Nindiani, A. (2019). Control and integration of milk-run operation in Japanese automotive company in Indonesia. Management and
+Production Engineering Review, 10, 79–88. doi:10.24425/mper.2019.128246
+Harris, R., Harris, C., & Wilson, E. (2003). Making materials flow. Boston, MA, USA: Lean Enterprise Institute.
+Herer, Y. T., & Shalom, L. (2000). The Kanban assignment problem—A non-integral approach. European Journal of Operational Research, 120, 260–276.
+https://doi.org/10.1016/S0377-2217(99)00155-1
+SIMIc ET AL.
+13 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 14 ---
+Ilin, V., Ivetic, J., & Simic, D. (2017). Understanding the determinants of e-business adoption in ERP-enabled firms and non-ERP-enabled firms: A case study
+of the Western Balkan Peninsula. Technological Forecasting and Social Change, 125, 206–223. https://doi.org/10.1016/j.techfore.2017.07.025
+Kennedy, J., & Eberhart, R. (1995). Particle swarm optimization. IEEE International Conference on Neural Networks, 4, 1942–1948. https://doi.org/10.1109/
+ICNN.1995.488968
+Kodym, O., Čujan, Z., Turek, M., & Mikušová, N. (2019). Optimization of material flow using simulation. MATEC Web of Conferences, 263. https://doi.org/
+10.1051/matecconf/201926301007
+Krieg, G. (2005). Kanban-controlled manufacturing systems. Berlin, Heidelberg: Springer-Verlag.
+Krolczyk, J. B., Krolczyk, G. M., Legutko, S., Napiorkowski, J., Hloch, S., Foltys, J., & Tama, E. (2015). Material flow optimization—A case study in automotive
+industry. Tehnicˇki Vjesnik—Technical Gazette, 22, 1447–1456. doi:10.17559/TV-20141114195649
+Kundua, K., Rossini, M., & Portioli-Staudacher, A. (2019). A study of a kanban based assembly line feeding system through integration of simulation and
+particle swarm optimization. International Journal of Industrial Engineering Computations, 10, 421–442. https://doi.org/10.5267/j.ijiec.2018.12.001
+Mao, Z., Huang, D., Fang, K., Wang, C., & Lu, D. (2019). Milk-run routing problem with progress-lane in the collection of automobile parts. Annals of Opera-
+tions Research. https://doi.org/10.1007/s10479-019-03218-x
+Patel, D. R. (2017). Design and optimization of Milk-run material supply system with simultaneous pickups and deliveries in time windows. (Ph.D. thesis). Gujarat
+Technological University, Ahmedabad, India.
+Pinheiro, D. A., Jr., Galv~ao, A. N. N., & Mendes, M. M. L. (2019). An agent-based approach to evaluate collaborative strategies in milk-run OEM operations.
+Computers & Industrial Engineering, 129, 545–555. https://doi.org/10.1016/j.cie.2019.01.026
+Sarker, B. R., & Balan, C. V. (1998). Operations planning for a single-stage kanban system operating under linear demand. International Journal of Production
+Research, 36, 357–375. https://doi.org/10.1080/002075498193787
+Simic, D., & Simic, S. (2012). Hybrid artificial intelligence approaches on vehicle routing problem in logistics distribution. In Hybrid artificial intelligence sys-
+tems, lecture notes in computer science (Vol. 7208, pp. 208–220). Berlin, Heidelberg: Springer. https://doi.org/10.1007/978-3-642-28942-2_19
+Simic, D., Kovacˇevic, I., Svircˇevic, V., & Simic, S. (2015). Hybrid firefly model in routing heterogeneous fleet of vehicles in logistics distribution. Logic Journal
+of the IGPL, 23, 521–532. https://doi.org/10.1093/jigpal/jzv011
+Simic, D., Svircˇevic, V., Ilin, V., Simic, S. D., & Simic, S. (2019a). Particle swarm optimization and pure adaptive search in finish goods' inventory manage-
+ment. Cybernetics and Systems, 50, 58–77. https://doi.org/10.1080/01969722.2018.1558014
+Simic, D., Svircˇevic, V., Ilin, V., Simic, S. D., & Simic, S. (2019b). Material flow optimization using milk run system in automotive industry. In Advances in intel-
+ligent systems and computing (Vol. 950, pp. 411–421). Cham, Switzerland: Springer. https://doi.org/10.1007/978-3-030-20055-8_39
+Sitek, P., & Wikarek, J. (2019). Capacitated vehicle routing problem with pick-up and alternative delivery (CVRPPAD): Model and implementation using
+hybrid approach. Annals of Operations Research, 273, 257–277. https://doi.org/10.1007/s10479-017-2722-x
+Song, D. P. (2013). Optimal control and optimization of stochastic supply chain systems. London, England: Springer–Verlag.
+Takahashi, K., & Myreshka, & Hirotani, D. (2005). Comparing CONWIP, synchronized CONWIP and kanban in complex supply chains. International Journal
+of Production Economics, 93–94, 25–40. https://doi.org/10.1016/j.ijpe.2004.06.003
+Urru, A., Bonini, M., & Echelmeyer, W. (2018). Planning of a milk-run systems in high constrained industrial scenarios. In Proceeding of 22nd IEEE interna-
+tional conference on intelligent engineering systems (pp. 231–238). Las Palmas de Gran Canaria, Spain: IEEE. https://doi.org/10.1109/INES.2018.
+8523926
+Wagner, B., & Enzler, S. (2006). Material flow management. Heidelberg, Germany: Physica–Verlag.
+Widyadana, G. A., Wee, H. M., & Chang, J–Y. (2010). Determining the optimal number of kanban in multi-products supply chain system. International Jour-
+nal of Systems Science, 41, 189–201. https://doi.org/10.1080/00207720903042996
+Wu, Q., Wang, X., He, Y. D., Xuan, J., & He, W. D. (2018). A robust hybrid heuristic algorithm to solve multi-plant milk-run pickup problem with uncertain
+demand in automobile parts industry. Advances in Production Engineering & Management, 13, 169–178. https://doi.org/10.14743/apem2018.2.282
+AUTHOR BIOGRAPHIES
+Dragan Simic received the Ph.D. degree at the Department of Mathematics and Computer Sciences, Faculty of Sciences, University of Novi
+Sad, Novi Sad, Serbia. More then 25 years he worked in industry. He is currently a Full Professor at the Department of Transport Engineering,
+Faculty of Technical Sciences, University of Novi Sad, Novi Sad, Serbia. His current research interest includes: information systems, decision
+support systems, hybrid artificial intelligence systems, soft computing, and their applications in logistics, production, financial forecasting, and
+medicine. He is a member of the International Federation for Information Processing (IFIP) – and represents Republic of Serbia in Council and
+Technical Committee TC 8 – Information Systems from 2007.
+Vasa Svircˇevic received the Ph.D. degree at the Department of Transport Engineering, Faculty of Technical Sciences, University of Novi Sad,
+Novi Sad, Serbia. More then 20 years he worked in industry as purchase manager and logistics manager in multinational companies: Lafarge
+(France), Philip Morris (United States), Lear Corporation (United States). He is currently a freelancer and consultant in some multinational
+companies.
+Emilio Corchado received the Ph.D. degree in computer science at the Department of Computer Science and Automatics, University of Sala-
+manca, Salamanca, Spain, where he is currently a Full Professor in computer and automatic science. He has published over 100 peer-reviewed
+articles in a range of topics from knowledge management and risk analysis, intrusion detection systems, food industry, artificial vision, and the
+modeling of industrial processes. His research interests include neural networks, with a particular focus on exploratory projection pursuit,
+maximum likelihood hebbian learning, self-organizing maps, multiple classifier systems, and hybrid systems. He is an RTD Expert hired by
+14 of 15
+SIMIC ET AL.
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+--- SAYFA 15 ---
+international organizations such as the European Commission, the Grant Agency of Czech Republic, the Spanish National Agency for Assess-
+ment and Forecasting, and he has collaborated with SMEs and new companies in the innovation field in about 40 projects. He has patented
+software models, and more than 10 ICT tools and models. He has been the Organizing Chair, the Program Committee Chair, the Session Chair,
+and the General Chair of a number of conferences. He was the Chair of the IEEE Spanish Section, from 2014 to 2015, and he has actively
+contributed to several current projects in the EU including SOFTCOMP, IT4Innovation, ICT Action COST IC1303, and IntelliCIS NISIS.
+José Luis Calvo Rolle received M.S. and Ph.D. degrees in Industrial Engineering from the University of Leon in 2004 and 2007, respectively.
+He is an Associate Professor of Automatic Control and the head of the Industrial Engineering Department, Faculty of Engineering, University
+of A Coruña, Spain. His main research areas are associated with the application of expert system technologies in diagnosis and control sys-
+tems and in intelligent training systems for control engineering,
+Svetislav D. Simic is currently an Associate Teaching at the Department of Computer Sciences and Informatics, Faculty of Technical Sciences,
+University of Novi Sad, Novi Sad, Serbia. He finished Engineering Bachelor with Honours in Computing and Control Engineering – subfield
+Applied Computer Science and Informatics (GPA 10.00/10.00). His mainly research areas are focused on the field of artificial intelligence and
+applications in intelligent systems.
+Svetlana Simic received his PhD at the Faculty of Medicine, University of Novi Sad, Serbia. She is Associated Professor of Neurology at Fac-
+ulty of Medicine, University of Novi Sad and neurologist at Clinic of neurology, Clinical Center of Vojvodina in Serbia. Her main scientific
+interest is related to headache and pain. Because of that she attended training such as: EFIC’s School for: Neurological diagnosis in chronic
+pain – Montescano (Italy), Tempus Palliative and Pain Medicine Project – Florence (Italy) and Lyon (France), International Teaching Course in
+Neurology – Targu–Mures (Romania), ECPD International Postgraduate Studies: Basic, Advanced and Higher course in Acupuncture. She is
+founder and Vice president of Serbian Headache Society.
+How to cite this article: Simic D, Svircˇevic V, Corchado E, Calvo-Rolle JL, Simic SD, Simic S. Modelling material flow using the Milk run
+and Kanban systems in the automotive industry. Expert Systems. 2021;38:e12546. https://doi.org/10.1111/exsy.12546
+SIMIc ET AL.
+15 of 15
+ 14680394, 2021, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/exsy.12546 by Sakarya University, Wiley Online Library on [26/07/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

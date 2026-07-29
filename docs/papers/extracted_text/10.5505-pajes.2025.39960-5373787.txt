@@ -1,0 +1,1350 @@
+
+
+--- SAYFA 1 ---
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Pamukkale Üniversitesi Mühendislik Bilimleri Dergisi 
+ 
+Pamukkale University Journal of Engineering Sciences 
+ 
+62 
+ 
+A dynamic in-plant milk-run system via agent-based modelling 
+Etmen tabanlı modelleme yöntemi ile tesis içi dinamik bir milk-run sistemi 
+Yasemin Sevim1  
+, Latife Görkemli Aykut 2*  
+ 
+1Department of Industrial Engineering, Graduate School of Natural and Applied Sciences, Erciyes University, Kayseri, Türkiye. 
+yasemin.sevim@std.yildiz.edu.tr 
+2Department of Industrial Engineering, Faculty of Engineering, Erciyes University, Kayseri, Türkiye. 
+lgorkemli@erciyes.edu.tr 
+ 
+Received/Geliş Tarihi: 20.08.2024 
+Accepted/Kabul Tarihi: 02.06.2025 
+Revision/Düzeltme Tarihi: 26.05.2025 
+doi: 10.5505/pajes.2025.39960 
+Research Article/Araştırma Makalesi 
+Abstract 
+Öz 
+Traditional vehicle routing problems aim to find a solution to minimize 
+the total route cost under certain conditions. However, real-life 
+problems consider different dynamic situations. One of the most 
+common one is dynamic demand. To cope with the dynamism and 
+management of its effects, such as unstable routes and route times, 
+dynamic inventory turnovers are significant issues in in-plant 
+transportation activities. The dynamic demand increases the dynamic 
+movements within the facility. In this study, a milk-run model was 
+developed to solve in-plant transportation problems under dynamic 
+demand. The model was developed with an agent-based approach, 
+which is an effective method in modeling complex and dynamic systems. 
+The behavior of the model was analyzed with various scenarios through 
+a sample case. As a result of the analysis, the efficiency of the model was 
+shown. Based on the scenarios, considering performance measures such 
+as average occupancy rate, average distance travelled, and average 
+waiting time, a high number of trains with low train capacity suitable 
+for the size of the system is recommended. 
+Geleneksel araç rotalama problemleri, belirli koşullar altında toplam 
+rota maliyetini en aza indirecek bir çözüm bulmayı amaçlamaktadır. 
+Ancak gerçek hayattaki problemler farklı dinamik durumları dikkate 
+almaktadır. Bunlardan en yaygın olanı talebin dinamik olmasıdır. 
+Dinamizmin ve değişken rotalar ve rota süreleri, dinamik envanter 
+devirleri gibi dinamizmin etkilerinin yönetimi ile başa çıkabilmek tesis 
+içi taşıma faaliyetlerinde önemli bir konu olmaktadır. Dinamik talep, 
+tesis içindeki hareketlerin değişkenliğini artırmaktadır. Bu çalışmada 
+dinamik talep altında tesis içi taşımacılık problemlerini çözmek için bir 
+milk-run modeli geliştirilmiştir. Model, karmaşık ve dinamik sistemlerin 
+modellenmesinde etkili bir yöntem olan etmen tabanlı yaklaşımla 
+geliştirilmiştir. Modelin davranışı örnek bir durum üzerinden çeşitli 
+senaryolarla analiz edilmiş ve modelin etkinliği ortaya koyulmuştur. 
+Senaryolara dayalı olarak, ortalama doluluk oranı, ortalama mesafe ve 
+ortalama bekleme süresi performans ölçütleri dikkate alındığında, 
+sistemin büyüklüğüne uygun düşük tren kapasitesine sahip yüksek 
+sayıda tren önerilmektedir. 
+Keywords: Milk-Run system, Agent-Based modelling, In-Plant, 
+Dynamic systems. 
+Anahtar kelimeler: Milk-Run Sistemi, Etmen tabanli modelleme, 
+Tesis içi, Dinamik sistemler. 
+1 Introduction 
+The milk-run system concept is inspired by the milk 
+distribution industry in United States. In this idea, while the 
+number of distributors is limited, the number of customers is 
+relatively high. In addition, milk distribution is done by cyclical 
+tours. Distributors have two duties. These are, distributing full 
+milk bottles and collecting empty bottles in a limited time [1]. 
+Materials 
+are 
+distributed 
+in 
+standard 
+routes 
+within 
+predetermined time intervals in the traditional milk-run 
+systems. During the tour; the empty wagons are filled with 
+materials in a central area (warehouse or supermarket) then 
+the materials are distributed, the empty baskets are collected 
+back from the stations, and the transport vehicles return to the 
+starting area. In the distribution process, more than one basket 
+or pallet is transported at the same time using train logic 
+instead of a single-vehicle. Sadjadi et al. [1] mentioned that the 
+milk-run system increases the logistics performance in 
+assembly stations or other production areas. According to the 
+authors, as a result of the implementation of the milk-run 
+system, the effectiveness of the vehicles increases, the number 
+of inventories decreases, the rate of inventories, and 
+maintenance costs decrease, and there will be improvements in 
+timely distribution. Domingo et al. [2] reported that by applying 
+the milk-run system, the number of inventories could be 
+                                                          
+*Corresponding author/Yazışılan Yazar 
+reduced by 50%. Hanson and Finnsgard [3] showed that when 
+milk-run train logic is used instead of forklifts, the area needed 
+for inventories decreased by 67%, non-value-added works 
+decreased by 20%, and distribution time decreased by 52%.  
+In the milk-run system, many interrelated decision problems 
+should be solved for planning and controlling in-plant 
+transportation activities. These problems are classified as 
+follows according to Emde and Boysen [4];  
+• 
+Layout problem; it includes problems such as determining 
+the location of supermarkets and the placement of materials 
+in supermarkets, 
+• 
+Routing problem; it includes determining the number of 
+trains and deciding on which route the trains use, 
+• 
+Scheduling problem; this problem aims to find the most 
+appropriate delivery times for the trains. Each train has a 
+tour time. The tour times affect the number of tours. Tour 
+times include both loading and unloading times at the 
+stations, 
+• 
+Loading problem; the purpose of this problem is to 
+determine which type of material is transported in which 
+quantities by the relevant train each cycle. Within the scope 
+of this problem, it is aimed to minimize the amount of 
+inventory in the stations, but the stations are not allowed to 
+run out of inventory. Each train has a limited capacity. 
+
+
+--- SAYFA 2 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+63 
+ 
+In the literature there are various studies considering in plant 
+milk run systems. In some of them authors developed 
+mathematical models, heuristic, and metaheuristic algorithms 
+to obtain optimal solutions to the problem [1]-[14]. Besides 
+optimization model simulation is one of most studied 
+approaches in plant milk run studies in the literature especially 
+in complex problems. Choi and Lee [15] did extensive dynamic 
+planning by dealing with routing, scheduling, and loading 
+problems together. In the scenario, the mixed-model assembly 
+line was fed from a single warehouse. The feeding state of the 
+assembly line was handled in two different ways; statically and 
+dynamically. The amount of material consumption was fixed in 
+the assembly line in the static condition, and the consumption 
+amount was estimated dynamically in the dynamic state. The 
+study aimed to minimize deviations in delivery time. The 
+traditional vehicle routing method was used to solve the 
+problem, and the study was simulated with real data. Faccio et 
+al. [16] developed an integrated approach for the automotive 
+industry, where the transportation between the mixed-model 
+assembly line and the supermarket was carried out by trains. 
+The problem was divided into short term and long term. 
+Transportation problems that occurred while transporting 
+materials with the trains were considered in the short term and 
+analyzed by developing different dynamic simulation models. 
+The optimization of the number of the Kanban was analyzed 
+statically in the long term. Bae, Evans, and Summers [17] 
+studied the effect of using a milk-run system in in-plant 
+transportation with three simulation models. In the first 
+scenario, a supermarket layout was determined horizontally, 
+and in the second scenario the layout was analyzed with the 
+vertical layout. In the study, the most suitable routes of 
+supermarkets were compared. In the last scenario, the 
+inventory demands of the stations were analyzed. Korytkowski 
+and Karkoszka [18] proposed discrete-event simulation models 
+for a milk-run system that feeds a traditional assembly line 
+from a warehouse. The authors assumed that the milk-run 
+system was already established in the production area and the 
+routes and periods were already determined. The study aimed 
+to analyze the inventory adequacy in stations, the usage of train 
+operators, and assembly-line efficiency in various scenarios. 
+Emde and Gendreau [19] discussed scheduling and loading 
+problems for the train feeding the mixed-model assembly line. 
+Guner et al. [20] analyzed the milk-run routing problem 
+dynamically. Firstly, dynamic route plans were developed for 
+the facilities and then simulated. In the second stage, the routes 
+were determined by the stochastic time window dynamic 
+programming method. In the last stage, a method with a time 
+window was defined to increase the time-based performance of 
+the milk-run delivery. Fedorko et al. [21] proposed a simulation 
+model to identify critical failure points in a given delivery 
+process based on the milk-run system. The model was 
+developed in the Tecnomatix Plant Simulation program. 
+According to the results obtained, a suitable solution was 
+determined that would enable the whole process to operate 
+more efficiently and reliably.  
+According to the literature of in-plant milk-run routing 
+problems, it can be said that while routing problems are given 
+wide coverage, there are few studies seeking solutions to the 
+milk-run system in a dynamic environment, which especially 
+consider the routing, scheduling, and loading processes 
+simultaneously. However, in real life, the problem mostly has to 
+be solved under various dynamics. Therefore, it is important to 
+consider these dynamics to obtain effective solutions. The main 
+contributions of this study are listed as follows: (i) to develop 
+an in-plant milk-run system via agent based modelling focusing 
+dynamic demand arrivals considering routing, scheduling, and 
+loading problems simultaneously (ii) to develop a decision 
+support system to the managers handling dynamic routes and 
+periods for milk-run trains efficiently (iii) to eliminate required 
+assumptions of analytic methods for solving the in-plant milk-
+run problem. In the developed model, production is done 
+according to the dynamic demand. Therefore, the dynamism in 
+the production amount also affects the amount of material to be 
+transported and the route times [21]. Analytical methods are 
+often not suffient to handle these dynamisms. Even if they are 
+sufficient to resolve the system it may be necessary to 
+restructure the all operations in the system according to every 
+dynamic change. This is generally not applicable. In this study, 
+the dynamic system based on this cyclical expedition is 
+modeled using agent-based modelling approach and the 
+effectiveness of the model is investigated with various 
+scenarios. The proposed approach has a structure that 
+constantly monitors dynamic changes and offers effective 
+solutions to the managers. Agent based modeling is a promising 
+approach for dynamic in-plant milk-run problems, since the 
+nature of the problem is complex, dynamic, and large-scale. To 
+the best of the authors knowledge, there are a few agent based 
+studies in the literature on milk run systems. Kluska and 
+Pawlewski [22] describes methodology of milk-run system 
+design and implementation for intralogictic systems. They built 
+a hybrid model combination of the discrete event and agent 
+based simulation. The study provides methodology in general 
+and the future work was planned as development of the tools 
+used and implementation of the approach. Aragão et al. [23] 
+evaluated different collobration strategies for dynamic vehicle 
+routing in milk-run, where vehicles are assigned to picking up 
+components and parts from Original Equipment Manufacturer 
+suppliers. In the approach agents detect the unexpected traffic 
+congestions, and then decide about the transference of tasks to 
+other vehicles. The paper evaluates two strategies: the number 
+of auxiliary vehicles, and the negotiation of tasks between 
+vehicles. In the application regular vehicles assigned to picking 
+up tasks, plus auxiliary vehicles, the excess of tasks allocate to 
+regular vehicles is transfer to them if necesssary. 
+In the next section of the paper, the concept of the agent-based 
+modelling is described. In section 3, the developed model is 
+explained in detail and the analyses are given in section 4. In the 
+last section conclusions and future works are presented. 
+2 Agent-based modelling 
+The milk-run vehicle routing problem discussed in this study 
+was solved by using an agent-based modeling approach, which 
+is a successful method for modeling and analyzing dynamic and 
+complex systems. In literature, in various kinds of routing 
+problems, agent-based models are used and effective results 
+are obtained [24]-[31]. 
+An agent is an active object capable of perceiving, reasoning, 
+and acting. It is assumed that agents have the knowledge and 
+that they have the mechanisms to use it. Another assumption is 
+that they can communicate. This communication takes place in 
+the form of receiving and sending messages. Agents 
+communicate to improve their own goals or the goals of the 
+system they are in. Some protocols and mechanisms are used to 
+coordinate agents. One of these mechanisms is the auction 
+mechanism, which is used, especially in systems with a high 
+number of agents. The auction mechanism, which has been 
+
+
+--- SAYFA 3 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+64 
+ 
+successfully used in many computer science applications, 
+provides a relatively easy-to-analyze solution environment for 
+the researcher in problem-solving. In the auction mechanism, 
+there is usually an agreement between; one leading the auction 
+and the one that offered the bid. The auction is held when the 
+auction owner wants to sell a product at the highest price while 
+the participants want to buy it at the lowest possible price. In 
+agent-based modeling, it is possible to obtain effective solutions 
+for the system addressed by using this mechanism [32]. The 
+auction mechanism is used in the agent-based model developed 
+in this study. The details of the model are explained below. 
+3 Agent-based modelling for the dynamic In-
+plant milk-run problem 
+A production environment based on dynamic demand causes 
+changes in inventory requirements and in-plant distribution 
+amounts and routes. Therefore, the traditional periodic milk-
+run routing is not sufficient in these kinds of environments. 
+This study aimed to find an efficient solution to this dynamic 
+planning problem using agent-based modelling. In the 
+developed model, a manager agent provides the coordination 
+between the station agents and train agents. 
+Behaviors of the station, train, and manager agents are defined 
+and various duties are assigned to the agents. Within the model, 
+the mechanisms are developed to reduce the waiting times of 
+the stations, to increase the occupancy rate, and determine the 
+departure times of the trains appropriately. Then, the 
+effectiveness of the mechanisms is analyzed and discussed with 
+various experimental scenarios. The model was developed in 
+AnylogicTM. 
+Assumptions of the model, the agents and their mechanisms are 
+explained in detail in the following. 
+3.1 
+Assumptions of the model 
+The model was developed by considering the following 
+assumptions; 
+• 
+There is a sufficient inventory area for raw materials 
+at the stations, 
+• 
+The raw material consumption and production rates 
+of the stations are equal, 
+• 
+Each train only stops at the stations assigned and then 
+returns to the warehouse, 
+• 
+There are no route conflicts, 
+• 
+The loading time of the materials in the warehouse on 
+trains is not considered. 
+3.2 
+Agents in the model 
+Statecharts defining the agent’s behaviors and features of the 
+agents are as follows. 
+3.2.1 Station agent 
+If there is a demand in the system, each station agent produces 
+according to its production time. When the raw material 
+amount reaches the reorder point, it informs the manager agent 
+of the inventory requirement. If there is not any raw material, 
+the station agent stops production. 
+Figure 1 shows the statechart of the station agent. The agent has 
+two states, such as "noDemand" and "production". When the 
+amount of demand in the system is greater than zero, the agent 
+goes to the “production” state and begins producing according 
+to its production time. During the production, the current raw 
+material amount and the demand value decreases and the 
+production amount increases. When the inventory is equal to 
+the reorder point, the required quantity and times are 
+calculated by the station. Then, the manager agent is informed. 
+ 
+Figure 1. The statechart of the station agent. 
+3.2.2 Manager agent 
+The manager agent coordinates the other agents. Duties of the 
+manager agent; 
+• 
+Calling for bids, 
+• 
+Evaluating bids, 
+• 
+Assigning trains to the stations, 
+• 
+Informing the related agents of the auction 
+results. 
+Figure 2 shows the statechart of the manager agent. If there is a 
+message received from any station and if there is at least one 
+train waiting in the warehouse, the agent goes to the "callBid" 
+state. In the “callBid” state, the agent sends a message to the 
+train agents for preparing a bid. When all trains in the 
+warehouse send a bid, then it goes to the “auction” state. In the 
+“auction” state, the bids are evaluated and the relevant station 
+is assigned to the selected train. The agent informs the results 
+of the evaluation to the train agent and goes to the “available” 
+state. 
+ 
+Figure 2. The statechart of the manager agent. 
+
+
+--- SAYFA 4 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+65 
+ 
+3.2.3 Train agent 
+The train agent is responsible for supplying the raw material 
+requirements of the stations. The train distributes the materials 
+to the stations that were assigned with the manager agent’s 
+decision. The duties of the train agent; 
+• 
+Preparing and sending bids to the manager agent 
+• 
+Deciding to distribution time 
+• 
+Distributing raw materials to the assigned 
+stations 
+Figure 3 shows the statechart of the train agent. The 
+“inTheWarehouse" state is the initial state for the train agent. 
+The train that finishes the distribution process returns to the 
+warehouse and waits there. When the manager agent is in the 
+state of "callBid", it calls the train agent to prepare a bid, and 
+the train agent goes to the "prepareBid" state. The prepared bid 
+is sent to the manager instantly while in the "sendBid" state. 
+The train agent periodically checks its departure time. If a train 
+agent decides to depart, it becomes "onTheRoad" state. In the 
+state, the agent informs the manager agent about its departure 
+and starts distribution. After the distribution is over, it becomes 
+the "inTheWarehouse" state. The train agent informs the 
+manager agent about its availability. 
+ 
+Figure 3. The statechart of the train agent. 
+3.3 
+Protocol of the model 
+The model protocol is explained in Figure 4. According to the 
+protocol; the station agent goes to the “production” state for 
+production when there is demand in the system. In the state, 
+each station, also calculates the required inventory amount and 
+time by the inventory control mechanism. Then, these 
+calculated data are transmitted to the manager agent. The 
+manager agent goes to the “callBid” state when it gets the data. 
+In this state, it calls the train agents to the auction. The train 
+agent goes to “prepareBid” state by this call. Each available 
+train prepares a bid to satisfy the required inventory for the 
+relevant station. The train agent that prepares the bid goes to 
+the "sendBid" state and notifies the manager agent about the 
+bid. The manager agent, which receives the bids from all the 
+trains in the warehouse, goes to the "auction" state. Bids are 
+evaluated according to the bid evaluation and decision-making 
+mechanism, and the relevant station is assigned to the train 
+determined by the manager. The trains decide to depart 
+according to the departure decision mechanism. The train, 
+which departs and completes the distribution process, returns 
+to the warehouse and then waits for new calls from the 
+manager agent. 
+ 
+ 
+Figure 4. Protocol of the model. 
+3.4 
+Mechanisms in the model 
+It is aimed to reduce the waiting time for the station agent with 
+the inventory control mechanism. In addition, the station agent 
+determines the inventory requirement by this mechanism and, 
+it informs the manager for the requirements. While the train 
+agent prepares an offer for the relevant station with the bid 
+preparation mechanism and informs the manager, the 
+manager, who receives the bids, assigns the station to the 
+relevant train with the bid evaluation mechanism. The train 
+agent controls the departure status via departure mechanism 
+which considers the occupancy rate and the on-time delivery 
+status. The proposed approach concerns several mechanisms in 
+order to gather an efficient dynamic milk-run system. 
+The details of the mechanisms are described in the following 
+sections. The parameters and variables used in the mechanisms 
+are given below. 
+Index 𝑖 is used for the train agent, and index 𝑗 is used for the 
+station agent in the formulas.  
+3.4.1 Parameters 
+𝐷𝑗 
+: 
+The amount of demand that the jth station 
+should meet, 
+𝑉𝑗 
+: 
+Production time of one product at the jth 
+station (minutes), 
+𝐴𝑗 
+: 
+Reorder point of raw material of the jth 
+station, 
+𝐿𝑗 
+: 
+Inventory capacity of raw material of the jth 
+station, 
+𝑋𝑐𝑜𝑜𝑟𝑑𝑠𝑡𝑗 : 
+X coordinate of the jth station, 
+𝑌𝑐𝑜𝑜𝑟𝑑𝑠𝑡𝑗 : 
+Y coordinate of the jth station, 
+𝑋𝑐𝑜𝑜𝑟𝑑𝑡𝑟𝑖 : 
+X coordinate of the ith train, 
+𝑌𝑐𝑜𝑜𝑟𝑑𝑡𝑟𝑖 : 
+Y coordinate of the ith train, 
+k 
+: 
+Train speed, 
+Inventory requirement 
+information
+Call for bids
+Information 
+of bids
+Assignment 
+information
+Inventory requirement 
+information
+Call for bids
+Information 
+of bids
+Delivery information
+Station 
+agent
+Manager 
+agent
+Train 
+agent
+
+
+--- SAYFA 5 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+66 
+ 
+𝑓 
+: 
+The time for a train to leave a full wagon at 
+the station and pick up an empty wagon 
+from the station. 
+3.4.2 Variables 
+𝑃𝑗 
+: 
+Production quantity of the jth station, 
+𝑆𝑗 
+: 
+Raw material inventory amount of the jth 
+station, 
+𝑀𝑗 
+: 
+Demand of raw material amount of the jth 
+station, 
+𝐻𝑗: 
+: 
+The lead time of Mj of the jth station in order 
+not to run out of inventory. 
+𝑇𝑖𝑗 
+: 
+The time to leave raw materials at the jth 
+station by the ith train 
+𝑑𝑖𝑗 
+: 
+Distance between jth station and ith train 
+𝐵𝑖 
+: 
+Bid value prepared by the ith train 
+𝐶𝑖 
+: 
+Remaining raw material capacity of the ith 
+train 
+𝑛𝑖 
+: 
+Number of stations assigned to the ith train 
+3.4.3 Inventory control mechanism 
+The station agent has an internal transition when it is in the 
+"production" state as seen in Figure 1. The transition is 
+triggered by production time. 
+When the transition is triggered, the following steps are 
+performed; 
+If (𝑆𝑗 > 0) 
+  
+Calculate  
+𝑆𝑗 = 𝑆𝑗-1  
+𝐷𝑗 = 𝐷𝑗-1 
+   
+ 
+Pj = Pj-1 
+  
+If (𝑆𝑗 = 𝐴𝑗) 
+   
+Calculate 
+   
+ 
+𝑀𝑗 = 𝐿𝑗 - 𝐴𝑗 
+  
+ 
+𝐻𝑗 = 𝐴𝑗 * 𝑉𝑗 
+Request raw material from manager agent  
+Inform 𝑀𝑗  and 𝐻𝑗 values to the manager agent 
+3.4.4 Bid preparation mechanism 
+If the following conditions are met, the manager agent goes to 
+the “callBid” state from the “available” state. Then it asks for a 
+bid from each train agent. 
+• 
+If there is at least one station requested for raw 
+material, 
+• 
+If there is at least one train in the warehouse. 
+When the ith train agent gets the call, then it goes to 
+"prepareBid" state and calculates a bid value considering the 
+following steps for the jth station auctioned by the manager. 
+Then, each train in the warehouse informs the manager. 
+Step 1 
+: 
+If  𝐶𝑖≥𝑀𝑗, go to step 2. Otherwise do not send 
+bid to the manager, 
+Step 2 
+: 
+If one station is assigned to the train, calculate  
+𝑑𝑖𝑗 by Equation 1 considering rectilinear 
+distance measure and 𝑇𝑖𝑗 by Equation 2. If more 
+than one stations are assigned to the train,  𝑇𝑖𝑗  
+is calculated by taking these stations into 
+account. Stations are arranged from near to far 
+to the supermarket, and calculations are made 
+considering rectilinear measurements between 
+the points. For example, if the 5th station is 
+already assigned to the 2nd train and if a bid is 
+calculated for the 7th station, 𝑇25 is calculated, 
+then the distance between 5th station and 7th 
+station is calculated (let’s call this measured 
+distance ss) 𝑇27 will be 𝑇25 + 𝑠𝑠/𝑘+ 𝑓, 
+Step 3 
+: 
+If 𝐻𝑗  - 𝑇𝑖𝑗 < 0, this means that the jth station will 
+be late if it is assigned to the ith train. This check 
+is also done for all stations assigned to the 
+relevant train before. If there is no late station, 
+send 𝑇𝑖𝑗 as the bid value. 
+ 
+𝑑𝑖𝑗= |𝑋𝑐𝑜𝑜𝑟𝑑𝑡𝑟𝑖−𝑋𝑐𝑜𝑜𝑟𝑑𝑠𝑡𝑗|
++ |𝑌𝑐𝑜𝑜𝑟𝑑𝑡𝑟𝑖−𝑌𝑐𝑜𝑜𝑟𝑑𝑠𝑡𝑗| 
+(3) 
+𝑇𝑖𝑗= 𝑑𝑖𝑗/𝑘+ 𝑓 
+(4) 
+3.4.5 Departure mechanism 
+With this mechanism, each train in the warehouse does a 
+capacity and lateness check every minute. This checks whether 
+the remaining capacity values are equal to zero. If the 
+remaining capacity is zero, the relevant train performs the 
+distribution process and returns to the warehouse. After the 
+capacity check, the train does the lateness check, which is 
+explained in section 3.4.4, considering the all stations assigned 
+to itself. If there is any late station, the train starts distribution 
+regardless of the remaining capacity. 
+3.4.6 Bid evaluation and decision making 
+If all trains in the warehouse send bids, the manager agent goes 
+to the "auction" state and evaluates the bids as follows; 
+Step 1 : 
+If there is no bid, assign the station to a train 
+with sufficient capacity. If at least one train is 
+sent a bid, sort the bids from biggest to smallest 
+then go to step 2, 
+Step 2 : 
+Assign the station to the train which has sent the 
+biggest bid value and inform the train. 
+After the auction, the remaining capacity of the train, which the 
+station is assigned, is updated. 
+An illustrative example that can clarify the role of the auction 
+mechanism in the proposed approach is given in the following. 
+Considering the case, while the system is running, let us look at 
+the system some intervals of time in order the see the steps of 
+the algorithm. In this example scenario the levels of factors in 
+Table 2 is considered as 2, 125, 250, 50, 0.5 respectively. 
+The situation after the inventory level of the 8th station is 50 is 
+as follows: 3rd station, 6th station, 9th station, and 10th station 
+has requested raw material, and the inventory levels of them 
+46, 41 42, 42. The stations are assigned to 2nd train. Both 1st 
+train and 2nd train are in the warehouse.  
+8th station requested raw material from the manager agent and 
+informs the requested amount and time information as 100 and 
+100 respectively. Manager agent asks for a bid from each train. 
+Both 1st train and 2nd train send bid to the manager, bid values 
+are 1.68, 4.321 respectively. 
+Manager agent assigns the 8th station to 2nd train since it has 
+sent the biggest bid value.  
+
+
+--- SAYFA 6 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+67 
+ 
+The advantages of auction mechanisms make them a powerful 
+tool for several problems concern resource allocation, 
+especially in complex or competitive systems. Their ability to 
+fairness (all participants have an equal opportunity to 
+compete), easy decision making, dynamic adaptability 
+(resources can be allocated in real time based changing 
+conditions efficiently), competition (all participants offer their 
+best possible price) make them promising in real life dynamic 
+problems.  
+3.5 
+Scenario assumptions 
+The effectiveness of the developed model was tested on a 
+hypothetical system. In this milk-run system, there are 10 
+stations that work independently of each other and identical 
+trains that distribute raw materials to the stations.  
+• 
+The assumptions of the model are as follows, 
+• 
+Demands come to each station according to exponential 
+distribution, 
+• 
+Train 
+speeds 
+are 
+constant 
+and 
+the 
+value 
+is 
+5 
+kilometers/hour. Since the model base time unit is the 
+minute, the train speed is taken as 83.33 meters/minute, 
+• 
+𝑓 is taken as 0.6 minutes, 
+• 
+The coordination of the warehouses (50,0) (meter, meter). 
+Location coordination and production times of the stations are 
+as in Table 1. 
+Table 1. Location coordination and production time of each 
+station. 
+Stations 
+Coordination of the station (X, 
+Y)  
+(meter, meter) 
+Production time of 
+the station 
+(minute/piece) 
+1 
+(50, 10) 
+2 
+2 
+(50, 15) 
+3 
+3 
+(50, 20) 
+1 
+4 
+(50, 25) 
+5 
+5 
+(50, 30) 
+2 
+6 
+(50, 35) 
+2 
+7 
+(50, 40) 
+4 
+8 
+(50, 45) 
+2 
+9 
+(50, 50) 
+1 
+10 
+(50, 55) 
+2 
+4 Experimental design 
+The feasibility and efficiency of the proposed approach are 
+demonstrated 
+with 
+several 
+scenarios. 
+Scenarios 
+are 
+determined according to a full factorial experimental design 
+and the results are analyzed. Five two-level factors are 
+considered in the experimental design. Each experiment was 
+run for five times for 7200 minutes (5 days * 24 hours * 60 
+minutes). The average values of results of the experiments were 
+used in the analysis. The factors and their levels are given in 
+Table 2. The demand of each station is exponentially 
+distributed and the rate parameter of the distribution is given 
+in Table 2. 
+Tablo 2. Factors and their levels. 
+Factors 
+Levels 
+Number of trains 
+2; 3 
+Inventory of raw material (unit) 
+125; 150 
+Train capacity (unit) 
+250; 400 
+Reorder point (unit) 
+25; 50 
+The distribution parameter of the demand  
+0,5; 1 
+As a result of the experiments, the occupancy rate (%) of a train, 
+the average occupancy rate (%) for the trains, the average 
+number of tours, and the average distance traveled per tour are 
+determined using Equation 5, Equation 6, Equation 7, and 
+Equation 8, respectively. For the stations, the average waiting 
+time is considered as the performance criteria and calculated 
+using Equation 9. 
+𝑂𝑐𝑐𝑢𝑝𝑎𝑛𝑐𝑦 𝑟𝑎𝑡𝑒= 𝑇ℎ𝑒 𝑡𝑜𝑡𝑎𝑙 𝑡𝑟𝑎𝑛𝑠𝑝𝑜𝑟𝑡𝑒𝑑 𝑎𝑚𝑜𝑢𝑛𝑡
+÷ (𝑇𝑟𝑎𝑖𝑛 𝑐𝑎𝑝𝑎𝑐𝑖𝑡𝑦 
+× 𝑡𝑜𝑡𝑎𝑙 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑜𝑢𝑟𝑠) 
+(5) 
+The occupancy rates for each train are summed to set the total 
+occupancy rate value and the average occupancy rate is 
+determined, as in Equation 6.  
+𝐴𝑣𝑒𝑟𝑎𝑔𝑒 𝑜𝑐𝑐𝑢𝑝𝑎𝑛𝑐𝑦 𝑟𝑎𝑡𝑒= 
+(𝑇𝑜𝑡𝑎𝑙 𝑜𝑐𝑐𝑢𝑝𝑎𝑛𝑐𝑦 𝑟𝑎𝑡𝑒 / 𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑟𝑎𝑖𝑛𝑠) ∗100 
+(6) 
+𝐴𝑣𝑒𝑟𝑎𝑔𝑒 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑜𝑢𝑟= 
+𝑇𝑜𝑡𝑎𝑙 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑜𝑢𝑟𝑠 𝑜𝑓 𝑡𝑟𝑎𝑖𝑛𝑠 / 𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑟𝑎𝑖𝑛𝑠 
+(7) 
+𝐴𝑣𝑒𝑟𝑎𝑔𝑒 𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒 𝑡𝑟𝑎𝑣𝑒𝑙𝑒𝑑 𝑝𝑒𝑟 𝑡𝑜𝑢𝑟
+= 𝑇𝑜𝑡𝑎𝑙 𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒 𝑡𝑟𝑎𝑣𝑒𝑙𝑒𝑑 𝑏𝑦 𝑡𝑟𝑎𝑖𝑛𝑠 
+/𝑇𝑜𝑡𝑎𝑙 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑡𝑜𝑢𝑟𝑠 
+(8) 
+𝐴𝑣𝑒𝑟𝑎𝑔𝑒 𝑤𝑎𝑖𝑡𝑖𝑛𝑔 𝑡𝑖𝑚𝑒=  
+𝑇𝑜𝑡𝑎𝑙 𝑤𝑎𝑖𝑡𝑖𝑛𝑔 𝑡𝑖𝑚𝑒 𝑜𝑓 𝑠𝑡𝑎𝑡𝑖𝑜𝑛𝑠 / 𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑠𝑡𝑎𝑡𝑖𝑜𝑛𝑠 
+(9) 
+The effect of the change in the factors on the average occupancy 
+rate is examined by considering the main effect plot in Figure 5.  
+ 
+Figure 5. Main effect plot of the average occupancy rate (%). 
+The analysis shows that the change in demand, inventory 
+capacity, and reorder point does not have a significant effect on 
+the average occupancy rate. The p-value of the effects 0.712, 
+0.738 and 0.056 respectively. Since the p-values>=0.05, the 
+factors have no statistically significant effect. The p-values of 
+the effects of number of trains and train capacity are 0.  The plot 
+shows that the change in demand and inventory capacity does 
+not have a significant effect on the average occupancy rate. In 
+the figures, low level values of factors are shown with (-1) and 
+high-level values with (+1). Here, the statistically significant 
+effect belongs to the train capacity and the number of trains. 
+The interaction plot in Figure 6 shows that when the train 
+capacity is low, the change in the number of trains has little 
+effect on the occupancy rate. According to the main effect plot, 
+when the train capacity is 250, the occupancy rate is 81.43%. 
+Having a capacity of 400 reduced the average occupancy rate to 
+69.47%. 
+
+
+--- SAYFA 7 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+68 
+ 
+ 
+Figure 6. Interaction plot of the average occupancy rate (%). 
+Figure 7 shows that the most effective factor on the average 
+distance traveled per tour is the reorder point. Train capacity 
+and inventory capacity are also effective factors. The p-values 
+of these factors are 0. The average distance traveled by trains 
+decreases when the reorder point is 25 units, the train capacity 
+is 250 units, and the inventory capacity is 150 units. The 
+interaction plot in Figure 8 supports this. 
+ 
+Figure 7. Interaction plot of the average distance travelled. 
+ 
+Figure 8. Interaction plot of the average distance travelled. 
+As shown in Figure 9, number of trains, train capacity, the 
+distribution parameter of demand, and reorder point values 
+affect the number of tours statistically significantly. Since the p-
+values of the effect 0, 0, 0, and 0.003 respectively. As expected, 
+the average number of tours increases when the demand 
+parameter is high, and the average number of tours decreases 
+when the demand parameter is low. Figure 10 shows that the 
+number of tours decreases significantly when the train capacity 
+is 400 and the number of trains in the model is assumed to be 
+3. 
+ 
+Figure 9. Interaction plot of the average number of tours. 
+ 
+Figure 10. Interaction plot of the average number of tours. 
+The test results in terms of average waiting time are shown in 
+Figure 11, and the information about the first five experiments 
+with the highest and lowest average waiting times is given in 
+Table 3. The results show that when the distribution parameter 
+is high, the waiting time is likely to be high. We can also say that 
+the high inventory capacity relieves the production system, 
+considering the waiting time. 
+ 
+Figure 11. Changing of the waiting time chart. 
+Considering the test results, generally, we can say that the effect 
+of the factors in the performance criteria function as expected. 
+In fact, this is an indication that the proposed approach 
+effectively 
+manages 
+the 
+dynamic 
+milk-run 
+system. 
+Furthermore, determination of levels of the factors is simple 
+and efficient via experimental design.  
+ 
+ 
+
+
+--- SAYFA 8 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+69 
+ 
+ 
+Table 3. Highest and lowest values for waiting time (minutes). 
+Experiment 
+No 
+Lowest value 
+Highest value 
+Number of 
+trains 
+Inventory 
+capacity 
+Train capacity 
+Distribution 
+parameter 
+Reorder 
+point 
+5 
+0.6 
+ 
+2 
+150 
+250 
+0.5 
+25 
+2 
+0.7 
+ 
+2 
+150 
+400 
+0.5 
+50 
+20 
+0.7 
+ 
+3 
+150 
+250 
+0.5 
+25 
+9 
+0.9 
+ 
+3 
+150 
+400 
+0.5 
+50 
+4 
+1.1 
+ 
+2 
+150 
+400 
+0.5 
+25 
+18 
+ 
+11.4 
+2 
+150 
+400 
+1 
+25 
+29 
+ 
+13.2 
+3 
+150 
+250 
+1 
+50 
+32 
+ 
+15.1 
+2 
+125 
+250 
+1 
+50 
+6 
+ 
+18.78 
+2 
+125 
+250 
+1 
+25 
+25 
+ 
+26.5 
+2 
+150 
+250 
+1 
+50 
+ 
+According to performance measures such as average occupancy 
+rate, average distance travelled, and average waiting time, a 
+high number of trains with low train capacity suitable for the 
+size of the system is appropriate. Managers can consider the 
+number of trains, inventory of raw material, train capacity, and 
+reorder point as 3, 150, 250, and 25 respectively both in case of 
+low demand and in case of high demand. In the case of high 
+demand, especially if the number of tours is desired to be low, 
+train capacity can be taken as 400.  
+Once the parameters are determined, the system will make its 
+own milk-run flow decisions during its operation under 
+dynamic demand. Thus, the proposed approach is a promising 
+decision support method for managers. In many cases of the 
+real milk-run problem, dynamism should be considered to 
+obtain effective results. But with traditional methods. It is often 
+not possible to solve the problem for every dynamic change 
+because it is too costly. With this approach, effective decisions 
+can be made in the running system without disturbing the 
+complete system. 
+5 Conclusions 
+In this study, in-plant transportation activities in a dynamic 
+environment are discussed. In the proposed approach, the 
+milk-run system is modelled using agent-based modelling, 
+which is an effective method for dynamic systems. 
+In-plant transportation, route planning, scheduling and loading 
+are major problems. Especially in discrete manufacturing 
+systems, production rates and frequency of demand vary in real 
+cases. Due to these variations, it is not possible for trains to 
+always follow the same routes. This study aimed to provide a 
+promising model that could handle this variability. In the 
+model, stations and trains are considered agents. To operate 
+the system more effectively, a departure mechanism for train 
+agents and an inventory control mechanism for station agents 
+were developed. The manager's decision process was 
+structured by the auction mechanism. The behavior of the 
+developed model was analyzed using scenarios created from an 
+example. Considering the results of the scenarios, the number 
+of trains, capacities of trains, the inventory capacity of the 
+stations, the reorder point, and the distribution parameter of 
+the demand are analyzed. 
+The goal is to reduce the waiting time for the raw material of 
+the stations while increasing the occupancy rate of the trains 
+through the departure and auction mechanism. In addition, the 
+inventory control mechanism aims to reduce the waiting time 
+for the raw material in the stations. The presence of a decision-
+making agent in the model strengthens the communication 
+between agents. The scenario analyses show that the proposed 
+model can effectively deal with dynamic demand. 
+The in-plant milk run system is particularly effective in many 
+sectors; automotive industry, packaging industry, food 
+industry, consumer goods manufacturing industry, textile 
+industry etc. However, if these industries concern dynamism in 
+their operations, the traditional milk run approach is not 
+sufficient for managing in-plant transportation activities. Since 
+it 
+requires 
+frequent, 
+reliable, 
+and 
+well 
+coordinated 
+transportation. For both these industries having stable 
+transportation but studying under dynamism and other sectors 
+which do not meet the requirements of using milk run method 
+to take the advantages of milk run approaches, there is a need 
+for an approach which monitors dynamic changes and ensures 
+the effective implementation of the milk run methodology 
+under these dynamic conditions. The proposed approach is 
+aimed at addressing the gap in this area. Today’s technology 
+enables to monitor the data in systems instantaneously 
+considering different tools such as RFID systems and enables 
+the use of these data in various industries. The proposed 
+approach provides to use these data on managerial states of the 
+milk run system efficiently. 
+Other types of dynamics, such as dynamic situations in the 
+manufacturing operations and trains, can be considered for 
+future work. For example, the proposed method can be 
+developed by considering dynamic situations such as station 
+failures, inability to supply raw materials, train breakdowns, 
+etc. Modeling and solving these dynamics with the proposed 
+method is much more effective compared to traditional 
+methods. Since most of the traditional methods presents a new 
+solution in every dynamic change and every new solution 
+affects the entire system.  But, it is often not possible to 
+restructure the operations in all the processes. Managers can 
+make dynamic decisions with the proposed approach, which 
+consider the dynamics and offers effective solutions without 
+disturbing the whole system. Furthermore, different agent 
+control and bid determination mechanisms can be used to find 
+a more efficient approach. Also by removing each assumption 
+considered in the model, a more realistic approach can be 
+obtained. Although the model is created with the specified 
+assumptions, it will be much easier to remove these 
+assumptions with the proposed method if necessary. The 
+existence 
+of 
+individual 
+characteristics, 
+behaviors, 
+and 
+communication abilities of the agents enables this situation. 
+The proposed approach can be applied to a real-world problem. 
+
+
+--- SAYFA 9 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+70 
+ 
+6 Author contribution statement 
+In the present study, Yasemin Sevim took part in the literature 
+review, methodology, modelling, performing the analyses, 
+writing the original draft. Latife Görkemli Aykut contributed to 
+the 
+methodology, 
+modelling, 
+writing-review 
+editing, 
+supervision.  
+7 Ethics committee approval and conflict of 
+interest statement 
+“Ethics committee permission is not required for the prepared 
+article”. “There is no conflict of interest with any 
+person/institution in the prepared article”. 
+8 References 
+[1] Sadjadi SJ, Jafari M, Amini T. “A new mathematical 
+modeling and a genetic algorithm search for milk run 
+problem (an auto industry supply chain case study)”. 
+International 
+Journal 
+of 
+Advanced 
+Manufacturing 
+Technology, 44(1-2), 194-200, 2009. 
+[2] Domingo R, Alvarez R, Pena MM, Calvo R. “Material flows 
+improvement in a lean assembly line: a case study”. 
+Assembly Automation, 27(2), 141-147, 2007. 
+[3] Hanson R, Finnsgard C. “Impact of unit load size on in-
+plant materials supply efficiency”. International Journal of 
+Production Economics, 133(1), 312-318, 2011. 
+[4] Emde S, Boysen N. “Optimally routing and scheduling tow 
+trains for JIT supply of mixed model assembly lines”, 
+European Journal of Operational Research, 217, 287-299, 
+2012. 
+[5] Kilic HS, Durmusoglu MB, Baskak M. “Classification and 
+modeling for in-plant milk-run distribution systems”. The 
+International 
+Journal 
+of 
+Advanced 
+Manufacturing 
+Technology, 62(9-12), 1135-1146, 2012. 
+[6] Kilic HS, Durmusoglu MB. “A mathematical model and a 
+heuristic approach for periodic material delivery in lean 
+production environment”. The International Journal of 
+Advanced Manufacturing Technology, 69(5-8), 977-992, 
+2013. 
+[7] Patel D, Dr. Patel MB. “Optimization approach of vehicle 
+routing by a milk-run material supply system”. 
+International 
+Journal 
+for 
+Scientific 
+Research 
+& 
+Development, 1(6), 1357-1360, 2013. 
+[8] Satoglu SI, Sahin IE. “Design of a just-in-time periodic 
+material supply system for the assembly lines and an 
+application in electronics industry”. The International 
+Journal 
+of 
+Advanced 
+Manufacturing 
+Technology,  
+65(1-4), 319-332, 2013. 
+[9] Alnahhal N, Noche B. “Dynamic material flow control in 
+mixed model assembly lines”. Computers & Industrial 
+Engineering, 85, 110-119, 2015. 
+[10] Wu Q, Wang X, He YD, Xuan J, He WD. “A robust hybrid 
+heuristic algorithm to solve multi-plant milk-run pickup 
+problem with uncertain demand in automobile parts 
+industry”. Advances in Production Engineering and 
+Management, 13(2), 169-178, 2018. 
+[11] Golz J, Gujjula R, Günther HO, Rinderer, S, Ziegler M. “Part 
+feeding at high-variant mixed-model assembly lines”. 
+Flexible 
+Services 
+and 
+Manufacturing 
+Journal,  
+24 (2), 119-141, 2012.  
+[12] Adriano DD, Montez C, Novaes AGN, Wangham M. “Dmrvr: 
+Dynamic milk-run vehicle routing solution using fog-
+based 
+vehicular 
+ad 
+hoc 
+networks”. 
+Electronics 
+(Switzerland), 9(12), 1-24, 2020. 
+[13] Bocewicz G, Banaszak Z, Rudnik K, Smutnicki C, Witczak 
+M, Wójcik R. “An ordered-fuzzy-numbers-driven approach 
+to the milk-run routing and scheduling problem”. Journal 
+of Computational Science, 49, 101288, 2021. 
+[14] [14] Sipahioğlu A, Altın İ. “A mathematical model for in-
+plant milk-run routing”. Pamukkale University Journal of 
+Engineering Sciences, 25(9), 1050-1055, 2019. 
+[15] [15] Choi W, Lee Y. “A dynamic part-feeding system for an 
+automotive assembly line”. Computers & Industrial 
+Engineering, 43(1), 123-134, 2002.  
+[16] Faccio M, Gamberi M, Persona A, Regattieri A, Sgarbossa F, 
+“Design and simulation of assembly line feeding systems 
+in the automotive sector using supermarket, kanbans and 
+tow trains: a general framework”. Journal of Management 
+Control, 24(2), 187-208, 2013.  
+[17] Bae K-HG, Evans LA, Summers A, “Lean design and 
+analysis of a milkrun delivery system: case study”. 
+Proceedings of the 2016 Winter Simulation Conference,  
+Washington, DC, USA, 11-14 December 2016. 
+[18] Korytkowski P, Karkoszka R. “Simulation-based efficiency 
+analysis of an in-plant milk-run operator under 
+disturbances”. The International Journal of Advanced 
+Manufacturing Technology, 82 (5-8), 827-837, 2016.  
+[19] Emde S, Gendreau M. “Scheduling inhouse transport 
+vehicles to feeds parts to automotive assembly lines”. 
+European 
+Journal 
+of 
+Operational 
+Research,  
+260, 255-267, 2017. 
+[20] Guner AR, Murat A, Chinnam RB. “Dynamic routing for 
+milk-run tours with time windows in stochastic time-
+dependent networks”. Transportation Research Part E: 
+Logistics and Transportation Review, 97(Supplement C), 
+251-267, 2017.  
+[21] Fedorko G, Molnar V, Honus S, Neradilova H, Kampf R. 
+“The application of simulation model of a milk run to 
+identify the occurrence of failures”. International Journal 
+of Simulation Modelling, 17(3), 444-457, 2018. 
+[22] Kluska K, Pawlewski P. “The use of simulation in the 
+design 
+of 
+Milk-Run 
+intralogistics 
+systems”. 
+IFAC-
+PapersOnLine, 51(11), 1428-1433, 2018. 
+[23] Aragão DP, Novaes AGN, Luna MMM. “An agent-based 
+approach to evaluate collaborative strategies in milk-run 
+OEM operations”. Computers & Industrial Engineering, 
+129, 545-555, 2019. 
+[24] Baykasoglu A, Gorkemli L. “Dynamic virtual cellular 
+manufacturing 
+through 
+agent-based 
+modelling”. 
+International 
+Journal 
+of 
+Computer 
+Integrated 
+Manufacturing, 30(6), 564-579, 2017. 
+[25] Becker T, Illigen C, McKelvey B, Hülsmann M, Windt K. 
+“Using an agent-based neural-network computational 
+model to improve product routing in a logistics facility”. 
+International 
+Journal 
+of 
+Production 
+Economics,  
+174, 156-167, 2016. 
+[26] Lau HYK, Woo SO. “An agent-based dynamic routing 
+strategy for automated material handling systems”. 
+International 
+Journal 
+of 
+Computer 
+Integrated 
+Manufacturing, 21(3), 269-288, 2008. 
+[27] Malekkhouyan S, Aghsami A, Rabbani M. “An integrated 
+multi-stage vehicle routing and mixed-model job-shop-
+type robotic disassembly sequence scheduling problem 
+for e-waste management system”. International Journal of 
+Computer Integrated Manufacturing, 34(11), 1237-1262. 
+2021. 
+ 
+ 
+
+
+--- SAYFA 10 ---
+ 
+ 
+ 
+ 
+Pamukkale Univ Muh Bilim Derg, 32(1), 62-71, 2026 
+Y. Sevim, L. Görkemli Aykut 
+ 
+71 
+ 
+[28] Meyyappan L, Soylemezoglu A, Saygin C, Dagli CH. “A 
+wasp-based control model for real-time routing of parts in 
+a flexible manufacturing system”. International Journal of 
+Computer Integrated Manufacturing, 21(3), 259-268, 
+2008. 
+[29] Zolfpour-Arokhlo M, Selamat A, Mohd Hashim SZ, Afkhami 
+H. “Modeling of route planning system based on Q value-
+based 
+dynamic 
+programming 
+with 
+multi-agent 
+reinforcement 
+learning 
+algorithms”. 
+Engineering 
+Applications of Artificial Intelligence, 29, 163-177, 2014. 
+[30] Chambers F, Serugendo GD, Cruz C. “Autonomous 
+Generation of a Public Transportation Network by an 
+Agent-Based Model: Mutual Enrichment with Knowledge 
+Graphs for Sustainable Urban Mobility”. Sustainability, 
+16(20), 1-22, 2024. 
+[31] Sanogo K, Benhafssa AM, Sahnoun M, Bettayeb B, 
+Abderrahim M, Bekrar A. “A multi-agent system 
+simulation-based approach for collision avoidance in 
+integrated 
+Job-Shop 
+Scheduling 
+Problem 
+with 
+transportation tasks”. Journal of Manufacturing Systems, 
+68, 209-226, 2023. 
+[32] Weiss G. Multiagent Systems: A Modern Approach to 
+Distributed 
+Artificial 
+Intelligence. 
+Cambridge, 
+Massachusetts, London, England, Massachusetts Institute 
+of Technology, 1999. 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,1551 @@
+
+
+--- SAYFA 1 ---
+Dynamic material ﬂow control in mixed model assembly lines q
+Mohammed Alnahhal ⇑, Bernd Noche
+Transport Systems and Logistics, Duisburg-Essen University, Duisburg 47058, Germany
+a r t i c l e
+i n f o
+Article history:
+Received 23 July 2014
+Received in revised form 15 March 2015
+Accepted 16 March 2015
+Available online 21 March 2015
+Keywords:
+Material ﬂow
+Milk run
+Assembly lines
+Disturbances
+Dynamic planning
+Resequencing
+a b s t r a c t
+This study investigates the control of material ﬂow in mixed model assembly lines. It focuses on the use
+of tugger trains to feed stations in assembly lines by materials and parts from a warehouse or a
+supermarket. The movement of tugger trains is based on the principle of in-plant milk run. The study
+considers a strategy to deal with disturbances such as machine breakdown, line stoppage, defective parts,
+and resequencing of product models. These disturbances lead to unexpected ﬂuctuations in stations
+demand for parts. The strategy is applied using a mix between the demand-oriented and e-kanban
+systems to facilitate the planning of three problems, namely, train routing, scheduling, and loading.
+The information obtained using e-kanban is combined with the information about the expected stations
+demand based on previously known sequence of product models and the materials needed for each
+model. Routing was investigated analytically while scheduling and loading problems were investigated
+using integer programming. Results showed that the method proposed outperforms the traditional
+methods of material ﬂow planning.
+ 2015 Elsevier Ltd. All rights reserved.
+1. Introduction
+In mixed model assembly line (MMAL) environment, different
+product models can be assembled on the same line to fulﬁll the
+diversiﬁed customer needs. The planning process for MMAL
+contains several tasks, one of which is the supplying process of
+materials just-in-time (JIT) from the warehouse or a supermarket.
+Any delay of materials replenishment can result in stoppage of
+the assembly line which means idle time for several workers. On
+the other hand, too early material replenishment can lead to
+accumulation of materials in the area near the stations which is
+very scarce and expensive (Baudin, 2004).
+A recently used transporter of materials is the tugger train
+which depends on the milk run principle. This principle is suitable
+for the repetitive JIT supply of materials and parts in small contain-
+ers (bins) (Kilic, Durmusoglu, & Baskak, 2012). Every certain period,
+called cycle time, a group of stations are supplied by materials from
+a warehouse or a supermarket. Supermarkets are scattered inven-
+tory areas playing the role of intermediate storage between the
+main warehouse and the stations for the purpose of being close
+to these stations (Emde & Boysen, 2012b; Emde, Fliedner, &
+Boysen, 2012). The group of stations supplied by the same tugger
+train is called a cell. The train cycle time (TCT) is different from
+the station cycle time (SCT) which is the time interval between
+two successive product models coming out from the station. To
+plan this in-plant milk run system, train routing, scheduling, and
+loading must be determined (Emde & Boysen, 2012b; Emde
+et al., 2012). In routing problem, the assignment of each train to
+a group of stations is accomplished. It is found in the practice that
+sometimes routes are ﬁxed and determined independently from
+the other two tasks to standardize the system. To facilitate that,
+certain colors are used on the aisles for certain routes. In schedul-
+ing problem, TCT and the beginning of train movement are deter-
+mined. In loading problem, the exact material loaded in each
+cycle is determined. The number of bins for each material type
+must be determined to fulﬁll stations’ demand. Sometimes in peak
+demand periods, the total demand of stations is higher than the
+capacity of tugger train. In this case, bins can be loaded before they
+are actually needed. This type of loading, however, increases the
+inventory holding cost in a very scarce area.
+To plan all these problems, the future demand of stations must
+be estimated. The exact station demand for materials and parts is
+usually determined using two systems, namely, demand-oriented
+and kanban (Klenk, Galka, & Günthner, 2012). In the ﬁrst one, the
+exact demand is usually known for the next few shifts depending
+on the knowledge of workpieces (product models) sequence and
+the needed materials by each workpiece (Emde &
+Boysen,
+2012b). The second system uses regular kanban or electronic
+http://dx.doi.org/10.1016/j.cie.2015.03.009
+0360-8352/ 2015 Elsevier Ltd. All rights reserved.
+q This manuscript was processed by Area Editor Manoj Tiwari.
+⇑Corresponding author at: Transport Systems and Logistics, Duisburg-Essen
+University, Keetmanstr. 3-7, 47058 Duisburg, Germany. Tel.: +49 203 379 7706; fax:
++49 203 379 3048.
+E-mail address: mjnahhal@yahoo.com (M. Alnahhal).
+Computers & Industrial Engineering 85 (2015) 110–119
+Contents lists available at ScienceDirect
+Computers & Industrial Engineering
+journal homepage: www.elsevier.com/locate/caie
+
+
+--- SAYFA 2 ---
+kanban. However, on the ground the exact demand is not easily
+determined because of the disturbances that can happen (Choi &
+Lee, 2002). Machine breakdowns, workstation starvation, line
+stoppage, defective parts, and resequencing are just examples for
+these disturbances. So the planning process depending on the
+determination of stations demand must be dynamic and ﬂexible.
+Except the study by Choi and Lee (2002) which considered the case
+of resequencing, according to the best of the knowledge of the
+authors, our paper is the ﬁrst one that concentrates on dealing with
+all the disturbances mentioned above in the milk run system. The
+difference between our study and the study by Choi and Lee (2002)
+is explained in the next section.
+In this study, tugger train routing, scheduling, and loading prob-
+lems are investigated assuming dynamic environment that is sub-
+jected to disturbances. To facilitate that, a mix between the
+demand-oriented and electronic kanban systems is used. This
+study is organized as follows: Section 2 is about the theoretical
+background and literature review. Section 3 presents the need for
+dynamic planning. Section 4 is about routing problem. Section 5
+is about scheduling problem. Loading problem is in Section 6.
+Section 7 presents the results and analysis. Finally, Section 8
+presents the conclusion of the study
+2. Theoretical background and literature review
+To explain the approach in this study some concepts should be
+clear. In MMAL, a station may be closed or open at either side of a
+station boundary. In a closed station, the operator must work
+within the boundary limits of the station. In an open station, an
+operator is permitted to move outside his station up to some
+speciﬁc limits (Sarker & Pan, 2001). It is possible for stations to
+be combinations of the two previous types. Work congestion occurs
+when the assembly work is done beyond the station downstream
+limit, while work deﬁciency occurs when the assembly work is done
+beyond the station upstream limit (Macaskill, 1973).
+Because of the varying assembly time of different models, an
+operator tends to have an uneven amount of work. As a result,
+the assembly line is expected to experience blocking and starvation
+phenomena. Blocking results in utility time (over load) which occurs
+when an operator cannot ﬁnish his work on a product model
+before reaching the workstation boundary downstream and needs
+additional operator(s) to ﬁnish the incomplete product model.
+Starvation results in the idle time which occurs when an operator
+needs to wait for a product model to enter the upstream boundary
+of his workstation area (Sarker & Pan, 2001). There is another type
+of workstation starvation which occurs when there is a shortage in
+the needed materials coming from the warehouse.
+Beside starvation and blocking there are other types of distur-
+bances that affect the work of MMAL. Some of these disturbances
+come from the failure of some machines, different processing times
+for different product models, and ﬂuctuations and changes in
+customer
+demand.
+If
+unforeseen
+disturbances
+like
+machine
+breakdowns or material shortages occur, a resequencing of a given
+production sequence often becomes essential (Boysen, Scholl, &
+Wopperer, 2012). Moreover, in an assembly line of a JIT production
+system, workers have the power and the responsibility to stop the
+line when they fail to complete their operations within their work
+zones (Xiaobo & Ohno, 2000). So, line stoppage and utility work are
+two alternatives to deal with the case in which the worker cannot
+ﬁnish his/her work on time.
+The part feed problem has been widely studied in the literature.
+For example, Caputo and Pelagagge (2011) investigated the part
+feeding policy where their analysis focused on three basic policies,
+namely kitting, just in time kanban-based continuous supply and
+line storage. Some guidelines and decision tools were provided to
+assist production managers in the selection of proper policies for
+components delivery to assembly systems. The research methodol-
+ogy was based on developing theory-based quantitative planning
+models associated with an empirical approach to assign candidate
+delivery methods to speciﬁc components groups. The forklift sys-
+tem was investigated by several studies. For example, considering
+Assembly to Order (ATO) or Make to Order (MTO) mixed model
+assembly lines systems, Battini, Faccio, Persona, and Sgarbossa
+(2009) investigated both the inventory centralization/decentraliza-
+tion problem and the line feeding policy in a general framework.
+They considered three feeding policies which are pallet to
+workstation, trolley to workstation, and kit to assembly line. So
+they concentrated on three different transport devices (fork-lift,
+hand truck or trolley, assembly kit). They ignored investigating
+the use of tugger trains in their feeding policy. A multi-factorial
+analysis has been carried out and an industrial application of the
+introduced framework was illustrated. Boysen and Bock (2011)
+considered the feeding of parts using forklifts from a central ware-
+house. They presented a case study for a company manufacturing
+cars. In this company the mixed model assembly line is located
+in the second ﬂoor. So a hoist system is used to get the parts to
+the second ﬂoor where forklifts are ready to take parts and deliver
+them to the workstations. Part distribution by the forklift is a
+bottleneck. Therefore, a suitable sequence of given material boxes
+has to be found. Furthermore, a direct comparison with a simple
+two-bin kanban system was provided.
+In milk run system, the literature shows that there are four
+main decisions which are:
+ Supermarket location problem (Alnahhal & Noche, 2015; Emde
+& Boysen, 2012a)
+ Tugger train routing (Emde & Boysen, 2012a; Golz et al., 2012;
+Emde & Boysen, 2012b)
+ Tugger train scheduling (Emde & Boysen, 2012b; Golz et al.,
+2012; Choi & Lee, 2002)
+ Tugger train loading (Choi & Lee, 2002; Golz et al., 2012; Emde
+et al., 2012).
+In our study, the last three items which are routing, scheduling
+and loading problems are considered in the environment of mixed
+model assembly lines taking into consideration the occurrence of
+disturbances.
+Other types of classiﬁcations can be as follow:
+ Transport devices: forklift, hand truck or trolley, assembly kit,
+and tugger train
+ Material ﬂow control: demand-oriented and kanban (e-kanban
+and traditional kanban)
+ Production environment: mixed model assembly line and
+others (such as job shops)
+ Inventory
+type:
+centralized
+warehouse
+and
+decentralized
+supermarket
+More classiﬁcations can be found in Klenk et al. (2012). In this
+study, tugger trains are used. The study combines, for the ﬁrst time,
+the demand oriented and e-kanban types in the same time. In pro-
+duction environment type, mixed model assembly line is consid-
+ered. Moreover, the two types of inventory can be considered.
+Before get into details, a big picture of the decisions should
+be
+considered.
+For
+example,
+Battini,
+Gamberi,
+Persona,
+and
+Sgarbossa (2015) presented an approach for the part feeding for
+assembly systems in which supermarket storage is adopted and
+coupled with an automated transportation system. They made a
+conceptual framework for the design of the system. The supermar-
+ket type can be ﬁsh bone, single line, or multi line. The transporta-
+tion mode can be shuttle/conveyor, AGV/LGV, or tow train. The line
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+111
+
+
+--- SAYFA 3 ---
+side presentation can be load unit, station kit, and traveling kit. A
+decision support matrix was presented where the tow train, AGV,
+and shuttles are compared based on certain criteria. In most of
+the cases the tow train was found to be the best option. The
+transportation system choice was found to be strongly affected
+by four key parameters: the number of meters traveled during
+the feeding process, the assembly line dimension (i.e. the number
+of stations), the assembly line takt time and the number of part
+bins demanded by stations per takt.
+In the literature of milk run system, the control system of mate-
+rial supply is demand-oriented system or kanban system. Several
+studies concentrated on the ﬁrst one. For example, Emde and
+Boysen (2012b) studied the train routing and scheduling together
+in parallel to decrease the inventory holding costs. Emde et al.
+(2012) studied the loading problem to minimize the inventory hold-
+ing cost. The two studies assumed that the feeding process starts
+from decentralized supermarkets. Golz, Gujjula, Günther, Rinderer,
+and Ziegler (2012) studies the routing, scheduling, and loading prob-
+lems in a centralized inventory system. Outside the milk run system,
+train scheduling is known in the literature. For example, Babu et al.
+(2014) studied train scheduling, ship scheduling and stockyard
+management in the context of coal imports in port terminals.
+One the other hand, other studies concentrated on the kanban
+system. Bozer and Ciemnoczolowski (2013) and Ciemnoczolowski
+and Bozer (2013) investigated the traditional kanban system
+where they determined the number of kanban assuming a given
+workstation starvation level. Before that, they presented the
+distribution of demand for bins assuming that the demand is
+always one or two bins for each workstation during the train cycle.
+A study by Faccio, Gamberi, Persona, Regattieri, and Sgarbossa
+(2013b) used simulation to analyze the system. In another study
+by Faccio, Gamberi, and Persona (2013a), a cost model has been
+proposed using analytical approach. They concentrated on the
+special attributes of such a system and they provided an innovative
+procedure to optimally set all decision variables. A study by Faccio
+(2014)
+also
+investigated
+the
+milk
+run
+kanban
+system
+and
+compared it to kitting system in the case of using decentralized
+supermarket. The comparison was based on the impact of produc-
+tion mix variability and of the models variety. Bortolini, Ferrari,
+Gamberi, Manzini, and Regattieri (2015) presented a model for
+feeding the parts from supermarket to mixed model assembly lines
+and presented a real case study. The kanban system is used to
+regulate the material ﬂow. There are three costs drivers which
+are material handling cost, inventory cost of the assembly lines,
+and stock out cost. The tradeoff between the ﬂeet size and the size
+of line side inventory has been addressed. Two free decisional vari-
+ables are considered looking for their best value deﬁnition, i.e. the
+number of carts per tow-train and the so-called security factor.
+Dynamic planning for material replenishment was investigated
+by Choi and Lee (2002) who studied the feeding process in an
+automotive plant. At ﬁrst, they investigated the loading problem
+in which the parts to be fed and the feeding amounts are indenti-
+ﬁed. Then the feeding orders to feeders are assigned and routes are
+formed. This is based on the objective of minimizing the deviation
+of actual delivery time from the ideal one, where a certain safety
+stock level should be kept. However, the loading problem in the
+study by Choi and Lee (2002) did not take into consideration peak
+demand periods in which the shuttles capacities are exceeded, so
+their study does not contain early loading in which some bins are
+loaded before they are needed. Furthermore, they only considered
+the case of resequencing. According to the best of the knowledge of
+the authors, the study by Choi and Lee (2002) was the only one
+which concentrated on dynamic planning of the feeding system.
+Our study investigates this dynamic planning process in terms of
+routing, scheduling, and loading problems and considers the peak
+demand periods. We present a system that is able to deal with
+quality problems, line stoppage caused by machine breakdown or
+inability of worker to ﬁnish his work on time, and resequencing
+based on disturbances or customer needs.
+3. The need for a dynamic system
+At ﬁrst we investigate routing problem. We assume that the
+routing problem is independent from disturbances and resequenc-
+ing. The routing problem depends on the total average demand
+which is usually stable even after resequencing. Stable routing will
+give some stability in the system. On the other hand, scheduling
+and loading problems should by dynamic to respond to the
+changes in the detailed demand of stations. However, in the
+routing problem in this study, the effect of early loading will be
+taken into consideration. The results of the scheduling problem
+are used as inputs for loading problem. However, scheduling was
+investigated in a way that guarantees the feasibility of loading
+problem regarding the capacity of the train. Scheduling and
+loading problems in our study take into consideration the current
+material amounts in line-side inventory after each disturbance.
+The objective is to make these amounts of materials as close as
+possible to the normal safety stock level as fast as possible. The
+objective is done considering minimizing the number of cycles,
+the probability of early loading, and the deviation of actual
+line-side inventory from the ideal safety stock level.
+The following basic assumptions are made in this study:
+ There is no any disturbance in the movement of the tugger
+trains. The disturbances only occur in MMAL
+ The
+demand
+of
+stations
+can
+be
+represented
+by
+Poisson
+distribution
+ If there is no disturbances for a certain period of the shift, the
+stations’ exact demand for parts can be expected in this period.
+ The time between two disturbances is long enough to ﬁx the
+problems caused by the ﬁrst disturbance. These problems are
+basically the deviation of the size of line-side inventory from
+the ideal safety stock size.
+Basically the material control system can be categorized as
+demand-oriented or kanban. In demand-oriented system, the exact
+demand is assumed to be known in at least the next shift. This fact
+makes the demand oriented-system able to deal with peaks period
+of demand using early loading. However, there are some cases that
+make it difﬁcult to anticipate the exact stations demand for parts.
+Some of these cases are:
+1. Resequencing: as stated before, the sequence of the product
+models can be changed during the shift based on changes in
+demand or some disturbances. In this case the total demand
+during the shift remains the same but deviates from the original
+plan over time.
+2. Disturbances: for example in the case of line stoppage, the
+demand can be shifted by stoppage time. Some minor changes
+in demand can occur in the case of utility work. In this case
+the demand can be delayed. Another problem arises when the
+next station in which utility work is done has the same type
+of material of the previous station. In this case the utility
+worker may use the material of this next station. So the exact
+quantity of material in the two stations’ line-side inventory is
+no longer known. The same problem can occur in the case of
+work deﬁciency.
+3. Quality problems: if there are some defective parts, some extra
+parts must be provided to compensate for the defective ones.
+4. Unpaced MMAL: in an unpaced line, the tasks of the worksta-
+tions can be decoupled from each other. So, each of the work-
+stations operates independently (Smunt & Perkins, 1985). In
+112
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+
+
+--- SAYFA 4 ---
+this system, in-process inventory is needed among stations,
+where it is a design factor (Chakravarty & Shtub, 1985). In this
+case the exact demand times cannot be known.
+This study does not cover the last case. In the other cases, the
+kanban system can be used since it depends on the continuous
+feedback sent to the supermarket area about the status of the
+parts consumptions. To enhance the performance of the system,
+e-kanban can be used to send the signals instantly. However, this
+study is about getting the advantages of both the e-kanban and
+the demand-oriented systems to design a dynamic planning
+system. In this system, the expected demand during the next few
+train
+cycles
+after
+disturbances
+is
+determined.
+This
+is
+done
+depending on the information gathered from the signals sent by
+e-kanban system
+to
+the
+supermarket
+area
+about
+the
+parts
+consumption and resequencing details. This is important to know
+the demand in the next train cycles and to exactly know the
+amount of parts in line-side inventory. The exact parts consump-
+tion can be obtained using radio frequency identiﬁcation (RFID)
+system or bar code. Traditional kanban system is not very effective
+in the proposed approach in this study because there are some
+delays in sending the information about the exact size of consump-
+tion of each station.
+The following parameters must be known:
+dpi: number of defective parts of type i during the previous
+disturbance period
+dik: the expected number of parts i demanded in station cycle k
+according to the new workpieces sequence.
+CPi: the number of consumed parts of type i during the previous
+disturbance period
+PDi: the planned number of delivered parts of type i during the
+previous disturbance period
+bi: ideal safety stock size for parts i
+Then current line-side inventory for parts i(ai) can be estimated
+as follows:
+ai ¼ bi  ðCPi  PDi þ dpiÞ
+ð1Þ
+This value will be used later as input in the scheduling and loading
+problems. The disturbance period is the time interval at which
+dpi > 0 or CPi – PDi. The RFID or bar code is important to detect
+dpi and CPi values. The previous ﬁve parameters can be converted
+to bin size units if the detection of each part is not possible. In this
+case, the bar code or RFID tag can be attached to each bin. In this
+study, we assume that there is no any disturbance for the delivery
+of the train. The disturbances can only occur in the assembly line.
+This means that PDi is not affected by disturbances. In the case that
+early loading is not used, the planned number of delivered parts is
+equal to the expected demand in previous train cycles. Another
+possibility for that equivalence is that disturbances occur in
+bottleneck periods of demand.
+In the case of disturbances, the term CPi  PDi + dpi in the pre-
+vious equation can be with a positive or a negative sign depending
+on the following factors:
+ The possibility of using early loading: if early loading is used the
+term tends to be negative
+ The time of disturbances: if they happen just after peak-
+demand period, the extra material resulted from early loading
+is consumed. Therefore, the sign in this case is based on the
+nature of disturbances.
+ The nature of disturbances: defective parts make it positive
+while delays caused by line stoppage or machine breakdown
+make it negative.
+In the case of machine breakdown in a station, it is expected
+that the stations before that station have consumed parts more
+than the stations after it. Therefore it is expected that the ﬁrst
+group of stations have lower line-side inventory. So its probability
+for starvation increases. In the following three sections, routing,
+scheduling, and loading problems, specially designed to be suitable
+for dynamic planning, are presented.
+4. Fixed routing and effect of early loading
+In the case of dynamic material ﬂow control, there are two main
+advantages for ﬁxed routing:
+1. Making planning easier: after resequencing, for example, some
+tugger trains are in the supermarket area while others are still
+in their routes. If variable routing is to be done, a plan must take
+into consideration these two groups of trains and assign each
+train to the right stations. This complicates the planning
+process.
+2. Providing some extra train capacity that is useful to absorb the
+effect of sudden increases in demand in some cycles.
+Although the stations demand is very dynamic, in the practice
+sometimes the routes are ﬁxed, where certain colors are used to
+determine certain routes. To maintain a certain probability of
+capacity ﬁll rate (d), the maximum permitted average demand of
+stations in the cell must be determined. Capacity ﬁll rate, or simply
+ﬁll rate, in this study refers to the probability of providing the cell
+with all the needed bins. In this study, ﬁll rate depends only on the
+capacity of the train. The ﬁll rate for all the cycles in the shift can be
+obtained by multiplying the ﬁll rate for each cycle. Low ﬁll rate
+causes high level of workstation starvation.
+So if early loading is not used, it is possible to write
+di ¼ min
+K
+Di
+; 1
+
+
+ð2Þ
+d ¼
+Y
+T
+i¼1
+di
+ð3Þ
+where K is the capacity of the tugger train feeding the cell, T is the
+number of train cycles in the shift, and Di is the cell demand in the
+train cycle i. The cycle demand for each station in the cell is for the
+time interval from the arrival of the train at the station to the next
+train arrival at the same station in the next train cycle. Later the ﬁll
+rate is investigated if early loading is used. The average demand can
+be controlled by determining the number of stations in the cell. But
+before that we ﬁnd the ﬁll rate if the average demand is exactly as
+the capacity of the train. In the calculations, we assume that early
+loading will be done later.
+Decreasing ﬁll rate increases stations starvation. This starvation
+is different from another type of starvation which occurs when an
+operator needs to wait for a workpiece to enter the upstream
+boundary of his workstation area. Generally, the station starvation
+is caused by the following points:
+1. The total accumulated demand of all stations in the cell must
+always be less than or equal to the capacity of the train multi-
+plied by the number of train cycles.
+2. In the case of early loading, for each station the maximum line-
+side inventory (MLSI) must not exceed the capacity of the area
+beside the station.
+3. In the case of traditional kanban system, the number of kanban
+affects the starvation probability
+The previous ﬁrst point is related to the ﬁll rate. If any of the
+two constraints in
+the ﬁrst
+two points were not
+realized,
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+113
+
+
+--- SAYFA 5 ---
+workstation starvation occurs. The effect of MLSI can be negligible
+if the number of stations is high. This is because there are a lot of
+chances to make early loading without exceeding MLSI.
+Suppose that the average cell demand per cycle is equal to the
+capacity of the train (D = K), and assume that the demand of
+stations for bins can be represented by Poisson distribution. dEL2
+(i) represents the ﬁll rate for the current and previous routes
+(i and i  1) if early loading is used. It can be obtained using
+Eqs. (4) and (5)
+dEL2ðiÞ ¼
+X
+Dði1Þ
+j¼0
+pmfðDði1Þj;Dði1ÞÞCDFðDþj;DÞ; D ¼ K 8i ¼ 2...T
+ð4Þ
+In Eq. (4), if i = 1, there is no previous route, so dEL2 (1) is determined
+using Eq. (5)
+dEL2ð1Þ ¼ CDFðD; DÞ;
+D ¼ K
+ð5Þ
+where
+pmf(k, k) = Pr(X = k) is probability mass function
+CDF(k, k) = Pr(X 6 k) is cumulative distribution function
+In Eq. (4), the term ‘‘D(i  1)’’ represents the total average cell
+demand for bins in all the cycles of the train before the current ‘i’
+cycle. Because D = K, the term also represents the total capacity
+of the train cycles before the current one. So if the total actual
+demand
+in
+the
+train
+cycles
+before
+the
+current
+cycle
+is
+‘‘D(i  1)  j’’, then the previous cycle will be feasible (without
+starvation). For the current train cycle to be feasible, the demand
+for parts in it must be at maximum ‘‘D + j’’. That means that any
+savings represented by ‘j’ in the bins demand (consumption) in
+the previous train cycle will be advantageous for the current train
+cycle because of the early loading principle. The probability of that
+can be estimated using the second term in the right side of the
+equation which is ‘‘CDF(D + j, D)’’. All the possible values of ‘j’ are
+taken into consideration. So the equation is to estimate the
+probability that both the current and the previous train cycle are
+feasible, and this feasibility is called ﬁll rate.
+It was found using simulation that dEL(i) which is the ﬁll rate for
+routes from 1 to i can be estimated as in Eq. (6)
+dELðiÞ ¼ dEL2ð1Þi
+dEL2ðiÞ
+D ¼ K
+ð6Þ
+So the ﬁll rate for all the routes is
+dELðTÞ ¼ dEL2ð1ÞTdEL2ðTÞ
+D ¼ K
+ð7Þ
+It was found using simulation that the effect of the number of
+routes is very small when ﬁll rate is high. So ﬁll rate is almost
+independent
+from
+the
+number
+of
+cycles.
+This
+fact
+makes
+calculations easier. Using simulation, it was found when ﬁll rate is
+high that:
+dEL ﬃCDFðK; DÞ
+K  D
+ð8Þ
+That means that the ﬁll rate depends only on the capacity of the
+train and the average cell demand. Later in this paper, Eq. (10) will
+be obtained from Eq. (8) to ﬁnd the number of stations in the cell for
+a desired level of ﬁll rate. Fig. 1 shows how the values obtained
+using simulation and the values obtained using Eq. (8) approaches
+each other when the ﬁll rate is high. The two lines are almost the
+same in the right side of the ﬁgure. The data used to obtain this ﬁg-
+ure was the following: there are 10 workstations each of which has
+an average demand of 2 bins per train cycle, and there are 10 train
+cycles in the shift. The demand is assumed to be Poisson distributed
+for all the stations. To obtain the simulation line, 20,000 randomly
+generated instances were used, where the average value for the ﬁll
+rate is used in Fig. 1. Eq. (9) was used to check the feasibility of a
+given instance containing the detailed demand of a group of
+workstations.
+X
+N
+s¼1
+dst 6 tK
+8t ¼ 1 . . . T
+ð9Þ
+where dst is the demand of station s for bins in the train cycle t.
+The probability of feasibility based on Eq. (9) is the ﬁll rate.
+Increasing the number of train cycles will decrease the ﬁll rate.
+The ‘Estimated’ line is obtained using Eq. (8). The data previously
+mentioned was altered several times and in each time the same
+behavior shown in Fig. 1 occurs.
+Since Eq. (8) ignores the effect of the number of train cycles,
+using simulation Table 1 shows the difference between the
+obtained ﬁll rate assuming two cases. In the ﬁrst one, the number
+of train cycles equals 1, and in the second one the number of train
+cycles equals 10. This difference is obtained by subtracting the two
+values in the two cases and dividing the result by the value in the
+second case. The effect of the number of the train cycles decreases
+when the ﬁll rate increases. Fig. 1 and Table 1 show the accuracy of
+Eq. (8).
+So to estimate the number of stations (N) supplied by the same
+train, we use
+K P F1
+dEL;
+X
+N
+i¼1
+di
+ 
+!
+K  D
+ð10Þ
+where di is the average cycle demand for station i, and F1 is the CDF
+inverse. The maximum value of N without breaking the previous
+constraint is found. N is the maximum value that does not break
+constraint (10). The transportation and loading/unloading times
+must be considered in the determination of TCT. The summation
+of these times for all the stations increases when the number of sta-
+tions increases. This means that TCT must be increased and hence di
+increases. So the values of di are recalculated every time the number
+of stations is changed. The demand can be based on the minimum
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+0
+2
+4
+6
+8
+10
+12
+Fill rate
+K-D
+Estimated
+Simulation
+Fig. 1. The difference between the results of Eq. (8) and the results of simulation.
+Table 1
+Effect of number of train cycles per ﬁll rate.
+K  D
+Fill rate when there are
+10 train cycles (%)
+Difference between ﬁll rates when there
+are 1 and 10 train cycles (%)
+1
+36.38
+75.42
+2
+53.17
+35.02
+3
+66.76
+16.83
+4
+78.60
+7.53
+5
+86.04
+3.32
+6
+90.64
+1.66
+7
+94.47
+0.71
+8
+96.20
+0.31
+9
+97.63
+0.11
+10
+98.71
+0.03
+11
+99.25
+0.02
+114
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+
+
+--- SAYFA 6 ---
+possible TCT for the given number of stations. This is because the
+priority is to decrease the number of tugger trains as much as
+possible. This means that in the peak periods of demand, TCT must
+be the minimum possible one to be able to provide the needed cell
+demand using the maximum possible capacity without waiting in
+the supermarket area.
+The cell can be supplied by a central supermarket or by decen-
+tralized supermarkets. One decentralized supermarket may feed
+several assembly lines. However, sometimes one decentralized
+supermarket supplies just part of the assembly line (Emde &
+Boysen, 2012b; Emde et al., 2012). In the case of using a central
+supermarket or a decentralized supermarket feeding more than
+one assembly line, we use a different approach from those found
+in the literature. The serpentine routes method used in Golz
+et al. (2012) is not very effective in the case of using ﬁxed routes
+since it results in high level of underutilization of tugger trains.
+Its philosophy is that the train must feed the whole assembly line
+and not just a group of stations inside it for many advantages sta-
+ted in Golz et al. (2012). Fig. 2 compares the serpentine routes
+method and our method of routing. The stations in the solid line
+belong to the same cell. The stations in the dotted line belong to
+another cell. In the ﬁrst method, the ﬁrst and third assembly lines
+are supplied by the same train in the same train cycle, while the
+second and third assembly lines are supplied by another train in
+another. On the other hand in our method, two stations of the sec-
+ond assembly line are supplied by a train while the rest of stations
+are supplied by another train. So in this study the assembly line
+can be supplied by more than one tugger train. This is more appro-
+priate in the case of ﬁxed routing. This method is more ﬂexible and
+enhances the utilization of the tugger train but can lead to trafﬁc
+jam of the trains if there is more than one train in a narrow aisle.
+In the case of using a decentralized supermarket feeding just part
+of the assembly line, routing is simpler. In the two cases, the rout-
+ing is as follows: just start from the ﬁrst station and go until the
+ﬁnal possible station while keeping the constraint in Eq. (10) in
+mind. When reaching the last station in the cell, begin a new cell
+starting from the station after it and continue in the same way.
+5. Scheduling
+In the period just after disturbances, there are two main special
+factors for the scheduling process:
+1. It must consider the size of the current line-side inventory. MLSI
+resulted from scheduling plus the line-side inventory remaining
+from previous period must not exceed the maximum capacity
+of the space near the stations.
+2. More attention is paid for the capacity of tugger trains, where
+sometimes, the train capacity is still not enough even after
+using early loading. So scheduling process must take into
+consideration that the loading problem that will be conducted
+later is feasible regarding the accumulated stations demand.
+So high ﬁll rate should be guaranteed.
+The ﬁrst factor is also in loading problem. The objective function
+of scheduling is minimizing the number of train cycles and
+possibility of early loading. The maximum train capacity and the
+maximum capacity of the space near the stations must be taken
+into consideration. Minimizing the number of cycles reduces the
+efforts and the trafﬁc jam in the facility, while minimizing the
+probability of early loading reduces the inventory holding costs.
+The following parameters and variable are used:
+MC is the minimum possible TCT minus 1 (represented in SCT
+unit).
+TSC is the total number of station cycles in the shift
+xij ¼
+1; if there is a train cycle that covers the stations cycles from i to j
+0; otherwise
+
+dku is the demand (in bins unit) of station k during the station
+cycle u
+M is the maximum capacity of the area beside stations
+wi is the weight of the term i in the objective function
+The minimum possible TCT is based on the total needed time for
+train transportation and loading and unloading of bins beside the
+stations and in the supermarket area. In determining MC, we used
+‘‘minus one’’ to make the equations simpler. MC represents, in
+station cycle time unit, the difference between the ﬁrst and the last
+station cycles covered by one train cycle. For the estimation of dku,
+for a group of stations belonging to the same assembly line if the
+station cycle u for a station k is s, then the associated u for the sta-
+tion k + 1 is s + 1. This is because it takes one SCT for a workpiece to
+move from the station k to the station k + 1. Table 1 shows the
+associated u values for different stations and cycles. Any column
+in the table represents the cycles in which the demand of the same
+workpiece take places on different stations. As it is obvious, even
+when u = s + 3 for the fourth station, dku is written not as dk(s+3)
+but as dks. In other words, the station cycle number depends not
+only on the time of the cycle but also on the station number (see
+Table 2).
+(a) Routes in literature 
+(b) Routes in this study 
+Fig. 2. Two ways for routing.
+Table 2
+Stations demand representation method.
+k (station number)
+Station cycles
+u = s
+u = s + 1
+u = s + 2
+1
+s
+s + 1
+s + 2
+2
+s + 1
+s + 2
+s + 3
+3
+s + 2
+s + 3
+s + 4
+4
+s + 3
+s + 4
+s + 5
+dku
+dks
+dk(s+1)
+dk(s+2)
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+115
+
+
+--- SAYFA 7 ---
+The model is as follows:
+Objective function
+min w1
+X
+TSCMC
+i¼1
+X
+TSC
+j¼iþMC
+yþ
+ij þ w2
+X
+TSCMC
+i¼1
+X
+TSC
+j¼iþMC
+xij
+þ w3
+X
+TSCMC
+i¼1
+X
+TSC
+j¼iþMC
+xij
+X
+N
+k¼1
+X
+j
+u¼i
+dku
+ð11Þ
+Subject To
+xij
+X
+j
+u¼i
+dku 6 M
+8i ¼ 1; . . . ; TSC  MC;
+8j ¼ i þ MC; . . . ; TSC;
+8k ¼ 1; . . . ; N
+ð12Þ
+xij
+X
+N
+k¼1
+X
+j
+u¼i
+dku yþ
+ij þy
+ij ¼ K 8i ¼ 1...TSCMC; 8j ¼ iþMC...TSC
+ð13Þ
+X
+IMC
+i¼1
+X
+I
+j¼iþMC
+xij
+X
+N
+k¼1
+X
+j
+u¼i
+dku 
+X
+N
+k¼1
+ak 6 K
+X
+IMC
+i¼1
+X
+I
+j¼iþMC
+xij 8I ¼ MCþ1...TSC
+ð14Þ
+X
+jMC
+i¼1
+xij ¼
+X
+TSC
+v¼jþ1þMC
+xjþ1;v
+8j ¼ MC þ 1; . . . ; TSC  MC
+ð15Þ
+X
+TSC
+j¼1þMC
+x1j ¼ 1
+ð16Þ
+X
+TSCMC
+i¼1
+xiTSC ¼ 1
+ð17Þ
+xij ¼ 0 or 1; yþ
+ij ;y
+ij P 0 8i ¼ 1;...;TSCMC; 8j ¼ iþMC;...;TSC
+ð18Þ
+Appropriate weights for the objective function terms can be deter-
+mined by management staff according to the importance of mini-
+mizing inventory holding costs and the number of cycles. The ﬁrst
+term in the objective function is to minimize the possibility of early
+loading in loading problem. This objective is important to minimize
+the inventory holding cost because early loading increases the aver-
+age line-side inventory. The second term is to decrease the number
+of train cycles. The third term is to guarantee that there is no over-
+lap in the cycles. Constraint (12) is to guarantee that demand does
+not exceed the capacity of area beside stations. Constraint (13) is to
+deﬁne the variable y+
+ij used to minimize the possibility of early
+loading. When y+
+ij is larger than zero, it means that the demand is
+more than the capacity for certain train cycle, and that means the
+necessity for early loading. In the objective function y+
+ij is put
+because the objective is reduce it. On the other hand, if y
+ij is larger
+than zero, it means that the capacity is more than the demand.
+Constraint (14) is to prepare for early loading in the next section
+where it guarantees that early loading will be feasible regarding
+the accumulated demand constraint. The current line-side inven-
+tory for parts k (ak) computed in Eq. (1) has been taken into con-
+sideration. In the case that there are some train capacity problems
+(not very high ﬁll rate), constraint (14) will make the model infea-
+sible. So it can be rewritten in the same way of constraint (13), and
+that is using goal programming to make the constraint soft.
+Constraint (15) is to guarantee that all the station cycles demand
+is fulﬁlled. If a certain train cycle for the station cycles i to j is cho-
+sen in the solution, there must be a new train cycle starting from
+the station cycle j + 1. Together with constrains (16) and (17), the
+fulﬁlling of cycle demands are guaranteed by using constraint
+(15). Constraints (16) and (17) are to guarantee that there is an
+initial train cycle covering the ﬁrst station cycle, and a ﬁnal train
+cycle to cover the last station cycle demand. Without these two
+constraints, all variables xij will be zeroes.
+To show the effect of the weight of each term in the objective
+function, a simple example is presented in Table 3, where the 1’s
+represent the demand for bins in the station cycles. For the ﬁrst
+station, there was no any demand until the 17th station cycle
+because the station has some parts from the previous shift. Only
+the station cycles in which the demand occurs were shown. In
+the real life, the numbers of station cycles and stations are usually
+larger. In the example, it was assumed that MC = 8, M = 4, and
+K = 6. Moreover, ak = 2 for all the stations.
+The third term in the objective function can be multiplied by a
+very small number because it is only to guarantee that there is no
+extra number of train cycles. For the ﬁrst and second terms, the
+results depend on the value that is multiplied by each term, where
+the results are as in Table 4.
+As in the ﬁrst scenario if the weight is zero, there is no penalty if
+the demand is more than the capacity of the train. In this case the
+penalty will only be for the number of the cycles of the train.
+Therefore, there are only two cycles, and the demand for the train
+is more than its capacity by 1 bin in the ﬁrst cycle and 6 bins in the
+second cycle. Because ak = 2 for all the stations, the solution is still
+feasible, but the line side inventory size will be deviated from its
+initial one. In the second scenario the weight for the ﬁrst term
+was set to be 1, and there are three cycles. There is still one cycle
+with demand more than K. In the third scenario, the importance
+of the ﬁrst term was set to be very high on the expense of the num-
+ber of train cycles, where there are 4 train cycles with no any cycle
+with demand more than the capacity of train. The weights of the
+ﬁrst two terms of the objective function are left for the decision
+maker based on his/her judgment. Results were obtained using free
+software called LP solve.
+The scheduling and loading problems found in the literature
+assume that there is no any disturbance. Moreover, the scheduling
+problem in this study prepares for early loading considering the
+current size of line side inventory. It guarantees that the loading
+problem is feasible, where the scheduling problem is an input for
+the loading problem. Ignoring this fact can lead to infeasible load-
+ing problem which leads to workstation starvation. Without using
+the signals about the real consumption of materials, a lot of prob-
+lems can happen depending on the type and level of disturbance.
+Rescheduling may not be problematic because it is a major change
+that can be easily known by the material handlers using simpler
+methods of information sharing. However, the effect of some prob-
+lems in the quality of some parts can be gradually increased and
+not be known or estimated by the material handlers except if sever
+workstation starvation happens. The effect of machine breakdowns
+or line stoppage for short times can be detected only if the line side
+area is full with bins. It is important for the signals to be electroni-
+cally sent for fast response by the material handling system. If the
+current size of line side inventory is not known because the elec-
+tronic signals are not used and if it is higher than the ideal safety
+stock level, then the real needed capacity of the tugger train will
+be less than the assumed one. This will not make a problem in
+scheduling but must be considered in routing problem. However,
+the problem will occur if the size of the current line side inventory
+is lower than the ideal safety stock assuming that the scheduling
+problem takes into consideration the safety stock level. This is
+because the real needed capacity will be higher than the assumed
+one.
+In the case that the electronic signals are not used, the planner
+has two strategies. The ﬁrst one is to assume that the line side
+inventory is zero. Usually, the safety stock should not be used
+except if it is very necessary in some bottleneck periods where
+the shortage of material will occur. Usually to cover such a
+116
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+
+
+--- SAYFA 8 ---
+shortage, some emergency tugger trains routes are used. The prob-
+lem for these tugger trains is that if the real line side inventory is
+not zero is that they add cost which is not necessary and may
+result in excessive material accumulation beside the stations. The
+second strategy is to assume that the current line side inventory
+is equal to the ideal safety stock level. Suppose that in normal
+situations that the system suffers from 10% probability of worksta-
+tions starvation if the safety stock is needed. If that system does
+not use the electronic signals to detect the depletion of all the
+safety stock, then the system will suffer from 10% probability of
+workstations starvation.
+6. Loading problem
+The objective function in this problem is minimizing the
+deviation between the line-side inventory and ideal safety stock
+levels. The model will minimize the total inventory holding costs.
+In the case that sudden large demand quantities higher than the
+capacity of the train are required in the ﬁrst few cycles and they
+cannot be accommodated by early loading, emergency train
+routes can be used. This case is not considered in the loading
+problem below. So we assume that the system can accommodate
+the peak demand caused by disturbances without the need for
+the emergency routes.
+The following variable and parameter are used
+est is the difference between the actual line-side inventory and
+bs
+xst is the decision variable which represents the number of
+delivered bins for station s in the train cycle t.
+If there is no early loading, xst and dst will be identical. The
+model is as follows:
+Objective function
+min
+X
+N
+s¼1
+X
+T
+t¼1
+jestj
+ð19Þ
+Constraints
+X
+N
+s¼1
+xst 6 K
+8t ¼ 1; . . . ; T
+ð20Þ
+X
+t
+t0¼1
+xst0 P
+X
+t
+t0¼1
+dst0  as
+8t ¼ 1; . . . ; T; s ¼ 1; . . . ; N
+ð21Þ
+X
+t
+t0¼1
+xst0 
+X
+t
+t0¼1
+dst0 þ dst þ as 6 M
+8t ¼ 1; . . . ; T;
+s ¼ 1; . . . ; N
+ð22Þ
+X
+t
+t0¼1
+xst0 
+X
+t
+t0¼1
+dst0 þ as  bs ¼ est
+8t ¼ 1; . . . ; T;
+s ¼ 1; . . . ; N
+ð23Þ
+xst is positive integer
+8t ¼ 1; . . . ; T;
+s ¼ 1; . . . ; N
+ð24Þ
+Constraint (20) is to guarantee that the capacity of the train is not
+exceeded. Constraint (21) guarantees that the accumulated deliv-
+ered number of bins is at least as the accumulated demand. In the
+same constraint, the size of line-side inventory at the moment of
+disturbance is taken into consideration. This inventory is also con-
+sidered in constraint (22) which guarantees that the MLSI does
+not exceed the maximum capacity of the area beside stations. The
+demand of the station is added to the left hand side because the
+demanded bin(s) will be delivered and stay near the station for at
+least a moment. So there must be a capacity for that. The value of
+deviation stated before is deﬁned in constraint (23) to be used in
+the objective function. To represent the absolute value for the
+variable est, some changes are added to the objective function and
+constraints, where
+est ¼ eþ
+st  e
+st
+jestj ¼ eþ
+st þ e
+st
+eþ
+st;e
+st P 0
+So the objective function is rewritten as:
+min
+X
+N
+s¼1
+X
+T
+t¼1
+eþ
+st þ e
+st
+ð25Þ
+Constraint (23) is rewritten as
+X
+t
+t0¼1
+xst0 
+X
+t
+t0¼1
+dst0 þas bs ¼eþ
+st e
+st 8t ¼ 1;...;T; s ¼ 1;...;N
+ð26Þ
+7. Results and analysis
+This section concentrates mainly on the effect of using the
+dynamic control of material ﬂow and compares it to the traditional
+demand-oriented and kanban systems. In demand-oriented system
+a complete failure is expected due to the fact that the accuracy of
+future expectations about demand is deteriorated after distur-
+bances especially in the case of resequencing. So we concentrate
+more on comparing our system to kanban system.
+To compare the system in this study to kanban system in the
+case of high level of ﬁll rate, Table 5 shows the ﬁll rate for the
+two systems. The effect of the current line-side inventory was
+neglected. K values were chosen so that ﬁll rate is greater than or
+equal to 99%. Actually the difference comes from the use of early
+loading. Usually early loading is used in demand-oriented system
+but it is not appropriate in the case of disturbances. So it is used
+in our approach. Early loading makes the system almost indepen-
+dent from the number of cycles. It is obvious that the system pro-
+posed in this study outperforms the demand-oriented and kanban
+systems.
+Eq. (24) is to ﬁnd ddiff which is the difference between the two
+systems in terms of ﬁll rate.
+ddiff ¼ CDFðK; DÞ  CDFðK; DÞT
+ð27Þ
+Another direction to investigate the effect of using our approach is
+to examine the effect of using ﬁxed routes on the underutilization of
+Table 3
+Stations demand for bins during the station cycles.
+Station
+Station cycles
+1
+11
+12
+14
+17
+18
+21
+25
+33
+34
+35
+38
+40
+1
+1
+1
+2
+1
+1
+1
+1
+1
+3
+1
+1
+1
+4
+1
+1
+1
+1
+5
+1
+1
+1
+1
+1
+Table 4
+Results for different weights of the ﬁrst term in the objective function.
+Weight
+Train cycle number
+1
+2
+3
+4
+0
+7 (1–12)a
+12 (13–40)
+1
+7 (1–12)
+6 (13–25)
+6 (26–40)
+10
+6 (1–11)
+5 (12–20)
+2 (21–30)
+6 (31–40)
+a D(i  j) means that the train cycle covers the station cycles from ‘i’ until ‘j’ and
+the demand is ‘D’ bins in this cycle.
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+117
+
+
+--- SAYFA 9 ---
+trains. We plot the (K  D)/D value found by Eq. (28) against D.
+The nominator represents the extra needed capacity higher than
+the average cell demand. If this value is so large compared to the
+average cell demand, the underutilization of trains is high. Fig. 3
+shows the results for dEL = 99%.
+K  D
+D
+ﬃF1ðdEL; DÞ  D
+D
+ð28Þ
+It is clear from Fig. 3 that using ﬁxed routes for low level of demand
+(number of bins) affects severely the underutilization of trains.
+However, when the average demand is high, the level of utilization
+is enhanced. In the case that there are only some few stations in the
+cell, there is a probability that MLSI affects the results when
+MLSI > M, and hence the performance of early loading will not only
+depends on the accumulated demand of stations but also on the
+MLSI value. This is because there are only few possibilities for early
+loaded quantity which may be added to the already large demanded
+quantity in a certain cycle. However, from the ﬁgure above it is not
+recommended to use ﬁxed routes for the cell with small number of
+stations because in this case the demand will be low, and the low
+cell demand increases the underutilization of tugger trains.
+The example in scheduling problem shows the possibility of
+getting different solutions based on the weights of the terms of
+the objective function. These weights can be set by the decision
+maker. The main trade-off is between reducing the number of train
+cycles to decrease the material handling costs, and reducing the
+probability of early loading and hence reducing the inventory
+costs. For the loading problem which is necessary if the demand
+in some train cycles is more than the capacity of the train, it is
+important to know that the penalty of deviation of the current line
+side inventory from its ideal level is measured in two dimensions:
+the quantity (number of bins) and time (number of train cycles).
+For example, if a deviation of one bin occurs in the ﬁrst two cycles,
+the penalty will be 2 not 1.
+8. Conclusion
+In this study, an approach for dynamic material ﬂow control is
+presented. This approach accommodates the effect of assembly
+line disturbances on the ﬂuctuations of the stations demand for
+materials and parts. We use a mix between the demand-oriented
+and e-kanban systems. To ﬁt into this situation, ﬁxed routing is
+presented
+taking
+into
+account
+the
+effect
+of
+early
+loading.
+Moreover, scheduling and loading problems were investigated tak-
+ing into consideration the current available amount of inventory
+beside stations. The objectives considered are minimizing the
+possibility of early loading, number of train cycles, and the devia-
+tions from the ideal safety stock size. These objectives guarantee
+minimizing inventory holding costs and trafﬁc jam of tugger trains.
+The presented approach outperforms the kanban system by
+enhancing the ﬁll rate and that means better utilization of tugger
+trains capacity. This is especially obvious when the number of train
+cycles in the shift increases, because the approach combining the
+e-kanban with the demand–oriented system is independent from
+the number of train cycles. This was found true using simulation
+when the ﬁll rate is high. However, the underutilization level of
+tugger trains increases when cell demand decreases. Future
+research can focus on ﬁnding a suitable approach for routing in
+the case that cells are with low demand for bins.
+The methodology in this study can only be applied when the
+workstations demand for parts is previously known with a good
+level of accuracy if there is no any of disturbances in part of the
+shift. This is usually found in mixed model assembly line.
+Knowing the demand in advance absorbs the effect of dynamic
+workstations demand using early loading. Another limitation is
+the assumption of ﬁxed routes that have been found in some
+facilities in the practice. However, in other facilities, management
+decides to use ﬂexible routing in which new routes can be built
+after the occurrence of the disturbance. The management can
+apply the ﬁxed routing when workstations demand for bins is
+relatively high and when the standardization of work is looked for.
+References
+Alnahhal, M., & Noche, B. (2015). A genetic algorithm for supermarket location
+problem. Assembly Automation, 35(1), 122–127.
+Babu, S. A. I., Pratap, S., Lahoti, G., Fernandes, K. J., Tiwari, M. K., Mount, M., et al.
+(2014). Minimizing delay of ships in bulk terminals by simultaneous ship
+scheduling, stockyard planning and train scheduling. Maritime Economics &
+Logistics, 1–29.
+Battini, D., Faccio, M., Persona, A., & Sgarbossa, F. (2009). Design of the optimal
+feeding policy in an assembly system. International Journal of Production
+Economics, 121(1), 233–254.
+Battini, D., Gamberi, M., Persona, A., & Sgarbossa, F. (2015). Part-feeding with
+supermarket in assembly systems: Transportation mode selection model and
+multi-scenario analysis. Assembly Automation, 35(1), 149–159.
+Baudin, M. (2004). Lean logistics: The nuts and bolts of delivering materials and goods.
+New York: Productivity Press.
+Bortolini, M., Ferrari, E., Gamberi, M., Manzini, R., & Regattieri, A. (2015). New
+kanban model for tow-train feeding system design. Assembly Automation, 35(1),
+128–136.
+Boysen, N., & Bock, S. (2011). Scheduling just-in-time part supply for mixed-model
+assembly lines. European Journal of Operational Research, 211(1), 15–25.
+Boysen, N., Scholl, A., & Wopperer, N. (2012). Resequencing of mixed-model
+assembly lines: Survey and research agenda. European Journal of Operational
+Research, 216(3), 594–604.
+Bozer, Y., & Ciemnoczolowski, D. (2013). Performance evaluation of small-batch
+container delivery systems used in lean manufacturing – Part 1: System
+stability and distribution of container starts. International Journal of Production
+Research, 51(2), 555–567.
+Table 5
+Effect of early loading on ﬁll rate.
+Da
+Ka
+Our system
+Kanban system
+dEL
+a
+da
+T*=10
+T = 15
+T = 20
+5
+11
+0.995
+0.947
+0.921
+0.896
+6
+12
+0.991
+0.915
+0.875
+0.838
+7
+14
+0.994
+0.944
+0.918
+0.892
+8
+15
+0.992
+0.921
+0.883
+0.848
+9
+17
+0.995
+0.948
+0.923
+0.899
+10
+18
+0.993
+0.930
+0.897
+0.866
+11
+19
+0.991
+0.911
+0.869
+0.830
+12
+21
+0.994
+0.941
+0.913
+0.885
+13
+22
+0.992
+0.926
+0.892
+0.858
+14
+23
+0.991
+0.911
+0.869
+0.829
+15
+25
+0.994
+0.940
+0.911
+0.883
+a D is average cell demand during the train cycle time, K is train capacity, d is ﬁll
+rate, dEL is ﬁll rate if early loading is used, and T is number of the train cycles in the
+shift.
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+0
+5
+10
+15
+20
+25
+30
+35
+(K-D)/D ratio
+Total average demand of the cell (D)
+Fig. 3. Effect of ﬁxed routing on underutilization of trains.
+118
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+
+
+--- SAYFA 10 ---
+Caputo, A. C., & Pelagagge, P. M. (2011). A methodology for selecting assembly
+systems feeding policy. Industrial Management & Data Systems, 111(1), 84–112.
+Chakravarty, A. K., & Shtub, A. (1985). Balancing mixed model lines with in-process
+inventories. Management Science, 31(9), 1161–1174.
+Choi, W., & Lee, Y. (2002). A dynamic part-feeding system for an automotive
+assembly line. Computers & industrial engineering, 43(1), 123–134.
+Ciemnoczolowski, D. D., & Bozer, Y. A. (2013). Performance evaluation of small-
+batch container delivery systems used in lean manufacturing–Part 2: Number
+of Kanban and workstation starvation. International Journal of Production
+Research, 51(2), 568–581.
+Emde, S., & Boysen, N. (2012a). Optimally locating in-house logistics areas to
+facilitate JIT-supply of mixed-model assembly lines. International Journal of
+Production Economics, 135(1), 393–402.
+Emde, S., & Boysen, N. (2012b). Optimally routing and scheduling tow trains for JIT
+supply of mixed-model assembly lines. European Journal of Operational Research,
+217(2), 287–299.
+Emde, S., Fliedner, M., & Boysen, N. (2012). Optimally loading tow trains for JIT-
+supply of mixed-model assembly lines. IIE Transactions, 44(2), 121–135.
+Faccio, M. (2014). The impact of production mix variations and models varieties on
+the parts-feeding policy selection in a JIT assembly system. The International
+Journal of Advanced Manufacturing Technology, 72(1–4), 543–560.
+Faccio, M., Gamberi, M., & Persona, A. (2013a). Kanban number optimization in a
+supermarket warehouse feeding a mixed-model assembly system. International
+Journal of Production Research, 51(10), 2997–3017.
+Faccio, M., Gamberi, M., Persona, A., Regattieri, A., & Sgarbossa, F. (2013b). Design
+and simulation of assembly line feeding systems in the automotive sector using
+supermarket, kanbans and tow trains: A general framework. Journal of
+Management Control, 24(2), 187–208.
+Golz, J., Gujjula, R., Günther, H. O., Rinderer, S., & Ziegler, M. (2012). Part feeding at
+high-variant mixed-model assembly lines. Flexible Services and Manufacturing
+Journal, 24(2), 119–141.
+Kilic, H. S., Durmusoglu, M. B., & Baskak, M. (2012). Classiﬁcation and modeling for
+in-plant milk-run distribution systems. The International Journal of Advanced
+Manufacturing Technology, 62(9–12), 1135–1146.
+Klenk, E., Galka, S., & Günthner, W. A. (2012). Analysis of parameters inﬂuencing in-
+plant milk run design for production supply. Proceedings of the International
+Material Handling Research Colloquium, 25–28.
+Macaskill, J. L. C. (1973). Computer simulation for mixed-model production lines.
+Management Science, 20(3), 341–348.
+Sarker, B. R., & Pan, H. (2001). Designing a mixed-model, open-station assembly line
+using mixed-integer programming. Journal of the Operational Research Society,
+545–558.
+Smunt, T. L., & Perkins, W. C. (1985). Stochastic unpaced line design: review and
+further experimental results. Journal of Operations Management, 5(3), 351–373.
+Xiaobo, Z., & Ohno, K. (2000). Properties of a sequencing problem for a mixed model
+assembly line with convey or stoppages. European Journal of Operational
+Research, 124(3), 560–570.
+M. Alnahhal, B. Noche / Computers & Industrial Engineering 85 (2015) 110–119
+119

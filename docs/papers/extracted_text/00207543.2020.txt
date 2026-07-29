@@ -1,0 +1,1125 @@
+
+
+--- SAYFA 1 ---
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tprs20
+International Journal of Production Research
+ISSN: (Print) (Online) Journal homepage: https://www.tandfonline.com/loi/tprs20
+Information and digital technologies of Industry
+4.0 and Lean supply chain management: a
+systematic literature review
+Miguel Núñez-Merino, Juan Manuel Maqueira-Marín, José Moyano-Fuentes
+& Pedro José Martínez-Jurado
+To cite this article: Miguel Núñez-Merino, Juan Manuel Maqueira-Marín, José Moyano-Fuentes
+& Pedro José Martínez-Jurado (2020) Information and digital technologies of Industry 4.0 and
+Lean supply chain management: a systematic literature review, International Journal of Production
+Research, 58:16, 5034-5061, DOI: 10.1080/00207543.2020.1743896
+To link to this article:  https://doi.org/10.1080/00207543.2020.1743896
+Published online: 14 Apr 2020.
+Submit your article to this journal 
+Article views: 3988
+View related articles 
+View Crossmark data
+Citing articles: 51 View citing articles 
+
+
+--- SAYFA 2 ---
+International Journal of Production Research, 2020
+Vol. 58, No. 16, 5034–5061, https://doi.org/10.1080/00207543.2020.1743896
+Information and digital technologies of Industry 4.0 and Lean supply chain management:
+a systematic literature review
+Miguel Núñez-Merinoa∗, Juan Manuel Maqueira-Marín
+a, José Moyano-Fuentes
+a and Pedro José Martínez-Juradob
+aDepartment of Business Organization, Marketing and Sociology, University of Jaen, Jaen, Spain;
+bDefence University Centre, University of Zaragoza, Zaragoza, Spain
+(Received 20 September 2019; accepted 5 March 2020)
+The purpose of this paper is to provide an overview of the current state of research and the key aspects and implications of
+the relationships between Information and Digital Technologies (IDT) of Industry 4.0 and Lean Supply Chain Management
+(LSCM), with the identiﬁcation of the lines of research developed and an analysis of the main ﬁndings. A Systematic
+Literature Review methodology has been used for the identiﬁcation, selection, and evaluation of the published research. A
+set of 78 papers deduced from the most relevant scientiﬁc databases, including Web of Science, Scopus, and ABI/Inform,
+from 1996 to December 2019, has been analyzed and synthesized. The analysis and evaluation of these papers has enabled a
+new classiﬁcation of the literature to be offered that identiﬁes four lines of research based on the Life Cycle of Technology:
+obsolete IDT in LSCM; mature IDT in LSCM; emerging IDT in LSCM; and an Information Systems and IDT general
+approach in LSCM. The paper goes on to discuss the gaps found in the literature and proposes new opportunities and
+challenges for future research. A series of implications are presented intended to be useful from not only an academic
+point-of-view but also from a management focus, including recommendations for industrial managers and policymakers.
+Keywords: Lean Supply Chain Management; Industry 4.0; Information and Digital Technologies; Systematic Literature
+Review
+1. Introduction
+Lean Management (LM) is an efﬁciency-oriented socio-technical management system whose main purpose is to eliminate
+any source of waste through the simultaneous reduction or minimisation of the sources of internal and external variability
+(Womack, Jones, and Roos 1990; Shah and Ward 2007). The systematic reduction of these sources of variability at both the
+company level and throughout the supply chain enables business results to be improved and provides the ability to achieve
+a competitive advantage (Womack and Jones 1996; Moyano-Fuentes and Sacristán-Díaz 2012).
+On one hand, Supply Chain Management (SCM) has been used for planning and control of physical and information
+ﬂows, internal and external logistics activities, and processes with other companies, and to address the relationship devel-
+oped and the processes shared with customers and suppliers (Chen and Paulraj 2004; Kache and Seuring 2014). In recent
+years, SCM has come to be considered a key factor for increasing companies’ efﬁcacy and competitiveness (Frohlich and
+Westbrook 2001; Ataseven and Nair 2017). So, a suitable SCM strategy enables improvements to operating results in terms
+of greater efﬁciency in processes, a lower level of inventory, higher customer satisfaction, better quality, cost reductions,
+and improved delivery (Christopher and Towill 2000). This, along with an increase in global competitive pressure, has
+led to Lean principles spreading to the supply chain level with a view to optimising interorganizational processes from
+the point-of-view of the end customer (Swenseth and Olson 2016). This has given rise to what is known as Lean Supply
+Chain Management (LSCM). LSCM consists of organisations directly linked by upstream and downstream ﬂows of goods,
+services, ﬁnances, and information that work together to reduce costs and waste by efﬁciently and effectively pulling what
+is required to meet the needs of individual customers (Vitasek, Manrodt, and Abbott 2005; Swenseth and Olson 2016;
+Moyano-Fuentes, Bruque, and Maqueira 2019).
+However, supply chains are facing several challenges, such as uncertainty, costs, complexity, and vulnerability. Supply
+chains must be smart to overcome these issues and equipped with a technological infrastructure that enables information and
+physical ﬂows to be integrated into supply chain processes (Abdel-Basset, Manogaran, and Mohamed 2018). In this line,
+supply chain is undergoing a digital transformation commonly referred to as Industry 4.0 (I4.0) driven by the emergence
+*Corresponding author. Email: mnunez@ujaen.es
+© 2020 Informa UK Limited, trading as Taylor & Francis Group
+
+
+--- SAYFA 3 ---
+International Journal of Production Research
+5035
+of advanced Information and Digital Technologies (IDT) (Ghobakhloo 2019). Information and Digital Technologies (IDT)
+of I4.0 refers to the application of a set of technologies related to digital transition whose scope extends beyond organ-
+isational boundaries and involves intelligent supply chain and connected customers (Gilchrist 2016; Ghobakhloo 2018).
+So, IDT of I4.0 includes the application of e-commerce tools such as Electronic Data Interchange (EDI); the adoption of
+Advanced Manufacturing Technologies (AMT) such as Computer Aided Design (CAD), Computer Aided Manufacturing
+(CAM), Computer Aided Engineering (CAE), Industrial Simulation, and Enterprise Resource Planning (ERP); and the most
+advanced IDT such as the Internet of Things (IOT), Augmented Reality (AR), Additive Manufacturing, Blockchain, Cloud
+Computing, and Big-Data analytics (Gilchrist 2016; Lu 2017; Ghobakhloo 2019).
+Several studies ﬁnd a positive link between LSCM strategy adoption and improved efﬁciency both – at the internal
+level – of the commercial sectors involved in the strategy and – at the external level – of the supply chain as a whole
+(Marodin et al. 2017; Tortorella, Miorando, and Marodin 2017). However, IDT also enhance efﬁciency and reliability
+when applied to intra- and interorganizational processes (Da Xu, He, and Li 2014; Pfohl, Yahsi, and Kurnaz 2016). So,
+the concurrent implementation of LSCM and IDT of I4.0 has been demonstrated to be a complementary and synergis-
+tic strategic initiative. In this synergistic effect, LSCM is a change in company mentality compared to SCM and it also
+makes speciﬁc principles and practices available for ﬁrms to apply. For its part, I4.0 digital transition would enable a
+greater level of ﬂexibility and automatisation to be achieved in processes which would make it easier to apply these
+LSCM practices, and so raise efﬁciency in the entire supply chain. For this reason, IDT of I4.0 have the ability to
+enable Lean principles and practices to be extended throughout the entire Supply Chain (Tortorella and Fettermann 2018;
+Rossini et al. 2019; Tortorella, Miorando, and Cawley 2019). It has also been observed that ﬁrms and supply chains that
+aspire to be among the top I4.0 levels must simultaneously implement IDT of I4.0 and LSCM to support the improve-
+ment process (Sanders, Elangeswaran, and Wulfsberg 2016; Pinho and Mendes 2017; Buer, Strandhagen, and Chan 2018;
+Rossini et al. 2019).
+Despite the IDT of I4.0-LSCM complementary effect and the multiple studies that analyze a range of digital transition-
+related aspects in the LSCM context, there is no literature review that presents the current situation of research on the
+interrelationships between IDT of 4.0 and LSCM. Literature reviews do exist that analyze the IT-Lean Management rela-
+tionship at a more general level (Pinho and Mendes 2017) or the I4.0-Lean Management relationship at a more speciﬁc
+level (Buer, Strandhagen, and Chan 2018; Pagliosa, Tortorella, and Espindola-Ferreira 2019). In both cases, the focus is
+on LM at the internal level, not at the supply chain level. The aim of this study is, precisely, to cover this gap and the
+goal is to offer an overview of the current state of research on IDT of I4.0 in LSCM contexts. It also seeks to contribute a
+new literature classiﬁcation with the research lines developed, their ﬁndings, the key aspects and implications of the IDT
+of I4.0/LSCM relationship, existing gaps, and paths for future research. For this, a Systematic Literature Review (SLR)
+(Denyer and Tranﬁeld 2009) will be conducted.
+To achieve the proposed objectives, this article presents the following structure. The next section after this introduction
+details the background literature. Next, the SLR methodology used is presented. This is followed by the results section,
+which classiﬁes the literature on the interrelationships between IDT of I4.0 and LSCM and describes the ﬁndings and
+contributions of the identiﬁed research lines and sublines, the gaps, and future research lines. Next, discussion, implications,
+and the study’s limitations are included. The last section includes the conclusions.
+2. Theoretical background
+2.1. Key concept conceptualisation: Lean supply chain management and information and digital technologies of I4.0
+On the one hand, the LSCM concept refers to the application and management of LM principles and practices in the supply
+chain to reduce costs and waste by efﬁciently and effectively pulling what is required to meet the needs of individual
+customers (Lamming 1996; Reichhart and Holweg 2007; Moyano-Fuentes, Bruque, and Maqueira 2019). The application
+and management of Lean principles and practices at the supply chain level is much more complex than LM application at
+the company internal level, as it entails the need for greater coordination and management of physical, information, and
+ﬁnancial ﬂows between the various agents involved (Moyano-Fuentes, Bruque, and Maqueira 2019).
+Meanwhile, digitalisation is deﬁned as the use of computer and Internet technology for a more efﬁcient and effective
+economic value creation process (Reddy and Reinartz 2017). Digitalisation is not only changing business processes and
+company products but also the processes of the entire supply chain. It is leading to major changes in what has come to be
+called the digital transformation (Horváth and Szabó 2019). In digital transformation, Internet technologies, and the connec-
+tivity that they enable, play a core role in the deployment and use of more traditional IT and of more innovative or emerging
+IT (Ghobakhloo 2018; Ghobakhloo 2019). This joint use of different technologies, using the connectivity that the Internet
+allows, has given rise to the concept of Information and Digital Technologies (IDT) (Ghobakhloo 2018; Ghobakhloo 2019)
+and the digitalisation concept is strongly linked to intensive IDT use in the creation of business value (Ivanov, Dolgui,
+
+
+--- SAYFA 4 ---
+5036
+M. Núñez-Merino et al.
+and Sokolov 2019). Applying IDT in the manufacturing industry to raise efﬁciency and efﬁcacy has sparked its digital
+transformation and the coining of the term Industry 4.0 (I4.0) (Kagermann, Wahlster, and Helbig 2013; Lee et al. 2018).
+Digitalisation can be considered an over-arching concept and I4.0 a sub-concept (Horváth and Szabó 2019). The term I4.0
+was introduced at the 2011 ‘Hannover Messe’ to be precise and since 2013 (the year in which the ‘Industrie 4.0 Working
+Group’ ﬁnal report was published) has been fashioned into a technological framework (Kagermann, Wahlster, and Hel-
+big 2013) that embraces a wide variety of technologies, principles, and methods to make production systems and supply
+chains more autonomous, dynamic, ﬂexible, and precise (Tortorella and Fettermann 2018). Emerging digital technologies
+such as Cloud Computing, Big-Data, and the Internet of Things (IoT), inter alia, coexist in I4.0 alongside more traditional
+technologies such as, for example, Computer Integrated Manufacturing (CIM), a type of AMT (Monostori et al. 2016).
+These technologies are currently integrated in the so-called Cyber-Physical System (CPS) that links the virtual and physical
+worlds by establishing smart factories (Kang et al. 2016; Monostori et al. 2016; Strozzi et al. 2017). I4.0 is marked by highly
+developed automation and digitisation processes and the use of electronics and information technologies in manufacturing
+(Lu 2017). IDT of I4.0 (Ghobakhloo 2018; Ghobakhloo 2019) allows processes to be integrated at both the intraorga-
+nizational and the interorganizational levels and provides a set of solutions that meets the growing needs for company
+informatization and automatisation (Xu, Xu, and Li 2018) under a smart factory paradigm in which machines interact with
+each other (Ivanov et al. 2016; Strozzi et al. 2017). In addition, IDT of I4.0 enables information integration throughout the
+supply chain and the real-time transmission and processing of information for decision-making (Subramani 2004; Novais,
+Maqueira, and Ortiz-Bas 2019).
+In line with the current followed by a number of other authors, in this study all the IT applied and used in industry to
+achieve efﬁcacy and efﬁciency in conjunction with the connectivity provided by the Internet are considered to be IDT of I4.0
+(Drath and Horch 2014; Ghobakhloo 2018; Frank, Dalenogare, and Ayala 2019; Ghobakhloo 2019). This article speciﬁcally
+spotlights the application of IDT of I4.0 in LSCM contexts.
+2.2. Lean Management – IDT relationship
+Although there are no previous SLR studies that focus on LSCM and IDT of I4.0, SLRs exist that analyze the relationship
+between LM at the internal level and general IT usage (Pinho and Mendes 2017) and LM at the internal level and I4.0 in
+particular (Buer, Strandhagen, and Chan 2018; Pagliosa, Tortorella, and Espindola-Ferreira 2019).
+With respect to the Lean-IT relationship, the results of an analysis of the existing literature show that the greatest
+consensus and empirical support can be found for the interdependence between the two concepts, i.e. a complementary
+or synergistic relationship exists between the two (Pinho and Mendes 2017). With respect to Lean-I4.0, the results of
+the analysis of the existing literature also highlight that this relationship has a complementary or synergistic effect (Buer,
+Strandhagen, and Chan 2018). Delving further into these works, there is a clear majority of studies that ﬁnd that IDT of
+I4.0 act as a support mechanism for LM (Karre et al. 2017; Wagner, Herrmann, and Thiede 2017) with only a token num-
+ber of studies that have found the opposite effect, i.e. that LM acts as a support to IDT of I4.0 use (Wang et al. 2016).
+Moreover, the literature stresses that when IDT of I4.0 and LM manifest themselves in conjunction with one another,
+the impact that this joint effect has on business results is greater (Ma, Wang, and Zhao 2017; Sanders, Elangeswaran,
+and Wulfsberg 2016; Tortorella and Fettermann 2018). The literature (Pagliosa, Tortorella, and Espindola-Ferreira 2019)
+clearly states that the intensity of the synergistic effect of this complementary or synergic relationship depends on the
+speciﬁc Lean practices and the speciﬁc technologies used (Pagliosa, Tortorella, and Espindola-Ferreira 2019). As such,
+the mid-high synergistic effect predominates among the majority of internal-level LM practices and some speciﬁc IDT
+of I4.0, such as IoT, CPS, Cloud Computing, Big-Data, and horizontal/vertical integration technologies (web technolo-
+gies); whereas a mid-low synergistic effect predominates among more the usual internal-level LM and some other IDT
+of I4.0, such as Robotics, Augmented Reality (AR), Simulation and Additive Manufacturing (Pagliosa, Tortorella, and
+Espindola-Ferreira 2019).
+The results presented above and the greater complexity entailed in the use of Lean at the Supply Chain level mean that
+it is coherent to think that, as in the case of I4.0-internal LM, the IDT of I4.0-LSCM relationship is also complementary and
+synergic. It would be interesting to dig deeper into the results found in the literature on the I4.0-LSCM relationship in order
+to shed more light on this, scrutinising the speciﬁc role played by speciﬁc types of IDT of 4.0.
+3. Methodology
+The applied methodology is SLR. This is a method that enables the location, selection, and evaluation of the contributions
+that the literature has made to a research topic. The main advantages of this method that can be highlighted are that it guar-
+antees a structured, repeatable, and scientiﬁc process that enables existing information to be synthesised in a rigorous and
+
+
+--- SAYFA 5 ---
+International Journal of Production Research
+5037
+objective process (Tranﬁeld, Denyer, and Smart 2003; Denyer and Tranﬁeld 2009). SLR has been implemented successfully
+in the area of Operations Management (Morgan and Gagnon 2013; Cherraﬁet al. 2017), in SCM (Glock, Grosse, and Ries
+2017; Bastas and Liyanage 2018), and in the I4.0 context (Liao et al. 2017; Machado, Winroth, and Ribeiro da Silva 2019;
+Pagliosa, Tortorella, and Espindola-Ferreira 2019).
+This study follows the typical ﬁve established SLR steps (Tranﬁeld, Denyer, and Smart 2003; Denyer and Tranﬁeld
+2009) and the recommendations and proposed best practices for its speciﬁc application in the area of Operations Manage-
+ment (Thomé, Scavarda, and Scavarda 2016), SCM (Durach, Kembro, and Wieland 2017) and IS (Okoli and Schabram
+2010). As these best practices recommend, the study begins by laying down a protocol as a kind of road map. This describes
+speciﬁc issues as well as the search strategy, the study inclusion and exclusion criteria, criteria to identify contributions, and
+details on how to encode the information obtained in the articles. The protocol prevents any bias and guarantees coherence
+and consistency when a number of different researchers are involved (Thomé, Scavarda, and Scavarda 2016; Okoli and
+Schabram 2010).
+The speciﬁc phases followed were (Tranﬁeld, Denyer, and Smart 2003; Denyer and Tranﬁeld 2009): (1) formulating the
+research question; (2) locating the studies; (3) selecting and evaluating relevant studies; (4) analyzing and synthesising the
+ﬁndings; (5) reporting the results. These phases have been enriched with the extant best practices for developing an SLR
+in Operations Management (Thomé, Scavarda, and Scavarda 2016), SCM (Durach, Kembro, and Wieland 2017), and IS
+(Okoli and Schabram 2010).
+Each of the phases is described in greater detail below.
+3.1. Phase 1. Formulating the research question
+This phase identiﬁes the scope, purpose, and goals foreseen in the SLR and these are reﬂected in the general research
+question (RQ):
+RQ. Analysis of the state of knowledge that exists in the literature on the relationships between IDT of I4.0 and LSCM.
+This general research question is broken down into the following speciﬁc questions:
+RQ1. What categories of papers have been published to date?
+RQ2. Is it possible to identify a taxonomy of the current research on IDT of I4.0 and Lean Supply Chain Management and the
+relationship between the IDT of I4.0 and LSCM?
+RQ3. What gaps exist in the literature on IDT of I4.0 and LSCM and what direction should future research go in?
+3.2. Phase 2. Locating the studies
+The second stage consists of locating relevant studies related to the research question. This step is essential as, if the selected
+literature is inadequate, inappropriate or irrelevant, the contribution of the following phases will be amiss (Sangwa and
+Sangwan 2018). There are two key aspects in this stage: the choice of search engines and the choice of search word strings
+(Tranﬁeld, Denyer, and Smart 2003; Denyer and Tranﬁeld 2009). The search engines used should correspond to the typical
+databases in the area of study (Okoli and Schabram 2010; Thomé, Scavarda, and Scavarda 2016; Durach, Kembro, and
+Wieland 2017). The search words strings must allow precise results to be found, with no false positives or false negatives
+(Tranﬁeld, Denyer, and Smart 2003; Denyer and Tranﬁeld 2009).
+In the speciﬁc case of this research, the most relevant databases in the area of study have been used as the search engines,
+i.e. Web of Science (WoS), Scopus, and ABI/Inform, as these are the databases that are usually used in SLRs in Operations
+Management. Using more than one database to locate the literature helps to prevent any relevant studies being missed and
+reduces any possible publication bias (Thomé, Scavarda, and Scavarda 2016; Durach, Kembro, and Wieland 2017).
+The research objective, in this case, is in the area where the IDT of I4.0 set, the Lean Management set, and the Sup-
+ply Chain Management set intersect. The search chains were therefore speciﬁcally designed to locate documents in this
+intersection area (see Figure 1).
+For this, the search strings have been constructed by combining the most representative key search words for each of
+the three mentioned sets. The key search words should be sufﬁciently broad so as not to restrict the number of studies but
+sufﬁciently speciﬁc to locate only studies related to the topic (Thomé, Scavarda, and Scavarda 2016; Durach, Kembro, and
+Wieland 2017). Therefore, the key search words were determined jointly by the researchers, established experts in IDT and
+LSCM, in a brainstorming session.
+The search string has then been constructed using logical and Boolean operators. The design of the search string seeks
+to ensure that the located articles contain at least one of the key search words for each of the three blocks (IDT of I4.0,
+
+
+--- SAYFA 6 ---
+5038
+M. Núñez-Merino et al.
+Figure 1.
+Objective of the SLR. Source: Developed by the authors.
+Lean Management, and Supply Chain) either in the title, abstract or document author’s keywords (in the case of Scopus
+and ABI/Inform) or more broadly in the topic (in the case of WoS; title, abstract, author’s keywords, expanded keywords).
+The key search words used in these search strings have been honed down with multiple pilot tests in the three databases in
+order to prevent any hits on false positives or false negatives and to ensure the identiﬁcation of relevant papers (Denyer and
+Tranﬁeld 2009; Durach, Kembro, and Wieland 2017). Bearing that the search engines present differences in the syntax that
+they use for searches, the speciﬁc form of these search strings had to be adapted to each of the databases used. Some of the
+key search words considered in the pilot tests were later eliminated to cut down the length of the search strings, given that
+individual searches using these terms individually did not yield any valid results. Eliminated terms included Cyber-Physical,
+Blockchain, Cybersecurity, Augmented Reality, Virtual Reality, Warehouse Management System and Transportation Man-
+agement System. The search words and search strings used in each of the databases are given in Table 1. It should be made
+clear that the eliminated terms do not appear in Table 1, as when they are included in the search string their contribution
+is zero results. In addition, the papers in which technology is used only as a methodological technique and its relation-
+ship to LSCM is not analysed, are not considered (for example, several papers on Simulation were discarded for this very
+reason).
+A total of 3,829 papers have been identiﬁed in this step. 824 have been identiﬁed in WoS, 1,131 in Scopus and 1,874 in
+ABI/Inform.
+3.3. Phase 3. Selecting and evaluating the studies
+The purpose of the third step is to discard any studies that are not relevant. This is achieved by deﬁning some criteria that
+establish the studies that should be considered in the review (inclusion criteria) and those that should be discarded with no
+further scrutiny (exclusion criteria) (Denyer and Tranﬁeld 2009; Okoli and Schabram 2010). The criteria established in this
+phase should be explicit and substantiate the exhaustiveness of the resulting review. It is also necessary to establish which
+studies do not have sufﬁcient quality so that they can be excluded from the review (Okoli and Schabram 2010). Application
+of these criteria eliminates articles that clearly do not belong in the review and those that could be included are selected. The
+chosen articles are then evaluated. For this, the abstracts are reviewed to conﬁrm the inclusion of the studies that comply
+with the established search criteria (Denyer and Tranﬁeld 2009; Thomé, Scavarda, and Scavarda 2016).
+In this research, the search was limited to works published in English between 1996 and December 2019. The begin-
+ning of the search period corresponds to the ﬁrst publication on LSCM (Lamming 1996). The search was limited to the
+research areas of the study (business economics, business, management and accounting, economics, econometrics and
+ﬁnance, decision sciences, computer science, automation control systems, engineering, environmental science, multidisci-
+plinary, operations research management science, transportation, and logistics) and areas that were clearly not related were
+not considered. Only articles, articles in press and reviews published in journals indexed in the Journal Citation Reports
+(JCR) and/or SCImago Journal Rank (SJR) were considered to ensure the quality of the selected works. In addition, in
+the case of the ABI/Inform database, it was possible to select only peer-reviewed studies. These inclusion and exclusion
+criteria were agreed upon by the researchers, which prevents any bias that might be associated with a single decision-maker
+(Thomé, Scavarda, and Scavarda 2016).
+With the application of the above-mentioned inclusion and exclusion criteria, a total of 1,188 publications were selected
+out of the 3,829 initially identiﬁed. Duplicate papers found in the databases were subsequently eliminated, giving rise
+to a set of 798 studies. WoS was taken as the reference database for the detection of duplicate papers and the papers
+
+
+--- SAYFA 7 ---
+International Journal of Production Research
+5039
+Table 1.
+Search words and search strings.
+Search words
+Lean: lean, JIT, just in time
+Supply Chain: supply chain, logistic
+Industry 4.0: industry 4.0, information system, information technology, information and communication
+technology, ICT, technological innovation, internet of things, IoT, cloud, web, e-business, e-commerce, enterprise
+resources planning, ERP, material requirement planning, MRP, electronic data interchange, EDI, customer
+relation management, CRM, radiofrequency identiﬁcation, RFID, business intelligence, BI, software, artiﬁcial
+intelligence, big data, business to business, B2B, business to consumer, B2C, e-procurement, VMI, vendor
+managed inventory, CRM, consumer relationship management, EPC, GPS, simulation
+Web of Science
+TS = (lean OR ‘just in time’ OR jit) AND TS = (‘supply chain*’ OR logistic*) AND TS = (‘Industr* 4.0’
+OR ‘information system*’ OR ‘information technolog*’ OR ‘information and communication technolog*’
+OR ‘ICT’ OR ‘technological innovation’ OR ‘internet of things’ OR ‘IoT’ OR cloud OR web OR e-business
+OR e-commerce OR ‘enterprise resources planning’ OR ERP OR ‘material requirement planning’ OR
+MRP OR ‘electronic data interchange’ OR ‘EDI’ OR ‘customer relation management’ OR ‘Radiofrequency
+Identiﬁcation’ OR ‘RFID’ OR ‘business intelligence’ OR ‘BI’ OR software* OR ‘artiﬁcial intelligence’ OR
+‘big data’ OR ‘business to business’ OR ‘B2B’ OR ‘Business to Consumer’ OR ‘B2C’ OR e-procurement OR
+VMI OR ‘Vendor Managed Inventory’ OR CRM OR ‘Consumer Relationship Management’ OR ‘EPC’ OR
+‘GPS’ OR ‘simulation’)
+Scopus
+TITLE-ABS-KEY (lean OR {just in time} OR jit) AND TITLE-ABS-KEY ({supply chain} OR {supply chains}
+OR logistic*) AND TITLE-ABS-KEY ({Industry 4.0} OR {information system} OR {information systems}
+OR {information technology} OR {information and communication technology} OR {ICT} OR {technological
+innovation} OR {internet of things} OR {IoT} OR cloud OR web OR e-business OR e-commerce OR {enterprise
+resources planning} OR ERP OR {material requirement planning} OR MRP OR {electronic data interchange}
+OR EDI OR {customer relation management} OR {Radiofrequency Identiﬁcation} OR {RFID} OR {business
+intelligence} OR {BI} OR software* OR {artiﬁcial intelligence} OR {big data} OR {business to business} OR
+{B2B} OR {Business to Consumer} OR {B2C} OR e-procurement OR VMI OR {Vendor Managed Inventory}
+OR CRM OR {Consumer Relationship Management} OR {EPC} OR {GPS} OR {simulation})
+ABI Inform
+AB,TI (lean OR ‘just in time’ OR jit) AND AB,TI (‘supply chain*’ OR logistic*) AND AB,TI (‘Industr* 4.0’
+OR ‘information system*’ OR ‘information technolog*’ OR ‘information and communication technolog*’ OR
+‘ICT’ OR ‘technological innovation’ OR ‘internet of things’ OR ‘IoT’ OR cloud OR web OR e-business OR
+e-commerce OR ‘enterprise resources planning’ OR ERP OR ‘material requirement planning’ OR MRP OR
+‘electronic data interchange’ OR ‘EDI’ OR ‘customer relation management’ OR ‘CRM’ OR ‘Radiofrequency
+Identiﬁcation’ OR ‘RFID’ OR ‘business intelligence’ OR ‘BI’ OR software* OR ‘artiﬁcial intelligence’ OR
+‘big data’ OR ‘business to business’ OR ‘B2B’ OR ‘Business to Consumer’ OR ‘B2C’ OR e-procurement OR
+VMI OR ‘Vendor Managed Inventory’ OR CRM OR ‘Consumer Relationship Management’ OR ‘EPC’ OR
+‘GPS’ OR ‘simulation’)
+Source: Developed by the authors.
+identiﬁed in Scopus that had already been identiﬁed in WoS were duly eliminated (253 exclusions). Finally, papers selected
+in ABI/Inform that had already been located in WoS and Scopus were also discarded (137 exclusions).
+The next step was to evaluate the articles, which entailed examining the title, the abstract and the keywords. This enabled
+the articles to be determined that were clearly related and those that were clearly not related to the research question.
+Articles were discarded that clearly did not have any links to the research question, which gave rise to a total of 108 articles.
+In a second step, in cases found that were not conclusively related, the theoretical framework, the main results, and the
+conclusions were read and, when necessary, the entire article (Thomé, Scavarda, and Scavarda 2016; Durach, Kembro, and
+Wieland 2017). As good SLR practices in Operations Management and IS advocate, article selection and evaluation was
+conducted jointly by the researchers in an interactive review process. The level of agreement was high and any discrepancies
+were discussed and solved (Okoli and Schabram 2010; Thomé, Scavarda, and Scavarda 2016), eliminating in this way all
+single researcher bias. At the end of this phase, a total of 73 papers were selected for detailed analysis and synthesis
+(step 4).
+3.4. Phase 4. Analysis and synthesis of the results
+The next step has been to review and analyze each of the selected articles by reading them in their entirety. Pre-deﬁned
+structured coding of the information has been done in this phase in order to mine the relevant details in each of the studies
+and enable researcher involvement in this process (Denyer and Tranﬁeld 2009; Thomé, Scavarda, and Scavarda 2016) and
+so reduce all single researcher bias (Thomé, Scavarda, and Scavarda 2016).
+Forward and back searches were done to ensure a full and exhaustive literature review and new articles were identiﬁed by
+means of the snowballing effect (Okoli and Schabram 2010; Thomé, Scavarda, and Scavarda 2016). Five new articles were
+
+
+--- SAYFA 8 ---
+5040
+M. Núñez-Merino et al.
+detected as a result of examining the references used in the articles selected in step 3 (forward search) and the references in
+these papers (back search) (snowballing effect) and added to those identiﬁed in direct database searches, with a ﬁnal total
+of 78 articles eventually obtained.
+During the article coding process, a database was designed in a spreadsheet containing the main ideas, objectives, and
+contributions of each of the papers. The main technologies involved have also been identiﬁed, as have the research lines and
+sublines, and other complementary information such as the title, author, journal, year of publication, methodology, sector,
+journal quality index and impact, and number of times the paper has been cited.
+3.5. Phase 5. Presentation of results
+The last step consists of reporting the ﬁnal results of the analysis and the synthesis of the literature. For this, all the
+information mined from the articles was combined and a descriptive overview of the reviewed literature sought, with
+a discussion of the ﬁndings and the identiﬁcation of any extant research gaps and future research lines (Denyer and
+Tranﬁeld 2009; Okoli and Schabram 2010; Durach, Kembro, and Wieland 2017). The results of this step are given in
+Section 3.
+Figure 2 has been prepared to illustrate the methodological procedure followed in this study and described in this
+section. The Figure shows the different phases established for an SLR (Denyer and Tranﬁeld 2009), enriched with the best
+practices for its application to Operations Management (Thomé, Scavarda, and Scavarda 2016), SCM (Durach, Kembro,
+and Wieland 2017) and IS (Okoli and Schabram 2010), and the way that they have been applied in the speciﬁc context
+of this research. As best practices in Operations Management recommend (Thomé, Scavarda, and Scavarda 2016), the
+PRISMA Flow Diagram has been used to draw up this Figure. The ﬂow diagram depicts the ﬂow of information through
+the different SLR phases, mapping out the number of records identiﬁed, included, and excluded and the reasons for their
+exclusions.
+4. Results
+As commented, 78 articles were identiﬁed that fulﬁlled the established criteria and, therefore, contributed to explaining
+the literature on the interrelationships between IDT of I4.0 and LSCM and responding to the speciﬁc research questions
+proposed. In the results section, a descriptive analysis of the literature is presented with a description of the way that the
+articles are grouped in research lines and sublines that together provide a novel classiﬁcation of the existing literature on
+IDT of I4.0 and LSCM; the ﬁndings in each of the identiﬁed lines and sublines are set out and analysed and the gaps and
+avenues for future research are identiﬁed.
+4.1. Descriptive analysis of the literature on IDT of I4.0 and LSCM
+First, the chronological evolution of the literature published on any type of IDT of I4.0 in LSCM was analysed. Figure 3
+sets out the number of articles by year of publication. The absolute and cumulative frequencies of the number of studies
+published annually are given in a graph.
+The number of publications has not evolved steadily over the years. However, interest in this area has been observed to
+have risen gradually in the last 11 years (82.05% of the works) and, especially, in the last 5 years (47.43% of the works).
+There is a logical explanation for this, for although some obsolete IDT considered under the umbrella of I4.0 in LSCM
+contexts have been analysed since 1996, it has only been since 2008 that the sudden rise in manufacturing areas of emerging
+IDT such as Cloud Computing, Big-Data, and IoT, among others, with their potent effects on the supply chain, has spurred
+the interest of researchers in IDT of I4.0 and SCM in general (Novais, Maqueira, and Ortiz-Bas 2019) and in IDT of I4.0-
+LSCM in particular. In addition, growing interest in these relationships has been seen from academia, industry, and States
+since 2013 – when the ﬁnal report of the ‘Industrie 4.0 Working Group’ was published (Kagermann, Wahlster, and Helbig
+2013, 77) – with the aim of driving up efﬁciency and competitiveness. Table 2, below, gives a classiﬁcation of the studies
+by methodology employed.
+By methodology used, studies that are quantitative in type are most common and represent 39.74% of the total, followed
+by studies that are qualitative in type and technical development (20.51% and 19.23%, respectively). In addition, 12.82%
+of the studies found are conceptual in type. Lastly, 7.69% have applied joint quantitative and qualitative techniques (6
+papers). The studies applying a quantitative methodology generally use statistical techniques such as linear regression and
+logistics models, structural equations, simulation models, and linear programming techniques, among others. The most used
+qualitative techniques are case studies and in-depth interviews with experts. The studies classiﬁed as technical development
+
+
+--- SAYFA 9 ---
+International Journal of Production Research
+5041
+Figure 2.
+Summary of the Systematic Literature Review. Source: Developed by the authors.
+apply and/or develop software and/or algorithms. Lastly, the studies that are conceptual in type have no empirical content
+and focus on developing a conceptual framework.
+It should be highlighted that no authors stand out regarding the number of publications in the ﬁeld. Finally, Table 3
+presents the journals that have published the highest number of papers on IDT of I4.0 and LSCM.
+Table 3 shows that 12 journals have published 2 or more papers (50% of papers). International Journal of Production
+Research (9 papers) and International Journal of Production Economics (5) stand out in the ﬁeld of Operations Management
+for the number of papers published. These two popular journals also stand out in a related SLR (Pinho and Mendes 2017).
+
+
+--- SAYFA 10 ---
+5042
+M. Núñez-Merino et al.
+Figure 3.
+Absolute and cumulative frequencies of number of papers, IDT of I4.0 in LSCM. Source: Developed by the authors.
+Table 2.
+Classiﬁcation by the methodology used.
+Methodology
+Number of papers
+%
+Quantitative
+31
+39,74%
+Qualitative
+16
+20,51%
+Quantitative and qualitative
+6
+7,69%
+Technical development
+15
+19,23%
+Conceptual
+10
+12,82%
+Total
+78
+100%
+Source: Developed by the authors.
+Table 3.
+Classiﬁcation by journals.
+Journals
+Number of papers
+%
+International Journal of Production Research
+9
+11.54%
+International Journal of Production Economics
+5
+6.41%
+Automation in Construction
+4
+5.13%
+Benchmarking: An International Journal
+3
+3.85%
+Production Planning & Control
+3
+3.85%
+Supply Chain Management – An International Journal
+3
+3.85%
+Computers & Industrial Engineering
+2
+2.56%
+International Journal of Information Management
+2
+2.56%
+International Journal of Logistics Management
+2
+2.56%
+Journal of Industrial Engineering and Management
+2
+2.56%
+Management and Production Engineering Review
+2
+2.56%
+Production and Operations Management
+2
+2.56%
+Others (39 journals with 1 paper)
+39
+50.00%
+Total
+78
+100%
+Source: Developed by the authors.
+They are followed by other journals in the area: Production Planning & Control and Supply Chain Management An Interna-
+tional Journal (3), while Production and Operations Management and International Journal of Logistics Management both
+have 2 papers. The 78 selected papers appear in 51 journals in all. With 1 paper there are 39 journals, some of which are
+high quality, such as International Journal of Physical Distribution and Logistics Management, Computers & Operations
+Research, and Computers in Industry.
+4.2. Classiﬁcation of articles on IDT of I4.0 and LSCM
+In the analysis and synthesis process, researcher consensus was used to establish the criteria for grouping the chosen stud-
+ies into research lines and sublines and the coding and ﬁnal classiﬁcation, which ensures inter-coding reliability (Thomé,
+Scavarda, and Scavarda 2016).
+
+
+--- SAYFA 11 ---
+International Journal of Production Research
+5043
+Article coding has helped identify the research line that each of the articles falls into. So, those identiﬁed in IDT of I4.0
+and LSCM have been classiﬁed by the speciﬁc technology identiﬁed (research subline) and the position that each occupies
+in the Technology Life Cycle (TLC) (Kim 2003; Taylor and Taylor 2012) (research line).
+TLC shows how technology evolves over time. A generation of technology enters into the market, grows and matures,
+and ﬁnally falls into decline and is replaced by the following generation of technologies (Kim 2003). In this evolution,
+the technologies are identiﬁed as emerging when they reach the marketplace, as mature (key and basic) when their usage
+spreads, and obsolete when they enter into a state of decline (Kim 2003; Taylor and Taylor 2012). In the ﬁeld of IDT and
+analogously to this classiﬁcation, Ghobakhloo (2019) states that these technologies can be classiﬁed into four categories:
+generic, applied to e-commerce, advanced, and most advanced.
+Considering TLC in the classiﬁcation is important for companies because time is a major variable associated with IDT
+and, in LSCM contexts, the use that organisations can make of it to achieve a competitive advantage depends on the position
+that IDT occupy in the TLC. As such, even though their effect is uncertain due to their novelty, emerging IDT may represent
+a competitive advantage, especially when they become critical (key) to an organisation. Mature IDT tend to be staples or
+widespread in a sector and so are no longer generators of competitive advantage, although their use is a strategic requirement
+just to be able to compete. Obsolete IDT are already being discarded in the sector.
+The Gartner Hype Cycle for Emerging Technologies (Gartner 2016) has been used to determine where each of the
+technologies is in the TLC and that each is related to the Ghobakhloo (2019) IDT classiﬁcation and the Industry 4.0 transition
+process. This is a model developed by Gartner Technology Consultants that gives an annual forecast of the way that the
+technologies will evolve that are currently in the emerging phase. Figure 4 shows the classiﬁcation, in which four lines
+have been identiﬁed: (1) Obsolete IDT in LSCM, (2) Mature IDT in LSCM, (3) Emerging IDT in LSCM, and (4) General
+approach IS and IDT in LSCM. This last research line represents a speciﬁc group in the literature classiﬁcation related to a
+generic group of technologies indicated in Ghobakhloo (2019). Articles classiﬁed in this group deal with IDT of I4.0 and/or
+IS in a general way and as a set, which means that they cannot be classiﬁed in a speciﬁc TLC stage. So, in this group can
+be found articles that are characterised by the study of the impact, relationships, and implications that IDT of I4.0 have for
+LSCM in general terms, without any of the technologies being analysed in isolation.
+Figure 4 shows the proposed classiﬁcation. On the ﬁrst classiﬁcation level is the IDT grouping in the I4.0 and LSCM
+context according to its status in the TLC (research line). On the second classiﬁcation level are the research sublines that
+show each of the speciﬁc identiﬁed and analysed IDT in their relationships with and effect on LSCM.
+Table 4 groups the articles found and analysed in accordance with the established classiﬁcation. As there are studies
+in our review that focus their research on more than one technology, some articles appear in more than one subline in the
+classiﬁcation.
+In relation to the number of articles published on each research line and subline, in Table 5 the number of papers is
+broken down into absolute and relative frequencies.
+As indicated previously, some papers are classiﬁed in more than one subline, 19 to be precise. Distribution by group is
+as expected (few papers in obsolete IDT, several in emerging IDT, and many in mature IDT). As can be seen in Table 5,
+web technologies for e-business and RFID have attracted the most interest from researchers. The fact that no emerging IDT
+such as Blockchain, Additive Manufacturing and Augmented Reality appear stands out.
+The evolution of each of the groups is shown below based on the proposed classiﬁcation (Figure 5).
+The mature IDT in LSCM can be observed to have received the greatest attention in the literature, while obsolete IDT
+play a residual role with only 4 publications, with the last in 2002. Research on emerging IDT in LSCM begins in 2012
+and is being developed and is on the increase at the current time. IS/IDT in the LSCM general approach group has evolved
+steadily in number of annual publications since 2008 and is currently a topic of interest. These results can be explained by
+the most representative IDT of I4.0 being, precisely, those that are emerging and the overview of IS/IDT as a set.
+4.3. Analysis of content of IDT of I4.0 and LSCM research lines and sublines
+The following analyzes in detail each of the four research lines and their respective sublines.
+4.3.1. L1, obsolete IDT in LSCM
+Only one research subline related to the effects and implications of Electronic Data Interchange (EDI) in LSCM contexts
+has been identiﬁed in the obsolete technologies group.
+(1) SL1.1, Electronic Data Interchange (EDI) in LSCM
+EDI is a technology that emerged prior to the Internet reaching the business domain. Its use has currently been adapted
+to web environments (EDI-web) or it is used as a legacy system integrated into more up-to-date IS (van der Aalst 1999;
+Medjahed et al. 2003; Witte, Grünhagen, and Clarke 2003).
+
+
+--- SAYFA 12 ---
+5044
+M. Núñez-Merino et al.
+Figure 4.
+IDT classiﬁcation in the I4.0/LSCM context by TLC. Source: Developed by the authors.
+EDI has had a strong impact on the Supply Chain and its efﬁciency (LSCM objective) from the very beginning as it
+contributed to improving communication between customers and suppliers, business partners and organisations at a time
+when the Internet did not exist (Evans, Naim, and Towill 1993). EDI enables large volumes of information to be sent at a
+much greater speed than in paper form and reduces costs, delays, and errors (Abernathy et al. 2000), which is in line with
+LM objectives at the supply chain level. In general terms, EDI has enabled companies to make faster decisions and bring
+down waiting times by reducing the time needed to send information, thus contributing to the goal of more efﬁcient supply
+chains (Mason-Jones and Towill 1997). In particular, EDI has allowed the level of inventory to be brought down and control
+of replenishment to be had throughout the entire Lean supply chain, which has enabled companies to work with smaller lots
+and pull system demand management (Abernathy et al. 2000; McMichael, Mackay, and Altmann 2000; Danas, Ketikidis,
+and Roudsari 2002).
+4.3.2. L2, mature IDT in LSCM
+The following research sublines have been identiﬁed in the mature IDT group that analyze the relationships of some given
+IDT of I4.0 and LSCM: (1) Barcode systems in LSCM; (2) Radio Frequency Identiﬁcation (RFID) in LSCM; (3) E-business
+web technologies in LSCM; (4) workﬂow systems in LSCM; (5) Enterprise Resources Planning (ERP) in LSCM; (6)
+Advanced Manufacturing Technology (AMT) in LSCM. Each of these research sublines is analysed below.
+
+
+--- SAYFA 13 ---
+International Journal of Production Research
+5045
+Table 4.
+Classiﬁcation of papers.
+IDT position in TLC in
+LSCM context (ﬁrst
+classiﬁcation level;
+research line)
+IDT in LSCM context
+(second level of
+classiﬁcation; research
+subline)
+Papers
+L1, Obsolete
+SL1.1, Electronic Data Interchange (EDI)
+Mason-Jones and Towill (1997); Abernathy et al.
+(2000); McMichael, Mackay, and Altmann
+(2000); Danas, Ketikidis, and Roudsari (2002)
+L2, Mature
+SL2.1, Barcode systems
+Abernathy et al. (2000); McMichael, Mackay,
+and Altmann (2000); Danas, Ketikidis, and
+Roudsari (2002)
+SL2.2, Radio Frequency Identiﬁcation (RFID)
+Otamendi, García-Higuera, and García-Ansola
+(2011); Saygin and Sarangapani (2011);
+Shin et al. (2011); Dai et al. (2012); Huang
+et al. (2012); Powell and Skjelstad (2012);
+Chen, Cheng, and Huang (2013); Zelbst et al.
+(2014); Shahin, Khazaei, and Khalili (2016);
+Sanders, Elangeswaran, and Wulfsberg (2016);
+Hofmann and Rüsch (2017); Kovács and Kot
+(2017); Nabelsi and Gagnon (2017); Tsao,
+Linh, and Lu (2017); Moon et al. (2018); Yap,
+Low, and Chong (2018)
+SL2.3, Web Technologies for e-Business
+Iijima, Komatsu, and Katoh (1996); Kinsey
+(2000); McMichael, Mackay, and Altmann
+(2000); Homer and Thompson (2001); Bruun
+and Mefford (2004); Coleman, Lyons, and
+Kehoe (2004); Williamson, Harrison, and
+Jordan (2004); Missopoulos and Dergiades
+(2007); Adamides et al. (2008), Wan and Chen
+(2008); Kart, Moser, and Melliar-Smith (2010);
+So and Sun (2010); So and Sun (2011); Ardalan
+and Diaz (2012a); Ardalan and Diaz (2012b);
+Garcia-Sabater, Maheut, and Garcia-Sabater
+(2012); Kovács and Kot (2017)
+SL2.4, Workﬂow systems
+Ma, Wang, and Xu (2011); Dallasega, Rauch, and
+Frosolini (2018)
+SL2.5, Enterprise Resources Planning (ERP)
+Parry and Turner (2006); Green, Whitten, and
+Inman (2007); Zelbst et al. (2014)
+SL 2.6, Advanced Manufacturing Technologies
+(AMT)
+Mason-Jones and Towill (1997); Levary (2001);
+Saygin and Sarangapani (2011); Chen, Cheng,
+and Huang (2013); Khanchanapong et al.
+(2014); Li et al. (2018); Miclo et al. (2019);
+Baradaran and Akhavan (2019); Bortolini,
+Formoso, and Viana (2019); Deng et al.
+(2019); Meng (2019); Novais et al. (2019);
+Ruiz, Fontanini, and Corrêa (2019); Weraikat,
+Zanjani, and Lehoux (2019)
+L3, Emerging
+SL3.1, Cloud Computing
+Dave et al. (2016); Sanders, Elangeswaran, and
+Wulfsberg (2016); Hofmann and Rüsch (2017);
+Vazquez-Martinez et al. (2018); Xu et al.
+(2018)
+SL3.2, Internet of Things (IoT)
+Dave et al. (2016); Sanders, Elangeswaran, and
+Wulfsberg (2016); Hofmann and Rüsch (2017);
+Yerpude and Singhal (2017); Xu et al. (2018);
+Roy and Roy (2019); Wang et al. (2018)
+SL3.3, Artiﬁcial Intelligence (AI)
+Güner, Murat, and Chinnam (2012); Liu et al.
+(2013); Hofmann and Rüsch 2017; Kang, Lee,
+and Chung (2019)
+SL3.4, Virtual Reality (VR)
+Li et al. (2018)
+SL3.5, Autonomous Vehicles (AV)
+Mehrsai, Thoben, and Scholz-Reiter (2014)
+SL3.6, Big-Data
+Bevilacqua, Ciarapica, and Antomarioni (2019);
+Deng et al. (2019); Roy and Roy (2019)
+(Continued).
+
+
+--- SAYFA 14 ---
+5046
+M. Núñez-Merino et al.
+Table 4.
+Continued.
+IDT position in TLC in LSCM
+context (ﬁrst classiﬁcation level;
+research line)
+IDT in LSCM context
+(second level of
+classiﬁcation; research
+subline)
+Papers
+L4, Information Systems /
+Information
+Technology,
+general approach
+Lee et al. (2008); Bayraktar et al. (2009);
+Bayraktar et al. (2010); Hong, Dobrzykowski,
+and Vonderembse (2010); Qrunﬂeh, Tarafdar,
+and Ragu-Nathan (2012); Qrunﬂeh and
+Tarafdar (2014); Karakadilar and Hicks (2015);
+Sangari, Hosnavi, and Zahedi (2015); Sharma
+and Kulkarni (2016); Kashani and Baharmast
+(2017); Gorane and Kant (2017); Kou, Chiang,
+and Chiang (2018); Ghobakhloo et al. (2018);
+Kamble, Gunasekaran, and Dhone (2019);
+Ramirez-Peña et al. (2019); Singh, Kumar,
+and Chand (2019); Tortorella, Miorando, and
+Cawley (2019)
+Source: Developed by the authors.
+Table 5.
+Number of papers by research lines and research subline.
+Research lines and research sublines
+Number of papers
+%
+1. Obsolete IDT in LSCM
+4
+4,12%
+1.1. Electronic Data Interchange (EDI)
+4
+4,12%
+2. Mature IDT in LSCM
+55
+56,70%
+2.1. Barcode system
+3
+3,09%
+2.2. RFID
+16
+16,49%
+2.3. Web Technologies for E-Business
+17
+17,53%
+2.4. Workﬂow systems
+2
+2,06%
+2.5. Enterprise Resource Planning (ERP)
+3
+3,09%
+2.6. Advanced Manufacturing Technologies (AMT)
+14
+14,43%
+3. Emerging IDT in LSCM
+21
+21,65%
+3.1. Cloud Computing
+5
+5,15%
+3.2. Internet of Things
+7
+7,22%
+3.3. Artiﬁcial Intelligence
+4
+4,12%
+3.4. Virtual Reality
+1
+1,03%
+3.5. Autonomous Vehicles
+1
+1,03%
+3.6. Big-Data
+3
+3,09%
+4. IS and IDT, general approach in LSCM
+17
+17,53%
+Total
+97
+100,00%
+Source: Developed by the authors.
+(1) SL2.1, Barcode systems in LSCM
+Barcode systems have contributed to achieving LSCM objectives by enabling the automatic generation, capture, and
+sending of information from one supply chain member to another, thus rendering the supply chain more efﬁcient. So, for
+example, barcode systems are used in retail to automate the payment process, thus reducing labour costs and the opportunity
+for check-out errors (Abernathy et al. 2000). Using these systems standardises information exchanged between different
+chain agents and so enables physical, information, and ﬁnancial ﬂows to be integrated. This brings down costs, eliminates
+errors and wastage, and, therefore, increases supply chain efﬁciency (Abernathy et al. 2000). Standardisation also provides a
+tool to collect real-time demand information and to share this with suppliers/customers, thus producing better coordination
+between Lean Supply Chain (LSC) members (McMichael, Mackay, and Altmann 2000). For example, the use of these
+systems was a determinant of the transformation of hospital pharmacy supply chains thanks to the beneﬁts that it provides
+to merchandise ﬂows and inventory control, and less wastage (Danas, Ketikidis, and Roudsari 2002).
+(2) SL2.2, Radio Frequency Identiﬁcation (RFID) systems in LSCM
+The impact of RFID technologies on the LSCM environment has been evaluated by multiple authors who have high-
+lighted the beneﬁts that it offers, such as greater physical, information, and ﬁnancial ﬂow integration between the members
+
+
+--- SAYFA 15 ---
+International Journal of Production Research
+5047
+Figure 5.
+Cumulative frequency of number of papers by research lines, IDT of I4.0 in LSCM. Source: Developed by the authors.
+of an LSC. They provide greater integration than other systems such as barcodes, as RFID overcomes many of the latter’s
+limitations, such as incorrect readings when the barcode is damaged or incorrectly positioned. It has, therefore, been found
+that RFID implementation in LSCM: (1) Enables traceability of material ﬂows and inventory control, allowing stock to
+be reduced to the bare minimum (Saygin and Sarangapani 2011; Powell and Skjelstad 2012; Sanders, Elangeswaran, and
+Wulfsberg 2016; Shahin, Khazaei, and Khalili 2016; Hofmann and Rüsch 2017; Yap, Low, and Chong 2018); (2) Reduces
+waiting times between supply chain members and increases reliability thanks to the elimination of information processing
+errors (Otamendi, García-Higuera, and García-Ansola 2011; Zelbst et al. 2014; Tsao, Linh, and Lu 2017); (3) Enables pro-
+cesses to be automatised throughout the entire supply chain, reducing costs and improving service quality (Chen, Cheng,
+and Huang 2013; Nabelsi and Gagnon 2017; Shahin, Khazaei, and Khalili 2016); (4) Contributes to greater LSCM ﬂexibility
+(Shin et al. 2011).
+The role of RFID systems in LSCM has been the object of practical studies in a range of environments and sectors. This
+has enabled supply chain level functions to be automatised, with improved levels of efﬁciency in information management
+(Chen, Cheng, and Huang 2013; Nabelsi and Gagnon 2017; Shahin, Khazaei, and Khalili 2016). So, for example, materials
+ﬂow traceability and location in construction environments has been enabled thanks to the automatisation that RFID tech-
+nologies provide (Shin et al. 2011; Moon et al. 2018); idem baggage in tourist air transport (Otamendi, García-Higuera, and
+García-Ansola 2011) and the management of portable medical kits in hospitals (Nabelsi and Gagnon 2017). Automatisation
+involves different supply chain members and has allowed waiting times to be reduced, which has had a direct knock-on
+effect on customers and increased the general service level (Otamendi, García-Higuera, and García-Ansola 2011; Nabelsi
+and Gagnon 2017).
+A concern for key aspects of RFID implementation in LSCM has also been observed in the literature. Huang et al.
+(2012) develop a platform that eliminates technological barriers to RFID implementation and enables its use in operations
+by all members of an LSC, thus enabling the traceability and visibility of materials and reducing the bullwhip effect. Dai
+et al. (2012) stress the way that RFID devices should be deployed to collect and interpret information and conclude that
+their proper implementation enables data to be processed in real-time, thus reducing the time needed for decision-making
+(Dai et al. 2012; Huang et al. 2012; Moon et al. 2018). The economic performance of RFID implementation in LSCM has
+also been veriﬁed thanks to a reduction in warehousing costs that can be achieved through the use of this IDT (Tsao, Linh,
+and Lu 2017).
+(3) SL2.3, E-business web technologies in LSCM
+Web technologies and the Internet have played a fundamental role in the development and improvement of interorgani-
+zational IDT for LSCM. They have done so by improving customer-supplier relationships by optimising communications
+and information ﬂows, thus playing a major role in technology integration of customer and supplier IDT infrastructure
+(internal/external integration with e-business web technologies) in LSCM (Homer and Thompson 2001; Williamson, Har-
+rison, and Jordan 2004; Adamides et al. 2008; Garcia-Sabater, Maheut, and Garcia-Sabater 2012). This customer-supplier
+integration can be observed in e-commerce (McMichael, Mackay, and Altmann 2000) and the IT-based Kanban systems
+(e-Kanban) (Wan and Chen 2008) that are another type of web technology for e-business.
+In addition, e-business web technology adoption has enabled coordination between supply chain members to be
+improved (Bruun and Mefford 2004; Coleman, Lyons, and Kehoe 2004; So and Sun 2010; So and Sun 2011; Garcia-Sabater,
+Maheut, and Garcia-Sabater 2012; Kovács and Kot 2017) by signiﬁcantly reducing waiting times (Iijima, Komatsu, and
+
+
+--- SAYFA 16 ---
+5048
+M. Núñez-Merino et al.
+Katoh 1996; So and Sun 2010; Garcia-Sabater, Maheut, and Garcia-Sabater 2012), inventory levels (Bruun and Mefford
+2004; Coleman, Lyons, and Kehoe 2004; Kart, Moser, and Melliar-Smith 2010; Williamson, Harrison, and Jordan 2004;
+So and Sun 2010; So and Sun 2011) and operating costs (Coleman, Lyons, and Kehoe 2004; Williamson, Harrison, and
+Jordan 2004; Kart, Moser, and Melliar-Smith 2010). It has also enabled ﬂexibility to be increased and reduced the risk of
+the bullwhip effect (Coleman, Lyons, and Kehoe 2004; So and Sun 2010; So and Sun 2011), thus improving service and,
+consequently, customer satisfaction (Williamson, Harrison, and Jordan 2004).
+E-commerce web technologies are used in sales, distribution, and customer service processes, where they integrate
+physical, information, and ﬁnancial ﬂows between supply chain members (McMichael, Mackay, and Altmann 2000; Homer
+and Thompson 2001). These technologies are tools that facilitate communication and coordination between supply chain
+members and allow inventory levels and distribution costs to be reduced, which means it is possible to cater for a large
+number of customers with the same resources and contribute to obtaining the beneﬁts derived from scale economies (Kinsey
+2000; Homer and Thompson 2001).
+The implementation of Internet- or web environment-based technologies in complex supply chain environments
+has enabled the adoption of Just-in-Time (JIT) principles and practices thanks to the creation of networks to man-
+age information between supply chain members and general improvements to management-associated processes, with
+increases to delivery speed and reductions in customer waiting time (Iijima, Komatsu, and Katoh 1996; Missopoulos and
+Dergiades 2007).
+Electronic Kanban or e-Kanban have also been implemented in LSCM environments through web technologies and are
+used to control production and inventory ﬂow (Kumar and Panneerselvam 2006; Wang and Sarker 2006). Kanban systems
+play a major role in the control of physical and information ﬂows in the supply chain and make it possible to work in
+JIT environments (Wang and Sarker 2006). The use of web technologies to implement e-Kanban systems makes these
+more efﬁcient (Wan and Chen 2008). The combination of the conceptual simplicity of the Kanban and the capabilities of
+web technologies makes automatised data processing possible, enables real-time scheduling, and reduces the possibility of
+human error and the monitoring limitations of physical cards. In addition, it enables the information provided by Kanban
+systems to be complemented with information on demand and manufacturing requirements, allows manufacturing priorities
+to be established to afford suppliers ﬂexibility and reaction capability and enables the decentralisation of decision-making
+(Ardalan and Diaz 2012a). So, e-Kanban enable the entire LSC to be aligned with end-customer demand and, therefore,
+the minimisation of inventory and work in process (Wan and Chen 2008; Ardalan and Diaz 2012b). They also allow better
+monitoring and visibility of stocks in real-time (Wan and Chen 2008).
+(4) SL2.4, Workﬂow systems in LSCM
+Workﬂow systems are IS that allow the development of business processes (van der Aalst 1999). These business pro-
+cesses can be collaborative between organisations, in which case they act as a support for operations in the supply chain.
+Workﬂow systems can achieve efﬁciency in supply chain processes by contributing to LSCM objectives. In this sense,
+Ma, Wang, and Xu (2011) propose the modelling and analysis of the interorganizational workﬂow through the use of
+Petri networks and the standardisation of business processes in the LSCM context, enabling organisations to be more
+efﬁcient and productive, optimising resources and improving the service that they provide to their customers. Dallasega,
+Rauch, and Frosolini (2018) propose the use of workﬂow systems to break down large work orders into smaller, more
+controllable parts, which enables information to be collected in real-time throughout the entire supply chain and prob-
+lems and their causes to be identiﬁed. This provides the ability to react rapidly to changes in customer demand and
+any errors identiﬁed to be improved. It also allows the inventory level to be reduced thanks to a reduction in deliv-
+ery times and improved planning. So, LM objectives are achieved at the supply chain level (Dallasega, Rauch, and
+Frosolini 2018).
+(5) SL2.5, Enterprise Resources Planning (ERP) Systems in LSCM
+ERP is being used in LSCM contexts (Parry and Turner 2006; Green, Whitten, and Inman 2007; Zelbst et al. 2014).
+Organisations adopting JIT principles and practices for LSC are implementing ERP systems as these are designed to elim-
+inate wastage in the information management process (Green, Whitten, and Inman 2007). In this research subline, Green,
+Whitten, and Inman (2007) uphold that an ERP system is required as part of the JIT strategy applied to the supply chain so
+as to provide all chain members with a common database. Information is managed in real-time and has a positive impact on
+the response capability and on delivery speed, reliability and ﬂexibility, and customer satisfaction. All this has an impact on
+better organisational and supply chain results (Green, Whitten, and Inman 2007). Information availability is not usually a
+problem: it is the communication of this information that is ineffective (Bilalis et al. 2002). As a result, information can be
+presented visually, which makes it easier to interpret and communicate and so manage operations and processes in real-time
+(Parry and Turner 2006). The link between ERP and RFID devices has enabled Lean supply chains to be more efﬁcient by
+eliminating waste in raw material management, work in process, and ﬁnished product inventory, thus enabling manufactur-
+ers to better satisfy customers as to the quality of their products and their delivery response capability. This improvement to
+
+
+--- SAYFA 17 ---
+International Journal of Production Research
+5049
+supply chain efﬁciency translates into an improvement to the operational performance of the companies in the supply chain
+(Zelbst et al. 2014).
+(6) SL2.6, Advanced Manufacturing Technologies (AMT) in LSCM
+AMT describes a broad variety of technologies used directly or indirectly in manufacturing activities. These technolo-
+gies have been classiﬁed as AMT for design (CAD; CAE, and Industrial Simulation; Computer-Aided Production Planning
+or CAPP), process (CAM; Robotics), and production management (Material Requirements Planning or MRP). In I4.0 envi-
+ronments, the conﬂuence of a variety of AMT technologies together comprises CIM and its evolution toward what is known
+as CPS (Kang et al. 2016; Monostori et al. 2016).
+AMT not only have an impact at the internal level, but also on planning, administrative management, and the ﬂexibility
+of processes throughout the supply chain (Levary 2001; Khanchanapong et al. 2014). Levary (2001) extends the CIM con-
+cept to LSCM and introduces the term ‘computer-integrated supply chain’. Moreover, the use of IT for process management
+helps companies to manage the ﬂow of materials from suppliers to customers and also enables information sharing (Levary
+2001; Khanchanapong et al. 2014). Design and process management AMT afford companies the ability to increase or reduce
+manufacturing volumes, economically allowing great ﬂexibility in volumes and contributing to bringing down costs while
+increasing product quality (Khanchanapong et al. 2014). In conjunction with LM, AMT technologies have a positive impact
+on the supply chain, with additive and synergistic effects on cost reduction, increased product quality, improved delivery
+times, and increased ﬂexibility, which affects customers and suppliers throughout the LSC (Khanchanapong et al. 2014).
+In the construction industry, speciﬁc management approaches and IDT tools are increasingly used in LSCM to max-
+imise value and minimise waste (Deng et al. 2019; Meng 2019; Bortolini, Formoso, and Viana 2019). CAD/CAE AMT use
+in LSCM construction processes (Building Information Modeling or BIM) in conjunction with geographical information
+systems (GIS) provide solutions to support decision-making for supplier selection, for determining the number of deliver-
+ies and the allocation of consolidation centres in congested regions with long transportation distances (Deng et al. 2019).
+BIM CAD/CAE AMT encourages optimal supply chain collaboration during a construction project (Deng et al. 2019;
+Meng 2019). When BIM is applied in a project, a new culture is fostered in the project environment. As a result, better
+supply chain collaboration raises the possibility of improving LM construction practices (Meng 2019). Joint use of BIM
+CAD/CAE AMT and LSCM presents a synergistic effect that signiﬁcantly improves delivery costs, increases the reliability
+of component delivery, increases productivity for site assembly of prefabricated building systems, keeps inventories organ-
+ised on-site and reduces lead-time (Bortolini, Formoso, and Viana 2019). It also reduces the number of ongoing jobs and
+so increases productivity throughout the entire construction process, achieving an earlier completion date with very high
+quality (Bortolini, Formoso, and Viana 2019).
+CAE/Industrial Simulation has also been used in LSCM environments to achieve process efﬁciency (Mason-Jones and
+Towill 1997; Saygin and Sarangapani 2011; Chen, Cheng, and Huang 2013; Khanchanapong et al. 2014; Li et al. 2018;
+Baradaran and Akhavan 2019; Miclo et al. 2019; Novais et al. 2019; Ruiz, Fontanini, and Corrêa 2019; Weraikat, Zanjani,
+and Lehoux 2019). Simulation has been used to analyze the efﬁciency of processes in which EDI (Mason-Jones and Towill
+1997), RFID (Saygin and Sarangapani 2011; Chen, Cheng, and Huang 2013) or ATM (Khanchanapong et al. 2014) are used.
+Materials Planning and Scheduling have also been determined with Simulation with better results (Miclo et al. 2019), as
+has the evolution of the relationship between strategic factors (Novais et al. 2019), the impact of materials ﬂow delays on
+the supplier chain (Ruiz, Fontanini, and Corrêa 2019), stock minimisation in Vendor Management Inventory (VMI) systems
+(Weraikat, Zanjani, and Lehoux 2019), and optimisation of the number of Kanbans in JIT systems (Baradaran and Akhavan
+2019). VR learning environments have also been developed using RFID and BIM, enabling different supply chain agents to
+learn how to be efﬁcient in prefabricated component construction projects (Li et al. 2018).
+4.3.3. L3, emerging IDT in LSCM
+The following research sublines have been identiﬁed in the group of emerging IDT technologies in I4.0: (1) Cloud Comput-
+ing in LSCM; (2) Internet of Things (IoT) in LSCM; (3) Artiﬁcial Intelligence (AI) in LSCM; (4) Virtual Reality (VR) in
+LSCM; (5) Autonomous Vehicles (AV) and (6) Big-Data in LSCM. Each of these research sublines is described below.
+(1) SL3.1, Cloud Computing in LSCM
+Cloud Computing provides services that offer many advantages aligned with LSCM objectives, such as lower costs, best
+resource exploitation, a need for smaller direct investments, and greater accessibility, inter alia.
+Cloud Computing technologies afford ﬂexible integration between a variety of different systems and technologies and
+facilitate synchronisation and collaboration across the LSC (Dave et al. 2016; Sanders, Elangeswaran, and Wulfsberg 2016;
+Hofmann and Rüsch 2017; Xu et al. 2018). Cloud Computing has enabled traditional communication mechanisms between
+supply chain members to be modernised. Thanks to this technology and the use of intelligent devices such as cellphones
+and tablets, it is possible to have quicker access to information at any time and in any place (Sanders, Elangeswaran, and
+
+
+--- SAYFA 18 ---
+5050
+M. Núñez-Merino et al.
+Wulfsberg 2016). Cloud technologies enable a large volume of data to be stored and the real-time monitoring of processes,
+with information accessible to all supply chain members (Vazquez-Martinez et al. 2018; Xu et al. 2018).
+A digital-format product distribution and delivery model underpinned by Cloud Computing has been proposed inspired
+by LSCM principles (Vazquez-Martinez et al. 2018). Evaluation of this model in comparison to solutions constructed in
+web environments has shown that this model offers increasingly better delivery results as the number of participants in a
+collaboration environment grows. In addition, this model has demonstrated the viability of applying this technology to Lean
+principles in the supply chain for the distribution and delivery of digital products, given the improvements that it achieves in
+terms of efﬁciency, ﬂexibility, and security (Vazquez-Martinez et al. 2018). Moreover, Cloud Computing allows to prevent,
+reduce and mitigate the bullwhip effect thanks to the ability to react and make decisions in real-time (Hofmann and Rüsch
+2017; Xu et al. 2018). Finally, it should be highlighted that Cloud Computing technologies have been implemented in supply
+chains in a variety of sectors and in Small and Medium-sized Enterprises (SMEs), thus enabling more ﬂexible, efﬁcient, and
+economic process management (Xu et al. 2018).
+(2) SL3.2, Internet of Things (IoT) in LSCM
+IoT in LSCM contexts provides product visibility and traceability and, even more importantly, information integration
+(Xu et al. 2018; Wang et al. 2018). By adopting IoT-based technologies, buffer time, inventory level, productivity, re-
+work, and so on can all be easily identiﬁed and duly addressed (Wang et al. 2018). Implementing IoT among supply chain
+members enables real-time links and information sharing, thus improving interoperability between the main IS of different
+organisations (Dave et al. 2016; Wang et al. 2018). IoT allows the generation of Big-Data, resulting in signiﬁcantly improved
+streamlining of operations (Roy and Roy 2019). Real-time information transmission between buyers and sellers enables
+the integration of physical ﬂows, which affords greater agility (by reducing reaction and waiting times) and ﬂexibility to
+respond to ﬂuctuations in demand (Hofmann and Rüsch 2017; Dave et al. 2016; Roy and Roy 2019; Wang et al. 2018).
+The use of VMI in LSCM in conjunction with IoT affords rapid and coordinated real-time inventory management across
+the supply chain and so permits a minimum yet nonetheless ﬂexible inventory level that is able to address any customer
+demand ﬂuctuations (Yerpude and Singhal 2017). In conjunction with other information management and merchandise ﬂow
+technologies, IoT ensures on-time product delivery and transport route optimisation. The use of IoT in article labelling
+enables the monitoring and intelligent reallocation of orders through an improved replenish pull system, which is extremely
+useful in JIT for goods deliveries by suppliers (Sanders, Elangeswaran, and Wulfsberg 2016) and improves efﬁciency and
+costs reduction (Wang et al. 2018).
+(3) SL3.3, Artiﬁcial Intelligence (AI) in LSCM
+In LSCM contexts, decision-making is a challenge due to the complexity, dynamism, and uncertainty of the environment,
+so being able to use knowledge management is a great advantage (Liu et al. 2013). Inaccurate demand forecasts and a lack
+of shared information between chain members can lead to greater production than necessary, unnecessary logistics costs
+being borne, increased delivery times, and reduced ﬂexibility.
+AI can be used for decision-making to achieve Lean objectives in supply chains (Liu et al. 2013). In this sense, Liu
+et al. (2013) have developed a decision-making support system for LSCM using AI systems that provide decision-makers
+with a tool for making the right decisions to eliminate any activity that does not add value throughout the supply chain. The
+system improves the decision-making process through knowledge management and enables the elimination of wastage such
+as production and inventory surpluses, waiting times, and the unnecessary movement of materials and products, thus raising
+performance and productivity in the entire Lean supply chain (Liu et al. 2013). With a similar AI-based focus, intelligent
+routing systems that analyze trafﬁc information in real-time have been designed to manage JIT deliveries and provide a
+general improvement to deliveries with reduced waiting times and higher customer satisfaction (Güner, Murat, and Chinnam
+2012). Similarly, an AI approach has been developed for planning and scheduling parcel delivery with the consideration of
+multiple delivery vehicles, JIT pickup and delivery, minimum fuel consumption, and maximum proﬁtability (Kang, Lee,
+and Chung 2019). In addition, using AI systems in conjunction with other technologies allows orders to be located and
+information on load status in transport to be managed in learning systems (Hofmann and Rüsch 2017).
+(4) SL3.4, Virtual Reality (VR) in LSCM
+VR application in LSCM is linked to learning in complex processes where several different agents are involved (Li et al.
+2018). So, virtual environments have been implemented using RFID and BIM and used for management learning in the
+manufacture of prefabricated components in the construction sector (Prefabrication Housing Production, PHP). As a type of
+advanced simulation game, the proposed tool facilitates the manufacture, logistics, and assembly process, helping to reduce
+uncertainty and constraints and to improve information sharing and eliminate PHP construction mistakes (Li et al. 2018).
+(5) SL3.5, Autonomous Vehicles (AV) in LSCM
+In supply chains, AV contribute to achieving Lean objectives. In this sense, autonomous control in operational functions
+provides ﬂexibility (Mehrsai, Thoben, and Scholz-Reiter 2014). Autonomous vehicles applied to production and logistics
+environments establish a continuous ﬂow of materials in LSCM contexts, favouring pull-type ﬂow and JIT replenishment
+
+
+--- SAYFA 19 ---
+International Journal of Production Research
+5051
+(Mehrsai, Thoben, and Scholz-Reiter 2014). Using these systems in conjunction with automatisation and robotics enables
+performance, efﬁciency, efﬁcacy, and response time increases and reduces waiting times throughout the LSC (Mehrsai,
+Thoben, and Scholz-Reiter 2014).
+(6) SL 3.6, Big-Data in LSCM
+The use of multiple IDT of I4.0 has led to companies and supply chains generating and storing enormous amounts
+of information. This information is crucial for being able to mine useful knowledge with the purpose of improving sup-
+ply chain efﬁciency and productivity (Bevilacqua, Ciarapica, and Antomarioni 2019). Big-Data analytics methods have
+shown their potential to facilitate communication between automation systems and the LSCM approach to reach common
+efﬁciency goals (Bevilacqua, Ciarapica, and Antomarioni 2019; Roy and Roy 2019; Deng et al. 2019). Big-Data enables
+LSCM visualisation and metrics analysis. The decision system is more efﬁcient and the decision-making process can be
+automatised or semi-automatised throughout the entire supply chain (Roy and Roy 2019). Thus, for example, thanks to
+the data generated by different systems used in the construction sector (BIM and GIS) and to the application of Big-Data,
+accurate estimates can be made of the costs incurred during the procurement process, thus providing a support system to
+the decision-making process in LSCM contexts (supplier selection, determination of the number of materials deliveries, and
+allocation of consolidation centres) (Deng et al. 2019).
+4.3.4. L4, information systems and information and digital technologies, general approach in LSCM
+Articles included in this research line are characterised by studying the impact, the relations, and the implications that IS
+and IDT of I4.0 have in general in LSCM. In this line, IS/IDT of I4.0 are considered to be a toolset, with no one individual
+tool analysed in isolation, acting as a support to the Lean supply chain and as a facilitator of its implementation (Lee et al.
+2008).
+A number of authors state that organisations should invest in IT infrastructure as this has a positive inﬂuence on Lean
+supply chain integration and ﬂexibility, which in turn has a direct, positive impact on customer satisfaction and ﬁnancial
+results (Bayraktar et al. 2010; Kashani and Baharmast 2017; Gorane and Kant 2017). In addition, IDT of I4.0 implementation
+is a facilitator of LSCM practices, which leads to best performance improvements (Lee et al. 2008; Kamble, Gunasekaran,
+and Dhone 2019). These statements are backed up by a range of authors. For example, Karakadilar and Hicks (2015) ﬁnd
+that the different IDT used, their level of implementation, and the Lean practices applied have a positive effect on the
+supplier’s operating performance (product quality, delivery times, and response to change). It has also been found that
+greater alignment between the Lean practices applied by suppliers and the IS used has a positive association with supply
+chain integration (information, physical, and ﬁnancial ﬂow coordination and integration) (Qrunﬂeh and Tarafdar 2014;
+Karakadilar and Hicks 2015) and with ﬂexibility (Qrunﬂeh, Tarafdar, and Ragu-Nathan 2012).
+IS/IDT have a positive impact on Mass Customization (MC) when LSCM practices are used (Hong, Dobrzykowski, and
+Vonderembse 2010) and on new product innovation and development (Kou, Chiang, and Chiang 2018). The level of IDT
+use and the level of supply chain integration are determinants that either directly or indirectly determine the level of Lean
+implementation at the internal level (Ghobakhloo et al. 2018). IS/IDT enable information and knowledge management,
+which has a positive impact on LSCM integration and results (Bayraktar et al. 2009; Sangari, Hosnavi, and Zahedi 2015;
+Sharma and Kulkarni 2016). So, IS/IDT use in LSCM achieves efﬁciency in the planning and management of supply and
+demand, supplier management, inventory management, and delivery management (Bayraktar et al. 2009; Sangari, Hosnavi,
+and Zahedi 2015; Sharma and Kulkarni 2016). In this line, recent research studies ﬁnd that the adoption of technologies of
+I4.0 moderates the relationship between LSCM practices and supply chain performance improvement (Tortorella, Miorando,
+and Cawley 2019). This means that, the further that LSCM practices and IDT of I4.0 are developed, the greater the results
+are at the supply chain level.
+However, not all IDT of I4.0 have the same effect on results. In a study of different supply chain strategies (Green, Lean,
+Agile and Resilient), IDT of I4.0, and performance, the Green and Lean paradigms are found to be established as the most
+inﬂuential on global performance. Several IDT of I4.0 only inﬂuence Green and Lean supply chain strategies: Autonomous
+Robots, Additive Manufacturing, Cloud Computing, Autonomous Vehicles, Cybersecurity, and Augmented Reality. Other
+IDT of I4.0 inﬂuence Green and Lean and, to a lesser extent, Agile and Resilient: Horizontal & Vertical Integration (web
+technologies), Big-Data, Blockchain, Industrial Simulation, IoT, and AI (Ramirez-Peña et al. 2019). So, the most suitable
+procedure is to ﬁrst implement the ﬁrst group of IDT of I4.0, which impact LSCM and Green and improve results, and
+subsequently, to implement the second group of IDT of I4.0 to achieve agility and resilience (Ramirez-Peña et al. 2019).
+Moreover, coordination is essential in contexts of IDT of I4.0 and LSCM (Singh, Kumar, and Chand 2019). It has been
+observed that in order to achieve this coordination in the supply chain, the most successful companies put a greater focus
+on organisational issues such as Lean organisation structure, organisation culture, and supply chain responsiveness factors
+rather than on IDT of I4.0 (Singh, Kumar, and Chand 2019).
+
+
+--- SAYFA 20 ---
+5052
+M. Núñez-Merino et al.
+4.4. Gaps and avenues for future research
+The following sets out the aspects in each of the identiﬁed research lines that have not been studied at all or only to a limited
+extent (gaps) and the research that needs to be developed in the future to address these gaps.
+In reference to the line of research ‘obsolete IDT in LSCM (L1)’, these days EDI technologies are out-of-date. Nonethe-
+less, they have been adapted by some companies to web environments due to their proven efﬁcacy and the difﬁculty and/or
+cost of replacing them completely. At the current time, the cost of web technologies has been seen to have decreased and,
+so, there may be a change to the convenience that continued use of ﬁrst-generation EDI systems represents. Legacy EDI
+systems, therefore, need to be investigated to ascertain whether they are proﬁtable/efﬁcient/valid in the Industry 4.0 digital
+transition and LSCM environment compared to other possible solutions such as EDI-web environments.
+In reference to the line of research ‘mature IDT in LSCM (L2)’, many companies use mature technology of the ERP
+system type. However, these systems are being transferred from internal organisations’ environments to Cloud Computing
+platforms. Given the challenges that the digital transition of I4.0 in LSCM poses, it would be necessary to conduct compar-
+ative research with empirical studies to determine whether these internal systems continue to be efﬁcient compared to other
+possibilities that are in the marketplace, such as ERP in Cloud Computing environments. With regard to RFID, it would be
+interesting to determine how the adoption of an advanced initiative called RAIN-RFID, which combines RFID and Cloud
+Computing and uses Ultra High Frequency (UHF), Electronic Product Code (EPC) and standardised RFID protocol in con-
+junction with Cloud infrastructure, is able to open up new ways to achieving greater efﬁciency in LSCM environments.
+This is an as-yet unexplored issue. In relation to other mature IDT such as AMT, technologies such as CAD, CAM, and
+CAE/Industrial Simulation, which give the ﬁrm volume and product ﬂexibility, have been analysed in LSCM environments.
+Nonetheless, other technologies such as robotics has not been analysed in the LSCM context. In this sense, the use of
+Collaborative Robots or Cobots could be analysed in the future in LSCM contexts, as they add efﬁciency and ﬂexibility to
+manufacturing processes. The application of Robots and Cobots to repetitive logistics tasks such as merchandise picking and
+packing could be investigated in LSCM contexts. A further interesting topic for future research would be the incorporation
+of the digital twin (CAD) and its connecting to Additive Manufacturing (CAM or CAE) machines with the involvement of a
+variety of supply chain members (suppliers and customers) to achieve LSCM objectives, as the evolution of more traditional
+AMT systems.
+In reference to the line of research ‘emerging IDT in LSCM (L3)’, from a general perspective, more in-depth research
+needs to be done of the possible implications of emerging IDT use for LSCM results. It would be interesting to analyze the
+way that Cloud Computing, Big-Data, IoT, and AI affect LSC results at both the operating level (ﬂexibility, quality, delivery,
+and service), and in relation to ﬁnancial results (revenue, proﬁt margin, and business volume). Also, Big-Data and advanced
+analytics could be investigated to determine whether they might help give a better understanding of consumer behaviour
+and needs, enabling a proactive response to be given to customer requirements. Another issue that requires further research
+is the effect of emerging technologies adoption on Lean supply chain integration. It would also be interesting to investigate
+the way that environmental variables, for example, the degree of technological intensity in the sector in which companies
+operate, might condition the effects and implications of the Industry 4.0 transition in LSCM contexts. Yet another interesting
+area to investigate would be issues relating to the adoption, integration, risks, and economic viability of the implementation
+of certain emerging IDT of I4.0 in LSCM environments.
+From a more concrete perspective, VR has been used in LSCM environments as a learning tool. However, technolo-
+gies such as Augmented Reality (AR) have not been analysed in LSCM contexts. AR allows virtual information to be
+added to physical objects and has great potential for application in logistics activities such as warehouse management
+and distribution, for example, or for picking and packing and expediting delivery. In both cases, AR facilitates the efﬁ-
+cient and rapid location of products. For this, conceptual studies and case studies could be conducted that evaluate this
+technology’s use in LSCM environments. Its application would be beneﬁcial for last-mile logistics processes and could
+drastically reduce the time devoted to searching for and ﬁnding physical goods. Other emerging IDT that have still not
+been explored in the research in LSCM contexts, such as Blockchain and Additive Manufacturing, could also greatly help
+Lean objectives be achieved in the supply chain. In this sense, it would be interesting to evaluate the capacity for inno-
+vation that might result from knowledge generated throughout LSCM due to the use of certain emerging IDT of I4.0. For
+example, it would be interesting to determine the potential of an emerging IDT such as Blockchain, which renders infor-
+mation unalterable, for achieving efﬁciency in information processing across a Lean supply chain. Likewise, the utility of
+Additive Manufacturing could be examined for working with a very low inventory level and offering a highly customised
+product.
+On the one hand, from the speciﬁc point-of-view of the IDT/IS general approach research line, the implications of
+IDT and IS have been investigated for Lean supply chain integration, including aspects such as the impact that they have on
+supply chain efﬁciency and ﬂexibility and their effect on some speciﬁc operating results. However, one topic of great interest

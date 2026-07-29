@@ -1,0 +1,1613 @@
+
+
+--- SAYFA 1 ---
+Route optimization of simultaneous 
+delivery and pick-up in automotive 
+inbound logistics under the milk-run 
+mode in a dual-carbon background
+Weiwei Zhang
+School of Economics and Management, Beijing University of Chemical Technology, 
+Beijing, China
+Abstract
+Purpose – Under the “dual-carbon” goal, this study optimized the Two-echelon Vehicle Routing Problem with 
+Time Windows and Simultaneous Delivery and Pickup (2E-VRPSPDTW) in automotive inbound logistics under 
+a milk-run mode to minimize the total cost and carbon emissions while maximizing time-window satisfaction.
+Design/methodology/approach – A novel multi-objective mixed-integer programming model was developed 
+for a three-echelon network comprising suppliers, distribution centers and an original equipment manufacturer. 
+The model incorporates industry-specific constraints, such as two-stage operations, differentiated volume 
+constraints for nested empty and loaded containers and time-window satisfaction requirements. An improved 
+non-dominated sorting genetic algorithm II (NSGA-II) with enhanced operators was designed.
+Findings – Validation using real third-party logistics provider data shows that the algorithm outperforms 
+benchmarks (MOEA/D, SPEA2 and Pareto-TS) in terms of solution quality, convergence and diversity, 
+particularly for small-to-medium instances. Furthermore, sensitivity analysis confirmed that carbon tax and 
+time-penalty costs significantly influence routing decisions and system performance.
+Originality/value – This study clarifies the essential differences between the classical VRPSPDTW and the 2E-
+VRP by treating empty container flow as an active management variable. It incorporates the physical 
+characteristics of nested empty containers and double-carbon constraints, thus providing a targeted modeling 
+framework and an efficient algorithm for the synergistic optimization of economic, environmental and service 
+benefits in automotive inbound logistics.
+Keywords Automotive inbound logistics, Milk-run, 2E-VRPSPDTW, Dual-carbon background,
+The improved NSGA-II algorithm
+Paper type Research article
+1. Introduction
+1.1 Background
+Against the global macro backdrop of addressing climate change and advancing a green, 
+low-carbon transition, the strategic goals of “carbon peaking and carbon neutrality” pose 
+transformative demands across all industries (Zhang et al., 2015; Zhou et al., 2018; Sadeq 
+et al., 2024). As a major source of carbon emissions, the transportation sector must undergo 
+a green transformation to support the achievement of dual carbon goals (Wu and Wu, 2022; 
+Ye et al., 2022). The automotive industry involves extensive supply chain systems and 
+complex logistics activities (Zhu and Wu, 2013). Among those, the automotive inbound 
+logistics segment, which transports components from suppliers to the production lines of 
+original equipment manufacturers (OEM), represents a critical yet challenging 
+breakthrough point for carbon reduction in the automotive sector owing to its high-
+frequency, multi-node operations and energy-intensive nature. Optimizing inbound 
+logistics operations and transportation routes has significant practical implications for 
+reducing the overall carbon footprint of the supply chain and enhancing resource efficiency 
+(Che and Yang, 2023; Zhou and Wen, 2023).
+Engineering
+Computations
+Competing interests: The author declares no conflict of interest with any financial organizations 
+regarding the material reported in this manuscript.
+Received 1 December 2024 
+Revised 31 December 2025 
+Accepted 30 May 2026
+Engineering Computations 
+© Emerald Publishing Limited 
+e-ISSN: 1758-7077 
+p-ISSN: 0264-4401 
+DOI 10.1108/EC-12-2024-1056
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 2 ---
+Among various inbound logistics models, the milk-run system has been widely adopted in 
+the automotive manufacturing industry because of its consolidated and highly efficient 
+characteristics (Bocewicz et al., 2021). In this model, a third-party logistics (3PL) provider 
+coordinates and dispatches vehicles to follow optimized, fixed routes, sequentially visiting 
+multiple suppliers in close geographical proximity (Wang and Chen, 2019). During these trips, 
+vehicles simultaneously pick up standardized loaded containers with components required for 
+production and return standardized empty containers, thereby achieving a closed-loop 
+integration of forward material flow and reverse container flow. These “simultaneous pickup 
+and delivery” operations effectively consolidate scattered transportation demands and reduce 
+empty vehicle runs and certain loading/unloading activities, demonstrating significant 
+advantages over traditional direct shipping in terms of lowering transportation costs and 
+improving container turnover rates (Tang et al., 2020).
+1.2 Problem statement
+Among the vehicle routing problems used to represent automotive inbound logistics, the 
+Vehicle Routing Problem with Time Windows and Simultaneous Delivery and Pickup 
+(VRPSPDTW) and the Two-echelon Vehicle Routing Problem (2E-VRP) are the two most 
+commonly utilized. The VRPSPDTW is typically defined as a single-layer network problem in 
+which vehicles depart from a distribution center to simultaneously deliver goods to customer 
+nodes and pick up returned items. These pickups and deliveries are subject to customer time 
+window constraints. Conversely, the 2E-VRP typically describes a transportation network 
+comprising “factory–transit warehouse–customer” nodes and its main focus is the 
+consolidation and redistribution of goods at intermediate points. Although the constructed 
+Two-echelon Vehicle Routing Problem with Time Windows and Simultaneous Delivery and 
+Pickup (2E-VRPSPDTW) model resembles the VRPSPDTW and 2E-VRP, it exhibits 
+fundamental distinctions in several key aspects (Figure 1).
+First, goods are limited to modular parts that can be directly integrated into the four major 
+processes of the OEM – stamping, welding, painting and assembly – explicitly excluding 
+procurement logistics that require further processing (e.g. components or raw materials needed 
+by module manufacturers). Suppliers interface directly with the production processes of the
+Figure 1. Schematic of the operational processes
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 3 ---
+OEM and thus serve both as the source of full containers and recipients of empty containers. 
+Second, the model is tailored to a third-party logistics-led operational mode, where the 
+distribution center acts as a core hub and undertakes functions such as container consolidation, 
+loading/unloading operations, temporary storage and empty container scheduling, thereby 
+bridging the milk-run and loading-delivery phases. Third, it focuses on the transportation 
+characteristics of “multiple suppliers, small batches, and high frequency” under the milk-run 
+model, in which the reverse flow of empty containers is coordinated alongside the forward 
+delivery of full containers. This characteristic demonstrates distinct industry-specific traits 
+that align with the logistics patterns of the automotive parts supply for leveled production 
+in OEMs.
+The specific differences between VRPSPDTW and the proposed model in this study are as 
+follows:
+(1) Network Hierarchy and Process Phased. The proposed model explicitly divides the 
+transportation process into two distinct stages: the “milk-run” and the “loading and 
+delivery” phases. In the milk-run phase, vehicles visit suppliers solely to perform 
+“pickup of full containers and return of empty containers.” In the loading and delivery 
+phases, vehicles depart from the distribution center to deliver full containers to the 
+OEM and pick up empty containers. Vehicles are prohibited from serving across 
+stages. This phase separation reflects the scheduling logic of material consolidation 
+and just-in-time delivery in automotive manufacturing. Conversely, in VRPSPDTW, 
+vehicles perform mixed pickup and delivery tasks within a single trip.
+(2) Differentiated Constraints for Empty and Full Containers. In automotive logistics, 
+empty standard foldable containers can be nested to occupy approximately one-fifth 
+of the volume of full containers, with negligible weight. Consequently, modeling 
+requires setting separate volume constraints for full and empty containers rather than 
+treating them under a simple unified load capacity. This physical characteristic is 
+rarely considered in general VRPSPDTW formulations and represents a unique 
+packing and loading constraint specific to automotive part logistics.
+(3) Transitivity of Time Windows and Measurement of Satisfaction. The time windows in 
+this study are not directly imposed on the OEM but are applied to the processing time 
+of goods arriving at the distribution center. These windows subsequently influence the 
+timeliness of the final delivery to the OEM through the operating schedule of the 
+distribution center. Time satisfaction is measured by the proportion of goods delivered 
+to the distribution center within a specified time window. This implication reflects the 
+operational characteristic of the “distribution center acting as a time buffer and 
+coordination node” in automotive inbound logistics.
+The specific differences between 2E-VRP and the proposed model in this study are as follows:
+(1) Bidirectional Flow and Operations. The 2E-VRP involves unidirectional logistics, 
+whereas the proposed model incorporates bidirectional logistics interactions at each 
+level. Between suppliers and the distribution center, full containers are picked up and 
+empty containers are returned; between the distribution center and the OEM, full 
+containers are picked up and empty contained are collected. This bidirectional flow 
+originates from the operational model of standardized container reuse in automotive 
+manufacturing, which represents a typical closed-loop logistics system.
+(2) Container Management as a Core Constraint. This paper explicitly incorporates the 
+supply and recovery of empty containers as part of scheduling decisions, assuming 
+that the distribution center possesses sufficient empty container resources to support 
+the production cycle of suppliers. Such a coordinated allocation of container resources 
+is generally not included in traditional 2E-VRP models and represents a unique
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 4 ---
+constraint in the context of standardized material packaging and a green circular 
+economy in automotive inbound logistics.
+In summary, existing models fall short in addressing the problems specific to the automotive 
+industry. Classical VRPSPDTW models are insufficient for depicting multilayer networks and 
+phased operations, whereas 2E-VRP focuses on the hierarchical integration of unidirectional 
+logistics and lacks descriptions of bidirectional container flows and simultaneous delivery and 
+pickup operations. Therefore, constructing a novel routing optimization model that accurately 
+reflects the practical features of milk-run operations in the automotive industry and integrates 
+multidimensional optimization objectives has significant theoretical value and practical urgency.
+The model proposed in this paper constitutes a vehicle routing problem that integrates a 
+two-echelon network structure, a two-phase operational process, differentiated constraints for 
+empty and full containers, time-window transitivity satisfaction evaluation and carbon 
+emission cost considerations. It is neither a simple extension of the VRPSPDTW to a 
+multilayer network nor a traditional 2E-VRP augmented with pickup and delivery operations. 
+Rather, it is a novel optimization problem with industry specificity and contemporary 
+relevance, which was developed based on the context of milk-run operations in automotive 
+manufacturing, incorporating the operational characteristics of third-party logistics and the 
+constraints imposed by dual-carbon policies.
+1.3 Objectives
+The objectives of this model are to minimize transportation costs and carbon emissions and 
+maximize the service level. This study explores the problem of automobile inbound logistics in 
+the milk-run pick-up mode from multiple perspectives. It aims to provide adequate decision-
+making information for route planning for simultaneous delivery and pickup in automotive 
+inbound logistics and to analyze the impact of current low-carbon policies on enterprises. This 
+helps to scientifically plan vehicle routes and realize a balance between corporate interests and 
+environmental benefits.
+The remainder of this paper is organized as follows. Section 2 reviews and analyzes the 
+evolution of research on the VRPSPDTW and multi-objective optimization algorithms. 
+Section 3 develops a mixed-integer mathematical programming model that reflects the 2E-
+VRPSPDTW specificity in automotive inbound logistics. Section 4 proposes an INSGA-II to 
+address the 2E-VRPSPDTW. Section 5 validates the effectiveness and robustness of the 
+proposed improved NSGA-II (INSGA2) algorithm through real-world case studies, 
+comparative experiments and sensitivity analyses. Section 6 derives targeted policy 
+recommendations and managerial implications based on the research findings. Finally, 
+Section 7 summarizes the findings and provides an outlook for future research.
+2. Literature review
+The optimization of automotive inbound logistics, particularly under the milk-run mode, constitutes 
+a critical operational challenge that directly aligns with the strategic “dual-carbon” goals of reducing 
+carbon emissions and fostering sustainable development. This complex operational task is 
+fundamentally categorized as a VRPSPDTW involving the coordinated collection of components 
+and the return of empty containers within strict production windows (Yu and Chen, 2011).
+The inherent NP-hard complexity of VRPSPDTW, as demonstrated by computationally 
+intensive exact algorithms, such as the branch-and-price algorithm, has focused research on 
+heuristic and metaheuristic solutions (Angelelli and Mansini, 2002). For instance, Mingyong 
+and Erbao (2010) proposed an improved differential evolution algorithm that incorporates 
+penalty functions and enhanced operators to mitigate premature convergence. Ru (2024) 
+applied a Tabu search algorithm to optimize intermodal routes in vehicle logistics to increase 
+profits for enterprises. Some studies have explored hybrid strategies to enhance solution 
+efficiency and quality. Wang and Mu (2014) designed a parallel simulated annealing algorithm,
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 5 ---
+while Mu et al. (2015) integrated a residual capacity and radial surcharge heuristic with an 
+improved simulated annealing process. Furthermore, a collaborative evolutionary genetic 
+algorithm (Wang and Chen, 2012) and a Memetic algorithm designed for related split-delivery 
+problems (Liu et al., 2021) have enriched the methodological framework. Hof and Schneider 
+(2019) combined path relinking with an adaptive large neighborhood search to significantly 
+improve the convergence speed and solution quality. Wu and Gao (2023) introduced directional 
+random transition rules and disruption operators into ant colony optimization to enhance search 
+capability and avoid local optima. Garcıa-Najera et al. (2015) proposed a similarity-based 
+selection multi-objective evolutionary algorithm for vehicle routing problems with backhauls. 
+Lv and Shen (2023) developed an improved NSGA-II algorithm that incorporates a local search 
+to simultaneously optimize inventory costs, tardiness and makespan. These routing principles 
+have been applied to the specific context of automotive inbound logistics, often integrating the 
+milk-run strategy. Chen et al. (2021) established an integrated model combining milk-run 
+collection with other strategies, optimizing it via an MILP model and genetic algorithm to 
+reduce mileage and energy consumption. Baller et al. (2022) applied an MILP approach in a 
+real-world case study to achieve substantial reductions in both cost and CO 2 emissions, thereby 
+directly linking operational optimization with environmental objectives.
+Under the “dual-carbon” imperative, the research focus has evolved from predominantly cost-
+centric, single-objective models toward comprehensive multi-objective optimization 
+frameworks. Amongst the most significant work is that of Mahmoodi and colleagues in 
+developing multi-objective models for complex routing problems (Mahmoodi et al., 2022a, b). 
+Their work includes a robust optimization model for delivery networks that integrates cost, time 
+and risk (Mahmoodi et al., 2022a, b), and an enhanced NSGA-II framework to minimize cost, 
+service time, risk and battery consumption under the consideration of CO 2 emissions (Mahmoodi 
+et al., 2024). Furthermore, they explored advanced hybrid algorithms by combining NSGA-II 
+with Bayesian belief networks for UAV location routing (Mahmoodi and Hashemi, 2025; 
+Mahmoodi et al., 2025). Similarly, Abbasi et al. (2024) designed a green logistics network under 
+carbon tax policies using a fuzzy inference system and multiobjective programming. Zhang et al. 
+(2025) developed a multistage hybrid evolutionary algorithm (MS-HEMO-MRSS) for a multi-
+vehicle-type VRPSPDTW that demonstrated superior performance. These studies underscore the 
+feasibility of integrating economic, environmental and risk-based objectives. Furthermore, 
+research such as that of Frey et al. (2023), who solved a problem with capacitated flexible delivery 
+locations using a hybrid adaptive large neighborhood search, highlights methods for 
+incorporating greater operational realism.
+Table 1 presents an overview of the relevant literature. Despite these advancements, a critical 
+gap remains in the specific domain of automotive inbound logistics. Current VRPSPDTW 
+research remains largely limited to single-stage networks, with insufficient attention being paid to 
+the two-echelon structure (multiple suppliers, distribution centers and a single OEM) intrinsic to 
+this field. Moreover, while multi-objective optimization is gaining traction, its application to this 
+three-echelon milk-run problem under explicit “dual-carbon” constraints – such as distinct 
+loading constraints for stacked empty containers and loaded units – is under-explored. Therefore, 
+this study aims to bridge this gap by developing a multi-objective optimization model for the 2E-
+VRPSPDTW problem in automotive milk-run logistics. The objective is to develop a model 
+which simultaneously minimizes the total logistics cost and carbon emissions, incorporates 
+practical separate-volume constraints and is solved using an improved metaheuristic algorithm.
+3. 2E-VRPSPDTW mathematical model
+This study examines the 2E-VRPSPDTW algorithm in automotive inbound logistics during 
+the milk-run pickup and loading transportation phases (Figure 2). In the milk-run pick-up 
+phase, vehicles are dispatched from the distribution center to specific suppliers at the OEM to 
+pick up loaded components while returning empty logistics containers to the suppliers. In the 
+loading and delivery phase, vehicles dispatched from the distribution center carry out a
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 6 ---
+Table 1. Overview of relevant literature
+References
+Two-
+echelon
+Milk-
+run
+Simultaneous 
+delivery and 
+pick-up
+Time
+windows
+constraints
+Empty
+container
+stacking
+constraints
+Multi-
+objective
+Algorithm
+Datasets
+Wang and Chen (2012) 
+√
+ 
+√
+ 
+Metaheuristic Algorithm 
+Benchmark 
+Wang and Mu (2014) 
+√
+ 
+√
+ 
+Heuristic Algorithm 
+Benchmark 
+Garcıa-Najera et al. (2015) 
+√
+ 
+√
+ 
+Metaheuristic Algorithm 
+Benchmark 
+Mu et al. (2015)
+√
+ 
+Heuristic Algorithm 
+Benchmark 
+Hof and Schneider (2019) 
+√
+ 
+√
+ 
+Metaheuristic Algorithm
+Benchmark
+Chen et al. (2021)
+√
+√
+ 
+Metaheuristic Algorithm 
+Case
+Liu et al. (2021)
+√
+ 
+√
+ 
+Metaheuristic Algorithm
+Benchmark and Case 
+Baller et al. (2022)
+√
+ 
+Exact Algorithm
+Case
+Zhou et al. (2022) 
+√
+√
+Metaheuristic Algorithm
+Benchmark
+Mahmoodi et al. (2022a, b) 
+√
+Metaheuristic Algorithm
+Case
+Frey et al. (2023)
+√
+Metaheuristic Algorithm
+Benchmark and Case 
+Lv and Shen (2023)
+√
+Metaheuristic Algorithm
+Benchmark 
+Wu and Gao (2023) 
+√
+√
+Metaheuristic Algorithm
+Benchmark
+Abbasi et al. (2024)
+√
+Exact Algorithm
+Case
+Ru (2024)
+√
+√
+Metaheuristic Algorithm
+Case
+Mahmoodi et al. (2025) 
+√
+√
+√
+Metaheuristic Algorithm
+Case
+Zhang et al. (2025)
+√
+√
+√
+Metaheuristic Algorithm
+Benchmark
+This work
+√
+√
+√
+√
+√
+√
+Metaheuristic Algorithm
+Case
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University user on 26 July 2026
+
+
+--- SAYFA 7 ---
+centralized distribution of components from different suppliers to the OEM within a specified 
+time, whereas empty containers are retrieved from the OEM. This section describes the 
+problem and the proposed mixed-integer programming model.
+3.1 Notations
+3.1.1 Sets and indices. The 2E-VRPSPDTW problem is defined as follows: Let G ¼ ðV; AÞ be 
+a directed graph with the set V ¼ M ∪ S i ∪ R j of nodes, where M represents the OEM; S i 
+denotes the set of auto parts suppliers, i ¼ 1; 2; :::; I and I represents the number of auto parts 
+suppliers. R j denotes the set of distribution centers, j ¼ 1; 2; :::; J, J represents the number of 
+distribution centers. A ¼ fðp; lÞ : p; l ∈ V; p ≠ lg denotes the set of edges. F wk represents the 
+vehicle collection, w represents the model number, w ¼ 1; 2; :::; W, W represents the number 
+of vehicle models. k is the vehicle number of the w th model, k ¼ 1; 2; :::; K and K represents 
+the number of vehicles of the w th model.
+3.1.2 Parameters. The parameters involved in the proposed mixed-integer programming 
+model are as follows: The distance between nodes p and l is denoted as d. Specifically, d ji is the 
+distance from the distribution center j to supplier S i ; d ij is the distance from supplier S i to 
+distribution center j. d ie is the distance from supplier S i to the next supplier S e . d jm is the distance 
+from the distribution center j to the OEM. d mj is the distance from the OEM to distribution center 
+j. q i is the total cargo weight required by the OEM from supplier S i ; Q wk is the rated load capacity 
+of the F wk vehicle type. N i is the number of loaded containers provided by suppliers. N m is the 
+number of containers required by the OEM from all suppliers, N wk is the maximum number of 
+cases that can be placed in a vehicle. EN i indicates the number of containers required by the
+supplier, EN j denotes the number of empty containers owned by distribution center j and EN m
+indicates the number of empty containers required by the OEM for recycling. EN wk is the 
+maximum number of empty containers that can be placed in a vehicle. c wko denotes the fixed 
+cost of dispatching vehicle F wk ; c wkt denotes the unit transport cost of vehicle F wk ; c ja denotes the 
+unit dispensing and handling cost of the distribution center; c js denotes the unit storage cost of 
+the distribution center; Wh j denotes the maximum number of cargo containers stored in the 
+distribution center; and v j denotes the speed of cargo handling in the distribution center.
+v twk is the transportation speed (km/h) of vehicle F wk ; v swk is the loading and unloading speed of
+vehicle F wk ; T j indicates the total processing time for cargo to reach the distribution center j; E 1 T ai
+Figure 2. Automobile inbound logistics
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 8 ---
+indicates the earliest time specified for the supplier S i to reach the distribution center j; E 2 T ai 
+indicates the earliest acceptable time for the supplier S i to reach the distribution center j; L 1 T ai 
+indicates the latest time specified for the supplier S i to reach the distribution center; L 2 T ai indicates 
+the latest acceptable time for supplier S i to reach the distribution center j; r ¼ T iawk indicates the 
+time point at which vehicle F wk actually transports the cargo from the supplier S i to the distribution 
+center; T ojwk indicates the time point at which vehicle F wk departs from the distribution center j and 
+is set up at T ojwk ¼ 0;T ijwk indicates the length of transport required for vehicle F wk from supplier S i
+to distribution center j, T jiwk ¼ T ijwk ; T iewk indicates the length of transport required for the vehicle
+from supplier S i to supplier S e ; T iwk indicates the actual length of stay of the vehicle F wk at the 
+supplier S i ; μ 
+1 indicates the early delivery penalty factor; μ 
+2 indicates the late delivery penalty
+factor; E g
+a indicates the physical quantity of fuel consumed at the end-use stage; γ is the standard
+coal reference factor; τ indicates the fuel conversion to standard coal emission factor; and f w
+c
+indicates the fuel consumption per kilometer for the w th vehicle type.
+3.1.3 Decision variables. The decision variables are defined as follows. A iwk indicates the 
+actual number of empty containers returned by a single vehicle during the circulation phase; 
+EA iwk indicates the actual number of containers picked up by a single vehicle during the 
+circulation phase; A mwk indicates the actual number of containers transported to the main plant 
+by a single vehicle during the distribution phase; EA iwk indicates the actual number of empty
+containers recovered from the OEM by a single vehicle during the distribution phase; and N j is
+the quantity of loaded containers transported from the supplier to the distribution center j. y iwk 
+denotes whether vehicle F wk completed the pickup and empty-container return service for 
+supplier S i during the milk-run phase (completed service 5 1, incomplete service 5 0). y ijmwk 
+denotes whether vehicle F wk completed cargo transportation from the distribution center j to 
+the OEM for supplier S i during the loading and delivery phases (complete transport 5 1, 
+incomplete transport 5 0). y jwk denotes whether vehicle F wk belongs to distribution center j 
+(yes 5 1, no 5 0). z ijwk represents whether vehicle F wk traveled directly from supplier S i to 
+distribution center j (direct travel 5 1, indirect travel 5 0). z iewk denotes the direct vehicle travel 
+from supplier S i to the next supplier S e (direct travel 5 1, indirect travel 5 0). z mjwk represents 
+the direct vehicle travel from the OEM to distribution center j (direct travel 5 1, indirect 
+travel 5 0). z imwk represents direct vehicle travel from supplier S i to the OEM (direct travel 5 1, 
+indirect travel 5 0). z juwk represents the direct vehicle travel from distribution center j to the 
+next distribution center, (direct travel 5 1, indirect travel 5 0). φ i represents cargo delivery 
+from supplier S i within the specified time window ½E 1 T ai ; L 1 T ai  (yes 5 1, no 5 0).
+3.2 Model assumptions
+(1) All suppliers, distribution centers and OEM locations are known in advance.
+(2) The OEM contains information about the required quantity of cargo from each 
+supplier and the number of empty containers that are picked up. The number of 
+empty containers picked up from each supplier is also known.
+(3) The distribution centers have an unlimited supply of empty containers and can meet 
+the OEM’s demands.
+(4) The spatial constraints at the distribution centers do not consider empty containers; 
+only the capacity constraints on the loaded containers are considered.
+(5) The weight of stacked empty containers is significantly lower than that of the vehicle 
+payload. Therefore, the payload constraints do not consider the weight of empty 
+containers.
+(6) All cargo is transported using standard reusable containers with dimensions 
+1200 mm 3 1000 mm 3 1000 mm. Containers are stackable; therefore, an empty 
+container occupies one-fifth of the space occupied by a loaded container.
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 9 ---
+(7) Each distribution center in the system has constraints on the number of vehicles and 
+available space. Each distribution center can collect cargo from multiple suppliers 
+and deliver it to the OEM.
+(8) Each vehicle belongs exclusively to one distribution center and can either participate 
+in transportation or remain idle. If a vehicle is involved in transportation, it can only 
+be engaged in either the milk-run or the loading and delivery phases, but not both. 
+Furthermore, vehicles must return to their original distribution centers after 
+completing their tasks.
+(9) Suppliers cannot transport cargo directly to the OEM; horizontal transportation 
+between distribution centers is prohibited.
+(10) After the milk-run phase, the cargo destined for the distribution centers must undergo 
+centralized processing at the respective distribution centers before proceeding to the 
+loading and transportation phase.
+(11) During the milk-run phase, the demand for both loaded and empty containers from 
+suppliers is assigned to a single distribution center and handled by a single vehicle. 
+Partial pick-up or partial return of empty containers is not allowed.
+(12) During the loading and delivery phase, the distribution center that picks up the loaded 
+containers is responsible for delivering them to the OEM. Only one vehicle from the 
+distribution center is assigned to transport the containers, which cannot be delivered 
+in partial shipments. However, multiple vehicles in separate batches can fulfill the 
+OEM’s request for an empty container pickup.
+(13) The time window for the OEM’s actual acceptance of supplier cargo is simplified to 
+the time it takes to reach the distribution center and undergo processing.
+3.3 Objective functions
+Considering the profitability of the enterprise, the demand for automobile inbound logistics to 
+maintain the OEM’s operation and the social responsibility to respond to the “dual-carbon” 
+policy, objective functions are constructed based on three dimensions: cost, time satisfaction 
+and carbon emissions.
+3.3.1 Formulating the cost objective. Objective Function 1 (cost minimization) is given by 
+Eq. (1).
+MinZ ¼ C 1 þ C 2 þ C 3 þ C 4 
+(1)
+where C 1 represents the cost of vehicle activation, as shown in Eq. (2).
+C 1 ¼ 
+X
+W
+w¼1
+X
+K
+k¼1
+c wko yn
+wky jwk x j 
+(2)
+C 2 represents the transportation cost, as shown in Eq. (3).
+C 2 ¼ 
+X
+W
+w¼1
+X
+K
+k¼1
+X
+J
+j¼1
+c wkt 
+ 
+d ji y wk y jwk x j þ d ij y wk y jwk x j þ d jm y wk y jwk x j þ d mj y wk y jwk x j þ d ie y iwk 
+
+(3)
+C 3 represents the distribution center consolidation cost, as shown in Eq. (4).
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 10 ---
+C 3 ¼ 
+X 
+J
+j¼1
+X
+W
+w¼1
+X
+K
+k¼1
+X
+I
+i¼1
+c ja N i y iwk y wk y jwk x j þ 
+X 
+J 
+j¼1
+x j c js T j
+(4)
+C 4 represents the penalty cost, as shown in Eq. (5). 
+C 4 ¼ fðrÞ ¼
+8
+>
+>
+<
+>
+>
+:
+μ 
+1 * q i ðE 2 T ai  rÞ
+0 
+μ 2 * q i ðr  L 2 T ai Þ 
+∞
+;
+;
+;
+; 
+E 2 T ai ≤ r < E 1 T ai 
+E 1 T ai ≤ r ≤ L 1 T ai 
+L 1 T ai < r ≤ L 2 T ai
+others
+; r ¼ T iawk 
+(5)
+3.3.2 Formulating the carbon emissions objective. Objective Function 2 (carbon emission
+minimization) is given by Eq. (6).
+MinE g
+co 2 ¼ E g
+aγτ 
+(6)
+E g
+a represents the physical fuel consumption of the fuel terminal as expressed in Eq. (7).
+E g
+a ¼ 
+X
+W
+w¼1
+X 
+K
+k¼1
+X 
+J
+j¼1
+f w
+c
+ 
+d ji y wk y jwk x j þ d ij y wk y jwk x j þ d jm y wk y jwk x j þ d mj y wk y jwk x j þ d ie y iwk 
+ 
+(7)
+3.3.3 Formulating the service level objective. Objective Function 3 (service level
+maximization) is expressed in Eq. (8).
+Maxη ¼ αη 1 þ βη 2 
+(8)
+where α and β are weighting coefficients satisfying α þ β ¼ 1.
+η 1 represents the temporal satisfaction rate, defined as a continuous function based on time 
+deviation, as shown in Eq. (9).
+η 1 ¼
+P
+I
+i¼1
+N i f iðt i Þ
+P
+I
+i¼1
+N i
+3100% 
+(9)
+Here, f iðt i Þ denotes the satisfaction function for an order defined in Eq. (10).
+f iðt i Þ ¼
+8
+>
+>
+>
+>
+>
+>
+>
+>
+<
+>
+>
+>
+>
+>
+>
+>
+>
+: 
+t i  E 2 T ai
+E 1 T ai  E 2 T ai
+1 
+L 2 T ai  t i
+L 2 T ai  L 1 T ai
+0
+;
+;
+;
+; 
+E 2 T ai ≤ t i < E 1 T ai
+E 1 T ai ≤ t i ≤ L 1 T ai
+L 1 T ai < t i ≤ L 2 T ai 
+others
+(10)
+η 2 is the order fulfillment rate, as defined in Eq. (11) and is measured as the percentage of cargo 
+delivered within a specified time.
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 11 ---
+η 2 ¼
+P
+I
+i¼1
+S i φ i
+P
+I
+i¼1
+S i
+3100% 
+(11)
+3.4 Model constraints
+This section describes the various constraints within the constructed multi-objective mixed-
+integer programming model. The core objective of the model constraints is to align the routing 
+optimization scheme with the practical operational scenario of automotive inbound logistics to 
+ensure feasibility, compliance and a balance between efficiency and constraint boundaries, 
+thereby achieving a multi-objective equilibrium among cost, carbon emissions and temporal 
+satisfaction. The practical logic and operational mechanisms of the constraints across multiple 
+dimensions are explained below.
+3.4.1 Transportation route constraints. This set of constraints primarily governs the routing 
+logic for vehicles during the milk-run and loading and delivery phases, which form a closed-loop 
+workflow, to ensure the integrity and consistency of the transportation process. Route constraints 
+are designed to regulate vehicle flow, clarify accountability and prevent disorganized 
+transportation. For example, requiring vehicles to return to their original distribution centers 
+facilitates scheduling management and subsequent maintenance. Direct shipments from suppliers 
+to the OEM and transfers between distribution centers are prohibited because the milk-run model 
+mandates consolidated processing; goods are first gathered at the distribution center for sorting 
+and loading before being delivered collectively to the OEM. This constraint avoids increased 
+costs and carbon emissions associated with fragmented transportation.
+3.4.1.1 Vehicle return-to-depot constraints. During the milk-run and loading and delivery 
+phases, vehicles must depart from their assigned distribution center j and return to the same 
+distribution center upon the completion of their transportation tasks. This constraint reflects 
+the practical operational requirements for clear vehicle assignments and manageable 
+dispatching in logistics operations. Eq. (12) and Eq. (13) describe the milk-run stage and 
+the loading and delivery stage constraints, respectively.
+X
+I
+i¼1
+z jiwk ¼ 
+X 
+I 
+i¼1
+z ijwk 
+(12)
+z jmwk ¼ z mjwk 
+(13)
+3.4.1.2 Supplier service uniqueness constraint. During the milk-run stage, only one vehicle 
+from a single distribution center is responsible for the pick-up and return of empty containers at 
+supplier S i , as shown in Eq. (14). This constraint simplifies the delineation of transportation 
+responsibility and facilitates the organization and tracking of loading and unloading 
+operations.
+X 
+W
+w¼1
+X 
+K
+k¼1
+y iwk y jwk ¼ 1 
+(14)
+3.4.1.3 Vehicle phase mutual exclusivity constraint. F wk vehicles can either participate in the 
+milk-run or loading and delivery stages but cannot simultaneously participate in both stages. 
+This constriction is expressed in Eq. (15) and reflects the specialization of vehicles in task 
+assignment, which is conducive to improving the operational efficiency in each phase.
+z jiwk þ z jmwk ≤ 1 
+(15)
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 12 ---
+3.4.1.4 Transportation continuity constraint. This constraint ensures the continuity of 
+transportation between the milk-run and loading and delivery stages, as expressed in Eq. (16) 
+and Eq. (17).
+X
+I
+i¼1
+z jiwk ¼ 
+X 
+I 
+i¼1
+z ijwk 
+(16)
+z jmwk ¼ z mjwk 
+(17)
+3.4.1.5 Route prohibition constraints. Direct shipments from suppliers to the OEM and direct 
+transfers of goods between different distribution centers are prohibited. This is a typical setup in 
+most outsourced inbound logistics models, which requires all goods to be consolidated, sorted and 
+loaded at the distribution center to leverage economies of scale and process control advantages. 
+Supplier S i cannot directly deliver to the OEM, as expressed in Eq. (18). A distribution center 
+cannot directly deliver to another distribution center j, as expressed in Eq. (19).
+X 
+W
+w¼1
+X
+K
+k¼1
+z imwk ¼ 0
+(18)
+X 
+W
+w¼1
+X
+K
+k¼1
+z juwk ¼ 0
+(19)
+3.4.1.6 Vehicle dispatch activation constraints. Vehicles must be dispatched during the milk 
+run and the loading and delivery stages at the distribution center to ensure that transportation 
+demands are met and service disruptions caused by vehicle idleness are prevented. This 
+constraint is described using Eq. (20) and Eq. (21).
+X 
+I
+i¼1
+X 
+W
+w¼1
+X 
+K
+k¼1
+z jiwk ≥ x j 
+(20)
+X 
+W
+w¼1
+X
+K
+k¼1
+z jmwk ≥ x j 
+(21)
+3.4.2 Transport volume constraints. This set of constraints primarily governs the flow volumes 
+of goods and empty containers to ensure a supply–demand balance and compliance with 
+vehicle loading capacities. Resources, such as vehicle weight or volume limits and the storage 
+capacity of distribution centers, are finite. Furthermore, the volumetric difference between full 
+and empty containers affects the loading efficiency, thus rendering it essential to impose 
+constraints to prevent overloading, stockouts or site congestion.
+3.4.2.1 Goods transportation consistency constraint. Goods picked up from suppliers must 
+be delivered to the OEM by the same distribution center during the loading and delivery phases; 
+split deliveries are not permitted. This constraint ensures clear transportation accountability and 
+the integrity of goods traceability. In the milk-run stage, the cargo of supplier S i is picked up by a 
+vehicle from a specific distribution center. In the loading and delivery stage, only one vehicle 
+from the distribution center is responsible for transporting cargo to the OEM. Cargo cannot be 
+delivered in batches. These constraints are expressed using Eq. (22).
+X 
+W
+w¼1
+X 
+K
+k¼1
+y ijmwk y jwk ¼ 1 
+(22)
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 13 ---
+3.4.2.2 Flow conservation constraints. The quantity of cargo arriving at the distribution center 
+during the milk-run stage is equal to the quantity transported from the distribution center to the 
+manufacturing plant during the loading and delivery stage. This constraint is described using 
+Eq. (23). The total quantity of cargo provided by all suppliers is equal to the quantity 
+transported to the distribution center and is equal to that required by the OEM, as described in 
+Eq. (24). This is a fundamental requirement for flow balance in logistics systems.
+X 
+W
+w¼1
+X 
+K
+k¼1
+X 
+I
+i¼1
+N i y iwk y jwk ¼ N j ¼ 
+X 
+W
+w¼1
+X 
+K
+k¼1
+X 
+I
+i¼1
+N i y ijmwk z jiwk 
+(23)
+X 
+I
+i¼1
+N i ¼ 
+X 
+I
+i¼1
+N j ¼ N m 
+ 
+EN j ¼ λ; λ is a vast positive integer 
+ 
+(24)
+3.4.2.3 Vehicle loading capacity constraints. This constraint limits the number of full and 
+empty containers loaded per vehicle during both the milk-run and loading and delivery phases 
+to ensure that it does not exceed the maximum volume capacity of the vehicle while also 
+complying with the weight limits, thereby guaranteeing transportation safety and compliance. 
+The quantity of cargo carried by each vehicle does not exceed the maximum capacity of a 
+vehicle. These constraints can be explicitly described using Eq. (25), Eq. (26), Eq. (27) and 
+Eq. (28).
+A iwk ≤ N wk
+(25)
+A mwk ≤ N wk
+(26)
+EA iwk ≤ EN wk
+(27)
+EA mwk ≤ EN wk
+(28)
+3.4.2.4 Vehicle activation and transport volume correlation constraints. The actual 
+transportation capacity is generated only when the vehicles are activated, as described in 
+Eq. (29) and Eq. (30).
+A iwk ¼ 
+X 
+I 
+i¼1
+N i y iwk y wk 
+(29)
+A mwk ¼ 
+X 
+I 
+i¼1
+N i y ijmwk 
+(30)
+3.4.2.5 Transportation demand fulfillment constraints. The total volume of goods transported 
+by all activated vehicles in their respective phases must satisfy the total demand for that phase 
+to ensure the complete execution of transportation tasks. Working vehicles meet transportation 
+requirements during the milk-run and loading and delivery stages. This constraint can be 
+described using Eq. (31), Eq. (32), Eq. (33) and Eq. (34).
+X 
+W
+w¼1
+X
+K
+K¼1
+A iwk y wk ¼ 
+X 
+I
+i¼1
+N i
+(31)
+X 
+W
+w¼1
+X 
+K
+K¼1
+EA iwk y wk ¼ 
+X 
+I 
+i¼1
+EN i
+(32)
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 14 ---
+X 
+W
+w¼1
+X
+K
+k¼1
+A mwk y wk ¼ N m 
+(33)
+X 
+W
+w¼1
+X 
+K
+k¼1
+EA mwk y wk ¼ EN m 
+(34)
+3.4.2.6 Weight constraints. The total weight of the cargo transported by the vehicles should not 
+exceed their load capacity, which represents a fundamental restriction for safe vehicle 
+operation. This constraint is expressed in Eq. (35) and Eq. (36).
+X 
+I
+i¼1
+q i y wk y iwk ≤ Q wk 
+(35)
+X 
+I
+i¼1
+q i z jmwk ≤ Q wk 
+(36)
+3.4.3 Distribution center-related constraints. This set of constraints reflects the limitations
+imposed on the transportation plan by the resources and capacities of the distribution centers. The 
+resources of distribution centers, such as vehicle fleet sizes and storage capacities, are fixed. The 
+purpose of these constraints is to prevent any single distribution center from excessively 
+occupying resources to ensure balanced resource utilization across the entire network.
+3.4.3.1 Vehicle quantity limitation. The actual number of w th vehicle types at distribution 
+center j does not exceed its actual quantity, reflecting the finiteness of resources, as described in 
+Eq. (37).
+X 
+K
+k¼1
+y wk y jwk ≤ 
+X
+K
+k¼1
+y jwk 
+(37)
+3.4.3.2 Inventory capacity constraint. The number of cargos transported to the distribution 
+center by vehicles does not exceed the maximum storage capacity of its storage area, as 
+described in Eq. (38).
+X 
+W
+w¼1
+X 
+K
+k¼1
+X 
+I
+i¼1
+N i y iwk y wk y jwk ≤ Wh j 
+(38)
+3.4.3.3 Total vehicle balance. The sum of vehicles owned by each distribution center is equal to 
+the total number of vehicles, thus ensuring complete resource allocation, as described in Eq. (39).
+X 
+J
+j¼1
+X 
+W
+w¼1
+X
+K
+k¼1
+y jwk ¼ 
+X
+W
+w¼1
+X
+K
+k¼1
+F wk 
+(39)
+3.4.4 Time-related constraints. This set of constraints incorporates time windows, processing 
+times and transportation durations to ensure the temporal feasibility of the transportation plan. 
+The OEM operates under a lean production mode, which demands high sensitivity to the arrival 
+times of the components. Components must arrive exactly on time to sustain production, neither 
+early to avoid inventory build-up nor late to prevent production line stoppage. The essence of 
+these time constraints is to ensure service timeliness and reduce penalty costs.
+3.4.4.1 Time window compliance constraint. Ensuring that the cargo from suppliers is 
+delivered within the acceptable time window is crucial, as any delays would result in 
+significant penalty costs and are not considered in this paper. This constraint can be explicitly 
+described using Eq. (40) and reflects the logistics timeliness requirements of the OEM.
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 15 ---
+T iawk ¼ 
+ 
+T ojwk þ T jiwk þ T iewk þ T iwk þ T ijwk þ T j 
+ 
+y wk y iwk y jwk 
+(40)
+3.4.4.2 Distribution center processing time. Goods undergo loading and consolidation 
+processes after they arrive at the distribution center. The processing duration is proportional to 
+the quantity of the goods. The duration for handling and loading the cargo at the distribution
+center upon arrival is T j, as described in Eq. (41).
+T j ¼
+P 
+W 
+w¼1
+P
+K
+k¼1
+P
+I
+i¼1
+N i y iwk y wk y jwk
+v j
+(41)
+3.4.4.3 Transportation and loading/unloading times. These constraints specify the travel time 
+between nodes and the loading/unloading time at supplier locations, which forms the basis for 
+route time calculations. The duration of transportation from the distribution center to supplier 
+is T ijwk , as described in Eq. (42). The duration of a vehicle’s transportation between suppliers is 
+T iewk , as expressed in Eq. (43). The duration of loading and unloading operations at the 
+supplier’s location for a vehicle is T iwk , as described in Eq. (44).
+T jiwk ¼ T ijwk ¼ d ji 
+v twk
+(42)
+T iewk ¼ d ie 
+v twk
+(43)
+T iwk ¼ ðEN i þ N i Þy iwk y wk
+v swk
+(44)
+3.4.4.4 Vehicle departure time baseline. A departure time of the vehicle from its assigned 
+distribution center is taken to be 0, as described in Eq. (45).
+T ojwk ¼ 0 
+(45)
+3.4.4.5 Transportation time symmetry. The travel times between the distribution center and 
+suppliers, as well as between the distribution center and the OEM, are assumed to be identical 
+for inbound and outbound trips. This assumption simplifies the associated time calculations. 
+The transportation duration of vehicle F wk from the assigned distribution center j to supplier S i 
+is equal to the duration from supplier S i to distribution center j and the transportation duration 
+of vehicle F wk from the assigned distribution center j to the OEM is equal to the duration from 
+the OEM to the distribution center. These constraints can be described using Eq. (46) and 
+Eq. (47).
+T jiwk ¼ T ijwk
+(46)
+T jmwk ¼ T mjwk
+(47)
+3.4.5 Variables constraints. This set of constraints defines the value ranges and types of the 
+decision variables, ensuring the mathematical soundness of the model. Decision variables in 
+the model, such as “whether to use a vehicle” or “whether to take a specific route,” are central to the 
+solution. The purpose of these constraints is to ensure clearly defined boundaries for these decisions.
+Variable constraints are shown in Eq. (48) and Eq. (49).
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 16 ---
+y iwk ; y ijmwk ; y wk ; y jwk ; z ijwk ; z jiwk ; z iewk ; z mjwk ; z jmwk ; z imwk ; z juwk ; φ i ∈ f0; 1g 
+(48)
+A iwk ; EA iwk ; A mwk ; EA iwk; E g
+a ≥ 0 
+(49)
+The following section describes the design of the INSGA-II algorithm. This algorithm is 
+used to solve the proposed model, which captures the simultaneous delivery–pickup 
+characteristics described in this section and accounts for cost, carbon emissions and time 
+satisfaction.
+4. Improved NSGA-II algorithm
+The NSGA-II algorithm is commonly used to solve Pareto frontiers (Millar et al., 2023; 
+Mahmoodi et al., 2025). This study designs an enhanced NSGA-II algorithm by improving 
+the crowding distance calculation, elite preservation strategy, crossover probabilities and 
+operators. The design of the proposed enhanced NSGA-II algorithm follows the steps 
+shown in Figure 3.
+Figure 3. INSGA-II steps
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 17 ---
+4.1 Improved congestion calculation
+The congestion calculation orders all the solutions into the same class. The NSGA-II uses the 
+congestion degree instead of the fitness sharing strategy, in which the NSGA needs to specify 
+the sharing radius. It serves as the criterion for selecting excellent individuals among peers and 
+ensures diversity within the population. This approach facilitates the selection, crossover and 
+mutation of individuals across the entire range of the objective space, thereby promoting 
+compelling exploration and maintenance of diversity.
+To improve the uniformity of individual distribution, the article adopted a dynamic 
+congestion distance evaluation method based on the calculation of congestion distance. The 
+formula is shown in Eq. (47) and Eq. (48).
+d B
+ψi ¼ d ψi
+lg 
+
+1
+Di 
+ 
+(50)
+D i ¼ 1
+n
+X
+n
+m¼1
+ 
+ f i−1
+m
+ f iþ1
+m
+  d ψi 
+2
+(51)
+D i represents the differences between two adjacent individuals, and f iþ1
+k
+and f i−1
+k
+represent the
+objective function values for individuals i þ 1 and i − 1 on the kth sub-objective after objective
+sorting. f max
+m
+and f min
+m
+are the maximum and minimum fitness values for the kth sub-objective
+after sorting the objectives for individual j, respectively.
+4.2 Improving crossover operation
+Crossover probabilities play a central role in genetic algorithms in determining the probability 
+of two chromosomes making a crossover. Although a high crossover probability enhances the 
+algorithm’s ability to open new search regions, it is also associated with an increase in the 
+likelihood of corruption. Low crossover probabilities, conversely, can hinder a search. 
+Therefore, this study uses the adaptive crossover probability to select various probabilities by 
+calculating the chromosome fitness value, as expressed in Eq. (49) and Eq. (50).
+P ac ¼ meanðP aci Þ 
+(52)
+P aci ¼ f i  min f i
+max f i  min f i
+(53)
+Here, P ac denotes the average value of P aci normalized to the fitness component of each
+objective, f i denotes the fitness value of the ith objective function in the population, max f i
+denotes the maximum fitness value of the ith objective function in the population and min f i 
+denotes the maximum fitness value of the ith objective function in the population.
+The mechanism of the traditional SBX (simulated binary crossover) operator, which 
+simulates the binary crossover operator, performs crossover operations on real-valued 
+parent individuals. The operator randomly selects a crossover point and exchanges gene 
+codes on both sides of the crossover point. However, because this operator has relatively 
+weak global search capability, an arithmetic crossover operator was used in this study to 
+improve the crossover operation in the NSGA-II algorithm; this enhances its global search
+capability and maintains population diversity. Let X t
+i and X t
+j be the real-valued encodings of
+the decision variables for two individuals at the crossover point in a generation. The
+decision variables for the two individuals after the crossover, denoted as X tþ1
+i
+and X tþ1
+j
+, are
+calculated using Eq. (51).
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 18 ---
+8 
+< 
+:
+X tþ1 
+i
+¼ aX t
+i þ ð1  aÞXt
+j
+X tþ1 
+j
+¼ bX t
+j þ ð1  bÞXt
+i
+(54)
+where a and b are uniformly distributed random numbers between 0 and 1.
+4.3 Improved elite control strategy
+The elite preservation strategy used in the NSGA-II algorithm yields a rapid reproduction of 
+individuals in the Pareto-optimal solution layers. This reduces the number of non-dominated 
+layers and individuals in other non-optimal dominated layers, thus causing a significant loss of 
+lateral diversity and leading to local convergence. The steps in the original elite preservation 
+strategy are illustrated in Figure 4 (Deb and Goel, 2001).
+The elite preservation strategy of the NSGA-II algorithm is changed to the elite control 
+strategy, which is improved such that the maximum number of individuals in each 
+nondominated layer can be constrained to control the number of Pareto-optimal solution 
+layers. Each nondominated layer can be included in the new population to avoid premature 
+convergence. The control elements are shown in Figure 5.
+First, the population is sorted based on non-dominance. Assuming that there are 2N 
+individuals in the population, the maximum number of individuals allowed on the jth front 
+(j 5 1, 2, . . ., K) in a new population of size N is given by Eq. (52).
+n j ¼ N 1  r
+1  r K r j−1 
+(55)
+where n j is the maximum number of individuals in the jth non-dominant front, N is the 
+population size and r is the reduction rate, r ∈ ½0; 1Þ. K is the number of non-dominant fronts.
+Pt
+Qt
+Rt
+Pt+1
+Z1
+Z2
+Z3
+Z4
+Elimination
+Figure 4. Elite preservation strategy execution steps
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 19 ---
+Since r < 1, the first non-dominant front contains the largest maximum number of individuals. 
+Subsequently, each nondominant front enables an exponentially decreasing number of 
+solutions. The improved elite control strategy allows each nondominant front to be included in 
+the new population, thereby eliminating local convergence.
+5. Practical applications
+5.1 Problem background and data description
+The context of this study is based on the actual operations of the third-party automotive 
+inbound logistics company X, which serves the OEM (hereafter referred to as M) in a specific 
+province in China. Company X has two self-owned distribution centers in the province, each 
+equipped with three types of vehicles: 6.8 m, 9.6 m and 13 m. The vehicles handle inbound 
+logistics operations of various OEMs within the province. M outsources its inbound logistics 
+within the province to automotive logistics company X. M has 30 cooperating suppliers, each 
+of which provides different automotive part modules. Combining these thirty-part suppliers, 
+the two distribution centers of automotive logistics companies X and M form a multi-to-one 
+two-echelon network. M follows lean production principles and treats the cargo in transit as its 
+inventory. Therefore, automotive logistics company X has a high frequency of deliveries and 
+must pick up cargo from suppliers and deliver it to the plant daily to maintain production
+operations.
+The inbound logistics distribution business of a specific day was used as a case study to
+validate the feasibility of the designed VRPSPDTW solution. On a given day, two distribution
+centers dispatch vehicles to collect cargo from 30 suppliers. After consolidation, the cargo is
+transported to the OEM. This study provides a reasonable vehicle routing plan for the
+distribution centers, with the aim of minimizing carbon emissions to support green logistics
+initiatives, reducing company costs and maintaining a certain level of time satisfaction to
+enhance competitiveness. Table 2 details information on the 30 suppliers, Table 3 and Table 4
+Pt
+Qt
+Rt
+Pt+1
+Z1
+Z2
+Z3
+Z4
+Figure 5. Elite control strategy execution steps
+Engineering
+Computations
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us
+
+
+--- SAYFA 20 ---
+Table 2. Node information
+No
+X
+Y
+Number of containers
+Number 
+of empty 
+containers
+Specified
+time
+windows
+Actual
+acceptable
+time
+windows
+Total 
+weight of 
+cargo(t)
+M
+31.7
+407.3
+Total for all suppliers
+650
+–
+–
+–
+R1
+95.9
+223.1
+–
+–
+–
+–
+–
+R2
+207.8
+295.5
+–
+–
+–
+–
+–
+S1
+192.3
+229.4
+3
+5
+6:20–8:50
+5:20–12:20
+0.969
+S2
+103.7
+221.1
+9
+15
+5:20–7:50
+4:20–11:20
+1.548
+S3
+95.6
+222.9
+11
+20
+5:20–7:50
+4:20–11:20
+4.18
+S4
+104.4
+215.4
+15
+10
+5:20–7:50
+4:20–11:20
+6.405
+S5
+146.9
+284.6
+8
+15
+6:20–8:50
+5:20–12:20
+2.096
+S6
+98.1
+210.8
+4
+5
+5:20–7:50
+4:20–11:20
+1.24
+S7
+48.9
+178.8
+13
+10
+5:20–7:50
+4:20–11:20
+5.343
+S8
+8.9
+126.2
+11
+30
+5:20–7:50
+4:20–11:20
+3.531
+S9
+178.8
+240.8
+12
+15
+6:20–8:50
+5:20–12:20
+5.112
+S10
+225.3
+313.5
+15
+30
+9:50–12:20
+8:20–15:20
+4.725
+S11
+210.6
+193.2
+7
+10
+9:50–12:20
+8:20–15:20
+2.541
+S12
+207.4
+345.1
+11
+10
+9:50–12:20
+8:20–15:20
+3.245
+S13
+161.2
+139.4
+5
+5
+8:50–11:20
+7:20–14:20
+1.665
+S14
+201.2
+107.6
+19
+25
+9:50–12:20
+8:20–15:20
+7.543
+S15
+152.6
+47.4
+14
+20
+8:50–11:20
+7:20–14:20
+3.878
+S16
+176.5
+86.4
+50
+65
+9:50–12:20
+8:20–15:20
+23.5
+S17
+111.3
+118.7
+42
+45
+8:50–11:20
+7:20–14:20
+17.64
+S18
+104.6
+22.2
+29
+30
+8:50–11:20
+7:20–14:20
+10.353
+S19
+112.6
+24.2
+27
+30
+8:50–11:20
+7:20–14:20
+4.293
+S20
+111.9
+21.7
+7
+5
+9:50–12:20
+8:20–15:20
+2.408
+S21
+11.1
+19.6
+8
+10
+5:20–7:50
+4:20–11:20
+1.56
+S22
+42.8
+43.9
+10
+15
+5:20–7:50
+4:20–11:20
+2.73
+S23
+113.2
+24.1
+14
+20
+9:50–12:20
+8:20–15:20
+5.026
+S24
+115.4
+20.7
+18
+15
+8:50–11:20
+7:20–14:20
+6.804
+S25
+111.3
+24.7
+6
+5
+8:50–11:20
+7:20–14:20
+1.932
+S26
+85.6
+63.4
+11
+10
+5:20–7:50
+4:20–11:20
+4.851
+S27
+110.8
+21.8
+3
+5
+8:50–11:20
+7:20–14:20
+0.867
+S28
+108.4
+19.7
+9
+15
+9:50–12:20
+8:20–15:20
+3.051
+S29
+106.1
+18.8
+32
+40
+8:50–11:20
+7:20–14:20
+10.656
+S30
+431.7
+343.7
+21
+30
+9:50–12:20
+8:20–15:20
+9.198
+Table 3. Vehicle information
+6.8 m
+9.6 m
+13 m
+Q wk
+7t
+16t
+30t
+N wk
+31 containers
+45 containers
+62 containers
+EN wk
+124 empty containers 
+180 empty containers 
+248 empty containers 
+v twk (Km/h)
+65
+65
+65
+v swk (Container/h) 
+120
+120
+120
+c wko (RMB)
+50
+60
+70
+c wkt (RMB/km)
+4
+5.8
+7.5
+fw
+c (RMB/km)
+0.2
+0.27
+0.35
+EC
+Downloaded from http://www.emerald.com/ec/article-pdf/doi/10.1108/EC-12-2024-1056/11711285/ec-12-2024-1056en.pdf by Sakarya University us

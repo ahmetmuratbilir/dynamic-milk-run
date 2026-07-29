@@ -1,0 +1,692 @@
+
+
+--- SAYFA 1 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+139 
+ 
+ 
+  
+Abstract — Seeking to optimize the raw material supply for 
+the assembly lines in many industries, the following case study, 
+starting with a direct observation of a motorcycle factory and an 
+electronics assembly factory, based on a rich theoretical analysis 
+of the Lean wastes, describe the factories present processes and 
+focus on developing a fast, feasible and low cost solution, 
+gathering concepts of Kanban and Milk Run methodologies, 
+resulting in a proposal of a system of real time management of 
+the production status, allowing a better organization for the 
+logistics teams of the named companies.  
+ 
+Key words — Lean Manufacturing, Kanban, Milk Run, 
+Toyota Production System.  
+ 
+I. INTRODUCTION 
+To attend to the demand of the current competitive world 
+market, the companies constantly need to optimize their 
+processes and reduce their costs to achieve bigger 
+participation scopes to customers' retention.  
+Since the First Industrial Revolution, companies and 
+commerce held a competition looking for a common 
+objective: increase their recipes, because of that, many 
+philosophies and wholesale tools and the Toyota Production 
+System that aimed toward the production of many items, 
+according to the market demand.  
+In Toyota Production System implementation, it has been 
+defined by Shigeo Shingo and Taichii Ohno the so-called 
+seven wastes, losses that occur daily, although many times 
+are ignored by considered inherent to the processes. With this 
+philosophy change, it must be searched the resolution of daily 
+wastes, worthing the collaborators and optimizing processes.  
+Given such need, in this work, it is going to be approached 
+by the companies that have been an inspiration to the project 
+elaboration, such as the problematic, analyzed through the 
+direct observation in the companies mentioned above. 
+The First evaluated company, which is referred as the F 
+Company, is part of the electronic hub, responsible for the 
+production of remote controls and Internet modem, with 
+broadband and optic fiber models and signs of a pressed 
+circuit. Its origin is from the State of Amazonas, being an 
+outsourced assembler to many telephone companies and the 
+Internet packs providers, with the medium daily production 
+of thirty thousand modems and fifty thousand remote 
+controls, divided in thirty-eight assembly lines. 
+ 
+Submitted on August 23, 2021. 
+Published on October 27, 2021.  
+Victor Hugo Oliveira dos Santos, Federal University of Amazonas, Brazil. 
+(e-mail: victorhos32 gmail.com)  
+The second company, which is going to be referred to as 
+the H Company, belongs to the two wheels hub, more 
+specifically with the fabrication of motorcycles and 4X4 
+bikes. Originally, from Japan, the multinational in question 
+has a big market share in the field of its activities, with the 
+medium daily production of ten thousand motorcycles in its 
+assembly lines.  
+Within these two scenarios so much different, it has been 
+studied a primordial activity to the execution of its activities: 
+the input feeding to assembly lines. Independently of being 
+the final products completely different, there is the need of 
+feeding the lines, where enters the study analysis, to ascertain 
+the existence of some of the seven wastes of STP. 
+ 
+II. LITERATURE REVIEW 
+A. Total Production System 
+Focused on the optimization of the factory resources, the 
+applied methodology by Toyota comes up in an economically 
+unstable historic moment due to the mishaps of the post 
+Second World War with one mission: Reduce costs.  
+[1] defines as principal objective of the Toyota Production 
+System (TPS) to increase production efficiency by 
+eliminating consistent and full waste. Challenging concepts 
+employed by American systems focused on the production of 
+many units of few products, also called as pushed production, 
+the Japanese manufacturer seems that a mere copy of the 
+American productive system could be dangerous, given that 
+the market eventually would suffer a slowdown, by the fact 
+that these models consider everything that is produced, will 
+be sold.  
+[2] lists seven main wastes found in the industrial reality: 
+Super production; Wait; Transport; Processing; Stock; 
+Movement and Rework, which must be mitigated or 
+eliminated from the productive processes, aiming that the 
+companies, become more competitive and increase their 
+profits through the fabrication reduction costs. [3] brings that 
+the need to fight the losses in the processes must be a non-
+aggregation of value to the product, also as the generation of 
+costs, motivating, in some situations the compromise to the 
+organization competitiveness.  
+[1] claims that TPS highly depends on the workers' 
+collaboration, once they are going to be day-by-day 
+developing productive activities on the factory floor.  
+Marcelo A. de Oliveira, Federal University of Amazonas, Brazil. 
+(e-mail: marcelooliveira ufam.edu.br)  
+Gabriela de M. Veroneze, Federal University of Amazonas, Brazil. 
+(e-mail: gveroneze ufam.edu.br) 
+@
+@
+@
+Supply Chain System Model of Components for 
+Assembly Lines Based on Kanban and Milk Run 
+Methodologies 
+Victor Hugo Oliveira dos Santos, Marcelo Albuquerque de Oliveira, and Gabriela de Mattos Veroneze 
+
+
+--- SAYFA 2 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+140 
+ 
+ 
+[4] approach that the differential of TPS is its essence, 
+where development of people and exceptional teams, with the 
+right directions, generates exceptional results.  
+This way, the companies looking for results through the 
+implementation of the TPS work methodology must value 
+their teams so that they can think of continuous process 
+enhancement. 
+B. Lean Manufacturing 
+The Lean philosophy aims to the five original principles, 
+created, and applied on the TPS, to orientate the productive 
+chain to increase productivity and eliminate waste, 
+maximizing the profits. Specify the value: understand what 
+the customer sees as value and turns it as a production goal; 
+Value Stream: identify how the intern production chain will 
+achieve the established value; Continuous Stream: keep the 
+constancy of production and the continuous and seamless 
+delivery to the customers; Pushed Production: attend to the 
+demand in accordance with the market; Continuous 
+enhancement: search relentlessly for optimization of 
+productive processes.  
+The application of these concepts needs organization, a 
+new way of think over the company role, functions, and 
+careers to canalize the value stream, from the conception to 
+the releasing, from the request to the delivery, from the raw 
+material to the clients’ hands, according to [5]. 
+[6] have described the ten crucial steps to the Lean system 
+implementation. These are: (1) Leadership and satisfaction of 
+the client; (2) People involvement; (3) Alliance with a 
+supplier; (4 (4) Source quality; (5) Management on sight; (6) 
+Productive maintenance; (7) Fast tools change; (8) Push the 
+production; (9) Reduce the time cycle; and (10) Control and 
+reduction of costs. With the control and reduction of costs, it 
+can be done a parallel with the seven wastes proposed by [7]. 
+C. Just in Time 
+The Just-in-Time (JIT) philosophy has emerged in Japan 
+after the Second World War, where Toyota Motor Company 
+has been the precursor of the pilot project, according to [8]. 
+The first objective of the JIT philosophy is to eliminate waste 
+in the production system, according to [7]. The Just-in-Time 
+work system has as its aim what the Japanese call as “Zero 
+stock”, where there is searched for working only with the 
+minimum referring to equipment, raw material, inputs and 
+finished product's stock. 
+The biggest challenge of JIT is to achieve the essential 
+index related to the minimum stock and don’t stop the 
+assembly lines that demand supplies relentlessly.  
+So that it can occur, there is a recurrent need of the 
+understanding in real time of the product's availability and its 
+deliveries together with their suppliers, consequently, a very 
+strong control by Supply Chain. Avoiding stops in the 
+assembly lines by lack of inputs, without the need of raw 
+material, half-finished products or finished products. To the 
+TPS, the stock is stopped money. 
+D. Milk Runs 
+The Milk Run methodology can be defined as a way of 
+collection that defines a good route that aims to reduce the 
+lead-time of delivery and collecting of materials, once it 
+concentrates the caption of many items to the factory.  
+According to [9], the Milk Run turns into a method of piece 
+calling (stock management), such as Kanban, using the 
+philosophy of Just-in-Time. The materials programmed 
+collecting on the suppliers aimed to and is presented in Fig. 
+1.  
+i. Minimize the shipping cost using the total capacity of 
+the transport vehicle (volume or weight), with the best 
+possible scripting to the data collected on the suppliers.  
+ii. Potentialize the stock turns to discipline the supplier. 
+Increase the supply frequency; feed the assembler only 
+with needed pieces, in the needed quantities, in the 
+requested hour and in the pattern packages.  
+iii. Reduce the vehicle's number in the assembler and 
+improve the coordination of these vehicles in their 
+factory plant. Once the pieces are collected in each 
+supplier, there is a reduction in the number of how each 
+vehicle of collecting has a predetermined scheduled to 
+the delivery of the collected pieces, there is a bigger 
+control in the service of these vehicles by the assembler, 
+to the discharge of the pieces due to the labor and 
+needed equipment to this operation.  
+iv. Streamline the charge and discharge of materials, 
+aiming to eliminate idle times when the collecting 
+vehicle of pieces is in the suppliers and on the own 
+assembler.  
+ 
+ 
+Fig. 1. Milk Run Methodology [11]. 
+ 
+
+
+--- SAYFA 3 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+141 
+ 
+ 
+v. Level the daily stream of materials receiving 
+vi. Improve the services provided, the pattern package, the 
+performance of charge/pallet and get faster on charge 
+and discharge of vehicles of programmed pieces 
+collecting. 
+vii. Reduce the stock level on the suppliers. Obtaining the 
+production program necessary to supply the assembler 
+(programmed day to the collected pieces and quantity 
+to be provided) the suppliers can program themselves to 
+obtain their raw materials and manage the stock level 
+on their chains.  
+viii. Tool to the Just-in-Time system. The O Milk Run 
+figures like a process to implantation of a Just-in-Time 
+system within suppliers and the assembler.  
+ix. Better administration of reusable packages. The 
+packages are patterned, and the logistical operator 
+replenishes the supplier in accordance with his needs 
+and due to the collecting pieces program. Therefore, 
+each supplier will have a number of certain packages 
+that will be on the collecting pieces cycle (supplier - 
+assembler). 
+x. Reduction of damages during transportation. With the 
+patterned packages and the transport operation being 
+done by prepared vehicles to execute this task, reduce a 
+lot the problem of damages on the pieces during 
+transport and movement, through the studies carried out 
+to balance the charge on the vehicle (layout) and don’t 
+damage the packages, keeping always the same people, 
+trained, involved in the programmed collecting, driver 
+of the logistical operator, forklift drive and of the own 
+assembler.  
+According to [10], there are three reasons that attribute a 
+huge implementation of Milk Run around the world.  
+i. Clarification of the distribution costs impacts, that 
+usually are included within the acquired product's 
+prices.  
+ii. Reduction on the cost with transportation due to the use 
+of few transport batches and big material mix.  
+iii. Enhancement on production lines and stock accuracy 
+due to the synchronization of the deliveries. 
+According to [12], with the right application of Milk Run 
+methodology, the main gains acquired by the companies, 
+retreats on the transportation cost, besides enabling the routes 
+optimization and decreasing deliveries Lead Time, through 
+the multiple collect in only one route. 
+E. Kanban 
+[9] says that the control tool of stock Kanban, that is 
+integrant part of the Toyota Production System makes part of 
+Just-in-Time wok approach, aiming only to supply the factory 
+unity, according to the necessary items, within the necessary 
+quantities, in the necessary moment, with the quality to 
+supply the final assembly line without losses and generation 
+of stocks, according to [7].  
+The purpose is to keep a physical stream integrated to the 
+pieces on the supply chain and streamline the delivery of the 
+final product to the consumer eliminating all the losses and 
+stocks. According to [13], it is to keep the products stream 
+according to the demand’s need to aggregate value to the 
+completely logistical chain, Pipeline. 
+According to [14], the principal focus of Kanban is to 
+define, with accuracy, the status about what needs to be done, 
+consequently, the Kanban, when rightly applied, allows that 
+tasks might be prioritized and that work streams are defined, 
+such as the control over delivery lead-time of the task here in 
+question. The Kanban process shows clearly the processes 
+that require more attention, focusing on the risk reduction of 
+no attendance, which allows a bigger flexibility to define 
+priority actions of a team, related to their deliveries and 
+demands. 
+ 
+III. METHODOLOGY 
+Initially, it has carried out the consultation to the literature 
+that fitted on a basis to the initial analysis over the 
+problematic referring to the possible wastes commonly found 
+in the industrial reality. Therefore, through direct 
+observation, it has been established the concepts acquired on 
+the bibliographic revision.  
+Through a study case, qualitative research over the feeding 
+processes of assembly lines has been carried out and a 
+proposal of idealized enhancement, on behalf of daily 
+activities development optimization. 
+A. Model Development 
+In this spot for the work, it is going to be approached by 
+the problematic, analyzed through the direct observation in 
+two companies of Manaus Industrial Hub, such as the 
+solution proposal directed to the resolution mentioned above. 
+B. Study Scenario 
+Initially, it has been evaluated the functioning of the 
+components feeding to two assembly lines, aiming to identify 
+potential enhancements on a Milk Run methodology. 
+ 
+IV. FINDINGS AND DISCUSSIONS 
+A. Activities Analysis 
+Analyzing the feeding raw material method along the 
+assembly lines of the company H, according to Fig. 2, it is 
+observed the presence of two feeding methods: one by aerial 
+transport to pieces of big aggregate, and that has production 
+in-house synchronized with the assembly line, avoiding the 
+accumulation of stock, besides feeding by baskets and cars, 
+usually about small pieces and components acquired from 
+external suppliers. 
+ 
+ 
+Fig. 2. Assembly Line Company H [15]. 
+ 
+
+
+--- SAYFA 4 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+142 
+ 
+ 
+About the feeding functioning by baskets and cars, there is 
+a specific sector responsible for storing, counting, movement, 
+delivery and inputs control referred to the assembly lines, 
+according to a scheme represented on Fig. 3.  
+This sector is far around two kilometers of the line, 
+localization justified by the fact that all the components that 
+must be delivered come from many other productive sectors 
+spread by the factory, so the feeding sector stays in a strategic 
+area that eases the delivery truck movement. 
+ 
+ 
+Fig. 3. Company H Feeding Stream. 
+ 
+An analysis way of the consumption status to the next 
+request is given by the production follow-up, since there is a 
+quantity pre-established by motorcycle items, it’s done the 
+calculation through the following formula,  
+ 
+ 
+ 
+ 
+𝐸= (𝑄𝑚∗ ∑𝐼𝑚) − 𝑀𝑖𝑛𝑖𝑚𝑢𝑚 𝑠𝑡𝑜𝑐𝑘 
+ 
+(1) 
+ 
+where:  
+E = delivery; 
+Qm = Quantity of material on the basket; 
+Im – Used items by motorcycle. 
+Besides, conceptually, present accuracy and not occurring 
+lines stop caused by the lack of material supply, it is necessary 
+to evaluate the concept referred to the efficiency of such a 
+process. Shingo points out that “invisible” loss occurs on day-
+to-day activities.  
+Now analyzing the company F condition, is found thirty-
+four assembly lines, where the supply delivery functioning is 
+given by around two to three collaborators named “feeders”, 
+these people, according to this function, walk through the 
+assembly lines, observing or listening from the assemblers 
+about what the next to be finished. Then, they go to the 
+responsible by the warehouse, where are kept the 
+components, do the request of the items and later take it to the 
+assembly line, according to what is indicated on Fig. 4.  
+This path is given most of the time with the operator 
+carrying input boxes at the post regarding on the layout. The 
+feeders are also responsible by doing the boxes of non-
+finished products movement to the transporter that take them 
+to the warehouse, where they will be stored, tied to the 
+clients’ requests and sent to the destination. 
+Evaluating each line has three collaborators, on the worst 
+scenario, only to inputs reposition activities, within thirty-
+four assembly lines that work on three production shifts, it 
+can be concluded that company F has on its personal board, 
+three hundred and six people only to movement and input 
+feeding activities. Such a great board like this, inevitably, 
+makes questions show up about the process effectiveness, 
+specially what refers to the collaborators needs given by the 
+lines. 
+ 
+ 
+Fig. 4. Company F Assembly Line [16]. 
+ 
+B. Proposed Solution 
+In both scenarios, it’s noticeable the need to evaluate a way 
+more efficient to do the assembly line feeding, in a way to 
+avoid the stock accumulation by line (work in process), that 
+decreases the movement of cars and collaborators who is 
+accurate according to the requested demand by the process.  
+This way, this study proposes that a simple system blends 
+the concepts of Kanban and Milk Run. The concept behind 
+the basic idea is: Once it treats of baskets or product boxes 
+with pre-established weights because of the present elements 
+quantity, it is going to be used a balance that can generate 
+logs, those are information’s that are a transcript on a more 
+system to be managed by the responsible of the assembly 
+lines feeding.  
+The idea is similar to a supermarket balance, where 
+determined items are weighted. Its weight is converted to a 
+numerical value by the multiplication of the value of the 
+product’s kilo and at last. It has given the final value to the 
+client.  
+On the proposed application, the baskets and boxes would 
+be put-on balances, with this, it could be guessed that one 
+1000 pieces basket of squared-nuts of weld from the supplier 
+x, for example, would have the weight 1,8±0,142 kg and after 
+being consumed by the process, the weight would reduce 
+proportionally, enabling the system analysis on real time of 
+the value present at each step of the process through kanban. 
+ 
+ 
+Fig. 5. Weighing Reading System [17]. 
+ 
+Subdivided into three categories: OK, GENERATES 
+REPOSITION 
+REQUESTS 
+AND 
+CRITIC 
+STOCK 
+
+
+--- SAYFA 5 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+143 
+ 
+ 
+PROCESS, determined categories according to each 
+evaluated item, in a way that the sector responsible by the 
+inputs feeding can control, in real time, the consumption of 
+the assembly line, enabling that it can be organized by item, 
+by post and line. This way, once it is known the exact line 
+status, the sector can determine a way of how to feed, only in 
+one journey, all the posts that need to resupply, what would 
+define a milk run delivery system, using fewer labor resources 
+and with higher efficiency, according to Fig. 6. 
+ 
+ 
+Fig. 6. Feeding System Proposal. 
+C. Results Analysis 
+Once the aim of this study is only the proposal of solutions, 
+the results analysis is given through the results evaluation 
+through the total implementation of the deliveries’ 
+methodology, also as the suggestions to its integration to the 
+production and failures prevention. 
+D. Expected Results 
+Evaluating the critic situation, regarding company F, the 
+expectation is that occurs 67% reduction across the personnel 
+board employed, exclusively, to movement activities of the 
+pieces on the three production shifts.  
+The economic impact can be provided based on the 
+collected data with the company F, shown on Fig. 7, regarded 
+to the bonuses granted to the collaborators with the legal costs 
+inherent to the nocturnal industrial activity that embraces the 
+second and third shifts. 
+The value 67% refers to the possibility of a collaborator to 
+guarantee the complete feeding of an assembly line, which 
+mostly are “twins”, that is, they have the same structure and 
+do the assembly of identical items, simultaneously. 
+With the provided economy with the reduction of two 
+hundred and four collaborators of the personnel board, to the 
+company F, the merit of this enhancement would be the value 
+around R$ 501.525,16 monthly (around U$ 91.000,00), 
+enabling on investments with the necessary structure to 
+project implementation, besides investments on equipment 
+that eases the items movements, such as cars and tugs.  
+To the company H, the principal merit would be to gain 
+efficiency and increase security, as there would be a drastic 
+decrease in the movement of tugs and car pieces, what would 
+decrease the collision risks with other collaborators who 
+transmitted by the assembly line, the delivery of more one 
+item in the same shipment and the collaborator time 
+valorization, enabling to face new challenges and activities, 
+such as more accurate control of the company's stock.  
+By optimizing the accuracy of the stock, the activities of 
+sectors related to fiscal parts, since given the legislation that 
+governs Manaus Free Zone, also known as “Block K” 
+dismemberment Federal Revenue that makes recurring audits 
+as to the decrease of items produced to fee’s control granted 
+to companies in the city of Manaus, thus avoiding possible 
+fines that the company could suffer. 
+ 
+V. CONCLUSION 
+Blending the theoretical concepts regarding the waste’s 
+losses, rational utilization of productive inputs, economic 
+merit efficiency optimization, the current study, even though 
+it portrays an execution proposal, brings a big reflection:  
+- Are the daily factory floor activities being evaluated 
+strategically?  
+Besides that, it can be embraced the premise that the 
+process optimization and tools analysis can be reevaluated, 
+blended and applied in different ways, looking for results that 
+are necessary to business reality.  
+In parallel to the Industrial Revolutions, the companies that 
+did not adapt ended up losing space on market and, 
+eventually, perished to the competitors that always adopted 
+new strategies to the execution of their activities. In this case, 
+the re-interpretation about the use of Kanban and Milk Run 
+tools enables the companies F and H ways to reduce their 
+costs, increase efficiency and, overall, directs time to their 
+collaborators to activities that aggregate value to the final 
+client.  
+Although, this study also has great development potential, 
+not only on the systematic creation, but also on the applicable 
+part, once a field system would allow an even clear vision 
+around the real team needs, besides the failures and 
+optimization potential.  
+Thus, it stands as a challenge to the academic community 
+and to the companies, in loco application, its development 
+and maturation. 
+ 
+ACKNOWLEDGMENT 
+The authors thank the Production Engineering Department 
+(DEP) of the Federal University of Amazonas (UFAM) for 
+their support and structure.  
+Special acknowledgement to the institutions and people 
+involved to the final consolidation of this work that has been 
+authorized through the agreement 001/2020 from the 
+Cooperação Técnico-Científica celebrated between Fundação 
+Universidade do Amazonas (FUA), Fundação de Apoio ao 
+Ensino, Pesquisa, Extensão e Interiorização do IFAM 
+(FAEPI) and the company Samsung Eletrônica da Amazônia 
+LTDA (SEDA-M), within the project’s scope of capacitation 
+and research, which has been done by the academic unity FT-
+UFAM. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- SAYFA 6 ---
+ 
+ 
+ 
+ 
+European Journal of Engineering and Technology Research 
+ISSN: 2736-576X 
+ 
+DOI: http://dx.doi.org/10.24018/ejers.2021.6.6.2569 
+  
+Vol 6 | Issue 6 | October 2021 
+144 
+ 
+ 
+ 
+Fig. 7. Financial Results. 
+ 
+REFERENCES 
+[1] T. Ohno, Toyota Production System: Beyond Large-Scale Production. 
+New York: Productivity Press, First Edition, 176 p., 1998. 
+[2] S. Shingo, A Study of the Toyota Production System. New York: 
+Productivity Press: 257 p., 1989. 
+[3] C. P. Machado and V. A. G. Tondolo, Perda por ruptura em gôndola: 
+uma análise do Sistema Toyota de Produção, na indústria alimentícia e 
+no varejo supermercadista. Revista Gestão da Produção Operações e 
+Sistemas, V. 9, n. 3, p. 15, 2014. 
+[4] J. K. Liker and D. Meier, The Toyota Way Fieldbook: A Practical 
+Guide for Implementing Toyota's 4Ps. McGraw-Hill Companies, First 
+Edition, 475 p., 2008. 
+[5] J. P. Womack, D. T. Jones, and D. Ross, The Machine That Changed 
+the World: The Story of Lean Production-- Toyota's Secret Weapon in 
+the Global Car Wars That Is Now Revolutionizing World ... That Is 
+Now Revolutionizing World Industry. Free Press, First Edition, 327 p., 
+2007. 
+[6] S. F. T. Rago, E. C. Júnior, J. M. Banzato, and R. A. Moura, 
+Atualidades na gestão da manufatura. São Paulo: IMAM, 2003. 
+[7] S. Shingo, The Shingo Production Management System: Improving 
+Process Functions. New York: Productivity Press, First Edition, 238 p., 
+1992. 
+[8] D. F. Tubino, Manual de planejamento e controle da produção. São 
+Paulo: Atlas, 1997. 
+[9] D. A. Moura and R. C. Botter, Caracterização do sistema de coleta 
+programada de peças, Milk Run. RAE eletrônica, Vol. 1, No. 1, p. 1-
+14, 2002. 
+[10] T. Nemoto, K. Hayashi, and M. Hashimoto, Milk-run logistics by 
+Japanese automobile manufacturers in Thailand. Procedia-Social and 
+Behavioral Sciences, Vol. 2, No. 3, p. 5980-5989, 2010. 
+https://doi.org/10.1016/j.sbspro.2010.04.012. 
+[11] CCA Express, Sistema Milk Run de Coletas Programadas. Available 
+at: <https://www.ccaexpress.com.br/blog/sistema-milk-run-de-coletas-
+programadas/>. 
+[12] P. Setiani, H. Fiddieny, E. B. Setiawan, and D. E. Cahyanti, Optimizing 
+delivery route by applying milkrun method. In: Conference on Global 
+Research 
+on 
+Sustainable 
+Transport 
+(GROST 
+2017), 
+2018. 
+https://doi.org/10.2991/grost-17.2018.65. 
+[13] M. J. Ploos van Amstel, Managing the pipeline effectively. Journal of 
+Business Logistics, v. 11, n.2, p. 1-25, 1990. 
+[14] H. Lei, F. Ganjeizadeh, K. P. Jayachandran, and P. A. Ozcan, Statistical 
+analysis of the effects of Scrum and Kanban on software development 
+projects. Robotics and Computer-Integrated Manufacturing, v. 43, p. 
+59-67, 2017. https://doi.org/10.1016/j.rcim.2015.12.001. 
+[15] C. De Biasi Comunicação Audiovisual, Moto Honda da Amazônia. 
+Available at: <https://www.youtube.com/watch?v=iqToIrbvRo8>. 
+[16] Flex 
+Industries, 
+Conheça 
+nossos 
+processos. 
+Available 
+at: 
+https://www.flex-am.com.br/?pg=fotos. 
+[17] Absoluta 
+Balanças, 
+Balanças 
+Filizola. 
+Available 
+at: 
+<http://www.absolutabalancas.com.br/filizola/platina.htm>. 
+ 
+ 
+Victor Hugo dos Santos is a student is a student of 
+Production Engineering at the Federal University of 
+Amazonas, and researcher under SUPER project. 
+ 
+ 
+Marcelo Oliveira is an Adjunct Professor of 
+Department of Production Engineering and 
+member of Master Program in Production 
+Engineering, Federal University of Amazonas. He 
+has published several Research Papers related to 
+Engineering area. 
+ 
+ 
+ 
+Gabriela Veroneze is an Adjunct Professor, 
+Department of Production Engineering and 
+member of Master Program in Production 
+Engineering, Federal University of Amazonas. 
+She has published several Research Papers related 
+to Engineering area. 
+ 
+ 
+ 
+ 
+ 
+ 

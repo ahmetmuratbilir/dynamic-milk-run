@@ -1,0 +1,674 @@
+
+
+--- SAYFA 1 ---
+ 
+Sinkron : Jurnal dan Penelitian Teknik Informatika 
+Volume 9, Number 3, July 2025 
+DOI : https://doi.org/10.33395/sinkron.v9i3.14977 
+e-ISSN : 2541-2019 
+ p-ISSN : 2541-044X 
+ 
+ 
+*name of corresponding author 
+This is anCreative Commons License This work is licensed under a Creative 
+Commons Attribution-NonCommercial 4.0 International License. 
+1835 
+ 
+Mathematical Modeling of the Vehicle 
+Routing Problem with Relaxed Time Windows 
+and Delay Penalties 
+ 
+Rosa Fitrie1), Saib Suwilo2)*, Herman Mawengkang3) 
+1)Magister of Mathematics, Universitas Sumatera Utara, Indonesia 
+2,3)Department of Mathematics, Universitas Sumatera Utara, Indonesia 
+1) rosa@student.usu.ac.id, 2) saib@usu.ac.id, 3) mawengkang@usu.ac.id 
+ 
+Submitted :Jun 30, 2025 | Accepted : Aug 15, 2025 | Published : Aug 17, 2025 
+ 
+Abstract: The Vehicle Routing Problem with Relaxed Time Windows (VRP-RTW) 
+is an extension of the classic Vehicle Routing Problem (VRP) that incorporates 
+flexibility in service time windows. In VRP-RTW, vehicles are allowed to arrive 
+later than the specified time window. However, a violation will be imposed for 
+exceeding the specified time limit. in the form of fines or similar penalties. This 
+research aims to design a mathematical model for VRP-RTW to minimize total travel 
+costs and delay penalties, while ensuring that all customers are served within the 
+capacity limits of the available vehicles. This research uses literature review methods 
+and mathematical formulation approaches to describe the logistics distribution 
+problem. The developed model considers several constraints, such as vehicle 
+capacity, route balance, and service time limitations. The results of this research are 
+expected to contribute to more efficient and flexible logistics distribution decision-
+making and serve as a basis for the development of vehicle route optimization models 
+that can be applied in real-world scenarios. 
+ 
+Keywords: Vehicle Routing Problem; Relaxed Time Windows; Delay Penalties; 
+Logistics Distribution; Combinatorial Optimization 
+ 
+INTRODUCTION 
+Logistics is a sequence of events that include the planning, implementation, and oversight of transferring 
+commodities, services, energy, or other resources from the origin to the end user. The objective of these actions is 
+to optimize capital utilization, striving to achieve equilibrium by decreasing costs while preserving service quality 
+and customer happiness (Dadzie & Richard, 2025; Rakyta et al., 2022). Nonetheless, improvements in information 
+technology facilitating the swift and nearly costless conveyance of information have augmented the complexity 
+and significance of logistics. In contrast to conventional distribution systems that necessitated the delivery of items 
+to warehouses or retail outlets, consumers now favor home delivery of parcels (Jazemi et al., 2023). The logistics 
+system comprises five primary components: facility location structure, transportation, inventory, communication, 
+and commodities handling and storage (Golabek et al., 2021). 
+ This challenge involves a set of vehicle routes, typically variable, that will efficiently service a designated number 
+of specified customers while adhering to various constraints. The Vehicle Routing Problem (VRP) identifies the 
+ideal path to minimize travel expenses from a depot to clients situated in diverse locations with fluctuating demand 
+levels (Sitompul & Horas, 2021). The advancement of transportation will enhance human mobility, production 
+resources, and the distribution of commercial goods. Increased mobility enhances the speed of movement and 
+equipment use, resulting in more efficient distribution and reduced time for processing and relocating resources 
+from less advantageous areas to more beneficial ones. Consequently, increased mobility correlates with elevated 
+productivity levels (Voigt et al., 2023). 
+The solution to the Vehicle Routing Problem (VRP) consists of routes that must be taken by vehicles to meet 
+all customer demands, where each route will be traveled by a single vehicle starting and ending at the depot. 
+Vehicle Routing Problem (VRP) is one of the most studied combinatorial optimization problems and is related to 
+the planning of optimal routes to be used by a fleet of vehicles to serve a number of customers (Chai et al., 2022). 
+To find the best route, the distance and time obtained must also be minimized and reached as quickly as possible 
+to make the fuel/gasoline used more efficient (Toth & Vigo, 2002). There are several variants of the VRP, such as 
+the Vehicle Routing Problem with Time Windows (VRPTW) (Chai et al., 2022), Vehicle Routing Problem with 
+
+
+--- SAYFA 2 ---
+ 
+Sinkron : Jurnal dan Penelitian Teknik Informatika 
+Volume 9, Number 3, July 2025 
+DOI : https://doi.org/10.33395/sinkron.v9i3.14977 
+e-ISSN : 2541-2019 
+ p-ISSN : 2541-044X 
+ 
+ 
+*name of corresponding author 
+This is anCreative Commons License This work is licensed under a Creative 
+Commons Attribution-NonCommercial 4.0 International License. 
+1836 
+ 
+Pick-Up and Delivery (VRPPD) (Dethloff, 2001), and Capacitated Vehicle Routing Problem (CVRP) (Ramadhani 
+et al., 2019). The vehicle routing problem with time windows is a widely recognized issue in the logistics field, 
+which involves optimizing delivery routes for a fleet of vehicles while considering specific time windows for each 
+delivery.  
+In the Vehicle Routing Problem with Time Windows (VRPTW), each client must be serviced within a 
+designated time frame. Time limits emerge from product limitations or production restrictions or may be imposed 
+by customers due to their inventory regulations. In addition to client time limitations, journey duration 
+encompasses transit time between all customer locations or between customers and the central depot. Vehicles 
+must deliver services to clients within a designated timeframe at minimal expense. Vehicles may arrive at the 
+customer prior to the designated time frame but must remain on standby if they arrive before the customer is 
+prepared to be served; late arrivals after the conclusion of the time period are prohibited (Mawengkang et al., 
+2024). Constrained Vehicle Routing Problem Time Windows (VRPTW) has attracted considerable interest from 
+the research community owing to its various real-world uses. Examples include waste collection, bus route 
+optimization, and specialized bus services (Liu et al., 2023). Routes must be structured to ensure that each location 
+is visited solely once by a single vehicle within a certain time frame, with all routes commencing and concluding 
+at the depot, and the cumulative demand of all locations on a given route must not surpass the vehicle's capacity 
+(Bräysy & Gendreau, 2005). 
+VRPTW can be mathematically expressed as follows: 
+ij
+ijk
+k V i N j N
+min
+c x
+
+
+
+
+ 
+(1) 
+Constraint: 
+1
+ijk
+k V j N
+x
+i
+C
+
+
+=
+
+
+(2) 
+i
+ijk
+i C
+j N
+d
+x
+q
+k
+V
+
+
+
+
+
+ 
+(3) 
+0
+1,
+jk
+j N
+x
+k
+V
+
+=
+
+
+(4) 
+0,
+,
+ihk
+hjk
+i N
+j N
+x
+x
+h
+C
+k
+V
+
+
+−
+=
+
+
+
+
+(5) 
+,
+1,
+1,
+i n
+k
+i N
+x
+k
+V
++
+
+=
+
+
+(6) 
+(
+)
+1
+,
+,
+,
+ik
+ij
+ijk
+jk
+s
+t
+K
+x
+s
+i j
+N
+k
+V
++
+−
+−
+
+
+
+
+(7) 
+,
+,
+i
+ik
+i
+a
+s
+b
+i
+N
+k
+V
+
+
+
+
+ 
+(8) 
+
+
+0,1
+,
+,
+ijk
+x
+i j
+N
+k
+V
+
+
+
+
+(9) 
+ 
+The objective minimizes the fleet’s total travel cost by summing the cost 𝑐𝑖𝑗 of each arc 𝑖→𝑗 whenever the 
+binary variable 𝑥𝑖𝑗𝑘 indicates that vehicle 𝑘 traverses that arc. In equation (2), all customers are visited only once, 
+and equation (3) ensures that vehicles do not carry loads exceeding the maximum capacity. Then, equations (4), 
+(5), and (6) explain that each vehicle must leave depot 0, after which the vehicle arrives at the customer and departs 
+to another destination, and finally, all vehicles must return to the depot 
+1
+n+ . In equation (7), vehicle k cannot 
+arrive at j before 
+ik
+ij
+s
+t
++
+ if the vehicle departs from i to j with K being a scalar value. After that, equation 
+(8) explains that there are time windows and equation (9) represents the constraint of an integral. Therefore, unused 
+vehicles are modeled by driving an empty route (0,
+1)
+n +
+[10]. The Vehicle Routing Problem Relaxed Time 
+Windows (VRP-RTW) is a part of the classic Vehicle Routing Problem (VRP) that involves delivering goods to 
+customers, where vehicles must visit customers within a certain time frame known as time windows. However, in 
+this problem, the time windows are relaxed, meaning there is some flexibility regarding early or late arrivals. 
+However, there is a penalty imposed if the vehicle arrives outside the specified time window. Thus, in this research, 
+the author aims to develop a model of the Vehicle Routing Problem with Relaxed Time Windows (VRPRTW) in 
+logistics to determine the optimal routing by minimizing the total travel cost that the vehicle will incur to serve 
+customers, thereby providing a more accurate solution. 
+
+
+--- SAYFA 3 ---
+ 
+Sinkron : Jurnal dan Penelitian Teknik Informatika 
+Volume 9, Number 3, July 2025 
+DOI : https://doi.org/10.33395/sinkron.v9i3.14977 
+e-ISSN : 2541-2019 
+ p-ISSN : 2541-044X 
+ 
+ 
+*name of corresponding author 
+This is anCreative Commons License This work is licensed under a Creative 
+Commons Attribution-NonCommercial 4.0 International License. 
+1837 
+ 
+METHOD 
+This research adopts a literature review method by utilizing various references and collecting relevant journals 
+and books to serve as the foundation for the study. The steps carried out in this research are as follows: 
+1. Identifying the research topic – the author identifies the topic to be studied as well as the issues related 
+to the topic. 
+2. Literature review – the author collects and studies various previous research sources related to the topic 
+as part of the literature study, which also serve as references for this research. 
+3. Determining the notations, parameters, and decision variables to be used in this research. 
+4. Formulating the objective function to minimize travel costs and penalties for time window violations. 
+The penalty refers to additional costs incurred when a vehicle arrives after the latest time window, and 
+penalties may also be applied for early arrivals using a different penalty function (Watling, 2006).  
+5. Defining the constraint functions, including:  
+a. 
+Customer visits exactly once. 
+b. Vehicle flow balances in and out of each node. 
+c. 
+Vehicles depart from and return to the depot. 
+d. Vehicle capacity constraint. 
+e. 
+Service time window constraint with relaxation. 
+f. 
+Time relationship between nodes. 
+g. Decision variable constraints.  
+6. Explaining the resulting model in a manner that is easy to understand. 
+ 
+RESULT 
+The problem discussed in this research is a development of the Vehicle Routing Problem (VRP), which is an 
+optimization problem aimed at determining the most optimal routes for a number of vehicles in distributing goods 
+from a central depot to several customers spread across various locations. This research discusses the Vehicle 
+Routing Problem Relaxed Time Windows with Penalty (VRP-RTW-P), where each customer has a specific service 
+time window, but vehicles are allowed to arrive outside of these time windows with the consequence of a penalty 
+imposed for delays or early arrivals. The main objective of this problem is to obtain an optimal routing with limited 
+capacity while minimizing the total travel cost, ensuring that all customers are served by considering the relaxation 
+of the given time windows, with penalties for violations. 
+The variables and parameters used in the mathematical model of VRP-RTW for the routing problem are as 
+follows:  
+Notation: 
+N : Set of customers including the depot 
+K : Set of available vehicles 
+Parameters: 
+ijc : Cost or travel distance from node 𝑖 to node 𝑗 
+id : Demand of customer i 
+k
+Q : Capacity of vehicle k 
+is : Service time at node i 
+it : Arrival time of the vehicle at node i 
+M : A large number (Big-M) used to activate constraints only if 
+1
+ijk
+x
+=
+ 
+i
+: Penalty coefficient for service time lateness 
+ijt : Travel time from node i to node j 
+Decision Variables: 
+ijk
+x
+: Binary variable with value : 1, if the vehicle passes the route i to j and 0, otherwise 
+,
+i
+i
+a b : Lower and upper bounds of the service time window for customer i 
+
+
+--- SAYFA 4 ---
+ 
+Sinkron : Jurnal dan Penelitian Teknik Informatika 
+Volume 9, Number 3, July 2025 
+DOI : https://doi.org/10.33395/sinkron.v9i3.14977 
+e-ISSN : 2541-2019 
+ p-ISSN : 2541-044X 
+ 
+ 
+*name of corresponding author 
+This is anCreative Commons License This work is licensed under a Creative 
+Commons Attribution-NonCommercial 4.0 International License. 
+1838 
+ 
+iP : Penalty if the service is provided after the upper limit 
+ib 
+Mathematical Model 
+( , )
+ 
+.
+ij
+ijk
+i
+i
+i j
+N
+i N
+min Z
+c x
+P
+
+
+
+=
++
+
+
+(10) 
+Constraints: 
+,
+1
+ijk
+k K j N j i
+x
+i
+N
+
+
+
+=
+
+
+(11) 
+,
+j N
+j N
+jik
+ijk
+x
+x
+i
+N
+k
+K
+
+
+=
+
+
+
+
+ 
+(12) 
+0
+,
+0
+1,
+jk
+j N j
+x
+k
+K
+
+
+=
+
+
+       
+0
+,
+0
+1,
+i k
+i N i
+x
+k
+K
+
+
+=
+
+
+(13) 
+i
+ijk
+k
+i N
+j N
+d
+x
+Q
+k
+K
+
+
+
+
+
+(14) 
+i
+i
+i
+a
+t
+b
+i
+N
+
+
+
+        
+i
+i
+i
+P
+t
+b
+i
+N
+
+−
+
+ 
+(15) 
+(
+)
+1
+,
+,
+,
+j
+i
+i
+ij
+i
+ijk
+t
+t
+s
+t
+M
+x
+i j
+N k
+K
+
+
++
++
+−
+−
+
+
+
+ 
+(16) 
+
+
+0,1 ,
+,
+ijk
+x
+i j
+N
+
+
+
+ 
+0
+iP 
+ 
+0
+it 
+(17) 
+ 
+The objective minimizes the overall cost by adding up the travel expense on every selected arc 𝑐𝑖𝑗𝑥𝑖𝑗 and 
+the customer-specific penalty 𝛼𝑖𝑃𝑖 incurred for any service-time violation. In constraint equation (11) each 
+customer must be visited exactly once, and in constraint equation (12) it must be ensured that the vehicle enters 
+and exits each node in a balanced manner. Then, in constraint equation (13) each vehicle must start and end at the 
+depot. Finally, in constraint equation (14) the total customer demand served by the vehicle must not exceed its 
+capacity. In equation (15) this equation ensures that the service starts within the allowed time frame, allowing for 
+relaxation with the associated penalty. Equation (16) maintains the order of visit times between nodes while 
+allowing for delays with penalties. The last equation, (17), is the constraint on the decision variables. 
+ 
+DISCUSSION 
+Based on the defined problem, the Vehicle Routing Problem Relaxed Time Windows model aims to minimize 
+the total travel cost while ensuring that all customers are served by taking into account the relaxation in the given 
+time windows, with penalties for violations. 
+This model also uses several constraint functions where the constraint functions are as follows: The objective 
+minimizes the overall cost by adding up the travel expense on every selected arc 𝑐𝑖𝑗𝑥𝑖𝑗and the customer-specific 
+penalty 𝛼𝑖𝑃𝑖 incurred for any service-time violation. In constraint equation (11) each customer must be visited 
+exactly once, and in constraint equation (12) it must be ensured that the vehicle enters and exits each node in a 
+balanced manner. Then, in constraint equation (13) each vehicle must start and end at the depot. Finally, in 
+constraint equation (14) the total customer demand served by the vehicle must not exceed its capacity. In equation 
+(15) this equation ensures that the service starts within the allowed time frame, allowing for relaxation with the 
+associated penalty. Equation (16) maintains the order of visit times between nodes while allowing for delays with 
+penalties. Equation (17) each vehicle has a daily operational time limit to avoid excessive workload. In equation 
+(18) arrange for each vehicle to follow the maximum route limits determined based on its type, as a form of vehicle 
+variation constraint. Equation (19) if the duration of the vehicle's journey exceeds a certain time limit, the vehicle 
+is required to stop to rest. The last equation, (20) is the constraint on the decision variables. 
+Despite offering a flexible approach to vehicle routing under relaxed time windows, this study has several 
+limitations. First, the model assumes deterministic travel times and demands, which may not fully capture real-
+world uncertainties such as traffic congestion, vehicle breakdowns, or sudden demand fluctuations. Second, the 
+penalty structure is simplified as a linear cost, whereas in practice, penalties may be non-linear or negotiated 
+
+
+--- SAYFA 5 ---
+ 
+Sinkron : Jurnal dan Penelitian Teknik Informatika 
+Volume 9, Number 3, July 2025 
+DOI : https://doi.org/10.33395/sinkron.v9i3.14977 
+e-ISSN : 2541-2019 
+ p-ISSN : 2541-044X 
+ 
+ 
+*name of corresponding author 
+This is anCreative Commons License This work is licensed under a Creative 
+Commons Attribution-NonCommercial 4.0 International License. 
+1839 
+ 
+differently depending on customer contracts. Third, the research relies on a mathematical formulation without 
+computational experiments, so the scalability and efficiency of the model on large instances remain untested. 
+Lastly, factors such as heterogeneous vehicle fleets, driver regulations, and multi-depot configurations were not 
+considered, which restricts the generalizability of the findings. These limitations open opportunities for future 
+research to extend the model toward more dynamic, stochastic, and realistic logistics environments. 
+ 
+CONCLUSION 
+This research discusses the Vehicle Routing Problem with Relaxed Time Windows (VRP-RTW) as a form of 
+development of the classical Vehicle Routing Problem (VRP) that considers time flexibility in the distribution 
+process. This research designs a mathematical model that not only considers the minimum travel cost but also 
+takes into account the penalties arising from violations of customer service time windows. Based on the developed 
+model formulation, it was found that the VRP-RTW approach allows vehicles to arrive earlier or later than the 
+specified time window, provided that any violation of the time windows will incur a penalty. This provides 
+flexibility in the distribution process, as well as increasing the chances of obtaining a feasible and operationally 
+efficient solution. Overall, this research makes a significant contribution to the development of optimization 
+models for modern logistics, particularly in the context of vehicle routing scheduling that is time-flexible yet cost-
+optimal. 
+ 
+REFERENCES 
+Bräysy, O., & Gendreau, M. (2005). Vehicle routing problem with time windows, Part I: Route construction and 
+local search algorithms. Transportation Science, 39(1), 104–118. 
+Chai, S. W., Kamaluddin, M. R., & Rashid, M. F. F. A. (2022). Optimisation of vehicle routing problem with time 
+windows using Harris Hawks optimiser. Journal of Mechanical Engineering and Sciences, 16(3), 9056–
+9065. https://doi.org/10.15282/jmes.16.3.2022.08.0717 
+Dadzie, E. B., & Richard, A. (2025). Evaluating the Role of Logistics in Supply Chain Management. Dama 
+Academic Scholarly Journal of Researchers, 10(1), 112–133. https://doi.org/10.4314/dasjr.v10i1.5 
+Dethloff, J. (2001). Vehicle routing and reverse logistics: The vehicle routing problem with simultaneous delivery 
+and pick-up: Fahrzeugeinsatzplanung und Redistribution: Tourenplanung mit simultaner Auslieferung und 
+Rückholung. OR-Spektrum, 23, 79–96. 
+Golabek, L., Stokłosa, J., Dziwulski, J., & Wyrwisz, J. (2021). Optimization of Logistics and Distribution of the 
+Supply Chain, Taking into Account Transport Costs, Inventory and Customer Demand. European Research 
+Studies Journal, XXIV(Special Issue 1-Part 2), 545–556. https://doi.org/10.35808/ersj/2284 
+Jazemi, R., Alidadiani, E., Ahn, K., & Jang, J. (2023). A Review of Literature on Vehicle Routing Problems of 
+Last-Mile Delivery in Urban Areas. Applied Sciences, 13(24), 13015. https://doi.org/10.3390/app132413015 
+Liu, X., Chen, Y.-L., Por, L. Y., & Ku, C. S. (2023). A Systematic Literature Review of Vehicle Routing Problems 
+with Time Windows. Sustainability, 15(15), 12004. https://doi.org/10.3390/su151512004 
+Mawengkang, H., Syahputra, M. R., Sutarman, S., & Salhi, A. (2024). A Non-Linear Optimization Model for the 
+Multi-Depot Multi-Supplier Vehicle Routing Problem with Relaxed Time Windows. Vehicles, 6(3), 1482–
+1495. https://doi.org/10.3390/vehicles6030070 
+Rakyta, M., Bubenik, P., Binasova, V., Micieta, B., & Staffenova, K. (2022). Advanced Logistics Strategy of a 
+Company to Create Sustainable Development in the Industrial Area. Sustainability, 14(19), 12659. 
+https://doi.org/10.3390/su141912659 
+Ramadhani, E., Mawengkang, H., Sutarman, & Ramli, M. (2019). Mixed Integer Program for Tackling Process 
+Control Demand in The Capacitated Open Vehicle Routing Problems. Journal of Physics: Conference 
+Series, 1255(1), 012089. https://doi.org/10.1088/1742-6596/1255/1/012089 
+Sitompul, C., & Horas, O. M. (2021). A Vehicle Routing Problem with Time Windows Subject to the Constraint 
+of 
+Vehicles 
+and 
+Good’s 
+Dimensions. 
+International 
+Journal 
+of 
+Technology, 
+12(4), 
+865. 
+https://doi.org/10.14716/ijtech.v12i4.4294 
+Toth, P., & Vigo, D. (2002). An Overview of Vehicle Routing Problems. In The Vehicle Routing Problem (pp. 1–
+26). Society for Industrial and Applied Mathematics. https://doi.org/10.1137/1.9780898718515.ch1 
+Voigt, S., Frank, M., Fontaine, P., & Kuhn, H. (2023). The Vehicle Routing Problem with Availability Profiles. 
+Transportation Science, 57(2), 531–551. https://doi.org/10.1287/trsc.2022.1182 
+Watling, D. (2006). User equilibrium traffic network assignment with stochastic travel times and late arrival 
+penalty. 
+European 
+Journal 
+of 
+Operational 
+Research, 
+175(3), 
+1539–1556. 
+https://doi.org/10.1016/j.ejor.2005.02.039 
+ 

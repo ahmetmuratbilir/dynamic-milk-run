@@ -1,0 +1,971 @@
+
+
+--- SAYFA 1 ---
+Production & Manufacturing Research
+An Open Access Journal
+ISSN: 2169-3277 (Online) Journal homepage: www.tandfonline.com/journals/tpmr20
+Optimizing milk-run system and IT-based Kanban
+with artiﬁcial intelligence: an empirical study on
+multi-lines assembly shop ﬂoor
+Menanno Marialuisa, Savino Matteo M. & Shaﬁq Muhammad
+To cite this article: Menanno Marialuisa, Savino Matteo M. & Shaﬁq Muhammad (2023)
+Optimizing milk-run system and IT-based Kanban with artiﬁcial intelligence: an empirical study
+on multi-lines assembly shop ﬂoor, Production & Manufacturing Research, 11:1, 2179123, DOI:
+10.1080/21693277.2023.2179123
+To link to this article:  https://doi.org/10.1080/21693277.2023.2179123
+© 2023 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group.
+Published online: 23 Feb 2023.
+Submit your article to this journal 
+Article views: 3136
+View related articles 
+View Crossmark data
+Citing articles: 5 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tpmr20
+
+
+--- SAYFA 2 ---
+Optimizing milk-run system and IT-based Kanban with 
+artificial intelligence: an empirical study on multi-lines 
+assembly shop floor
+Menanno Marialuisaa, Savino Matteo M.
+a and Shafiq Muhammadb
+aDepartment of Engineering, University of Sannio, Benevento, Italy; bDepartment of Engineering, University 
+of the Punjab – Supply Chain and Project Management Centre, Lahore, Pakistan
+ABSTRACT
+In this research, a dynamic optimization of milk-run system (MRS) 
+managed with an IT-based Kanban (ITK) is performed. The main 
+tasks are to i) explore how artificial intelligence may allow MRS to 
+choose the most efficient path and ii) measure the impact on the 
+main production parameters. The study explores the Kanban sig­
+nals activating an ant colony optimization algorithm that finds the 
+best path from supermarket to the lines. Then, genetic algorithm 
+solves an objective function to find the optimal delivery times 
+according to the paths found. The optimal path is dynamically 
+found for each MRS supply cycle. Within the empirical results, 
+significant improvements for production parameters and overall 
+system performance have been appraised. The lead time and mate­
+rial handling time show a strong decrease to 39% and 48%, respec­
+tively, while work in process decreases of 22% for all assembly lines. 
+Workstation starvation decreased by 43% and machine saturation 
+increased by 37%.
+ARTICLE HISTORY 
+Received 6 November 2022  
+Accepted 6 February 2023 
+KEYWORDS 
+Milk-run system (MRS);  
+IT-based Kanban (ITK); 
+artificial intelligence; multi- 
+lines assembly shop floor
+1. Introduction
+The conventional Kanban card is known to be effective for lines with stable and repetitive 
+demand in shop floor made of one production line (Wan & Chen, 2008). The case of 
+multiple assembly lines may lead to greater complexity in Kanban implementation, thus 
+causing delays, missed cards, etc. (Cutler, 2005b; Osborne, 2002).
+Through IT systems, network Kanban (NK) inherits the benefits of using physical 
+Kanban cards, overriding limitations such as number of lines served, number and types 
+of information contents, real-time tracking and monitoring. The NK presented in this 
+on-field research is implemented in a production system made of multiple mono-product 
+assembly lines fed by a supermarket. It is coupled with a milk-run system (MRS), that 
+previous authors defined as a cyclic transport supplying raw materials and finished 
+products, with a pre-established route and schedule (Droste & Deuse, 2012; Kilic & 
+Durmusoglu, 2013).
+CONTACT Menanno Marialuisa 
+marialuisa.menanno@unisannio.it 
+Piazza Roma 21, 82100 Benevento
+PRODUCTION & MANUFACTURING RESEARCH     
+2023, VOL. 11, NO. 1, 2179123 
+https://doi.org/10.1080/21693277.2023.2179123
+© 2023 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.  
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/ 
+licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly 
+cited.
+
+
+--- SAYFA 3 ---
+The study was conducted with the twofold objective of (1) assessing the impact of 
+MRS on production parameters and (2) optimizing MRS paths and quantities trans­
+ported with artificial intelligence (AI).
+Kanban systems are investigated and discussed in many studies (Chu & Kusiak, 1996; 
+Junior & Filho, 2010; Kundu et al., 2019; S. Gupta et al., 1999; Senapathi & Drury‐ 
+grogan, 2021; Tardif & Maaseidvaag, 2001). Then, the development of information 
+technology has encouraged the replacement of these traditional systems with more 
+efficient systems such as distributed Kanban over networks. The first NK was developed 
+to bring the ‘pull’ concept into a geographically distributed manufacturing environment 
+(Wan & Chen, 2008). Then, Kouti et al (2008) analyzed the differences between tradi­
+tional and electronic Kanban under a theoretical point of view. On the same line, Wan 
+and Chen (2008) exposed the problems relative to the use of traditional Kanban by 
+dividing them into two categories: common errors (lost Kanban, wrong deliveries, 
+limited monitoring capacity and limited support for performance measurement) and 
+system weaknesses. After these first attempts, an implementation of an NK within 
+automotive industry showed an improvement in the supply chain of parts’ suppliers 
+(Jarupathirun et al., 2011; Naik et al., 2013).
+Under production management perspective, Svirčević et al. (2013) designed an NK for 
+assembly lines, while Nakazaka and Tanaka (2016) developed a web-based digital Kanban 
+tool with functions to visualize and limit the work in process (WiP).
+In recent years, many authors have shown that this new technique is spreading 
+throughout the community (Anderson, 2013; Dennehy & Conboy, 2016; Nord et al.,  
+2012; Power & Conboy, 2015), and several studies analysed the differences between the 
+traditional Kanban and NK. Toward this line, Kirovska Koceski (2015) have evaluated 
+the advantages of NK in terms of reduction of work completion time, better flexibility, 
+cooperation/collaboration and similar. More recently, Satoglu et al. (2018) demonstrated 
+that the use of distributed databases and interactive web-based programs can be provided 
+operational functions for NK, which allow real-time monitoring, performance measure­
+ment, dynamic visualization, etc.
+In general, NK systems have been developed on the basis of three main different 
+platforms: (1) existing enterprise resource planning (ERP) systems, (2) electronic data 
+interchange (EDI) connections or (3) web-based technology (Drickhamer, 2005). Due to 
+the distinct development directions undertaken by ERP and JIT systems, conventional 
+ERP systems allowed little support for pull-type material flow.
+For these reasons, some authors (Wan & Chen, 2008) developed an NK using a 
+programming platform where PHP and MySQL are used, while Richard and Knofe 
+(2009) implemented an NK using radio frequency identification (RFID) with PHP and 
+MS Access. On a similar line, Jiang et al. (2010) proposed an RFID-driven conceptual 
+method to track and visualize material flows by using e-Kanbans. An alternative to their 
+work is presented by Qing et al. (2011), who introduced an electronic Kanban system 
+using bar code scanning.
+Based on the extant literature, we may argue that currently there may be a lack of 
+investigations regarding the integration of the NK and MRS problem. The contributions 
+of this study are summarized as follows:
+2
+MENANNO M. ET AL.
+
+
+--- SAYFA 4 ---
+●A real-time search of the best path to the MRS based on the ITK signal using an AI 
+system combining GA and ant colony optimization (ACO) is proposed for the first 
+time.
+●The problem aims to minimize the total supply times and find the best path of the 
+MRS considering the orders arriving from the lines through ITK.
+This will not only help in reducing MRS-related costs by finding the best route dynami­
+cally but also improve production parameters.
+In addition, the outcomes of the proposed model help production planner and 
+managers in reducing wastage and increasing the percentages of value-added activities. 
+The extension of the developed model to multiple products in a set-up of multi-modal or 
+mixed-modal assembly lines will enhance the performance of shop floors.
+The paper starts with an introduction and proceeds with the literature review. The 
+details of the research framework and the proposed hybrid algorithm are presented in 
+Section 2. Section 3 shows a case study of the proposed algorithm, relevant data, results 
+and discussion. The last section presents the conclusions and gives a brief regarding the 
+direction of future research.
+1.1. Kanban and artificial intelligence
+In the last decade, AI techniques have been applied just with the aim to set the number of 
+Kanban in a lean-dynamic production system. Alabas et al. (2002) analyzed some 
+heuristic techniques coupled with an AI model to find the minimum number of 
+Kanban (Lee, 2007) through a two-stage tabu search algorithm and have assessed a 
+flexible number of Kanban, obtaining the 30% in cost reduction as regards without a 
+Kanban control. Then, the number of Kanban cards has been optimized with genetic 
+algorithm (GA) joint with simulated annealing (Shahabudeen & Sivakumar, 2008). 
+Within the same research stream, Guneri et al. (2008) verified the effectiveness of a 
+flexible Kanban system through a case study. This last approach adopted an artificial 
+neural network to confirm the advantage of the flexible Kanban system over the tradi­
+tional one. A new planning method that considers also company’s processes and the 
+relative information flow is presented by (Urru et al., 2018a) to correctly size the buffer at 
+the points of use. Belu et al. (2018) used the machine learning techniques to identify 
+operating regimes of the equipment. These authors analyze the single-channel Kanban 
+solutions where ticketing is automatically performed from the downstream operator to 
+the upstream one. Simić et al. (2019a) created a model for optimizing the MRS path and 
+the travels through particle swarm optimization. Buyukozkan and Satoglu (2020). pro­
+posed an NP-hard mathematical model solved by an Artificial Bee Colony Algorithm and 
+using multiple vehicles.
+1.2. Milk-run system
+In lean manufacturing, MRS is a path-based, cyclic material-handling systems that are 
+used widely to enable frequent and consistent deliveries from a supermarket to the line 
+buffers. Similar to the other external MRS, the vehicle starts from the supermarket to 
+deliver the materials required by the lines. Then, the MRS returns again to the 
+PRODUCTION & MANUFACTURING RESEARCH
+3
+
+
+--- SAYFA 5 ---
+supermarket. An MRS distribution problem aims to determine the paths and relative 
+timings under certain constraints, such as space requirements, number of vehicles and 
+their capacity. This system allows to reduce dock-to-dock cycle times, inventories, 
+transportation and idle times (Akıllıoğlu et al., 2006; Domingo et al., 2007). On this 
+research stream, Kilic et al. (2012) classify the MRS problem into three categories such as 
+general assignment problems, dedicated assignment problems, and assignment problems 
+determined over a period of time. The design problems of an MRS have been discussed 
+by Abele and Brungs (2009), while Alnahal and Ridwan (2014) presented the decision 
+problems typically considered for an MRS. Earlier, Golz et al. (2012) have developed a 
+heuristic approach to find the minimum number of shuttle drivers. This approach has 
+been divided into two phases: first the transport orders derive from the assembly 
+sequence, and then, in the second phase, they are bound by the transport capacity, by 
+the deadlines and by the tour planning. Another heuristic procedure was developed by 
+Satoglu and Sahin (2013) to determine the routes and the service period. According to 
+these authors, the material supply occurs on a just-in-time basis from a supermarket to 
+assembly lines with the objective to minimize the material-handling times (MHT) and 
+inventory holding costs. The work by Kilic and Durmusoglu (2013) makes some steps 
+forwards by making a compromise between WiP costs and transportation costs. Their 
+goal is to develop a specific mathematical model for the MRS with predefined routes to 
+minimize WiP and transport costs. In their research, they demonstrate that transporta­
+tion cost increases with the increasing of travels, but WiP decreases. Recently, Bocewicz 
+et al. (2020) consider minimizing transportation and inventory costs by manipulating 
+fleet size and the capacity of vehicles and storage areas. Under the perspective of 
+optimization parameters, (Minh et al. (2020) explain three concepts to optimize the 
+production system, including flexible logistics, minimization of lead time and minimiza­
+tion of environmental impacts. It is proven that the shorter the lead time, the smaller the 
+order volume and the greater is the production responsiveness.
+Simić et al. (2019b, 2019c) suggest that the MRS is one of the most efficient and 
+popular models used to improve logistics operations in any serial production environ­
+ment and is necessary for reducing inventory, costs and improving productivity. On the 
+same line, Ranjbaran et al. (2020) propose a mathematical model and a heuristic algo­
+rithm in two versions to minimize lead times and total transport costs. An analysis of 
+production performance and stability management decisions by considering different 
+types of disturbances that occur within the production environment, including assembly 
+line production rate, operator utilization of milk production, shortage of workstations 
+and work in progress is presented in Korytkowski &and Karkoszka (2016).
+Ciemnoczolowski and Bozer (2013) evaluated the train capacity, the cycle time on the 
+lack of workstations and the effects of the number of Kanbans by determining the 
+number of Kanbans.
+Chee et al. (2012) simulate a Kanban model to test average flow time, various 
+performance, including total output, average work in progress, and average wait time. 
+Considering the different performance measures, the simulation results showed that 
+workers have lower utilization, even with the additional material handling activity.
+4
+MENANNO M. ET AL.
+
+
+--- SAYFA 6 ---
+According to the above findings, we may argue that the MRS problem may be solved 
+with the classical vehicle routing problem (VRP) with pickup and/or delivery requests. 
+There are a number of studies VRP for inbound and outbound logistics, but few 
+applications have been made in specific production environments investigating how 
+the MRS path and supplying time may impact on specific production parameters. 
+Vaidyanathan et al. (1999) state that this problem is different from the VRP one by 
+having some distinctive properties such as the amounts required by the demand points 
+are the functions of the vehicle feeding them, and the same finding is confirmed by Kilic 
+and Durmusoglu (2013). Some early approaches (Alexandre & Teodor, 2005; Domingo et 
+al., 2007) propose cooperative parallel meta-heuristics for the VRP with time windows, 
+while others (Reimann et al., 2004; Jeon et al., 2007) use ant colony to find a near-optimal 
+solution. Recently, Zhou and Zhu (2020) investigated the problems of scheduling and 
+loading MRS for mixed model assembly lines (MMAL), formulating a milk delivery 
+model for reducing on-line inventory by specifying timetables, quantity of parts and lines 
+destination. Rubaiee &and Yildirim (2019) and Fathi et al. (2014) developed a multi- 
+objective ant colony algorithm to minimize the total time and energy cost of pre- 
+scheduling by considering a single car and the number of travel and inventory on 
+board the line. These parameters were also considered by Fathi et al. (2015) who explored 
+a modified particle swarm optimization algorithm. The approach based on the colony of 
+artificial bees was addressed to investigate the internal logistics problem of Just in time 
+for automotive assembly lines (Peng & Zhou, 2018).
+2. Research framework
+This study is intended to unfold some potential benefits that an optimized MRS can bring 
+to an NK system by using AI. According to the previous finding, we may argue that the 
+main role of an MRS consists in supplying raw materials to the lines with a concurrent 
+collecting of finished products, carrying them to warehouse areas. Within MRS, the 
+collecting of empty containers is also provided.
+Some previous findings (Golz et al., 2012; Satoglu & Sahin, 2013) showed that the 
+decision problems typically considered for an MRS have been oriented mainly to 
+heuristic approach to find (1) the minimum number of shuttle drivers, (ii) the shorter 
+paths, and (3) the minimum number of paths, and Alnahal & and, (2014) investigated the 
+concurrent routing, scheduling and loading problems in the MRS to decrease the number 
+of trains, the variability in loading, paths’ lengths, and inventory holding costs. Based on 
+the literature review, a limited number of papers have been published regarding the 
+impact of the an NK system joint with MRS on production parameters (Korytkowski & 
+Karkoszka, 2016). Hence, the research methodology of Figure 1 is intended to front (1) 
+how we may use AI to optimize MRS paths and quantities transported and (ii) how this 
+optimization may impact production parameters.
+Domingo et al. (2007) highlight that the use of the MRS provides reduction in work in 
+process and lead time through the routing flexibility of the MRS, while according to 
+Hiregoudar and Reddy (2007), Material Handling Time is one of the most important 
+issues that should be considered to eliminate waste and to reduce costs. Thus, also 
+according to the other finding of the extant literature, we have been considered the 
+following production parameters:
+PRODUCTION & MANUFACTURING RESEARCH
+5
+
+
+--- SAYFA 7 ---
+●Lead time (LT)
+●Material handling time (MHT)
+●Work in process (WiP)
+●Workstation starvation (WS).
+●Machine saturation (MS).
+The second part of the research attempts to deep how AI can be used to manage the MRS 
+problem. MRS is a dynamic logistic system (Alexandre & Teodor, 2005; Domingo et al.,  
+2007) whose optimization has been mainly fronted by heuristics (Anderson, 2013; 
+Dennehy & Conboy, 2016; Nord et al., 2012; Power & Conboy, 2015).
+In conducting this portion of the research, we were inspired from the work of Kilic 
+and Durmusoglu (2013) whose mathematical model for the MRS is aimed to minimize 
+WiP and transportation costs, but considering predefined paths.
+In contrast, we attempt to explore the possible paths for the lines that must be 
+supplied, finding the shortest path minimizing path times and quantities transported.
+For this purpose, the study explores the optimization of these paths according to the 
+materials required through a hybrid intelligent system (HIS).
+The first part (P1) of the research framework focuses on identifying the basic data of 
+the processes, including the detection of picking and delivery time and quantities 
+transported. In conducting this portion of the research, our model is inspired by the 
+approaches by Kluska and Pawlewski (2018) and Korytkowski Karkoszka (2016). These 
+Figure 1. Research framework.
+6
+MENANNO M. ET AL.
+
+
+--- SAYFA 8 ---
+authors categorize and explain the problem of MRS, examining the efficiency, interac­
+tions and the impact on assembly lines.
+The second part (P2) regards the design of the HIS, starting from the Vehicle Routing 
+Problem with Pickup and Delivery (VRPPD). This portion of the study aims to evolve the 
+classic VRPPD approach with AI techniques by exploring an approach combining ACO 
+and GA. The main goals are to find (1) the set of paths that supply the lines with the 
+minimum total distance and (2) the minimum delivering time. GA is inspired from the 
+principle of natural selection and biological evolution theorized by Darwin. It attempts to 
+find the optimum for some complex problems by the evolutions of defined ‘chromo­
+somes’. However, ACO (Dorigo & Gambardella, 1997) is inspired to the foraging process 
+of ants, who release pheromones for other ants when food is encountered within a certain 
+path to allow them to make decisions. The more pheromones are accumulated during a 
+path, the more possibilities there will be that other ants will follow this path. Therefore, 
+pheromone trail on such a path will help to attract more ants to follow (Tsai et al., 2010). 
+Hence, ACO may be used to find the optimal solution through exchanges of information 
+between individuals and mutual cooperation.
+The third part (P3) has been inspired by the work by Savino et al. (2015) who 
+introduced the decoupled withdrawal Kanban system. Within the case study, this 
+model is evolved using the ITK joint with an MRS to counteract the problems concerning 
+the Kanban cards in multiple assembly lines.
+2.1. The shop floor
+The system has been applied to a shop floor served by a supermarket with 11 mono- 
+product assembly lines (Figure 2) of water and oil pumps for automotive engines. Figure 2 
+shows the layout of the shop floor along with its supermarket and a buffer of line #4.
+Each assembly line is organized with a double withdrawal/production order Kanban 
+(Figure 3a), according to the following procedure: 
+1. The line operator (LO) inserts the withdrawal Kanban into the Kanban rack 
+(Figure 3b).
+2. The supermarket operator (SO) runs a complete path of the lines to collect all the 
+withdrawal Kanban.
+3. The SO returns to the supermarket and collects the material.
+4. The SO follows a random path to deliver required material to the lines reported into 
+the Kanban cards. At this phase, he inserts the delivery Kanban into the delivery 
+rack. 
+The large number of Kanban cards travelling along the shop floor caused often errors, 
+Kanban cards losing and saturation of the SO in not-valued added activities. Hence, the 
+first step of this portion of the study consisted in the development of an NK able to 
+overcome the previous limitations. Towards this task, we were inspired by the NK 
+developed by Urru et al. (2018b) and Naik et al. (2013). In this study, instead of the 
+barcode scanning Kanban of the previous authors, we used an IT-based Kanban (ITK) 
+consisting in a signal sent from a computer on each line through a wireless network that 
+connects the assembly lines with the supermarket. The signal with the information is read 
+PRODUCTION & MANUFACTURING RESEARCH
+7
+
+
+--- SAYFA 9 ---
+by the SA on his pad, from which the confirmation of the material sending is sent to the 
+lines. The system (Figure 4) works according to the following steps:
+(1) LO sends the material request to the supermarket through the network. The 
+request is shown in real time on a mobile device;
+(2) SO accepts the request and prepare the material to be sent;
+(3) The MRS begins the path according to the lines that require the material and make 
+the delivery;
+(4) When the material is delivered to the line, at the same time, the empty boxes of the 
+previous supply are picked from that line;
+(5) LO upload the delivered material to the network
+(6) The MRS returns to the supermarket.
+Figure 2. Layout of the shop floor.
+8
+MENANNO M. ET AL.
+
+
+--- SAYFA 10 ---
+As a first comparison with the traditional Kanban system, with the ITK, the SO does 
+not perform the first path to collect the tags because the requests of the materials are 
+shown in real time on his mobile device.
+Figure 3. (a) Kanban cards. (b) Kanban rack.
+Figure 4. ITK workflow.
+PRODUCTION & MANUFACTURING RESEARCH
+9
+
+
+--- SAYFA 11 ---
+Figure 5. HIS algorithm.
+10
+MENANNO M. ET AL.
+
+
+--- SAYFA 12 ---
+2.2. Hybrid intelligent system
+Previous authors fronted the problem of MRS optimization by considering predefined 
+paths (Catay, 2010) (Kilic & Durmusoglu, 2013), with no possibility of dynamic decisions 
+as regards other parameters, like the lines to serve, the quantities to transport, the 
+distance between the lines and the relative path times, just to cite a few.
+Thus, we explored how to join the dynamical behaviours of ITK and AI for a real-time 
+searching of the best path for the MRS according to the ITK signal. For these purposes, 
+we implemented an AI system that combines the advantages of GA, featured by self- 
+organization, self-adaption and good global search ability, with the ones of ACO, that has 
+the merit of parallel computation, self-learning and effective information feedback (Luan 
+et.al, 2019). The hybrid intelligent system (HIS) designed for this research uses GA to test 
+an objective function that minimizes the total supply times, while ACO is used to find the 
+best path of the MRS as regards the orders sent by the lines through the ITK.
+According to Luan et al. (2019),GA is presented through self-organisation, self- 
+adaptation and good global research capability. However, it does not have a good feed­
+back mechanism and, as a result, many redundant iterations can be generated, leading to 
+low efficiency. By the way, we preferred GA to particle swarm optimization (PSO) due to 
+the potential higher computational times that PSO may have as regards the communica­
+tion between the particles after each generation (Panda & Padhy, 2008). In addition, GA 
+is able to simulate evolution and some individuals are eliminated from generation to 
+generation (Kao & Zahara, 2008). Recently (Iswari & Asih, 2017), use GA and Particle 
+Swarm Optimization to solve Vehicle Routing Problem (VRP) and compare the results of 
+the algorithms to evaluate performance. From the numerical example and tests provided 
+by the algorithm, it can be determined that the GA provides a better solution than 
+Particle Swarm Optimization in total distance traveled. The above findings made GA 
+more suitable for the purpose of our research.
+The HIS is made in two sections (Figure 4). Each time there is an ITK signal with the 
+line to supply and the relative quantities, the ACO section is activated in real time to find 
+the shortest path. The path is updated each time there is an ITK signal that update the 
+quantities for a certain line or it adds a line to serve with the relative quantities. The 
+algorithm stops when the capacity of the MRS is saturated. When the capacity criterion is 
+satisfied, the total MRS time cycle for the lines and the relative path is provided.
+The ACO developed extends the work of (Catay, 2010) in which the total distance 
+travelled by the MRS is optimized for delivery and collection by visiting all the lines. In 
+contrast the ACO developed in this study uses the ITK signal as an input indicating just 
+the line(s) to visit. An ant is introduced as an agent moving from line to line on a graph. 
+This line is chosen through a probabilistic function both of trail accumulated on edges 
+and of a heuristic value, in this study a function of the length was chosen. Ants 
+probabilistically select those paths connected by edges with the nearby pheromone trails. 
+Initially, the ants are placed on randomly selected lines. At each step, they move to a new 
+place and modify the pheromone trail on the edges used. When all the ants have 
+completed a path, the ant that made the shortest path modifies the relative edges by 
+adding a number of pheromone trails inversely proportional to the path length.
+PRODUCTION & MANUFACTURING RESEARCH
+11
+
+
+--- SAYFA 13 ---
+The total cycle time of the MRS is a function of the path to follow and of its relative 
+time, Since the speed of MRS is constant and set at 12 Km/h, the path time is determined 
+only by the minimum travel function for the lines to supply.
+The shortest path found by ACO is provided to GA, that solves the fitness function of 
+the times. At this point the chromosomes are selected from the solution pool and the 
+result of this step is a set of parent chromosomes for the next generation. All chromo­
+somes can be chosen as the selection process is arbitrary, but stronger chromosomes will 
+have higher probability to be selected. Then, two parent chromosomes are run through a 
+crossover and mutation operator to produce one or more children. This ensures that the 
+whole domain of existence is explored. This sequence is iterated until the stop criterion is 
+satisfied. When the GA process ends, the sum of the optimized times is updated (see 
+Figure 5).
+The objective function solved by the GA has been designed to minimize the total path 
+time for a number of k paths of a working shift.
+The following data of the shop floor have been considered in designing the objective 
+function
+●MRS capacity
+●Picking time at the supermarket
+●Time of the MRS to deliver the materials
+●Line buffer capacity
+●Workshift time
+●Max MRS waiting time at lines
+With the above data, the function of the total supplying time for the MRS has been 
+written as follows (1)
+ttot ¼ tpath þ Qstin þ Pn
+i¼2 Qiti;out þ Pn
+i¼2 ti;wait 
+"k 2 K 
+(1)
+where,
+Qi 
+Quantities allocated in i;
+Qs 
+Quantities picked at supermarket;
+i 
+Assembly Line (i ¼ 1; 2; 3 . . . :n);
+j 
+Next assembly line, iÞj
+ð
+Þ
+k 
+Path, intended as the sequence of the lines visited for each tra­
+vel (k ¼ 1; 2; 3 . . . :K);
+dij 
+Distance between assembly i and j
+v 
+MRS speed;
+V 
+Maximum MRS capacity;
+tin 
+Picking time (per unit) at the supermarket;
+ti;out 
+i Delivery time;
+ti;wait 
+Time of the MRS to deliver material at i
+xijk Q
+ð Þ
+1 if iis visited immediately before j during k, 0 otherwise;
+Vi;tot;buffer i Buffer capacity i;
+Twsa 
+Workshift Time;
+tpath 
+Path time;
+12
+MENANNO M. ET AL.
+
+
+--- SAYFA 14 ---
+tmax;wait 
+Maximum MRS waiting time at i. 
+The (1) is constrained as follows 
+Xn
+k¼2 Qs  V
+(1) 
+Xn
+k¼2 Qi ¼
+Xn
+k¼2 Qs
+(2) 
+X
+n
+i¼1
+Qi;buffer  Vi;tot;buffer
+(3) 
+Xn
+k¼1 ttot  Tworkshift
+(4) 
+Xn
+i ¼ 1
+iÞj
+XK
+k¼1 xijk ¼ 1; j ¼ 2; 3 . . . n
+ð
+Þ
+(5) 
+Xn
+j¼2 x1jk  1; k ¼ 1; 2; 3 . . . K
+ð
+Þ
+(6) 
+Xn
+i¼2 xi1k  1; k ¼ 1; 2; 3 . . . K
+ð
+Þ
+(7) 
+Xn
+i ¼ 1
+iÞj
+xijk   xjik
+ 
+¼ 0 j ¼ 1; 2; 3 . . . n
+ð
+Þ
+"k 2 K
+(8) 
+Xn
+i¼2 xijk ti;wait < tmax;wait
+"k 2 K
+(9) 
+Xn
+i¼2 Vi;tot;buffer ¼ V
+"k 2 K
+(10) 
+Constraints (2) and (3) ensure that the quantity delivered does not exceed the MRS 
+carrying capacity. It may be at least equal to a minimum capacity. It (3) ensures that the 
+MRS does not make any semi-void path. Constraint (4) concerns the capacity of the line 
+buffer.
+Equation (5) ensures that the sum of the cycle time in K paths does not exceed the 
+working shift time
+Equation (6) ensures that only one vehicle should reach and leave i and j.
+Equations (7) and (8) indicate the minimum request of the lines for the MRS to start 
+the path, while Equation 11 stipulates that the target delivery time period is not less than 
+service time period. Constraint (10) is relative to the maximum time that the MRS must 
+wait on i. Equation (11) guarantees that the maximum quantity transported does not 
+exceed the capacity of the buffer.
+Thus, the objective function solved by the GA minimizes the total time, as follows: 
+PRODUCTION & MANUFACTURING RESEARCH
+13
+
+
+--- SAYFA 15 ---
+min ttot ¼
+Xn
+i¼1
+Xn
+j ¼ 1
+jÞi
+xijk dij
+v
+þ Qstin þ
+Xn
+i¼2 Qiti;out þ
+Xn
+i¼2 xijkti;wait
+"k 2 K
+(11) 
+the (13) is constrained to (2)-(11).
+Being MRS a typical NP-hard problem, we avoided to use an exact algorithm to obtain 
+the global optimal solution (Chen et al., 2006) because the computing time may increase 
+exponentially with the size of the problem.
+3. Data processing and results
+The MRS has been installed in a plant producing water and oil pumps for automotive. 
+The applicability of the HIS has been tested through an experimental campaign con­
+ducted by varying Qmin within the range of 35–55 units, which are the (1) technical limit 
+to avoid high quantities of requests from the assembly lines and (2) the maximum buffer 
+capacity, respectively. For this portion of the study, the binary Line-Path incidence 
+matrix (Mij) has been purposely conceived. In this matrix, the columns J [j = 1 . . . m] 
+are the line’s id, while the rows i [i = 1 . . . n] are the paths of the MRS. An example of 
+Line-Path incidence matrix is given in Table 1, where the entry aij of Mij is equal to 1 if the 
+MRS visit the line j during the path i, 0 otherwise.
+Table 2 shows the Mij relative to the case Qmin = 35.
+Figure 6 shows two examples of paths #4 and #14 corresponding to Qmin = 35 units, 
+along with the picking workstation of Line 4. The lines that require material are 1-3-4-7- 
+8-11 for the # 4 and 1-3-5-6-7-10 considering the # 14.
+Figure 7 shows the delivery times of the MRS within the range [Qmin = 35–55], in 
+which we may see the variation of the path times and the number of paths according to 
+those values.
+The optimal path is found considering (1) the minimum distance between the lines to 
+supply, (2) the minimum quantities required and (3) the total time. The results of 
+Equation (13) are shown in Tables 5, 6, 7, 8, and 9, where Qtot is the total quantity to 
+supply all the lines.
+4. Discussion
+Figures 8–9 provide LT and MHT for each value of Qmin. The blue bars of the histograms 
+regard the data of six-month production of the second part of 2019, while the red ones 
+regards the data of the first six months of 2020, when the ITK and MRS were imple­
+mented. We may see that the most significant improvements for LT and MHT are higher 
+for those components with high volumes. This result may be due to the matter of fact that 
+the introduction of the HIS reduces the supply time, allowing (1) to minimize the 
+Table 1. Line-Path Incidence matrix.
+#PATH
+LINE 1
+LINE 2
+LINE 3
+LINE m
+# 1
+a11
+a12
+a13
+a1m
+# 2
+a21
+a22
+a23
+a2m
+# 3
+a31
+a32
+a32
+a3m
+# n
+an1
+an2
+an3
+anm
+14
+MENANNO M. ET AL.
+
+
+--- SAYFA 16 ---
+Table 2. Case # 1 – Q = 35.
+#PATH
+LINE 
+1
+LINE 
+2
+LINE 
+3
+LINE 
+4
+LINE 
+5
+LINE 
+6
+LINE 
+7
+LINE 
+8
+LINE 
+9
+LINE 
+10
+LINE 
+11
+# 1
+1
+1
+1
+0
+0
+1
+0
+0
+0
+1
+1
+# 2
+1
+1
+1
+0
+0
+0
+1
+1
+0
+1
+0
+# 3
+1
+0
+1
+0
+0
+1
+1
+0
+0
+1
+1
+# 4
+1
+0
+1
+1
+0
+0
+1
+1
+0
+0
+1
+# 5
+1
+0
+1
+0
+1
+1
+1
+0
+0
+1
+0
+# 6
+1
+0
+0
+0
+0
+1
+0
+1
+1
+1
+1
+# 7
+1
+1
+1
+0
+0
+1
+0
+0
+0
+1
+1
+# 8
+0
+0
+1
+0
+0
+1
+1
+0
+0
+1
+1
+# 9
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+1
+# 10
+0
+0
+1
+0
+1
+1
+1
+0
+0
+1
+0
+# 11
+1
+0
+0
+0
+0
+1
+0
+1
+1
+1
+1
+# 12
+0
+1
+1
+0
+0
+1
+0
+0
+0
+1
+1
+# 13
+1
+1
+1
+0
+0
+0
+1
+1
+0
+1
+0
+# 14
+1
+0
+1
+0
+0
+1
+1
+0
+0
+1
+1
+# 15
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+1
+# 16
+1
+0
+1
+0
+1
+1
+1
+0
+0
+1
+0
+# 17
+1
+0
+0
+0
+0
+1
+0
+1
+1
+1
+1
+# 18
+0
+0
+0
+0
+0
+1
+0
+1
+1
+1
+1
+Figure 6. Paths #4; #14.
+PRODUCTION & MANUFACTURING RESEARCH
+15
+
+
+--- SAYFA 17 ---
+quantities transported and (2) making always available the right quantities in the buffer 
+on each assembly line.
+The WiP has been appraised through the approach by Savino et al. (2015) as follows: 
+WiPi = 1
+Δ 
+½yiMAXþ yiMAX  Ci
+ð
+ÞΔ
+2 
+= 2yiMAX  Ci
+2
+where:
+yiMAX - quantity supplied for i component
+Ci - i level during time Δ.
+As per Figure 10, the WiP shows a slight decrease of 22% on average for the whole 
+assembly lines. This decrease occurs again particularly for high volume components.
+The results of Figures 9–10 extend the findings achieved by Savino et al. (2015) and 
+Korytkowski and Karkoszka (2016) in which they found that the traditional Kanban card 
+and the small quantities supplied may cause an increase of (1) MHT and (2) saturation of 
+the SO. In contrast, in this study the implementation of the ITK joint with the MRS 
+results in the reduction of average MHT by 48%, considering the average values of Qmin. 
+As a side beneficial effect of the ITK joint with the MRS, we may remark that the SO 
+eliminates the first path in which it was expected to withdrawal the Kanban cards. Thus, 
+by working according to the actual demand, the SO is not involved in operations that 
+previously engaged him for 36 minutes/shift, thus resulting in a decrease of saturation for 
+this worker.
+WS is based on the work oby Korytkowski and Karkoszka (2016) who consider the 
+time in which the components are not available on the workstations and the total 
+working time. In this case (Figure 11), we may note that there is a reduction of WS of 
+about 43%, that can be considered as consequence stabilization of the quantity of 
+materials supplied by the MRS, ensuring at the same time that there are always compo­
+nents available on the line.
+Figure 7. MRS paths.
+16
+MENANNO M. ET AL.
+
+
+--- SAYFA 18 ---
+In addition, MS increased by 37% (Figure 12), thus resulting in LO desaturation, while 
+the WiP has no significant variations.
+Table 3 shows the actual average demand (Di, demand) for each assembly line, and 
+Table 4 shows the results of the MRS paths optimization obtained by the HIS and 
+according to the Di,demand. In the same Table 4 ,we may see the correlation between 
+the values of Qmin and path’s times. The results relative to the other Qmin values are 
+reported in Tables 5, 6 , 7 , 8 and 9, in which the total quantity Qtot for each path is also 
+Figure 8. LT values.
+PRODUCTION & MANUFACTURING RESEARCH
+17
+
+
+--- SAYFA 19 ---
+highlighted. Through these Tables 3–4, we may see that the optimal quantity to accom­
+plish the demand in the shortest time is in the range of [45–55] units and the optimal 
+value for the MRS capacity results for Qmin = 45 units.
+This portion of the research allowed to appraise how ITK joint with MRS may 
+improve mainly MHT, LT, and WS, thus increasing the saturation of the machine and 
+decreasing the saturation of the workers. Furthermore, the evolution of the VRPPD with 
+Figure 9. MHT values.
+18
+MENANNO M. ET AL.
+
+
+--- SAYFA 20 ---
+AI techniques resulted in the concurrent minimization of both the total supply times and 
+of the MRS path. This was mainly due to the matter that the HIS allowed to supply just 
+the lines that require components, allowing the MRS to travel with distances always 
+minimized. The application of HIS and ITK in MRS improves production performance 
+for a mono product multiple assembly lines shop floor. The application of the same tools 
+in mix and multi modals assembly line shop floors will help production planners and 
+managers in improving performance related to minimization of wastes and non-value 
+Figure 10. WiP values.
+PRODUCTION & MANUFACTURING RESEARCH
+19

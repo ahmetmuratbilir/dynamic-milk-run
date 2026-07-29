@@ -1,0 +1,707 @@
+
+
+--- SAYFA 1 ---
+IFAC PapersOnLine 55-10 (2022) 1122–1127
+ScienceDirect
+Available online at www.sciencedirect.com
+2405-8963 Copyright © 2022 The Authors. This is an open access article under the CC BY-NC-ND license.
+Peer review under responsibility of International Federation of Automatic Control.
+10.1016/j.ifacol.2022.09.540
+Copyright © 2022 The Authors. This is an open access article under the CC BY-NC-ND license 
+(https://creativecommons.org/licenses/by-nc-nd/4.0/)
+1. INTRODUCTION 
+The latest stage in today’s industrial revolutions, so-called 
+Industry 4.0, continues to bring significant change in 
+manufacturing, consumption, and supply processes from an 
+economic and environmental perspective (S. Digiesi, Mossa, 
+& Rubino, 2015). The new approach consists of machines and 
+production systems that do not require manpower and operate 
+independently of people (Erboz, 2020). The potential of new 
+devices ensures a real-time reaction to changes and quality 
+response in satisfying the customer needs of manufacturing 
+companies (Azizi et al., 2015). Consistently with the new 
+approach, the ‘smart factory’ should be enhanced by 
+implementing new additional features providing a flexible and 
+adaptive production process. Therefore, to make a factory 
+‘smart’, it is needed to implement new data management, share 
+and monitor all process information, and minimize 
+unnecessary labour and waste of resources (Radziwon, 
+Bilberg, Bogers, & Madsen, 2014). 
+In this context, the material handling system (MHS) plays a 
+crucial role in increasing the effectiveness and efficiency of 
+the manufacturing process (Mathew & Sahu, 2018). 
+According to Zhang, Lv, & Zhang (2018), material handling 
+costs accounted for 20–50% of total manufacturing costs. 
+Therefore, developing effective and efficient handling 
+strategies has received considerable attention over the last few 
+years. This has led to rapid development in MHS design, 
+allowing to scale the production and increase the developed 
+systems' accuracy and adaptability. A ‘smart’ MHS is 
+developed to improve the communication between units in the 
+system to create more adaptable control of assembly flow and 
+system performance (Azizi et al., 2015). There are many 
+approaches to operate in-plant logistics systems (Salvatore 
+Digiesi, Mascolo, Mossa, & Mummolo, 2016). One of 
+increasing interest, especially for lean production systems with 
+small lot sizes, is referred to as a milk-run method 
+(Greenwood, Kluska, & Pawlewski, 2017). It allows for 
+increasing the frequency of materials delivered, ensuring the 
+supply of working stations, and minimizing the materials 
+stocked. Based on the milk-run approach, the tugger trains 
+have become a popular means of supply in material handling 
+intensive production systems (G. Bocewicz, Nielsen, & 
+Banaszak, 2019). Generally, they are adopted in supermarkets 
+to interlink multiple delivery locations by adopting a transport 
+route designed according to the milk-run method (Grzegorz 
+Bocewicz, Bozejko, Wójcik, & Banaszak, 2019). Tugger 
+trains are loaded and unloaded multiple times along a route 
+that connects several working stations into a supply loop. This 
+setup ensures the delivery of a variable quantity of materials to 
+a given set of working stations. 
+On the one hand, the milk-run method ensures an efficiency 
+gain in terms of higher transport capacity and reduced labour 
+costs. On the other hand, the method requires a complex design 
+due to complicated planning and a high number of variables to 
+be considered. Nevertheless, the operational benefits provided 
+by the milk-run method are unquestionable, especially in the 
+automotive sector, where many different materials are 
+required, and the area for the material provision (very close to 
+the assembly line) is limited. Consistently with the lean 
+manufacturing perspective, the milk-run approach reduces the 
+cost due to waste from inventory, delivering the material in 
+Keywords: Industry 4.0, Smart manufacturing systems, material handling systems, in-plant milk run, 
+milk-run routing, vehicle routing problem, time window constraints. 
+Abstract: The fourth industrial transformation can create value for companies. It can bring significant 
+improvements: those who want to be competitive in the market must implement new methods and tools to 
+make plants efficient and productive. Industry 4.0 introduces new paradigms promoting the adoption of 
+innovative technologies. In this context, the material handling system plays a crucial role in increasing the 
+effectiveness and efficiency of the manufacturing systems. This paper proposes a model based on the 
+Vehicle Routing Problem with Time Windows. The model aims to plan a dynamic routing strategy for 
+milk-run to deliver the materials to different working stations, ensuring a materials’ distribution consistent 
+with the time slot and minimizing the tugger trains path. A real industrial full case of a worldwide 
+automotive company validates the model. The results of the study show benefits under economic (cost 
+saving of 18%), environmental (allowed to reduce the distance travelled by tugger trains by around 23% 
+for each work shift) and social (organizational development) perspectives. 
+* Department of Mechanics, Mathematics and Management,  Polytechnic University of Bari, , Bari, Italy 
+(Tel: 0039-080-5963621; e-mail: francesco.facchini@poliba.it, giorgio.mossa@poliba.it)  
+**Fincons Group SPA, Bari, Italy 
+(e-mail: simona.detullio@finconsgroup.com) 
+Francesco Facchini*. Giorgio Mossa*. Simona De Tullio** 
+A Milk-run routing and Scheduling model for a Smart Manufacturing 
+System  
+
+
+--- SAYFA 2 ---
+	
+Francesco Facchini  et al. / IFAC PapersOnLine 55-10 (2022) 1122–1127	
+1123
+time and minimizing, at the same time, the waste in processing, 
+avoiding the working stations’ starvation (Alnahhal, Ridwan, 
+& Noche, 2014). Therefore, the milk-run routing and 
+scheduling problem consists of planning in what time windows 
+a batch of specific materials shall be delivered to specific 
+working stations (Grzegorz Bocewicz et al., 2021).  
+In the general case, the research to identify the optimal 
+distribution policy evaluating a set of routes ensuring the 
+delivery in a specific time slot can belong to the class of 
+Vehicle Routing Problem (VRP). New challenges in particular 
+concern the development of models allowing to solve the milk-
+run-driven delivery problems under specific constraints are 
+under investigation. In practice, these kinds of assumptions on 
+a shop floor include a stochastic demand of materials over time 
+to be managed through a dynamic plan of routing (developed 
+online) to minimize various objectives such as cost, distance, 
+or time, adopting I4.0 digital tools. 
+Therefore, the paper contributes to the practice and 
+methodology by providing a model based on the Vehicle 
+Routing Problem with Time Windows (VRPTW). The model 
+aims to plan a dynamic routing strategy for milk-run to deliver 
+the materials to different working stations, ensuring a 
+materials’ distribution consistent with the time slot and 
+minimizing the tugger trains path. It was assumed that the 
+vehicles are dynamically dispatched from the depot to working 
+stations when the materials’ orders are processed.  The main 
+contributions of this paper can be summarized as follows: the 
+materials will be moved along variable routes at changeable 
+time intervals (i); the effectiveness of the model is tested on a 
+real full case study of an automotive company (ii); the model 
+is implemented in a smart factory adopting I4.0 technologies 
+(iii). 
+The remainder of this paper is organized as follows. Section 2 
+is about the literature review of using in-plant milk run and 
+previous studies about VRPTW. The model is described and 
+tested in an automotive company, in sections 3 and 4, 
+respectively. Finally, section 5 highlights the conclusions, 
+contributions of the work, limitations, and future research 
+suggestions.    
+2. LITERATURE REVIEW 
+The literature discusses two categories of milk-run systems: 
+the external and the internal (in-plant) milk-run logistic 
+system. The first category (also so-called downstream milk 
+runs) includes the transport of parts from the manufacturing 
+plant to its customers or vice versa. The second one (also so-
+called upstream milk runs) manages the inbound delivery 
+network 
+to 
+the 
+manufacturing 
+plant 
+(Kodippili 
+& 
+Samarasekera, 2019). Most studies addressing outbound milk-
+run systems focus on the routings and schedules of the vehicle 
+fleet used. Generally, they adopt mathematical models based 
+on heuristic approaches using different metaheuristics, such as 
+hybrid ant colony optimization and Tabu search (Grzegorz 
+Bocewicz, Nielsen, Jasiulewicz-Kaczmarek, & Banaszak, 
+2020). Similar approaches identified to the milk-run systems 
+outside the plant are adopted in the milk-run systems inside the 
+plant. In this case, the milk-run distribution problem identifies 
+the routes and time periods of routes under the constraints such 
+as space requirements, number of vehicles, the capacity of 
+vehicles, etc. According to Kilic, Durmusoglu, & Baskak 
+(2012), route and time are two critical factors for the in-plant 
+milk-run problem categorization. Consistent with these 
+factors, three classes of the problem can be identified: 
+• 
+Generalized assignment problem: routes and time 
+periods are not known. 
+• 
+Dedicated assignment problem: the routes are known; 
+the problem consists of identifying the time periods.  
+• 
+Determined time periods assignment problem: time 
+periods are known, but the routes are unknown. 
+The VRP is the most common approach adopted to identify, 
+for each category, the set of routes compatible with the layout 
+of the manufacturing plant and the product flow. Different 
+constraints lead to a variety of task-specific problems 
+depending on the specific characteristics of the problem. In 
+this regard, Grzegorz Bocewicz et al. (2021) identify two 
+clusters of the problems defined as “relatively simple”, 
+including Mix Fleet VRP, Multi-depot VRP, Split-up Delivery 
+VRP, Pick-up and Delivery VRP, or VRP with Backhauls. The 
+second cluster, identified as “complex problems”, includes 
+VRP with multi-trip multi-traffic pick-up and delivery with 
+time windows and synchronization, which is a combination of 
+variants of the VRP with multiple trips, VRP with a time 
+window, and VRP with pick-up delivery. Due to the 
+continuing developments of the I4.0 technologies, vehicle 
+routing and scheduling problems have received special 
+research attention in the last years (Adriano, Montez, Novaes, 
+& Wangham, 2020). Most of the research included in the first 
+cluster is devoted to the analysis of methods of organizing 
+transport processes in ways that minimize the size of the fleet, 
+the distance travelled, or the space occupied by a distribution 
+system. A mixed-integer linear programming model was 
+developed to minimize the fluctuations in the number of milk-
+run vehicles between workdays and production facilities. The 
+model achieved the target of the study by identifying the 
+minimal routes, increasing the loading rate of the milk-run 
+vehicles, and avoiding the coincidence of the milk-run at the 
+depots (Aksoy & Öztürk, 2016). A model for a milk run pickup 
+problem on the distribution of automobile parts with uncertain 
+demand and frequency, considering the balance between 
+inventory cost and distribution, was developed in 2018. The 
+research identifies two best solutions: one leads to increased 
+schedule stability, and one minimizes the schedule cost. 
+According to the authors, the decision-maker could prefer a 
+stable schedule for the sale season and a low-cost schedule for 
+the slow season  (Wu, Wang, He, Xuan, & He, 2018). In the 
+second cluster, there are ‘complex problems’, which include a 
+combination of variants of the VRP with multiple trips, VRP 
+with pick-up delivery, and VRPTW, among others. In this 
+regard, an empirical analysis for the VRPTW with a 
+multigraph representation of the road network was conducted 
+by Ticha, Absi, Feillet, & Quilliot (2017). The authors 
+developed a simple multigraph representation in this research 
+work to significantly improve the VRPTW solution identified 
+by adopting a Branch-and-Price algorithm. Similarly, a Multi-
+objective VRPTW was solved by adopting a tissue P system 
+
+
+--- SAYFA 3 ---
+1124	
+Francesco Facchini  et al. / IFAC PapersOnLine 55-10 (2022) 1122–1127
+with three cells providing a set of Pareto solutions (instead of 
+a single solution) in a short time. In this way, the decision-
+maker knows sufficient choices to make the best decision 
+(Dong, Zhou, Qi, He, & Zhang, 2018). The research work 
+belongs to this cluster of problems; the materials will be 
+moved along variable routes at changeable time intervals. 
+3. MODEL DEVELOPMENT 
+3.1 List of notations 
+The following notations are adopted to describe the 
+mathematical model developed: 
+[i, j]: starting and finishing node,  
+n: number of nodes/customers,  
+m: number of vehicles of the fleet,  
+D: capacity of a vehicle,  
+Tk, route: allowed maximum time to complete the route at k-
+vehicle, 
+dj: demand of the node/customer j to be served,  
+tk,j: the time required by k-vehicle to load/unload the materials 
+demanded by the customer j, independently of routing 
+travelled, 
+tk,ij: time needed to k-vehicle to travel from node i to node j,  
+cij: distance to travel from node i to node j,  
+xk,ij: it is a binary variable,  corresponding to 1 when the k-
+vehicle travels from node i to node j, else it is 0, 
+xk,i, xk,j: they are binary variables,  corresponding to 1 when the 
+k-vehicle is in node i or j, respectively, else it is 0, 
+[ai, bi]: represents the interval of the time window, 
+sk,i, sk,j: the timestamps when the k-vehicle leaves the nodes i 
+and j, respectively. 
+3.2 Model formulation 
+The mathematical formulation of the VRPTW is based on 
+an algorithm for a vehicle routing problem with realistic 
+constraints (D. Zhang, Cai, Ye, Si, & Nguyen, 2017). The 
+problem defines a binary variable xk,ij  equal to 1 if the k-
+vehicle follows the arc of the graph (i, j); otherwise, it is 0. 
+Generally, the models to describe transport problems use 
+graphs. A general graph is named G = (V, E), where V = {Vi 
+Vn} represents a set of nodes which model the customers (or 
+cities/locations) and E = {(Vi,Vj): i≤j} represents a set of arcs 
+connecting the customers. Overall, the VRPTW is part of the 
+class of optimization problems (Dridi, Mailhot, Parizeau, & 
+Villeneuve, 2009).  
+The VRPTW’s mathematical formulation aims at minimizing 
+the total distance of the routes, identified as cost function (eq. 
+1), while respecting the framework to perform the delivery on 
+time in the time window constraints.   
+ 
+𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶(𝑥𝑥) = 𝑀𝑀𝑀𝑀𝑀𝑀∑
+∑
+∑
+𝑐𝑐!"𝑥𝑥#,!"
+%
+#&'
+(
+"&'
+(
+!&'
+ 
+ 
+(1)  
+ 
+Further objectives could be considered, for instance, 
+minimizing the penalties occurring when some constraints are 
+violated, such as the time windows constraints. Another target 
+consists of using the minimum number of vehicles in the fleet 
+to perform all the deliveries at the minimum cost. In general, 
+these two objectives are in contrast; therefore, solving the 
+optimization problem can provide the optimal compromise to 
+schedule the deliveries.  
+ 
+The function to minimize (eq. 1) is subject to the following 
+constraints:  
+ 
+∑
+∑
+𝑥𝑥#,!" = 1 ∀1 ≤𝑗𝑗≤𝑛𝑛
+%
+#&'
+(
+!&'
+  
+ 
+ (2) 
+ 
+∑
+∑
+𝑥𝑥#,!" = 1 ∀1 ≤𝑖𝑖≤𝑛𝑛
+%
+#&'
+(
+!&'
+  
+             (3) 
+ 
+∑
+𝑥𝑥#,'" ≤1,
+(
+"&)
+ 𝑘𝑘= 1, … , 𝑚𝑚  
+ 
+(4) 
+ 
+∑
+𝑥𝑥#,!' ≤1,
+(
+!&)
+ 𝑘𝑘= 1, … 𝑚𝑚  
+ 
+(5) 
+ 
+Equations 2 and 3 ensure that each customer is served only one 
+time and only by one vehicle. The constraints expressed with 
+equations 4 and 5, respectively, show that each vehicle leaves 
+the depot and returns to it only once.  
+ 
+∑
+𝑥𝑥#,! −∑
+𝑥𝑥#," = 0,
+(
+"&'
+ 𝑘𝑘= 1, … , 𝑚𝑚;
+(
+!&'
+  
+ 
+(6) 
+ 
+Equation 6 establishes that when a node is visited, it must 
+imperatively be left (after materials’ delivery), as the route 
+traversed by a vehicle must be continuous.  
+ 
+∑
+𝑡𝑡#," ∑
+𝑥𝑥#,"
+(
+"&'
++ ∑
+∑
+𝑡𝑡#,!"𝑥𝑥#,!" ≤𝑇𝑇#,*+,-., 𝑘𝑘=
+(
+"&'
+(
+!&'
+(
+"&'
+1, … , 𝑚𝑚  
+(7) 
+ 
+As ensured by equation 7, the total duration of a route must be 
+respected. Similarly, each vehicle’s capacity must be 
+respected, as shown in equation 8.  
+ 
+∑
+𝑑𝑑"=∑
+𝑥𝑥#,"
+(
+"&'
+>
+(
+!&'
+≤𝐷𝐷, 𝑘𝑘= 1, … 𝑚𝑚  
+ 
+(8) 
+ 
+𝑥𝑥#,!"=𝑠𝑠#,! + 𝑡𝑡#,!" −𝑠𝑠#,"> ≤0  
+ 
+ 
+       (9) 
+ 
+𝑎𝑎! ≤𝑠𝑠#,! ≤𝑏𝑏! 
+ 
+ 
+ 
+ 
+       (10) 
+ 
+Finally, equations 9 and 10 ensure that the temporal 
+constraints, indicated by the time windows, are respected.  
+ 
+3.3 Model implementation 
+The VRPTW has been implemented in the Python language. 
+Stated that the model concerns the optimization of the routes 
+of tugger trains, each of them composed of three wagons and 
+used to deliver pallets to the working stations of a shop floor; 
+Figure 1 represents the model’s flow chart. After the parameter 
+initialization, the first task of the algorithm consists of reading 
+the timestamp corresponding to each wagon of the tugger 
+trains, namely the timestamp in which a tugger driver books 
+the pallet carried on that specific wagon. The materials were 
+loaded on tugger trains’ wagons according to an order assigned 
+by an upstream process depending on different aspects (e.g., 
+work stations’ positions, materials’ priority, frequency of 
+delivery, etc.).    The algorithm clusters the trains by checking 
+
+
+--- SAYFA 4 ---
+	
+Francesco Facchini  et al. / IFAC PapersOnLine 55-10 (2022) 1122–1127	
+1125
+if there are identical timestamps among all pallets. Therefore, 
+for each train, the time windows of each wagon are calculated. 
+For this purpose, it is adopted a matrix of time windows. It is 
+updates in real-time by considering when the order has been 
+sent and when the tugger driver has booked the corresponding 
+pallet. 
+ 
+Figure 1. Flow chart of the VRPTW model 
+Consequently, the driver receives the information on a tablet 
+and starts the route; instead of deciding autonomously which 
+path to take and which pallet to deliver first, the algorithm 
+calculates the cost for each arc of the graph according to the 
+mathematical formulation introduced in the previous section. 
+As a result, checking the respect of the time windows 
+iteratively and of the model’s constraints, each pallet is 
+delivered at the corresponding working station until all the 
+pallets of the train examined are consigned. A GPS device 
+constantly tracks all positions of each tugger train; the data are 
+sent to the server in real-time to update the timestamp. When 
+a delivery is concluded, the working station sends a 
+confirmation by RFID sensors. To conclude, the algorithm 
+analyses the vehicle routes of all the records and the relative 
+time window in which the delivery has been completed. The 
+average running time is around 5 seconds per routing 
+identification, adopting a MacBook equipped with a 1.6 GHz 
+Intel Core i5 CPU and 4 293 GB RAM. 
+4. THE REAL-FULL CASE STUDY 
+The model presented in this paper has been applied to study a 
+real-full case of a worldwide automotive company to optimize 
+the internal logistics of one of its shop floors. Although the 
+model allows managing multiple vehicles, in the case study 
+introduced, the fleet of Material Handling Equipment (MHE) 
+includes four tugger trains. 
+The issue to be tackled is how to deliver pallets containing 
+materials to work on time at the working stations of a welding 
+shop, in a process that involves four tugger trains of three 
+wagons each, driven by tugger drivers assuming around 400 
+trips per work shift. The materials orders are dynamically sent 
+to MHS consistent with working station needs. In this case, it 
+is not possible to plan the demand of materials since there are 
+high variable set-up times for each task and work station; 
+moreover, most tasks are manually oriented; therefore, the 
+cycle times depend on human performance and task hardness. 
+The adopted technology involves the use of one tablet with a 
+GPS and Wi-Fi sensor and one RFID transponder for each 
+tugger train. Similarly, each working station is linked to a 
+server adopting an illuminated push-button with contact 
+blocks and one RFID tag. The traditional (no optimized) 
+process is based on the human decision making of the drivers, 
+who decide the routes to follow for the deliveries. Therefore, 
+in the traditional process, the pallets are subject to late and 
+early deliveries, which implies that the lead time is irregular, 
+as shown in Figure 2.  
+ 
+Figure 2. The lead time of the current process 
+According to the constraints of the production line, a pallet 
+delivery has been categorised as ‘late delivery’ if more than 25 
+minutes have passed from when the order has been sent to 
+when the pallet has reached the working station. On the 
+contrary, an ‘early delivery’ occurs when the pallet is delivered 
+within 15 minutes from its request. Consequently, setting the 
+time windows constraints according to this definition of early 
+and late deliveries, the VRPTW model was implemented, 
+adopting devices available on the market for each tugger train, 
+each working station, and IT infrastructure to link and manage 
+the data flow. In terms of cost, have been estimated investment 
+of around 5 k€ for each tagger train and about 50 k€ for the 
+overall 
+IT 
+infrastructure 
+implementation 
+(including 
+expenditure for hardware and software development); the cost 
+
+
+--- SAYFA 5 ---
+1126	
+Francesco Facchini  et al. / IFAC PapersOnLine 55-10 (2022) 1122–1127
+for each working station can be considered negligible (around 
+0.1% of the total cost). 
+The results achieved by comparing the traditional process to 
+the optimised process, show that by applying the innovative 
+model, the number of late and early deliveries significantly 
+decreases, and the process’s lead time curve becomes more 
+even. The curve of the lead time of the optimised process is 
+shown in Figure 3. 
+ 
+Figure 3. The lead time of the process after the VRPTW algorithm 
+implementation 
+The VRPTW algorithm led to significant improvement of the 
+delivery process, suggesting to tugger drivers the best routes 
+to follow and eliminating the problem of the human decision 
+making on the shop floor while increasing the number of on 
+time deliveries. The comparison between the lead times of the 
+process estimated before (Fig. 2) and after (Fig. 3) the 
+implementation of the model shows that 11% of late deliveries 
+in the current process becomes 8% in the optimized process, 
+as indicated in Figure 4, evaluated before and after the model 
+implementation.  
+ 
+Figure 4. Number of “early”, “late”, and “on time” deliveries 
+before (a) and after (b) the model implementation 
+Considering the above, as the tugger drivers know in advance 
+when and where they must deliver the pallets, early deliveries 
+do not occur in the optimised process, which increases the on-
+time deliveries percentage from 57% to 92%. In economic 
+terms, there are cost-saving due to re-handling, performance, 
+and energy costs. The optimized model reduces to zero the 
+early delivery, avoiding the operations due to re-handling of 
+materials delivered too early and brought back. Similarly, the 
+late deliveries are reduced by 3%, improving the line 
+performance and avoiding the process starvation. The route 
+optimization impacts the electrical cost required by tugger 
+trains charging. A rough estimate led to evaluating an overall 
+cost reduction of around 18% compared to traditional process 
+costs. From the environmental perspective, the path 
+optimization reduced the distance travelled by tugger trains by 
+around 23% for each work shift. Therefore, it was estimated 
+an energy consumption save of about 0.9 kWh/h per work 
+shift.  The optimized process contributed to developing the 
+workforce organization. The new process provides a clear 
+view of the contribution of each worker to the performance of 
+the line, reduces the no value-added tasks, and improves the 
+communication between the tugger drivers and other workers.  
+6. CONCLUSIONS 
+The novelty of this study is that it proposes an integrated 
+modelling approach to milk-run system design and operation, 
+which considers the relationships linking the production flow 
+with the replenishment batches and the time window. 
+According to our evaluation, the model implementation led to 
+a significant reduction in early and late deliveries (around 
+35%) compared to the traditional process. The investment is 
+relatively ‘low’ (about 70 k€), and in most cases, the existing 
+technologies can be upgraded to interface with the VRPTW 
+model. We can summarize the benefits from an economic 
+perspective, a cost saving of 18% was estimated comparing the 
+cost of the optimized and traditional process. From an 
+environmental perspective, the optimized routes reduced the 
+distance travelled by tugger trains by around 23%, leading to 
+better deployment of energy resources. Organizational 
+development is expected due to greater clarity in 
+communications and better management of the orders and 
+deliveries; this aspect will benefit the workers’ social life 
+assessment and well-being. Nevertheless, the model can be 
+further improved, ensuring higher reliability of the deliveries 
+(8% of the materials are delivered too late) and assigning a 
+priority scale to some working stations. In this regard, future 
+works should include a more reliable data dissemination 
+protocol with various milk-run operations. The optimization 
+conducted should not be seen as ‘stand-alone’ but integrated 
+into a more complex manufacturing system. In this case, the 
+information on working stations’ needs, materials inventory, 
+tugger trains availability, etc., should be managed according to 
+the end-to-end approach.    
+ACKNOWLEDGEMENTS 
+The work was carried out with the support of Fincons to 
+implement the model in the computational algorithm and allow 
+the communication of data between server and tugger driver 
+devices of the automotive company. 
+REFERENCES 
+Adriano, D. D., Montez, C., Novaes, A. G. N., & Wangham, 
+M. (2020). Dmrvr: Dynamic milk-run vehicle routing 
+solution using fog-based vehicular ad hoc networks. 
+Electronics (Switzerland), 9(12). 
+https://doi.org/10.3390/electronics9122010 
+Aksoy, A., & Öztürk, N. (2016). A two-stage method to 
+optimize the milk-run system. European Journal of 
+Engineering Research and Science, 1(3), 7–11. 
+Retrieved from 
+https://www.ejers.org/index.php/ejers/article/view/152 
+a. 
+b. 
+
+
+--- SAYFA 6 ---
+	
+Francesco Facchini  et al. / IFAC PapersOnLine 55-10 (2022) 1122–1127	
+1127
+Alnahhal, M., Ridwan, A., & Noche, B. (2014). In-plant milk 
+run decision problems. In Proceedings of 2nd IEEE 
+International Conference on Logistics Operations 
+Management, GOL 2014. 
+https://doi.org/10.1109/GOL.2014.6887421 
+Azizi, A., Yazdi, P. G., Humairi, A. Al, Alsalmi, M., Rashdi, 
+B. Al, Zakwani, Z. Al, & Sheikaili, S. AL. (2015). 
+Design and fabrication of intelligent material handling 
+system in modern manufacturing with industry 4.0 
+approaches. International Robotics & Automation 
+Journal, 4(3). 
+https://doi.org/10.15406/iratj.2018.04.00121 
+Bocewicz, G., Nielsen, P., & Banaszak, Z. (2019). 
+Declarative modeling of a milk-run vehicle routing 
+problem for split and merge supply streams scheduling. 
+In Advances in Intelligent Systems and Computing 
+(Vol. 853). https://doi.org/10.1007/978-3-319-99996-
+8_15 
+Bocewicz, Grzegorz, Banaszak, Z., Rudnik, K., Smutnicki, 
+C., Witczak, M., & Wójcik, R. (2021). An ordered-
+fuzzy-numbers-driven approach to the milk-run routing 
+and scheduling problem. Journal of Computational 
+Science, 49. https://doi.org/10.1016/j.jocs.2020.101288 
+Bocewicz, Grzegorz, Bozejko, W., Wójcik, R., & Banaszak, 
+Z. (2019). Milk-run routing and scheduling subject to a 
+trade-off between vehicle fleet size and storage 
+capacity. Management and Production Engineering 
+Review, 10(3). 
+https://doi.org/10.24425/mper.2019.129597 
+Bocewicz, Grzegorz, Nielsen, P., Jasiulewicz-Kaczmarek, 
+M., & Banaszak, Z. (2020). Dynamic planning of 
+mobile service teams’ mission subject to orders 
+uncertainty constraints. Applied Sciences (Switzerland), 
+10(24). https://doi.org/10.3390/app10248872 
+Digiesi, S., Mossa, G., & Rubino, S. (2015). A sustainable 
+EOQ model for repairable spare parts under uncertain 
+demand. IMA Journal of Management Mathematics. 
+https://doi.org/10.1093/imaman/dpu004 
+Digiesi, Salvatore, Mascolo, G., Mossa, G., & Mummolo, G. 
+(2016). New models for sustainable logistics: 
+Internalization of external costs in inventory 
+management. New Models for Sustainable Logistics: 
+Internalization of External Costs in Inventory 
+Management. https://doi.org/10.1007/978-3-319-
+19710-4 
+Dong, W., Zhou, K., Qi, H., He, C., & Zhang, J. (2018). A 
+tissue P system based evolutionary algorithm for multi-
+objective VRPTW. Swarm and Evolutionary 
+Computation, 39. 
+https://doi.org/10.1016/j.swevo.2017.11.001 
+Dridi, L., Mailhot, A., Parizeau, M., & Villeneuve, J.-P. 
+(2009). Multiobjective Approach for Pipe Replacement 
+Based on Bayesian Inference of Break Model 
+Parameters. Journal of Water Resources Planning and 
+Management, 135(5). 
+https://doi.org/10.1061/(asce)0733-
+9496(2009)135:5(344) 
+Erboz, G. (2020). A qualitative study on industry 4.0 
+competitiveness in Turkey using porter diamond 
+model. Journal of Industrial Engineering and 
+Management, 13(2). https://doi.org/10.3926/jiem.2915 
+Greenwood, A. G., Kluska, K., & Pawlewski, P. (2017). A 
+multi-level framework for simulating milk-run, in-plant 
+logistics operations. In Communications in Computer 
+and Information Science (Vol. 722). 
+https://doi.org/10.1007/978-3-319-60285-1_18 
+Kilic, H. S., Durmusoglu, M. B., & Baskak, M. (2012). 
+Classification and modeling for in-plant milk-run 
+distribution systems. International Journal of Advanced 
+Manufacturing Technology, 62(9–12). 
+https://doi.org/10.1007/s00170-011-3875-4 
+Kodippili, H., & Samarasekera, N. A. (2019). Vehicle routing 
+model for milk run delivery of fresh produce : the case 
+of a 3PL service provider. 9th International Conference 
+on Operations and Supply Chain Management. 
+Mathew, M., & Sahu, S. (2018). Comparison of new multi-
+criteria decision making methods for material handling 
+equipment selection. Management Science Letters, 
+8(3). https://doi.org/10.5267/j.msl.2018.1.004 
+Radziwon, A., Bilberg, A., Bogers, M., & Madsen, E. S. 
+(2014). The smart factory: Exploring adaptive and 
+flexible manufacturing solutions. In Procedia 
+Engineering (Vol. 69). 
+https://doi.org/10.1016/j.proeng.2014.03.108 
+Ticha, H. Ben, Absi, N., Feillet, D., & Quilliot, A. (2017). 
+Empirical analysis for the VRPTW with a multigraph 
+representation for the road network. Computers and 
+Operations Research, 88. 
+https://doi.org/10.1016/j.cor.2017.06.024 
+Wu, Q., Wang, X., He, Y. D., Xuan, J., & He, W. D. (2018). 
+A robust hybrid heuristic algorithm to solve multi-plant 
+milk-run pickup problem with uncertain demand in 
+automobile parts industry. Advances in Production 
+Engineering And Management, 13(2). 
+https://doi.org/10.14743/apem2018.2.282 
+Zhang, D., Cai, S., Ye, F., Si, Y. W., & Nguyen, T. T. (2017). 
+A hybrid algorithm for a vehicle routing problem with 
+realistic constraints. Information Sciences, 394–395. 
+https://doi.org/10.1016/j.ins.2017.02.028 
+Zhang, P., Lv, Y., & Zhang, J. (2018). An improved 
+imperialist competitive algorithm based 
+photolithography machines scheduling. International 
+Journal of Production Research, 56(3). 
+https://doi.org/10.1080/00207543.2017.1346320 
+ 

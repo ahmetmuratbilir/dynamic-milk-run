@@ -1,0 +1,776 @@
+
+
+--- SAYFA 1 ---
+Int j simul model 20 (2021) 1, 134-145 
+ 
+Professional paper 
+https://doi.org/10.2507/IJSIMM20-1-551 
+134 
+ 
+SIMULATION TESTING OF THE E-KANBAN TO INCREASE 
+THE EFFICIENCY OF LOGISTICS PROCESSES 
+Pekarcikova, M.; Trebuna, P.; Kliment, M.; Mizerak, M. & Kral, S. 
+Technical University in Kosice, Faculty of Mechanical Engineering, Institute of Management, 
+Industrial and Digital Engineering, Nemcovej 32, 04 200 Kosice, Slovakia 
+E-Mail: miriam.pekarcikova@tuke.sk, peter.trebuna@tuke.sk, marek.kliment@tuke.sk, 
+marek.mizerak@tuke.sk, kral@slm.sk 
+Abstract 
+Combining lean techniques with software and digital tools currently creates a high potential to be more 
+efficient, faster, and better. The reason is that the Lean tools are more standardized, more transparent 
+than others and are limited to the necessary work. The case study aimed to create a model of the current 
+state, testing the productivity and efficiency of production and logistics flows and then design 
+optimization options using software support. The analysis resulted in the design and testing of e-Kanban 
+in terms of business practice to increase the efficiency of logistics processes using selected elements of 
+modeling and simulation. The design consisted in the implementation of a selected Lean tool e-Kanban, 
+its testing and optimal setup using the simulation software Tecnomatix Plant Simulation. The created 
+simulation model can be used in connection with the solution of process digitization in the researched 
+company. 
+(Received in November 2020, accepted in February 2021. This paper was with the authors 1 week for 1 revision.) 
+Key Words:  Logistics, Lean Tools, Simulation, E-Kanban 
+1. INTRODUCTION 
+1.1  Intensification of Industry 4.0 technology 
+Intensification of Industry 4.0 technology within the digitization of the Supply chain means 
+increasing agility and acquiring intelligent capabilities of the system as a whole. The greatest 
+importance is the introduction of the so-called cognitive technologies (machine learning, speech 
+recognition, spatial orientation, etc.) thanks to which systems change their agility into 
+intelligence, the so-called collective intelligence, i.e. systems not only move in space on their 
+own, but also communicate with each other, learn and try to go through the transformation 
+process as efficiently as possible [1-4]. In the context of the Supply chain, there are obvious 
+benefits in combining the latest technologies with specific techniques of industrial practice such 
+as Just in Time, resp. Just in Case and Kanban. A platform is being created to interconnect the 
+individual subsystems of the company, which would work with information in real time. 
+Quality communication in production and logistics processes enables the production of high-
+quality products in shorter production cycles and responds to customer demand in terms of 
+diversity and individuality of products, as well as minimizing losses during operations [5-9]. 
+      Information and communication technologies increase the potential associated with the 
+collection and processing the big data from the production and logistics processes in real-time. 
+This opens up opportunities for all participants in the value chain to communicate with each 
+other,  thus creating a network of entities that can communicate effectively, operatively and in 
+real-time and respond to various situations. The interaction of sensors, data and analytical data 
+is the catalyst for this e-revolution. This creates space for the customer, who will be able to 
+personalize their order [10-13]. 
+The integrated Supply chain included [13-15]: 
+• integration the process of planning, optimization, visualization and management to ensure 
+optimal balance of the whole value chain, respectively net; 
+
+
+--- SAYFA 2 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+135 
+• calculation of relevant logistics costs which are suitable for different variants of the supply 
+process; 
+• standardization the planning process – focus on optimization of the value chain, respectively 
+value net in the way of very inteactive communication of each other. 
+      The integrated supply chain aims to provide system support for logistics processes using 
+the principles of Lean Manufacturing, i.e. electronic records of movements of individual items 
+in the warehouse, material flow management upon receipt, quality control, warehousing, 
+expenditure from the warehouse to production and preparation for dispatch in real-time. 
+Equipping the warehouse workers with mobile terminals that monitor their performance and 
+enable it to be measured and evaluated is important for improving and increasing the efficiency 
+of warehouse processes. The 25 most effective lean production strategies are elaborated in 
+Fig. 1 [1, 2, 11]. 
+ 
+ 
+Figure 1: The 25 most effective lean production strategies. 
+      Among others, it is a great benefit to reduce bureaucracy about paper records and document 
+completion and to reduce errors. Already when receiving the material into the warehouse, it is 
+advisable to have developed a warehousing strategy, which creates a precondition for the 
+correct location of entrances. In the process of removal from storage, it is also the application 
+of information and communication technologies as very effective. Pick to Light technology 
+(using light signalling defines the position with the required component, one of the techniques 
+of the Poka-Yoke methodology – elimination of unintentional error rate) [13-15]. 
+1.2  The Kanban tool in Tecnomatix Plant Simulation 
+The Kanban concept is a logistics concept focused on supplying production lines, accepted and 
+used primarily in the automotive industry. Kanban is based on self-regulatory circuits that are 
+regulated on demand. The principle of Kanban can be explained, for example, as the functioning 
+of a supermarket. Since the consumer can buy what he needs in the supermarket, he empties 
+certain goods from the shelves. If there is a high demand for any goods, the shelf will be emptied 
+and supermarket employees will replenish it from the warehouse, resp. intermediate from the 
+storage as required. The author Bangsow states in his publication [16] that the functioning of a 
+supermarket is implemented into a production process. In Kanban's control, this principle is 
+transferred to the production process, for example: 
+• assembly sub processes take pieces from the warehouse/shelf according to their own needs, 
+• upstream departments or suppliers fill the warehouse/shelf themselves. 
+      Used software Tecnomatix Plant Simulation has the possibility of using lean tools in simulations 
+such as Kanban, Value stream mapping, Flow control, etc. 
+      Kanban tools are part of the main toolbar of TX Plant Simulation 15.2. It is a traction system 
+that periodically tests the assumptions for the relocation of processes and releases them only 
+when all conditions are met. The TX Plant Simulation software offers four Kanban tools to 
+
+
+--- SAYFA 3 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+136 
+choose from KanbanSource, KanbanSingleProc, KanbanBuffer and KanbanChart (see Fig. 2) 
+[6, 16]. 
+ 
+ 
+Figure 2: Kanban tools in TX Plant Simulation 15.2. 
+2. CASE STUDY 
+2.1  Problem definition 
+The case study below was prepared as the request of the company to increase the efficiency of 
+logistics processes in the production in question. This is a complex logistical problem due to 
+the nature of the products that are manufactured in the company. It was necessary to process 
+the analysis of the material flow and at the expense of the outputs from the analysis to process 
+the optimization proposal in conjunction with the fulfillment of the goal. Lean tools (Gemba, 
+Value stream mapping, see Fig. 3, 3Mu, Bottleneck analysis, Continuous flow, Kanban) were 
+used in the process of analysis and subsequent design in combination with TX Plant Simulation 
+software support. This combination made it possible to create a dynamic simulation model that 
+can be tested at different inputs, respectively tracking enterprise-defined goals and is a step 
+towards creating a Visual Factory and Digital Factory. 
+ 
+ 
+ 
+Figure 3: VSM model in TX Plant Simulation in the researched company. 
+2.2  Creation and testing e-Kanban simulation model using TX Plant Simulation 
+The production process processed in a case study, elaborated in the case study deals with the 
+processing of steel wires and cables pass. The process model of the current state was processed 
+based on a detailed analysis in the surveyed company, using the Value stream mapping method, 
+however, it was not the aim of this study. The current state is modelled and testing through TX 
+Plant Simulation software, simulation time is set to 12 hours, i.e. for one work shift. It is a 
+production line where raw steel wire enters the production process as a semi-finished product. 
+The first operation is drumming, whereby the input semi-finished product is unwound and then 
+wound on drums that are suitable on the given line. After this operation, the already rewound 
+wire is waiting for the next operation, which is drawing. However, it is divided into four 
+workplaces depending on the length of the wire to be drawn at each workplace. Since each 
+length has its specifics, the longer the steel wire is drawn to a thinner diameter, the longer it 
+takes to stand. The length of the cables to be pulled out depends on the customer's specific 
+
+
+--- SAYFA 4 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+137 
+order. Subsequently, we continue the inspection of drawn cables, which is based on a laser, as 
+it is specific and can measure the quality of the entire wire fibre along its entire length. The 
+wire pulled out to the cabling workplace or the braiding workplace. 
+ 
+ 
+Figure 4: Scheme of the current state. 
+Table I: Input data for current state model creation. 
+Process 
+Cycle time 
+(DDD:HH:MM:SS.XXX) 
+Availab. 
+(%) 
+Set-up time 
+(MM:SS.XXX) 
+MTTR 
+(MM:SS.XXX) 
+Process description 
+Drumming 
+1:15:00 
+100 
+0:00.0000 
+0.0000 
+Input wire/semi-finished product is rewound on 
+drums suitable for machines used in the 
+production process. 
+Extending  
+4:40:00 - 4:55:00 
+95 
+10:00.0000 
+5:00.0000 
+The wire blank is extending to the desired 
+fibres diameter and wound on a spool for 
+transport to the next process. Different 
+diameters have different processing times, the 
+thinner the fibres the longer the processing 
+time. 
+Control 
+the 
+diameter 
+2:00 
+100 
+0:00.0000 
+0.0000 
+Diameter control using a high-precision laser 
+station. This inspection ensures the required 
+quality of the entire length of the fibres. 
+Cabling  
+ 3:10:00-3:20:00  
+95 
+10:00.0000 
+5:00.0000 
+By the production of cordless cords, the fibres 
+are treated by entanglement on a machine and 
+thus the desired product is obtained. 
+Splicing  
+ 2:15:00-2:25:00 
+95 
+10:00.0000 
+5:00.0000 
+By the production of core cords, the fibres are 
+treated by cabling and the process consists in 
+braiding the central core with fibres. 
+Packing 
+spool 
+6:00 
+100 
+0:00.0000 
+0.0000 
+The spools must be tightly wrapped with plastic 
+film to secure the cord against unintentional 
+unwinding during transport. 
+Control 
+the spool 
+11:00 
+100 
+0:00.0000 
+0.0000 
+Each spool comes for a final inspection where 
+the specified length is cut, and its parameters 
+are tested. 
+Packing 
+pallet 
+9:00 
+100 
+0:00.0000 
+0.0000 
+The spools are stored on pallets and a cardboard 
+package is placed on top of the pallet. 
+Expedition 
+ 15:00 
+100 
+0:00.0000 
+0.0000 
+Pallets are shipped to the customer according to 
+the current order. 
+
+
+--- SAYFA 5 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+138 
+      The division of the wires into individual workplaces depends on whether the wires will have 
+a core, then they will enter the cabling process, creating a cord without a core, and if it does not 
+have a core, the wire will enter the entanglement process to form a cord with the core. After 
+wiring or braiding, the already finished cords proceed for inspection and final packaging. The 
+scheme of the current state clearly and unambiguously describes the whole process of material 
+flows with the emphasis on work-in-progress during the value chain. (see Fig. 4, Table I). 
+      Based on the diagram in Fig. 3 and Table I a simulation model of the production process 
+was created in the environment of the simulation program TX Plant Simulation ver.15.2. The 
+3D model is in Fig. 5 and the 2D model with the illustration of the Sankey diagram in Fig. 6. 
+ 
+ 
+Figure 5: Production and logistics flow – current state simulation 3D model. 
+ 
+Figure 6: Production and logistics flow – current state simulation 2D model. 
+2.3  Statistical outputs of selected attributes in the current simulation model 
+The statistical overview of individual operations in the current simulation model shows the 
+performance of individual operations in a graphical display. The most extracted operation was 
+to control the diameter of the wires after the extending process, which took almost 65 % of the 
+time (see Fig. 7 a). There was only one blocked operation in the graphics report, and that was 
+drumming, which accounted for almost 55 % of the time. Up to 3 % of machine setting 
+operations were necessary, as during extending, splicing, and cabling the individual machines 
+
+
+--- SAYFA 6 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+139 
+must be adjusted according to the customer's order. Among the most awaiting operations 
+representing 100 % were the packaging of spools and the packaging of pallets. Suspended and 
+unsuccessful operations, which could have arisen due to incorrect settings, poor material 
+quality, etc., are found in addition to the packaging of spools in each operation. Occupancy of 
+the individual buffer in the whole logistics flow is in Fig. 7 b. 
+ 
+Figure 7: Statistical overview of the performance of individual operations – current state. 
+3. RESULTS AND DISCUSSION 
+The proposed simulation model aims to improve and streamline the production and logistics 
+process, which is to facilitate the work and thus simplify the movement of material, of course, 
+to set aside excess downtime, which does not add any added value to the product. The main 
+indicators for monitoring efficiency are material flow and performance of operations. To make 
+it more efficient, the Kanban system is used as a tool for lean production. Based on the outputs 
+from the simulation of the current state model, it was found that there are places in the 
+production process that are a problem, they can be considered as bottlenecks. The basic 
+parameters from the current state are unchanged, i.e. the simulation time remains set at 12 hours, 
+i.e. for one working change. In the beginning, as in the current state, steel wire enters the 
+production process. As this is a newly proposed state of the simulation, its essence is to simplify 
+and clarify the production process using a lean manufacturing tool, specifically the Kanban 
+system. The 2D model of the proposed simulation is in Fig. 8 and the 3D model is processed in 
+Fig. 9. 
+ 
+ 
+Figure 8: Production and logistics flow – proposed simulation 2D model. 
+
+
+--- SAYFA 7 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+140 
+ 
+Figure 9: Production and logistics flow – proposed simulation 3D model. 
+      After the steel wire enters the production process, it travels directly to the drumming 
+process, and then the wires are divided into individual frames, each with its system, in which a 
+Kanban system is used, and instead of standing in the intermediate warehouse, the wires are 
+directly drawn to the required length. After the pulling process, the wires travel for control, 
+which is unavoidable. Defective pieces are forwarded to the warehouse using a conveyor, 
+suitable and satisfactory pieces are forwarded by another conveyor to the process of 
+entanglement and cabling, which depends on the customer's order. This is where the biggest 
+change takes place, as it is not necessary to divide the entanglement workplace into two 
+workplaces, and the same has happened with cabling. The next step in the production process 
+is the entry of the pallet, which is necessary in the process of packaging the pallets, which 
+occurs after cabling and entanglement. Already packaged coils travel to the intermediate 
+warehouse and then for shipment to the customer. The frame element in the proposed state is a 
+group of several operations, while after a detailed analysis it is possible to see what is hidden 
+under the item. It is a lean manufacturing tool, the Kanban system, which aims to simplify and 
+streamline the entire production process. Fig. 10 describes the first site, resp. Frame_1, which 
+focuses on the extraction process. Steel wire enters the process via KanbanSource, in this case, 
+type A_30, proceeds to KanbanBuffer, i.e. intermediate storage, where the minimum capacity 
+is 10 and maximum 50, but if it reaches the intermediate storage 15 pieces, then Station pulls 
+these semi-finished products for the process hauling. The processing time of this station is 4 
+hours and 40 minutes and the setting time is 20 minutes. Subsequently, the wires travel to 
+KanbanSingleProc, where the capacity is 100 pcs (see Fig. 11). 
+Figure 10: Kanban system – Frame_1 for product A_30. 
+ 
+
+
+--- SAYFA 8 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+141 
+ 
+Figure 11: Settings: KanbanSource, KanbanBuffer, Kanban-SingleProc for product A_30. 
+      Fig. 12 shows frame_6 in the 2D model and Fig. 13 in the 3D model. Through implemented 
+Kanban system, work-in-progress, downtimes were reduced and time, but also material flow 
+became more efficient. While in the current state there were two processes of splicing and two 
+cablings in the model, in the proposed state the two processes were merged into frames, which 
+simplified the whole process. Buffer for work-in-progress is not filled, waiting times for 
+individual processes have been reduced and material flow is thus smoother. 
+ 
+Figure 12: Kanban in the proposed 2D simulation model. 
+ 
+Figure 13: Kanban in the proposed 3D simulation model. 
+
+
+--- SAYFA 9 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+142 
+      The main difference between the current and the proposed simulation model shown in the 
+graphical representation in the diagram (see Fig. 14). At first glance, the reduction of buffers 
+with work-in-progress, non-branching of splicing and cabling operations, and thus the scheme 
+is clearer and more readable. The reduction is caused precisely thanks to the lean manufacturing 
+tool – Kanban system. Since in the current state the buffers with work-in-progress were flooded 
+and waiting for individual operations, the proposed model using Frames elements, which 
+operate based on the Kanban system. These are the processes of extending, splicing and cabling. 
+This has made production more efficient and produces more. 
+ 
+ 
+Figure 14: Diagram of the proposed simulation model. 
+      From the current state simulation of the steel cord production were several types of waste 
+identified. Buffers were flooded, operations were many times cancelled or suspended and there 
+was an inefficient flow of material. The production line was not efficiently balanced. For the 
+analysis of the current state, the proposal was made to streamline logistics flows through the 
+lean production tool Kanban because is based on accurate deliveries in time and quantity. The 
+control of concrete tasks through regulated consumption has replaced the non-functional 
+scheduling of tasks used in the company. The interconnection between individual operations 
+thus streamlined the smooth material flow and increased the productivity of individual 
+activities. The opaque, inefficient and congested current simulation model has been replaced 
+by the e-Kanban simulation model. 
+      The main goal was to map the material flow and efficiency of operations and to design a 
+model for streamlining logistics flows in the production process. From the comparison of the 
+current and the proposed model, it can be stated, that while the number of inputs in the current 
+state ranges from 0 to 94 in a 12-hour simulation run, in the proposed state in 12 hours the 
+material flow ranged from 1 to 64. However, despite the lower number of inputs, the outputs 
+were several times higher. In the current state, the number of outputs was from 0 to 108, the 
+proposed model produced from 0 to 572 outputs. While in the drumming process – current state 
+the number of inputs was 36 and the number of outputs increased cca fourfold, in the drumming 
+
+
+--- SAYFA 10 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+143 
+process – a proposal the number of inputs was 14 and the number of outputs increased more 
+than forty times, see in Table II and Table III. In addition to increasing material flow efficiency, 
+the Kanban system simplified the operation of production processes, buffers were not overfilled 
+and work-in-progress was reduced. 
+Table II: Material flow properties after current state simulation. 
+Object 
+Number 
+of 
+entries 
+Number 
+of exits 
+Minimum 
+contents 
+Maximum 
+contents 
+Relative 
+empty 
+Relative 
+full 
+Relative 
+occupation 
+without 
+interruptions 
+Relative 
+occupation 
+with 
+interruptions 
+Input 
+41 
+40 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Extending_1 
+36 
+35 
+0 
+1 
+1.03 % 
+- 
+98.97 % 
+99.02 % 
+Buffer_4 
+133 
+125 
+0 
+8 
+4.05 % 50.96 % 
+76.86 % 
+76.84 % 
+Control_diameter 
+125 
+124 
+0 
+1 
+3.13 % 
+- 
+96.87 % 
+96.53 % 
+Cabling_1 
+33 
+32 
+0 
+1 
+56.65 % 
+- 
+43.35 % 
+43.97 % 
+Splicing_1 
+25 
+25 
+0 
+1 
+76.09 % 
+- 
+23.91 % 
+24.22 % 
+Control_cord_1 
+2 
+2 
+0 
+1 
+99.85 % 
+- 
+0.15 % 
+0.31 % 
+Packing_spool_1 
+3 
+2 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Input_box 
+7 
+6 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Packing_pallet_1 
+1 
+0 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Input_pallet 
+3 
+2 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Expedition 
+0 
+0 
+0 
+0 
+100.00 % 
+- 
+0.00 % 
+0.00 % 
+Extending_3 
+33 
+32 
+0 
+1 
+0.42 % 
+- 
+99.58 % 
+99.51 % 
+Cabling_2 
+30 
+30 
+0 
+1 
+57.94 % 
+- 
+42.06 % 
+42.17 % 
+Splicing_2 
+29 
+29 
+0 
+1 
+74.48 % 
+- 
+25.52 % 
+25.04 % 
+Packing_spool_2 
+3 
+2 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Control_cord_2 
+2 
+2 
+0 
+1 
+99.85 % 
+- 
+0.15 % 
+0.14 % 
+Packing_pallet_2 
+1 
+0 
+0 
+1 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Drumming 
+36 
+143 
+0 
+4 
+0.00 % 
+- 
+100.00 % 
+100.00 % 
+Extending_2 
+35 
+34 
+0 
+1 
+0.56 % 
+- 
+99.44 % 
+99.51 % 
+Extending_4 
+33 
+32 
+0 
+1 
+0.56 % 
+- 
+99.44 % 
+99.51 % 
+ 
+Table III: Material flow properties after e-Kanban simulation. 
+Object 
+Number 
+of entries 
+Number 
+of exits 
+Minimum 
+contents 
+Maximum 
+contents 
+Relative 
+empty 
+Relative 
+occupation 
+without 
+interruptions 
+Relative 
+occupation 
+with 
+interruptions 
+Drumming 
+14 
+572 
+0 
+41 
+0.01 % 
+99.99 % 
+99.99 % 
+Control_diameter 
+64 
+64 
+0 
+1 
+99.95 % 
+0.05 % 
+0.05 % 
+Conveyor 
+21 
+14 
+0 
+7 
+6.45 % 
+92.33 % 
+92.33 % 
+Conveyor1 
+43 
+43 
+0 
+1 
+99.99 % 
+0.00 % 
+0.00 % 
+Store 
+43 
+0 
+0 
+43 
+1.62 % 
+0.40 % 
+0.40 % 
+Packing_palett_1 
+1 
+0 
+0 
+1 
+0.00 % 
+100.00 % 
+100.00 % 
+Packing_palett_2 
+3 
+2 
+0 
+1 
+0.00 % 
+100.00 % 
+100.00 % 
+Input_palett 
+5 
+4 
+0 
+1 
+0.00 % 
+100.00 % 
+100.00 % 
+Buffer 
+2 
+2 
+0 
+1 
+100.00 % 
+0.00 % 
+0.00 % 
+ 
+
+
+--- SAYFA 11 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+144 
+4. CONCLUSION AND OUTLOOK 
+Lean means at first understanding who the customer is and what does he want. In the process 
+of securing customers’ requirements is in lean language the eliminating waste wherever is 
+possible, expanding capacity by shortening cycle time and reducing costs. With the introduction 
+of e-Kanban into the management of logistics flows in the researched company, regulated 
+consumption was introduced between interconnected self-regulatory loops in a given 
+production system. For the researched company, it is possible to state a great benefit in terms 
+of visualization of work, which is carried out in a follow-up time frame at the production plant. 
+It is also important in terms of increasing the productivity of the whole system, reducing the 
+level of work in progress, and increasing flexibility. By creating a simulation model, to the 
+researched company was given the opportunity to move further in the digitization process. The 
+potential can be shared in the introduction of real-time monitoring of individual elements via 
+the RTLS network. This implementation would be another step towards the creation of a digital 
+twin of the surveyed company. Managers see the strong effects of digitizing the supply chain 
+by source [17, 18], especially in the areas of inventory management, reducing delivery times 
+and the flexibility of the supply chain. In general, there is more transparency, which means 
+more options that can be explored in the decision-making process, leading to better decisions 
+in the supply chain. Approx. 40 % of companies expect that digitization will lead to higher 
+procurement volumes through JIT / JIS, Kanban and lower in-house inventories. 
+ACKNOWLEDGEMENT 
+This article was created by the implementation of the grant project APVV-17-0258 “Digital engineering 
+elements application in innovation and optimization of production flows”, APVV-19-0418 “Intelligent 
+solutions to enhance business innovation capability in the process of transforming them into smart 
+businesses”, VEGA 1/0438/20 “Interaction of digital technologies to support software and hardware 
+communication of the advanced production system platform”, KEGA 001TUKE-4/2020 “Modernizing 
+Industrial Engineering education to Develop Existing Training Program Skills in a Specialized 
+Laboratory” and project ITMS: 26220220182. 
+REFERENCES 
+[1] Bousonville, T. (2017). Logistik 4.0: Die digitale Transformation der Wertschöpfungskette, 
+Springer Gabler, Wiesbaden 
+[2] Fedorko, G.; Vasil, M.; Bartosova, M. (2019). Use of simulation model for measurement of 
+MilkRun system performance, Open Engineering, Vol. 9, No. 1, 600-605, doi:10.1515/eng-2019-
+0067 
+[3] Straka, M.; Khouri, S.; Besta, P.; Drevko, S. (2017). Development of computer simulation and its 
+use for the needs of logistics, Carpathian Logistics Congress (CLC 2017), 86-92 
+[4] Chovancova, J.; Rovnak, M.; Bogl'arsky, J.; Bogl'arska, L. (2015). Implementation of standardized 
+management systems with focus on their integration, Proceedings of the International Conference 
+on Engineering Science and Production Management (ESPM), 247-252 
+[5] Rehar, T.; Ogrizek, B.; Leber, M.; Pisnik, A.; Buchmeister, B. (2017). Product lifecycle forecasting 
+using system’s indicators, International Journal of Simulation Modelling, Vol. 16, No. 1, 45-57, 
+doi:10.2507/IJSIMM16(1)4.366 
+[6] Trebuna, P.; Pekarcikova, M.; Edl, M. (2019). Digital value stream mapping using the Tecnomatix 
+Plant Simulation software, International Journal of Simulation Modelling, Vol. 18, No. 1, 19-32, 
+doi:10.2507/IJSIMM18(1)455 
+[7] Kresak, J.; Caganova, D.; Bindzar, P.; Pajtinkova Bartakova, G. (2018). Use of mining Freight 
+Cableway in urban mobility as a part of an integrated transport system, Acta Montanistica Slovaca, 
+Vol. 23, No. 2, 194-205 
+
+
+--- SAYFA 12 ---
+Pekarcikova, Trebuna, Kliment, Mizerak, Kral: Simulation Testing of the E-Kanban to … 
+145 
+[8] Ojstersek, R.; Acko, B.; Buchmeister, B. (2020). Simulation study of a flexible manufacturing 
+system regarding sustainability, International Journal of Simulation Modelling, Vol. 19, No. 1, 65-
+76, doi:10.2507/IJSIMM19-1-502 
+[9] Gombar, M.; Kmec, J.; Badida, M.; Sobotova, L.; Vagaska, A.; Michal, P. (2014). The simulation 
+of the temperature effects on the microhardness of anodic alumina oxide layers, Metalurgija – 
+Metallurgy, Vol. 53, No. 1, 59-62 
+[10] Laubertova, M.; Malindzakova, M.; Rosova, A.; Trpcevska, J. (2016). Material flow model of 
+electronic waste sampling and assaying, Przemysl Chemiczny, Vol. 95, No. 7, 1390-1394, 
+doi:10.15199/62.2016.7.23 
+[11] Plinta, D.; Grznar, P. (2019). Optimisation of production processes with the use of the modelling 
+and simulation method, 14th International Conference on Modern Technologies in Manufacturing 
+(MTeM 2019), Vol. 299, Paper 03007, 6 pages, doi:10.1051/matecconf/201929903007 
+[12] Fusko, M.; Bučková, M.; Gašo, M.; Krajčovič, M.; Dulina, L.; Skokan, R. (2019). Concept of long-
+term sustainable intralogistics in plastic recycling factory, Sustainability, Vol. 11, No. 23, Paper 
+6750, 27 pages, doi:10.3390/su11236750 
+[13] Grznar, P.; Gregor, M.; Krajcovic, M.; Mozol, S.; Schickerle, M.; Vavrik, V.; Durica, L.; 
+Marschall, M.; Bielik, T. (2020). Modeling and simulation of processes in a factory of the future, 
+Applied Sciences, Vol. 10, No. 13, Paper 4503, 24 pages, doi:10.3390/app10134503 
+[14] Kudrna, J.; Miller, A.; Edl, M. (2011). Methods of industrial engineering used in network 
+organizations, 17th IBIMA Conference on Creating Global Competitive Economies: A 360-degree 
+Approach, 2037-2042 
+[15] Straka, M.; Rosova, A.; Lenort, R.; Besta, P.; Saderova, J. (2018). Principles of computer 
+simulation design for the needs of improvement of the raw materials combined transport system, 
+Acta Montanistica Slovaca, Vol. 23, No. 2, 163-174 
+[16] Bangsow, S. (2015). Tecnomatix Plant Simulation: Modeling and Programming by Means of 
+Examples, Springer, Cham 
+[17] Wicher, P.; Staš, D.; Karkula, M.; Lenort, R.; Besta, P. (2015), A computer simulation-based 
+analysis of supply chains resilience in industrial environment, Metalurgija – Metallurgy, Vol. 54, 
+No. 4, 703-706 
+[18] Klos, S.; Patalas-Maliszewska, J. (2014). Badania kluczowych problemów w zarządzaniu 
+utrzymaniem ruchu, Knosala, R. (Ed.), Innowacje w Zarządzaniu i Inżynierii Produkcji, Polskiego 
+Towarzystwa Zarządzania Produkcją, Opole, 678-687 (in Polish) 

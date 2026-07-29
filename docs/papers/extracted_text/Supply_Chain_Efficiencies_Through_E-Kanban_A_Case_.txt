@@ -1,0 +1,498 @@
+
+
+--- SAYFA 1 ---
+Supply Chain Efficiencies Through E-Kanban: 
+A Case Study 
+Suprasith Jarupathirun 
+Ramkhamhaeng University, Thailand 
+jarupat2@gmail.com 
+Andrew P. Ciganek 
+Jacksonville State University, USA 
+aciganek@jsu.edu 
+Thaloengsak Chotiwankaewmanee 
+Ramkhamhaeng University, Thailand 
+mirecton@hotmail.com 
+and  
+Chayanun Kerdpitak 
+Ramkhamhaeng University, Thailand 
+ckerdpitak@gmail.com 
+ 
+Abstract- Electronic Kanban (e-Kanban) is 
+a system of signaling that makes use of 
+information technology (IT) to trigger the 
+movement of raw materials to allow for a 
+real time view of inventory throughout a 
+supply chain.  This paper presents a case 
+study of the use of an e-Kanban system to 
+minimize operational and logistics issues 
+for a parts supplier within the automotive 
+industry.  Measures of operations and 
+logistics performance are examined both 
+before and after the implementation of the 
+e-Kanban system through a series of 
+observations, in-depth interviews, and 
+documentation reviews.  The results 
+indicated improvements in production 
+lead times, financial costs, effective and 
+efficient work processes, and reductions in 
+waste.  The enhancement of the e-Kanban 
+system 
+through 
+radio-frequency 
+identification (RFID) is also discussed. 
+Keywords- supply chain management, just 
+in time, kanban, automotive industry, case 
+study 
+I. INTRODUCTION 
+Organizations 
+are 
+consistently 
+looking for information technology (IT) that 
+can improve performance and their bottom 
+line.  In order for organizations to attain the 
+full benefit of any given IT, however, it has 
+to be widely and fully adopted.  Given the 
+difficulties that many organizations often 
+have adopting technology, it becomes 
+imperative that firms take an active approach 
+to ensure its success. 
+This research discusses a case study 
+involving the use of an e-Kanban system to 
+minimize operational and logistics issues for 
+a parts supplier within the automotive 
+industry.  The objective of this research is to 
+present both the opportunities that this 
+technology presents, supported by actual 
+performance improvements and cost savings, 
+as well as the challenges that still exist after 
+implementation. A brief literature review is 
+first presented followed by the case study 
+results.  The paper then ends with some 
+concluding remarks. 
+II. KANBAN 
+A Kanban (Kan or ‘card’ and ban or 
+‘signal’) system is a manufacturing control 
+technique used in just-in-time or lean 
+management to efficiently and effectively 
+improve the flow of goods and inventory 
+within business processes.  It was originally 
+created by Toyota at around 1955 and since 
+then, the system has been widely adopted by 
+manufacturing firms all over the world.  
+International Conference on IT to Celebrate S. Charmonman's 72nd Birthday, March 2009, Thailand 
+55.1
+
+
+--- SAYFA 2 ---
+Suprasith Jarupathirun, Andrew P. Ciganek, Thaloengsak Chotiwankaewmanee, and Chayanun Kerdpitak 
+In 
+the 
+Kanban 
+system, 
+each 
+workstation produces and delivers products 
+or components only when it receives a 
+Kanban card from the upstream workstation.  
+In other words, work is performed only when 
+it is needed. The system is simple and has a 
+low cost to implement.  Kanban helps 
+production units quickly respond to changes 
+in a supply chain by precisely and 
+systematically 
+transferring 
+production 
+information.  Not all manufacturing firms, 
+however, can benefit from implementing a 
+Kanban system.   
+A Kanban system is not suitable for 
+firms that have mixed and fluctuating 
+demand, poor quality production processes, 
+or having a relatively large variety of 
+products.  Sudden decreases or increases in 
+mix or demand of products can also cause 
+problems for a Kanban system.  As 
+manufacturing processes involve more parts 
+or product mixes, they can increase the 
+complexity of a Kanban system, which in 
+turn can lead to a system breakdown.  If a 
+situation does not perform as expected, the 
+whole manufacturing process has to be shut 
+down.    
+III. ELECTRONIC DATA 
+INTERCHANGE 
+Pfeiffer (1992) states that electronic 
+data interchange (EDI) is an information 
+technology system adopted by at least two 
+partnering 
+business 
+organizations 
+to 
+exchange 
+transaction 
+data 
+via 
+telecommunication links.  In the past, many 
+organizations, especially small and medium 
+sized enterprises, have been reluctant to 
+acquire EDI capabilities due to the high costs 
+of implementation and maintenance (Smith, 
+1990).  Thus, for EDI to provide full benefit 
+for all business partners, the system has to be 
+widely and fully adopted to share the costs 
+(Bouchard, 1993).   
+Iacovou et al. (1995) interviewed 
+seven executives of small organizations and 
+found that their main reason to adopt EDI 
+was due to the external pressures exerted by 
+more powerful trading partners.  However, 
+the success of EDI implementations depends 
+on the organizational readiness and the 
+awareness of the potential benefits of EDI.  
+Hill and Scudder (2002) argued that the key 
+success of supply chain management is 
+based on how much EDI is fully integrated 
+in the supply chain.  EDI can make a supply 
+chain 
+more 
+visible 
+through 
+better 
+cooperation and integration among supply 
+chain members. Their study also found that 
+organizations 
+are 
+more 
+willing 
+to 
+accommodate customers’ needs than that of 
+their suppliers’ needs when using EDI. 
+Despite the substantial costs, the 
+notable benefits of implementing EDI are 
+improvements in terms of quality, timeliness, 
+administrative costs, strategic advantage, and 
+operations 
+management 
+(Bergeron 
+and 
+Raymond, 1992). As EDI has become more 
+widespread in addition to advances in 
+Internet technologies, Internet based EDI on 
+virtual private network technology provides 
+more opportunities for organizations of all 
+sizes to realize the benefits of being EDI 
+capable. 
+In this study, we examine a company 
+that has implemented EDI with a Kanban 
+system, known as electronic or e-Kanban, to 
+improve its logistics processes through 
+observation and documental analysis. 
+IV. CASE STUDY RESULTS 
+A 
+parts 
+supplier 
+within 
+the 
+automotive industry that produced a cockpit 
+module 
+(CPM) 
+for 
+a 
+Japanese 
+car 
+manufacturer was the organization that was 
+examined in this study.  This case study was 
+conducted through a series of observations, 
+in-depth interviews, and documentation 
+reviews.  We examined the work processes 
+both before and after the implementation of 
+the e-Kanban system (see Figure 1 for the 
+material and CPM flow for the organization 
+examined in this study) and then analyzed 
+the impact that this technology had. 
+Special Issue of the International Journal of the Computer, the Internet and Management, Vol.17 No. SP1, March, 2009 
+ 
+55.2
+
+
+--- SAYFA 3 ---
+Supply Chain Efficiencies Through E-Kanban: A Case Study 
+ 
+Figure 1. Material and CPM Flow for the 
+Organization Examined in This Study 
+First, the customer (a Japanese car 
+manufacturer) 
+broadcasted 
+its 
+cockpit 
+module delivery schedule on its website. The 
+company then retrieved the schedule and 
+imported it into a SAP program (an 
+enterprise resource planning [ERP] system) 
+to process and send purchasing orders to its 
+suppliers. The bottleneck of this supply chain 
+process occurs when the third party logistics 
+provider delivers materials from the external 
+warehouse to the production line.  This is 
+done using a traditional Kanban system and 
+the loss of Kanban cards happens during the 
+put in, pick off, delivery, and production 
+processes. As a result, a company often 
+cannot deliver CPMs to its customer 
+according to the issue schedule. 
+Before implementing e-Kanban, the 
+company had to process 52 material parts 
+and over 26,000 items each day in operation. 
+Its process of material delivery involved 
+steps including picking up Kanban cards and 
+emptying baskets in the line production, 
+collecting Kanban cards and making a 
+record, moving empty baskets and bringing 
+Kanban cards back to the warehouse, sorting 
+the Kanban cards, preparing the materials 
+and attaching the Kanban cards, delivering 
+the materials to the factory, and bringing the 
+materials on the production floor. This 
+results in 255 minutes in lead-time, 219 
+square meters of storage area, and 19 million 
+baths in inventory costs (see Table 1 for the 
+traditional Kanban system process times).  
+TABLE 1  
+TRADITIONAL KANBAN SYSTEM PROCESS 
+TIME 
+Steps 
+Process Time 
+(minutes) 
+Pick up Kanban cards and empty 
+baskets in the line production 
+40 
+Collect Kanban cards and record 
+15 
+Move empty baskets and Kanban 
+cards back to the warehouse 
+35 
+Sort Kanban cards 
+15 
+Prepare materials and attach 
+Kanban cards 
+50 
+Deliver materials to the factory 
+30 
+Bring the materials to the 
+production floor 
+70 
+Total Lead Time 
+255 
+ 
+After implementing e-Kanban, the 
+company was able to eliminate steps in the 
+process and reduce a lead-time of production 
+into 190 minutes.   In addition, the e-Kanban 
+system only needed to process 24,000 items, 
+which resulted in 14 million baths of 
+inventory costs and 170 square meters of 
+storage area.  The steps in this new work 
+process include collecting and scanning 
+Kanban into the EDI system, transferring 
+information, printing the Kanban barcode 
+and attaching it to the prepared materials, 
+delivering it to the factory, and putting the 
+materials on the production floor (see 
+TABLE 2 for the e-Kanban system process 
+times).       
+TABLE 2  
+E-KANBAN SYSTEM PROCESS TIME 
+Steps 
+Process Time 
+(minutes) 
+Collect and scan Kanban into EDI 
+system 
+40 
+Transfer information via network 
+0 
+Print Kanban barcode and attach it to 
+the prepared materials 
+50 
+Deliver materials to the factory 
+30 
+Put the materials on the production 
+floor 
+70 
+Total Lead Time 
+190 
+ 
+The benefits of implementing the e-
+Kanban system in this study were a reduction 
+in the overall steps in the work process, lead 
+times, 
+Kanban 
+circulation, 
+amount 
+of 
+materials, storage area, and inventory costs 
+(see TABLE 3 for a comparison of the 
+supply 
+chain 
+before 
+and 
+after 
+the 
+organization implemented the e-Kanban 
+system).  With the cost savings in inventory 
+alone, the company was able to break even 
+with the e-Kanban investment and operations 
+within 18 months. To further improve the 
+process, the company is seeking to the 
+implement radio frequency identification 
+International Conference on IT to Celebrate S. Charmonman's 72nd Birthday, March 2009, Thailand 
+55.3
+
+
+--- SAYFA 4 ---
+Suprasith Jarupathirun, Andrew P. Ciganek, Thaloengsak Chotiwankaewmanee, and Chayanun Kerdpitak 
+(RFID) technology instead of utilizing the 
+current bar code process. The company has 
+to balance the trade off between the benefits 
+gained from using RFID and the cost to 
+implement RFID.  
+TABLE 3  
+COMPARISON OF THE SUPPLY CHAIN BEFORE 
+AND AFTER IMPLEMENTING THE E-KANBAN 
+SYSTEM 
+ 
+Before 
+e-Kanban 
+After 
+e-Kanban 
+Change 
+Steps in the 
+work 
+process 
+7 steps 
+5 steps 
+2 steps 
+Lead-time 
+225 mins 
+190 mins 
+65 mins 
+Numbers of 
+Kanban 
+circulation 
+700 cards 
+530 cards 
+170 cards 
+Amount of 
+materials 
+26,226 
+items 
+24,479 
+items 
+1,747 
+items 
+Storage 
+areas 
+220 sq 
+meters 
+170 sq 
+meters 
+50 sq 
+meters 
+Inventory 
+costs 
+18.83M 
+baths 
+14.59M 
+baths 
+4.24M 
+baths 
+ 
+Although there was much enthusiasm 
+from the managers for the cost savings from 
+adopting 
+e-Kanban, 
+issues 
+still 
+exist 
+regarding the performance of e-Kanban.  
+These issues are related to the inconsistent 
+performance of its current EDI service 
+provider as the EDI system must often be 
+shut down or is unable to operate. As a 
+result, the company feels that it is losing 
+control of the performance of the e-Kanban 
+system.  In addition, the company still lacks 
+the IT personnel that can further integrate 
+EDI within all aspects of the company’s 
+operations.  Consequently, there are still 
+many issues that still need to be addressed so 
+that the full benefits of the e-Kanban system 
+can be realized. 
+V. CONCLUSION 
+This research presented a case study 
+of the implementation of an e-Kanban 
+system to improve the supply chain of a parts 
+supplier within the automotive industry.  
+This case study was conducted through a 
+series of observations, in-depth interviews, 
+and documentation reviews.  The objective 
+of this research was to present both the 
+opportunities that an e-Kanban system 
+presents, supported by actual performance 
+improvements and cost savings, as well as 
+the challenges that remained after its 
+implementation.  The results indicated 
+improvements in production lead times, 
+financial costs, effective and efficient work 
+processes, and reductions in waste.  A 
+discussion of the challenges that exist after 
+implementation were also identified as well 
+as additional opportunities for technology 
+(e.g., RFID) to improve organizational 
+performance. 
+Indeed, organizations are consistently 
+scanning their environment to identify new 
+technologies that can improve performance 
+and their bottom line.  This research presents 
+the implementation of one such technology, 
+e-Kanban, and the benefits made possible 
+through its utilization.  It is through such 
+cases that an organization considering the 
+adoption of a particular technology can 
+understand the benefits and challenges that 
+the technology present to them, and allow 
+that firms to take an active approach to 
+ensure a successful implementation. 
+REFERENCES 
+1. Bergeron, F. & Raymond, L. (1992). The 
+Advantages of Electronic Data Interchange. 
+Database. 23(4), 19-31. 
+2. Bouchard, L. (1993). Decision Criteria in the 
+Adoption of EDI. Proceedings of the 14th 
+International 
+Conference 
+on 
+Information 
+Systems. 365–376. 
+3. Hill, C. & Scudder, G. (2002). The Use of 
+Electronic Data Interchange for Supply Chain 
+Coordination in the Food Industry. Journal of 
+Operations Management. 20, 375-87. 
+4. Iacovou, C. L., Benbasat, I., & Dexter, A. (1995). 
+Electronic 
+Data 
+Interchange 
+and 
+Small 
+Organizations: 
+Adoption 
+and 
+Impact 
+of 
+Technology. MIS Quarterly. 19(4), 465–485. 
+5. Pfeiffer, H. (1992). The Diffusion of Electronic 
+Data Interchange. Springer-Verlag, New-York, 
+NY.  
+6. Smith, T. (1990). Unwilling Partners Handicap 
+EDI Users. Network World. 7, 23–26. 
+Special Issue of the International Journal of the Computer, the Internet and Management, Vol.17 No. SP1, March, 2009 
+ 
+55.4

@@ -1,0 +1,1504 @@
+
+
+--- SAYFA 1 ---
+Journal of Industrial and Production Engineering
+ISSN: 2168-1015 (Print) 2168-1023 (Online) Journal homepage: www.tandfonline.com/journals/tjci21
+Particle swarm optimization algorithm for
+design of an adaptive Kanban system based on
+optimization via simulation
+Khouloud Elloumi, Achraf Ammar & Mounir Benaissa
+To cite this article: Khouloud Elloumi, Achraf Ammar & Mounir Benaissa (2025) Particle swarm
+optimization algorithm for design of an adaptive Kanban system based on optimization
+via simulation, Journal of Industrial and Production Engineering, 42:6, 612-624, DOI:
+10.1080/21681015.2025.2474082
+To link to this article:  https://doi.org/10.1080/21681015.2025.2474082
+Published online: 07 Mar 2025.
+Submit your article to this journal 
+Article views: 149
+View related articles 
+View Crossmark data
+Citing articles: 2 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tjci21
+
+
+--- SAYFA 2 ---
+Particle swarm optimization algorithm for design of an adaptive Kanban 
+system based on optimization via simulation
+Khouloud Elloumi
+a, Achraf Ammar
+b and Mounir Benaissa
+a
+aLR-OASIS, National Engineers School of Tunis, University of Tunis Elmanar, Tunis, Tunisia; bIndustrial Engineering Department, 
+International Institute of Technology, Sfax, Tunisia
+ABSTRACT
+Manufacturing systems face challenges in adapting to fluctuating demand, making traditional 
+fixed-parameter Kanban systems inefficient. This study addresses these limitations by proposing an 
+adaptive Kanban-based pull control mechanism that dynamically adjusts the number of Kanbans 
+based on inventory levels and backorders. To design an adaptive Kanban system, a metaheuristic 
+optimization approach using particle swarm optimization is integrated with simulation to account 
+for stochastic and time-varying customer demand. Previous studies have either overlooked 
+demand fluctuations in Kanban systems or underutilized the advantages of particle swarm opti­
+mization. The results demonstrate that the proposed algorithm significantly reduces total produc­
+tion costs compared to existing metaheuristic methods. These findings underscore the importance 
+of integrating simulation and optimization to enhance decision-making in manufacturing, provid­
+ing a robust framework for improving production flow control in uncertain environments.
+ARTICLE HISTORY 
+Received 10 December 2023  
+Revised 23 February 2025  
+Accepted 23 February 2025 
+KEYWORDS 
+Manufacturing system; 
+adaptive Kanban system; 
+PSO algorithm; 
+metaheuristic; optimization; 
+discrete event simulation
+1. Introduction
+In the context of the 4th industrial revolution, several 
+countries have allocated significant investments to 
+address major technical and scientific challenges with 
+the goal of improving the performance of their compa­
+nies [1]. Despite the opportunities presented by this 
+revolution, companies must confront significant difficul­
+ties caused by market evolution, production uncertain­
+ties, and unpredictable demand fluctuation. To remain 
+efficient and competitive, production systems must be 
+capable of adapting to face these uncertainties.
+This adaptability can be achieved through the imple­
+mentation of adaptive systems that leverage optimiza­
+tion techniques via simulation. The use of simulation to 
+optimize dynamic models offers several significant 
+advantages, particularly in the management of complex 
+or dynamic systems. Simulation allows a detailed exam­
+ination of system behavior under different scenarios, 
+incorporating uncertainties and dynamics that may be 
+neglected by traditional models [2,3]. By combining opti­
+mization techniques with simulation, decision-makers 
+can identify optimal or near-optimal solutions while 
+assessing their feasibility and robustness through simula­
+tion experiments. This feedback loop enhances the deci­
+sion-making process by allowing adjustments to be 
+made based on performance metrics derived from simu­
+lation results. Furthermore, optimization coupled to 
+simulation can effectively achieve conflicting objectives, 
+such as cost reduction and customer satisfaction [4]. 
+Overall, simulation is an efficient and powerful tool for 
+improving responsiveness and performance in dynamic 
+environments [5–8].
+The Kanban system is widely recognized as an effec­
+tive tool for managing production processes, particu­
+larly within the framework of Just-In-Time (JIT) 
+manufacturing [9]. By facilitating a pull-based control 
+mechanism centered on producing products precisely 
+when customers need them, primarily by eliminating 
+sources of waste [10], Kanban helps organizations 
+minimize Work in Progress (WIP) and streamline opera­
+tions to meet customer demands efficiently [11]. 
+However, while Kanban has proven beneficial in stable 
+environments with predictable demand [12], it pre­
+sents limitations in addressing the complexities of 
+dynamic environments conditions. As customer prefer­
+ences changes and demand becomes increasingly sto­
+chastic, traditional Kanban systems can lead to 
+inefficiencies such as suboptimal inventory levels and 
+resource underutilization. To overcome these limita­
+tions, previous studies aim to solve the rigidity of 
+traditional approaches, providing a more responsive 
+and cost-effective solution.
+Despite numerous studies in production system opti­
+mization, the practical implementation of approaches 
+that effectively address dynamic and stochastic environ­
+ments is still a challenge for manufacturing management. 
+Many existing studies have highlighted the limitations of 
+traditional systems in dealing with such conditions, parti­
+cularly when attempting to balance conflicting objectives 
+such as minimizing costs while maximizing customer 
+CONTACT Khouloud Elloumi 
+khouloud.elloumi@isgis.usf.tn LR-OASIS, National Engineers School of Tunis, University of Tunis Elmanar, Tunis 1002, 
+Tunisia
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING 
+2025, VOL. 42, NO. 6, 612–624 
+https://doi.org/10.1080/21681015.2025.2474082
+© 2025 Chinese Institute of Industrial Engineers 
+
+
+--- SAYFA 3 ---
+satisfaction. Identifying optimal parameters in adaptive 
+production systems is a complex challenge, especially 
+under fluctuating and uncertain demand conditions. 
+Although optimization via simulation has proven to be 
+a powerful technique for addressing these challenges by 
+coupling system dynamics with advanced optimization 
+methods, it has yet to see widespread adoption in 
+practice.
+This study aims to fill this gap by leveraging the 
+Particle Swarm Optimization (PSO) algorithm to opti­
+mize an adaptive Kanban system. PSO, inspired by the 
+collective behavior of swarms, is an efficient and robust 
+method for solving complex, non-linear problems. 
+Each particle in the algorithm represents a potential 
+solution, and through iterative interactions, the swarm 
+collectively searches for the best solution based on 
+a fitness function [13]. In the context of adaptive 
+Kanban systems, PSO shows great potential for opti­
+mizing decision parameters, enabling systems to dyna­
+mically adjust and improve performance under varying 
+demand conditions.
+To achieve these objectives, this study employs 
+optimization via simulation, a method particularly sui­
+ted to capturing the complexities of stochastic and 
+time-varying demand. Simulation provides a detailed 
+representation of system behavior under different sce­
+narios, incorporating uncertainties and evaluating the 
+robustness and feasibility of solutions. By integrating 
+PSO with simulation, this research not only demon­
+strates the effectiveness of this approach but also 
+offers a practical framework for enhancing the adapt­
+ability and performance of production systems. In 
+order to evaluate the performance of the proposed 
+approach, a comparative study based on the objective 
+function was conducted. The PSO algorithm was com­
+pared to other algorithms predeveloped in the existing 
+literature.
+The structure of the study is as follows. Section 2 
+provides an analysis of the current literature on adap­
+tive card-based pull control systems, with a focus on 
+approaches for dynamically adjusting the number of 
+cards in the absence of production forecasts. In 
+Section 3, we outline our methodology, which com­
+bines an optimization via simulation approach with 
+a metaheuristic approach. The Particle Swarm 
+Optimization algorithm is elaborated. In Section 4, we 
+apply our approach to examples of adaptive Kanban 
+systems drawn from the literature in order to test the 
+performance of the proposed approach. The simula­
+tion results are analyzed and discussed in section 5. 
+A comparison of the proposed approach with other 
+methods developed in the literature demonstrates the 
+superiority of our approach. Finally, the study con­
+cludes with a summary of the results and a discussion 
+of potential new future works.
+2. Literature review
+2.1. Problem statement and related research
+The traditional Kanban system (TKS) is a pull-based 
+manufacturing system that uses a set of cards to signal 
+the need for more materials when a production stage 
+is complete. It effectively control the flow of materials 
+in a production process, allowing for the efficient use 
+of resources and reducing waste. However, the tradi­
+tional Kanban system with fixed number of card has 
+limitations when it comes to dealing with uncertain 
+and fluctuation demand. To address these challenges, 
+several studies have proposed card controlling 
+approaches. In these methods, the number of Kanban 
+cards in circulation is adjusted to accommodate the 
+dynamic and unpredictable changes in the production 
+environment. Such systems are often categorized as 
+flexible pull control systems [14,15], reactive systems 
+[16], or adaptive systems [17–20] offering different 
+strategies to improve responsiveness and adaptability 
+in managing production flows under varying 
+conditions.
+Adaptive card production control policies have 
+been widely discussed in the literature to dynamically 
+adjust the number of cards in response to environ­
+mental changes. The literature provides various 
+approaches and information on the implementation 
+and effectiveness of these adaptive systems.
+Tardif and Maaseidvaag [17] designed the Adaptive 
+Kanban System (AKS) to manage variable supply and 
+demand conditions. The proposed approach aims to 
+responds to changes in demand by dynamically adjust­
+ing the number of Kanban based on inventory and 
+backorder levels. Figure 1 shows the AKS model. The 
+number of cards used is allowed to vary based on the 
+current stock level and pending orders. When 
+a demand arrives at time t to the manufacturing sys­
+tem, the inventory level N(t) is calculated. N(t) repre­
+sent the quantity of finished pieces in excess of 
+pending orders at time t expressed by (P(t) – D(t)).
+●If the inventory level N(t) is below the release 
+threshold (R), N(t) ≤ R and an extra card is avail­
+able x(t) > 0, then an extra card is released and 
+sent to MP. The demand is satisfied as soon as 
+a finished product is available
+●If the inventory level N(t) exceeds the capture 
+threshold (C), N(t) ≥ C and an extra card is avail­
+able x(t) < E, then the demand is satisfied as soon 
+as a finished product is available, the card 
+attached to the product is captured and queue 
+E is updated.
+The queue P contains finished pieces, and queue 
+D contains pending orders. The single-stage adaptive 
+mechanism uses K initial cards and E additional cards. 
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+613
+
+
+--- SAYFA 4 ---
+Initially, before a customer demand arrives in the sys­
+tem, queue P has a base stock of K finished pieces, 
+queue E contains all additional cards, queue D is 
+empty, and the manufacturing process MP is inactive. 
+Here, note that C > R and C < K + 1 are necessary 
+consideration for this system to function properly [17]
+Design of AKS requires determination of value for 
+number of cards (K), number of extra cards (E), release 
+threshold (R) and capture threshold (C). Several alter­
+native methods are available that employ simple deci­
+sion rules with thresholds. One such approach, 
+introduced by Tardif and Maaseidvaag [17], focuses 
+on the current inventory and backordered level. To 
+maintain control, an additional card is introduced 
+into the system when demand arises and the inventory 
+level falls below a predetermined release threshold. 
+Conversely, a card is removed from the system when 
+demand occurs and the inventory level exceeds 
+a capture threshold. Tardif and Maaseidvaag devised 
+a local search technique to determine these thresh­
+olds, as well as two other parameters crucial for 
+ConWIP system design. However, it is important to 
+note that their method may encounter the challenge 
+of 
+becoming 
+trapped 
+in 
+a 
+local 
+minimum. 
+Shahabudeen and Sivakumar [18] utilized a heuristic- 
+based genetic algorithm to determine the aforemen­
+tioned parameters, demonstrating the high efficiency 
+of the Genetic Algorithm (GA) through their numerical 
+results. Building upon their work, Sivakumar and 
+Shahabudeen [19] extended their approach to address 
+multi-stage adaptive Kanban systems and found that 
+the Simulated Annealing algorithm (SA) also proved 
+effective in optimizing such systems. In a subsequent 
+study, Sivakumar and Shahabudeen [21] employed 
+a search combining genetic and simulated annealing 
+algorithms to establish threshold values for adaptive 
+Kanban systems, aiming to achieve the same objective. 
+In works presented by Sivakumar and Shahabudeen, 
+the system is modeled in terms of the state (i, x) whose 
+evaluation describes a continuous time Markov chain 
+(CTMC). State (N(t), x(t)) denotes the total number of 
+parts in queue P minus the total number of back orders 
+in queue D by N and the number of extra cards in 
+circulation by x.
+Expanding on this objective, Pierreval et al. [6] pro­
+posed a simulation-based optimization approach spe­
+cifically designed for reactive ConWIP systems. In 
+a follow-up study, Belisario and Pierreval [22] 
+employed a simulation-based genetic programming 
+approach to modify the number of cards, thereby 
+reducing WIP while meeting customer demands. 
+Manupati et al. [23] proposed a Support Vector 
+Machine based on simulation approach to tackle 
+a production control problem in a flexible manufactur­
+ing cell operating in a dynamic environment, with the 
+aim of maximizing total weighted throughput and 
+minimizing weighted tardiness. Renna [24], propose 
+an adaptive card-based pull control approaches using 
+demand 
+forecasts. 
+The 
+author 
+introduced 
+a methodology involving the development of a fuzzy 
+controller to adjust the number of cards, which has 
+been validated using a simulation module.
+In a subsequent work, Elloumi et al. [25,26] propose 
+an intelligent policy based on fuzzy logic for dynami­
+cally adjusting the number of Kanban cards in a pull 
+production system operating in a stochastic environ­
+ment with fluctuations in customer demand. The 
+objective is to maintain a high level of performance 
+measures in terms of production costs and customer 
+satisfaction without any estimation of future demands.
+Xanthopoulos et al. [27] proposed a study regarding 
+card-based adaptive control policies that dynamically 
+adjust the number of cards in response to environ­
+mental changes, with the aim of reducing backorders 
+and increasing throughput. The authors point out that 
+previous literature has neglected Generalized Kanban 
+and Extended Kanban as adaptive systems, and that no 
+comprehensive experimental study has compared 
+multiple adaptive control policies in a multi-objective 
+context.
+Azouz et al [8] presented an analytical study on the 
+concept of nervousness in the context of adaptive 
+control systems by proposing an approach based on 
+multi-objective optimization to reduce the number of 
+Kanban card changes. Then, Azouz and Pierreval [28] 
+exploited an intelligent learning approach based on 
+a neural network to dynamically adjust the number of 
+Kanban cards in real time. The authors exploited 
+a multi-objective optimization technique to determine 
+the thresholds and show its interest compared to other 
+works in the literature by considering nervousness.
+Industry 4.0 has revolutionized traditional produc­
+tion systems through digital technologies associated 
+with 
+production 
+systems 
+for 
+efficiency 
+and 
+Customer demands 
+ 
+Yes, capture extra card
+   E
+Extra cards  
+Queue 
+P
+No
+D
+Kanban to MP
+Yes, release extra card
+Part to Customer
+No 
+if 
+N(t) ≤ R 
+and 
+x(t) >0 
+if 
+N(t) ≥ C 
+and 
+x(t) < E 
+MP
+K 
+Figure 1. Model for a single-stage adaptive kanban control 
+system [17].
+614
+K. ELLOUMI ET AL.
+
+
+--- SAYFA 5 ---
+adaptability. In this context, the concept of electronic 
+Kanban has gained considerable attention as a modern 
+evolution of the traditional Kanban system. In 
+e-Kanban, the Kanban message or order operates in 
+electronic form using information technology tools. 
+The traditional paper-based Kanban system has 
+become obsolete due to various drawbacks. After the 
+introduction of the electronic Kanban, barcodes, QR 
+codes and RFID became common techniques for mak­
+ing information flows visible throughout the produc­
+tion or supply chain to increase the flexibility of 
+systems [29]. Indeed, the adoption of electronic 
+Kanban cards offers several advantages over tradi­
+tional physical systems, improving efficiency and accu­
+racy in a variety of operational contexts. These benefits 
+include improved data precision, real-time monitoring 
+and improved accessibility, which collectively contri­
+bute to better decision-making and operational per­
+formance [30,31].
+The application of Kanban is not limited to industrial 
+production systems, but also extends to other areas, 
+such as healthcare systems and pharmaceutical stock 
+management. For example, Sriyanto and Ika [32] have 
+demonstrated the effectiveness of e-Kanban in hospital 
+pharmacies to minimize waste, optimize stock levels 
+and simplify management processes. Furthermore, in 
+the automotive industry, Candea and Gabor [33] illu­
+strated that the implementation of the Kanban system 
+as part of a customized approach ensured that the 
+specific needs of companies. Furthermore, Fuentes-del- 
+Burgo et al [34] highlight the success of Kanban in 
+construction, where it is used for supply chain manage­
+ment, Just-In-Time planning and work coordination via 
+the Last Planner System. Their study also highlights the 
+evolution toward e-Kanban systems and their applica­
+tion in Building Information Management environ­
+ments, as well as the development of new software 
+applications and methods. Zeng et al. [35] demonstrate 
+the use of a building information modeling-enabled 
+e-Kanban system for demand-driven replenishment in 
+construction logistics, resulting in reduced waste, 
+improved scheduling, and site storage optimization. 
+These examples show that Kanban, and e-Kanban in 
+particular, remains a modern and relevant solution in 
+a variety of sectors thanks to its flexibility and alignment 
+with the technologies of the 4th industrial revolution.
+These studies demonstrate the polyvalence and 
+adaptability of Kanban, particularly in its electronic 
+form, in addressing management and coordination 
+challenges in a variety of industrial and technological 
+contexts. However, the effectiveness of a Kanban sys­
+tem, and more specifically of an adaptive Kanban, 
+relies heavily on the optimization of its parameters, 
+which enables it to respond to the constant variations 
+of dynamic environments and increasing operational 
+requirements. Indeed, optimizing the parameters of an 
+adaptive Kanban system is crucial, enhancing its 
+flexibility and ability to adapt to the realities of modern 
+industry.
+On the other hand, evolutionary algorithms have 
+proven their effectiveness in solving numerous para­
+meter design problems, demonstrating better results 
+than statistical methods [36]. Furthermore, the PSO 
+algorithm is part of evolutionary algorithms. Inspired 
+by the social behavior of insect swarms, it replicates 
+the movement of a set of particles (a swarm) through 
+a multidimensional space to reach the most desirable 
+position. The trajectory of each particle is based not 
+only on its best-achieved position but also on the best 
+position achieved by any particle in the swarm, known 
+to all members of the swarm. Thus, a balance between 
+local and global search is maintained [37]. Unlike con­
+ventional optimization methods, it is not a gradient- 
+based method. PSO is considered a robust stochastic 
+optimization algorithm, with less sensitivity to specific 
+algorithm parameters compared to other evolutionary 
+algorithms (e.g. GA). It requires fewer adjustments of 
+specific algorithm parameters than other evolutionary 
+algorithms [38,39].
+According to the review presented by Sibalija [40], the 
+PSO has many positive features that have made it very 
+popular in recent years and have expanded its applica­
+tion for various purposes. In addition to its unique prop­
+erty of balancing between local and global search, the 
+simplicity of the PSO algorithm compared to other evolu­
+tionary algorithms is particularly appreciated. In the same 
+study, Sibalija also presented the effectiveness of using 
+the multi-objective particle swarm optimization algo­
+rithm. The multi-objective approach is commonly 
+employed to solve optimization problems with multiple 
+responses, especially when the number of responses is 
+limited. In multi-objective problems, multiple objective 
+functions may be mutually conflicting, leading to 
+a procedure based on a set of non-dominated solutions, 
+resulting in convergence toward multiple points rather 
+than a single one. In multi-objective PSO the selection of 
+a global leader (gbest) is based on the Pareto dominance 
+principle [40].
+The effectiveness of PSO in solving large-scale global 
+problems has been demonstrated in various studies [41– 
+44]. In a study addressing both environmental sustain­
+ability and assemblability, Chiu et al. [45] apply the PSO 
+algorithm to calculate an optimal module organization as 
+well as assembly methods and sequences. A case study 
+on an air purifier is presented to illustrate the benefits of 
+the proposed method. As a result, the redesigned pro­
+duct can be more easily maintained during use and 
+recycled at the end of its useful life.
+In another research direction, multi-pass turning 
+parameters have been optimized by several authors 
+in the context of designing manufacturing process 
+parameters, as detailed in the review of Sibalija [40]. 
+For instance, Venkata Rao et Pawar [46] used PSO, SA, 
+and artificial bee colony (ABC) for designing key milling 
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+615
+
+
+--- SAYFA 6 ---
+parameters (cutting speed, depth of cut, and feed per 
+tooth) considering three constraints with the aim of 
+reducing processing time. The results indicate that PSO 
+and ABC provide a better solution than SA. 
+Furthermore, PSO demonstrated slightly faster conver­
+gence than ABC and significantly better convergence 
+than SA.
+Li et al. [47] outline the challenges faced by building 
+materials equipment manufacturing enterprises in out­
+sourcing resources and introduces a model and algo­
+rithm for supplier selection Traditional methods are 
+insufficient to meet the current requirements for evaluat­
+ing and selecting outsourced suppliers. Due to traditional 
+methods are insufficient to meet the current require­
+ments for evaluating and selecting outsourced suppliers, 
+a model for outsourcing supplier selection is established, 
+considering factors such as quality, price, delivery time, 
+reliability, and availability of outsourced suppliers.
+In this context, this study presents an approach to 
+determine the optimal values of decision variables 
+based on integration of simulation and optimization. 
+This approach utilizes a discrete event simulation soft­
+ware coupled to the metaheuristic Particle Swarm 
+Optimization.
+2.2. Use of the simulation
+Simulation stands as a widely utilized tool that offers 
+numerous advantages dealing with stochastic and 
+complex dynamic behaviors in a realistic manner, with­
+out relying on restrictive assumptions [2,5]. One sig­
+nificant benefit is the ability to incorporate fluctuations 
+in customer demand. Specifically, the average demand 
+rate can be modeled to dynamically evolve over time 
+based on various signals, which can be simulated 
+alongside the stochastic nature of order arrivals. This 
+enables the exploration of scenarios where customer 
+demand is unpredictable, eliminating the need for 
+order arrival information or forecasting [8,25].
+Several studies have highlighted the potential of 
+simulation for optimizing and evaluating production 
+systems, particularly in situations where stochastic 
+and complex behaviors need to be taken into 
+account [48]. Jahangirian et al. [49] provide 
+a detailed review of the use of simulation in manu­
+facturing and business sectors, emphasizing that 
+simulation is a useful tool for decision-making, espe­
+cially in complex or uncertain situations. Iwase and 
+Ohno [50] evaluated the performance of a multi- 
+stage JIT production system using a simulation 
+model, showing that optimizing production capacity 
+can significantly improve the overall performance of 
+the production system. Additionally, Sagawa and 
+Nagano [51] also used simulation models to model 
+the dynamics of an adaptive multi-product manufac­
+turing system, demonstrating that simulation is an 
+effective tool for managing the stochastic and 
+complex behaviors of the system, as well as for tak­
+ing into account fluctuations in customer demand.
+In an extensive review of recent literature, Ghasemi 
+et al [52] demonstrate the growing interest in applying 
+simulation optimization techniques to production plan­
+ning particularly in the context of Industry 4.0. This 
+review identifies current gaps, including the need for 
+more integrated frameworks to address uncertainty, 
+optimization and simulation in dynamic environments. 
+Indeed, the focus on Industry 4.0 highlights the poten­
+tial of Simulation Optimization to provide real-time deci­
+sion support tools, addressing the planning and control 
+needs of modern production systems.
+In the context of integrating optimization with 
+simulation, this study proposes an approach based 
+on optimization via simulation to evaluate the perfor­
+mance of an adaptive Kanban system. Specifically, 
+a discrete-event simulation is employed to reproduce 
+the dynamic behavior of the production system. The 
+PSO algorithm is used to generate potential solutions, 
+which are then evaluated within the simulation frame­
+work. This integration enables accurate estimation of 
+the objective function, which aims to reduce produc­
+tion costs while maintaining high levels of service, 
+taking into account the stochastic and dynamic nature 
+of the system. This contribution highlights the effec­
+tiveness of the proposed approach in addressing the 
+challenges of parameter optimization for adaptive 
+Kanban systems in complex and variable production 
+environments.
+3. Method
+3.1. Mathematical formulation of the 
+optimization problem
+The objective of the AKS is to minimize the cost asso­
+ciated with the backorder and the inventory. Let 
+X ¼ K; E; R; C
+½
+ is the setting vector to be optimized, 
+X 2 S with S represents the set of all possible settings. 
+Therefore, the objective function corresponding to the 
+production cost can be expressed as follow: 
+Where
+FP : the average stock of finished products.
+WIP: evaluated as the average difference between 
+the number of products entering and exiting.
+B : represents the average number of demand wait­
+ing a finished product.
+b : represents the backorder penalty cost.
+In order to ensure that the system is able to return 
+to the initial state, following inequality constraints 
+must be satisfied: 
+616
+K. ELLOUMI ET AL.
+
+
+--- SAYFA 7 ---
+3.2. Optimization via simulation for design of AKS
+The evaluation of the fitness function is a crucial step in 
+the PSO algorithm as it measures the quality of the solu­
+tion associated with each particle in the search space. To 
+evaluate the fitness function, the PSO algorithm must 
+execute the corresponding Arena model for the decision 
+parameters of the particle being evaluated. The Arena 
+model is a representation of the adaptive Kanban system 
+in terms of processes, resources, workflow, constraints, 
+etc. The model must be compiled to generate the execu­
+table file (.p). This file contains the compiled Arena model, 
+ready to be executed by the PSO algorithm. At each 
+iteration, the algorithm evaluates the quality of the solu­
+tion of each particle using the Rockwell Arena model with 
+the decision parameters of the particle. The PSO algo­
+rithm can produce relevant results that reflect the perfor­
+mance of the adaptive Kanban system for that particle in 
+terms of cost. Figure 2 shows the communication flow 
+between the adaptive Kanban system simulated by the 
+discrete event simulation tool Arena and the PSO optimi­
+zation algorithm developed by the Python programming 
+language.
+PSO is a popular metaheuristic algorithm that 
+mimics the behavior of bird swarms and groups of 
+fish. It was first introduced by Kennedy and Eberhart 
+in 1995 for complex, non-linear, multi-dimensional 
+optimization proposals [13]. The algorithm has several 
+advantages, including its simplicity, efficiency, fast 
+convergence and ease of implementation.
+3.3. Particle swarm optimization algorithm
+PSO algorithm offers several advantages as an optimi­
+zation technique, particularly in complex problem- 
+solving scenarios like adaptive Kanban systems. We 
+use the PSO for many reasons, which are detailed as 
+follows:
+Optimization efficiency: As a stochastic algorithm 
+based on a population approach, PSO is able to efficiently 
+explore large search spaces, which ensures high optimi­
+zation efficiency. As a result, it is suitable for both single- 
+objective and multi-objective optimization tasks [53].
+Versatility and adaptability: The algorithm has been 
+successfully applied in various fields, including health, 
+environmental sciences and industrial applications, 
+demonstrating its flexibility. In addition, different variants 
+of PSO improve its ability to solve complex problems, 
+further extending its applicability [54]. Furthermore, the 
+collective intelligence allows PSO to converge toward 
+optimal solutions faster than many other optimization 
+methods, such as genetic algorithms [55].
+Robustness and stability: PSO algorithms demon­
+strate notable stability and convergence characteris­
+tics, which are essential for tackling problems that are 
+poorly defined [56].
+Simplicity of implementation: PSO is relatively 
+easy to implement and requires fewer parameters to 
+tune compared to other algorithms, making it accessi­
+ble for various applications in manufacturing and logis­
+tics [57].
+Although the PSO algorithm has several advan­
+tages, including its simplicity as it requires fewer para­
+meters than many other optimization techniques, its 
+efficiency, rapid convergence and ease of implementa­
+tion, it is essential to take into account the potential 
+limitations, such as sensitivity to parameter settings 
+and the risk of premature convergence, which can 
+affect its performance in certain scenarios [58].
+In PSO, a population of particles (representing can­
+didate solutions) moves through the search space 
+toward the optimal solution based on their own best 
+known position and the global best known position 
+[13]. PSO has been applied successfully to solve various 
+optimization problems, such as function optimization, 
+clustering, and classification. PSO has also been shown 
+to be effective in solving complex optimization pro­
+blems with high-dimensional search spaces. Figure 3 
+illustrates the strategy for moving a particle in its 
+environment.
+Particle movement is influenced by three main com­
+ponents: the inertia component, the cognitive compo­
+nent and the social component. Each of these 
+components plays a crucial role in determining how 
+particles adjust their position in the search space, 
+Particle Swarm Optimization Algorithm 
+Discrete Event Simulation 
+Arena model 
+Executable file (.p) 
+Particles vector 
+[K, E, R, C] 
+Performance 
+Evaluation (Z) 
+Figure 2. Communication between simulated system and PSO 
+algorithm.
+Current position 
+X(t) 
+New position 
+X(t+1) 
+Swarm best 
+performance
+gbest
+Personal best performance 
+pbest
+To the point reached at current velocity
+Figure 3. Particle’s position displacement.
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+617
+
+
+--- SAYFA 8 ---
+enabling the PSO algorithm to efficiently search for 
+optimal solutions in complex problem spaces [13]:
+●The inertia (physical) component: represents the 
+natural tendency of a particle to continue moving 
+in its current direction as a function of its previous 
+speed, and helps to maintain a balance between 
+exploration and exploitation.
+●The cognitive component: reflects the particle’s own 
+experience by directing the particle to move toward 
+its personal best position (pbest), which represents 
+the best solution it has found so far. This component 
+encourages individual exploration, allowing parti­
+cles to refine their search based on their own suc­
+cesses. The cognitive aspect is important to ensure 
+that particles not only rely on the best solutions in 
+the swarm, but also take into account their own 
+discoveries.
+●The social component: represents the influence of 
+the swarm as a whole, and encourages the particle 
+to move toward the best global position (gbest), 
+which is the best solution found by all its neighbors. 
+This component encourages collaboration between 
+particles by enabling them to share information 
+about the best areas of the search space. The social 
+aspect enables the swarm to converge toward opti­
+mal solutions by taking advantage of collective 
+intelligence.
+Each particle of the swarm at time t is characterized by: 
+X (its position in the search space), V (its velocity), pbest 
+(the position of the best solution through which it has 
+passed) and gbest (the position of the best known solu­
+tion of the whole swarm). The adaptation of the particle 
+between iterations t and t + 1 is done according to the 
+following two equations (5) and (6): 
+Where w is the coefficient of inertia which was intro­
+duced by Shi and Eberhart [59] to control the influence of 
+the direction of the particle on the future displacement. 
+The purpose of introducing this parameter is to achieve 
+a balance between exploitation (local search) and 
+exploration (global search). Some strategies for adjusting 
+the coefficients include gradually reducing w over itera­
+tions to improve convergence [60]. The dynamic inertia 
+coefficient is set according the following equation: 
+With wmax and wmin are respectively the initial and 
+the final inertia factor weights, iteris the maximum 
+iteration number and t is the current iteration number.
+Thanks to its specific balance between local and 
+global search, the PSO algorithm has a lower risk to 
+being trapped in a local solution than the majority of 
+evolutionary algorithms. However, improper config­
+uration of algorithm-specific parameters can lead to 
+premature convergence. According to various authors 
+[37,61], it is crucial to carefully examine these para­
+meters to ensure optimal performance.
+c1 and c2 are two constants that represent the accel­
+eration coefficients, they can be non-constant in some 
+cases depending on the optimization problem posed 
+[13]. As indicated in (5), constants c1 and c2 pulls each 
+particle toward pbest positions (cognitive component 
+of velocity) and gbest positions (social component of 
+velocity). r1 and r2 are two random numbers generated 
+in the interval [0,1].
+The main steps of the PSO algorithm are as fol­
+lows [13]:
+●1) Initialization: A number of particles are initia­
+lized with random positions in the search space, 
+and each particle is assigned an initial velocity.
+●2) Evaluation: The quality of each solution repre­
+sented by the particles’ positions is evaluated 
+using the cost function.
+●3) Update of personal best solution (pbest): If 
+a particle finds a more efficient solution than its 
+previous personal best solution, this new solution 
+is recorded as the new personal best solution.
+●4) Update of global best solution (gbest): The 
+most efficient personal solution among all parti­
+cles is recorded as the global best solution.
+●5) Update of velocity: The velocity of each particle 
+is updated based on its own position, personal 
+best solution, and global best solution using (5).
+●6) Update of position: The position of each parti­
+cle is updated based on its velocity using (6)
+●7) Repeat steps 2–6 until the stopping criterion is 
+reached, typically a maximum number of 
+iterations.
+●8) Return the recorded global solution as the 
+optimal solution.
+3.4. Determination of the control parameters
+In this work, each particle of the swarm is represented 
+by a vector of decision variables X ¼ K; E; R; C
+½
+ repre­
+senting number of kanban cards, number of extra 
+cards, release threshold, and capture threshold, 
+respectively.
+3.4.1. PSO initialization
+Initialize randomly the particle population array. Initial 
+population is generated randomly subjected to con­
+straints (2), (3) and (4). To do this, the decision variables 
+are initialized randomly as expressed by (8), knowing 
+618
+K. ELLOUMI ET AL.
+
+
+--- SAYFA 9 ---
+that Kmax and Emax designate respectively the maximum 
+number of fixed cards and that of additional cards. 
+Let us note that the population size of PSO algo­
+rithm should be large enough to adequately cover the 
+solution space without incurring excessive computa­
+tional effort.
+3.4.2. Correction and updating of velocity and 
+position
+The position and velocity are updated according (5) 
+and (6). Furthermore, when the particles in the PSO 
+algorithm must respect constraints, such as a domain’ 
+membership, it is important to adapt the model to 
+consider them. A constraint checking strategy has 
+been implemented to handle the constraints in the 
+PSO algorithm. After having updated the position of 
+the particle, we check if it respects the constraints (2), 
+(3) and (4). If this is not the case, the position of the 
+particle is readjusted or repaired by selecting a random 
+value that respects the constraints as expressed by (8).
+4. Results
+4.1. Description of the studied system
+In this section, we introduce the single-stage adaptive 
+kanban model used in this study. For comparative 
+purposes, the production system considered in this 
+study is taken from Tardif and Maaseidvaag [17], 
+which is considered a widely used example in the 
+literature. The manufacturing process considered con­
+sists of a single stage of workstation with 10 parallel 
+servers where processing times are exponentially dis­
+tributed with a mean of 6 (or µ = 1/6). The initial state 
+before receiving any demand is specified as follows: 
+there exists an initial stock of K finished products 
+prepared for customer delivery, no demands are back­
+ordered, and the manufacturing process is idle.
+The simulation models were developed using Arena 
+simulation software (version 14) and the PSO algorithm 
+was developed using the Python programming lan­
+guage under Visual Studio Code (version 1.87). All 
+experiments were carried out on a PC equipped with 
+an Intel Core (TM) i5–10505 processor at 3.20 GHz, 8.00 
+GB RAM and running a Windows 10 Professional 64-bit 
+operating system.
+In this study, we will consider four cases that 
+describe different patterns for the customer demands. 
+As follow, we summarize the numerical experiments’ 
+parameters of each case.
+●Case 1: The demand follows the Poisson process 
+with rate λd ¼ 1=7 (demand mean = 7), the back­
+order penalty cost “b” is 500 [17,19].
+●Case 2: The demand follows the Poisson process 
+with rateλd ¼ 0:2 (demand mean = 5), the back­
+order penalty cost “b” is 1000 [17,19].
+●Case 3: The arrival of demands is a Poisson pro­
+cess follows a triangular pattern that linearly 
+increases from 3 to 7 (or λd from 1/3 to 1/7) over 
+75 time units. It then decreases linearly from 7 to 
+3 over the next 75 time units, and this pattern 
+repeats throughout the simulation run as shown 
+in Figure 4(b). the backorder penalty cost “b” is 
+1000 [17,62].
+●Case 4 : Demand arrivals follow a cyclic Poisson 
+process with varying means. Specifically, the 
+demand mean for the first 25 time units is 3, for 
+the next 25 time units it is 5, and for the last 25 
+time units it is 7 as shown in Figure 4(a). This 
+pattern repeats throughout the simulation run 
+[22,62].
+4.2. Computational results
+To evaluate the validity of our approach, we used the 
+same simulation parameters as those adopted in the 
+works considered as study for comparison. The 
+Figure 4. Evolution of the distribution of the average customer demand. 
+(a) case 4: cyclical pattern (b) case 3: triangular pattern.
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+619
+
+
+--- SAYFA 10 ---
+simulation parameters were set as follows: replication 
+length is equal to 1,000,000 time units, number of 
+replications is 30 and warm-up period is equal to 1000.
+Figure 5 shows the evolution of the objective to be 
+minimized during the iterations for the third case 
+where the customer demand follows a triangular 
+pattern.
+In our proposed PSO algorithm, the population size 
+and number of generations are parameters related to the 
+convergence of the algorithm. In the proposed approach, 
+a population size of 20 and a number of generations 
+equal to 30 were used. The individual learning factor c1 
+and social learning factor c2 are both fixed to 0.5. r1 and r2 
+are two random numbers generated in the interval [0,1]. 
+The parameters of the dynamic inertia coefficient w are 
+respectively wmin ¼ 0:5 andwmax ¼ 1. Finally, the limits 
+of the design variables of the optimization problem Kmax 
+and Emax are fixed respectively to 15 and 10.
+The Table 1. illustrates the optimized values of 
+the decision vector variables X ¼ K; E; R; C
+½
+ and 
+the minimum cost value Z obtained for the differ­
+ent optimization algorithms (LSM, GA, SA, and 
+PSO), as well as for the traditional Kanban sys­
+tem (TKS).
+5. Discussions
+As it is recommended to compare the performance of 
+PSO with other optimization methods suitable for the 
+specific problem to assess its relative effectiveness, we 
+will conduct a comparison in this section. We compare 
+the results obtained by the PSO algorithm for the AKS 
+with those obtained using the Local Search Method 
+(LSM) proposed by Tardif and Maaseidvaag [17], as well 
+as those obtained using GA and SA proposed by 
+Shahabudeen and Sivakumar [19]. These results are also 
+compared to those obtained using the traditional Kanban 
+system [17]. Overall, these results confirm that the inte­
+gration of PSO algorithm for the design of an adaptive 
+Kanban system is not only more efficient than other 
+metaheuristic methods such as GA, SA and LSM, but 
+also offers more significant improvements compared to 
+traditional Kanban systems in terms of production cost 
+minimization.
+However, there are also limitations to consider. PSO 
+can be sensitive to parameter choices, and poor con­
+figuration can lead to premature convergence. 
+Additionally, PSO’s performance can vary depending 
+on the nature of the problem, and it is essential to 
+understand its characteristics for effective application. 
+Therefore, it is recommended to carefully adjust the 
+algorithm parameters based on the specific nature of 
+the problem to be solved. In our approach, several 
+preliminary tests and iterative adjustments of para­
+meters were conducted to achieve good results.
+The results presented in Table 1 affirm the advan­
+tages offered by PSO. This algorithm demonstrates 
+superior performance in minimizing production costs 
+compared to other metaheuristic algorithms. While 
+other evolutionary algorithms involve competition 
+among individuals in a population, PSO also incorpo­
+rates a cooperative strategy. This unique property of 
+balancing local and global search distinguishes PSO 
+from other algorithms in overcoming the issue of pre­
+mature convergence associated with all metaheuristics.
+The proposed approach of optimizing through dis­
+crete event simulation using the PSO algorithm has 
+demonstrated its efficacy. Table 1 illustrates that the 
+Figure 5. Evolution of the objective function during the optimization via simulation.
+620
+K. ELLOUMI ET AL.
+
+
+--- SAYFA 11 ---
+decision vector parameters for the design of an adap­
+tive Kanban system obtained by PSO result in better 
+outcomes in terms of minimizing production costs.
+Table 2 illustrates the percentage improvement 
+achieved by our approach compared to other 
+approaches in terms of the objective function.
+For pull systems, taking into account the stochastic 
+fluctuation of customer demand is crucial. The design 
+of an adaptive kanban system with optimal decision 
+parameters enables us to overcome the effects of 
+these fluctuations. The proposed method has demon­
+strated convergence even in cases where the average 
+demand is fluctuating, as shown in cases 3 and 4. This 
+demonstrates that PSO is regarded as a robust stochas­
+tic optimization algorithm, in terms of being less sen­
+sitive to specific algorithm parameters compared to 
+other evolutionary algorithms (GA and SA).
+6. Concluding remarks
+In conclusion, the proposed PSO-based approach 
+provides a promising solution for the design and 
+optimization of an adaptive Kanban system. This 
+dynamic adjustment approach allows the system 
+to consider stochastic and time-changing demand, 
+while simultaneously optimizing key performance 
+metrics such as inventory cost. The simulation 
+coupled to optimization framework ensures that 
+the system is optimized for realistic scenarios and 
+allows for evaluation of different scenarios before 
+implementation. The results of the case study 
+demonstrate the effectiveness of the proposed 
+approach in improving system performance and 
+highlight its potential for application in a range of 
+manufacturing environments. More precisely, our 
+results indicate that the proposed approach has 
+provided an improvement of up to 23% compared 
+to classical approaches and up to 12% compared to 
+other metaheuristics such as GA and SA. Overall, the 
+PSO-based approach represents a valuable contribu­
+tion to the field of adaptive Kanban systems and 
+provides a useful tool for practitioners seeking to 
+enhance the efficiency and responsiveness of their 
+production systems.
+However, this study is not without its limitations. 
+First, the model developed relies on specific 
+assumptions regarding demand patterns and sys­
+tem behavior, which may not fully capture the com­
+plexities of all real-world environments. Future 
+research could explore a wider range of demand 
+scenarios, including extreme fluctuations and long- 
+term trends, to validate the robustness of the pro­
+posed approach.
+Furthermore, this study focused primarily on 
+a single production environment; thus, its findings 
+may not be generalizable across different industries 
+or production settings. Expanding the scope of future 
+studies to include diverse manufacturing contexts 
+would provide a more comprehensive understanding 
+of how adaptive Kanban systems can be optimized.
+Despite the promising results of this study, several 
+perspectives for future research are opened. First, inte­
+grating advanced machine learning techniques, such 
+as reinforcement learning or deep learning, could 
+enhance the decision-making process and improve 
+the system’s ability to eliminate the effect of unpre­
+dictable demand fluctuations on production costs. 
+Secondly, increased product diversification makes 
+planning, scheduling and balancing production flows 
+even more complex. The ability to manage these chal­
+lenges effectively has become crucial for companies 
+operating in multi-product environments. Developing 
+adaptive and intelligent management strategies is 
+becoming essential to meet the challenges of a multi- 
+product and uncertain environment. Thirdly, a multi- 
+objective optimization approach using PSO could be 
+developed to address not only production cost mini­
+mization and customer satisfaction, but also the pro­
+blem of over-correction in terms of the frequency of 
+Kanban card adjustments. This extension would allow 
+the system to achieve a more stable and efficient 
+production flow while maintaining its capacity to be 
+Table 1 Comparison of simulation results.
+cases
+TKS [17]
+LSM [17]
+GA [19]
+SA [19]
+Proposed approach 
+PSO
+Z
+K
+Z
+X*
+Z
+X*
+Z
+X*
+Z
+X*
+1
+5.2
+5
+5.1
+5, 6, 1, 2
+4.7
+3, 12, 3, 4
+4.53
+4, 6, 2, 3
+4.41
+3,2,3,4
+2
+6.39
+6
+5.61
+4, 6, 3, 4
+5.61
+4, 6, 3, 4
+5.61
+4, 6, 3, 4
+4.89
+4,3,3,4
+3
+7.18
+6
+-
+-
+-
+-
+-
+-
+5,99
+5, 5,3,4
+4
+7.35
+7
+6.25
+4, 6, 3, 4
+-
+-
+-
+-
+6.11
+5, 5,3,4
+Table 2 Percentage improvement achieved by PSO algorithm.
+cases
+TKS [17]
+LSM [17]
+GA [19]
+SA [19]
+1
+15.19%
+13.53%
+6.17%
+2.64%
+2
+23.47%
+12.83%
+12.83%
+12.83%
+3
+16.57%
+-
+-
+-
+4
+16.87%
+2.24%
+-
+-
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+621
+
+
+--- SAYFA 12 ---
+adapted. These lines of research offer great potential 
+for improving the adaptability and robustness of 
+Kanban-based production systems.
+Acknowledgments
+The authors would like to express their gratitude to the 
+editors and the anonymous reviewers for their promotional 
+comments and constructive suggestions regarding the revi­
+sion of the study.
+Disclosure statement
+No potential conflict of interest was reported by the 
+author(s).
+Notes on contributors
+Dr. Khouloud Elloumi received her Electrical Engineering 
+degree from the National School of Engineers of Sfax, 
+Tunisia, in 2009, followed by a Research Master’s degree in 
+Control and Industrial Computer Science in 2010. She earned 
+her Doctorate in Electrical Engineering from the same insti­
+tution in 2017. Currently, she is a researcher at the LR-OASIS 
+laboratory at the National School of Engineers of Tunis, 
+Tunisia. Her research focuses on smart control, optimization, 
+and simulation of manufacturing.
+Dr. Achraf Ammar is an Associate Professor in Industrial 
+Engineering, IIT-Sfax-Tunisia. He is IIT’s director of interna­
+tional relations. In addition to numerous Erasmus projects 
+and international partnerships, he served as a local coordi­
+nator for the Enhance project (Erasmus + CBHE). He greatly 
+contributed to strengthen and accredit the industrial engi­
+neering program (EUR-ACE label with ASIIN) as head of the 
+industrial department for around ten years. By using optimi­
+zation and advanced computational techniques, he has also 
+taken part in numerous industrial research initiatives.
+Dr. Mounir Benaissa, is a Professor and Director of Higher 
+Institute of Industrial Management of Sfax (University Of 
+Sfax). He obtained his PhD and his habilitation in Industrial 
+Engineering from University of Le Havre (France) in 2006 and 
+2013. Dr. Mounir Benaissa has held academic positions at Le 
+Havre University (France), University Carthage (Tunisia), 
+College of Engineering ,Taif University(KSA) and University 
+of Sfax (Tunisia). He is co-founder of IEEE ITS Tunisian chapter 
+and IEEE Senior Member. He is founder and chair or IEEE 
+ICALT (IEEE International Conference on Advanced Logistics 
+and Transport). He was guest editor of special issues of 
+international journals (e.g. International Journal of Business 
+Performance and Supply Chain Modelling, International 
+Journal 
+of 
+Services 
+and 
+Operations 
+Management, 
+International Journal of Shipping and Transport Logistics, 
+World Review of Intermodal Transportation Research, 
+Applied Management Science… he has authored or co- 
+authored more than 50 scientific papers, with more than 10 
+international journal papers and contributed, with invited 
+chapters to edited books. His research interests include 
+(Information system, Supply Chain Management, Reverse 
+logistics, Logisctics optimization).
+ORCID
+Khouloud Elloumi 
+http://orcid.org/0009-0009-1966-6420
+Achraf Ammar 
+http://orcid.org/0000-0001-6168-6729
+Mounir Benaissa 
+http://orcid.org/0000-0003-0487-1877
+Data availability statement
+The data that support the findings of this study are available 
+from the corresponding author, upon reasonable request.
+References
+[1] Kagermann 
+H, 
+Helbig 
+J, 
+Wahlster 
+W. 
+Recommendations for implementing the strategic 
+initiative INDUSTRIE 4.0: securing the future of 
+German manufacturing Industry ; final report of the 
+industrie 4.0 working group. Forschungsunion; 2013.
+[2] Caggiano A, Bruno G, Teti R. Integrating optimisation 
+and simulation to solve manufacturing scheduling 
+problems. Procedia CIRP. 2015;28:131–136. doi: 10. 
+1016/j.procir.2015.04.022  
+[3] Law AM. Simulation modeling & analysis. New York, 
+NY, USA: McGraw-Hill; 2015.
+[4] AL-Khazraji H, Cole C, Guo W. Optimization and simu­
+lation of dynamic performance of production–inven­
+tory systems with multivariable controls. Mathematics. 
+2021;9(5):568. doi: 10.3390/math9050568  
+[5] Li YF, Ng SH, Xie M, et al. A systematic comparison of 
+metamodeling techniques for simulation optimization 
+in decision support systems. Appl Soft Comput. 
+2010;10(4):1257–1273. doi: 10.1016/j.asoc.2009.11.034  
+[6] Pierreval E, Daures A, Both T, Szimczak S, Gonzalez P, 
+Framinan J. A simulation optimization approach for 
+reactive ConWIP systems. 8th EUROSIM Congress on 
+Modelling and Simulation, IEEE; 2013. p. 415–420. doi:  
+10.1109/EUROSIM.2013.78  
+[7] Xu J, Huang E, Hsieh L, et al. Simulation optimization in 
+the era of industrial 4.0 and the industrial internet. 
+J Simul. 2016;10(4):310–320. doi: 10.1057/s41273- 
+016-0037-6  
+[8] Azouz N, Silva Belisário L, Ammar A, et al. Addressing 
+over-correction in adaptive card-based pull control 
+systems. Int J Comput Integr Manuf. 2018;31 
+(12):1189–1204. doi: 10.1080/0951192X.2018.1509132  
+[9] Moeuf A, Pellerin R, Barbaray R, Le Juste à temps dans 
+les PME à l’ère de l’industrie 4.0. 15e Colloque National 
+AIP-Priméca; 2017.
+[10] Price W, Gravel M, Nsakanda AL. A review of optimisa­
+tion models of Kanban-based production systems. Eur 
+J Oper Res. 1994;75(1):1–12. doi: 10.1016/0377- 
+2217(94)90182-1  
+[11] González-R PL, Framinan JM, Ruiz-Usano R. A response 
+surface methodology for parameter setting in 
+a dynamic conwip production control system. 
+Int J Manuf Technol Manag. 2011;23(1–2):16–33. doi:  
+10.1504/IJMTM.2011.042106  
+[12] Hall RW, Production A, So AP& IC. Zero inventories 
+Available from: https://books.google.co.ma/books? 
+id=MJU6wUhHChkC , et al.
+[13] Kennedy J, Eberhart R. Particle swarm optimization. 
+Proc 
+ICNN95 
+- 
+Int 
+Conf 
+Neural 
+Netw. 
+1995;4:1942–1948.
+622
+K. ELLOUMI ET AL.
+
+
+--- SAYFA 13 ---
+[14] Gupta SM, Yay A-T. An algorithm to dynamically adjust 
+the number of kanbans in stochastic processing times 
+and variable demand environment. Prod Plan Control. 
+1997;8(2):133–141. doi: 10.1080/095372897235398  
+[15] Gupta SM, Yay A-T. Adapting just-in-time manufactur­
+ing systems to preventive maintenance interruptions. 
+Prod Plan Control. 1998;9(4):349–359. doi: 10.1080/ 
+095372898234073  
+[16] Takahashi K, Morikawa K, Nakamura N. Reactive JIT 
+ordering system for changes in the mean and variance 
+of demand. Int J Prod Econ. 2004;92(2):181–196. doi:  
+10.1016/j.ijpe.2003.10.014  
+[17] Tardif V, Maaseidvaag L. An adaptive approach to 
+controlling kanban systems. Eur J Oper Res. 2001;132 
+(2):411–424. doi: 10.1016/S0377-2217(00)00119-3  
+[18] Shahabudeen P, Sivakumar GD. An approach to adap­
+tive kanban system. International conference, Society 
+of Operational Management, IIM; Indore, India; 2003.
+[19] Shahabudeen P, Sivakumar GD. Algorithm for the 
+design of single-stage adaptive kanban system. 
+Comput Ind Eng. 2008;54(4):800–820. doi: 10.1016/j. 
+cie.2007.10.017  
+[20] Sivakumar GD, Shahabudeen P. Design of multi-stage 
+adaptive kanban system. Int J Adv Manuf Technol. 
+2008;38(3–4):321–336. doi: 10.1007/s00170-007-1093-x  
+[21] Sivakumar GD, Shahabudeen P. Algorithms for the 
+design of a multi-stage adaptive kanban system. 
+Int J Prod Res. 2009;47(23):6707–6738. doi: 10.1080/ 
+00207540802302071  
+[22] Belisario LS, Azouz N, Pierreval H. Adaptive ConWIP: 
+analyzing the impact of changing the number of cards. 
+2015 
+International 
+Conference 
+on 
+Industrial 
+Engineering and Systems Management (IESM). 
+Seville, Spain: IEEE; 2015 Feb 21. p. 930–937. 
+Available from: http://ieeexplore.ieee.org/document/ 
+7380266/ 
+[23] Manupati VK, Anand R, Thakkar JJ, et al. Adaptive 
+production control system for a flexible manufacturing 
+cell using support vector machine-based approach. 
+Int J Adv Manuf Technol. 2013;67(1–4):969–981. doi:  
+10.1007/s00170-012-4541-1  
+[24] Renna P. A fuzzy control system to adjust the number 
+of cards in a conwip-based manufacturing system. 
+Int J Serv Oper Manag. 2015;20(2):188. doi: 10.1504/ 
+IJSOM.2015.067476  
+[25] Elloumi K, Saidi C, Azouz N, et al. An intelligent 
+approach to adapting Kanban cards with fuzzy con­
+troller for pull production control. Annals of 
+Operations Research. 2023.doi: 10.1007/s10479-023- 
+05690-y  
+[26] Elloumi K, Saidi C, Benaissa M. Design of a fuzzy con­
+troller for intelligent control of an adaptive ConWIP 
+system. 2023 int conf innov intell syst appl INISTA. 
+2023. p. 1–6. Available from: https://ieeexplore.ieee. 
+org/document/10310331 
+[27] Xanthopoulos AS, Koulouriotis DE, Gasteratos A. 
+Adaptive card-based production control policies. 
+Comput Ind Eng. 2017;103:131–144. doi: 10.1016/j. 
+cie.2016.11.019  
+[28] Azouz N, Pierreval H. Adaptive smart card-based pull 
+control systems in context-aware manufacturing sys­
+tems: 
+training 
+a 
+neural 
+network 
+through 
+multi-objective simulation optimization. Appl Soft 
+Comput. 2019;75:46–57. doi: 10.1016/j.asoc.2018.10.051  
+[29] Pekarcikova M, Trebuna P, Kliment M, et al. Material 
+flow 
+optimization 
+through 
+E-Kanban 
+system 
+simulation. Int j simul Model. 2020;19(2):243–254. doi:  
+10.2507/IJSIMM19-2-513  
+[30] Purba VCS, Lalujan V, Phangnesia C. An implementa­
+tion of internet of things for digitalization of kanban 
+production system. J Sist Cerdas. 2024;7(1):87–97. doi:  
+10.37396/jsc.v7i1.383  
+[31] Thao V, Chi H, Hop N. Combining blockchain with an 
+E-Kanban system for pull leveling of an assembly line. 
+14th Int Conf Knowl Syst Eng KSE; Nha Trang, Vietnam; 
+IEEE; 2022. p. 1–6. doi: 10.1109/KSE56063.2022. 
+9953614  
+[32] Sriyanto S, Ika RD. DESIGNING an E-KANBAN SYSTEM 
+to IMPROVE DRUG AVAILABILITY and MINIMISE 
+INVENTORY WASTE at the HOSPITAL PHARMACY 
+INSTALLATION. Jti Undip J Tek Ind. 2024;19(2):70–73. 
+doi: 10.14710/jati.19.2.70-73  
+[33] Candea S, Gabor MR. Effects of using kanban system in 
+automotive industry. A case study. In: Moldovan L 
+Gligor A, editors. 17th int conf interdiscip eng. Cham: 
+Springer Nature Switzerland; 2024. p. 362–374.
+[34] Fuentes-Del-Burgo J, Fernandez JPR, Navarro-Astor E. 
+Kanban applied to construction: a literature review. 
+Construction Economics and Building. 2024;24(4/5). 
+doi: 10.5130/AJCEB.v24i4/5.8642  
+[35] Zeng N, Ye X, Liu Y, et al. Bim-enabled Kanban system 
+in construction logistics for real-time demand report­
+ing and pull replenishment. Eng Constr Archit Manag. 
+2023;31(8):3069–3096. doi: 10.1108/ECAM-01-2022- 
+0036  
+[36] Rao RV, Kalyankar VD. Optimization of modern 
+machining processes using advanced optimization 
+techniques: a review. Int J Adv Manuf Technol. 
+2014;73(5–8):1159–1188. doi: 10.1007/s00170-014- 
+5894-4  
+[37] Banks A, Vincent J, Anyakoha C. A review of particle 
+swarm optimization. Part I: background 
+and 
+development. Nat Comput. 2007;6(4):467–484. doi:  
+10.1007/s11047-007-9049-5  
+[38] Wahab MNA, Nefti-Meziani S, Atyabi A, et al. 
+A comprehensive review of swarm optimization 
+algorithms. PLoS One. 2015;10(5):e0122827. doi: 10. 
+1371/journal.pone.0122827  
+[39] Bonyadi MR, Michalewicz Z. Particle swarm optimiza­
+tion for single objective continuous space problems: a 
+review. Evol Comput. 2017;25(1):1–54. doi: 10.1162/ 
+EVCO_r_00180  
+[40] Sibalija TV. Particle swarm optimisation in designing 
+parameters of manufacturing processes: a review (­
+2008–2018). Appl Soft Comput. 2019;84:105743. doi:  
+10.1016/j.asoc.2019.105743  
+[41] Bento MEC. A hybrid particle swarm optimization algo­
+rithm for the wide-area damping control design. IEEE 
+Trans. Ind. Inf. 2022;18(1):592–599. doi: 10.1109/TII. 
+2021.3054846  
+[42] Nzale W, Ashourian H, Mahseredjian J, et al. A tool for 
+automatic determination of model parameters using 
+particle swarm optimization. Electr Power Syst Res. 
+2023;219:109258. doi: 10.1016/j.epsr.2023.109258  
+[43] Qiu B, Zhang J, Yang Y, et al. Research on oil well 
+production prediction based on GRU-KAN Model opti­
+mized by PSO. Energies. 2024;17(21):5502. doi: 10. 
+3390/en17215502  
+[44] Yavuz A, Celik N, Chen C-H, et al. A sequential 
+sampling-based particle swarm optimization to con­
+trol droop coefficients of distributed generation units 
+in microgrid clusters. Electr Power Syst Res. 
+2023;216:109074. doi: 10.1016/j.epsr.2022.109074  
+JOURNAL OF INDUSTRIAL AND PRODUCTION ENGINEERING
+623
+
+
+--- SAYFA 14 ---
+[45] Chiu M-C, Chang C-H, Chen Y-T, et al. Redesign for 
+sustainability and assemblability using particle swarm 
+optimization method. J Ind Prod Eng. 2016;33 
+(2):103–113. doi: 10.1080/21681015.2015.1111264  
+[46] Venkata Rao R, Pawar PJ. Parameter optimization of a 
+multi-pass milling process using non-traditional opti­
+mization algorithms. Appl Soft Comput. 2010;10 
+(2):445–456. doi: 10.1016/j.asoc.2009.08.007  
+[47] Li Y, Ding K, Wang L, et al. An optimizing model for 
+solving outsourcing supplier selecting problem based 
+on particle swarm algorithm. J Ind Prod Eng. 2018;35 
+(8):526–534. doi: 10.1080/21681015.2018.1533893  
+[48] Kelton WD, Sadowski RP, Zupick NB. Simulation with 
+Arena. 6. ed. New York (NY): McGraw-Hill Education; 2015.
+[49] Jahangirian M, Eldabi T, Naseer A, et al. Simulation in 
+manufacturing and business: a review. Eur J Oper Res. 
+2010;203(1):1–13. doi: 10.1016/j.ejor.2009.06.004  
+[50] Iwase M, Ohno K. The performance evaluation of a 
+multi-stage JIT production system with stochastic 
+demand and production capacities. Eur J Oper Res. 
+2011;214(2):216–222. doi: 10.1016/j.ejor.2011.04.014  
+[51] Sagawa JK, Nagano MS. Modeling the dynamics of a 
+multi-product manufacturing system: a real case 
+application. Eur J Oper Res. 2015;244(2):624–636. doi:  
+10.1016/j.ejor.2015.01.017  
+[52] Ghasemi A, Farajzadeh F, Heavey C, et al. Simulation 
+optimization applied to production scheduling in the 
+era of industry 4.0: a review and future roadmap. J Ind 
+Inf Integr. 2024;39:100599. doi: 10.1016/j.jii.2024. 
+100599  
+[53] Olsson AE. Particle swarm optimization: theory, techni­
+ques and applications. Nova Science Publishers, Inc.; 
+2010.
+[54] Gad AG. Particle swarm optimization algorithm and its 
+applications: a systematic review. Arch Comput 
+Methods Eng. 2022;29(5):2531–2561. doi: 10.1007/ 
+s11831-021-09694-4  
+[55] Kundu K, Rossini M, Portioli-Staudacher A. A study of 
+a kanban based assembly line feeding system through 
+integration of simulation and particle swarm 
+optimization. Int J Ind Eng Comput. 2019:421–442. 
+doi: 10.5267/j.ijiec.2018.12.001  
+[56] Fernandez Martinez JL, Fernández Alvarez JP, García 
+Gonzalo ME, et al. Particle swarm optimization (PSO): 
+a simple and powerful algorithm family for geophysi­
+cal inversion. SEG Tech Program Expand Abstr 2008. 
+Society of exploration geophysicists. 2008. p. 
+3568–3571. Available from: https://library.seg.org/ 
+doi/10.1190/1.3064068 
+[57] Senapathi M, Drury-Grogan M. Systems thinking 
+approach to implementing kanban: a case study. 
+J Softw Evol Process. 2020;33(4). doi: 10.1002/smr.2322  
+[58] Marini F, Walczak B. Particle swarm optimization (PSO). 
+A tutorial. Chemom Intell Lab Syst. 2015;149:153–165. 
+doi: 10.1016/j.chemolab.2015.08.020  
+[59] Shi Y, Eberhart RC. Parameter selection in particle 
+swarm optimization. In: Porto V, Saravanan N 
+Waagen D, et al., editors. Evol program VII. Berlin, 
+Heidelberg: Springer; 1998. p. 591–600.
+[60] Shi Y, Eberhart RC. Empirical study of particle swarm 
+optimization. Proc 1999 Congr Evol Comput-CEC99 
+Cat No 99TH8406. 1999;3:1945–1950.
+[61] Rezaee Jordehi A, Jasni J. Parameter selection in parti­
+cle swarm optimisation: a survey. J Exp Theor Artif 
+Intell. 2013;25(4):527–542. doi: 10.1080/0952813X. 
+2013.782348  
+[62] Belisário LS, Pierreval H. Using genetic programming and 
+simulation to learn how to dynamically adapt the num­
+ber of cards in reactive pull systems. Expert Syst Appl. 
+2015;42(6):3129–3141. doi: 10.1016/j.eswa.2014.11.052
+624
+K. ELLOUMI ET AL.

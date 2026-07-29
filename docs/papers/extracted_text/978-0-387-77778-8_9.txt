@@ -1,0 +1,1070 @@
+
+
+--- SAYFA 1 ---
+Recent Developments in Dynamic Vehicle
+Routing Systems
+Allan Larsen1, Oli B.G. Madsen1, and Marius M. Solomon2
+1 Centre for Traﬃc and Transport
+The Technical University of Denmark
+DK-2800 Kongens Lyngby, Denmark
+ala@ctt.dtu.dk, ogm@ctt.dtu.dk
+2 College of Business Administration
+Department of Information, Operations and Analysis
+Northeastern University
+Boston, Massachusetts 02115
+m.solomon@neu.edu
+Summary. This chapter examines the evolution of research on dynamic vehicle
+routing problems (DVRP). We deﬁne the DVRP and show how it is diﬀerent from
+the traditional static vehicle routing problem. We then illustrate the technological
+environment required. Next, we discuss important characteristics of the problem,
+including the degree of dynamism, elements relevant for the system objective, and
+evaluation methods for the performance of algorithms.The chapter then summarizes
+research prior to 2000 and focuses on developments from 2000 to present. Finally,
+we oﬀer our conclusions and suggest directions for future research.
+Key words: Networks; transportation; dynamic vehicle routing problems.
+1 Introduction
+Supply chains have become a competitive weapon in the global economy. The
+remarkable advances in telecommunications and information technology have
+enabled companies to focus on velocity and timeliness throughout the supply
+chain. To achieve these competitive advantages, they must be able to make
+eﬀective use of the vast amount of real-time information now available to
+them. The Dynamic Vehicle Routing Problem (DVRP) is a prime example
+of a distribution context where intelligent use of real-time information can
+diﬀerentiate one company from another by means of superior on-time service.
+The DVRP is the dynamic counterpart of the generic vehicle routing prob-
+lem (VRP). In the latter problem the objective is generally to minimize
+the travel cost for several vehicles that must visit and service a number of
+B. Golden et al. (eds.), The Vehicle Routing Problem,
+doi: 10.1007/978-0-387-77778-8 9, c⃝Springer Science+Business Media, LLC 2008
+
+
+--- SAYFA 2 ---
+200
+Larsen, Madsen, and Solomon
+customers. Constraints specifying capacity restrictions, time windows within
+which to start service at customers, and additional requirements on the drivers
+and vehicles restrict the optimization space. In the VRP all routing and de-
+mand information is known with certainty prior to the day of operations, so
+routes can be planned ahead. In contrast, in the DVRP part or all of the
+necessary information becomes available only during the day of operation.
+In other words, not all information relevant to the planning of the routes is
+known by the planner when the routing process begins and information can
+change after the initial routes have been constructed.
+The practical signiﬁcance of the DVRP is highlighted by the variety of en-
+vironments it can model. An important application is the pickup and delivery
+of overnight mail. Other scenarios include the distribution of heating oil or liq-
+uid gas to private households, residential utility repair services, such as cable
+and telephone, and appliance repair. Additional settings are the transporta-
+tion of the elderly and physically disabled, taxi cab services, and emergency
+services, such as police, ﬁre, and ambulance dispatching.
+This chapter is organized as follows. In section 2 we illustrate the techno-
+logical environment required for the DVRP. Next, section 3 discusses diﬀerent
+characteristics of the DVRP, including the degree of dynamism, elements rel-
+evant for the system objective, and evaluation methods for the performance
+of algorithms. Then, in section 4 we review the most important research con-
+ducted until the year 2000. In the following section, section 5, we focus on
+developments from 2000 to present. Finally, in section 6 we oﬀer our conclu-
+sions and suggest directions for future research.
+2 Technological Environment
+In this section we present some of the essential technologies needed for dy-
+namic vehicle routing environments.
+2.1 Communication and Positioning Equipment
+The communication between the vehicle drivers and the dispatching center
+is essential in order to feed the most up-to-date information into the routing
+system. We brieﬂy describe below the equipment for determining the current
+position of the vehicles and the communication equipment for transferring
+information between the dispatching center and the vehicle drivers.
+A simple vehicle positioning strategy is to have the driver report back to
+the dispatching center every time a customer has been serviced. To give the
+planner much more information, more sophisticated alternatives make use of
+positioning equipment like the GPS (Global Positioning System). The GPS
+is a constellation of more than two dozen GPS satellites orbiting the Earth
+that constantly send out signals giving their positions and time. Signals from
+a number (usually three) of diﬀerent satellites at any given time can provide
+
+
+--- SAYFA 3 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+201
+receivers on the ground with enough information to calculate their precise
+location within a few meters depending on which version of the GPS system is
+used. For further reading on the GPS system the reader should refer to Collins
+[18]. Over the last decade GPS receiver prices has dropped considerably and
+today literally all high-end passenger cars as well as all service vehicles such
+as trucks, delivery vans and pick-ups have GPS equipment installed from the
+manufacturer.
+The communication equipment between the vehicle and the dispatching
+center is another essential element for the routing system. Mobile telephone
+communication systems are one example of a technology capable of providing
+this information. Another technology is a dedicated radio based communica-
+tions system. The main diﬀerence between these technologies is in terms of ini-
+tial and operating costs. Although the competition is ﬁerce within the mobile
+telephone communication market, operating costs are still considerable. Usu-
+ally these systems are based on text messaging or newer technologies such as
+GPRS (General Packet Radio Service) and 3G (third generation) cell phones.
+For a text messaging based system, a message should be sent every time a
+position update is required. In case the day of operation is eight hours and the
+position should be updated every 10th second this means that almost 3000
+text messages per vehicle should be sent every day. On the other hand, the
+initial costs of implementing a radio based communications system are very
+high because transmission masts will have to be put up and relatively expen-
+sive radio equipment must be installed in every vehicle. In all, a radio based
+communication system has very high initial costs, while the operating costs
+are almost negligible. However, the radio based system does not oﬀer the same
+ﬂexibility as does its mobile telephone communications system counterpart.
+This factor may be important in cases where service providers are considering
+servicing a new area where transmission masts have not been installed.
+In Figure 1 the basic information ﬂows between the vehicle and the dis-
+patching center are shown. Ideally, the dispatching center will know in which
+state the vehicle and the driver are at any given point in time. However, as
+the above discussion indicated, this may prove to be unreasonable for some
+applications due to the operating costs of this method. Generally, within a
+real-world setting the positioning information is transmitted at ﬁxed intervals
+and an interpolation scheme is employed in order to estimate the positions of
+the vehicles. Alternatively, the driver sends a message about his current status
+and position to the dispatch center each time he/she ﬁnishes the service at a
+customer. Obviously, this approach does not oﬀer the same level of information
+for the dispatcher to support his/her decision as to which vehicle to dispatch
+to the next customer to be served. If the new information provided by the
+now idle driver/vehicle makes the dispatcher alter the current planned routes,
+he/she will have to call the other drivers directly to inform them about the
+changes in the current routes. Overall a thorough analysis must be performed
+to determine which approach to choose when designing a system. As we have
+witnessed, the cost of communication has decreased rapidly over the years.
+
+
+--- SAYFA 4 ---
+202
+Larsen, Madsen, and Solomon
+    
+
+                                                                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            
+
+
+
+coordinates
+                                                            
+
+
+
+
+
+GSM
+Center
+DISPATCH
+status,
+updated
+route
+Updated route
+position
+etc.
+status,
+position
+etc.
+GPS Satellite
+position
+signal
+calculates 
+Fig. 1. Sketch of the information ﬂow in a GPS based vehicle routing system.
+It is not surprising that this has been the motivation for most companies to
+deploy more and more sophisticated telecommunications systems.
+2.2 Geographical Information Systems
+The advances in digital road maps and geographical information systems
+(GIS) have also been considerable over the last decade. Most industrialized
+countries now have almost fully detailed road network databases. In Denmark,
+DAV (Dansk Adresse og Vejdatabase - Danish Road and Address Database)
+oﬀers a digital road database which is connected to detailed information on
+every address in the country. The DAV database includes information on the
+zip codes, oﬃcial street names, route numbers, road classiﬁcation, highest and
+lowest street number on both sides of the streets. However, for the time being
+DAV still needs to include restrictions on turning and information on one-way
+streets.
+Naturally, in a real-world application it is vital that the chosen solution
+algorithm is capable of processing large amounts of geographical information
+fast enough to solve the problem online. Issues related to the computation
+of the shortest paths in a road network become extremely important when
+implementing end user online routing applications.
+The advanced GPS/GIS systems discussed above enable companies to keep
+track of the position and status of their ﬂeet of vehicles at any given time. Such
+advanced distribution planning systems based on the DVRP are beginning to
+be embedded in Enterprise Resource Planning (ERP) systems allowing to link
+their routing data with inventory and other important information.
+
+
+--- SAYFA 5 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+203
+3 The Dynamic Vehicle Routing Problem
+As discussed above the DVRP is the dynamic counterpart of the classic VRP.
+Psaraftis [48], [49] discusses a number of dimensions that makes the DVRP dif-
+ferent from the VRP. Psaraftis [49] also diﬀerentiates the two problem classes
+in terms of attributes of the information used as input for the respective prob-
+lem types. In addition, Powell et al. [46] distinguish between dynamism within
+a problem, a model and the application of a model.
+In the DVRP, vehicles must service two types of requests: advance re-
+quests and immediate requests. The former are requests of static customers
+that have placed them before the routing process was begun. The latter re-
+quests are received from dynamic customers and arise in real-time during the
+day of operations. The insertion of immediate request customers into already
+planned routes is usually a complicated task that leads to either partial or
+full re-planning of the non-visited parts of the routes. The complexity of a
+routing problem directly aﬀects the diﬃculty of inserting dynamic customers.
+For example the presence of time windows will usually increase the insertion
+diﬃculty. This can lead to immediate request customers being denied service.
+3.1 The Degree of Dynamism
+The complexity of a dynamic vehicle routing system is a function of the num-
+ber of customers and their spatial distribution, just like the VRP, but more
+importantly it also depends on the number of dynamic events and their tem-
+poral distribution.
+Dynamism without Time Windows
+In a system without time windows three important parameters are: the num-
+ber of static customers, the number of dynamic customers and the arrival
+times of the dynamic customers. The ﬁrst two dimensions are captured by
+the degree of dynamism concept introduced by Lund et al. [39]. It is the ratio,
+denoted dod, of the number of immediate requests, nimm, relative to the total
+number of requests, ntot. Formally:
+dod = nimm
+ntot
+(1)
+For example in a system with ten customers, if two customers arrive while the
+system is on-line, the degree of dynamism is 20 % . The degree of dynamism
+mirrors many practical environments. Generally, some information is available
+before the day of operations begins while the rest is received in real-time
+during the day. The extent of the information received in real-time relative to
+the total system information provides insights into how dynamic the routing
+system really is.
+
+
+--- SAYFA 6 ---
+204
+Larsen, Madsen, and Solomon
+0
+t
+t
+t
+t
+t
+T
+SCENARIO A:
+1
+2
+5
+6
+time
+T
+0
+time
+t
+t
+t
+t
+t
+t
+1
+2
+3
+4
+5
+6
+4t
+3
+SCENARIO B:
+Fig. 2. Arrival time of immediate requests.
+However, this basic measure does not take the arrival times of the imme-
+diate requests into account. This means that two systems, one in which the
+immediate requests are received at the beginning of the planning horizon and
+the other in which they occur late during the day, are perceived as equiva-
+lent. Naturally, in real-life routing settings these two scenarios are however
+very diﬀerent. Figure 2 illustrates two DVRP scenarios in which the times for
+receiving immediate requests diﬀer considerably.
+In Scenario A all six immediate requests are received relatively early dur-
+ing the planning horizon. In Scenario B the requests are distributed almost
+evenly throughout the planning horizon. We suggest that the planner would
+prefer the former scenario to the latter, since having the highest number of
+requests in the pool of waiting requests improves the solution quality with re-
+spect to the objective of minimizing the total distance driven. Hence, the ex-
+pected length of the route should be shorter in Scenario A than in Scenario
+B since time t6 occurs much earlier in the former scenario than in the latter.
+Formally, this is captured by the eﬀective degree of dynamism introduced by
+Larsen et al. [36]. Let the time the i’th immediate request is received be de-
+noted by ti and the entire planning horizon be denoted by [0, T ]. Then the
+eﬀective degree of dynamism, denoted by edod, is deﬁned as:
+edod =
+nimm
+
+i=1
+(ti
+T )
+ntot
+(2)
+This measure takes the arrival times of the immediate requests into account
+and is a natural extension of the dod. It is apparent that Scenario A has a
+smaller edod than Scenario B.
+
+
+--- SAYFA 7 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+205
+0
+time
+t1
+2
+T
+e
+l
+e
+l
+1
+1
+2
+2
+t2
+r1
+r
+Fig. 3. The reaction times of two dynamic customers in a DVRP with time windows.
+Dynamism and Time Windows
+The measures deﬁned above can be reﬁned to allow for time windows to
+be taken into consideration. We do this by means of the reaction time. The
+reaction time is deﬁned as the temporal distance between the time the request
+is received and the latest possible time at which the service of the requests
+could begin. Formally, the earliest time that service can begin (i.e., the start
+of the time window) is denoted by ei while the latest possible time that service
+could begin is denoted by li. The reaction time of the i’th immediate request
+is denoted by ri and ri = li −ti. Figure 3 shows this graphically.
+The eﬀective degree of dynamism when customers impose time windows
+(Larsen et al. [36]), denoted by edodtw, can be deﬁned as follows:
+edodtw =
+1
+ntot
+nimm
+
+i=1
+(1 −ri
+T )
+(3)
+In a static system edodtw = 0 and in general 0 ≤edodtw ≤1. When
+there are no time windows the edodtw simpliﬁes to the edod. According to
+this measure, the smaller the reaction times, the more dynamic the system is.
+3.2 Determining the Objectives
+The traditional objective for the static VRP has been to minimize the overall
+distribution costs. For the DVRP additional measures come into play. In par-
+ticular, the level of service oﬀered to the customers is important for the overall
+performance of the system. Often the multiple objectives encountered in the
+DVRP may be conﬂicting. Naturally, objectives may diﬀer from one applica-
+tion to the other. Nevertheless, a few measures are almost always relevant to
+consider. These are: travel costs, service level, and throughput maximization.
+As for the static VRP, the distribution costs should be considered since they
+represent a true cost for the distribution company. The service level measure
+of system performance is generally in conﬂict with the objective of minimiz-
+ing the distribution costs since a fast response to a new immediate request
+for service may imply that the vehicles will have to travel longer distances.
+Throughput optimization considers the ability to serve as many customers as
+possible. For some dynamic problems this is the most important objective. As
+an example, the maximization of the expected number of serviced requests is
+the main objective in the taxi cab business.
+
+
+--- SAYFA 8 ---
+206
+Larsen, Madsen, and Solomon
+3.3 Measuring Algorithmic Performance
+The most accepted framework for measuring the performance of on-line al-
+gorithms is competitive analysis introduced by Sleator and Tarjan [50]. For a
+minimization problem the competitive ratio, crA, can be deﬁned as:
+crA = sup
+I
+z(A, I)
+z∗(I)
+(4)
+where z(I) is the cost of the solution found by algorithm A for instance
+I and z∗is the optimal cost found by an (ideal) oﬄine algorithm which had
+access to the entire instance I, including dynamic requests, beforehand. The
+competitive analysis framework oﬀers a measure for evaluating the perfor-
+mance of a certain on-line routing policy based on the worst-case ratio between
+this policy and the optimal oﬄine policy. In other words, for each policy ex-
+amined this ratio quantiﬁes the loss of cost-eﬃciency stemming from the lack
+of full information.
+The competitive analysis framework provides a strong basis for studies of
+the performance of on-line algorithms which have produced interesting ana-
+lytical results and insights. However, only very simple versions of the DVRP
+can be treated using this framework. Important real-world constraints such as
+time windows have so far proved to be too complex to be considered in this
+framework. Furthermore, in most real-world situations it is indeed possible
+to achieve an average performance which is considerably better than the one
+suggested by the competitive ratio.
+For more complex versions of the problem algorithmic performance has
+been evaluated through empirical studies. This has usually been done by
+discrete-time simulation. This type of analysis can be extended so that the
+performance of a certain algorithm is evaluated by running the algorithm on
+both the original dynamic instances and on the instances in which the imme-
+diate requests are changed into static data. This provides an estimate of the
+competitive ratio of the algorithm to go along with its average performance.
+4 Research Prior to 2000
+Early research has considered a number of dynamic and/or stochastic elements
+in vehicle routing. The problems addressed include the Probabilistic Travel-
+ing Salesman Problem (PTSP) and the Probabilistic Vehicle Routing Problem
+(PVRP), the Stochastic Vehicle Routing Problem (SVRP), the Dynamic Trav-
+eling Salesman Problem (DTSP), the Dynamic Traveling Repairman Prob-
+lem (DTRP), the Dynamic Vehicle Routing Problem (DTSP), the Dynamic
+Dial-A-Ride Problem (DARP), the Dynamic Pick-Up and Delivery Problem
+(DPDP), and the dynamic version of the Vehicle Routing Problem with Time
+
+
+--- SAYFA 9 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+207
+Windows (DVRPTW). Other variants include the Time-Dependent Travel-
+ing Salesman Problem (TD-TSP) and the Time-Dependent Vehicle Routing
+Problem (TD-VRP). In contrast to the DVRP deﬁned above, the PVRP is a
+VRP where each customer has a given probability of requiring a visit. In the
+SVRP customers are present at locations with some probabilities and their
+demands are random. In the TD-VRP the travel time between two customers
+is a function of the departure time from the ﬁrst one.
+Figure 4 gives a chronological overview of some of the most important work
+on dynamic and stochastic vehicle routing problems prior to the year 2000. A
+virtual line through the middle of the illustration divides the literature in two
+sides: the left-hand one embracing a-priori optimization based models and
+the right-hand one embracing real-time optimization based models. Within
+the vehicle routing context a-priori based solutions mean that the planner
+determines one or more routes based on probabilistic information on future
+requests for service, customers demands, travel times or other parameters.
+Within this setting routes will be planned before the vehicles leave the depot.
+Real-time optimization models construct routes during the day of operation
+while the vehicle is in-route. Horizontally, the illustration is organized so that
+the basic models, as for instance the DTRP and PTSP, are located in the
+middle of the illustration corresponding to the axis of complexity shown at
+the bottom of the ﬁgure. Similarly the DVRPTW is placed at the very right
+to represent the high complexity of this problem.
+The a-priori optimization based methods have been used for the PVRP
+and SVRP which are static by nature. They are generally not applicable in
+a real-world on-line DVRP context since the dynamic environment leads to
+very high computation times. Furthermore, it may not be worth the compu-
+tational eﬀort to try to ﬁnd an optimal or near-optimal solution in a real-time
+setting, because new requests may render the solution sub-optimal. Using re-
+optimization each time a new request appears only seems computationally
+tractable in cases where the degree of dynamism is quite low. Finally, these
+algorithms require extensive a-priori information such as the probability of
+a certain customer requiring service upon a certain day and time. In most
+dynamic cases such detailed information will not be available.
+Real-time optimization based methods have been used for problems that
+are dynamic by nature, such as the DTSP and the DTRP. Extensive theoreti-
+cal work on the DTRP has been conducted by Bertsimas and Van Ryzin ([12],
+[13] and [14]). More complex DVRP problems have been tackled empirically.
+The parallel implementation of the tabu search proposed by Gendreau et al.
+[23] exempliﬁes this type of approaches.
+5 Developments from 2000 to Present
+Recently we have witness an ever growing body of research on the DVRP and
+many of its variants. To maintain focus we will only consider advances for the
+
+
+--- SAYFA 10 ---
+208
+Larsen, Madsen, and Solomon
+1999
+1998
+1997
+1987
+1983
+1991
+1992
+1993
+1994
+1995
+1996
+1990
+1989
+1988
+1986
+1985
+1984
+1980
+DVRPTW
+1981
+1982
+DARP
+Psaraftis
+PTSP
+Bartholdi 
+et al.
+PTSP
+Jaillet
+PVRP
+Jezequel
+Psaraftis
+DTSP
+A−priori 
+optimization
+Bertsimas
+et al.
+Bertsimas &
+Van Ryzin
+Bertsimas &
+Van Ryzin
+Bertsimas &
+Van Ryzin
+DTRP
+DTRP
+DTRP
+Bertsimas &
+Howell
+PTSP
+Stochastic
+Transportation
+Powell et al.
+SVRP
+Gendreau
+et al.
+DTRP
+Papastavrou
+DTRP
+Simchi−Levi
+Bertsimas &
+Swihart &
+Papastavrou
+DARP
+DARP/DPDP
+Dial
+A−priori optimization based models
+Complexity
+Complexity
+Real−time optimization based models
+Gendreau
+et al.
+Fig. 4. Chronological overview of important literature prior to 2000.
+
+
+--- SAYFA 11 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+209
+DVRP. Ghiani et al. [27] provide and excellent earlier review of the ﬁeld and
+address the role of parallel computing strategies in this context.
+5.1 A Priori Knowledge, Waiting and Relocation in Partially
+Dynamic Problems
+One stream of research has addressed the DVRP with various degrees of dy-
+namism. Larsen et al. [36] proposed a framework for dynamic routing sys-
+tems based on their degree of dynamism. Systems are partitioned in weakly,
+moderately, and strongly dynamic depending on whether their degree of dy-
+namism is below 20-30 %, between 30 and 80 % or over 80 %, respectively.
+Recently, Larsen et al. [38] have reﬁned their three-echelon classiﬁcation of
+dynamic vehicle routing systems based on the degree of dynamism and the
+system objective. They also discuss methods for evaluation of the perfor-
+mance of algorithms that solve on-line routing problems and list some of the
+most important issues to include in the system objective. Larsen et al. [36]
+then describe and test several dynamic policies to minimize routing costs for
+the Partially Dynamic Traveling Repairman Problem (PDTRP) with vari-
+ous degrees of dynamism. Later, Bent and Van Hentenryck [7] considered
+moderately dynamic DVRPTW with stochastic customers. They proposed
+a multiple scenario approach that continuously generates routing plans for
+scenarios including advanced and immediate requests to maximize the num-
+ber of serviced customers. Computational results on problems adapted from
+the Solomon benchmarks highlight the eﬀectiveness of their approach which
+increases with the degree of dynamism.
+Larsen et al. [37] proposed real-time solution methods for the Partially Dy-
+namic Traveling Salesman Problem with Time Windows (PDTSPTW) that
+minimize lateness. One method requires the vehicle, when idle, to wait at the
+current customer location until it can service another customer without being
+early. Other algorithms, called relocation policies, may reposition the vehicle
+at a location diﬀerent from that of the current customer based on a priori infor-
+mation on future requests. The results obtained on both randomly generated
+data and on a real-world case study indicated that all policies signiﬁcantly
+reduced lateness at the expense of only small distance increases. The basic
+policy outperformed the other methods primarily when lateness and distance
+were equally minimized and proved very robust in all environments studied.
+When only lateness was considered, the policy to reposition the vehicle at a
+location near the current customer generally provided the largest reductions in
+average lateness and the number of late customers. It also produced the least
+extra distance to be traveled among the relocation policies. where waiting
+and relocation points are deﬁned a priori using knowledge of the distribution,
+clustering of the customers, and heuristics.
+While Larsen et al. [37] deﬁned waiting and relocation points a priori using
+heuristics that exploit knowledge of the distribution and clustering of the cus-
+tomers, Bent and Van Hentenryck [8] allowed the vehicle to wait or relocate
+
+
+--- SAYFA 12 ---
+210
+Larsen, Madsen, and Solomon
+anywhere and at any time during the algorithm execution. Computational re-
+sults indicate that these two strategies were very eﬀective in maximizing the
+number of customer served, particularly for high dod problems that contain
+many late requests. Vehicle relocation is also addressed by van Hemert and
+La Poutre [55] in a DVRP context where loads generated throughout the day
+must be picked up and returned to a depot within a speciﬁed time interval.
+The authors analyze the beneﬁt of anticipatory vehicle moves within regions
+that have a high potential of generating loads. They propose a self-adaptive
+evolutionary algorithm and examine under what conditions such moves im-
+prove its eﬀectiveness in terms of the ratio of the loads successfully delivered
+to the total number of loads made available for transport.
+Ichoua et al. [32] also propose a strategy that exploits probabilistic knowl-
+edge about future request arrivals. Forecasted requests are incorporated as
+dummy customers in vehicle routes. The routes are constructed by a modiﬁed
+version of the tabu heuristic of Gendreau et al. [23]. Earlier, Ichoua et al. [31]
+extended the method proposed by Gendreau et al. [23] to incorporate diver-
+sion. That involves allowing a vehicle to be diverted from its predetermined
+destination. Rather than using local or myopic strategies where a new request
+for service impacts only one vehicle, the authors took a global view where
+several vehicles may be aﬀected. The above papers have been motivated in
+part by the DVRP faced by courier service companies. The same environment
+is examined in Angelelli et al. [1] where customer requests with service time
+windows have to be serviced in real time by a ﬂeet of vehicles. The authors
+consider both pick-up and delivery requests and assume that customer re-
+quests cannot be refused but can be postponed to future shifts. A heuristic
+algorithm based on local search is proposed.
+Branke et al. [15] have further analyzed waiting policies that maximize the
+probability of being able to service an additional immediate request customer.
+For the single vehicle case, a ”no wait” or drive without waiting policy was
+shown to be optimal. However, for the multiple vehicle case, it proved to be
+the worst among eight waiting policies for a vehicle starting or restarting
+from the depot. A ”variable” policy proved the best. Speciﬁcally, each vehicle
+drives without waiting until the time to drive the remaining distance to the
+depot is equal to the slack time. Then the available waiting time is distributed
+to the remaining customers in proportion to the remaining driving distances.
+Independently, Mitrovic-Minic and Laporte [41] have examined similar policies
+for the pickup and delivery problem with time windows. Whether to wait and
+for how long is also addressed by Potvin et al. [45]. The authors consider
+the impact of dynamic events in the form of travel time and customers on
+the partially dynamic DVRPTW. They show that policies based on a certain
+amount of waiting, that is, a certain tolerance for changes in the current
+planned routes leads to better overall results.
+Other novel research includes that of Montemanni et al. [42] solved a
+DVRP problem using the Ant Colony System paradigm. The algorithm was
+tested on simulated environments and also applied to a real-world case study
+
+
+--- SAYFA 13 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+211
+in the city of Lugano, Switzerland. Hvattum et al. [30] addressed a DVRP
+problem that also had stochastic elements. Based on an actual application,
+the authors used historical data to generate probability distributions for the
+attributes of the dynamic customers. They formulate the problem as a multi-
+stage stochastic programming problem with recourse and propose a heuristic
+that gradually builds the routes by exploiting the information gathered on
+future customer demand. The computational results illustrate the superiority
+of the this method over a more standard pure dynamic heuristic that resolves
+the problem at the beginning of a number of consecutive time intervals. Chen
+and Xu [17] used an optimization-based dynamic approach to minimize the
+total distance traveled for a dynamic vehicle routing problem with hard time
+windows. At each decision epoch, the authors solve by column-generation a
+static Vehicle Routing Problem with Time Windows (VRPTW) consisting of
+all the known orders that have not been satisﬁed up to that point. Columns
+are generated dynamically over time by alternately solving a linear program
+and applying a fast local-search-based heuristic. The authors report that their
+approach outperformed an insertion-based heuristic on most test problems
+generalized from Solomon’s problems.
+5.2 The Dynamic Pick-up and Delivery Problem
+Another stream of research has focused on the dynamic pick-up and delivery
+problem. Attanasio et al. [4] consider the dynamic DARP where as many as
+possible of the requests received throughout the planning horizon must be
+satisﬁed. They present parallel implementations of a tabu search method de-
+veloped earlier by Cordeau and Laporte for the DARP. The authors report
+that the proposed algorithms are capable of a high service level as measured
+by the percentage of satisﬁed requests. Thomas and White [54] considered the
+single vehicle pickup and delivery problem where the origin and destination are
+known. Immediate request customers may demand service while the vehicle is
+in transit with a known probability. The authors seek a strategy to construct
+routes that minimize the expected travel time and lateness penalty incurred
+at the destination if the cutoﬀtime is exceeded. Using a ﬁnite-horizon Markov
+decision process model they propose a policy that optimally build routes that
+consider anticipated immediate request customers. This policy is computa-
+tionally compared to an industry standard reactive strategy where there is
+no information about an immediate request until this actually occurs for a
+very small number of anticipated requests. It seems that anticipatory routing
+outperformed the reactive strategy, especially when the immediate requests
+are likely to occur late during the day of operations.
+Coslovich et al. [19] considered a dynamic DARPTW where customers can
+ask the vehicle driver for a trip at a vehicle stop. They proposed a two-phase
+insertion heuristic based on route perturbations consisting of 2-opt arc swaps.
+One phase is oﬀ-line and produces a feasible neighborhood of the current
+route and the other phase is on-line where an attempt is made to insert the
+
+
+--- SAYFA 14 ---
+212
+Larsen, Madsen, and Solomon
+unexpected customer in the planned route. The objective considered was to
+minimize the overall inconvenience of the advance customers. The authors re-
+port computational results that indicate that their solution was quite close to
+the static one and the number of unexpected requests that were not accepted
+was negligible. Gendreau et al. [22] examined a diﬀerent dynamic DARPTW
+faced by courier services for the same-day local pick-up and delivery of small
+sized packages. The authors developed a tabu search heuristic where the neigh-
+borhood structure was based on ejection chains. Their experiments conducted
+in a parallel computing environment indicated that their method was superior
+to insertion based methods, even in highly dynamic scenarios.
+Recently, Mitrovic-Minic and Laporte [41] have examined the beneﬁts of
+waiting strategies in the context of a pickup and delivery problem with time
+windows. While Branke et al. [15] focused on maximizing the probability of
+being able to service an additional customer, Mitrovic-Minic and Laporte [41]
+sought waiting policies that can decrease the total detour and the number of
+required vehicles. When a new request arrives, if the vehicle assigned to it waits
+as long as possible before moving the total insertion cost can be reduced at
+the expense of more vehicles. If, on the other hand, the vehicle travels as soon
+as possible, the total number of vehicles is decreased but longer detours are
+experienced. The authors propose an intermediate strategy, called advanced
+dynamic waiting, that involves partitioning the overall tour into service zones
+and allocating the total time available for waiting proportionally to the time
+necessary to service each service zone. This method was able to simultaneously
+decrease the total detour and the required number of vehicles. Mitrovic et al.
+[40] further this line of research by proposing a double-horizon heuristic for
+the dynamic PDPTW. The short term horizon, the next two hours, accounts
+for immediate increase in routing cost created by the insertion of an imme-
+diate request. The long-term horizon, the rest of the day of operations, deals
+with the decrease in vehicle slack time. The authors propose a constructive
+heuristic, which is used for every immediate request, in conjunction with a
+tabu search heuristic which is called periodically.
+Fleischmann et al. [21] propose a planning framework for the dynamic
+PDPTW. The authors then suggest three event-based dispatching policies
+which diﬀer in the length of the planning horizon per event. Using dynamic
+travel time information, the procedures are compared on real-world data from
+an urban traﬃc management center and a logistics service provider. Finally,
+Yang et al. [56] address a real-time multivehicle truckload pickup and delivery
+problem. They present a mixed-integer programming formulation for the of-
+ﬂine version of the problem and propose a new rolling horizon reoptimization
+strategy for the real-time version. This policy is compared with another previ-
+ously introduced reoptimization policy and three other known heuristic rules.
+The results of a simulation study that considered varying traﬃc intensities,
+degrees of advance information, and degrees of ﬂexibility for job-rejection deci-
+sions indicate that the new reoptimization policy systematically outperformed
+the others.
+
+
+--- SAYFA 15 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+213
+5.3 Emergency Service Systems
+Yet another stream of research has dealt with emergency service systems. Due
+to its importance, this application has received substantial attention from the
+scientiﬁc community since the early 1970s. These systems are truly strongly
+dynamic since no requests are known in advance of the day of operation. The
+quality of an emergency system is generally measured by its response time.
+The emergency service providers and the public administration agree on a
+certain level of service which for instance deﬁnes that 90% of the calls should
+be served within 5 minutes whereas the remaining 10% of the calls should be
+served within 8 minutes.
+Often, the quality of a-priori information such as the potential location of
+the next request is often quite poor. If, on the other hand, a-priori informa-
+tion on future requests is available it could potentially improve the solution
+quality. For example, this could involve moving an idle vehicle currently sit-
+uated in a low demand area to a central location. This idea was explored by
+Gendreau et al. [25] who proposed a model for real-time relocation of ambu-
+lances. For a survey of emergency vehicle location and relocation problems,
+see Brotcorne et al. [16]. Recently, Gendreau et al. [26] proposed a dynamic
+relocation strategy for emergency vehicle waiting sites that maximizes the ex-
+pected covered demand and controls the number of waiting site relocations.
+They formulate the problem as an integer linear program and solve it within
+reasonable computing time when the number of vehicles is relatively small.
+Simulations conducted with real-world emergency medical services data from
+the Montreal area conﬁrm the feasibility of the proposed approach.
+5.4 Competitive Analysis
+A diﬀerent stream of research has examined the DVRP using competitive
+analysis. Following Bertsimas and Van Ryzin [12], [13] and [14] who were
+the ﬁrst to use it in this context, Ausiello et al. [5] have studied the on-line
+version of the classical Traveling Salesman Problem (TSP) using this type
+of analysis. The authors examine two versions of the problem and provide
+lower bounds for the competitive ratio. Recently, Jaillet and Wagner [34]
+have examined online versions of the TSP and TRP where each request has
+a disclosure date. This is the time when the location and release date of a
+request become known. This measure is similar to the reaction time introduced
+by Larsen et al. [37] except it utilizes release times instead of due dates. The
+authors propose online algorithms for a variety of scenarios and show that this
+advanced information leads to better competitive ratios. They also provide a
+general result on polynomial-time online algorithms for the online TSP.
+Complexity results and competitive analysis for vehicle routing problems
+are the subject of the PhD-thesis by Paepe [43]. Paepe gives a thorough anal-
+ysis of the on-line version of the Dial-a-ride problem in which a single capac-
+itated vehicle serves a set of customers that requests to be picked-up at some
+
+
+--- SAYFA 16 ---
+214
+Larsen, Madsen, and Solomon
+geographical location and to be transported to another location. The requests
+appear in real-time and Paepe derives the competitive ratios of a number of
+routing policies. Angelelli et al. [2], [3] studied a dynamic multi-period routing
+problem. Here, the orders arriving during a period have to be completed either
+in that period or the next. This means that the system will hold customers
+that are to be served right away as well as customers that will have to wait
+to be served. The authors introduce simple routing policies and analyze these
+by examining their competitive ratios.
+Other streams of research have been directed at problems related to the
+DVRP. These include the Dynamic Assignment Problem (see Spivey and Pow-
+ell [51]), the Dynamic Vehicle Scheduling Problem (see Huisman et al. [29])
+and the VRP and its variants with time dependent travel times (see Taniguchi
+and Shimamoto [53], and Haghania and Jung [28]). Their discussion is beyond
+the scope of this chapter.
+6 Conclusions and Directions for Future Research
+This chapter has highlighted the evolution of research on dynamic vehicle
+routing problems. We introduced the DVRP and illustrated how it is diﬀer-
+ent from the generic VRP. We then examined the technological environment
+required. Next, we delineated the salient problem dimensions, including the
+degree of dynamism, the potential components to be considered in the system
+objective, and theoretical and empirical evaluation methods for the perfor-
+mance of algorithms. We then looked back at the research conducted prior
+to 2000 and discussed the many developments from 2000 to present. Several
+themes for future research have emerged from this discussion.
+The level of dynamism of a system has a strong impact on the type of
+algorithm to be used. Therefore, one direction for future work should consider
+the design of more encompassing measures to determine the level of dynamism
+of a given system. We discussed natural extensions of the basic dod measure,
+edod and edodtw, which capture information on when the immediate requests
+are received by the dispatcher. Other than the initial research done by Jaillet
+and Wagner [34] the edod, edodtw or similar measures have yet to be considered
+in system classiﬁcation or algorithmic design. While the edod and edodtw
+are improvements over the deﬁnition of the dod there are still many subtle
+interactions in the way requests arrive that will elude analysis for the time
+being, thus making it hard to characterize the diﬃculty of dynamic routing
+problems.
+The above ideas are part of a broader theme which seeks to exploit knowl-
+edge about future request arrivals and/or consider vehicle relocation and wait-
+ing. The research of Larsen et al. [37], Ichoua et al. [32], Jaillet and Wagner
+[34], Bent and Van Hentenryck [8], and van Hemert and La Poutre [55], among
+others, has paved the way for future approaches. In particular, consider the
+issue of choosing where vehicles should idle in anticipation of future requests.
+
+
+--- SAYFA 17 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+215
+When determining the attractiveness of each idle point, an algorithm may
+take the arrival intensities of not only a given subregion but also neighboring
+ones into consideration. More sophisticated methods, such as location analy-
+sis, should be investigated.
+Other interesting research directions should consider robustness considera-
+tions with regards to unforeseen events (e.g., vehicle failures, traﬃc congestion
+and others) and the integration of industry practices (e.g., the use of bicycles
+in highly congested areas, load consolidation, and others) in the models used.
+We believe a new generation of DVRP algorithms will blend the eﬀec-
+tiveness of advanced methods, tailored to take advantage of special problem
+structures and advanced knowledge, with the eﬃciency of parallel implementa-
+tions, and the ever growing computing power of workstations to solve increas-
+ingly larger and more realistic problems. The overnight courier mail service
+provider environment represents a good model for the use of such new hybrid
+approaches. The morning subproblem is often weakly dynamic while the after-
+noon one is moderately dynamic. Therefore, a reoptimization algorithm could
+ﬁrst plan a set of morning delivery routes. In case of urgent call-in requests,
+the algorithm could insert the new requests into the predetermined delivery
+routes. In turn, the afternoon pickup problem, would use fast algorithms for
+online routing that would take advantage of a priori information on future
+requests.
+As companies are continuing the computer integration of their operations
+through ERP systems, much more information is being transferred between
+logistics and other functional areas. Implementations of advanced distribution
+planning systems based on DVRPs is starting to be seen in medium sized
+companies; small enterprises are next in line. This will likely be accelerated
+during the coming years by the ever growing number of just-in-time global
+supply chains. An example of this could be the transportation of the elderly
+and handicapped. Hence, the interface between DVRP models and algorithms
+and other parts of the supply chain such as warehousing and manufacturing
+is an important research direction that has yet to be tapped.
+We hope that this chapter has oﬀered an insightful perspective on this
+rapidly moving ﬁeld. While the DVRP has reached a certain level of ma-
+turity, many important problems remain open. We can only hope that this
+chapter has steered suﬃcient interest that many of its readers will embark on
+or continue their research in this ﬁeld.
+References
+1. E. Angelelli, R. Mansini, and M.G. Speranza. A real-time vehicle routing model
+for a courier service problem. In B. Fleischmann and A. Klose, editors, Distribu-
+tion Logistics-Advanced solutions to practical problems, pages 87–104. Springer–
+Verlag, 2005.
+2. E. Angelelli, M.W.P. Savelsbergh, and M.G Speranza. Competitive analysis for
+dynamic multi-period uncapacitated routing problems. Technical report, School
+
+
+--- SAYFA 18 ---
+216
+Larsen, Madsen, and Solomon
+of Industrial and Systems Engineering, Georgia Institute of Technology, 2005.
+Networks. (Forthcoming).
+3. E. Angelelli, M.W.P. Savelsbergh, and M.G Speranza. Competitive analysis of
+a dispatch policy for a dynamic multi-period routing problem. Technical report,
+Department of Quantitative Methods, University of Brescia, 2006.
+4. A. Attanasio, J.-F. Cordeau, G. Ghiani, and G. Laporte. Parallel tabu search
+heuristics for the dynamic multi-vehicle dial-a-ride problem. Parallel Computing,
+30(3):377–387, 2004.
+5. G. Ausiello, E. Feurstein, S. Leonardi, L. Stougie, and M. Talamo. Algorithms
+for the on-line travelling salesman. Algorithmica, 29:560–581, 2001.
+6. J. Bartholdi III, L. Platzman, Collins L., and W. Warden III. A minimal tech-
+nology routing system for meals on wheels. Interfaces, 13:1–8, 1983.
+7. R. Bent and P. Van Hentenryck. Scenario-based planning for partially dynamic
+vehicle routing with stochastic customers. Operations Research, 52(6):977–987,
+2004.
+8. R. Bent and P. Van Hentenryck. Waiting and relocation strategies in online
+stochastic vehicle routing. In Proceedings of the 20th International Joint Con-
+ference on Artiﬁcial Intelligence, pages 1816–1821, Hyderabad, India, 2007.
+9. D. Bertsimas and L. Howell. Further results on the probabilistic traveling sales-
+man problem. European Journal of Operational Research, 65:68–95, 1993.
+10. D. Bertsimas, P. Jaillet, and A. Odoni.
+A priori optimization.
+Operations
+Research, 38(6):1019–1033, 1990.
+11. D. Bertsimas and D. Simchi-Levi. A new generation of vehicle routing research:
+Robust algorithms, addressing uncertainty. Operations Research, 44:286–304,
+1996.
+12. D. Bertsimas and G. Van Ryzin.
+A stochastic and dynamic vehicle routing
+problem in the euclidean plane. Operations Research, 39:601–615, 1991.
+13. D. Bertsimas and G. Van Ryzin. Stochastic and dynamic vehicle routing problem
+in the euclidean plane with multiple capacitated vehicles. Operations Research,
+41:60–70, 1993.
+14. D. Bertsimas and G. Van Ryzin. Stochastic and dynamic vehicle routing with
+general demand and inter travel time distributions. Appl. Probl., 25:947–978,
+1993.
+15. J. Branke, M. Middendorf, G. Noeth, and M. Dessouky. Waiting strategies for
+dynamic vehicle routing. Transportation Science, 39(3):298–312, 2005.
+16. L. Brotcorne, G. Laporte, and F. Semet. Ambulance location and relocation
+models. European Journal of Operational Research, 147:451–463, 2003.
+17. Z.-L. Chen and H. Xu. Dynamic column generation for dynamic vehicle routing
+with time windows. Transportation Science, 40(1):74–88, 2006.
+18. J. Collins. Global Positioning System. Springer Verlag, Wien, New York, 1992.
+19. L. Coslovich, R. Pesenti, and W. Ukovich. A two-phase insertion technique of
+unexpected customers for a dynamic dial-a-ride problem. European Journal of
+Operational Research, 175:1605–1615, 2006.
+20. R. Dial. Autonomous dial a ride transit - introductory overview. Transportation
+Research C, 3:261–275, 1995.
+21. B. Fleischmann, S. Gnutzmann, and E. Sandvoss.
+Dynamic vehicle routing
+based on online traﬃc information. Transportation Science, 38(4):420–433, 2004.
+22. M. Gendreau, F. Guertin, J.-Y. Potvin, and R. Seguin. Neighborhood search
+heuristics for a dynamic vehicle dispatching problem with pick-ups and deliver-
+ies. TRC, 14:157–174, 2006.
+
+
+--- SAYFA 19 ---
+Recent Developments in Dynamic Vehicle Routing Systems
+217
+23. M. Gendreau, F. Guertin, J.-Y. Potvin, and E. Taillard. Parallel tabu search
+for real-time vehicle routing and dispatching. TS, 33:381–390, 1999.
+24. M. Gendreau, G. Laporte, and R. Seguin. Stochastic vehicle routing. European
+Journal of Operational Research, 88:3–12, 1996.
+25. M. Gendreau, G. Laporte, and F. Semet.
+A dynamic model and parallel
+tabu search heuristic for real-time ambulance relocation. Parallel Computing,
+27:1641–1653, 2001.
+26. M. Gendreau, G. Laporte, and F. Semet. The maximal expected coverage relo-
+cation problem for emergency vehicles. Journal of Operational Research Society,
+57(1):22–28, 2006.
+27. G. Ghiani, F. Guerriero, G. Laporte, and R. Musmanno. Real-time vehicle rout-
+ing: Solution concepts, algorithms and parallel computing strategies. European
+Journal of Operational Research, 151(1):1–11, 2004.
+28. A. Haghania and S. Jung.
+A dynamic vehicle routing problem with time-
+dependent travel times. Computers & Operations Research, 32:2959–2986, 2005.
+29. D. Huisman, R. Freling, and A. P. M. Wagelmans. A robust solution approach to
+the dynamic vehicle scheduling problem. Transportation Science, 38(4):447–458,
+2004.
+30. L. Hvattum, A. Lokketangen, and G. Laporte. Solving a dynamic and stochastic
+vehicle routing problem with a sample scenario hedging heuristic. Transportation
+Science, 40(4):421–438, 2006.
+31. S. Ichoua, M. Gendreau, and J.-Y. Potvin. Diversion issues in real-time vehicle
+dispatching. Transportation Science, 34(4):426–438, 2000.
+32. S. Ichoua, M. Gendreau, and J.-Y. Potvin. Exploiting knowledge about future
+demands for real-time vehicle dispatching. Transportation Science, 40(2):211–
+225, 2006.
+33. P. Jaillet.
+Probabilistic Traveling Salesman Problems.
+Ph.D. Thesis, Mas-
+sachusetts Institute of Technology, Cambridge, Mass., 1985.
+34. P. Jaillet and M. R. Wagner. Online routing problems: Value of advanced in-
+formation as improved competitive ratios. Transportation Science, 40(2):2–21,
+2006.
+35. A. Jezequel.
+Probabilistic Vehicle Routing Problems.
+Masters Thesis, Mas-
+sachusetts Institute of Technology, Cambridge, Mass., 1985.
+36. A. Larsen, O. Madsen, and M. Solomon. Partially dynamic vehicle routing -
+models and algorithms. Journal of Operational Research Society, 53:637–646,
+2002.
+37. A. Larsen, O. Madsen, and M. Solomon. The a-priori dynamic traveling sales-
+man problem with time windows. Transportation Science, 38(4):459–472, 2004.
+38. A. Larsen, O.B.G. Madsen, and M.M. Solomon. Classiﬁcation of dynamic vehicle
+routing systems. In V. Zeimpekis, G. M. Giaglis, C.D. Tarantilis, and I. Minis,
+editors, Dynamic Fleet Management: Concepts, Systems, Algorithms & Case
+Studies. Springer–Verlag, 2007.
+39. K. Lund, O. B.G. Madsen, and J. M. Rygaard. Vehicle routing problems with
+varying degrees of dynamism. Technical report, IMM, The Department of Math-
+ematical Modelling, Technical University of Denmark, Lyngby, Denmark, 1996.
+40. S. Mitrovic-Minic, R. Krishnamurti, and G. Laporte.
+Double-horizon based
+heuristics for the dynamic pickup and delivery problem with time windows.
+Transportation Research B, 38:669–685, 2004.
+
+
+--- SAYFA 20 ---
+218
+Larsen, Madsen, and Solomon
+41. S. Mitrovic-Minic and G. Laporte. Waiting strategies for the dynamic pickup
+and delivery problem with time windows. Transportation Research B, 38:635–
+655, 2004.
+42. R. Montemanni, L.M. Gambardella, A.E. Rizzoli, and A.V. Donati. Ant colony
+system for a dynamic vehicle routing problem. Journal of Combinatorial Opti-
+mization, 10(4):327–343, 2005.
+43. W. de Paepe. Complexity Results and Competitive Aanlysis for Vehicle Ruoting
+Problems.
+PhD thesis, Technical University of Eindhoven, The Netherlands,
+2002.
+44. J.D.
+Papastavrou. A stochastic and dynamic routing policy using branching
+processes with state dependent immigration. European Journal of Operational
+Research, 95:167–177, 1996.
+45. J.- Y. Potvin, Y. Xu, and I. Benyahia. Vehicle routing and scheduling with
+dynamic travel times. Computers & Operations Research, 33:1129–1137, 2006.
+46. W.B. Powell, P. Jaillet, and Odoni A. Stochastic and dynamic networks and
+routing. In M.O. Ball et al., editor, Network Routing, Handbooks in OR & MS,
+pages 141–295. Elsevier Science, Amsterdam, 1995.
+47. H. Psaraftis. A dynamic programming solution to the single many-to-many im-
+mediate request dial-a-ride problem. Transportation Science, 14:130–154, 1980.
+48. H.N. Psaraftis. Dynamic vehicle routing problems. In B.L. Golden and A.A.
+Assad, editors, Vehicle routing: Methods and studies, pages 223–248. North-
+Holland, Amsterdam, 1988.
+49. H.N. Psaraftis. Dynamic vehicle routing: Status and prospects. Annals of Op-
+erations Research, 61:143–164, 1995.
+50. D. Sleator and R.E. Tarjan. Amortized eﬃency of list update and paging rules.
+Communications of the ACM, 28(2):202–208, 1985.
+51. M. Z. Spivey and W. B. Powell. The dynamic assignment problem. Transporta-
+tion Science, 38(4):399–419, 2004.
+52. M. Swihart and J.D.
+Papastavrou. A stochastic and dynamic model for the
+single-vehicle pick-up and delivery problem. European Journal of Operational
+Research, 114:447–464, 1999.
+53. E. Taniguchi and H. Shimamoto. Intelligent transportation system based dy-
+namic vehicle routing and scheduling with variable travel times. Transportation
+Research C, 12:235–250, 2004.
+54. B. W. Thomas and C. C. White III. Anticipatory route selection. Transportation
+Science, 38(4):473–487, 2004.
+55. J.I. van Hemert and J.A. La Poutre. Dynamic routing problems with fruitful re-
+gions: Models and evolutionary computation. In X. Yao, E. Burke, J.A. Lozano,
+J. Smith, J.J. Merelo-Guervs, J.A. Bullinaria, J. Rowe, P. Tino, A. Kabn, and
+H.-P.
+Schwefel, editors, Parallel Problem Solving from Nature VIII, Lecture
+Notes in Computer Science 3242, pages 690–699. Springer, Berlin, 2004.
+56. J. Yang, P. Jaillet, and H. Mahmassani. Real-time multivehicle truckload pickup
+and delivery problems. Transportation Science, 38(2):135–148, 2004.

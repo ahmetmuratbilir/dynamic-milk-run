@@ -1,0 +1,841 @@
+
+
+--- SAYFA 1 ---
+ 
+ 
+           
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+__________________________ 
+ 
+ 
+Solving Large-Scale Vehicle  
+Routing Problems with Time 
+Windows: The State-of-the-Art 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+Michel Gendreau 
+Christos D. Tarantilis 
+ 
+ 
+ 
+ 
+ 
+ 
+                                
+February 2010 
+ 
+ 
+ 
+CIRRELT-2010-04 
+ 
+                               
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+G1V 0A6 
+Bureaux de Montréal : 
+Bureaux de Québec :
+Université de Montréal 
+Université Laval 
+C.P. 6128, succ. Centre-ville 
+2325, de la Terrasse, bureau  2642 
+Montréal (Québec) 
+Québec (Québec) 
+Canada H3C 3J7 
+Canada G1V 0A6 
+Téléphone : 514 343-7575 
+Téléphone : 418 656-2073 
+Télécopie  : 514 343-7121 
+Télécopie  : 418 656-2624 
+ 
+ 
+www.cirrelt.ca 
+
+
+--- SAYFA 2 ---
+ 
+Solving Large-Scale Vehicle Routing Problems with Time 
+Windows: The State-of-the-Art 
+Michel Gendreau1,*, Christos D. Tarantilis2 
+1 
+Interuniversity Research Centre on Enterprise Networks, Logistics and Transportation 
+(CIRRELT), and Department of Mathematics and Industrial Engineering, École Polytechnique 
+de Montréal, P.O. Box 6079, Station Centre-ville, Montréal, Canada H3C 3A7 
+2 
+Department of Management Science & Technology, Athens University of Economics & 
+Business, 28, Hydras Street, Athens 113 62, Greece 
+Abstract. The Vehicle Routing Problem with Time Windows (VRPTW) is a well-known 
+combinatorial optimization problem of high computational complexity. It can be described 
+as the problem of designing least cost routes from a depot to a set of customers of known 
+demand. The routes must be designed such that each customer is visited only once by 
+exactly one vehicle within a given time interval without violating capacity constraints. The 
+goal is to minimize first the total number of vehicles required and second the total travel 
+distance incurred. As research move towards more larger and realistic problems, the trend 
+is towards the development of computationally intelligent algorithms capable of producing 
+high quality solutions with reasonable computational burdens. The purpose of this survey 
+is to discuss the state-of-the-art in the field of advanced heuristics proposed for solving 
+large-scale problem instances. The effort is not only to provide an overview of solution 
+methods, but also to identify the ingredients of success. Computational results, comparing 
+the performance of different algorithms, are reported, while an analysis based on essential 
+attributes, such as efficiency, effectiveness, simplicity and flexibility, is also provided. 
+Keywords. Algorithms, vehicle scheduling, vehicle routing, time windows. 
+Acknowledgements. Funding for this project has been provided by the Natural Sciences 
+and Engineering Council of Canada (NSERC), through its Discovery Grants programs. 
+Results and views expressed in this publication are the sole responsibility of the authors and do not 
+necessarily reflect those of CIRRELT. 
+Les résultats et opinions contenus dans cette publication ne reflètent pas nécessairement la position du 
+CIRRELT et n'engagent pas sa responsabilité. 
+_____________________________ 
+* Corresponding author: Michel.Gendreau@cirrelt.ca  
+Dépôt légal – Bibliothèque et Archives nationales du Québec, 
+                      Bibliothèque et Archives Canada, 2010 
+© Copyright  Gendreau, Tarantilis and CIRRELT, 2010 
+
+
+--- SAYFA 3 ---
+ Introduction 
+Transportation logistics systems are usually large-scale in nature, while their complexity may arise 
+from many different sources, such as customers, vehicles, shipments and physical infrastructure, all 
+interacting in various ways. In addition, due to the continuously increasing collaboration among 
+transportation companies and other logistics partners, problem instances of interest are becoming 
+larger in terms of size and more complex in terms of “new” constraints and objectives. It is common 
+for real life vehicle routing applications (e.g. waste collection, courier and dial-a-ride services and 
+newspaper delivery) to involve the daily service of tens of hundred or even thousand customers. 
+The Vehicle Routing Problem (VRP) is one of the core operations research and combinatorial 
+optimization problem classes and it has been the object of numerous studies. Solving VRPs 
+optimally or near-optimally for large-scale problem instances is of major interest. With the 
+exception of the Traveling Salesman Problem (TSP), where instances with several thousand nodes 
+can be solved optimally on a regular basis (Gutin and Punnen, 2002), instances of a VRP with more 
+than one hundred customers can be intractably hard to solve optimally and exact methods are 
+confined to limited-sized instances. For this reason, the literature is replete with metaheuristic 
+algorithms, cooperative search methods and hybrid approaches, which stand between heuristics and 
+exact optimization techniques and are capable of producing high quality solutions with 
+computational time burdens reasonable for practical applications. Yet, despite the contributions and 
+the progress the field has seen in recent years, many challenges still stand and new ones are 
+emerging. 
+Apart from efficiency, scalability and speed of solution procedures are prerequisite attributes for 
+their adaptation within real life decision support systems in which the response times have to be 
+short. Recently, great attention has been devoted on computational experimentation considering 
+large sized data sets for different VRP variants that mimic to some extent real life conditions. Li et 
+al. (2005) and Kytöjoki et al. (2007) reported results for the Capacitated VRP considering data sets 
+with up to 1200 and 24000 customers, respectively. For the Heterogeneous Fleet VRP and the Open 
+VRP, Li et al. (2006, 2007) conducted experiments with more than 480 customers, while for the 
+VRPTW recent algorithmic developments are evaluated on the large-scale problem instances 
+provided by Gehring and Homberger (1999) with a cardinality ranging from 200 to 1000 customers. 
+The focus of this paper is to provide an overview and discuss the state-of-the-art in the field of 
+advanced heuristics proposed to address large-scale VRPTW instances. The VRPTW is certainly 
+the most studied variant of VRPs and it can be considered the prototype of the so-called “rich” 
+VRPs because time window constraints require sophisticated techniques for constant time 
+feasibility checks (Irnich, 2008). It occurs in several transportation logistics systems and it can be 
+used to model numerous real life applications (Bodin et al., 1983). Typical large-scale VRPTW 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+1
+
+
+--- SAYFA 4 ---
+applications can be found in waste collection (Sahoo et al., 2005), fast food routing (Russell, 1995), 
+school bus routing (Bracca et al., 1994), home delivery and technical-dispatching services (Weigel 
+and Cao, 1999). One may also refer to Golden et al. (2002) for a collection of vehicle routing and 
+scheduling applications from several industries, including solid waste, beverage, food, dairy and 
+newspaper. 
+The VRPTW can be formally stated as the problem of designing least cost routes from a depot 
+to a set of geographically scattered customers of known demand. The routes must be designed such 
+that each customer is visited only once by exactly one vehicle within a given time interval that 
+models the earliest and the latest times during the day that service can take place. The vehicle must 
+remain at the customer location during the service, and in case the vehicle arrives before the 
+customer is ready to begin the service, it waits. Finally, all feasible routes start and end at the depot, 
+while the accumulated quantities to deliver/collect up to any customer of a route must not exceed 
+the vehicle capacity.  
+The VRPTW usually has multiple objectives. The goal is to determine the minimum number of 
+vehicle routes and the optimal sequence of customers visited by each vehicle, such that all 
+customers are served and all constraints imposed by vehicle capacity, service times and time 
+windows are satisfied. Typically, a lexicographic (hierarchical) ordering of objectives is followed. 
+That is, the number of routes is first minimized and then, for the same number of vehicle routes, the 
+total travel time or the total travel distance incurred by the fleet of vehicles is minimized. An 
+additional objective might consider minimization of the total time spent (including vehicle's waiting 
+time). In the case of m-VRPTW (fixed fleet size) the first objective is to maximize the total number 
+of customers served. Herein, the focus is on solution approaches proposed for hard time windows 
+following the hierarchical ordering of objectives described above. 
+The VRPTW can be decomposed into two sub-problems. If the time window constraints are 
+relaxed, it reduces to a bin-packing problem (or set-partitioning), while if the capacity constraints 
+are relaxed, it results in a multiprocessor scheduling problem with some form of sequence-
+dependent service times, as well as release times and deadlines to account for time windows. The 
+complexity of the VRPTW, which is NP-hard in its general form, stems from the inherent 
+complexity of its underlying constituting elements, since both are NP-complete (Garey and 
+Johnson, 1979). Even the problem of finding a feasible solution for the m-VRPTW is NP-complete 
+(Savelsbergh, 1985). 
+Early work on the VRPTW dates back to the 1960’s. For an overview on early developments, 
+we refer readers to the surveys of Golden and Assad (1986), Desrochers et al. (1988), Desrosiers et 
+al. (1995), and Cordeau et al. (2002). The more recent surveys of Bräysy and Gendreau (2005a,b) 
+and Bräysy et al. (2004a) review the algorithmic developments in the field of construction 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+2
+
+
+--- SAYFA 5 ---
+heuristics, iterative improvement heuristics, metaheuristics and evolutionary algorithms. Since the 
+late 1980s, most solution approaches have been evaluated upon the medium-sized benchmark data 
+sets of Solomon (1987), while recently the focus of most researchers has shifted on large-scale 
+problem instances using the data sets of Gehring and Homberger (1999). Although significant 
+contributions have been made regarding the Solomon’s (1987) data sets, no method can consistently 
+re-produce the best-known solutions and few can find the best-known fleet size for all problem 
+instances. On the other hand, the best-known results for the large-scale problem instances have been 
+continuously updated for the last 9 years; however, there is still much room for improvement, 
+especially in terms of effectiveness. Evidently, many solution approaches fail to provide a good 
+compromise between quality and speed, while few score well on other dimensions, such as 
+simplicity and flexibility. 
+The main contribution of this paper is to discuss the latest research activities in the field of 
+advanced heuristics proposed for solving large-scale VRPTW instances. The main effort is not only 
+to provide an overview of the literature, but also to identify the ingredients of success both in terms 
+of accuracy and speed. Initially, we focus on the design of neighborhoods and we discuss recent 
+advances in the field of neighborhood search methods, since both the structure and the evaluation of 
+neighborhoods may affect significantly the resulting performance. Afterwards, we divide the 
+literature into three categories and we elaborate our analysis for each solution approach based on 
+four attributes: efficiency, effectiveness, simplicity and flexibility, as originally proposed by 
+Cordeau et al. (2002). Apart from the constituting elements, great attention is given to speed up 
+techniques, parallel implementations, integrative and collaborative algorithmic schemes and route 
+elimination strategies. To this end, computational results comparing the performance of different 
+solution approaches are also reported. Finally, the main findings are summarized and conclusions 
+are drawn offering pointers for future research. 
+1 Neighborhood: Structure and Evaluation  
+Neighborhood structures and neighborhood search methods are key algorithmic components, since 
+the majority of solution methods for large-scale VRPTW instances are local search-based or make 
+use of local search components. Despite their success, only a small fraction exploits the 
+interrelationships between neighborhood definitions and the associated neighborhood search 
+algorithms. Clearly, the neighborhood size and the speed of evaluation determine to a large extent 
+the resulting efficiency and effectiveness. Ambitious large neighborhoods increase the chances of 
+finding high quality solutions, but they are more expensive to explore. This is why methods for 
+intelligently pruning neighborhoods are important. Proper structural design and the choice of the 
+appropriate search method are ways to achieve this goal. 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+3
+
+
+--- SAYFA 6 ---
+Finding the best solution in a given neighborhood is itself an optimization problem. This 
+problem can be solved either exactly or heuristically, using direct enumeration schemes (e.g. 
+sequential search and lexicographic search) or indirect optimization algorithms (e.g. branch-and-
+bound and network optimization algorithms for shortest paths or cycles). Apart from the solution 
+technique, the speed of neighborhood evaluation depends also on the computational effort to 
+determine the cost of a neighboring solution and checking its feasibility. Furthermore, if the search 
+is enumerative there is always the flexibility to terminate the evaluation process whenever one 
+improving neighbor from the set of all improving neighbor solutions has been found. In particular, 
+there are three well-known strategies: the first improvement, the best improvement and the d-best 
+improvement. From the average viewpoint these strategies might significantly differ in their 
+efficiency, while the worst-case performance of all strategies is equivalent (Irnich, 2008).  
+Since there is always the trade-off between the size and the effort needed for searching the 
+entire neighborhood, effective local search implementations for solving large-scale problem 
+instances should essentially utilize neighborhoods of at least manageable size. Below, both classical 
+and newly developed neighborhoods are described. We focus on two major building blocks: the size 
+and the evaluation of neighborhoods. Attention is given first to edge-exchange neighborhoods, edge 
+handling techniques and direct enumerative search methods, while an overview of search methods 
+for large neighborhoods in the context of the VRPTW is also provided. 
+1.1 Node- and Edge-exchange Neighborhoods 
+1.1.1 Neighborhood Definition 
+Edge-exchange neighborhoods are generated by a set of operations, such as segmentation, 
+inversion, permutation and concatenation, made at the level of edges, and typically their size is a 
+polynomial function of the total number of customers (Funke et al., 2005). Apart from the number 
+of deleted and added edges, a common way to manage the size of edge-exchange neighborhoods is 
+to use a set of restricted operators. Most of these operators are structured in such a way that only 
+proper move types are considered during permutation and concatenation, the length of the segments 
+(or paths) is restricted during segmentation and some segments might need to be reversed during 
+inversion operations. Similarly, there are operators that can be used to extend the size of a 
+neighborhood structure. A typical example is the Generalized Insertion operator introduced by 
+Gendreau et al. (1992, 1995), in which a local re-optimization is performed simultaneously with an 
+insertion. 
+Any intra-route edge-exchange neighborhood can be derived from the k-Opt neighborhood (also 
+known as k-exchange) that involves the substitution of a set of k edges with a set of k other edges 
+from a single route. The total number of possible k-Opt moves (including proper and non-proper 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+4
+
+
+--- SAYFA 7 ---
+moves) for a given k is 2k-1(k-1)!, while verifying k-optimality requires O(nk) operations. Due to the 
+rapid increase of the computational requirements w.r.t k, k is limited to 2 or 3 in most cases (2-Opt 
+and 3-Opt neighborhoods). The size of the 2-Opt neighborhood is quadratic and there is only one 
+proper move type, while the size of 3-Opt is cubic and there are four proper move types. The only 
+3-Opt move type that does not reverse any segment is the so-called Or-Opt move (Or, 1976), which 
+relocates a segment of consecutive customers of length usually less than or equal to three. The size 
+of the Or-Opt neighborhood is quadratic (if the length of the segment is bounded). Finally, an 
+extension called inverted Or-Opt (IOpt) was introduced by Bräysy (2003) considering both the 
+forward and reserve orientation of the relocated segment.  
+The k-Opt* neighborhood generalizes the k-Opt one to account for multiple-routes (Potvin et al., 
+1989). The idea behind the application of a 2-Opt* neighborhood is to swap the end segments 
+between two routes without reversing the order of customers. The size of the 2-Opt* neighborhood 
+is quadratic (Potvin and Rousseau, 1995). Similarly, the Path Insertion (also known as String 
+Relocation) generalizes the Or-Opt and IOpt neighborhoods. More specifically, Path Insertion 
+relocates a segment of at least two consecutive customers from one route to another considering 
+both the forward and reverse orientation. The size of the Path Insertion neighborhood is cubic. 
+The λ-interchange neighborhood proposed by Osman (1993) can be considered as the generic 
+inter-route node-exchange neighborhood structure. It selects two subsets of customers (with 
+cardinality less than or equal to λ) from two different routes and exchanges them considering all 
+possible insertion positions for both routes, resulting in a neighborhood size O(n4λ). If it is required 
+that the nodes be inserted in the position of the removed nodes, the size reduces to O(n2λ). Since the 
+size of λ-interchange neighborhood is relatively large even for small values of λ, in the literature λ 
+rarely exceeds 2 and most researchers adopt small and manageable special structured λ-interchange 
+sub-neighborhoods. Typical examples are the Relocation, the Exchange and the Swap neighborhood 
+of Savelsbergh (1992) and the CROSS-exchange neighborhood structure introduced by Taillard 
+et al. (1997).  
+The idea behind the Relocation move (also known as Insertion) is the removal of one node from 
+its current position and its insertion into a different position of the same or a different route. The 
+size of the Relocation neighborhood is quadratic. In an Exchange (or Swap) local move, one node is 
+moved from one route to another and a second node is moved from the latter to the former. On the 
+other hand, the CROSS-exchange move involves the exchange between two segments of any length 
+(or less than a predefined length) from two different routes. The size of the CROSS-exchange 
+neighborhood is O(n4). Finally, several structures have been proposed in the literature that extend 
+the above described neighborhoods, such as inverted CROSS (Bräysy, 2003), GENI-exchange and 
+GENICROSS (Bräysy, 2004b). 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+5
+
+
+--- SAYFA 8 ---
+1.1.2 Direct Enumeration Search Methods & Acceleration Techniques 
+Direct enumeration search methods for O(nk) neighborhoods typically work on a search tree with at 
+least k levels by adding and/or deleting edges and evaluate the results of these operations directly. 
+The latter requires the implicit or explicit construction of neighbors, the computation of cost (or 
+gain compared to the current solution) and the test of whether the neighbor is feasible or not. The 
+goal is to reduce the search effort (perform less than nk operations) by pruning early in the search, or 
+by finding the local best neighbor as quickly as possible without scanning all neighboring solutions 
+explicitly (Funke et al, 2005). The critical criteria for the reduction of the search space are cost and 
+feasibility, i.e., if some branch of the search tree does not contain any feasible or improving 
+neighbor, it can be pruned. In the literature, there are two main approaches, namely the 
+lexicographic search (Kindervater and Savelsbergh, 1997) and the sequential search (Irnich, 2008) 
+based on feasibility and cost reductions, respectively.  
+Lexicographic search is based on the systematic way in which segments are built. In particular, 
+during segmentation the k edges for removal are chosen in a lexicographic order (the order in which 
+edges currently appear in the routing plan) using k nested loops. Having fixed the first edge, all 
+other edges selected for removal are chosen sequentially, such that exactly one edge is added or 
+deleted from one segment in every loop. Thus, from one neighbor to the next only the last selected 
+edge is shifted on and on. The latter implies that information from the previous segmentation, 
+permutation, inversion and concatenation operations can be used to check the feasibility of the 
+current move and to prune the search early (Savelsbergh, 1992). In this regard, lexicographic search 
+yields the sufficient conditions to prove that if the current solution is infeasible, the entire following 
+sequence is infeasible, too. Furthermore, if for every segment all necessary routing and scheduling 
+information is efficiently updated and maintained in a set of global variables, then the feasibility 
+check of a move can be made in constant time instead of O(n) (Kindervater and Savelsbergh, 1997).  
+Sequential search is a gain-oriented search procedure that exploits the cost and cyclic 
+independence of neighborhoods. The notion is to decompose a move into partial moves (whose sum 
+is the overall gain of the move) and to examine all relevant partial moves of the cyclic independent 
+neighborhood recursively. If the sum of a sequence of gains is positive, then there exists a cyclic 
+permutation of these gains, such that every partial sum is positive. The latter can be generalized to 
+restrict the search considering only those branches where the sum of gains of the first p≤k partial 
+moves has to be greater than pG*/k, where G* is a lower bound of the overall gain. Contrary to 
+lexicographic search, the elements are selected w.r.t to a set of so-called neighbor lists sorted in the 
+order of increasing cost. One disadvantage is that feasibility of a move cannot be checked before all 
+elements of the partial moves have been specified (Funke et al., 2005).  
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+6
+
+
+--- SAYFA 9 ---
+So far, most local search based solution methods for large-scale VRPTW instances adopt 
+lexicographic search based approaches for the evaluation of edge-exchange neighborhoods. To this 
+end, a generic implementation of sequential search for the VRPTW has been recently illustrated by 
+Irnich (2008). According to his results on the data sets of Gehring and Homberger (1999), there is a 
+significant speedup when lexicographic search is replaced by sequential search, especially for the 
+long-haul less constrained problem instances. Similar results were observed on a small set of 10 
+very large-scale problem instances with up to 10,000 customers.  
+One way to further accelerate sequential search-based approaches is to use restricted candidate 
+lists instead of complete neighbor lists. These candidate lists can be either time-oriented or distance-
+oriented, i.e., candidate lists that contain for each customer i a list of the l nearest customers from i. 
+A typical paradigm is the granularity concept introduced by Toth and Vigo (2002). During the 
+evaluation process, they assume that the first added edge must belong to a candidate list. The latter 
+contains edges whose length is below a certain threshold that varies during the search process in an 
+effort to intensify or diversify the search. Effective implementations of time-oriented candidate lists 
+for both medium and large-scale VRPTW instances are provided by Ibaraki et al. (2005, 2008) and 
+Hashimoto et al. (2008). 
+In general terms, time windows are a hard constraint to deal with, since it combines routing with 
+scheduling aspects. Checking the feasibility of a route in a straightforward way (looping over all 
+nodes) requires at least linear time. A typical way is to reduce the computational complexity is to 
+treat segments as nodes (Kindervater and Savelsbergh, 1997). The main idea is to reduce the 
+original graph by contracting entire sequences of nodes into objects (called macronodes) with a 
+limited number of properties summing up all the information needed to evaluate solutions. The new 
+graph is much like the old one, i.e., a time window is associated to each object and a travel time to 
+each edge connecting objects. In the VRPTW literature, most implementations follow similar 
+approaches for testing feasibility. For a formal description of the macronodes approach we refer to 
+Cordone and Wolfler (1996). 
+Finally, updating mechanisms can be considered as alternative acceleration techniques. The 
+effect of any node- or edge-exchange move is limited to the routes it modifies. Thus, it is actually 
+unnecessary to evaluate all neighbors at each step. It is adequate to keep the feasible improving 
+exchanges and their gain in a data structure. Once a move is executed, all those involving modified 
+routes are removed from the data structure and re-evaluated again, whereas the others need not to be 
+updated, since they remain feasible and alter the objective function by the same amount (Cordone 
+and Wolfler-Calvo, 2001). As mentioned by Repoussis et al. (2009), such updating mechanisms are 
+particularly effective especially for large-scale short-haul problem instances with tight time window 
+constraints. 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+7
+
+
+--- SAYFA 10 ---
+1.2 Large Neighborhoods 
+Neighborhoods of exponential size and neighborhoods that are too large to search explicitly 
+(enumerate and evaluate all neighbors) in practice, are generally considered to be large 
+neighborhoods. Such large neighborhood structures allow a more thorough exploration of the 
+search space, and the possibility of reaching directly high quality solutions is thus higher. However, 
+a large neighborhood does not necessarily produce a more effective local search-based procedure 
+unless one can search the neighborhood effectively (Ahuja et al., 2000). As mentioned by Gendreau 
+and Potvin (2005), large-size neighborhoods are attractive only if they are coupled with filtering 
+techniques aimed at focusing the search on promising regions, given that a complete evaluation of 
+the entire neighborhood is costly. Typical examples are the cyclic-exchange neighborhood proposed 
+by Thompson and Psaraftis (1993) and the ejection chain concept suggested by Glover (1992). 
+The cyclic-exchange neighborhood generalizes in a sense the k-exchange one. The main idea is 
+to improve the cost of a set of routes by transferring a small number of demands among routes 
+cyclically. Neighboring solutions are obtained by transferring k single elements among subsets (or 
+routes) of a solution, where k varies from 1 to K (the maximum number of elements). Let a solution 
+containing m routes and ρ denote a cyclic permutation of a subset of {1,..., m}. The simultaneous 
+transfer of demands from a route rj to rρ(j) for each j is a cyclic transfer. If the cyclic permutation has 
+a fixed cardinality b then the b-cyclic k-transfer neighborhood is obtained.  
+Identifying the optimum cost-decreasing cyclic exchange is computationally intractable. A 
+possible alternative is to decompose the very large neighborhood into a set of partial moves that 
+explicitly map to the decision variables of an auxiliary optimization problem defined on a network. 
+The latter is called an improvement graph and can be used to implicitly search the neighborhood via 
+appropriate network optimization algorithms. The improvement graph of interest is defined w.r.t. a 
+feasible partition of S (the set of routes) and is denoted as G(S). Let S[aj] denote the subset 
+containing the elements aj. G(S) is a directed graph with n nodes, where each node i corresponds to 
+the element ai∈S. A directed arc (i; j) in G(S) signifies that element ai leaves its current subset and 
+moves to the subset containing element aj, that is, the subset S[aj], and simultaneously the element 
+aj leaves S[aj]. As such, a cost-decreasing cyclic exchange w.r.t. S corresponds to a negative cost 
+subset-disjoint (directed) cycle in G(S). The problem of finding a negative cost subset-disjoint cycle 
+is NP-complete, and thus, only heuristic methods are adequate. Thompson and Psaraftis (1993) used 
+a polynomial-time approximation to calculate the arc costs and restricted the subsets using small 
+negative cost cycles. A more effective technique for identifying negative cycles is proposed by 
+Ahuja et al. (2000, 2001). Their method modifies the well-known label-correcting algorithm for the 
+shortest-path problem (from one node to all other nodes), where each directed path maintained is a 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+8
+
+
+--- SAYFA 11 ---
+subset-disjoint path. A similar approach considering alternative heuristic search strategies for 
+finding shortest cycles was proposed by Gendreau et al. (2006).  
+Ejection Chains (EC) are based on the concept of generating compound moves, leading from 
+one solution to another, by linked steps in which changes in selected elements cause other elements 
+to be “ejected from” their current state, position or value assignment (Glover, 1992, 1996). The idea 
+is to move towards intermediate-reference structures before moving to another solution, instead of 
+moving directly from one solution to another. The reference structure resembles the solution 
+structure, but allows violation of certain types of constraints. Using a set of predefined transition 
+rules, moves are generated from feasible solutions to reference structures, from one reference 
+structure to another and back from reference structures to solutions. Clearly, a certain amount of 
+infeasibility is introduced into the initial solution, which has to be “ejected” to end up with a new 
+feasible trial solution. However, the ejection of infeasibility can be delayed by moving to other 
+reference structures first to create a chain effect. As such, at each level (depth) trial solutions are 
+available, while for a given depth the goal is to find the best trial solution observed along chains. 
+Reference structures proposed by Glover (1996) are the Stem and Cycle and its generalization, the 
+Doubly Rooted Stem and Cycle, while Sontrop et al. (2005) proposed a Constrained Doubly Rooted 
+structure for the VRPTW. 
+A more frequently used type of EC is the so-called node-ejection chains. The notion is to 
+combine series of node-exchanges into a compound move. The latter refers to the removal of a node 
+from one route and the re-insertion of this node into a different route, by first removing another 
+node from the latter. The removal and re-insertion operations are repeated, until the last ejected 
+node is either inserted into the position left empty by the first removed node or it is inserted freely 
+into any position of a route that does not intersect with the chain. Thus, for each root node, a tree is 
+formed in which leaves denote nodes that can be freely inserted into other positions of the same or 
+of different routes assuming an empty intersection with the tree. The main difference between node-
+ejection chains and cyclic exchanges is that only one node is shifted within a partial move of the 
+former, while the ordering of the nodes in the new route of the latter might be completely different 
+(Funke et al., 2005). 
+The search for cost-decreasing node-ejection chains can be made via a depth or a breadth search 
+technique, iterating all chains for each root node. Clearly, heuristics can be also employed, using 
+topological parameters to restrict the search, such as maximum depth and width of the tree. In a way 
+similar to the use of cyclic improvement graph (move-composition approach) described earlier, 
+Gendreau et al. (2006) modeled the task of finding the best chain or cycle of ejection/insertion 
+partial moves as a constrained shortest path problem. The latter is solved heuristically using an 
+adaptation of the all-pairs Floyd-Warshall shortest path algorithm along with a priori fixing 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+9
+
+
+--- SAYFA 12 ---
+ordering strategies. On the other hand, Caseau et al. (1999) adopted a domain-dependent Constraint 
+Programming (CP) search approach equipped with the Limited Discrepancy Search (LDS) heuristic 
+pruning technique proposed by Harvey and Ginsberg (1995). 
+CP is a paradigm for representing and solving a wide variety of problems. Typical examples of 
+search techniques that can be used within CP frameworks are depth-first search for constraint 
+satisfaction and branch-and-bound for optimization. Depth-first search with constraint propagation 
+work as follows. At each node of the search tree, the propagation mechanism removes values from 
+the domains of constrained variables that are inconsistent with other variables. If the propagation 
+mechanism removes all values from any of the variables, then there cannot be a solution in this sub-
+tree and the search backtracks making a different decision at the previous choice point. Similarly, at 
+each step of a branch-and-bound, a variable is chosen to instantiate and sub-problems are explored 
+in turn with the variable assigned to each of its values. After each assignment constraint propagation 
+occurs. This propagation accounts for all constraints, as well as for a bound on the objective 
+function. During the search process, if the domain of one or more constrained variables becomes 
+empty the search backtracks at the previously made assignment. Readers wishing to learn more 
+about the integration of CP frameworks with local search heuristics are referred to Pesant and 
+Gendreau (1999). 
+Instead of exploring completely the search tree or truncating the search to a limited number of 
+backtracks, one could use within the CP framework an LDS technique that prunes heuristically the 
+unpromising branches. The idea behind LDS is to explore the search tree in order of increasing 
+number of discrepancies, where a discrepancy refers to the assignment to a variable of a value that 
+is not the best according to the value ordering heuristic used in the search (which could be 
+interpreted as the heuristic making a mistake). Therefore LDS can be viewed as exploring the 
+search tree in waves, with each successive wave allowing the heuristic to make more mistakes (Bent 
+and Van Hentenryck, 2004). Thus, wave i explores the solutions that can be reached by assuming 
+that the heuristic made i mistakes. An alternative usage of LDS is to branch only in a limited 
+number of cases to those nodes of the search tree that the heuristic decision is least compelling 
+(Caseau et al., 1999). 
+Another very popular family of large neighborhood structures is the so-called partially 
+destructive/constructive neighborhoods. The rationale is first to remove a set of customers or 
+segments from the current routing schedule and then re-insert back the removed components using a 
+constructive algorithm. The latter can be either an exact optimization technique (e.g., branch-and-
+bound) or a simple insertion-based heuristic algorithm (e.g., cheapest insertion). There are four key 
+elements that characterize partially destructive/constructive neighborhood structures: (i) the total 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+10
+
+
+--- SAYFA 13 ---
+number of removed customers, (ii) the corresponding customer selection criteria, (iii) the treatment 
+of the remaining parts of the solution and (iv) the way the removed customers are re-inserted. 
+Shaw (1998) introduced the concept of Large Neighborhood Search (LNS) within an integrated 
+CP framework. LNS can be interpreted as follows: positions of some customer visits within the 
+current vehicle routing schedule are relaxed and re-optimized in the best possible manner by solving 
+smaller sub-problems. The set of removed customers is selected randomly with a bias towards 
+groups of related customers (geographically close with similar demand and starting time for 
+service). These customers are then re-inserted back to the solution at optimal cost. The re-insertion 
+process is performed using an LDS-based branch-and-bound search technique (branching against 
+the best insertion) with the limit on the bound set at the cost of the solution before the relaxation 
+took place. Finally, during this local search process, if a number of consecutive non-improving 
+attempted moves are observed, the number of customers removed is increased. This gradual 
+expansion of the neighborhood shares many similarities with the Variable Neighborhood Search 
+metaheuristic solution framework of Mladenović and Hansen (1997). 
+Rousseau et al. (2002) introduced three CP-based LNS neighborhoods, namely LNS-GENI, 
+Naive Ejection Chains (NEC) and SMAll RouTing (SMART). The basic idea behind LNS-GENI is 
+to extend the basic LNS scheme and to account in addition for re-insertion positions between non- 
+consecutive customers. The customers to be removed are chosen randomly with a bias towards 
+customers generating the longest detours. For the re-insertion of customers, a first fail strategy is 
+followed attempting the insertion of the most constrained customers first. On the other hand, NEC 
+is used primarily for removing a particular customer from a route rather than reducing the distance 
+cost. The customers with the larger detour from the target route are selected first for ejection. This 
+choice increased the probability of reducing the travel distance and creates a larger temporal space 
+for the re-insertion of a customer. Finally, SMART removes a set of edges instead of customers 
+forming an incomplete solution. The removed edges can be either selected in a consecutive fashion 
+or randomly with a bias towards long edges. 
+Earlier, Russell (1995) proposed a neighborhood structure that removes up to four customers 
+and reinserts them using partial enumeration, combined with the parallel insertion heuristic of 
+Potvin and Rousseau (1993). Similar neighborhood structures have been put forward by Bräysy 
+(2003), namely the intra-route O-Opt and the inter-route Insert Related Parallel (IRP). Overall, the 
+above described partially constructive/destructive neighborhoods combined either with insertion-
+based heuristics or optimization-based techniques are often employed successfully within advanced 
+heuristics for solving both small and large-scale VRPTW instances. 
+A natural avenue to speed-up neighborhood search algorithms is to introduce spatial and 
+temporal decoupling in an effort to define sub-problems that can be optimized independently and 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+11
+
+
+--- SAYFA 14 ---
+reinserted into an existing solution. Bent and van Hentenryck (2007) proposed a so-called 
+randomized adaptive spatial decoupling (RAND) utilizing the LNS of Shaw (1998). RAND 
+considers spatial decoupling and produces independent feasible sub-problems that do not share 
+customers or vehicles. It views the customer region as a circle and randomly selects a wedge to 
+define the sub-problem. Initially, it collects the vehicles serving customers within the wedge and 
+also considers all other customers served by these vehicles to define the sub-problem. In an effort to 
+produce sub-problems with equal densities of customers two angles are defined for each wedge. 
+The RAND-LNS has been successfully applied on large-scale VRPTW instances. The major 
+advantage of RAND is that it does not depend on the instance data and it is independent from the 
+underlying optimization algorithm. Similarly, spatial decoupling acceleration techniques have been 
+also utilized by Mester et al. (2006). 
+2 Advanced Heuristics for the VRPTW 
+The VRPTW has generated substantial research efforts and it is certainly the most well studied 
+vehicle routing and scheduling problem. As research moves toward more realistic sized problems 
+and research for large-scale optimization is receiving more and more attention, the focus of most 
+researchers has shifted to large-scale problem instances. During the last decade, a plethora of well 
+performing solution approaches have appeared in the literature. Overall, the field seems to have 
+reached a certain level of maturity and the literature can be roughly divided into three categories: 
+metaheuristic algorithms, parallel and cooperative search methods and hybrid optimization 
+algorithms. We now examine the methods proposed in each category to solve large-scale VRPTW 
+instances. 
+2.1 Metaheuristic Algorithms 
+As stated by Osman and Laporte (1996) “a metaheuristic is formally defined as an iterative 
+generation process which guides and subordinates heuristics by combining intelligently different 
+concepts for exploring and exploiting the search space, while learning strategies are used to 
+structure information in order to find efficiently near-optimal solutions”. Tabu Search (TS) (Glover, 
+1986), Evolutionary Algorithms (EA) (Bäck et al., 1997), Iterated Local Search (ILS) (Lourenço et 
+al., 2002) and Variable Neighborhood Search (VNS) (Mladenović and Hansen, 1997) are typical 
+examples of metaheuristic algorithms successfully adapted and implemented for the VRPTW.  
+Bräysy (2003) was one of the firsts to propose methods aimed at solving large-scale VRPTW 
+instances. In this paper, he presents a deterministic multi-phase Variable Neighborhood Descent 
+(VND) approach. Initially, a set of solutions is produced using a hybrid construction heuristic 
+similar to the one suggested by Russell (1995). Next, a breadth-first node-ejection chain approach is 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+12
+
+
+--- SAYFA 15 ---
+applied for route elimination, coupled with a particularly effective intelligent reordering insertion 
+mechanism. To this end, a subset of solutions with minimum fleet size is selected and improved via 
+a VND local search scheme. The latter encapsulates four parameterized inter- and intra-route 
+neighborhoods, namely I-CROSS, IRP, I-Opt and O-Opt. A novel feature is the use of twin-variable 
+structures in which the parameter values used to define the neighborhood structures are modified 
+after each successful cycle in addition to the traditional neighborhood change scheme. Finally, a 
+modified objective function (total route duration in particular) is considered for diversification 
+during the local search process, if the search stagnates for a certain period. 
+This was quickly followed by another paper (Bräysy et al., 2004b) in which was presented a 
+two-phase multi-start approach combined with a Threshold Acceptance (TA) (Dueck and Scheurer, 
+1990) post-optimization algorithm. As in Bräysy (2003), a cheapest insertion heuristic is used in the 
+first phase to generate initial solutions using different parameter settings, while a so-called Injection 
+Tree (IT) procedure is applied to minimize the fleet size. Compared to the node-ejection chains of 
+Bräysy (2003), the proposed IT considers in addition simultaneous insertions and ejections of 
+multiple customers. Given a subset of high quality solutions, the second phase applies I-CROSS-
+exchanges according to a steepest descent iterative improvement strategy, followed by a TA post-
+procedure, which applies the extended I-Opt and GENICROSS neighborhood structures.  
+In 2006, Pisinger and Ropke (2006) proposed a very different approach that extended the LNS 
+idea to make it adaptive. This Adaptive LNS algorithm utilizes a set of partially 
+destructive/constructive neighborhoods that compete to modify the current solution in an iterative 
+fashion. Two sets of heuristic operators N- and N+ are chosen to destroy (remove a number of 
+customers and place them into a request bank) and re-construct the current solution (insert back 
+customers from the request bank into one or more routes). The new provisional solution is accepted 
+w.r.t. a Simulated Annealing (SA) (Kirkpatrick et al., 1983) criterion, while an adaptive layer 
+stochastically controls the selection of operators on the basis of a roulette wheel selection scheme. 
+The more an operator has contributed to the search process (by providing improvements to the 
+solution), the higher is the probability that it will be chosen in the future. For diversification, a noise 
+function is used within all operators. Finally, in terms of fleet size minimization, an additional stage 
+prior the standard Adaptive LNS is suggested. Given an initial solution, a route is removed and all 
+its customers are placed into the request bank. Next, Adaptive LNS is applied, and if a feasible 
+solution that serves all customers is encountered, the procedure is repeated with a smaller fleet size 
+until no feasible solution can be obtained. 
+Later, Ibaraki et al. (2008) presented an ILS algorithm capable of dealing with instances with 
+piecewise linear convex time penalty functions, assuming soft time windows for the customers, as 
+in Ibaraki et al. (2005). Given the visiting sequence of customers served by a vehicle route, a 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+13
+
+
+--- SAYFA 16 ---
+Dynamic Programming (DP) procedure is used to determine the optimal service times, such that the 
+penalized objective function is minimized. The proposed DP is used during the evaluation of 
+neighboring solutions. The complexity for convex time penalty functions is O(δk log δk) for each 
+vehicle k, while the time to evaluate a neighboring solution is O(log δmax). As in Ibaraki et al. 
+(2005), the ILS local search applies restricted I-Opt, 2-Opt, 2-Opt*, Path Insertion and I-CROSS-
+exchange neighborhood structures within a VND local search framework. Distance and time 
+oriented neighbor-lists are also used to accelerate the neighborhood evaluation process. 
+A similar ILS implementation was proposed by Hashimoto et al. (2008) for large-scale Time-
+Dependent VRPTW instances. Given an initial solution, an iterative improvement local search 
+heuristic is applied until no further improvement can be obtained, while the overall ILS framework 
+iterates from solutions generated by perturbing the local optimum solutions obtained previously 
+during the search. Their local search heuristic uses 2-Opt*, CROSS-Exchange and Or-Opt 
+neighborhood structures, which are restricted in terms of size. The complexity of the modified DP 
+algorithm is the same as in Ibaraki et al. (2008), despite the fact that is capable of dealing with time-
+dependent travel times. An interesting feature of their implementation is the use of information 
+from past DP recursions, combined also with a filtering method, in order to reduce the search effort 
+during the evaluation of neighborhoods. 
+A multi-parametric (1+1)-evolution strategy (ES) was proposed by Mester et al. (2006). At first, 
+five solutions are generated via a hybrid parallel savings heuristic algorithm and the best among 
+them forms the initial population. During the evolution process, a new solution is produced via a so-
+called Remove-Insert multi-parametric mutation operator and the parent is replaced if an 
+improvement is observed. As a result, after a number of generations a set of modified solutions is 
+obtained. Three operators are used for the removal of customers (purely random removals, removal 
+of one customer from each route, and random ejections from rings generated from two circles 
+centered on the depot with random radiuses), while a cheapest insertion heuristic is applied for re-
+insertion. Each offspring is further improved using Or-Opt, Exchange, 2-Opt local moves within a 
+parameterized dynamic environment, called “adaptive variable neighborhood” (AVN). In an effort 
+to prune the neighboring space, a strategy for selecting neighboring routes, called “dichotomous 
+route combinations” (DRC), is also used to take advantage of the geographical division and 
+topology of the vehicle routes. 
+Mester and Bräysy (2005) proposed a hybrid metaheuristic algorithm. They combined Guided 
+Local Search (GLS) with an ES, similar to the one described above, into a two-phase interactive 
+approach. In the first phase, GLS is used to regulate a composite local search. Initially, a set of 
+solutions is generated using a hybrid parallel savings heuristic with different parameter settings. 
+During the construction process, Relocate and Exchange local moves are applied cyclically in a 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+14
+
+
+--- SAYFA 17 ---
+periodic fashion. The best solution of the set is further improved using the SA route minimization 
+procedure of Bent and Van Hentenryck (2004). The GLS step considers long arcs as the feature to 
+penalize, on the basis of the Relocate and Exchange neighborhoods. A particular feature is that the 
+neighborhoods are restricted to the set of geographically close routes w.r.t. the current penalized 
+arc, these are called “penalty variable neighborhoods” (PVN). If no further improvement can be 
+obtained via the GLS, an (1+1)-evolution strategy is triggered. After a number of generations, the 
+best individual is used as the starting point for the next restart of GLS. The oscillation between GLS 
+and ES is repeated until some termination conditions are met. 
+Hoshino et al. (2007) developed a local search heuristic controlled by chaotic dynamics 
+exploiting principles of neural networks. The chaotic search applies Exchange and Relocate local 
+moves. To control these local moves a set of neurons (each neuron corresponds to a customer and a 
+local move) is defined. At each neuron, a gain, a refractory and a mutual reflect are assigned. The 
+gain effect is related to the distance savings obtained by the neuron, the refractory effect inhibits the 
+firing of a neuron that has been just fired (memory effect with an exponential decay), and the 
+mutual effect adjusts a firing ratio to all neurons. The overall framework works as follows. Each 
+neuron is fired at a particular time and if some necessary conditions are met, the local move that 
+corresponds to this neuron is executed. The neurons are updated asynchronously, while a single 
+iteration is performed whenever all neurons are updated. Finally, the route elimination heuristic of 
+Bräysy (2003) is applied periodically for further improvement. 
+An Arc-Guided Evolutionary Algorithm was proposed recently by Repoussis et al. (2009). The 
+latter manipulates a population of individuals on the basis of an (μ+λ)-ES, utilizing a discrete arc-
+based representation combined with a binary vector of strategy parameters. Following a strictly 
+generational course of evolution and a deterministic selection scheme of survivors, offspring are 
+produced via mutation out of arcs extracted from parents. The mutation operator is based on the 
+ruin-and-recreate principle, while a multi-parent recombination operator enables the self-adaptation 
+of the strategy parameters based on the appearance frequency of each arc and the diversity of the 
+population. Each resulting offspring is further improved via a route elimination procedure and a 
+hybrid Guided Tabu Search algorithm. Both approaches utilize the basic TS local search framework 
+to drive the search process. However, the primary objective of the former is to reduce the number of 
+vehicles using a hierarchical ordering of objectives similar to Bent and van Hentenryck (2004), 
+while the latter explores the solution space on the basis of a GLS algorithm in an effort to reduce 
+the total distance. For the evaluation of the neighboring space, a lexicographic search approach is 
+followed coupled with neighborhood updating mechanisms for further acceleration. 
+Hashimoto and Yagiura (2008) suggested a Path Relinking solution approach. Initially, a 
+reference set of randomly generated solutions is build, while an iterative improvement local search 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+15
+
+
+--- SAYFA 18 ---
+using the 2-Opt*, CROSS-exchange and Or-Opt neighborhoods is applied. During relinking, the 
+starting and guiding solutions are selected randomly, while a random perturbation is applied with 
+some probability to the guiding solution for diversification. Among the solutions generated in the 
+relinking sequence, local search is applied to a subset of local optima. In an effort to reduce the size 
+and speed up the neighborhood exploration, time-oriented neighbor lists and segment length 
+restrictions are also considered. During the local search process, infeasible solutions are allowed, 
+while the amount of violation is penalized. Apart from capacity and temporal infeasibilities, 
+frequency based penalties are also employed to account for customers that appear often in infeasible 
+routes. To this end, an adaptive mechanism is used to control the weights of these penalties. For the 
+computation of the penalized objective function in constant time, traveling times for particular paths 
+are stored and the neighborhood is searched in a specific order, as in Ibaraki et al. (2005). 
+Finally, Nagata et al. (2010) proposed a two-stage Edge-Assembly Memetic Algorithm 
+(EAMA). During the vehicle minimization stage, a population of individuals is generated and the 
+route elimination heuristic of Nagata and Bräysy (2009a) is applied. The main feature of the 
+subsequent distance minimization stage is the so-called edge assembly crossover (EAX) operator 
+(Nagata and Bräysy, 2009b). The key idea of the latter is to generate a fixed number of offspring 
+solutions by combining directed edges from two parent individuals A and B selected randomly, 
+such that the capacity and time window constraints are not considered and the number of routes is 
+not changed. A subsequent local search-based repair procedure tries to restore the feasibility of the 
+infeasible offspring. It uses a generalized cost function consisting of the distance traveled and two 
+penalty components imposed on constraint violations. For evaluating time window violations, a new 
+penalty function is proposed: when a late arrival occurs at a given customer of the route, time is 
+“pushed backwards” in order to arrive on time (like using a time machine). By doing so, the 
+schedule for the subsequent customers of the route is no longer disturbed by the time delay at the 
+customer under consideration. Each time the “time machine” is used to arrive earlier at a given 
+customer, the associated penalty value (push backward time) is cumulated. Feasible solutions are 
+further improved via a local search procedure, which uses the 2-opt*, Or-Exchange, Relocation, and 
+Exchange neighborhood structures. For the selection of survivors in each generation, an elitist 
+selection scheme is adopted. 
+2.2 Parallel and Cooperative Search methods 
+Cooperative search is a category of parallel algorithms, in which several algorithms run in parallel 
+and share information to solve an optimization problem; it is a parallelization strategy for search 
+algorithms, where parallelism is obtained by concurrently executing several search programs 
+(Crainic et al., 1997; Crainic and Toulouse, 2002). From a different viewpoint, teamwork 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+16
+
+
+--- SAYFA 19 ---
+hybridization represents cooperative optimization models consisting of many parallel cooperating 
+agents, each carrying out a search in the solution space (Talbi, 2002). Three forms of parallelism 
+can be applied to metaheuristics as proposed by Crainic and Toulouse (2002): (i) low-level 
+(operational) parallelism aims solely to speed-up computations by accelerating steps of an 
+algorithm, without any attempt at achieving a better exploration; (ii) search space decomposition 
+parallelism, where each algorithm searches for a sub-solution in a sub-space by partitioning the set 
+of decision variables into disjoint subsets, and (iii) multi-search threads, in which several algorithms 
+perform multiple explorations for a solution in the whole space. In the latter case, each concurrent 
+thread may or may not be executed by the same method. These methods may start from the same or 
+different solutions and they can communicate during the search. Thus, depending on the operating 
+scheme, these approaches can be either purely independent search methods or cooperative multi-
+thread search strategies. Finally, communication can be made synchronously or asynchronously and 
+it can be event-driven or executed at predetermined time instances. 
+Le Bouthillier and Crainic (2005) presented a cooperative search method in which several 
+search threads communicate through asynchronous exchanges of information using a pool of 
+feasible solutions, called a solution warehouse. Communications are initiated only by individual 
+threads that have access to the data sent by other threads. However, no broadcasting takes place. 
+The methods involved in the cooperation scheme consist of simple construction and local search 
+heuristics, including Genetic Algorithms (GA), TS algorithms (similar to Cordeau et al., 2001, and 
+Gendreau et al., 1994) and a post-elimination procedure. The initial population is generated using 
+different construction heuristics. Local optimum solutions are sent to the warehouse from the TS 
+algorithms, while initial solutions are received either to restart or to diversify the search. On the 
+other hand, the two GAs use the solution warehouse as their population. Parents are selected 
+randomly and a probabilistic mutation is performed. Two crossover operators are considered, the 
+order crossover (OX) and the edge recombination (ER). When required, a repair procedure restores 
+feasibility by re-ordering or re-routing customers with infeasible time windows. Each offspring is 
+send to the solution warehouse. Finally, the post-optimization procedure consists of a node-ejection 
+chain and several local search improvement heuristics. The latter is applied to all solutions 
+maintained within the warehouse. 
+Later, Le Bouthillier et al. (2005) modified the cooperative search method of Le Bouthillier and 
+Crainic (2005). The proposed method is a guided parallel cooperative search method and it is based 
+on a central memory structure called data warehouse that contains solutions and pattern 
+information. A particular feature is the introduction of a sophisticated knowledge extraction 
+mechanism that is used to guide each search method (global search). The suggested mechanism 
+extracts knowledge from the information exchanged among search threads in an effort to identify 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+17
+
+
+--- SAYFA 20 ---
+promising or unexplored regions of the solution space (coordination). For this purpose, the 
+mechanism incorporates a pattern-identification procedure that is used to fix or prohibit specific 
+solution attributes (arcs in particular) for part of the search. The definition of patterns is based on 
+the inclusion of arcs within the solutions, while the solution warehouse is divided into subsets 
+according to the quality of solutions (i.e., elite, average and worst). An arc with a high frequency in 
+a given subset of solutions signals that the search methods participating into the cooperation have 
+often produced solutions that use this particular arc. Each pattern contains a subset of arcs. Frequent 
+pattern considers arcs with high appearance frequency, while the opposite is assumed for infrequent 
+patterns. To this end, patterns can be derived from specific sub-populations, while the rate of 
+appearance of a specific in-pattern among them can be also defined indicating whether an in-pattern 
+is promising or not. These promising and unpromising patterns are used to constrain for some time 
+the search processes, and thus induce global intensification or diversification phases. From the 
+implementation viewpoint, initially two phases of diversification are launched to broaden the 
+search, followed by two intensification phases that mainly focus on promising regions. 
+Gehring and Homberger (1999) developed earlier a parallel two-phase evolutionary algorithm 
+combined with TS. In the first phase, the ES proposed by Homberger and Gehring (1999) is 
+performed following an (1,λ) evolution scheme to minimize fleet size, while in the second phase TS 
+is applied for distance minimization. During the evolution process, the recombination of individuals 
+is omitted, while one offspring is generated per parent via mutation. The latter uses Or-Opt, 2-Opt* 
+and Exchange local moves, while the mutation code indicates for each individual the times a 
+randomly selected local move is applied. For the evaluation of individuals a customized fitness 
+function is utilized. It consists of two indices in a lexicographic order: the number of customers 
+served by the smallest vehicle and the sum of minimal delays of these customers (relative difficulty 
+of relocation).The two-phase solution approach is parallelized assuming cooperative autonomy (i.e., 
+autonomous sequential search threads cooperate through the exchange of solutions), while each 
+independent search thread is performed with different configuration settings. 
+Later, Gehring and Homberger (2001, 2002) modified this solution approach by moving to an 
+(μ;λ)-ES and a different fitness function considering also capacity infeasibilities. As in Homberger 
+and Gehring (1999), the fitness function is based on four criteria; the total number of vehicles, the 
+number of customers of the smallest route, the minimal delay and the total distance traveled in a 
+lexicographic order. In addition to the minimal delay, the property of the so-called “caused 
+overload” is also introduced. The latter indicates the extent of overload of a particular route, if the 
+customer with the smallest demand of the smallest route is relocated to that route. These two fitness 
+values are used to configure differently the concurrently executed search threads. However, the 
+final selection of individuals is made according to the traditional VRPTW objective function. Other 
+Solving Large-Scale Vehicle Routing Problems with Time Windows: The State-of-the-Art
+CIRRELT-2010-04
+18

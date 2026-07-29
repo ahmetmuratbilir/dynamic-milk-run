@@ -1,0 +1,2263 @@
+
+
+--- SAYFA 1 ---
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tprs20
+International Journal of Production Research
+ISSN: (Print) (Online) Journal homepage: https://www.tandfonline.com/loi/tprs20
+One-to-one relationships between Industry 4.0
+technologies and Lean Production techniques: a
+multiple case study
+Maria Pia Ciano , Patrick Dallasega , Guido Orzes & Tommaso Rossi
+To cite this article: Maria Pia Ciano , Patrick Dallasega , Guido Orzes & Tommaso Rossi
+(2020): One-to-one relationships between Industry 4.0 technologies and Lean Production
+techniques: a multiple case study, International Journal of Production Research, DOI:
+10.1080/00207543.2020.1821119
+To link to this article:  https://doi.org/10.1080/00207543.2020.1821119
+© 2020 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group
+View supplementary material 
+Published online: 01 Oct 2020.
+Submit your article to this journal 
+View related articles 
+View Crossmark data
+
+
+--- SAYFA 2 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+https://doi.org/10.1080/00207543.2020.1821119
+One-to-one relationships between Industry 4.0 technologies and Lean
+Production techniques: a multiple case study
+Maria Pia Cianoa, Patrick Dallasega
+b, Guido Orzes
+b and Tommaso Rossia
+aSchool of Industrial Engineering, LIUC-Università Carlo Cattaneo, Castellanza, Italia; bFaculty of Science and Technology, Free University of
+Bozen-Bolzano, Bolzano, Italy
+ABSTRACT
+Production research literature and industry practice have started to pay increasing attention to the
+Industry 4.0 (I4.0) phenomenon. Scholars and practitioners identified a strong link between this
+paradigm and the well-known Lean Production (LP) paradigm. Most studies consider LP as a pre-
+requisite of I4.0 and I4.0 as a tool to overcome LP limits and boost its practices. However, so far,
+these effects have been studied only at a high level, without an in-depth and comprehensive pair-
+wise analysis at a practice-technology level. Moreover, few empirical studies have been carried out
+on this topic. Our paper attempts to fill these gaps by conducting a multiple case studies research
+to explain the one-to-one relationships between LP techniques and I4.0 technologies, and vice
+versa. More specifically, the one-to-one analysis examines the enabling effect of LP on I4.0 and the
+empowering effect of I4.0 on LP. Based on the empirical analyses, we propose a framework on the
+relationships between the two paradigms structured into six areas drawn from previous research (i.e.
+manufacturing equipment and processes, shop-floor management, workforce management, new
+product development, supplier relationships, customer relationships). Such representation clarifies
+the interdependence of the two paradigms in the whole supply chain.
+ARTICLE HISTORY
+Received 11 February 2020
+Accepted 24 August 2020
+KEYWORDS
+Industry 4.0; lean; multiple
+case studies; empirical
+research; smart factory
+1. Introduction
+The last four decades of operations management and
+production research literature have been characterised
+by an increasing interest in the lean production (LP)
+phenomenon (Ciano et al. 2019). On one hand, LP
+has been proved to eliminate wastes, reduce set-up and
+lead times, reduce inventories, and improve performance
+(Pozzi et al. 2018; Kovács 2020; Tortorella, Fettermann,
+et al. 2020; Sancha et al. 2020). On the other hand, it can
+improve the employees’ morale and satisfaction, commu-
+nication, and decision-making attitude (Jasti and Kodali
+2015; Hopp 2018; Ciano et al. 2019).
+All these LP benefits lead to costs and efforts reduction
+and contribute to reaching customer satisfaction (Jasti
+and Kodali 2015; Kovács 2020). However, nowadays, the
+market is increasingly competitive and requires compa-
+nies to improve rapidly; moreover, it is challenging the
+industry with the rapid increase of highly customised
+products’ demand (Kolberg, Knobloch, and Zühlke 2017;
+Buer, Strandhagen, and Chan 2018). LP is facing sev-
+eral challenges from an integration perspective; indeed,
+the acquisition of exact customer needs is getting more
+CONTACT Maria Pia Ciano
+mciano@liuc.it
+School of Industrial Engineering, LIUC-Università Carlo Cattaneo, Corso Matteotti 22, Castellanza 21053,
+VA, Italia
+Supplemental data for this article can be accessed here https://doi.org/10.1080/00207543.2020.1821119
+and more complex, pull production must face rapid
+changes in scheduling, and often the set-up time reduc-
+tion is based exclusively on human experience (Sanders,
+Elangeswaran, and Wulfsberg 2016). The current context
+implies complex systems and a consequent high-volume
+data that call for the adoption of new solutions able to
+exploit the potential of information and communication
+technologies (Kolberg, Knobloch, and Zühlke 2017; Buer,
+Strandhagen, and Chan 2018; Yin, Stecke, and Li 2018).
+The literature considers the potentialities of Industry
+4.0 (I4.0) able to overcome the LP’s limits in facing the
+aforementioned issues (Kolberg and Zühlke 2015; Kol-
+berg, Knobloch, and Zühlke 2017). Indeed, I4.0 is seen
+as the ‘usage of intelligent products and processes, which
+enables autonomous data collection and analysis as well
+as the interaction between products, processes, suppliers,
+and customers through the internet’ (Buer, Strandha-
+gen, and Chan 2018). Several studies demonstrate that
+I4.0 technologies significantly improve industrial perfor-
+mance, most of all, flexibility, productivity, delivery time,
+cost, and quality (Moeuf et al. 2018, 2020). Furthermore,
+I4.0 is attracting many companies since these benefits
+© 2020 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group
+This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives License (http://creativecommons.org/licenses/by-
+nc-nd/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited, and is not altered, transformed, or built
+upon in any way.
+
+
+--- SAYFA 3 ---
+2
+M. P. CIANO ET AL.
+can be translated into the promise of an individual and
+customised production at the same cost of mass produc-
+tion (Wang et al. 2016). Indeed, the integration of smart
+machines and components into a digital network, at the
+basis of I4.0, creates a so-called cyber-physical system
+that enables a modular and changeable production (Kol-
+berg, Knobloch, and Zühlke 2017), as the prerequisite of
+an individual single-item production (Matt and Rauch
+2013; Kolberg and Zühlke 2015).
+However, I4.0 does not mean the sunset of lean. On the
+contrary, literature recognises a strong interdependency
+between the two paradigms (e.g. Sanders, Elangeswaran,
+and Wulfsberg 2016; Buer, Strandhagen, and Chan 2018;
+Tortorella and Fettermann 2018; Kamble, Gunasekaran,
+and Dhone 2020; Rossini et al. 2019; Rosin et al. 2020).
+Indeed, on the one hand, the LP’s high streamlined
+process orientation with defined tasks and times, its
+standardisation of work and places, and its emphasis
+on visual control and transparency facilitate the imple-
+mentation of the I4.0 information sharing and automa-
+tion (Kolberg and Zühlke 2015; Dombrowski, Richter,
+and Krenkel 2017). On the other hand, several studies
+pointed out that I4.0 technologies can boost LP prac-
+tices (Buer, Strandhagen, and Chan 2018). For instance,
+factory integration, sensors, and IoT technologies can
+improve Kanban, shorten cycle time, and make milk-
+runs more efficient (Hofmann and Rüsch 2017). More-
+over, these technologies allow the real-time collection of
+data that can empower the value-stream-mapping and
+fasten the wastes’ detection (see among others: Meudt,
+Metternich, and Abele 2017; Mrugalska and Wyrwicka
+2017).
+The investigation of the mutual support between the
+two paradigms is however still characterised by some
+gaps. Even though scholars agree on the enabling effect
+of implementing LP before I4.0, so far this effect has
+been studied just at a high level, without investigating
+the specific LP practices that cause it (Buer, Strandha-
+gen, and Chan 2018). Moreover, there is still a lack of
+an in-depth and comprehensive pairwise analysis at a
+practice-technology level, able to clarify the roles of both
+paradigms in a LP-I4.0 transformation (Rossini et al.
+2019). These gaps are also related to the general scarcity
+of empirical studies about the topic (Buer, Strandhagen,
+and Chan 2018; Pagliosa, Tortorella, and Ferreira 2019).
+Indeed, according to a recent review, only 14 percent of
+the studies in the field are empirical and actually veri-
+fied how the relationships occur (Pagliosa, Tortorella, and
+Ferreira 2019).
+All these aspects led to the lack of a holistic inte-
+gration framework (Buer, Strandhagen, and Chan 2018),
+especially of one considering the link between I4.0
+technologies and LP practices according to the entire
+value chain (Pagliosa, Tortorella, and Ferreira 2019).
+This paper aims to fill these gaps by distinguishing and
+characterising the possible effects of the two paradigms
+on each other in enabling, i.e. the creation of oppor-
+tunities for something to become able or competent,
+and/or empowering, i.e. the achievement of a sense of
+self-efficacy and of best version (Dunst, Trivette, and
+Deal 1988). Given their definitions, and the fact that an
+empowering effect implies that its objectives are already
+present or possible (Dunst, Trivette, and Deal 1988), we
+consider the effect of LP on I4.0 enabling, and the effect
+of I4.0 on LP empowering. The analysis of these effects is
+conducted in a one-to-one way, answering the following
+research questions:
+RQ1: How do LP techniques and practices enable I4.0
+technologies and characteristics?
+RQ2: How do I4.0 technologies and characteristics
+empower LP techniques and practices?
+More in detail, the aim of our paper is theory building
+on the relationship between Industry 4.0 and Lean pro-
+duction, i.e. identifying the key concepts of these two
+paradigms and their interrelationships (Gioia and Pitre
+1990; Corley and Gioia 2011).
+The results are obtained through the analysis of eight
+case studies conducted in manufacturing companies that
+apply both paradigms.
+Our paper significantly contributes to both produc-
+tion research theory and practice. Indeed, it fills the
+content gaps depicting a detailed picture of the relation-
+ship between LP and I4.0 in both directions. Moreover,
+the results lead to the formalisation of an integration
+framework that encompasses all the areas of the value
+chain. The disclosure of the practice-technology relation-
+ship and the insights given by the companies can help
+practitioners in understanding the requirements and in
+anticipating the effects of the specific directions of the
+LP-I4.0 transformation.
+The article is organised as follows: Section 2 defines
+the domain of LP and I4.0 and outlines their relation-
+ship through a literature review. Section 3 describes the
+research method and the analysed sample. The results
+from the case studies are presented in section 4. Section 5
+discusses the main findings in light of extant literature,
+while section 6 summarises and concludes the article.
+2. Background
+This section aims first to explain the main concepts of
+both LP and I4.0 paradigms and to collect the key tech-
+niques and technologies to be investigated. Then, it aims
+
+
+--- SAYFA 4 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+3
+to depict the state of the art of the scientific production
+that focuses on the effect of LP on I4.0 and the effect of
+I4.0 on LP.
+2.1. Main concepts
+2.1.1. Lean production practices and techniques
+In over forty years of study, the body of knowledge on LP
+has expanded considerably to include dedicated journals,
+various special issues and many literature reviews on it.
+According to the high recognised reviews by Bhamu and
+Sangwan (2014) and by Jasti and Kodali (2015), in liter-
+ature LP is generally addressed from two points of view,
+namely from a theoretical perspective related to guiding
+principles and general goals (Womack and Jones 1996;
+Spear and Bowen 1999), or from the practical perspective
+of a set of practices and techniques that can be observed
+directly (Shah and Ward 2003). The scope of this study
+leads to deepening the understanding of LP practices and
+techniques, the tools through which LP helps companies
+to achieve all the above-mentioned benefits, and to strive
+towards operational excellence (Möldner, Garza-Reyes,
+and Kumar 2020).
+LP practices have been extensively adapted and imple-
+mented in several sectors with the general expectation
+that by adopting the same set of practices, the companies
+can obtain similar benefits that will distinguish them in
+their businesses (Tortorella, Fettermann, et al. 2020).
+In literature, the LP practices were often categorised
+into bundles (Sancha et al. 2020; Bevilacqua, Ciarapica,
+and De Sanctis 2017). Flynn, Sakakibara, and Schroeder
+(1995) focused on the practices related to Just-in-Time
+(JIT) and Total Quality Management (TQM). Sakakibara
+et al. (1997) divided the practices into infrastructure
+practices (quality management, workforce management,
+manufacturing strategy, organisational characteristics,
+product design) and JIT practices (set-up time reduc-
+tion, schedule flexibility, maintenance, equipment layout,
+kanban and JIT supplier relationships). For McLachlin
+(1997), LP practices can be associated to the JIT flows,
+Human Resource Management (HRM) and empower-
+ment, Total Productive Maintenance (TPM) and equip-
+ment management, and TQM. According to Van Assen
+and de Mast (2019), these four bundles of practices are
+still the most addressed by literature.
+Looking at the tradition of LP literature, Jasti and
+Kodali (2015) affirmed that it can be classified into four
+research streams, i.e. lean manufacturing, lean product
+development, lean supply chain management and lean
+enterprise. The first three streams concern the applica-
+tion of LP in the related fields, the last one emphasises
+the application of LP across the entire value chain of
+a company (Womack and Jones 1994). Indeed, a lean
+enterprise is a company that selects the best practices
+in all functional areas and the management of external
+relationships (Karlsson and Åhlström 1996).
+Based on this last concept, the seminal study by Paniz-
+zolo (1998) suggested a scheme for classifying the LM
+practices composed of six areas of intervention of LP
+that encompass all the internal and the external piv-
+otal aspects: the manufacturing area, other internal areas
+such as product design and development and human
+resources, and relationships with external actors belong-
+ing to the supply chain, namely suppliers and customers.
+Later, this scheme was recalled by Doolen and Hacker
+(2005) and by Bai, Satir, and Sarkis (2019); both stud-
+ies updated the techniques and practices correspond-
+ing to the six areas identified by Panizzolo (1998). In
+particular, the recent study of Bai, Satir, and Sarkis
+(2019) included the findings of many works attempt-
+ing to classify LM practices, namely Bortolotti, Boscari,
+and Danese (2015); Sezen, Karakadilar, and Buyukozkan
+(2012); Saurin, Marodin, and Ribeiro (2011); Pettersen
+(2009); Shah and Ward (2007); Shah and Ward (2003);
+Cua, McKone, and Schroeder (2001). The general clas-
+sification brought by Panizzolo (1998) and the following
+studies adopting his view assign to the area manufactur-
+ing equipment and process, all the techniques related to the
+set-up and cycle time reduction, to the work standardis-
+ation and the pursuit of quality. Another area, devoted
+to the shop floor management, includes the techniques
+regarding the pull flow, the lot size reduction, and the
+production scheduling. The external actors belonging
+to the supply chain, i.e. suppliers and customers, have
+two distinct areas, i.e. supplier relationships and customer
+relationships. The internal relationships with the work-
+force were characterised by a set of LP practices referring
+to their commitment and their organisation, like multi-
+functional teamwork. Finally, the area about new prod-
+uct development included the techniques concerning the
+standardisation of the components and the design for
+manufacturing.
+Nowadays, in addition to internal LP practices within
+individual manufacturing organisations, existing stud-
+ies and industry pay attention to LP practices in the
+context of manufacturing supply chains (Meng 2019).
+Therefore, to adopt a comprehensive value chain per-
+spective, considering both internal and external areas,
+this study refers to a list of LP techniques and prac-
+tices classified into the related impact areas, drawn
+from Panizzolo (1998), Doolen and Hacker (2005),
+Buer, Strandhagen, and Chan (2018), Bai, Satir, and
+Sarkis (2019), and their main references, as reported in
+Table 1.
+
+
+--- SAYFA 5 ---
+4
+M. P. CIANO ET AL.
+Table 1. LP practices and techniques classiﬁed into six impact
+areas.
+Areas
+LP practices and
+techniques
+Sources
+Manufacturing
+Equipment and
+Processes
+Value Stream Mapping
+(VSM)
+Process Mapping
+Set-up time reduction
+– SMED
+Andon
+Poka-Yoke
+Standardised Work
+Statistical Process
+Control
+Total Productive
+Maintenance (TPM)
+Elimination of Waste
+5S and Visual
+Management (VM)
+Lean Layout
+Shop-Floor
+Management
+Kaizen
+Kanban/ Pull Strategy
+Heijunka
+One-Piece-Flow
+Just-in-Time (JIT)
+Takt Time
+Jidoka
+Bai, Satir, and Sarkis
+(2019);
+Buer, Strandhagen, and
+Chan (2018);
+Bortolotti, Boscari,
+and Danese (2015);
+Sezen, Karakadilar, and
+Buyukozkan (2012);
+Saurin, Marodin,
+and Ribeiro (2011);
+Pettersen (2009);
+Shah and Ward (2007);
+Doolen and Hacker
+(2005);
+Shah and Ward (2003);
+Cua, McKone, and
+Schroeder (2001);
+Panizzolo (1998)
+Supplier Relationships
+Long-term Supplier
+Supplier Involvement
+Customer
+Relationships
+Customer Involvement
+Workforce
+Management
+Multifunctional Team
+Employee
+Commitment
+New Product
+Development
+Standardisation of
+Components
+Design for
+Manufacturing
+2.1.2. Industry 4.0 technologies and characteristics
+I4.0 is a label referred to the cyber-physical production
+system based on the integration, the transparency and
+the availability of heterogeneous knowledge, for meeting
+the market’s requirements (Lu 2017). I4.0 is not limited to
+direct manufacturing in the company, but it concerns the
+whole value chain (Lu 2017; Rojko 2017; Tortorella and
+Fettermann 2018; Frank, Dalenogare, and Ayala 2019).
+Moreover, it can track and support the entire lifecy-
+cle of systems and products introducing new business
+and services (Rojko 2017; Dalenogare et al. 2018). Fur-
+thermore, I4.0 significantly affects production dynamics;
+its technologies can indeed substitute the conventional
+forecast based production planning with real-time plan-
+ning together with dynamic self-optimisation (Moeuf
+et al. 2020; Sanders, Elangeswaran, and Wulfsberg
+2016).
+The concept of I4.0 is very complex and comprehen-
+sive, and literature does not provide a univocal definition
+(Buer, Strandhagen, and Chan 2018; Piccarozzi, Aquilani,
+and Gatti 2018; Culot et al. 2020). Among the many,
+Pan et al. (2015) focused on the fact that I4.0 repre-
+sents the ability of industrial components and actors to
+communicate. This focus on the link between elements
+was highlighted by Kovács and Kot (2016) as well; they
+argued that the core point of I4.0 is the introduction
+of network-linked intelligent systems able to realise a
+self-regulating production. Burritt and Christ (2016), Lu
+(2017), Frank, Dalenogare, and Ayala (2019), Bai, Satir,
+and Sarkis (2019) and many other authors proposed a
+definition of I4.0 based on its combining nature, con-
+sidering I4.0 as an umbrella term to describe a group
+of connected technological advances for increasing the
+digitisation of the business.
+This last aspect was underlined by the key work in
+the I4.0 formalisation developed by Rüßmann et al.
+(2015), who identified nine technological ‘pillars’ of I4.0:
+(i) Autonomous Robots, (ii) Simulation, (iii) Horizontal
+and Vertical Integration, (iv) Industrial Internet of Things
+(IIoT), (v) Cybersecurity, (vi) Cloud, (vii) Additive Manu-
+facturing, (viii) Augmented Reality, and (ix) Big Data and
+Analytics. The pillars are also confirmed by the review of
+I4.0 definitions performed by Culot et al. (2020), as well
+as by other reviews on Industry 4.0 (i.e. Liao et al. 2017;
+Machado, Winroth, and Ribeiro da Silva 2020; Parente
+et al. 2020).
+Autonomous Robots include: Collaborative Robots, that
+perform repetitive and non-ergonomic tasks in direct
+collaboration with the operator (Romero et al. 2016);
+Automated Guided Vehicles (AGV), that realise decen-
+tralised coordination of supplies (Stock and Seliger 2016);
+and Smart Machines that communicate with robots and
+products and make consequent decisions (Davenport
+and Kirby 2016).
+Simulation can leverage real-time data to mirror the
+physical world in a virtual model (Rüßmann et al.2015),
+a concept that also leads to the Digital Twin (DT) (Uhle-
+mann, Lehmann, and Steinhilper 2017). DT represents
+an achievement even for maintenance; indeed, training
+or scenarios simulations can be performed in a safe con-
+text replicating the ‘real’ environment (Tuegel et al. 2011;
+Negri, Fumagalli, and Macchi 2017; Liu, Meyendorf, and
+Mrad 2018).
+Horizontal and Vertical System Integration guarantees
+the truly automated value chain (Rüßmann et al. 2015).
+Horizontal Integration, across the whole value chain, and
+Vertical Integration, within the company, are possible due
+to MES/ERP software, sensors and IIoT for data sharing
+(Lasi et al. 2014; Ivanov, Dolgui, and Sokolov 2019). This
+might also allow to enhancing the ripple effect control
+along supply chains (Ivanov, Dolgui, and Sokolov 2019).
+IIoT allows the interconnection at the basis of the integra-
+tion enriching some devices with embedded computing.
+Some examples of IIoT are RFID, sensors, tags, global
+positioning systems (Shrouf, Ordieres, and Miragliotta
+2014), real-time scanning through smartphones (Xu,
+
+
+--- SAYFA 6 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+5
+Xu, and Li 2018), and smart bins (Thürer et al.
+2016).
+With interconnection, companies need protection
+from cyber-attacks. Some Cybersecurity systems listed in
+literature are encryption, cryptography, virus scanners,
+signature scanner, ICT Anomaly Detection/IDS (Flatt
+et al. 2016).
+Data sharing and data analytics can be facilitated by
+the adoption of Cloud-based software. Indeed, cloud
+computing enables ubiquitous and on-demand network
+access to a shared collection of resources (Mell and
+Grance 2011).
+Additive Manufacturing, a layer-by-layer build-up of
+parts (Herzog et al. 2016), such as 3D Printings, allows
+a quickly customised single-item or small batches pro-
+duction. In this regard, smart material with shape mem-
+ory can be used to achieve the desired characteristics
+(Dilberoglu et al. 2017).
+Augmented Reality (AR), as an overlap of computer-
+generated sensory input in a physical real-world, and Vir-
+tual Reality (VR), as a completely artificial environment
+created by software (Chavan 2014), might be applied
+for different purposes, like warehouse management, lay-
+out testing, operators’ training, and remote maintenance
+(Rüßmann et al. 2015; Büttner et al. 2017).
+Big Data collected in the smart factory allows pro-
+cess optimisation. Data Analytics divides into Descrip-
+tive, Predictive and Prescriptive. Descriptive Analytics
+describes the current situation and helps in the diagno-
+sis of the problems; Predictive Analytics predict future
+events; while Prescriptive Analytics concerns decision-
+making mechanisms (Nguyen et al. 2018). Artificial Intel-
+ligence can exploit the collected data to make the sys-
+tem self-aware, self-adaptive, proactive and prescriptive
+(Kibria et al. 2018).
+Various studies argue that Industry 4.0 offers unique
+opportunities to redesign production processes as well
+as business models, this way significantly enhance firm
+performance (Moeuf et al. 2020; Hahn 2020; Culot et al.
+2020).
+Table 2 provides an overview of the main I4.0 tech-
+nologies and characteristics considered by this study,
+classified into the nine pillars presented above.
+2.2. The effect of lean production on Industry 4.0
+The history of LP is characterised by a tendency towards
+autonomation since its early stages; indeed, its founder,
+Taiichi Ohno, stated that repetitive value-adding pro-
+cesses should be automated to improve the information
+flow and meet the market demands (Kolberg, Knobloch,
+and Zühlke 2017). In this regard, Ohno adopted the
+term ‘autonomation’ (Ohno 1988). Since autonomy is
+Table 2. I4.0 technologies or characteristics.
+I4.0 pillar (Rüßmann
+et al. 2015)
+Technologies or
+characteristics
+Sources
+Autonomous Robots
+Collaborative Robots
+Automated Guided
+Vehicles
+Smart Machines
+Romero et al. 2016
+Stock and Seliger 2016
+Davenport and Kirby
+2016
+Simulation
+Of Product
+Of Process
+Rüßmann et al. 2015
+Digital Twin
+Uhlemann, Lehmann,
+and Steinhilper
+2017; Tuegel
+et al. 2011; Negri,
+Fumagalli, and
+Macchi 2017; Liu,
+Meyendorf, and
+Mrad 2018
+Horizontal and Vertical
+System Integration
+Interconnection
+between machines
+and MES/ERP
+Data Sharing between
+Suppliers, Company
+and Customers
+Lasi et al. 2014
+The Industrial Internet
+of Things
+RFID, Sensors, Tags,
+Global Positioning
+Systems
+Shrouf, Ordieres, and
+Miragliotta 2014
+Real-Time scan-
+ning through
+Smartphone
+Xu, Xu, and Li 2018
+Smart Bin
+Thürer et al. 2016
+Cybersecurity
+Encryption, cryptogra-
+phy, virus scanners,
+signature scanner,
+ICT Anomaly
+Detection/IDS
+Flatt et al. 2016
+Cloud
+Cloud systems for
+data sharing or for
+analytics application
+Mell and Grance 2011
+Additive
+Manufacturing
+3D Printing
+Dilberoglu et al. 2017;
+Herzog et al. 2016
+Smart Materials
+Dilberoglu et al. 2017
+Augmented Reality
+Augmented Reality
+Virtual Reality
+Büttner et al. 2017;
+Chavan 2014
+Big Data e Analytics
+Descriptive (and
+diagnostic)
+Predictive
+Prescriptive
+Nguyen et al. 2018
+Artiﬁcial Intelligence
+Kibria et al. 2018
+a crucial theme in I4.0, LP can be considered as its
+precursor.
+According to Wang et al. (2016), a production process
+already based on LP can be an easier environment for the
+introduction of I4.0. Other papers stated or demonstrated
+the same concept (Parente et al. 2020). Kolberg and Züh-
+lke (2015) and Dombrowski, Richter, and Krenkel (2017)
+highlighted the need for the LP process orientation and
+defined tasks and times to implement the I4.0 autono-
+mation and information exchange and to lower the risks
+of integration. Indeed, only standardised processes allow
+the identification of errors and the consequent trou-
+bleshooting, essential for a valuable synchronisation of
+the various processes (Butollo, Jürgens, and Krzywdzin-
+ski 2018). Evidence by Tortorella and Fettermann (2018)
+proved that the success of I4.0 is significantly associated
+
+
+--- SAYFA 7 ---
+6
+M. P. CIANO ET AL.
+with the level of LP adoption. Pessl, Sorko, and Mayer
+(2017) confirmed the importance of LP suggesting its
+adoption as a fundamental strategy in a roadmap for I4.0
+implementation. Erol et al. (2016) pointed out that LP as
+a basic competence should be transferred as well to the
+technical level. Mayr et al. (2018) added that LP enables
+I4.0 even because of the competencies that a LP decision-
+maker has in considering customer value and in avoiding
+wastes. They also highlighted the potential of LP reduc-
+tion of product and process complexity to enable the
+efficient and economic use of I4.0 technologies. Even the
+more recent paper by Rossini et al. (2019) emphasises the
+need for a previous LP adoption to successfully introduce
+I4.0. Pagliosa, Tortorella, and Ferreira (2019) highlighted
+that VSM can be potentially beneficial for the adoption
+of I4.0 since it provides a structured approach to identify
+improvement opportunities.
+Therefore, literature seems to consider LP as a pre-
+requisite to the I4.0 implementation (Ciano et al. 2019).
+Nevertheless, Buer, Strandhagen, and Chan (2018) iden-
+tified a lack of investigation about the facilitating effect of
+LP on I4.0. Indeed, even if scholars agree on the general
+enabling effect of I4.0 on LP, the knowledge of how it hap-
+pens is still immature (Wagner, Herrmann, and Thiede
+2017; Buer, Strandhagen, and Chan 2018; Rossini et al.
+2019).
+2.3. The effect of Industry 4.0 on lean production
+Literature focusing on the effect of I4.0 on LP is richer
+than the one focused on the opposite direction. How-
+ever, few articles considered a comprehensive set of tech-
+nologies or practices (see Mayr et al. 2018; Rosin et al.
+2020; Pagliosa, Tortorella, and Ferreira 2019). Indeed,
+most studies considered limited and specific aspects.
+For instance, Kietzmann, Pitt, and Berthon (2015) high-
+lighted that 3D Printers can be considered a new form
+of Kanban, as they can intervene in the inventory man-
+agement replicating JIT items on-demand. Lu, Li, and
+Tian (2015) stated that the adoption of 3D Printing
+helps in equipment maintenance, re-manufacturing and
+on-site maintenance. Regarding SMED, Feldmann and
+Gorj (2017) argued that, since Additive Manufactur-
+ing is not product-specific, the set-up time for selec-
+tion, search and adjustment of pieces and tools are
+avoided.
+According to Negahban and Smith (2014), Simulation
+empowers JIT, because it allows to test and optimise the
+AGV’s routes. Rosin et al. (2020) found that the ability
+of Simulation to detect bottlenecks ensures JIT continu-
+ous flow. Simulation can be also used for the identifica-
+tion of ideal Kanban parameters like stock, delivery fre-
+quency and lot size (Goienetxea Uriarte, Ng, and Urenda
+Moris 2020). DT, instead, can reproduce realistic produc-
+tion plants helpful in maintenance activities (Mayr et al.
+2018).
+JIT, and especially One-Piece-Flow, can be promoted
+by Collaborative Robots included in lean assembly lines
+allowing the increase of production capacity and hence
+productivity (Gil-Vilda et al. 2017).
+According to Rosin et al. (2020), the majority of
+the studies about the support of I4.0 on LP focus on
+IIoT. Indeed, they are essential to retrieve informa-
+tion, identification and assignment of spaces, materi-
+als, pieces and tools (Mayr et al. 2018). Literature par-
+ticularly focuses on the benefits that IIoT and Cyber-
+Physical Systems can bring to VSM (Buer, Strandhagen,
+and Chan 2018; Pagliosa, Tortorella, and Ferreira 2019;
+Kamble, Gunasekaran, and Dhone 2020), Continuous
+Flow, Pull/Kanban strategy, and VM (Rosin et al. 2020).
+Real-time data collected by IIoT can bring to the so-
+called VSM 4.0 (Meudt, Metternich, and Abele 2017), a
+dynamic picture of the shop floor (Buer, Strandhagen,
+and Chan 2018; Tortorella, Pradhan, et al. 2020). The
+JIT continuous flow and the Pull/Kanban strategy are
+ensured by the IIoT ability to track products in real-time
+and to send instant progress updates (Rosin et al. 2020).
+Smart Bins recognise in real-time their filling level and
+the system sends a virtual Kanban to trigger replenish-
+ments (Kolberg and Zühlke 2015). IIoT can empower
+VM thanks to the visual monitoring information avail-
+able to employees (Rosin et al. 2020). The studies by
+Kolberg and Zühlke (2015), Ma, Wang, and Zhao (2017),
+and Kolberg, Knobloch, and Zühlke (2017) focused on
+the role of Integration and IIoT for the empowerment of
+Jidoka, especially Andon. The latter study underlined the
+positive effect of IIoT and Integration on JIT, Heijunka
+and Continuous Improvement.
+Other papers focus on the importance of IIoT devices
+to collect data for the prediction and the prescrip-
+tion of maintenance programmes (e.g. Lee et al. 2015;
+Khoshafian and Rostetter 2015; Sanders et al. 2017; Kip-
+per et al. 2020).
+Mayr et al. (2018) highlighted the importance of Big
+Data and Analytics in JIT, indeed the analysis of real-
+time process information provides insights into param-
+eters, trends, and rules for the production system. In this
+direction, Huo, Zhang, and Chan (2020) propose a fuzzy
+control system that uses real-time data made available by
+Industry 4.0 technology to determine when to rebalance
+an assembly line and how to adjust production rates to
+achieve higher utilisation of machines and lower buffer
+levels.
+Mayr et al. (2018) stated that AR and VR are important
+for JIT, TPM, SMED, VSM and Poka-Yoke. They mainly
+focused on the possibility of AR to replace physical
+
+
+--- SAYFA 8 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+7
+boards to guide operators and on the use of VR to train
+operators for maintenance objectives. Similarly, Mourtzis
+et al. (2019) report on an AR-based maintenance sys-
+tem that provided an increased capacity to a robotics
+company.
+Considering the supply chain level, Núñez-Merino
+et al. (2020) investigated by using a Systematic Litera-
+ture Review (SLR) the relationships between Information
+and Digital Technologies (IDT) of Industry 4.0 and Lean
+Supply Chain Management. According to the authors,
+when extended to the supply chain level, a large num-
+ber of IDT of Industry 4.0 and several Lean practices are
+used at the same time. As an example, IoT use in Lean
+Supply Chain Management usually occurs together with
+RFID, Cyber-Physical System (CPS), Cloud Computing
+and Big-Data affecting positively different LP practices.
+These benefits cover agility, flexibility, information shar-
+ing, collaboration, coordination, reduced costs, faster
+deliveries, reduced inventory levels as well as errors,
+enabling traceability and inventory control, reduced risk,
+improved service quality as well as customer satisfaction
+(Núñez-Merino et al. 2020).
+Among the others, Buer, Strandhagen, and Chan 2018
+pointed out that one underexplored aspect in litera-
+ture is the effect of I4.0 on the so-called ‘soft’ LP tech-
+niques, namely the ones regarding Workplace and VM
+and Human Resources.
+In conclusion, it can be argued that the relationship
+between the two paradigms has been studied mostly
+at a high level, with a poor investigation at a practice-
+technology level (Rossini et al. 2019). As can be seen,
+some studies deepened the relationship but referring to
+specific and limited aspects. The studies by Mayr et al.
+(2018), Rosin et al. (2020) and Pagliosa, Tortorella, and
+Ferreira (2019) attempted to conduct a comprehensive
+pairwise investigation. However, the first two studies
+focused just on the effect of I4.0 on LP, a research area
+that has more contribution than the one referring to the
+opposite direction (Buer, Strandhagen, and Chan 2018).
+Pagliosa, Tortorella, and Ferreira (2019) proposed syn-
+ergy levels in both directions, but referring to LP they
+explained only the ones of VSM and Takt-Time on the
+general paradigm of I4.0.
+3. Research method
+3.1. Case study approach and sampling
+Driven by the goal of our paper (theory building) and the
+nature of the RQs (i.e. ‘how’ questions, see the Introduc-
+tion section), we adopted a multiple case study methodol-
+ogy. This research methodology, ‘oriented towards explo-
+ration, discovery, and inductive logic’ (Patton 2002),
+is indeed suited to the development of data grounded
+testable theories (Eisenhardt 1989; Voss, Tsikriktsis, and
+Frohlich 2002).
+Our unit of analysis is the company within a manu-
+facturing value chain. Considering the focus of our study
+(i.e. the relationship between I4.0 and LP) the popula-
+tion of interest consists of companies that have adopted
+both these paradigms. We adopted a theoretical sampling
+method (Eisenhardt 1989; Patton 2002) and selected het-
+erogeneous cases in terms of firm size (both SMEs and
+large companies1), manufacturing industries (e.g. man-
+ufacture of fabricated metal products, electromechanical
+and electronic components, pumps, cableways, and seal-
+ing solutions), and level of adoption of I4.0 (both ‘normal’
+adopters and lighthouse plants) and homogeneous cases
+in terms of country (Italy). The sampled companies con-
+sist of different players of the manufacturing value chain
+(e.g. case D is a supplier of case H, and case C is a provider
+of MES and other I4.0 technologies). Despite the focus
+on the manufacturing value chain and a single coun-
+try might reduce the possibility to generalise findings, it
+ensures that variation is not caused by extraneous or con-
+founding variables (e.g. Saunders, Lewis, and Thornhill
+2003).
+Table 3 provides data about the sampled companies,
+using code names to protect identity. Appendix A shows
+in detail the specific LP principles and techniques as well
+as I4.0 technologies adopted by each company.
+3.2. Data collection
+Data were mainly collected through face-to-face semi-
+structured interviews. Archival data (e.g. annual reports,
+websites, and internal documents on LP or I4.0 imple-
+mentation projects) were also used to triangulate the
+empirical evidence.
+Based on the review of the relevant literature (see
+section 2), we defined an interview protocol organised
+in four main sections: (1) general information about the
+company and the interviewee; (2) adoption of LP prin-
+ciples and techniques; (3) adoption of I4.0 technologies;
+(4) relationships between LP and I4.0. In section 2, we
+provided to the interviewees a detailed list of LP princi-
+ples and techniques classified into six impact areas (see
+Table 1) and asked them whether, when, and in which
+department each technique was adopted. In section 3, we
+provided instead to the interviewees a detailed list of I4.0
+technologies or characteristics (see Table 2) and asked
+them whether, when, and in which department/activity
+each technology was adopted. Finally, in section 4, we
+asked to the interviewees to identify and explain all pos-
+sible one-to-one links between LP practices and I4.0
+technologies (in both directions), i.e. whether and how
+
+
+--- SAYFA 9 ---
+8
+M. P. CIANO ET AL.
+Table 3. Sampled companies.
+Code
+Sector/products
+Employees
+Turnover
+(euro)
+Size
+Note
+Case A
+Manufacture of fabricated metal products
+60
+9,5 M
+SME
+Case B
+Manufacture of electromechanical and
+electronic components
+36
+10,5 M
+SME
+Case C
+Manufacture of electromechanical and
+electronic components
+240
+43 M
+SME
+Manufacturing lighthouse (The World
+Economic Forum)
+Case D
+Manufacture of electromechanical
+components
+102
+25 M
+SME
+Case E
+Manufacture of pumps
+250
+100 M
+LARGE
+Case F
+Manufacture of cableways
+3500*
+1,21 B*
+LARGE
+Case G
+Manufacture of health care sealing solutions
+270
+45 M
+LARGE
+Case H
+Manufacture of electrical equipment
+5.869*
+2,344 B*
+LARGE
+Lighthouse plant of the cluster ‘Fabbrica
+Intelligente’ (Italian Ministry of Economic
+Development)
+*Since data of the manufacturing company were not available for this case, we reported here data of the entire group.
+each LP technique/practice has enabled the adoption
+of each I4.0 technology/characteristics and whether and
+how each I4.0 technology/characteristic has empowered
+each LP technique and practice. The interview protocol
+is reported in Appendix B.
+In each company, we interviewed at least two man-
+agers (including the production and operations man-
+ager) to enhance validity (Yin 2003) and reliability of
+the collected data (Voss, Tsikriktsis, and Frohlich 2002).
+Each interview lasted 90–120 min. All interviews were
+recorded and transcribed verbatim.
+3.3. Data analysis
+We created a database for each case consisting of the
+interview transcripts, field notes, and archival data. As
+suggested by Eisenhardt (1989) and Voss, Tsikriktsis, and
+Frohlich (2002), we then analysed the data following a
+two-step procedure (i.e. within-case analysis and cross-
+case analysis). Due to length limitation, we however
+reported in the paper only the results of the cross-case
+analysis.
+In the within-case analysis, we developed for each case
+two tables, following the suggestions of Miles and Huber-
+man (1994) for qualitative data analysis. In the first one,
+we put in the lines the LP practices/techniques men-
+tioned by the interviewees, in the columns the I4.0 tech-
+nologies mentioned, and in the intersections the expla-
+nation of the enabling effects of LP practices on I4.0
+technologies provided by the interviewees (if any) (an
+excerpt of this table can be found in Appendix C – Table
+C.1). In the second table, we put instead in the lines
+the I4.0 technologies mentioned by the interviewees, in
+the columns the LP practices/techniques mentioned, and
+in the intersections the explanation of the empowering
+effects of I4.0 technologies on LP practices/techniques.
+Coding and data analysis were conducted manually by
+two authors to ensure inter-coder reliability (Duriau,
+Reger, and Pfarrer 2007). These two authors and an addi-
+tional one who was assigned the role of ‘resident devil’s
+advocate’ discussed and resolved any disagreements.
+In the cross-case analysis, we then combined the
+above-mentioned tables into two summary tables with
+the results of all analysed cases concerning (a) the
+Table 4. The enabling eﬀect of LP practices and techniques on I4.0 technologies or characteristics.
+Area
+LP practices and
+techniques
+Enabling eﬀect on I4.0
+I4.0 Technology
+or characteristic
+Cases
+Manufacturing Equipment
+and Processes
+Value Stream Mapping
+(i)
+It allows the identiﬁcation of the pivotal
+areas in which invest with I4.0 technologies
+C; E; F; G; H
+(ii)
+It allows the deﬁnition of the value-adding
+tasks to be standardised in electronic Job
+Element Sheets (JES) visualised on monitors
+at the working stations. The electronic JES
+allow the operator to insert information up
+to date in the MES and ERP promoting the
+integration
+Vertical Integration
+B; C; E; F; G; H
+Process Mapping
+(i)
+It allows the identiﬁcation of the process
+ﬂow, and therefore of the materials, WIP and
+information ﬂows, essential to the design of
+the MES/MOM for the integration or to inte-
+grate to the ERP
+Vertical Integration
+A; B; C; D; E; F; G; H
+(continued)
+
+
+--- SAYFA 10 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+9
+Table 4. Continued.
+Area
+LP practices and
+techniques
+Enabling eﬀect on I4.0
+I4.0 Technology
+or characteristic
+Cases
+Set-up time reduction
+– SMED
+No direct eﬀect identiﬁed
+Andon
+No direct eﬀect identiﬁed
+Poka-Yoke
+No direct eﬀect identiﬁed
+Standardised Work
+No direct eﬀect identiﬁed
+Statistical Process
+Control
+(i)
+The Overall Equipment Eﬀectiveness (OEE)
+concept deﬁnes data to be collect and anal-
+ysed, namely all the data related to availabil-
+ity, performance, and quality
+Descriptive Analytics
+B; C; E; F; G; H
+TPM
+No direct eﬀect identiﬁed
+Elimination of Waste
+(i)
+PDCA and A3 to design new tools able to
+facilitate the introduction of I4.0 technolo-
+gies (e.g. in case G A3 were used to design
+new carts able to facilitate collaborative
+robots in picking plaques from the shearing
+machine)
+Autonomous Robots
+G
+5S and Visual
+Management
+(i)
+The standardisation and optimisation of the
+warehouse facilitates the adoption of smart-
+phones to manage materials: without rules
+and standards the smartphones would iden-
+tify more inconsistencies than matches
+Real-time Scanning
+with Smartphone
+E; H
+(ii)
+The standardisation and optimisation of the
+warehouse facilitates the adoption of AR
+glasses to manage materials: without rules
+and standards the smartphones would iden-
+tify more inconsistencies than matches
+Augmented Reality
+H
+(iii)
+Standardisation and optimisation of the
+workstations and the warehouse facilitate
+Autonomous AGV in the material handling
+Autonomous AGV
+E; H
+Lean Layout
+(i)
+In case E. a Lean Re-Layout in a straight-line
+cell facilitated the route of the autonomous
+AGV
+(ii)
+In case D, the introduction of a Collabora-
+tive Robot in the U-shape cell made the ﬂow
+more balanced and continuous.
+Autonomous AGV
+E; D
+Shop-Floor Management
+Kaizen
+(i)
+Kaizen events facilitate the acceptance of
+I4.0 implementation by the workers and cre-
+ate shared occasion to bring new ideas (e.g.
+in case G, a multifunctional team designed
+the new cart above-described during a
+kaizen event)
+C; E; F; G; H
+Kanban/ Pull Strategy
+No direct eﬀect identiﬁed
+Heijunka
+No direct eﬀect identiﬁed
+One-Piece-Flow
+(i)
+It facilitates tracking and tracing of pieces in
+real-time increasing transparency
+Vertical Integration
+C; E; F; H
+Just-in-Time
+(i)
+It facilitates tracking and tracing of pieces in
+real-time increasing transparency
+Vertical Integration
+C; E; H
+Takt Time
+No direct eﬀect identiﬁed
+Jidoka
+No direct eﬀect identiﬁed
+Supplier Relationships
+Long-term Supplier
+(i)
+The relationship with suppliers based on
+lean practices enables the Horizontal Inte-
+gration, indeed companies can trust suppli-
+ers in sharing platforms about the real-time
+status of the material consumption and in
+letting them manage electronic Kanban. On
+the other hand, involved suppliers are more
+willing to give such service.
+Horizontal Integration
+E; H
+Supplier Involvement
+Customer Relationships
+Customer
+Involvement/
+Customisation
+No direct eﬀect identiﬁed
+Workforce Management
+Multifunctional Team
+(i)
+Problem Solving conducted in multifunc-
+tionalteamandcontestsforinnovativeideas
+enable the choice and the introduction of
+I4.0 solutions
+G; H
+Employee
+Commitment
+New Product Development
+Standardisation of
+Components
+No direct eﬀect identiﬁed
+Design for
+Manufacturing
+No direct eﬀect identiﬁed
+
+
+--- SAYFA 11 ---
+10
+M. P. CIANO ET AL.
+Table 5. The empowering eﬀect of I4.0 technologies or characteristics on LP practices or techniques.
+I4.0 pillar
+Technologies or
+characteristics
+Empowering eﬀect on LP
+LP principle or
+technique
+Cases
+Autonomous Robots
+Collaborative Robots
+(i)
+They speed up One-Piece-Flow
+(e.g. in case H, a YuMi® robot is
+included in the production line for
+assembling disconnect switches
+one by one faster than human
+workers used to do allowing a
+more balanced line)
+One-Piece-Flow
+E; H
+(ii)
+They relieve workers from repet-
+itive and alienating tasks (e.g. in
+case A collaborative robots substi-
+tute human workers in the repeti-
+tive action of picking metal sheet
+from the press)
+Employees
+Commitment
+A; E; G; H
+Autonomous AGV
+(i)
+They empower the supply of
+materials to workstations and
+supermarket managed through
+Kanban
+Kanban
+E; H
+(ii)
+They
+allow
+an
+itinerant
+pre-
+assembly that reduce machine
+tooling and promote JIT produc-
+tion. Indeed, the AGV visits all
+the stations of the supermarket
+according to the identiﬁed route
+for the speciﬁc product and the
+workers add every time a sequen-
+tial component to the work in
+progress
+SMED
+JIT
+H
+Smart Machines
+(i)
+They can track the material con-
+sumption empowering Kanban
+system
+Kanban
+C; D; E; F; H
+(ii)
+They can detect and separate
+products with defects (e.g. in case
+D, the operator cannot throw
+a good piece into the waste-
+basket and vice versa because
+the machine to mount clips on
+ﬁlter units recognises the defect
+through a camera and opens
+only the gate of the wastebasket.
+Moreover, the machine does not
+allow to go on until the wrong
+piece is discarded)
+Poka-Yoke
+D; H
+(iii)
+They can detect anomalies in the
+process through sensors or cam-
+eras and call for repair via an alarm
+on smartphones, smartwatches or
+screens
+Andon
+A; B; C; D; E; F; G; H
+(iv)
+They receive information about
+diﬀerent
+materials,
+products,
+or work phase and prepare the
+right set-up of the machine’s
+parameters (e.g. in case D, a
+smart machine represents the
+last and single station for the
+packaging phase. It recognises
+diﬀerent
+orders
+with
+barcode
+scanning and gives workers the
+right components for the manual
+assembly)
+SMED
+A; B; C; D; E; F; G; H
+(v)
+They receive information about
+diﬀerent work phases and displays
+the relative electronic JES on mon-
+itors
+Standardised Work
+A; B; C; D; E; F; G; H
+(continued)
+
+
+--- SAYFA 12 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+11
+Table 5. Continued.
+I4.0 pillar
+Technologies or
+characteristics
+Empowering eﬀect on LP
+LP principle or
+technique
+Cases
+Simulation
+Product Simulation
+(i)
+It allows to understand if stan-
+dardised components and modu-
+larity strategy can meet the cus-
+tomer requirements
+Modularity
+Customisation
+A; B; C; D; E; F; H
+(ii)
+It allows to understand which con-
+ﬁguration allows to reduce scraps,
+material consumption, and pro-
+cessing phases meeting the LP
+motto ‘do more with less’
+Kaizen
+A; B; C; D; E; F; G; H
+Process Simulation
+(i)
+It allows conﬁguring the layout
+such as to empower the process
+ﬂowIn some cases, the process
+ﬂow to empower is a One-Piece-
+Flow
+Lean layout
+One-Piece-Flow – JIT
+C; D; E;G; HC; D; E; H
+(ii)
+Scheduling Simulation is adopted
+to respect the JIT principle
+JIT
+E; H
+Digital Twin
+(i)
+It creates a virtual Obeya-Room in
+diﬀerent plants to share informa-
+tion and work in Multifunctional
+Teams from distant plants
+Obeya-Room
+Multifunctional Team
+H
+(ii)
+Machine DT Simulation allows to
+try diﬀerent maintenance solu-
+tions in a safe condition and to
+forecast future maintenance (e.g.
+in case H, it is possible to repli-
+cate in VR electric panel for these
+purposes)
+TPM
+H
+Horizontal and Vertical
+system Integration
+Machines integrated with MES,
+ERP
+(i)
+The integration allows real-time
+information record and sharing
+that empower:
+(a)
+Kanban system: material con-
+sumption
+is
+always
+recorded
+and
+I.
+in case of warehouse integra-
+tion, it triggers pick-to-light
+systems (with smartphones
+or lights in the shelf)
+II.
+in case of autonomous AGV
+adoption, it directs the mate-
+rial handling
+Kanban
+C; E; H
+(b)
+JIT: the ﬂow is transparent and
+there is real-time awareness of the
+machine’s capacity and availability
+that allows to better react to plan
+deviations
+JIT
+C; D; E; H
+(c)
+Immediate
+communication
+of
+anomalies
+or
+breakdowns
+(in
+case C and H communicated also
+through wearable smartwatches)
+Andon
+A; B; C; D; E; G; H
+(d)
+Data collection to calculate real-
+time KPIs (especially all the com-
+ponents of the OEE, namely avail-
+ability, performance, and quality)
+Statistical Process
+Control
+B; C; E; G; H
+Data shared with suppliers
+and/or partners through IIoT
+systems
+(i)
+A shared platform of real-time
+data
+empowers
+the
+supplier
+involvement (shared warehouse
+and KPIs situation)
+Supplier involvement
+E; G; H
+(ii)
+A shared platform of real-time
+data allows the supplier of trans-
+port and logistics to better plan its
+deliveries
+Supplier involvement
+G; H
+(iii)
+A shared platform of real-time
+data empowers the Kanban sys-
+tem directly managed by the sup-
+plier
+Kanban
+H
+(continued)
+
+
+--- SAYFA 13 ---
+12
+M. P. CIANO ET AL.
+Table 5. Continued.
+I4.0 pillar
+Technologies or
+characteristics
+Empowering eﬀect on LP
+LP principle or
+technique
+Cases
+The Industrial Internet of
+Things
+RFID, sensors, tags, global
+positioning systems
+(i)
+RFID adoption allows to recognise
+the die and set all the relative
+parameters up
+SMED
+G
+(ii)
+An RFID based tool management
+system avoids that the wrong tool
+is used by the machine and thus
+that the tool or the workpiece is
+damaged.
+Poka-Yoke
+A; F; H
+(iii)
+RTLS can map movement creating
+spaghetti charts or can create heat
+maps that give information about
+the need for re-layout
+Lean Layout
+D; G; H
+Real-time scanning with
+smartphone
+(i)
+It allows the Pick-to-light in the
+warehouse
+Kanban
+E
+(ii)
+It allows the real-time control of
+machines’ KPIs just pointing them
+with a tablet or a smartphone
+Statistical Process
+Control
+C; H
+Cybersecurity
+encryption, cryptography, virus
+scanners, signature scanner,
+ICT Anomaly Detection/IDS
+No eﬀect identiﬁed
+Cloud
+Cloud
+No direct eﬀect identiﬁed
+Additive Manufacturing
+3D Printing
+(i)
+It allows the production of small
+customised pre-series
+Customisation
+E
+(ii)
+It allows the production of proto-
+types to test if modular and stan-
+dardised elements can meet cus-
+tomers requirement
+Modularity
+Customisation
+A; B; C; D; E; F; H
+(iii)
+It allows the production of Poka-
+yoke tools (jig and clamps)
+Poka-Yoke
+A; E; H
+Virtual / Augmented
+Reality
+Augmented Reality
+(i)
+AR glasses are adopted for interac-
+tive maintenance instruction
+TPM
+A (project); H
+Virtual Reality
+(i)
+It allows a virtual walk through a
+simulated layout to test if the con-
+ﬁguration allows a ﬂuid process
+and comfortable motions
+Lean layout
+G; H
+Big Data and Analytics
+Descriptive (e diagnostic)
+(i)
+It provides real-time KPIs calcu-
+lation, essential for the statistical
+control of the process (especially
+for calculating OEE)
+Statistical Process
+Control
+B; C; E; F; G; H
+(ii)
+This analysis helps in detecting
+defects, weaknesses and wastes
+Kaizen
+B; C; E; F; G; H
+(iii)
+Due to this analysis, it is possible
+to display real-time information in
+the visual board and discuss them
+during the 5 min meeting
+Employee
+Commitment
+Waste Reduction
+B; C; E; F; G; H
+Predictive
+(i)
+It allows predicting maintenance
+actions
+TPM
+H
+Prescriptive
+(i)
+It allows to prescript a mainte-
+nance plan
+TPM
+H
+Artiﬁcial Intelligence
+(i)
+Genetic
+algorithm
+is
+adopted
+to
+optimise
+Heijunka
+(multi-
+objective genetic algorithm for
+levelling the workstations work-
+load according to the Heijunka
+principle)
+Heijunka
+H
+enabling effects of LP practices on I4.0 technologies
+(RQ1) (an excerpt of this table can be found in Appendix
+C – Table C.2) and (b) the empowering effect of I4.0 tech-
+nologies on LP practices/techniques (RQ2). Finally, we
+combined the findings of the different cases and devel-
+oped two summary cross-case analysis tables that are
+reported in Tables 4 and 5. Two I4.0 technologies initially
+considered (i.e. smart bins and smart materials) were then
+removed from the list since none of the analysed cases
+implemented them (see Appendix A).
+3.4. Validity and reliability
+Various strategies suggested by Yin (2003) and Eisen-
+hardt (1989) were adopted to enhance the validity and
+reliability of the results. To ensure construct validity, we
+triangulated empirical evidence from different sources,
+mainly interviews and archival data (such as annual
+reports, websites, and internal documents provided by
+the sampled companies), and from multiple respondents
+(see Section 3.2). Furthermore, the coding and data
+
+
+--- SAYFA 14 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+13
+Figure 1. One-to-one relationships between LP techniques and I4.0 technologies.
+analysis were carried out by two researchers/authors sep-
+arately and then compared (see Section 3.3); the few
+disagreements in the initial coding/analyses were widely
+discussed until a final agreed decision was reached. Inter-
+nal validity was instead enabled by pattern matching,
+i.e. we iteratively compared the findings of the within-
+case analysis with the proposed model (whose final
+version is reported in Figure 1), until when theoreti-
+cal saturation was reached. To increase external validity
+(i.e. the generalizability of the results) we adopted a
+theoretical sampling method (Eisenhardt 1989; Patton
+2002), explained in detail in Section 3.1, and we identi-
+fied commonalities and differences in the analysed cases
+(Section 3.3). Finally, reliability was ensured by defining
+and following a case study protocol during field research
+and analysis (see Section 3.2 and 3.3) as well as by creating
+a case study database containing interview transcripts,
+field notes, and archival data.
+4. Results
+The results of the case studies are presented below in
+two paragraphs corresponding to the two possible direc-
+tions of the relationship between LP and I4.0. Tables 4
+and 5 summarise their characteristics. LP practices and
+techniques and I4.0 technologies or characteristics not
+adopted by any of the companies (see Appendix A) have
+been excluded from the analysis and are not present
+in the tables. If none of the companies recognised
+an enabling/empowering effect of a specific item of a
+paradigm on a specific one of the other paradigm, the
+relevant row shows the entry ‘no direct effect identified.’
+4.1. The enabling effect of LP practices and
+techniques on I4.0 technologies
+All the case studies investigated in this work confirmed
+the agreed statement of LP as a prerequisite of I4.0. Sup-
+porting this view, in all the cases LP has been in general
+adopted before I4.0. However, Case A reported a partic-
+ular situation in which a premature introduction of I4.0
+technology called for a step back to the LP techniques.
+Indeed, the company introduced Smart Machines and
+Collaborative Robots that increased productivity. Still,
+the layout was neither optimised nor standardised, so the
+increased production was often addressed to the wrong
+place, work-in-progress were piled up disorderly, and
+different lots were mixed up. Therefore, the company
+understood the need for the application of LP techniques
+for workplace and plant standardisation, namely 5S
+and VM.
+Case D, E, and H understood that Lean Layout could
+be the basis in which including I4.0, indeed they applied
+cell design and then introduced Autonomous Robots
+or Smart Machines such as to facilitate the flow. For
+instance, Case D introduced Collaborative Robots in the
+U-shape cell in the position in which the line could be
+more balanced and the flow more continuous.
+In summary, all the interviewees argued something
+similar to the statement of the manager of case H:
+‘If a company does not apply LP before introducing
+
+
+--- SAYFA 15 ---
+14
+M. P. CIANO ET AL.
+technologies and digital innovations, the results would be
+just a digitalisation of existing wastes.’
+Considering RQ1, the cases provided deep insights
+about the one-to-one enabling effects of LP techniques on
+I4.0 technologies. These enabling effects are summarised
+in Table 4 and presented in detail below.
+Some LP techniques can have an enabling effect on the
+introduction of I4.0 in general. First examples are repre-
+sented by VSM and Kaizen (see cases C, E, F, G, and H).
+Indeed, VSM can be adopted to identify the pivotal areas
+within the value stream in which invest with any I4.0 for
+boosting the performance. For instance, case G, belong-
+ing to the pharmaceutical industry, stated that ‘through
+VSM, we understood the crucial point in our process (i.e.
+the cleanroom) and applied I4.0 technologies to optimise
+order recognition as well as set-up activities, speeding up
+the entire phase’.
+Kaizen events, instead, involve people and facilitate
+their acceptance of I4.0 implementation creating shared
+occasions to bring in new ideas. Kaizen events are charac-
+terised by Multifunctional Teams that can adopt different
+Problem Solving and Elimination of Waste techniques to
+solve an inefficiency or to improve an area. This is what
+happened in case G, in which, during a Kaizen event, a
+Multifunctional Team adopted PDCA and A3 to design
+new carts for facilitating collaborative robots in picking
+plaques from shearing machines.
+Kaizen and Multifunctional Team are often considered
+‘soft’ LP techniques (Buer, Strandhagen, and Chan 2018),
+however the analysed case studies prove that their con-
+tribution to I4.0 can be very effective. Buer, Strandhagen,
+and Chan (2018) classified as ‘soft’ also 5S and VM. How-
+ever, also these other ‘soft’ techniques are proven to have
+strong enabling effects on I4.0. Indeed, according to case
+E:
+The principle of everything at the right place, the so-
+called ‘set in order’ of 5S, is necessary for the picking
+and the supply of materials and products in an auto-
+mated way. Searching for specific items in a chaotic ware-
+house trying to use real-time scanning with smartphones
+would lead to find more inconsistencies than matches.
+Case H supported and confirmed this statement. This
+company also adopted AR via smartphones for manag-
+ing the warehouse and therefore found the need for 5S
+and VM for this technology. Referring to the need for 5S
+and VM rules and standardisation, case E added: ‘Other-
+wise, the automation would not be efficient; for instance,
+an AGV in a not-standardised environment would have
+to perform every time a reroute.’ Case E found out that
+also a Lean Re-Layout in a straight-line cell enables the
+adoption of Autonomous AGV facilitating their routes.
+In cases C, E, F, and H JIT and One-Piece-Flow were
+fundamental practices for enabling tracking and tracing
+of pieces in real-time, contributing to the transparency
+aimed by Vertical Integration, and, if present, Horizontal
+Integration. Indeed, as stated by case F:
+The One-Piece-Flow principle and the connection of
+machines to the ERP-system both enable the introduc-
+tion of a production flow that facilitates the I4.0 tracking
+and tracing of pieces in real-time. This increases trans-
+parency allowing to identify quality errors in early phases
+and consequently to reduce reworks and/or scraps.
+Regarding Vertical Integration, all the cases highlighted
+the need to Map Processes, not necessarily in a Value
+Stream view, but at least in a process flow view, to identify
+the flow of the materials, WIP and information, essential
+to the design of the MES/MOM.
+In cases B, C, E, F, G, and H, VSM, instead enabled
+Vertical Integration. Indeed, it allowed defining the
+value-adding tasks to be standardised in electronic Job-
+Element-Sheets (JES) visible on monitors at the working
+stations. The electronic JES allow the operator to insert
+up-to-date information in the MES and ERP promoting
+the integration. Skipping from a phase to the following
+one after completion, the system can record the employed
+time. If workers stop the station because of defects or
+tools breakage, the system will record the machine down-
+time and its causes allowing the updating of KPIs and
+related root cause analyses.
+In the same cases, KPIs to be calculated with Descrip-
+tive Analytics are defined by the LP concept of Overall
+Equipment Effectiveness (OEE). OEE defines data to be
+collected, namely the ones related to availability, per-
+formance, and quality. Case C took advantage of I4.0
+creating a new business division that provides other com-
+panies with new software for the shop floor integration
+whose several monitoring parameters are based on this
+LP parameter.
+Regarding Horizontal Integration, case E and H iden-
+tified in the practices of keeping long term relationships
+with suppliers and involving them as a fundamental basis.
+Indeed, companies can trust suppliers in sharing plat-
+forms about the real-time status of material consumption
+and in letting them manage electronic Kanban. On the
+other hand, involved suppliers are more willing to give
+such services.
+4.2. The empowering effect of I4.0 technologies or
+characteristics on LP techniques
+Unlike the previous analysis, the cases proved that almost
+all the I4.0 technologies or characteristics have spe-
+cific empowering effects on LP practices or techniques
+(Table 5). Only Cybersecurity is excluded. Cloud has no
+empirical evidence to empower LP, but some intervie-
+wees recognised that it might empower the techniques
+
+
+--- SAYFA 16 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+15
+belonging to the shop-floor management area and the
+relationships with suppliers and customers due to the
+on-demand shared data availability (case C, E, G, H).
+All the cases identified the empowering effects of
+Smart Machines on Andon, SMED, and Standardised
+Work and the one of Product Simulation on Kaizen.
+Smart Machines can detect anomalies in the process
+through sensors or cameras and call for repair via smart-
+phones, smartwatches, or screens empowering Andon.
+They can also receive information about materials,
+products, or work phase and prepare the right set-up of
+the machines empowering SMED. For instance, in case D,
+a Smart Machine represents the last and single station for
+the packaging phase. It recognises different orders with
+barcode scanning, and it gives workers the right compo-
+nents for the manual assembly of the boxes, drastically
+reducing the time for picking the right component.
+Receiving information corresponding to the precise
+product and work phase allows displaying the relative JES
+on monitors. These virtual JES can be easily updated if
+any product changes configuration or if the line balancing
+finds a new configuration.
+Product Simulation meets the purposes of continuous
+improvement; indeed, it allows to understand which con-
+figuration can reduce scraps, material consumption, and
+phases.
+Regarding the other pillars, Autonomous Robots have
+an empowering effect on several LP techniques. Collabo-
+rative Robots can speed up One-Piece-Flow (cases E and
+H). For instance, in case H, a YuMi® robot is included in
+the production line for assembling disconnect switches
+one by one faster than human workers used to do,
+allowing a more balanced line. They can also empower
+employees’ commitment by handling all the repetitive
+and alienating activities they used to do (case A, E, G,
+and H). For instance, in case A Collaborative Robots sub-
+stituted human workers in the repetitive action of picking
+metal sheets from the press. Only cases E and H adopted
+Autonomous AGV. Both the cases noticed an empower-
+ing effect on the supply of materials to workstations and
+supermarkets managed through Kanban. Case H adopted
+them also for the itinerant pre-assembly, which allows
+reducing machine tooling, empowering SMED and JIT
+production. Indeed, the AGV visits all the stations of
+the supermarket according to the identified route for
+the specific product, and the workers add every time a
+sequential component to work in progress. Furthermore,
+cases C, D, E, F, and H proved the empowering effect of
+Smart Machines on a Kanban system. This effect is due
+to the real-time track of the material consumption that
+makes instantly the Kanban system aware of the need for
+replenishment. Cases D and H identified in similar ways
+an empowering effect of Smart Machines on Poka-Yoke
+practices. Case D argued that:
+The machine to mount clips on filter units recognizes the
+defect through a camera and opens only the gate of the
+wastebasket. Moreover, the machine does not allow to
+go on until the wrong piece is discarded. Once human
+errors were normal and understandable, now they do not
+happen anymore.
+In addition to the effect on Kaizen, Product Simulation
+can empower modularity and customisation, testing if
+standardised components and modularity strategy can
+meet the customer requirements (cases A, B, C, D, E, F
+and H).
+Process Simulation, instead, allows trying different lay-
+out configurations for choosing the one that better facili-
+tates the process flow (cases C, D, E, G, H), or even One-
+Piece-Flow (cases C, D, E, H). Often, the company can
+have a virtual walk within the simulated environment for
+testing if the configuration allows a fluid process (cases G
+and H). It also allows for finding the right scheduling to
+respect JIT practices (cases E and H).
+Case H is the only one that adopts DT (appendix A).
+The company identified an interesting empowering effect
+of DT on a multifunctional team, especially on teams
+with people located in different plants that share ideas
+and monitor the development of strategies and new prod-
+ucts in a virtual simulated Obeya-Room. The company
+also highlighted an empowering effect of DT on TPM.
+Indeed, with machine DT Simulation, it is possible to
+try different maintenance solutions in a safe condition
+and thus allowing to forecast future maintenance. For
+instance, the company replicates an electric panel in VR
+for these purposes.
+Machines integrated with MES/ERP allow real-time
+information record and sharing that empower Kanban
+(cases C, E, and H), JIT (cases C, D, E, and H), Andon
+(cases A, B, C, D, E, G, H), and Statistical Process Con-
+trol (cases B, C, E, G, and H). Considering Kanban,
+material consumption is always recorded, and, in case
+of warehouse integration, it triggers pick-to-light sys-
+tems (with smartphones or lights in the shelf). In the
+case of Autonomous AGV adoption, it directs the mate-
+rial handling. Due to this Vertical Integration, the flow
+is transparent, and there is real-time awareness of the
+capacity and availability of the machines that allow react-
+ing better to plan deviations empowering JIT. The Real-
+Time Tracking can identify and immediately commu-
+nicate anomalies or brake-downs respecting the Andon
+principle. In cases C and H, this Andon 4.0 also com-
+municates through wearable smartwatches. Finally, data
+
+
+--- SAYFA 17 ---
+16
+M. P. CIANO ET AL.
+collection allowed by Vertical Integration allows calculat-
+ing real-time KPIs (especially all the components of the
+OEE, namely availability, performance, and quality).
+The Horizontal Integration, implying data shared with
+suppliers and/or partners through IIoT systems, can
+empower supplier involvement (cases E, G, and H) and
+the direct management of Kanban by the suppliers them-
+selves (case H).
+About IIoT, case G adopts RFID in presses for recog-
+nising the die and setting all the corresponding param-
+eters. This practice reduces set-up time significantly
+empowering SMED. A similar match is performed by
+cases A, F, and H for the recognition of the right tool for
+the right machine, a kind of Poka-Yoke 4.0.
+Another IIoT, the RTLS (real-time location system), is
+adopted by cases D, G, and H to map movements creat-
+ing spaghetti charts or heat maps that give information
+about the need for a re-layout. Case E adopts pick-to-
+light in the warehouse facilitating the picking and hence
+empowering Kanban. Case C and H adopt scanning with
+smartphones to point machines for monitoring KPIs in
+real-time. Case C explained that
+by pointing the keyboard of the machine, it is possible
+to access not only the real-time KPIs, but also the his-
+torical ones. So far, we are only displaying KPIs, but this
+latter aspect could be used in the future for maintenance
+purposes; indeed, the access to historical breakdowns
+directly on-site could be useful.
+Additive Manufacturing shows an empowering effect on
+customisation in case E, indeed the company used it
+for producing small customised pre-series. Most of the
+cases, namely A, B, C, D, E, F, and H, adopted 3D
+Printings only for prototyping purposes to test if mod-
+ular and standardised elements can meet customers’
+requirements. Cases A, E, and H, instead, use them
+to produce specific Poka-Yoke tools, mostly jigs and
+clamps.
+AR is fully adopted only by case H, in which glasses
+and smartphones give interactive maintenance instruc-
+tion overlapped to the physical world. Case A has the
+project of introducing Microsoft HoloLens for receiving
+maintenance instructions by the machinery constructor.
+Six out of the eight case studies, namely cases B, C, E,
+F, G, and H, perform Data Analytics, but only Descrip-
+tive/Diagnostics. This technology empowers the Statisti-
+cal Process Control, indeed it provides real-time KPIs’
+calculation, especially OEE in these cases. The analysis of
+the defects, the bottlenecks, and wastes promote contin-
+uous improvement (Kaizen), as well. All the KPIs and the
+performed analysis also give the material to display in the
+visual board during the 5-minutes meetings, empower-
+ing the employees’ commitment and the waste reduction
+techniques.
+Only case H performs Predictive and Prescriptive Data
+Analytics and both to empower TPM’s plans. Case H also
+exploits data adopting a multi-objective genetic algorithm
+for levelling the workstations workload according to the
+Heijunka principle, fundamental for the company.
+The manager of case H highlighted an interesting
+effect of I4.0 on workers, indeed he stated:
+The first attempts of LP implementation found resistance
+and mistrust. I4.0, instead, is making all the workers
+enthusiastic. Tablets, smartwatches, overlapped objects,
+autonomous AGV, etc. are accepted because everything
+has the shape of a game. In our company, this ‘gaming’
+effect made the introduction of I4.0 technologies consid-
+erably less difficult than the adoption of traditional LP
+techniques.
+Even if only one case reported this aspect, this can sug-
+gest interesting possible implications. Indeed, given the
+interdependence between the two paradigms, perhaps
+the gaming aspect of I4.0 can drag workers into a new
+enthusiastic adoption of LP techniques as well.
+5. Discussion
+This section discusses the results of the one-to-one rela-
+tionships between I4.0 technologies and LP techniques
+according to the six LP impact areas. Furthermore, the
+original results of our paper compared to previous studies
+are summarised in Section 5.7.
+The results of the 8 case studies are summarised and
+depicted graphically in Figure 1. It follows the structure
+and symbology of a conventional Vale Stream Map to
+highlight how an analysis of individual cases has revealed
+the importance of lean and I4.0 throughout the value
+chain of a manufacturing company. The upper part of
+each impact area, coloured in light grey, depicts the
+enabling effects of LP techniques to I4.0 technologies
+(RQ1). The lower part with the white background visu-
+alises the empowering effects of I4.0 technologies to LP
+techniques (RQ2).
+The underlined enabling or empowering effects repre-
+sent the original findings not found by previous studies.
+5.1. Manufacturing equipment and processes
+Considering RQ1, our study gives evidence that VSM
+enables a Vertical Integration of manufacturing processes.
+Moreover, VSM can be considered as a prerequisite to
+identify the focal areas and processes of a company to
+support with I4.0 technology. More in detail, VSM allows
+identifying the value-adding tasks to be standardised in
+electronic JES. The interaction with them allows infor-
+mation update, as explained in section 4.1. Therefore,
+
+
+--- SAYFA 18 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+17
+VSM sets the basis for the Integration of different pro-
+cesses as well as different information systems (MES and
+ERP) confirmed by recent works (e.g. Sony 2018; Kol-
+berg, Knobloch, and Zühlke 2017).
+Based on our results, Statistical Process Control has an
+enabling effect on Descriptive Analytics. This is in line
+with the outcomes of Jugulum (2016) that highlighted
+the importance of data quality to perform high-quality
+analytics.
+The cases show that 5S and VM bring rules and stan-
+dardisation that allow an appropriate implementation of
+I4.0 technologies used for the management of materi-
+als, like Smartphones, AR as well as Autonomous Robots
+and AGVs. On the other hand, literature also reports that
+AR can assist in carrying out 5S more efficiently (Mayr
+et al. 2018), confirming mutual support between the two
+paradigms. Our results show also that a Lean Layout can
+be considered as a fundamental prerequisite to obtaining
+efficient routing of Autonomous AGV.
+Considering RQ2, our results reveal that Autonomous
+Robots empower SMED, Poka-Yoke, Andon and Stan-
+dardised Work. Considering the early detection of prob-
+lems and error prevention, our findings confirm that
+Smart Machines can recognise an improper use of equip-
+ment in advance and therefore empower the LP concept
+of Poka-Yoke (Li, Ai, and Sun 2013). Similarly, the fact
+that Smart Machines can detect anomalies within the pro-
+duction process in real-time confirms that they empower
+Andon (Ma, Wang, and Zhao 2017). In this direction,
+our results reveal that Horizontal and Vertical System
+Integration empower Andon and Statistical Process Con-
+trol. In particular, machines integrated with MES and
+ERP systems can immediately communicate anomalies
+or breakdowns as well as calculate KPIs in real-time.
+In line with research performed by Kolberg and Zühlke
+(2015), in case of problems/failures, employees equipped
+with smartwatches are notified immediately and inde-
+pendently from their location. Similarly, according to
+our results, IIoT empowers Poka-yoke, SMED and Sta-
+tistical Process Control. Here, companies reported using
+RFID to avoid the use of a wrong tool by a machine
+and that the RFID tag recognises the die allowing an
+autonomous set-up of all parameters. This is in line with
+the research of Mayr et al. (2018), presenting the concept
+of Poka-Yoke 4.0. Besides, in our case studies, Additive
+Manufacturing allows the production of Poka-Yoke tools
+like jigs and clamps, which confirms Lu, Li, and Tian
+(2015). Considering Statistical Process Control, compa-
+nies reported the use of smartphones for real-time con-
+trol of machine’s KPIs. This confirms Georgakopolous
+et al. (2016) who outlined the opportunity of IIoT to bet-
+ter understand production processes and how to improve
+them. Based on our results, Simulation enables TPM
+through a machine DT that tries different maintenance
+solutions in a safe environment to forecast optimal main-
+tenance strategies. This is in line with Tuegel et al. (2011),
+who proposed the use of DT for predicting the life of
+aircraft structures to assure their structural integrity. In
+addition, our research reveals that Process Simulation
+allows trying different layout configurations through a
+virtual walk in the simulated environment reaching a
+Lean Layout. This aspect enriches the research area con-
+cerning Process Simulation to reach an efficient layout
+configuration focusing on the evaluation of parameters
+like machine utilisation, waiting time and throughput
+obtained from different simulation experiments (Negah-
+ban and Smith 2014). Furthermore, our results reveal
+that global positioning systems like RTLS can map the
+movement within a factory advising about the need to
+implement a re-layout. Here, no other scientific works
+were identified stating this fact. Moreover, VR was found
+to be used for testing virtually different layout configu-
+rations allowing a fluid production flow and comfortable
+motions. Our results confirmed also the use of AR to train
+and give interactive maintenance assignments facilitating
+TPM (Mayr et al. 2018). Furthermore, Big Data Analyt-
+ics empowers TPM by predicting maintenance actions as
+well as prescribing a maintenance plan. This supports Lee
+et al. (2013) and Lee et al. (2015), who found that a pre-
+diction capability allows maintenance to be more cost-
+effective. According to Khoshafian and Rostetter (2015),
+digital prescriptive maintenance is empowered by Big
+Data and Analytics, avoiding potential failures that could
+have serious consequences for people, environment, and
+equipment. Moreover, Big Data and Analytics, and specif-
+ically Descriptive Diagnostics empower Statistical Process
+Control by providing a calculation of KPIs in real-time.
+Our results confirm also the use of the OEE indicator
+in manufacturing where advanced analytics can be used
+to pinpoint possible root causes for bottlenecks (Lade,
+Ghosh, and Srinivasan 2017).
+5.2. Shop-floor management
+Considering RQ1, our results show that One-Piece-Flow
+and JIT, promoting to obtain low levels of WIP, enable a
+tracking and tracing of products in real-time and hence,
+the Vertical Integration of processes within a company.
+Moreover, according to our results, continuous improve-
+ment processes facilitate the acceptance of I4.0 imple-
+mentations.
+Considering RQ2, our results reveal that Autonomous
+Robots empower One-Piece-Flow, Kanban and JIT. They
+support Kaspar and Schneider (2015), who stated that
+Autonomous AGVs empower Kanban since material sup-
+ply at the shop floor level can be realised by using a
+
+
+--- SAYFA 19 ---
+18
+M. P. CIANO ET AL.
+one-container-system without the necessity to refill sev-
+eral containers with the same material. Similarly, the
+results confirm that Autonomous AGV can further con-
+tribute to a JIT delivery to the workplace because the
+material to be refilled at the workstation arrives in the
+exact moment when it is needed, as stated by Mayr
+et al. (2018). In this direction, scientific works by Kol-
+berg and Zühlke (2015) as well as Kolberg, Knobloch,
+and Zühlke (2017) showed that Smart Machines empower
+Kanban mentioning the example of displays with graph-
+ical user interfaces connected to the production line and
+MES, which can drastically reduce the effort for updat-
+ing conventional Kanban boards. In addition, our results
+reveal that Process Simulation allows trying different lay-
+out configurations through a virtual walk in the simu-
+lated environment reaching a One-Piece-Flow and even
+JIT production (Aigbedo and Monden 1996; Rosin et al.
+2020).
+Our research confirms the fact that Horizontal and
+Vertical System Integration and specifically Machines
+integrated with MES and ERP empower Kanban and JIT
+(Kolberg and Zühlke 2015; Kolberg, Knobloch, and Züh-
+lke 2017; Mayr et al. 2018; Rosin et al. 2020) by continu-
+ously measuring material consumption and by having a
+real-time awareness of machines capacity and availability.
+Similarly, our results confirm that IIoT empowers
+Kanban by using smartphones to support pick-to-light in
+warehouses, as stated by Mayr et al. (2018).
+Considering Big Data and Analytics, our results iden-
+tified that Artificial Intelligence is used to level the
+workstations workload according to the Heijunka prin-
+ciple. This was also underpinned by Hou, Katayama, and
+Hwang (2015) that used Genetic Algorithms to maximise
+line efficiency and minimise the variation of work over-
+load time in a mixed-model straight/U-shaped assembly
+line using Heijunka.
+5.3. Workforce management
+Considering RQ1, problem-solving in a multifunctional
+team and contests for innovative ideas can enable the
+introduction of I4.0 in general. Here, no other enabling
+effect of LP on I4.0 were identified.
+On the other hand, regarding RQ2, our results reveal
+that Simulation and specifically DT applications allow to
+create a virtual Obeya-Room to enable Multifunctional
+Teams with people located in different places. Here, no
+reference from other scientific works was identified that
+underpins this fact. Moreover, according to our results,
+Autonomous Robots empower Employees Commitment by
+relieving workers from repetitive and alienating tasks
+while increasing the level of occupational safety (Giuliani
+et al. 2010). Similarly, the case study analysis identifies
+that Big Data and Analytics and specifically Descriptive
+Diagnostics is used to display KPIs updated in real-time
+on visual boards, which can be used during the 5 min
+meeting empowering Employee Commitment.
+5.4. New product development
+Similarly, to the previous paragraph, this impact area
+contributes most to the RQ2. Although the literature
+identifies potential use of Additive Manufacturing for
+small series favouring Kanban and JIT, the cases mostly
+demonstrate its use for prototyping in the fields of Mod-
+ularity and Customisation. Here, the case studies report
+the empowering effect of Additive Manufacturing for the
+production of small Customised pre-series, in line with
+Kietzmann, Pitt, and Berthon (2015) who depicted the
+huge potential of Additive Manufacturing in the field of
+medical prosthetics. Moreover, the case studies adopted
+Additive Manufacturing to manufacture prototypes to
+test if Modular and standardised elements can meet cus-
+tomer requirements. Scientific references also underpin
+the empowering effect on Customisation (Zangiacomi
+et al. 2020), by substantiating the fact of 3D printers used
+to create prototypes that test whether standard and mod-
+ular components can meet customer requirements. Here,
+especially the application in the field of using 3D printing
+for producing prosthetics can be mentioned (Bijadi et al.
+2017; Hussain et al. 2018).
+5.5. Supplier relationships
+Based on our results and concerning RQ1, Long-Term
+Supplier relationships as well as Supplier Involvement
+enable a Horizontal Integration of supply chains, report-
+ing the examples of shared platforms communicating the
+status of material consumption in real-time as well as
+suppliers that manage autonomously electronic Kanban.
+The companies reported that involved suppliers are more
+willing to give such a service. In literature, Camarinha-
+Matos, Fornasiero, and Afsarmanesh (2017) highlight
+the importance of collaborative organisational structures,
+processes, and mechanisms as enablers of Horizontal
+Integrations of supply chains.
+Considering RQ2, Horizontal and Vertical System Inte-
+gration and specifically data shared with suppliers and/or
+partners through IIoT systems empower Supplier Involve-
+ment. The case studies reported examples of electronic
+platforms that share information about warehouses as
+well as other KPIs in real-time that allow suppliers to
+organise in a better way their deliveries. The usage of
+common knowledge-sharing platforms that favour Hor-
+izontal Integration of Suppliers has also be confirmed in
+literature by Chen (2017).
+
+
+--- SAYFA 20 ---
+INTERNATIONAL JOURNAL OF PRODUCTION RESEARCH
+19
+5.6. Customer relationships
+Answering to RQ2, the case study results report that
+Simulation and specifically Product Simulation empower
+Modularity and Customisation because it allows to under-
+stand if standardised as well as customised compo-
+nents meet specific customer requirements. Similarly, as
+reported in the field of New Product Development, Addi-
+tive Manufacturing empowers the production of Cus-
+tomised pre-series and test if Modular and standardised
+prototypical elements can meet customer requirements.
+5.7. Summary of original results
+Figure 1 summarises the findings of our paper, emphasi-
+sing the results that, to the best of our knowledge, have
+not been found by previous studies.
+Considering RQ1, the following results have not
+been found by previous studies. Statistical Process Con-
+trol enables Descriptive Analytics. Elimination of Waste
+enables Autonomous Robots. 5S and VM enable Real Time
+scanning with smartphone, AR as well as Autonomous
+AGV. Lean Layout enables Autonomous AGV. One Piece
+Flow and JIT enable Vertical Integration.
+Regarding RQ2, the following results have not been
+found by previous studies. Autonomous Robots empower
+SMED and Standardised Work. Horizontal and Vertical
+System Integration empower Statistical Process Control.
+IIoT empowers SMED and Lean Layout. AR empow-
+ers Lean Layout. Big Data and Analytics empower Waste
+Reduction. Additive Manufacturing empowers Modular-
+ity. Simulation empowers Multifunctional Team. Big Data
+and Analytics empower Employees Commitment.
+6. Conclusion
+6.1. Contribution to theory
+This paper contributes to the production research litera-
+ture on the relationships between I4.0 and LP in various
+significant ways.
+First, we do a significant theory-building effort and
+propose a comprehensive framework that shows the one-
+to-one relationships between I4.0 technologies and lean
+practices and vice-versa (Figure 1), focusing not only on
+the company itself but also on the whole value chain
+(Panizzolo 1998; Hines, Holweg, and Rich 2004; Pagliosa,
+Tortorella, and Ferreira 2019; Rojko 2017). This pair-
+wise framework for a LP-I4.0 integration at a practice-
+technology level, which was missing in extant literature
+(Buer, Strandhagen, and Chan 2018; Rossini et al. 2019),
+represents in our view a significant theoretical advance-
+ment since it highlights in a synthetic but comprehensive
+way all the relevant constructs (i.e. I4.0 technologies and
+lean principles and practices) and their interrelationships
+(Gioia and Pitre 1990; Corley and Gioia 2011). Fur-
+ther research is however needed to further validate the
+framework, extend it to other geographical and industrial
+contexts, and empirically test all the hypothesised rela-
+tionships in a wider, more heterogeneous and statistically
+significant sample (see Section 6.3).
+Second, our paper confirms previous studies that pos-
+tulate that the relationship between I4.0 technologies
+and LP is in both directions, i.e. (a) I4.0 affects LP and
+(b) LP affects I4.0 (e.g. Buer, Strandhagen, and Chan
+2018; Pagliosa, Tortorella, and Ferreira 2019; Rossini et al.
+2019), but it adds that the two paths have a different
+nature. More in detail, while LP enables I4.0 (creating
+opportunities for its development), I4.0 empowers LP
+(leading to the achievement of self-efficacy and of best
+version). This classification of enablement and empow-
+erment (Dunst, Trivette, and Deal 1988) allows an easier
+and more direct understanding of the links between the
+two paradigms.
+Third, we highlight a set of potential relationships
+between I4.0 and LP, that were not highlighted by pre-
+vious research (see the underlined items in Figure 1).
+Some examples of these relationships are the empower-
+ing effects of Autonomous Robots and IIoT on SMED
+and Standardised Work, of Big Data and Analytics on
+Employees Commitment, and of AR on Lean Layout, as
+well as the enabling effects of Statistical Process Control
+on Descriptive Analytics, of Lean Layout on Autonomous
+AGV, and of One Piece Flow and JIT on Vertical Inte-
+gration (see Section 5.7 for further details). While these
+identified relationships deserve certainly to be tested on
+a wider and more heterogeneous sample, their identifi-
+cation might in our view guide future research in this
+field.
+Finally, our study highlights the impact of I4.0 on the
+so-called ‘soft’ LP techniques, which according to a recent
+review (i.e. Buer, Strandhagen, and Chan 2018) repre-
+sents a significant research gap. The analysis (Table 5)
+found specific effects of I4.0 technologies or charac-
+teristics on Kaizen and Teamwork, and in general,
+insights from companies support the idea that the gam-
+ing atmosphere led by I4.0 can empower and make the
+adoption of all the LP techniques and practices more
+pleasant.
+6.2. Contribution to practice
+The findings of our study have also significant managerial
+implications.
+First, we identify the key concepts in the I4.0 and LP
+fields (i.e. I4.0 technologies and LP principles/techniques,
+respectively) (see Tables 1 and 2). These concepts might
