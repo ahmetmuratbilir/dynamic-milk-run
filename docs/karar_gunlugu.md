@@ -237,6 +237,31 @@
   - B (Sadece FIFO): Kritik istasyon sırada beklerken hat durabilir
 - **Dosya:** `src/ekanban_signal.py` (Hafta 4'te kullanılacak)
 
+### K27 — Zaman Penceresi: Dinamik Hesap
+- **Değer:** $TW_{bitis} = \min(t_{starvation} - 5, \quad t_{sinyal} + 60)$
+  - $t_{starvation} = t_{sinyal} + Stok_{o\_an} / D_{dk}$ (stok tam bitmeden kapalsa)
+  - Sabit +60 dk üst sınır olarak kalır
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Neden değiştirildi:** Sabit +60 dk S16 gibi yüksek tüketimli istasyonlarda yetersiz kalıyordu. Örnek: sinyal_dk=87, sabit TW_bitis=147 ama starvation=137 → pencere kapanmadan 10 dk önce hat duruyordu.
+- **Önceki hata:** K16'daki sabit +60 dk varsayımı reddedildi, dinamik hesapla değiştirildi.
+- **Dosya:** `src/ekanban_signal.py`
+
+### K28 — Açık Sinyal Güncelleme Kuralı
+- **Değer:** Bir istasyondan sinyal üretildi, araç henüz gelmedi. Bu sürede:
+  - **Yeni sinyal üretilmez** (sinyal tekrarı yok)
+  - Ama `kritiklik_skoru` ve `stok_o_an` **her dakika güncellenir**
+  - Araç geldiğinde güncel stok bilgisiyle karşılaşır
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Geçmiş:** Soru 1 — A seçeneği onaylandı
+- **Dosya:** `src/ekanban_signal.py`
+
+### K29 — Stok Yenileme: Basitleştirilmiş Varsayım (GEÇİCİ)
+- **Değer:** Sinyal anından **LT = 45 dk** sonra stok otomatik olarak N×C adet ile yenilenir.
+- **Kaynak:** Kullanıcı onayı (30.07.2026) — "Soru 2: A"
+- **⚠️ GEÇİCİ BASITLEŞTİRME:** Gerçek milk-run araç rota süresi dikkate alınmıyor. Hafta 5-6'da VRPTW gerçek rota süresiyle DEĞİŞTİRİLECEK.
+- **Savunma notu:** "Hafta 4, E-Kanban sinyal mantığını bağımsız test etmek için yapıldı. Hafta 5-6'da gerçek rota süresiyle entegre edildi."
+- **Dosya:** `src/ekanban_signal.py`
+
 ---
 
 ## DEĞİŞİKLİK GEÇMİŞİ
@@ -248,7 +273,9 @@
 | 29.07.2026 | K18 | ROP = 1 kutu eşiği → K25'te oransal formülle değiştirildi | Formül daha akademik ve N ile tutarlı |
 | 29.07.2026 | K19 | Öncelik kuralı önerildi | Facchini (2022) + Simić (2020) |
 | 30.07.2026 | K25 | ROP oransal formülü onaylandı | Kullanıcı onayı — makale destekli |
-| 30.07.2026 | K26 | Karma öncelik kuralı onaylandı | Kullanıcı onayı — makale destekli |
+| 30.07.2026 | K27 | TW_bitis sabit +60 → dinamik starvation bazlı | S16 örneğinde pencere starvation'dan sonra kapanıyordu |
+| 30.07.2026 | K28 | Açık sinyal: yeni üretme, kritiklik güncelle | Kullanıcı onayı — Soru 1 A |
+| 30.07.2026 | K29 | Stok yenileme sinyal+LT=45dk (GEÇİCİ) | Kullanıcı onayı — Soru 2 A; Hafta 5-6'da değişecek |
 
 ---
 
