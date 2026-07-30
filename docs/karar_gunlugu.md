@@ -282,6 +282,40 @@
 
 ---
 
+## BÖLÜM 8 — VRPTW ROTALAMA KARARLARI (Hafta 5)
+
+> ⚠️ **Metodoloji Uyarısı:** Bu bölümdeki literatür atıfları, bir yapay zeka ajanının "Facchini (2022) MILP kullandı" iddiasının kullanıcı tarafından orijinal PDF'den teyit edilmesiyle düzeltilmiştir. O ifade, Facchini'nin literatür taramasında Aksoy & Öztürk (2016)'e ait bir cümleydi; Facchini'nin kendi yöntemi değil. Bu tür kaynak karıştırma riskine karşı, bundan sonra her iddia için doğrudan alıntı + paragraf konumu belirtilecektir.
+
+### K33 — Rotalama Stratejisi: Olay Bazlı (Event-based)
+- **Değer:** Her yeni E-Kanban sinyali geldiğinde araç depot'tan ilgili istasyonlara dinamik olarak sevk edilir.
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Literatür referansı:** Facchini et al. (2022) — *"vehicles are dynamically dispatched from the depot to working stations when the materials' orders are processed"* (satır 122) + *"updates in real-time by considering when the order has been sent"* (satır 428)
+- **Reddedilen alternatifler:**
+  - Rolling Horizon: Literatürde milk-run için desteklenmiyor (CIRRELT 2010 static survey)
+  - Batch: Dinamik E-Kanban'ın ruhuna aykırı
+- **Dosya:** `src/vrptw_solver.py`
+
+### K34 — Algoritma: Nearest Neighbor + 2-opt
+- **Değer:** Her sinyal grubunda en yakın ziyaret edilmemiş istasyona git (NN), ardından 2-opt ile rota iyileştir.
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Literatür referansı:** Facchini et al. (2022) — kendi yöntemi Python'da yay (arc) bazlı maliyet hesabı yapan sıralı/greedy bir sezgisel algoritma (satır 435-439, 448). CIRRELT (2010) — 100'den az müşteri için greedy heuristiklerin yeterli olduğunu belirtmektedir (satır 128).
+- **Reddedilen alternatifler:**
+  - MILP/PuLP: Kaynak yanlış atıflandırılmıştı (Facchini değil, Aksoy & Öztürk 2016)
+  - OR-Tools: Master prompt kapsamı dışında üçüncü bir kütüphane
+  - MOAEFASA (Zhou & Wen 2024): Aşırı karmaşık, Digital Twin benzeri — master prompt yasağı
+- **Dosya:** `src/vrptw_solver.py`
+
+### K35 — Amaç Fonksiyonu: Karma (TW uyum önce, süre sonra)
+- **Değer:**
+  1. Birincil: Tüm TW kısıtları sağlansın (hard constraint — ihlal = infeasible)
+  2. İkincil: Toplam rota süresi minimize edilsin: $\min \sum_{k} \sum_{i,j} t_{ij} \cdot x_{kij}$
+- **Kaynak:** Kullanıcı onayı (30.07.2026)
+- **Literatür referansı:** Facchini et al. (2022) — *"minimizing the tugger trains path"* + TW kısıtları hard constraint (satır 81, 402-403). CIRRELT (2010) — *"minimize first the total number of vehicles required and second the total travel distance"* (satır 91) — araç sayısı bizde sabit (2) olduğu için birinci adım geçerli değil, ikincisi uygulanıyor.
+- **Not:** `distances.csv`'deki `sure_dk` sütunu kullanılır (`mesafe_m` değil).
+- **Dosya:** `src/vrptw_solver.py`
+
+---
+
 ## DEĞİŞİKLİK GEÇMİŞİ
 
 | Tarih | Karar No | Değişiklik | Neden |
@@ -297,9 +331,13 @@
 | 30.07.2026 | K30 | TW alt sınır guard eklendi | Pencere daralması ve kritik sinyal tespiti için |
 | 30.07.2026 | K31 | S13 sınır durum olarak belgelendi | 24 istasyondan tek marjlı istasyon |
 | 30.07.2026 | K32 | Isınma periyodu (0-45dk) ayrıştırıldı | Sinyal engellenmedi, KPI şeffaflığı sağlandı |
+| 30.07.2026 | K33 | Rotalama stratejisi: Olay bazlı | Facchini (2022) satır 122 — kullanıcı onayı |
+| 30.07.2026 | K34 | Algoritma: Nearest Neighbor + 2-opt | MILP atfı yanlıştı (Aksoy&Öztürk'e ait); NN literatürle uyumlu |
+| 30.07.2026 | K35 | Amaç: Karma (TW hard + süre minimize) | Facchini (2022) + CIRRELT (2010) — kullanıcı onayı |
 
 ---
 
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
+
