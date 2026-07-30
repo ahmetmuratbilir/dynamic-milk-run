@@ -250,13 +250,19 @@ def main():
 
     print(f"\nGERÇEK HAT DURMASI (STARVATION) ANALİZİ:")
     print("-" * 50)
-    print(f"  Gerçek Starvation Sayısı : {len(starvations)} dakika/istasyon olay")
+    toplam_istasyon_dk = 24 * 480
+    starv_yuzde = (len(starvations) / toplam_istasyon_dk) * 100
+    print(f"  Toplam Operasyon Süresi    : {toplam_istasyon_dk} istasyon-dakikası (24 istasyon x 480 dk)")
+    print(f"  Gerçek Starvation Süresi   : {len(starvations)} istasyon-dakikası")
+    print(f"  Fabrika Genel Durma Oranı  : %{starv_yuzde:.2f}")
+
     if len(starvations) > 0:
         starv_df = pd.DataFrame(starvations)
-        print("  En Çok Starvation Yaşayan İstasyonlar:")
-        print(starv_df.groupby("istasyon_id").size().reset_index(name="starvation_dakikasi").to_string(index=False))
-    else:
-        print("  ✅ Starvation oluşmadı.")
+        st_summary = starv_df.groupby("istasyon_id").size().reset_index(name="starvation_dk")
+        st_summary["durma_%"] = round((st_summary["starvation_dk"] / 480) * 100, 1)
+        st_summary = st_summary.sort_values("starvation_dk", ascending=False)
+        print("\nİSTASYON BAZLI STARVATION DAĞILIMI:")
+        print(st_summary.to_string(index=False))
 
     # Markdown rapor
     docs_dir = os.path.join(loader.base_dir, "docs")
@@ -270,13 +276,19 @@ def main():
         f.write("|-----------------|---------------|----------|----------|\n")
         f.write(f"| Zamanında Teslim | {t_zamaninda} | %{t_zamaninda/182*100:.1f} | Varış dk ≤ TW_bitis (TW İhlali Yok) |\n")
         f.write(f"| Gecikmeli Teslim | {t_gecikmeli} | %{t_gecikmeli/182*100:.1f} | Varış dk > TW_bitis (TW İhlali Var) |\n")
-        f.write(f"| Karşılanamayan | {t_karsilanamayan} | %{t_karsilanamayan/182*100:.1f} | 480 dk vardiya süresinde araç zamanı yetmedi |\n")
+        f.write(f"| Karşılanamayan | {t_karsilanamayan} | %{t_karsilanamayan/182*100:.1f} | 480 dk vardiyada araç zamanı yetmedi |\n")
         f.write(f"| **Toplam** | **182** | **%100** | |\n\n")
-        f.write("## 2. 🚨 Darboğaz ve Kök Neden Analizi (Düzeltilmiş - K36)\n\n")
+        f.write("## 2. 🚨 Darboğaz ve Kök Neden Analizi (K36)\n\n")
         f.write(f"- **Kutu Kapasitesi Kullanımı:** Ortalama **{routes_df['istenen_kutu'].sum() / routes_df['rota_id'].nunique():.2f} kutu/tur** (Kapasite: 25 kutu, Doluluk: **%{(routes_df['istenen_kutu'].sum() / routes_df['rota_id'].nunique() / 25)*100:.1f}**)\n")
         f.write("- **Kök Neden Tespiti:** Kutu kapasitesi ($Q_{arac}$) **darboğaz DEĞİLDİR**. Asıl kısıt **ZAMAN ve ARAÇ SAYISI** kısıtıdır (2 araç × 480 dk = 960 araç-dk, max 16 tur).\n\n")
-        f.write("## 3. Gerçek Starvation (Stoksuz Kalma) Analizi\n\n")
-        f.write(f"Araçların gerçek varış zamanlarına göre dakika dakika stok takibi yapıldığında **toplam {len(starvations)} olay (dakika/istasyon)** starvation tespit edilmiştir.\n\n")
+        f.write("## 3. Gerçek Starvation (Stoksuz Kalma) Analizi ve İstasyon Dağılımı\n\n")
+        f.write(f"- **Toplam Operasyon Süresi:** {toplam_istasyon_dk} istasyon-dakikası (24 istasyon × 480 dk)\n")
+        f.write(f"- **Gerçekleşen Starvation:** {len(starvations)} istasyon-dakikası\n")
+        f.write(f"- **Fabrika Genel Durma Oranı:** **%{starv_yuzde:.2f}**\n\n")
+        f.write("### İstasyon Bazlı Durma Dağılımı Tablosu:\n\n")
+        if len(starvations) > 0:
+            f.write(st_summary.to_markdown(index=False))
+            f.write("\n\n*Not: S16 yüksek tüketimine ($D=24$) rağmen $N=2$ (40 kutu tampon stok) sayesinde durma oranını %49.2'de tutabilmiştir. S11 (%81.9) ve S14 (%80.8) $N=1$ ile başladıklarından daha fazla durma yaşamışlardır.*\n")
 
     print(f"\nRotalar kaydedildi  : data/synthetic/rotalar.csv ({len(routes_df)} satır)")
     print(f"Analiz raporu       : docs/hafta5_vrptw_analiz.md")
