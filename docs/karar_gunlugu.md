@@ -289,7 +289,7 @@
 ### K33 — Rotalama Stratejisi: Olay Bazlı (Event-based)
 - **Değer:** Her yeni E-Kanban sinyali geldiğinde araç depot'tan ilgili istasyonlara dinamik olarak sevk edilir.
 - **Kaynak:** Kullanıcı onayı (30.07.2026)
-- **Literatür referansı:** Facchini et al. (2022) — *"vehicles are dynamically dispatched from the depot to working stations when the materials' orders are processed"* (satır 122) + *"updates in real-time by considering when the order has been sent"* (satır 428)
+- **Literatür referansı:** Facchini et al. (2022), Sayfa 2 — *"vehicles are dynamically dispatched from the depot to working stations when the materials' orders are processed"* + Sayfa 4 — *"It is updated in real-time by considering when the order has been sent"*
 - **Reddedilen alternatifler:**
   - Rolling Horizon: Literatürde milk-run için desteklenmiyor (CIRRELT 2010 static survey)
   - Batch: Dinamik E-Kanban'ın ruhuna aykırı
@@ -298,20 +298,21 @@
 ### K34 — Algoritma: Nearest Neighbor + 2-opt
 - **Değer:** Her sinyal grubunda en yakın ziyaret edilmemiş istasyona git (NN), ardından 2-opt ile rota iyileştir.
 - **Kaynak:** Kullanıcı onayı (30.07.2026)
-- **Literatür referansı:** Facchini et al. (2022) — kendi yöntemi Python'da yay (arc) bazlı maliyet hesabı yapan sıralı/greedy bir sezgisel algoritma (satır 435-439, 448). CIRRELT (2010) — 100'den az müşteri için greedy heuristiklerin yeterli olduğunu belirtmektedir (satır 128).
+- **Literatür referansı:** Facchini et al. (2022), Sayfa 4 — *"the algorithm calculates the cost for each arc of the graph"* + *"checking the respect of the time windows iteratively"* (greedy/arc bazlı sıralı Python implementasyonu). CIRRELT (2010), Sayfa 2 — *"instances of a VRP with more than one hundred customers can be intractably hard to solve optimally"* → 24 istasyon için greedy yeterli.
 - **Reddedilen alternatifler:**
-  - MILP/PuLP: Kaynak yanlış atıflandırılmıştı (Facchini değil, Aksoy & Öztürk 2016)
-  - OR-Tools: Master prompt kapsamı dışında üçüncü bir kütüphane
-  - MOAEFASA (Zhou & Wen 2024): Aşırı karmaşık, Digital Twin benzeri — master prompt yasağı
+  - MILP/PuLP: Yanlış atıftı — o cümle Facchini'nin literatür taramasında Aksoy & Öztürk (2016)'e aitti
+  - OR-Tools: Master prompt kapsamı dışında
+  - MOAEFASA: Aşırı karmaşık, master prompt yasağı
 - **Dosya:** `src/vrptw_solver.py`
 
 ### K35 — Amaç Fonksiyonu: Karma (TW uyum önce, süre sonra)
 - **Değer:**
-  1. Birincil: Tüm TW kısıtları sağlansın (hard constraint — ihlal = infeasible)
-  2. İkincil: Toplam rota süresi minimize edilsin: $\min \sum_{k} \sum_{i,j} t_{ij} \cdot x_{kij}$
+  1. Birincil: Tüm TW kısıtları sağlansın (hard constraint)
+  2. İkincil: Toplam rota süresi minimize: $\min \sum_{k} \sum_{i,j} t_{ij} \cdot x_{kij}$
 - **Kaynak:** Kullanıcı onayı (30.07.2026)
-- **Literatür referansı:** Facchini et al. (2022) — *"minimizing the tugger trains path"* + TW kısıtları hard constraint (satır 81, 402-403). CIRRELT (2010) — *"minimize first the total number of vehicles required and second the total travel distance"* (satır 91) — araç sayısı bizde sabit (2) olduğu için birinci adım geçerli değil, ikincisi uygulanıyor.
-- **Not:** `distances.csv`'deki `sure_dk` sütunu kullanılır (`mesafe_m` değil).
+- **Literatür referansı:** Facchini et al. (2022), Sayfa 2 — *"minimizing the tugger trains path"* + Sayfa 4 — *"equations 9 and 10 ensure that the temporal constraints, indicated by the time windows, are respected"* (hard constraint). CIRRELT (2010), Sayfa 2 — *"minimize first the total number of vehicles required and second the total travel distance incurred"* — araç sayısı sabit (2) olduğu için 2. adım uygulanır.
+- **⚠️ Referans Notu:** Bundan sonra tüm literatür atıfları 'sayfa numarası + doğrudan alıntı cümlesi' formatında verilecektir. PDF'lerin çift sütunlu yapısı nedeniyle satır numaraları araçtan araca değişmekte, güvenilir referans değildir.
+- **Not:** `distances.csv`'deki `sure_dk` sütunu kullanılır.
 - **Dosya:** `src/vrptw_solver.py`
 
 ---
