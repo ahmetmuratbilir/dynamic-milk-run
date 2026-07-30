@@ -315,6 +315,13 @@
 - **Not:** `distances.csv`'deki `sure_dk` sütunu kullanılır.
 - **Dosya:** `src/vrptw_solver.py`
 
+### K36 — VRPTW Darboğaz Tespiti ve Teşhis Düzeltmesi
+- **Bulgu:** VRPTW simülasyonunda 16 turda toplam 74 kutu taşınmıştır (tur başına 4.62 kutu). Araç doluluk oranı $\%18.5$ ($Q_{arac} = 25$ kutu) seviyesindedir.
+- **Teşhis Düzeltmesi:** Darboğaz **kutu kapasitesi ($Q_{arac}$) değildir**. Kutu kapasitesi kısıtlayıcı bir faktör olarak çalışmamaktadır. Asıl darboğaz **ZAMAN VE FİLO BÜYÜKLÜĞÜ (ARAÇ SAYISI)** kısıtıdır (2 araç × 480 dk = 960 araç-dk, max 16 tur).
+- **Hafta 6 Yönlendirmesi:** Araç kutu kapasitesini artırmak (25 → 35) dar boğazı çözmeyecektir; Hafta 6'da filo büyüklüğü (araç sayısı) ve tur süreleri/hızları duyarlılık analiziyle incelenecektir.
+- **Kaynak:** Kullanıcı ve AI mühendislik doğrulaması (30.07.2026)
+- **Dosya:** `src/vrptw_solver.py`, `docs/hafta5_vrptw_analiz.md`
+
 ---
 
 ## DEĞİŞİKLİK GEÇMİŞİ
@@ -336,6 +343,7 @@
 | 30.07.2026 | K34 | Algoritma: Nearest Neighbor + 2-opt | MILP atfı yanlıştı (Aksoy&Öztürk'e ait); NN literatürle uyumlu |
 | 30.07.2026 | K35 | Amaç: Karma (TW hard + süre minimize) | Facchini (2022) + CIRRELT (2010) — kullanıcı onayı |
 | 30.07.2026 | K03, K04 | Hatalı literatür atıfları kaldırıldı | K04 (25 kutu) ve K03 (2 araç) Mühendislik Varsayımı olarak düzeltildi (Menanno gerçek $Q_{min}=45$) |
+| 30.07.2026 | K36 | Darboğaz teşhisi düzeltildi | Darboğaz araç kutu kapasitesi değil, zaman ve araç sayısı kısıtıdır (Doluluk %18.5) |
 
 ---
 
