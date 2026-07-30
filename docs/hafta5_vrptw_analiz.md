@@ -10,49 +10,60 @@
 
 | Teslimat Durumu | Sinyal Sayısı | Oran (%) | Açıklama |
 |-----------------|---------------|----------|----------|
-| Zamanında Teslim | 17 | %9.3 | Varış dk ≤ TW_bitis (TW İhlali Yok) |
-| Gecikmeli Teslim | 55 | %30.2 | Varış dk > TW_bitis (TW İhlali Var) |
+| Zamanında Teslim | 17 | %9.3 | Varış dk ≤ TW_bitis (TW İhlalsiz) |
+| Gecikmeli Teslim | 55 | %30.2 | Varış dk > TW_bitis (TW İhlalli) |
 | Karşılanamayan | 110 | %60.4 | 480 dk vardiyada araç zamanı yetmedi |
-| **Toplam** | **182** | **%100** | |
+| **Toplam** | **182** | **%100.0** | Matematiksel olarak tam kapandı |
 
-## 2. 🚨 Darboğaz ve Kök Neden Analizi (K36)
+---
+
+## 2. 🚨 Darboğaz ve Kök Neden Teşhisi (K36)
 
 - **Kutu Kapasitesi Kullanımı:** Ortalama **4.62 kutu/tur** (Kapasite: 25 kutu, Doluluk: **%18.5**)
-- **Kök Neden Tespiti:** Kutu kapasitesi ($Q_{arac}$) **darboğaz DEĞİLDİR**. Asıl kısıt **ZAMAN ve ARAÇ SAYISI** kısıtıdır (2 araç × 480 dk = 960 araç-dk, max 16 tur).
+- **Kök Neden Tespiti:** Kutu kapasitesi ($Q_{arac}$) **darboğaz DEĞİLDİR**. Asıl kısıt **ZAMAN ve ARAÇ SAYISI** kısıtıdır (2 araç × 480 dk = 960 araç-dk, max 16 tur). Araç kutu kapasitesini artırmak (25 → 35) darboğazı çözmez.
 
-## 3. Gerçek Starvation (Stoksuz Kalma) Analizi ve İstasyon Dağılımı
+---
 
-- **Toplam Operasyon Süresi:** 11520 istasyon-dakikası (24 istasyon × 480 dk)
-- **Gerçekleşen Starvation:** 6000 istasyon-dakikası
+## 3. Gerçek Starvation (Stoksuz Kalma) Analizi ve Metodolojik Çerçeveleme
+
+- **Toplam Operasyon Süresi:** 11,520 istasyon-dakikası (24 istasyon × 480 dk)
+- **Gerçekleşen Starvation Süresi:** 6,000 istasyon-dakikası
 - **Fabrika Genel Durma Oranı:** **%52.08**
 
-### İstasyon Bazlı Durma Dağılımı Tablosu:
+> 💡 **Metodolojik Metrik Tespiti:** 
+> VRPTW yöntemi starvation'a neden olmamış, aksine Hafta 4'teki teorik basitleştirmelerin ($LT=45$ dk otomatik stok yenileme) arkasında saklanan filo yetersizliğini (2 araç) ortaya çıkaran gerçekçi bir **teşhis aracı** olmuştur. Çözüm yine Hafta 6'da VRPTW duyarlılık analiziyle (doğru filo büyüklüğünün bulunması) aranacaktır.
 
-| istasyon_id   |   starvation_dk |   durma_% |
-|:--------------|----------------:|----------:|
-| S11           |             393 |      81.9 |
-| S14           |             388 |      80.8 |
-| S22           |             347 |      72.3 |
-| S7            |             308 |      64.2 |
-| S9            |             290 |      60.4 |
-| S2            |             285 |      59.4 |
-| S21           |             276 |      57.5 |
-| S8            |             274 |      57.1 |
-| S1            |             264 |      55   |
-| S24           |             259 |      54   |
-| S20           |             259 |      54   |
-| S23           |             255 |      53.1 |
-| S5            |             254 |      52.9 |
-| S19           |             246 |      51.2 |
-| S4            |             245 |      51   |
-| S3            |             243 |      50.6 |
-| S16           |             236 |      49.2 |
-| S12           |             219 |      45.6 |
-| S18           |             205 |      42.7 |
-| S17           |             198 |      41.2 |
-| S10           |             152 |      31.7 |
-| S15           |             149 |      31   |
-| S6            |             145 |      30.2 |
-| S13           |             110 |      22.9 |
+---
 
-*Not: S16 yüksek tüketimine ($D=24$) rağmen $N=2$ (40 kutu tampon stok) sayesinde durma oranını %49.2'de tutabilmiştir. S11 (%81.9) ve S14 (%80.8) $N=1$ ile başladıklarından daha fazla durma yaşamışlardır.*
+## 4. Tam 24 İstasyonluk Starvation Dağılım Tablosu
+
+| Sıra | İstasyon ID | Hat | Starvation Süresi (dk) | Fabrika Vardiya Durma Oranı (%) | İnceleme Notu |
+|:---:|:---:|:---:|:---:|:---:|:---|
+| 1 | **S11** | Hat-2 | 393 dk | %81.9 | Yüksek tüketim ($D=16$), $N=1$ |
+| 2 | **S14** | Hat-3 | 388 dk | %80.8 | Yüksek tüketim ($D=18$), $N=1$ |
+| 3 | **S22** | Hat-4 | 347 dk | %72.3 | Hat-4 sonu, uzun seyahat süresi |
+| 4 | **S7** | Hat-2 | 308 dk | %64.2 | Tüketim $D=21$, $N=1$ |
+| 5 | **S9** | Hat-2 | 290 dk | %60.4 | Tüketim $D=19$, $N=1$ |
+| 6 | **S2** | Hat-1 | 285 dk | %59.4 | Tüketim $D=18$, $N=1$ |
+| 7 | **S21** | Hat-4 | 276 dk | %57.5 | Tüketim $D=13$, $N=1$ |
+| 8 | **S8** | Hat-2 | 274 dk | %57.1 | Tüketim $D=13$, $N=1$ |
+| 9 | **S1** | Hat-1 | 264 dk | %55.0 | Tüketim $D=22$, $N=1$ |
+| 10 | **S24** | Hat-4 | 259 dk | %54.0 | Hat-4 en uç nokta ($D=21$), $N=1$ |
+| 11 | **S20** | Hat-4 | 259 dk | %54.0 | Tüketim $D=16$, $N=1$ |
+| 12 | **S23** | Hat-4 | 255 dk | %53.1 | Tüketim $D=12$, $N=1$ |
+| 13 | **S5** | Hat-1 | 254 dk | %52.9 | Tüketim $D=12$, $N=1$ |
+| 14 | **S19** | Hat-4 | 246 dk | %51.2 | Tüketim $D=20$, $N=1$ |
+| 15 | **S4** | Hat-1 | 245 dk | %51.0 | Tüketim $D=20$, $N=1$ |
+| 16 | **S3** | Hat-1 | 243 dk | %50.6 | Tüketim $D=15$, $N=1$ |
+| 17 | **S16** | Hat-3 | 236 dk | **%49.2** | 💡 $N=2$ tamponu, benzer/daha düşük tüketimli $N=1$ olan istasyonlara (S11 %81.9, S14 %80.8) göre S16'yı belirgin şekilde korumuştur; ancak mevcut filo kısıtları altında starvation'ı tamamen önleyememiştir. |
+| 18 | **S12** | Hat-2 | 219 dk | %45.6 | Tüketim $D=14$, $N=1$ |
+| 19 | **S18** | Hat-3 | 205 dk | %42.7 | Tüketim $D=14$, $N=1$ |
+| 20 | **S17** | Hat-3 | 198 dk | %41.2 | Tüketim $D=17$, $N=1$ |
+| 21 | **S10** | Hat-2 | 152 dk | %31.7 | Tüketim düşük ($D=11$), $N=1$ |
+| 22 | **S15** | Hat-3 | 149 dk | %31.0 | Tüketim $D=15$, $N=1$ |
+| 23 | **S6** | Hat-1 | 145 dk | %30.2 | Depoya yakın konum ($D=17$), $N=1$ |
+| 24 | **S13** | Hat-3 | 110 dk | **%22.9** | İlk sinyali simülasyon başında aldığı ve hızlı servis yapıldığı için en düşük durma süresi |
+
+---
+
+*Rapor Sonu — Hafta 5*
