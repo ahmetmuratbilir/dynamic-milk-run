@@ -28,17 +28,17 @@
 - **Dosya:** `data/synthetic/stations.csv`
 
 ### K03 — Araç Sayısı: 2
-- **Değer:** 2 milk-run aracı
-- **Kaynak:** Kullanıcı onayı (29.07.2026)
-- **Literatür referansı:** Zhou & Wen (2024) s.12 → 2 araç; Sevim & Görkemli Aykut (2025) L774-775 → 2 veya 3 araç (deney faktörü)
-- **Gerekçe:** Literatürde en yaygın küçük-orta ölçek konfigürasyonu.
+- **Değer:** 2 milk-run aracı (A1, A2)
+- **Kaynak:** Mühendislik Varsayımı (Kullanıcı Onayı 29.07.2026) — *⚠️ Literatür atıfı kaldırıldı (önceki atıf hatalıydı).*
+- **Tür:** **MÜHENDİSLİK VARSAYIMI** (Literatür kaynaklı değil)
+- **Gerekçe:** 4 montaj hattı ve 24 istasyonlu sentetik fabrika yerleşiminde, her 2 hatta 1 araç düşecek şekilde dengeli ve yönetilebilir bir küçük-orta ölçek operasyonel varsayımı olarak seçilmiştir.
 - **Dosya:** `data/synthetic/vehicles.csv`
 
 ### K04 — Araç Kapasitesi: 25 kutu
-- **Değer:** 25 kutu/araç
-- **Kaynak:** Kullanıcı onayı (29.07.2026)
-- **Literatür referansı:** Menanno et al. (2023) s.15 → 35–55 birim; Klenk et al. (2012) s.12 → 2–5 kutu/durak; Sevim & Görkemli Aykut (2025) L778-779 → 250–400 birim
-- **Gerekçe:** Aralıkta (2–400). 25 kutu orta ölçekli milk-run için makul.
+- **Değer:** 25 kutu / araç
+- **Kaynak:** Mühendislik Varsayımı (Kullanıcı Onayı 29.07.2026) — *⚠️ Literatür atıfı kaldırıldı (Menanno 2023 s.15 atıfı hatalıydı, Menanno metnindeki gerçek değer $Q_{min} = 45$ birimdir).*
+- **Tür:** **MÜHENDİSLİK VARSAYIMI** (Literatür kaynaklı değil)
+- **Gerekçe:** İstasyon başına talep ($N \times C \approx 15-20$ kutu) ile uyumlu olacak şekilde, tek bir aracın tek bir turda 1-2 istasyonun siparişini taşıyabileceği fiziksel olarak makul bir çekici-römork taşıma kapasitesi olarak belirlenmiştir.
 - **Dosya:** `data/synthetic/vehicles.csv`
 
 ### K05 — Simülasyon Süresi: 480 dakika (1 vardiya)
@@ -332,9 +332,10 @@
 | 30.07.2026 | K30 | TW alt sınır guard eklendi | Pencere daralması ve kritik sinyal tespiti için |
 | 30.07.2026 | K31 | S13 sınır durum olarak belgelendi | 24 istasyondan tek marjlı istasyon |
 | 30.07.2026 | K32 | Isınma periyodu (0-45dk) ayrıştırıldı | Sinyal engellenmedi, KPI şeffaflığı sağlandı |
-| 30.07.2026 | K33 | Rotalama stratejisi: Olay bazlı | Facchini (2022) satır 122 — kullanıcı onayı |
+| 30.07.2026 | K33 | Rotalama stratejisi: Olay bazlı | Facchini (2022) Sayfa 2 — kullanıcı onayı |
 | 30.07.2026 | K34 | Algoritma: Nearest Neighbor + 2-opt | MILP atfı yanlıştı (Aksoy&Öztürk'e ait); NN literatürle uyumlu |
 | 30.07.2026 | K35 | Amaç: Karma (TW hard + süre minimize) | Facchini (2022) + CIRRELT (2010) — kullanıcı onayı |
+| 30.07.2026 | K03, K04 | Hatalı literatür atıfları kaldırıldı | K04 (25 kutu) ve K03 (2 araç) Mühendislik Varsayımı olarak düzeltildi (Menanno gerçek $Q_{min}=45$) |
 
 ---
 
