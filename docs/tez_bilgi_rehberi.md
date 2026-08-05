@@ -191,4 +191,30 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 
 ---
 
+### HAFTA 6 (GELECEK PLAN): Araç Sayısı ve Duyarlılık Analizi
+- **Amaç (Objective):** 2 araçlı sistemdeki %52.08 starvation oranını düşürmek için araç sayısını (2 vs 3 vs 4) ve tur parametrelerini analitik ve simülasyon temelli duyarlılık analizine tabi tutmak.
+- **Akademik Formül & Yöntem (Körösi & Duchoň, 2026 - Nature):**
+  - **Analitik Filo İhtiyacı Formülü:**
+    $$WL = w \times TC = \left(\sum F_{ij}\right) \times \left( T_L + \frac{L_d}{v_c} + T_U + \frac{L_e}{v_c} \right)$$
+    $$AT = 60 \times A \times F_t \times E_w$$
+    $$AN = \frac{WL}{AT} \implies AN_{final} = \lceil AN \rceil$$
+  - Burada $F_t$ (trafik kısıtı) ve $E_w$ (operatör verimliliği) parametreleri duyarlılık değişkeni olarak kullanılacaktır.
+- **Beklenen Katkı:** 2 araç yetersizliğinin sadece deneysel değil, Nature (2026) analitik filo formülüyle teorik ispatı sağlanacaktır.
+
+### HAFTA 7–8 (GELECEK PLAN): SimPy Simülasyonu ve Darboğaz Giderimi
+- **Amaç (Objective):** VRPTW motorunu Python SimPy ortamına tam entegre etmek, ısınma (warm-up) ve replikasyon standartlarını oturtmak.
+- **Akademik Referanslar:**
+  - **Herrera-Vidal et al. (2026):** SimPy simülasyonlarında 50 replikasyon ve 30 dk Welch warm-up analizi (Bizim K32: 45 dk ısınma kararımızın doğrulaması).
+  - **Wang (2008):** Filo kısıtlı m-VRPTW amaç fonksiyonu: $\min [ -\sum \text{Müşteri}, \sum \text{Mesafe}, \sum \text{Araç} ]$.
+
+### HAFTA 9–10 (GELECEK PLAN): Sabit Kanban vs Dinamik E-Kanban Karşılaştırma Deneyleri
+- **Amaç (Objective):** Geleneksel Sabit Kanban ROP modeli ile bizim Dinamik E-Kanban modelimizi kıyaslamak.
+- **Akademik Referanslar & Formüller:**
+  - **Sabit Kanban Referans Formülü (Efrilianda et al., 2018):**
+    $$ROP_{sabit} = L_j \times \left( \frac{\sum D_t}{t} \right) + \left[ \sum B_t - (1 - SL) \sum D_t \right]$$
+  - **Dinamik E-Kanban Formülü (Demiray Kırmızı et al., 2024 & Bizim K25):**
+    $$SS = k \cdot \sigma_d \cdot \sqrt{Lt} + DOH_{ABC-XYZ} \cdot d_{daily}$$
+
+---
+
 *Bu rehber her yeni haftada elde edilen bulgu, kod ve kararlarla güncellenecektir.*
