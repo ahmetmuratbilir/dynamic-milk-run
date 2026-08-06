@@ -385,6 +385,15 @@
 | **Gerekçe** | Filo sınırlıyken (%18.5 doluluk, 2 araç) mesafe değil karşılama kapasitesi birincil metriktir. 2→4 araçla karşılama %39.6→%78.6. |
 | **Tarih** | 07.08.2026 |
 
+### K41 — Hafta 7–8 Takvim Adaptasyonu ve Kapsam Güncellemesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | 17 Haftalık Plan Esnekliği & Hafta 7–8 İçerik Güncellemesi |
+| **Değer** | Hafta 7–8 kapsamı: **"SimPy Stokastik Simülasyonu ve Dispatch / Çizelgeleme Optimizasyonu"** |
+| **Kaynak** | Kullanıcı / Danışman Gözden Geçirme Onayı (07.08.2026) |
+| **Gerekçe** | Orijinal planda Hafta 7–8 için öngörülen *"VRPTW Kodlama ve Debug"* adımları Hafta 5'te (`vrptw_solver.py` ile) tamamlandığı için, Hafta 7–8 bütünüyle SimPy stokastik simülasyon entegrasyonuna ve farklı dispatch/önceliklendirme stratejilerinin karşılaştırılmasına ayrılmıştır. Bu değişiklik takvim esnekliğine dayanan bilinçli bir adaptasyondur. |
+| **Tarih** | 07.08.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*
