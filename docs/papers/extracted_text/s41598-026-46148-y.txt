@@ -1,0 +1,843 @@
+Analytical fleet-sizing method for 
+the Open Platform for Innovation 
+in Logistics (OPIL)
+Ladislav Körösi1,2 & František Duchoň1,2
+This manuscript presents an analytical fleet-sizing module developed for the Open Platform for 
+Innovation in Logistics (OPIL) within the European Horizon 2020 project “Better Factory“. The module 
+provides a deterministic capacity estimation method for calculating the required number of logistics 
+agents, such as automated guided vehicles, forklifts, or human operators, needed to satisfy predefined 
+material flow demands under steady-state conditions. The approach extends a classical analytical 
+framework by incorporating matrix-based representations of material flows and distances together 
+with agent-specific operational parameters. It is designed to support early-stage logistics planning and 
+system scaling, particularly in small and medium-sized enterprises, where accessible and transparent 
+decision-support tools are essential. The module is implemented as an independent application and 
+its applicability is demonstrated through two industrial case studies involving material transport and 
+inspection tasks. The results illustrate how the proposed analytical framework can support practical 
+decision-making in logistics system design within clearly defined operational assumptions.
+Keywords  Logistics, Material flow, Agent, Optimization, IoT, Docker
+Abbreviations
+OPIL	
+Open Platform for Innovation in Logistics
+AGV	
+Automated Guided Vehicle
+ANN	
+Artificial Neural Networks
+RSM	
+Response Surface Methodology
+MLR	
+Multiple Linear Regression
+ERP	
+Enterprise Resource Planning
+ROS	
+Robot Operating System
+NGSI	
+Next Generation Service Interface
+SME	
+Small and Medium-sized Enterprises
+IoT	
+Internet of Things
+OCB	
+Orion Context Broker
+HMI	
+Human-Machine Interface
+SP	
+Sensing & Perception
+RAN	
+Robot Agent Node
+KTE	
+Knowledge Transfer Experiment
+RFID	
+Radio Frequency Identification
+Modern production systems increasingly adopt Industry 4.0 principles, emphasizing digitalization, data 
+integration and continuous system improvement. While substantial research attention has been directed toward 
+optimizing production technologies, material handling and internal logistics remain critical components of 
+manufacturing performance. Even though precise values vary across industries, transportation and material 
+handling represent a significant portion of logistics costs and operational time1,2. Inefficient logistics can 
+therefore substantially affect productivity, resource utilization and investment decisions.
+Recent global supply chain disruptions, labor shortages, and increasing operational complexity have further 
+highlighted the need for improved transparency and analytical support in logistics systems3–5. Digitalization of 
+material flows, combined with data-driven methods such as discrete event simulation and statistical analysis 
+enables improved bottleneck identification, resource planning and system evaluation6–8. However, many 
+1Institute of Robotics and Cybernetics, Faculty of Electrical Engineering and Information Technology of the Slovak 
+University of Technology in Bratislava, Ilkovičova 3, 84104 Bratislava, Slovakia. 2These authors contributed equally 
+to this work: Ladislav Körösi and František Duchoň. email: ladislav.korosi@stuba.sk
+OPEN
+Scientific Reports |        (2026) 16:16797 
+1
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports
+available solutions require specialized expertise or extensive modeling effort, which may limit their accessibility, 
+particularly for small and medium-sized enterprises (SMEs). Previous research has shown that SMEs often face 
+significant challenges in adopting advanced manufacturing and simulation technologies due to limited technical 
+expertise, lack of skills and resource constraints, indicating that accessible analytical methods can better support 
+early planning needs of such firms9–11.
+Commercial platforms such as Tecnomatix®, SIMIT®, Visual Components®, and Delmia® provide advanced 
+simulation and optimization capabilities12–14. In practice, however, logistics planning frequently relies on 
+iterative trial-and-error procedures or complex computational methods that may be difficult to interpret or 
+implement without expert knowledge. Open frameworks such as the OPIL15 aim to increase accessibility by 
+providing modular and interoperable tools for logistics applications.
+Within the research literature, logistics optimization has predominantly focused on routing, scheduling, 
+fleet management and task assignment problems16. Advanced approaches include heuristic and metaheuristic 
+algorithms, artificial neural networks, response surface methodology and other data-driven techniques17–20. 
+While these methods address path optimization and agent utilization, comparatively less attention has been 
+devoted to transparent analytical methods for estimating the required number of logistics agents needed to satisfy 
+predefined material flows under steady-state conditions. Existing analytical solutions are often application-
+specific or limited to particular agent types.
+This study addresses this gap by presenting a deterministic analytical fleet-sizing method derived from and 
+extending Groover’s classical approach21. The proposed framework incorporates matrix-based representations 
+of material flows and distances and integrates agent-specific operational parameters such as speed, loading 
+and unloading times, availability, traffic influence and worker efficiency. Rather than formulating a formal 
+optimization problem with explicit objective functions and constraints, the method provides a structured 
+capacity estimation procedure for determining the number of agents required to satisfy given flow demands 
+under clearly defined assumptions.
+The methodology has been implemented as an independent module within the OPIL ecosystem and 
+can operate either as a standalone application or as part of a larger logistics architecture. Its applicability is 
+demonstrated through two industrial case studies involving material transport and inspection tasks within the 
+Better Factory project. The objective is not to replace advanced simulation-based approaches, but to provide an 
+accessible and transparent analytical decision-support tool suitable for early-stage planning, system scaling and 
+investment assessment, particularly in SME environments.
+The remainder of the paper describes the OPIL framework, presents the analytical methodology and 
+implementation and evaluates the approach through industrial use cases. Assumptions, operational scope and 
+limitations of the proposed method are explicitly discussed to ensure appropriate interpretation of the results.
+The methodological contribution of this work lies not in introducing a fundamentally new optimization 
+paradigm, but in providing a structured and practically applicable analytical formulation that integrates multiple 
+real-world operational factors within a unified deterministic framework. In contrast to classical formulations, 
+the proposed method enables direct capacity estimation using matrix-based flow representation, incorporates 
+availability, traffic and human-efficiency effects in a consistent manner, and allows straightforward scenario-
+based analysis without requiring simulation or iterative optimization procedures.
+Open platform for innovation in logistics
+The OPIL is an open and modular framework designed to support logistics applications in Industry 4.0 
+environments, particularly within SMEs1. It provides interoperable components for task planning, path 
+planning, simulation and system integration, enabling the development and evaluation of logistics solutions 
+within heterogeneous production systems.
+OPIL follows a layered architecture that connects physical devices (e.g., mobile robots, AGVs, forklifts, 
+sensors and human–machine interfaces) with middleware services and higher-level software modules (Fig. 1). 
+Communication between components is based on the FIWARE ecosystem and the Next Generation Service 
+Interface (NGSI), enabling standardized data exchange and integration with external IT systems such as ERP 
+and warehouse management systems. The architecture supports extensibility through open-source technologies, 
+including ROS-based robotic modules and database-backed services.
+Within this ecosystem, the Agent Optimization module was developed as a decision-support component 
+for estimating the required number of logistics agents. Although designed to integrate with OPIL through 
+standardized data interfaces (MongoDB-based storage and structured input matrices), the module operates as 
+an independent Docker-based application. This design ensures reproducibility, portability and the possibility of 
+deployment either within the OPIL framework or as a standalone analytical tool in other logistics environments.
+The module interacts with the surrounding system only through defined input parameters (distance matrices, 
+flow-rate matrices, and agent characteristics) and produces structured outputs representing the estimated 
+number of required agents. By decoupling the analytical method from the broader platform architecture, the 
+solution maintains flexibility while preserving compatibility with larger logistics infrastructures.
+In this paper, the focus is placed on the analytical methodology and its validation, while the OPIL framework 
+provides the technological context in which the module can be deployed.
+Agent sizing method
+This section presents the analytical fleet-sizing methodology and its implementation. The proposed module 
+estimates the number of logistics agents required to satisfy predefined material flow demands under steady-state 
+conditions. Although originally developed within the OPIL ecosystem, the module operates as an independent 
+Scientific Reports |        (2026) 16:16797 
+2
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+Docker-based application and can be deployed either standalone or integrated through a standardized data 
+interface (MongoDB-based structured input).
+Methodology
+The proposed method extends the analytical framework introduced by Groover21 and provides a deterministic 
+capacity estimation procedure. The objective is to determine the number of agents required to satisfy given 
+material flow rates within a defined planning horizon. In this study, all quantities are expressed per hour, 
+however, the formulation remains valid for any consistent time unit, provided that flow rates, speeds and times 
+are defined accordingly.
+Input parameters
+The model requires the following agent parameters:
+•	 vc — average agent travel speed [m/min], vc > 0
+•	 TL — loading time per trip [min], TL > 0
+•	 TU — unloading time per trip [min], TU > 0
+•	 c — agent transport capacity [pieces/trip], c > 0
+•	 A — availability factor (proportion of operational time), A ∈(0, 1]
+•	 Ft — traffic factor accounting for congestion effects, Ft ∈(0, 1]
+•	 Ew — operator efficiency factor, Ew ∈(0, 1]
+The agent speed represents an average operational speed reflecting practical constraints. Loading and unloading 
+times may be obtained from measurements or historical production data. The availability factor A represents 
+the fraction of scheduled time during which the agent is operational. The traffic factor Ft captures systematic 
+performance losses due to congestion or shared workspace interactions. The efficiency factor Ew accounts for 
+operator-related variability and is set to 1.0 for fully autonomous agents.
+Flow and distance representation
+Material flows are represented by an N × N flow matrix Fij, where each element denotes the average flow rate 
+between stations i and j expressed in pieces per hour (pcs/hr). The distance matrix Dij defines the physical travel 
+distance between stations in meters. Negative entries in the flow matrix indicate predefined empty return paths. 
+The corresponding distances are taken from the same distance matrix Dij, which allows modeling of closed 
+transport loops using a consistent distance definition.
+Transport demand and cycle time
+The material flow matrix Fij expresses the required transport demand in pieces per hour between stations i and 
+j. In the implemented procedure, the total number of required deliveries per hour is computed as the sum of all 
+positive flow entries:
+	
+w =
+∑
+i,j | Fij>0
+Fij.
+(1)
+Thus, w represents total number of required delivery cycles per hour. The agent capacity c is incorporated in the 
+calculation of the average loaded distance. The average loaded distance per delivery is computed as
+Fig. 1.  Architecture of OPIL.
+ 
+Scientific Reports |        (2026) 16:16797 
+3
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+	
+Ld =
+∑
+i,j | Fij>0 FijDij
+c ∑
+i,j | Fij>0 Fij
+,
+(2)
+which represents the mean loaded travel distance per delivery cycle adjusted by the transport capacity c. The 
+empty travel distance per delivery cycle is obtained from predefined negative flow entries. In the implemented 
+model, each negative entry represents a single empty return movement and the corresponding empty distance 
+is computed as
+	
+Le =
+∑
+i,j | Fij<0
+Dij.
+(3)
+A negative flow entry represents a predefined empty return movement. For example, Fij = −1 indicates one 
+empty return trip along the link from station i to station j, with the corresponding distance taken from Dij. The 
+overall delivery cycle time is then expressed as
+	
+TC = TL + Ld
+vc + TU + Le
+vc ,
+(4)
+where TL and TU denote loading and unloading times and vc is the average agent speed. The quantity TC 
+represents the time required to complete a single delivery cycle. The total workload per hour is therefore
+	
+WL = w TC,
+(5)
+which represents the total required agent operating time per hour.
+Available time and required number of agents
+The available time per hour per agent is given by
+	
+AT = 60AFtEw,
+(6)
+where A is the availability factor, Ft is the traffic factor and Ew is the operator efficiency. The required number 
+of agents is determined as
+	
+AN = WL
+AT .
+(7)
+Since fractional agents are not physically meaningful, the result is rounded up to the nearest higher integer:
+	
+ANﬁnal = ⌈AN⌉.
+(8)
+Rounding upward ensures that the computed fleet size satisfies the required transport demand without under-
+capacity and provides a conservative estimate suitable for planning purposes.
+Calibration of traffic and efficiency factors
+The parameters Ft (traffic factor) and Ew (operator efficiency) represent aggregated performance modifiers and 
+therefore require careful operational definition. In practice, Ft can be estimated empirically as the ratio between 
+the theoretical travel time under free-flow conditions and the observed average travel time obtained from logged 
+operational data, i.e.
+	
+Ft = Ttheoretical
+Tobserved .
+(9)
+Here, Ttheoretical is computed from nominal route length and average free-flow speed, while Tobserved is derived 
+from historical measurements reflecting congestion, route intersections or shared workspace interactions. 
+Similarly, the operator efficiency factor Ew represents the influence of human performance variability on 
+loading and unloading operations. In contrast to Ft, which primarily affects travel performance, Ew reflects 
+the deviation of actual handling time from nominal or planned handling time due to ergonomic constraints, 
+fatigue, lifting conditions or workforce allocation policies. In practice, Ew can be estimated as the ratio between 
+the nominal loading/unloading time used in planning and the observed average handling time measured during 
+operation. When loading and unloading are fully automated and independent of human intervention, Ew is set 
+to 1.0. This definition ensures that human-related variability is incorporated without redefining the structural 
+cycle-time formulation. These types of empirical correction factors are commonly used in industrial engineering 
+practice to account for deviations between nominal and observed performance, particularly in environments 
+where direct modelling of congestion and human variability is not feasible. In practical applications, these 
+parameters are typically identified from historical operational data or short-term measurements conducted 
+under representative working conditions.
+Scientific Reports |        (2026) 16:16797 
+4
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+Sensitivity considerations
+Since the required number of agents is inversely proportional to the product AFtEw, the model exhibits linear 
+sensitivity with respect to these parameters:
+	
+AN ∝
+1
+AFtEw .
+(10)
+Consequently, a relative decrease of x% in either Ft or Ew results in an approximately x% increase in the 
+required agent capacity, assuming all other parameters remain constant. This proportional behavior provides 
+predictable and interpretable system response. In typical industrial scenarios where Ft and Ew vary within a 
+limited range (e.g., 0.9–1.0), the resulting variation in the required fleet size remains moderate. The monotonic 
+and analytically transparent dependency enhances robustness and allows practitioners to perform rapid scenario 
+testing by adjusting these parameters according to anticipated congestion levels or workforce variability.
+Model assumptions and scope
+The proposed analytical method operates under the following assumptions:
+•	 Steady-state operation with deterministic average flow rates.
+•	 Average constant agent speed.
+•	 Predefined transport routes represented by the distance matrix.
+•	 No explicit modeling of queueing or dynamic task scheduling.
+•	 Interaction effects, congestion, and operational variability are aggregated into the parameters Ft, A, and Ew.
+The method is therefore intended for capacity planning and early-stage system design rather than detailed 
+dynamic simulation. In environments with highly stochastic flows or complex routing conflicts, complementary 
+simulation-based validation may be appropriate.
+Implementation
+The Agent Optimization module was implemented as an independent Docker-based service to ensure portability, 
+reproducibility, and platform independence. The computational core is encapsulated within a Docker container 
+that executes the analytical sizing algorithm described in Section “Methodology”. This design enables deployment 
+either as a standalone microservice or as part of a broader logistics ecosystem such as OPIL.
+The service operates using a MongoDB-based data interface. Input parameters, including agent characteristics 
+and the corresponding distance and flow-rate matrices are stored as structured documents within the database. 
+Each optimization request is uniquely identified by a request identifier. Upon execution, the service retrieves the 
+associated document, performs the analytical computation and writes the resulting fleet-size values back to the 
+database. The database instance may run either locally on the host system or within a separate container enabling 
+flexible deployment scenarios.
+The required input data include the number of stations, the distance matrix, the flow-rate matrix (expressed 
+in pcs/hr), agent parameters (vc, TL, TU, c, A, Ft, Ew).
+Matrices are encoded as structured numerical arrays within the database representation. Negative entries 
+in the flow matrix are used solely to indicate predefined return paths, as described in Section “Methodology”.
+Two interaction modes are supported. The first enables direct database interaction through a graphical 
+Human–Machine Interface (HMI) developed in Java (2). The HMI communicates with MongoDB via the 
+official MongoDB Java Driver and includes input validation mechanisms that verify formatting consistency, 
+dimensional compatibility of matrices, admissible parameter ranges, and uniqueness of request identifiers. The 
+second mode allows external applications to programmatically submit optimization requests through standard 
+database communication protocols, enabling integration with ERP, MES, or digital twin systems (Fig. 2).
+The complete source code of the Agent Optimization service is publicly available in the Better Factory 
+application repository (https://gith​ub.com/ramp-​eu/Agent_Opt​imisation_S​ervice)22. This ensures full 
+reproducibility of the computational results presented in this study. The complete distance and flow-rate matrices 
+used in the case studies are provided in the Supplementary Information.
+Examples
+Example 1 - SMARTENVELOPE
+Industrial context and transport structure
+The SMARTENVELOPE Knowledge Transfer Experiment (KTE) was conducted at Plast-Farb, a Polish 
+manufacturer of security envelopes. The objective was to determine the required number of forklifts for internal 
+material transport under steady-state production conditions.
+Three dominant transport routes were identified: 
+	1.	 Transport of raw material (foil rolls) from warehouse to production machines.
+	2.	 Transport of finished pallets from production machines to the stretch-wrapping station.
+	3.	 Transport of wrapped pallets back to the warehouse.
+A 2D factory model was used to determine transport distances between stations, while a simplified 3D layout 
+in OPIL library supported route verification. The analysis was performed under steady-state assumptions using 
+hourly averaged material flows.
+Scientific Reports |        (2026) 16:16797 
+5
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+Input data and operational parameters
+Material flows were derived from ERP data representing pallet production per shift and converted to average 
+hourly flow rates. The resulting N × N flow rate matrix (pallets/hour) is given in Tab. 1 and the corresponding 
+distance matrix (meters) in Tab. 2 in the supplementary attachment.
+The forklift parameters were:
+•	 Agent speed: vc = 35 m/min
+•	 Loading time: TL = 0.4 min
+•	 Unloading time: TU = 0.5 min
+•	 Capacity: c = 1 pallet
+•	 Availability: A = 0.7
+•	 Traffic factor: Ft = 0.5
+•	 Operator efficiency: Ew = 0.7
+All calculations are performed per hour. Capacity c = 1 reflects one pallet per trip.
+Analytical fleet sizing using proposed model
+From the flow and distance matrices, the average loaded and empty travel distances were computed according to 
+the methodology described in Section "Agent Sizing Method". The intermediate derived quantities representing 
+delivery cycles were:
+	
+w = 10.222 pallets/hour,
+Ld = 40.30 m,
+Le = 28.76 m.
+The resulting average cycle time per delivery was:
+	
+TC = 2.912 min.
+The total workload per hour is:
+	
+WL = 29.766 min/hour.
+The effective available time per forklift per hour is:
+	
+AT = 60 · A · Ft · Ew = 60 · 0.7 · 0.5 · 0.7 = 14.7 min/hour.
+The required number of forklifts is therefore:
+	
+AN = WL
+AT = 29.766
+14.7
+= 2.025.
+Since fractional agents are infeasible in practice, the result is rounded up:
+Fig. 2.  Human machine interface for Agent Optimization.
+ 
+Scientific Reports |        (2026) 16:16797 
+6
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+	
+ANr = 3.
+Baseline comparison with classical analytical fleet sizing
+For comparison, a classical deterministic fleet sizing without correction factors (i.e., assuming A = Ft = Ew = 1) 
+yields:
+	
+ATbaseline = 60 min/hour,
+	
+ANbaseline = 29.766
+60
+= 0.496.
+This baseline approach would incorrectly suggest that a single forklift is sufficient. The difference illustrates 
+the importance of incorporating availability, traffic and operational efficiency factors. Without these correction 
+factors, fleet size would be significantly underestimated.
+Sensitivity analysis
+To evaluate robustness, key parameters were varied individually while keeping other parameters constant.
+Traffic factor variation
+•	 Ft = 0.4 ⇒ AT = 11.76 min/hour ⇒ AN = 2.53
+•	 Ft = 0.6 ⇒ AT = 17.64 min/hour ⇒ AN = 1.69
+Availability variation
+•	 A = 0.6 ⇒ AT = 12.6 min/hour ⇒ AN = 2.36
+•	 A = 0.8 ⇒ AT = 16.8 min/hour ⇒ AN = 1.77
+Speed variation (±10%)
+The cycle time consists of fixed handling components and a travel component:
+	
+TC = TL + TU + Ld + Le
+vc
+.
+Only the transport term depends on vc, while loading and unloading times remain constant. Therefore, the 
+relationship between TC and vc is nonlinear but monotonic.
+•	 vc = 36 m/min (−10%) ⇒ TC = 3.08 min ⇒ AN = 2.14
+•	 vc = 44 m/min (+10%) ⇒ TC = 2.78 min ⇒ AN = 1.93
+The analysis shows monotonic and proportional behavior consistent with the analytical formulation:
+	
+AN ∝
+1
+AFtEw .
+The rounding boundary between two and three forklifts lies near AN = 2. Moderate parameter variations do 
+not cause unstable behavior, confirming robustness of the sizing model under realistic fluctuations.
+Combined Parameter Variation (Scenario-Based Bounds)
+To assess the combined influence of key operational parameters, two representative scenarios were evaluated 
+reflecting optimistic and conservative operating conditions.
+In the optimistic scenario, nominal parameter values were assumed with no congestion or efficiency losses 
+(Ft = 1.0, Ew = 1.0), while maintaining the original availability A = 0.7 and agent speed vc = 40 m/min. 
+The resulting available time per agent is:
+	
+AT = 60 · A · Ft · Ew = 60 · 0.7 · 1.0 · 1.0 = 42 min/hour.
+(11)
+The required number of agents is therefore:
+	
+AN = WL
+AT = 29.766
+42
+= 0.709.
+(12)
+After rounding:
+	
+AN,ﬁnal = 1.
+(13)
+In the conservative scenario, reduced performance due to congestion and operator variability was considered 
+(Ft = 0.5, Ew = 0.5), together with reduced effective speed vc = 32 m/min (−20%). The reduced speed 
+increases the transport component of the cycle time, resulting in an increased workload:
+	
+Treq ≈32.7 min/hour.
+(14)
+The corresponding available time per agent is:
+Scientific Reports |        (2026) 16:16797 
+7
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+	
+AT = 60 · A · Ft · Ew = 60 · 0.7 · 0.5 · 0.5 = 10.5 min/hour.
+(15)
+The required number of agents is therefore:
+	
+AN = 32.7
+10.5 = 3.11.
+(16)
+After rounding:
+	
+AN,ﬁnal = 4.
+(17)
+These results define practical lower and upper bounds for fleet sizing under simultaneous parameter variations, 
+ranging from 1 to 4 forklifts. The analytical structure of the model allows such combined scenarios to be 
+evaluated directly, as the required number of agents depends multiplicatively on the parameters A, Ft, and 
+Ew. This provides a simple and interpretable mechanism for assessing robustness without requiring simulation-
+based analysis.
+Operational confirmation
+At the time of analysis, three forklifts were available in the facility. However, one unit served primarily as backup 
+for maintenance and breakdown scenarios. Operationally, two forklifts are actively used during steady-state 
+production. The analytical result (AN = 2.025) corresponds closely to the observed operational requirement of 
+two active forklifts, while the rounding rule recommends three units to ensure service continuity. The result is 
+therefore operationally consistent with industrial practice.
+Quantitative consistency assessment
+To further evaluate the consistency of the analytical estimation with observed industrial deployment, a 
+quantitative utilization analysis was performed.
+The analytically predicted continuous fleet size was:
+	
+AN = 2.025.
+In steady-state operation, two forklifts are actively used. The corresponding utilization level of two forklifts can 
+therefore be expressed as:
+	
+U =
+WL
+2 · AT = 29.766
+2 · 14.7 = 1.012.
+This corresponds to an effective utilization of approximately 101.2%, indicating that two forklifts operate at near-
+full capacity under the specified steady-state demand. This explains the practical necessity of maintaining a third 
+unit as backup to ensure operational robustness and service continuity in the presence of minor disturbances.
+Considering the rounded fleet-size recommendation:
+	
+ANr = ⌈2.025⌉= 3,
+and the fact that three forklifts are available at the facility, the relative deviation between the analytically 
+recommended discrete fleet size and the deployed fleet is:
+	
+δ = |3 −3|
+3
+= 0.
+This indicates full agreement between the analytical fleet-sizing recommendation and the implemented industrial 
+configuration. While the model does not claim formal optimality, the close quantitative correspondence 
+demonstrates that the deterministic steady-state formulation provides a reliable approximation of effective fleet 
+requirements under real industrial conditions.
+Demand scaling scenario analysis
+To further examine the quantitative behavior of the analytical formulation without relying on simulation-
+based validation, a structured demand-scaling scenario was evaluated. Since the required number of agents is 
+directly proportional to the transport demand w, a proportional increase in all flow matrix elements results in a 
+proportional increase in workload:
+	
+WL ∝w.
+Two demand growth scenarios were considered.
+Scenario 1 (+20% demand increase)
+If all material flows increase by 20%, then:
+	
+w+20% = 1.2 · 10.222 = 12.266 pallets/hour.
+The cycle time TC remains unchanged, therefore:
+Scientific Reports |        (2026) 16:16797 
+8
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+	
+WL+20% = 1.2 · 29.77 = 35.72 min/hour.
+The required fleet size becomes:
+	
+AN+20% = 35.72
+14.7 = 2.43.
+Rounding yields:
+	
+ANr,+20% = 3.
+Scenario 2 (+50% demand increase)
+For a 50% demand increase:
+	
+w+50% = 1.5 · 10.222 = 15.333 pallets/hour.
+	
+WL+50% = 1.5 · 29.77 = 44.66 min/hour.
+	
+AN+50% = 44.66
+14.7 = 3.04.
+Rounding yields:
+	
+ANr,+50% = 4.
+The results confirm the linear scaling behavior predicted by the analytical formulation. The model exhibits stable 
+and monotonic fleet growth under increasing demand conditions, supporting its applicability for early-stage 
+capacity planning and production scaling decisions.
+Analytical error bound assessment
+Since the required number of agents is given by
+	
+AN =
+wTC
+60AFtEw ,
+the model exhibits inverse proportional sensitivity to the aggregated operational factor
+	
+Φ = AFtEw.
+For small perturbations, the relative variation of the fleet size can be expressed as
+	
+∆AN
+AN
+= −∆Φ
+Φ .
+Assuming a conservative uncertainty of ±5% in each operational parameter (A, Ft, Ew), the combined worst-
+case deviation of the aggregated factor is approximately
+	
+Φmin = 0.953Φ ≈0.857Φ.
+The corresponding upper bound of fleet size becomes
+	
+ANmax = AN
+0.857 ≈1.167AN.
+The result is:
+	
+AN = 2.025 ⇒ANmax ≈2.36.
+This value remains below the rounding threshold of 3 agents. Therefore, moderate parameter estimation 
+uncertainties do not affect the discrete fleet-sizing recommendation.
+Example 2 - SMARTHam
+Industrial context and inspection task
+The second case study was conducted within the SMARTHam KTE at Capanna Prosciutti a producer of Parma 
+ham. The objective was to determine the required number of AGVs for warehouse inventory inspection. Each 
+ham was equipped with an RFID tag. An AGV equipped with an RFID antenna performed periodic inspection 
+by traversing predefined routes through the warehouse and reading tags on storage racks. Unlike Example 1, this 
+case represents an inspection task rather than material transport.
+The 2D factory layout is shown in Fig. 3. Numerical labels correspond to station identifiers and shaded 
+regions indicate obstacles such as walls and storage racks used for ham storage during inspection. A single cyclic 
+Scientific Reports |        (2026) 16:16797 
+9
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+inspection route covering all stations was defined. The flow rate matrix (Tab. 3) represents inspection frequency 
+per hour, while the distance matrix (Tab. 4) defines travel distances in meters.
+The analysis was performed under steady-state assumptions with hourly averaged inspection requirements.
+Input data and operational parameters
+The AGV parameters were:
+•	 Agent speed: vc = 65 m/min
+•	 Loading time: TL = 0.0001 min (negligible)
+•	 Unloading time (inspection time): TU = 1.0 min
+•	 Capacity: c = 23 stations per cycle
+•	 Availability: A = 0.99
+•	 Traffic factor: Ft = 0.99
+•	 Operator efficiency: Ew = 1.0
+All calculations are performed per hour. The capacity c = 23 reflects the number of stations inspected within 
+one complete route before returning to the starting point.
+Analytical fleet sizing using proposed model
+The intermediate derived quantities representing delivery cycles were:
+	
+w ≈22.0 cycles/hour,
+Ld = 52.6 m,
+Le = 52.0 m.
+Using the methodology described in Section "Agent Sizing Method", the average cycle time per inspection cycle 
+was computed as:
+	
+TC = 1.807 min.
+The total workload per hour is therefore:
+	
+WL = 39.76 min/hour.
+The effective available time per AGV per hour is:
+	
+AT = 60 · A · Ft · Ew = 60 · 0.99 · 0.99 · 1.0 = 58.806 min/hour.
+The required number of AGVs is:
+	
+AN = WL
+AT = 39.76
+58.806 = 0.676.
+Rounding up yields:
+Fig. 3.  Sketch of the factory (machines and routes between stations).
+ 
+Scientific Reports |        (2026) 16:16797 
+10
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+	
+ANr = 1.
+Thus, a single AGV is sufficient to perform the inspection task within the required hourly frequency.
+Baseline comparison with classical analytical fleet sizing
+Without correction factors (A = Ft = Ew = 1):
+	
+ATbaseline = 60 min/hour,
+	
+ANbaseline = 39.76
+60
+= 0.663.
+Because availability and traffic factors are close to unity in this case, the baseline and proposed model yield 
+nearly identical results. This confirms that the correction factors primarily influence fleet size when operational 
+inefficiencies are significant.
+Sensitivity analysis
+To evaluate robustness, key parameters were varied individually while keeping the remaining parameters 
+constant.
+Traffic factor variation
+•	 Ft = 0.9 ⇒ AT = 53.46 min/hour ⇒ AN = 0.744
+•	 Ft = 0.8 ⇒ AT = 47.52 min/hour ⇒ AN = 0.837
+Even with substantial congestion effects, the required number of agents remains below 1, and rounding still 
+results in a single AGV.
+Availability variation
+•	 A = 0.9 ⇒ AT = 53.46 min/hour ⇒ AN = 0.744
+•	 A = 0.8 ⇒ AT = 47.52 min/hour ⇒ AN = 0.837
+The proportional relationship between AN and 1/(AFtEw) is preserved, and the model response remains stable.
+Speed variation (±10%)
+The cycle time is given by:
+	
+TC = TL + TU + Ld + Le
+vc
+.
+Only the transport component depends on vc, while handling times remain constant.
+•	 vc = 58.5 m/min (−10%) ⇒ TC ≈1.89 min ⇒ WL ≈41.6 min/hour ⇒ AN ≈0.707
+•	 vc = 71.5 m/min (+10%) ⇒ TC ≈1.74 min ⇒ WL ≈38.0 min/hour ⇒ AN ≈0.646
+The relationship is monotonic and consistent with the analytical formulation. Moderate speed variations do not 
+cause threshold instability.
+	
+AN ∝
+1
+AFtEw .
+The rounding boundary lies at AN = 1. Even under conservative parameter assumptions, the analytical result 
+consistently supports a single AGV solution.
+Operational confirmation
+In practice, a single AGV was deployed for warehouse inspection. The analytical prediction (AN = 0.676, rounded 
+to 1) matches the observed operational deployment. No additional AGVs were required to meet inspection 
+frequency requirements. The result is therefore operationally consistent with real industrial conditions.
+Quantitative consistency assessment
+To further examine the quantitative consistency of the analytical estimation with observed deployment, a 
+utilization-based assessment was performed. The analytically predicted continuous fleet size was:
+	
+AN = 0.676.
+In practice, one AGV is deployed for warehouse inspection. The corresponding utilization level can therefore 
+be expressed as:
+	
+U = WL
+AT = 39.76
+58.806 = 0.676.
+Scientific Reports |        (2026) 16:16797 
+11
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+This corresponds to an effective utilization of approximately 67.6%, indicating that the deployed AGV operates 
+with a stable capacity margin under steady-state inspection requirements. Considering the rounded fleet-size 
+recommendation:
+	
+ANr = ⌈0.676⌉= 1,
+the relative deviation between the analytically recommended discrete fleet size and the observed deployment is:
+	
+δ = |1 −1|
+1
+= 0.
+This indicates full agreement between the analytical fleet-sizing recommendation and the implemented industrial 
+solution. While the model does not claim formal optimality, the quantitative correspondence demonstrates that 
+the deterministic steady-state formulation yields consistent and practically applicable fleet-size estimates under 
+the specified operating conditions.
+Demand scaling scenario analysis
+To further evaluate the analytical behavior of the inspection model, a proportional demand-scaling scenario 
+was examined. Because the required number of agents is directly proportional to the inspection demand w, a 
+uniform scaling of all flow matrix elements results in a proportional scaling of workload:
+	
+WL ∝w,
+AN ∝w.
+The cycle time TC and available time AT remain unchanged under proportional scaling, since average travel 
+distances per delivery and operational parameters are unaffected.
+Scenario 1 (+20% inspection demand)
+	
+WL+20% = 1.2 · 39.76 = 47.71 min/hour.
+	
+AN+20% = 1.2 · 0.676 = 0.811.
+Rounding yields:
+	
+ANr,+20% = 1.
+Scenario 2 (+50% inspection demand)
+	
+WL+50% = 1.5 · 39.76 = 59.64 min/hour.
+	
+AN+50% = 1.5 · 0.676 = 1.014.
+Rounding yields:
+	
+ANr,+50% = 2.
+The results confirm the linear scaling behavior of the analytical formulation. Under moderate demand growth 
+(+20%), a single AGV remains sufficient. A substantial demand increase (+50%) leads to a transition across the 
+rounding threshold, requiring a second AGV. This predictable and monotonic behavior supports the suitability 
+of the deterministic steady-state formulation for capacity planning and inspection-frequency scaling.
+Analytical error bound assessment
+Applying the analytical robustness bound introduced in Section “Examples” for Example 1 and assuming a 
+conservative ±5% uncertainty in the operational parameters A, Ft, and Ew, the upper bound of the fleet size 
+becomes:
+	
+AN = 0.676 ⇒ANmax ≈0.789.
+This value remains below the rounding threshold of one agent. Therefore, moderate parameter estimation 
+uncertainties do not affect the final discrete fleet-sizing recommendation.
+Conclusion
+This study presented a deterministic analytical fleet-sizing method for estimating the required number of 
+logistics agents under steady-state operating conditions. The proposed approach extends a classical analytical 
+formulation by incorporating matrix-based representations of material flows and distances together with 
+operational correction factors reflecting availability, traffic influence and human efficiency. The method does not 
+formulate a formal optimization problem with explicit objective functions and constraints, rather, it provides a 
+structured and transparent capacity estimation framework suitable for early-stage logistics planning and system 
+scaling.
+The methodology was implemented as an independent Docker-based service and evaluated through two 
+industrial case studies within the Better Factory project. In both cases, the analytically estimated fleet size was 
+Scientific Reports |        (2026) 16:16797 
+12
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+consistent with observed operational deployment. The validation does not rely solely on post-hoc agreement 
+with observed deployment, but is further supported by consistency analysis, utilization-based evaluation, 
+demand scaling scenarios and analytical error bounds, which together demonstrate robustness of the proposed 
+formulation under varying operating conditions.
+The proposed approach operates under clearly defined assumptions, including steady-state deterministic 
+flows, predefined routes and aggregated representation of operational variability. It is therefore intended primarily 
+as a capacity planning and decision-support tool rather than a substitute for detailed dynamic simulation. In 
+systems characterized by highly stochastic demand patterns, complex routing conflicts or queueing phenomena, 
+complementary simulation-based validation may be appropriate.
+Future work will focus on extending the framework in several directions. Incorporation of stochastic flow 
+models and variability analysis will enhance applicability in non-steady-state environments for real time 
+demands. Integration with broader digital twin architectures may allow hybrid analytical–simulation workflows 
+that combine computational efficiency with dynamic accuracy.
+Overall, the presented analytical method contributes a transparent and accessible fleet-sizing tool that 
+can support logistics planning decisions, particularly in SMEs where interpretability, ease of deployment and 
+reproducibility are critical.
+Data availability
+All data supporting the findings of this study are available within the article itself.
+Code availability
+The source code of the Agent Optimization module is publicly available at: ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​r​a​m​p​-​e​u​/​A​g​e​n​t​
+_​O​p​t​i​m​i​s​a​t​i​o​n​_​S​e​r​v​i​c​e. Additional information about the application is available at: ​h​t​t​p​s​:​/​/​b​e​t​t​e​r​f​a​c​t​o​r​y​.​e​u​/​a​p​
+p​s​/​a​g​e​n​t​-​o​p​t​i​m​i​z​a​t​i​o​n​.​
+Received: 7 October 2025; Accepted: 24 March 2026
+References
+	 1.	 L4MS. Open platform for innovations in logistcs. ​h​t​t​p​s​:​/​/​o​p​i​l​-​d​o​c​u​m​e​n​t​a​t​i​o​n​.​r​e​a​d​t​h​e​d​o​c​s​.​i​o​/​e​n​/​l​a​t​e​s​t​/ [Accessed: (July 8, 2022)].
+	 2.	 Rodrigue, J.-P. The Geography of Transport Systems (Routledge, London, 2024), 6th edition edn. First published: 2024; eBook 
+published: 30 April 2024.
+	 3.	 Dekhne, A., Hastings, G., Murnane, J. & Neuhaus, F. Automation in logistics: Big opportunity, bigger uncertainty. McKinsey 1–12 
+(2019).
+	 4.	 Nitsche, B., Straube, F. & Wirth, M. Application areas and antecedents of automation in logistics and supply chain management: A 
+conceptual framework. Supply Chain Forum: An International Journal 22, 223–239. ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​1​0​8​0​/​1​6​2​5​8​3​1​2​.​2​0​2​1​.​1​9​3​4​1​
+0​6​ (2021).
+	 5.	 Stefanini. Top 5 ways to optimize logistics management. ​h​t​t​p​s​:​/​/​s​t​e​f​a​n​i​n​i​.​c​o​m​/​e​n​/​t​r​e​n​d​s​/​n​e​w​s​/​t​o​p​-​5​-​w​a​y​s​-​t​o​-​o​p​t​i​m​i​z​e​-​l​o​g​i​s​t​i​c​
+s​-​m​a​n​a​g​e​m​e​n​t [Accessed: (July 8, 2022)].
+	 6.	 Semini, M., Fauske, H. & Strandhagen, J. O. Applications of discrete-event simulation to support manufacturing logistics decision-
+making: A survey. In Proceedings of the 2006 Winter Simulation Conference, 1946–1953, ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​1​1​0​9​/​W​S​C​.​2​0​0​6​.​3​2​2​
+9​7​9​ (2006).
+	 7.	 PLM. Optimize production logistics & material flow - simulate logistics and material flow for improved system performance. ​w​w​w​
+.​p​l​m​.​a​u​t​o​m​a​t​i​o​n​.​s​i​e​m​e​n​s​.​c​o​m​/​g​l​o​b​a​l​/​e​n​/​p​r​o​d​u​c​t​s​/​t​e​c​n​o​m​a​t​i​x​/​l​o​g​i​s​t​i​c​s​-​m​a​t​e​r​i​a​l​-​f​l​o​w​-​s​i​m​u​l​a​t​i​o​n​.​h​t​m​l [Accessed: (July 8, 2022)].
+	 8.	 Pekarcikova, M., Trebuna, P., Kliment, M. & Dic, M. Solution of bottlenecks in the logistics flow by applying the kanban module in 
+the tecnomatix plant simulation software. Sustainability 13, 7989. https://doi.org/10.3390/su13147989 (2021).
+	 9.	 Yu, F. & Zheng, C. Tools, application areas and challenges of factory simulation in small and medium-sized enterprises – A review. 
+Procedia CIRP https://doi.org/10.1016/j.procir.2021.11.067 (2021).
+	10.	 Restrepo-Morales, J. A. et al. Breaking the digitalization barrier for smes: a fuzzy logic approach to overcoming challenges in 
+business transformation. Journal of Innovation and Entrepreneurship https://doi.org/10.1186/s13731-024-00429-w (2024).
+	11.	 Brink, H. & Packmohr, S. Barriers to digital transformation in smes: A quantitative study. In Emerging Technologies and Business 
+Innovation (2025).
+	12.	 Russkikh, P. A. & Kapulin, D. V. Simulation modeling for optimal production planning using tecnomatix software. Journal of 
+Physics: Conference Series 1661, 1–7. https://doi.org/10.1088/1742-6596/1661/1/012188 (2020).
+	13.	 Laemmle, A. & Gust, S. Automatic layout generation of robotic production cells in a 3D manufacturing simulation environment. 
+Procedia CIRP 84, 316–321. https://doi.org/10.1016/j.procir.2019.04.207 (2019).
+	14.	 Zhong, H., Zhang, X., Hu, J., Liu, S. & Liu, X. Productivity analysis and optimization of aircraft assembly line based on delmia-
+quest. Asia-Pacific International Symposium on Aerospace Technology 459, 1150–1159. ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​0​.​1​0​0​7​/​9​7​8​-​9​8​1​-​1​3​-​3​3​0​5​-​7​
+_​9​1​ (2018).
+	15.	 Seder, M. et al. Open platform based mobile robot control for automation in manufacturing logistics. IFAC-PapersOnLine 52, 
+95–100. https://doi.org/10.1016/j.ifacol.2019.11.055 (2019).
+	16.	 Yildiz, T. Optimization of Logistics: Theory & Practice 1 edn. (Turkay Yildiz, 2014).
+	17.	 Chawla, V. K., Chanda, A. K. & Surjit, A. Automatic guided vehicles fleet size optimization for flexible manufacturing system by 
+grey wolf optimization algorithm. Management Science Letters 8, 79–90. https://doi.org/10.5267/j.msl.2017.12.004 (2018).
+	18.	 Pjevcevic, D., Nikolic, M., Vidic, N. & Vukadinovic, K. Data envelopment analysis of AGV fleet sizing at a port container terminal. 
+Int. J. Prod. Res. 55, 4021–4034. https://doi.org/10.1080/00207543.2016.1241445 (2017).
+	19.	 Erdogan, D. & Tasan, S. Developing an Optimization Model to Determine Fleet Size of Automated Guided Vehicle, 3–17 (Springer 
+Nature, 2023).
+	20.	 Şenaras, O. M., Solmaz, E., Öztürk, N. & Öztürk, F. Determination of the fleet size of agvs with agv pools using a genetic algorithm 
+and artificial intelligence. Applied Sciences https://doi.org/10.3390/app13137994 (2023).
+	21.	 Groover, M. P. Automation, production systems, and computer-integrated manufacturing (Pearson, 2015).
+	22.	 Consortium, B. F. Agent optimization module – better factory project. https://betterfactory.eu/apps/agent-optimization/ (2024). 
+Accessed: 2026.
+Scientific Reports |        (2026) 16:16797 
+13
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/
+Acknowledgements
+This work has been supported by Grow your manufacturing business - Better Factory, Grant agreement ID 
+951813, DOI 10.3030/951813.
+Author contributions
+Ladislav Körösi (L.K.) and František Duchoň (F.D.) contributed equally to the conception, design, and execution 
+of the study. Material preparation, data collection, analysis, and drafting of the manuscript were performed col­
+laboratively by both authors. Final approval of the manuscript was granted by both authors.
+Declarations
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary Information The online version contains supplementary material available at ​h​t​t​p​s​:​/​/​d​o​i​.​o​r​g​/​1​
+0​.​1​0​3​8​/​s​4​1​5​9​8​-​0​2​6​-​4​6​1​4​8​-​y​.​
+Correspondence and requests for materials should be addressed to L.K.
+Reprints and permissions information is available at www.nature.com/reprints.
+Publisher’s note  Springer Nature remains neutral with regard to jurisdictional claims in published maps and 
+institutional affiliations.
+Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which 
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give 
+appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and 
+indicate if changes were made. The images or other third party material in this article are included in the article’s 
+Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included 
+in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or 
+exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy 
+of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+© The Author(s) 2026 
+Scientific Reports |        (2026) 16:16797 
+14
+| https://doi.org/10.1038/s41598-026-46148-y
+www.nature.com/scientificreports/

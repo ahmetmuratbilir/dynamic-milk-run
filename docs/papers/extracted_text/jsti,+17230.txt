@@ -1,0 +1,715 @@
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–20 
+ 
+Jurnal Sistem Teknik Industri  
+Journal homepage: https://talenta.usu.ac.id/jsti  
+ 
+VRPTW Distribution Route Determination with Rigid and Flexible 
+Time Window and Assignment Based on Number of Demand 
+Muhammad Zidanne 1 , Fikri Keynobi1
+ , Eri Wirdianto*1 
+1Department of Industrial Engineering, Faculty of Engineering, Universitas Andalas, Limau Manis, Pauh, Padang, 
+25175, Indonesia 
+*Corresponding Author: E.Wirdianto@gmail.com 
+ 
+ARTICLE   INFO 
+ 
+ABSTRACT 
+Article history: 
+Received 7 July 2024  
+Revised 10 December 2024  
+Accepted 26 December 2024 
+Available online 29 January 2025 
+ 
+E-ISSN: 2527-9408 
+P-ISSN: 1411-5247 
+ 
+Vehicle routing problems (VRP) are common in many companies and play an 
+important role in distribution and logistics. Effective routing can significantly 
+reduce expenses and increase customer satisfaction. The research entitled 
+"Determining VRPTW Distribution Routes with Rigid and Flexible Time 
+Windows and Assigning Based on the Demand Numbers" will solve the modified 
+vehicle routing problem with time window (VRPTW) problem by considering 
+constraints on vehicle capacity, delay times, penalty fees for delays, rigid and 
+flexible time windows, and demand numbers. There is one origin depot for the 
+company that will serve their 15 customers. The method used to overcome the 
+problem is mixed-integer linear programming (MILP). In general, this research 
+classifies time windows into three groups, namely rigid, flexible, and rigid and 
+flexible. The time window model chosen is a rigid time window with a cost of 
+IDR 561,965 and no customers are served late. The rigid time window model was 
+chosen because no customers are served late and the cost difference is not 
+significant or can be said to be very small compared to other time window models. 
+Keyword: Transportation, Route, VRPTW, Rigid and Flexible TW, MILP 
+ 
+How to cite:  
+Zidanne, M., Keynobi, F., & 
+Wirdianto, E., (2025).  VRPTW 
+Distribution Route Determination 
+with Rigid and Flexible Time 
+Window and Assignment Based 
+on Number of Demand. Jurnal 
+Sistem Teknik Industri, 27(1), 14-
+20. 
+ABSTRAK 
+Masalah vehicle routing problem (VRP) lazim terjadi di banyak perusahaan dan 
+memainkan peran penting dalam distribusi dan logistik. Rute yang efektif dapat 
+secara signifikan mengurangi pengeluaran dan meningkatkan kepuasan 
+pelanggan. Penelitian yang berjudul “Penentuan Rute Distribusi VRPTW dengan 
+Jendela Waktu Kaku dan Fleksibel serta Penugasan Berdasarkan Jumlah 
+Permintaan” ini akan mencari solusi untuk kasus VRPTW yang dimodifikasi 
+dengan mempertimbangkan constraints jenis kendaraan dan kapasitasnya, waktu 
+keterlambatan,  biaya penalti untuk keterlambatan, time window kaku dan 
+fleksibel, jarak, dan jumlah permintaan. Terdapat satu depot asal untuk 
+perusahaan yang akan melayani 15 pelanggannya. Metode yang digunakan untuk 
+menyelesaikan permasalahan adalah mixed-integer linear programming (MILP). 
+Secara umum, penelitian ini mengklasifikasikan time window ke dalam tiga 
+kelompok, yaitu kaku, fleksibel, dan kaku dan fleksibel. Model time window yang 
+terpilih adalah time window kaku dengan biaya Rp561.965. Model time window 
+kaku terpilih karena tidak ada pelanggan yang terlambat dilayani serta selisih 
+biaya yang tidak signifikan atau bisa dikatakan sangat kecil dibandingkan model 
+time window lainnya.  
+Keyword: Transportasi, Rute, VRPTW, Kaku dan Fleksibel, MILP 
+  
+ 
+This work is licensed under a Creative 
+Commons Attribution-ShareAlike 4.0 
+International.   
+http://doi.org/10.26594/register.v6i1.idarticle 
+1. Introduction 
+Vehicle routing problem (VRP) aims to identify the optimal route to deliver goods from distribution centers 
+to various destinations by minimizing costs [1]. This problem is prevalent in many companies and plays a 
+crucial role in distribution and logistics. Effective routes can significantly reduce expenses and increase 
+customer satisfaction. Transportation plays a crucial role in the effectiveness of the process in distribution. In 
+VRP, the goal is to find a route, starting and ending in the single place, to visit some destinations. The capacity 
+of both depots and vehicles affects the design of routes that meet all customer demands. 
+ 
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+15 
+Several complex variations of the classic VRP have been developed, including vehicle routing problem with 
+time window (VRPTW) [2]. VRPTW is a complex combinatorial optimization challenge in the field of 
+logistics and distribution, where the objective is to find a series of optimal routes for a fleet of vehicles to serve 
+a set of customers within a given time frame [3]. Each vehicle starts from the central depot, delivers goods to 
+a subset of customers, and returns to the depot, while adhering to restrictions such as vehicle capacity and 
+customer time windows [4]. This problem extends the classic VRP by including a time constraint, making it 
+more difficult to solve. Various exact and heuristic methods, such as branch-and-bound, genetic algorithms, 
+and simulated annealing, have been developed to address VRPTW due to its NP-hard nature. An effective 
+solution for VRPTW is essential to reduce operational costs, improve customer satisfaction, and improve 
+overall efficiency in logistics operations [5]. VRPTW applications can be found in a variety of industries, 
+including transportation, delivery services, and supply chain management. Advances in computational 
+techniques and algorithms continue to drive progress in completing VRPTW.  
+Mixed-integer linear programming (MILP) is an optimization method used to determine the best possible 
+solution for an issue by maximizing or minimizing the function of the goal while meeting a set of constraints 
+[6]. MILP combines linear programming (LP) and integer programming (IP), where some of the decision 
+variables are integers and others are real (continuous) numbers [7]. Although MILP can be used to complete 
+VRPTW, it usually requires a long computational time [8]. 
+VRP have many practical implementations, especially for transportation and distribution, which increase 
+efficiency and reduce shipping costs [9]. Yang et al [6] proposed a MILP model for this problem, with the goal 
+of reducing overall fixed and variable costs. The results of this study show that MILP model uncover the best 
+solution and provide a reliable viable solution for small-to-medium businesses. 
+Dondo et al [10] developed a new model-based improvement methodology for VRPTW problems with 
+multi-depot heterogeneous fleets to improve the initial solution through the solution of a series of MILP 
+mathematical problems that allow inter-tour node exchange and node reordering on each route. Kenaka et al 
+[11] proposed a VRPTW model and combined it with multiple trips (VRPMTTW) to compare the 
+environmental structure applied in local search (LS) for VRPMTTW. Bouyahyiouy et al [12] using the problem 
+of full-load, multi-depot, and window-of-time vehicle routing (SFTMDVRPTW) to develop a solution in 
+which a series of truck routes serve a selected portion of a select number of full-load orders to maximize the 
+total profit earned from those orders. For data processing, the results of the computation were performed on a 
+new dataset containing 30 randomly generated instances of problems ranging from 16 to 30 orders using the 
+CPLEX software. The findings prove that their model has provided a good solution in a reasonable time. 
+Comert et al [13] proposed a new approach to VRP problems by combining them with hard time windows 
+(VRPHTW). Comert et al [13] using this approach to solve the problem of supermarket chains in India. Rave 
+et al [14] proposed a model by solving the problem of determining route location with time windows and load-
+dependent travel times. They formulated this problem as a mixed integer linear program and introduced 
+adaptive large environment search with problem-specific procedures for micro hub placement and problem-
+specific operators to solve larger instances. 
+This study addresses a modified Vehicle Routing Problem with Time Windows (VRPTW) by incorporating 
+constraints such as vehicle capacity, delay times, penalty fees for delays, rigid and flexible time windows, and 
+demand quantities. The model explores whether allowing delays, by introducing flexible time windows, can 
+lead to more optimal routing solutions. Any delays incurred are penalized through a fee structure within the 
+model. There is one original depot for the company that will serve its 15 customers. The company wants to 
+minimize transportation and penalty costs that must be incurred to meet customer demand. Until now, no 
+previous research related to VRPTW has been found that considers rigid and flexible time, penalty costs, 
+vehicle types, and distance.  
+2. Research Method 
+2.1. Defining the problem 
+The initial step in solving route optimization and scheduling problems is to define and describe the problem. 
+The problem that will be solved in this study is to minimize the transportation and penalty costs that will be 
+passed by a company to its customers by considering vehicle capacity, delay times, penalty fees for delays, 
+rigid and flexible time windows, distance, and demand numbers. This model is necessary to determine whether 
+allowing time windows to be delayed within a certain range can result in significantly better routing solutions. 
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+16 
+The problem consists of 1 depot and 15 customers. The number of vehicles used is as many as 2 vehicles with 
+the capacity of vehicle 1 smaller than the capacity of vehicle 2. Then, vehicle 1 can only serve customers 
+whose demand are less or equal to 10 kg. Complete data can be seen in Appendix A. The problem will be 
+solved by the exact MILP method and compared with the formulation of VRPTW with flexible time and 
+VRPTW with rigid time. 
+2.2. Formulating problems 
+The next stage is to formulate the problem based on the method used, namely mixed-integer linear 
+programming (MILP).  
+2.3. Running formulations on LINGO software 
+Pre-designed formulations are tested or run using LINGO software to obtain results. Testing on the LINGO 
+software was carried out on 3 times window conditions, namely rigid, flexible, and rigid and flexible. A rigid 
+time window represents a model where exceeding the time window is not permitted. The flexible time window 
+allows the time window to be exceeded without any time restrictions. Finally, the combined rigid and flexible 
+time window model allows for exceeding the time window, but only within a specified time range. 
+2.4. Drawing conclusions 
+Conclusions are made after the results of LINGO are obtained In this conclusion, it is also determined 
+which is the most optimal and feasible solution. 
+3. Result and Discussions 
+The observed system in this study is a modified Vehicle Routing Problem with Time Windows (VRPTW), 
+which incorporates constraints such as vehicle capacity, delay times, penalty fees for delays, rigid and flexible 
+time windows, distance, and demand quantities. The model assumes that vehicles must adhere to the specified 
+capacity, with penalties applied for any delays. The process begins by determining the optimal route based on 
+the time window conditions: rigid, flexible, or a combination of both. Following the system definition, a 
+mathematical model is developed to optimize vehicle routes under these conditions. 
+ 
+The notation used to formulate the modified VRPTW problem is described as follows: 
+𝑣𝑐𝑜𝑠𝑡  = Transportation cost per km 
+𝑖 
+= Starting point or customer being served 
+𝑗 
+= Destination or the next customer to be served 
+𝑘 
+= Represents the index of the vehicle used to serve the route from i to j 
+𝑐𝑖𝑗  
+ = Distance from point i to point 𝑗 
+𝑥𝑖𝑗𝑘   = A binary variable that indicates whether vehicle k takes a route from location i to location j 
+𝑃  
+ = Penalty fee per minute 
+𝑙𝑖𝑘
+′  
+ = Delay time at location i for vehicles k 
+𝑑𝑖  
+ = Number of customer requests i (unit) 
+𝑄  
+ = Vehicle capacity (unit) 
+𝑉 
+= The set of i and j 
+K 
+= The set of k 
+𝑦𝑖𝑘   = Arrival time at location i for vehicles k 
+𝑠𝑖  
+ = Service time at the destination i (minute) 
+𝑡𝑖𝑗  
+ = Travel time from point i to point j (minute) 
+𝑀  
+ = Large constant (big-M) 
+𝑎𝑖  
+ = The start time window time at point i (minutes measured from the beginning of distribution process) 
+𝑏𝑖  
+ = End time window at point i (minutes measured from the beginning of distribution process) 
+𝑤  
+ = The maximum number of requests that a vehicle can serve (unit) 
+𝐵 
+= The maximum demand from a customer that can be carried by vehicle 1 
+ 
+The formulation of the modified VRPTW model is shown as follows: 
+Objective Function 
+ 
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+17 
+Min= ∑
+∑
+∑
+vcostk.cij.xijk
+j∈V
+i∈V
+k∈K
++P. ∑
+∑
+lik
+'
+i∈V
+k∈K
+   
+ 
+ 
+ 
+ 
+ 
+ 
+(1) 
+Constraints 
+∑
+∑
+xijk
+j∈V
+k∈K
+=1 ∀i ∈V \{0}  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(2) 
+∑
+x0jk
+j∈V
+=1 ∀k ∈K  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(3) 
+∑
+xi0k
+i∈V
+=1 ∀k ∈K  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(4) 
+∑
+xijk
+j∈V
+- ∑
+xjik
+j∈V
+=0  ∀k ∈K, ∀i ∈V \{0}  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(5) 
+∑
+di
+i∈V
+∑
+xijk
+j∈V
+ ≤ Q  ∀k ∈K  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(6) 
+yik+si  +tij - M(1-xijk) ≤yjk  ∀k ∈K, ∀i ∈V, ∀j∈V, i ≠j  
+ 
+ 
+ 
+ 
+ 
+ 
+(7) 
+ai≤yik   ∀k ∈K, ∀i ∈V 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(8) 
+yik+si ≤bi+lik
+'  ∀k ∈K, ∀i ∈V  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(9) 
+lik
+' ≤B ∀k ∈K, ∀i ∈V  
+   
+ 
+ 
+ 
+ 
+ 
+             (10) 
+∑
+xij1
+i∈V
+.dj <=w ∀j ∈V \{0}  
+      
+ 
+ 
+ 
+ 
+ 
+             (11) 
+xijk={0, 1}  
+       
+ 
+ 
+ 
+ 
+ 
+             (12) 
+ 
+Equation (1) is a function of the goal to minimize transportation costs and penalty costs. Furthermore, 
+equation (2) ensures each customer is visited only once. Equations (3) and (4) show that each vehicle must exit 
+the depot and return to the depot. In addition, equation (5) ensures the consistency of vehicle flow. Equation 
+(6) confirms the limit of vehicle capacity. Further, equation (7) explains the time of arrival and service. Then, 
+equation (8) confirms that the customer must arrive after the time window is opened. Equation (9) explains 
+that the service must be completed before the window closes or is allowed to pass but is subject to a penalty. 
+Meanwhile, equation (10) explains the maximum time of delay. Furthermore, equation (11) confirms that 
+vehicle 1 can only serve a customer with a certain number of requests. Finally, equation (12) explains that the 
+decision variable must have a value of 0 or 1.  
+The modification of the VRPTW formulation carried out includes equations (1), (10), and (11). Equation 
+(1) shows the function of objectives to minimize the total cost of transportation and penalty costs. 
+Transportation costs are obtained by multiplying the cost of vehicle transportation per kilometer by the distance 
+traveled. The penalty cost is obtained by multiplying the penalty cost per minute by the total delay time. 
+Furthermore, equation (10) limits the maximum delay of delivery only to a certain time. This equation allows 
+the vehicle to go beyond the time window, but the delay of the vehicle is not too long. In addition, equation 
+(11) shows that vehicle 1 can only serve a certain number of customers with a certain number of requests.  
+Next, the model is tested by solving problems on the Solomon dataset VRPTW R101 customer number 1 - 
+16. The data contained in the Solomon data is incomplete, so changes are made so that the data set matches 
+the problem to be solved. A comparison of the results for each model using the Lingo software can be seen in 
+Table 1. 
+Table 1. Comparison of Results for Each Model 
+Information 
+Flexible Time 
+Window 
+Rigid Time Window 
+Flexible and Rigid 
+Time Windows 
+Computation Time 
+(Second) 
+413.26 
+220.97 
+530.79 
+Objective Function 
+Value (Rp) 
+541,897 
+561,965 
+545,142 
+Number of Delay 
+1 Customer - 83 
+minutes 
+- 
+1 Customer - 31 
+minutes 
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+18 
+ VRPTW models with rigid and flexible time windows have longer compute times than flexible time 
+window models or rigid time window models. However, the value of the objective function and the delay time 
+provided by the rigid and flexible time window model is more reasonable. The rigid and flexible time window 
+model limits the delay time to a maximum of 60 minutes so that the resulting solution does not allow delays 
+of more than 60 minutes. The resulting values of each decision variable for each time window model can be 
+seen in Appendix B. A visualization of the plot of the solution results from the three types of models can be 
+seen in Figure 1 below. 
+ 
+ 
+  (a)                                                                                 (b) 
+ 
+(c) 
+Figure 1. (a) Comparison of VRPTW Solution Results with Rigid and Flexible Time Window; (b) Rigid; and 
+(c) Flexible. 
+4. Conclusion 
+VRP problems are common problems faced by companies or business people in serving customers. There 
+are many types of route problems, one of which is VRPTW which is modified with some additional constraints. 
+In this study, the problem of modified VRPTW is solved by considering the constraints of vehicle capacity, 
+delay time, penalty fee for delay, rigid and flexible time window, and number of requests.  
+In general, this study solves the VRPTW problem of a company by classifying the time window into three 
+groups, namely rigid, flexible, and rigid and flexible. Based on the three types of time window models, the 
+results were obtained: a total cost of Rp 541,897 and 1 customer was served late for 83 minutes for the flexible 
+time window model, the cost was Rp 561,965 and no customer was served late for the rigid time window 
+model, and finally for the rigid and flexible time window model a total cost of Rp 545,142 and 1 customer was 
+served late for 31 minutes.  Each model has its own advantages, but the rigid time window model provides a 
+solution that there is no customer served late and the cost difference is not significant or can be said to be very 
+small compared to other time window models. 
+References 
+[1] Y. Dumas, J. Desrosiers, and F. Soumis, “The pickup and delivery problem with time windows,” Eur J 
+Oper Res, vol. 54, pp. 7–22, 1991. 
+[2] M. Mahmoudi and X. Zhou, “Finding optimal solutions for vehicle routing problem with pickup and 
+delivery services with time windows: A dynamic programming approach based on state-space-time 
+network representations,” Transportation Research Part B: Methodological, vol. 89, pp. 19–42, Jul. 2016, 
+doi: 10.1016/j.trb.2016.03.009. 
+[3] M. M. Solomon, “ALGORITHMS FOR THE VEHICLE ROUTING AND SCHEDULING PROBLEMS 
+WITH TIME WINDOW CONSTRAINTS,” Oper Res, vol. 35, no. 2, pp. 254–266, 1987. 
+VRPTW with Rigid and Flexible Time 
+Window
+K1
+K2
+VRPTW with Rigid Time Window
+K1
+K2
+VRPTW with Flexible Time 
+Window
+K1
+K2
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+19 
+[4] O. Bräysy and M. Gendreau, “Vehicle routing problem with time windows, Part I: Route construction and 
+local search algorithms,” Transportation Science, vol. 39, no. 1, pp. 104–118, 2005, doi: 
+10.1287/trsc.1030.0056. 
+[5] Y. Molenbruch, K. Braekers, and A. Caris, “Typology and literature review for dial-a-ride problems,” 
+Ann Oper Res, vol. 259, no. 1–2, pp. 295–325, Dec. 2017, doi: 10.1007/s10479-017-2525-0. 
+[6] X. Yang, N. Bostel, and P. Dejax, “A MILP model and memetic algorithm for the Hub Location and 
+Routing problem with distinct collection and delivery tours,” Comput Ind Eng, vol. 135, pp. 105–119, 
+Sep. 2019, doi: 10.1016/j.cie.2019.05.038. 
+[7] P. Toth and D. Vigo, THE VEHICLE ROUTING PROBLEM. Philadelphia: Society for Industrial and 
+Applied Mathematics., 2002. 
+[8] R. Liu and Z. Jiang, “A hybrid large-neighborhood search algorithm for the cumulative capacitated 
+vehicle routing problem with time-window constraints,” Applied Soft Computing Journal, vol. 80, pp. 
+18–30, Jul. 2019, doi: 10.1016/j.asoc.2019.03.008. 
+[9] M. F. Ibrahim, M. M. Putri, D. Farista, and D. M. Utama, “An Improved Genetic Algorithm for Vehicle 
+Routing Problem Pick-up and Delivery with Time Windows,” Jurnal Teknik Industri, vol. 22, no. 1, pp. 
+1–17, Feb. 2021, doi: 10.22219/jtiumm.vol22.no1.1-17. 
+[10] R. Dondo and J. Cerda´intec, “A reactive MILP approach to the multidepot heterogeneous fleet vehicle 
+routing problem with time windows,” Intl. Trans in Op. Res., vol. 13, pp. 441–459, 2006. 
+[11] S. P. Kenaka and S. Suprayogi, “Comparison Study of Neighborhood Structures in Local Search for 
+Vehicle Routing Problem with Multiple Trips and Time Windows,” Jurnal Teknik Industri, vol. 23, no. 
+2, pp. 161–170, Dec. 2021, doi: 10.9744/jti.23.2.161-170. 
+[12] K. El Bouyahyiouy and A. Bellabdaoui, “A mixed-integer linear programming model for the selective 
+full-truckload multi-depot vehicle routing problem with time windows,” Decision Science Letters, vol. 
+10, no. 4, pp. 471–486, 2021, doi: 10.5267/j.dsl.2021.7.002. 
+[13] S. E. Cömert, H. R. Yazgan, I. Sertvuran, and H. Şengül, “A new approach for solution of vehicle routing 
+problem with hard time window: an application in a supermarket chain,” Sadhana - Academy Proceedings 
+in Engineering Sciences, vol. 42, no. 12, pp. 2067–2080, Dec. 2017, doi: 10.1007/s12046-017-0754-1. 
+[14] A. Rave and P. Fontaine, “The location routing problem with time windows and load-dependent travel 
+times for cargo bikes,” 2024. [Online]. Available: https://ssrn.com/abstract=4813769 
+ 
+Appendix A. Data  
+Dataset 
+Customer 
+Coordinate-
+X 
+Coordinate-
+Y 
+Demand 
+Initial 
+Service Time 
+Final Service 
+Time 
+Service 
+Time 
+1 
+35 
+35 
+0 
+0 
+828 
+0 
+2 
+41 
+49 
+10 
+161 
+615.6 
+10 
+3 
+35 
+17 
+7 
+50 
+216 
+10 
+4 
+55 
+45 
+13 
+116 
+453.6 
+10 
+5 
+55 
+20 
+19 
+149 
+572.4 
+10 
+6 
+15 
+30 
+26 
+34 
+158.4 
+10 
+7 
+25 
+30 
+3 
+99 
+392.4 
+10 
+8 
+20 
+50 
+5 
+81 
+327.6 
+10 
+9 
+10 
+43 
+9 
+95 
+378 
+10 
+10 
+55 
+60 
+16 
+97 
+385.2 
+10 
+11 
+30 
+60 
+16 
+124 
+482.4 
+10 
+12 
+20 
+65 
+12 
+67 
+277.2 
+10 
+13 
+50 
+35 
+19 
+63 
+262.8 
+10 
+14 
+30 
+25 
+23 
+159 
+608.4 
+10 
+15 
+15 
+10 
+20 
+32 
+151.2 
+10 
+16 
+30 
+5 
+8 
+61 
+255.6 
+10 
+ 
+Dataset (Cont.) 
+ 
+Jurnal Sistem Teknik Industri Vol.27, No.1 (2025) 14–21 
+ 
+ 
+20 
+Data 
+Value 
+Vehicle Speed 
+40 Km/hour 
+Vehicle 1 Capacity 
+100 units 
+Vehicle 2 Capacity 
+300 units 
+Vehicle 1 Transportation Cost /Km 
+Rp 1000 
+Vehicle 2 Transportation Cost /Km 
+Rp 2000 
+Penalty Fee/Minute 
+Rp 500 
+Time Allowed to Be Late 
+60 minutes 
+ 
+Appendix B. Decision Variable Result 
+B.1. Decision Variable Result 
+VRPTW 
+Flexible and Rigid 
+Rigid 
+Flexible 
+K1 
+K2 
+K1 
+K2 
+K1 
+K2 
+1 
+1 
+1 
+1 
+1 
+1 
+3 
+15 
+7 
+6 
+7 
+15 
+16 
+6 
+9 
+15 
+16 
+6 
+7 
+12 
+8 
+16 
+3 
+9 
+9 
+11 
+1 
+3 
+1 
+8 
+8 
+10 
+ 
+13 
+ 
+12 
+2 
+4 
+2 
+11 
+1 
+13 
+12 
+2 
+ 
+5 
+11 
+10 
+14 
+10 
+4 
+1 
+4 
+13 
+ 
+5 
+5 
+14 
+14 
+1 
+1 
+ 
+ 

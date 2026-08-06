@@ -1,0 +1,1127 @@
+-128- 
+1-4244-2388-0/08/$20.00 ©2008 IEEE 
+ 
+ 
+ 
+ 
+Genetic Algorithm for Vehicle Routing Problem with Time Windows 
+and a Limited Number of Vehicles 
+ 
+WANG Xu-ping，XU Chuan-lei，HU Xiang-pei 
+Institute of Systems Engineering, Dalian University of Technology, P.R.China 116023 
+ 
+Abstract: This paper improves the mathematical 
+model for the vehicle routing problem with time 
+windows where a limited number of vehicles is given, 
+which not only reflects the feature of the limited number 
+of vehicles in the depot, but also is compatible with 
+VRPTW; redefines the distance between the customers 
+used in the customer clustering, designs the customer 
+clustering assignment algorithm, which can help achieve 
+the initialization of the genetic algorithm and provides a 
+new method for VRPTW customer clustering assignment; 
+proposes an improved chromosome representation on the 
+basis of customer, which can denote the different vehicle 
+number sent by the depot and the customers unserviced; 
+designs the genetic algorithm to solve m-VRPTW, and 
+proves the validity of the algorithm by the experiments. 
+Keywords: clustering analysis, genetic algorithm, 
+limited number of vehicles, vehicle routing problem with 
+time windows 
+ 
+1 Introduction  
+ 
+In recent years, with the maturity of VRPTW theory 
+and the rapid improvement of the computer hardware 
+performance, the study of VRPTW covers many fields, 
+and it is widely used in the shipping, aviation, 
+telecommunications, 
+electric 
+power, 
+industrial 
+management, and so on. The heuristic algorithm and 
+intelligent heuristics, such as genetic algorithm[1], tabu 
+search algorithm[2,3] and simulated annealing algorithm 
+[4,5], are proposed, and some good results are achieved. 
+The above researches about VRPTW, firstly assume 
+that there are enough vehicles to serve all the customers. 
+Actually, the number of vehicles is limited in the 
+logistics company. In practice, there may be some days 
+that the customers’ demands suddenly increase, but due 
+to the limited number of vehicles, there are no enough 
+vehicles to service all the customers, which requires that 
+the primary objective of the vehicle routing is no longer 
+the shortest distance or minimum cost, but the greatest 
+number of the customers serviced to pursuit the highest 
+                                                        
+Supported by the National Natural Science Foundation of 
+China (70671014, 70571009 and 70725004), Scientific and 
+Technology Key Research Project of Ministry of Education of 
+China (03052), and Foundation of Ministry of Education of 
+China for Doctoral Programs (20010141025) 
+degree of customer satisfaction. For the VRPTW with a 
+limited number of vehicles, the related researches are 
+only found in Lau H. C.[6] and Deng Wei[7]. Lau H. C.[6] 
+definites the m-VRPTW problem, and solves it using 
+nested tabu search algorithm for a two-stage solution. 
+Deng Wei[7] establishes the m-VRPTW mathematical 
+model, whose first goal is to serve the customers at the 
+greatest number and second goal is to get the total 
+distance at the least cost, and proposes the route 
+construction heuristic algorithm and the Tabu Search 
+algorithm for the problem. 
+At present, the literature that m-VRPTW is solved 
+by the genetic algorithm has not been seen. The paper 
+improves the mathematical model established by Deng 
+Wei[7], designs the customer clustering assignment 
+algorithm and the genetic algorithm, and proves the 
+validity of the algorithm by the experiments. 
+ 
+2 Problem description and mathematical 
+model 
+ 
+m-VRPTW can be stated as follows. Find a set of 
+closed routes, for a fleet of |V| vehicles (V=set of 
+available vehicles from the depot), servicing a set of 
+customers, from each depot at the minimum cost and the 
+least vehicle number when there are enough vehicles to 
+service all the customers; otherwise, find a set of closed 
+routes at the most number of customers. C is the set of 
+the customers. Indices i, j refer to customers and depots, 
+while index
+0 (
+ 
+1)
+i
+or i
+n
+= 
+=
++
+ refers to the depot; an 
+additional index k counts the vehicles (k=1, …,|V|), the 
+vehicles are initially located at the central depot. Each 
+customer i poses a demand di, and is bounded by the time 
+window [ETi, LTi] that models the earliest and latest time 
+that customer i can be serviced by a vehicle. Furthermore, 
+a service time, si is required for each customer i. Each 
+route originates and terminates at the depot, while each 
+customer is serviced exactly by one vehicle. There is a 
+travel time tij and a distance cij associated with the path 
+from customer (depot) i to customer (depot) j. Each route 
+must satisfy the capacity and the time window 
+constraints. The capacity constraint states that the total 
+quantity of goods delivered can not exceed the vehicle 
+capacity q. On the other hand, the time window 
+constraint imposes the following condition: a vehicle can 
+   
+2008 International Conference on Management Science & Engineering (15th) 
+September 10-12, 2008                            Long Beach, USA 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+-129-
+not service customer i before the lower bound ETi and 
+after the upper bound LTi. In addition, 
+{0,
+1}
+N
+C
+n
+=
+∪
++
+, 
+and sik is the time that the vehicle k services the customer 
+i. 
+The mathematical programming formulation of the 
+vehicle routing problem with time windows and a limited 
+number of vehicles requires a group of variables, which 
+models the sequence in which vehicles visit customers, 
+and it is defined as follows: 
+1 vehicle  travels from customer  
+to customer 
+0 otherwise
+ijk
+k
+i
+j
+x
+⎧    
+⎪
+=     
+⎨
+⎪    
+⎩
+ 
+ 
+Given the above-defined variables and parameters, 
+the problem can be formulated as follows: 
+0
+min
+,
+,
+ijk
+ij
+ijk
+jk
+k V i C j N
+k V i N j N
+k V j C
+x
+c
+x
+x
+⋅
+∈
+∈
+∈
+∈
+∈
+∈
+∈
+∈
+⎡
+⎤
+−
+⎢
+⎥
+⎣
+⎦
+∑∑∑
+∑∑∑
+∑∑
+ 
+(1) 
+s.t: 
+1
+ijk
+k V j N
+x
+∈
+∈
+≤
+∑∑
+ 
+i
+C
+∀∈
+  
+ 
+ 
+ 
+(2) 
+i
+ijk
+i C
+j N
+d
+x
+q
+∈
+∈
+≤
+∑∑
+  
+k
+V
+∀∈
+  
+ 
+ 
+(3) 
+0
+,
+1,
+,
+1
+1
+ik
+i n
+k
+i N
+i N i n
+x
+x
++
+∈
+∈
+≠+
+=
+≤
+∑
+∑
+ 
+k
+V
+∀∈
+  
+(4) 
+0
+ihk
+hjk
+i N
+j N
+x
+x
+∈
+∈
+−
+=
+∑
+∑
+ 
+,
+h
+C
+k
+V
+∀∈
+∀∈
+ 
+ 
+(5) 
+(1
+)
+ik
+ij
+ijk
+jk
+s
+t
+I
+x
+s
++
+−
+−
+≤
+ 
+,
+,
+1,
+0,
+i
+N
+j
+N i
+n
+j
+k
+V
+∀∈
+∀∈
+≠
++
+≠
+∀∈
+ 
+(6) 
+i
+ik
+i
+ET
+s
+LT
+≤
+≤
+  
+,
+i
+N
+k
+V
+∀∈
+∀∈
+ 
+ 
+(7) 
+{0,1}
+ijk
+x ∈
+ 
+,
+,
+i
+N
+j
+N
+k
+V
+∀∈
+∀∈
+∀∈
+  
+(8) 
+The first objective function is the most number of 
+customers that are serviced, the second objective is the 
+lowest total distance, and the third objective is the least 
+number of vehicles required. 
+Constraint (2) states that each customer is serviced 
+once at most; constraint (3) ensures that the accumulated 
+demand on a route can not exceed the vehicle capacity. 
+the next two set constraints ((4) and (5)) state that each 
+vehicle leaves the depot, after arriving at a customer the 
+vehicle leaves again, and finally arrives at the depot; the 
+inequality (6) states that a vehicle k can not arrive at j 
+before sik+tij if it is traveling from i to j, here I is a large 
+scalar, which makes the constraint trivial to fulfill in case 
+xijk=0; in addition, tij is the sum of the servicing time si 
+and the traveling time from i to j; constraint (7) is the 
+time windows constraint. 
+ 
+3 Customer clustering assignment algorithm 
+ 
+The function of the customer clustering assignment 
+algorithm is to cluster the customers, to assign the 
+customers to m vehicles, and to construct the vehicle 
+routes to achieve the initialization of genetic algorithm 
+by 
+the 
+route 
+structure 
+heuristic 
+algorithm 
+(the 
+initialization of feasible population is showed in the 
+section 4.4); except for the above function, the customer 
+clustering assignment algorithm in the paper provides a 
+new method for customer clustering assignment of 
+VRPTW. At present, there are many customer clustering 
+assignment algorithms for VRPTW, for example, 
+sweeping algorithm[8], dynamic clustering algorithm[9], 
+priority integrated clustering algorithm[10], and so on, and 
+there are two important parameters needed to be set. 
+(1) The number of categories, which is the number 
+of vehicles; in m-VRPTW, the number of vehicles is 
+given, so it is unnecessary to make the number of 
+categories. There is a problem arisen because of the 
+known number of vehicles, which is that the sum of the 
+capacity of all vehicles may be smaller than the sum of 
+all customers. If all customers are clustered by the above 
+customer clustering assignment algorithms, it is not 
+reasonable 
+that 
+customer 
+clustering 
+assignment’s 
+termination condition is the vehicle’s capacity, which is 
+that there are many customers who do not belong to any 
+category, and it is difficult to confirm the appropriate 
+vehicle to service them. In the paper, considering the 
+characteristic of m-VRPTW, the vehicle capacity that is 
+used as the termination condition is amended. In the 
+literature[11], the formula for determining the number of 
+vehicles is as follows: 
+/
+1
+i
+m
+d aq
+⎡
+⎤
+=
++
+⎣
+⎦
+∑
+  
+i
+C
+∈
+ 
+ 
+(9) 
+With m being the number of vehicles required; […] 
+being the integer part, q being the vehicle capacity; di 
+being the demand of the customer i; C being the 
+customer set; a being the parameter: 0<a<l, the more the 
+constraints 
+are, 
+the 
+more 
+complex 
+the 
+goods 
+loading(unloading) is and the smaller the value of a is. 
+Based on the formula (9) for determining the number of 
+vehicles required, the vehicle capacity qre as the 
+termination condition is described as follows: 
+(
+1)
+i
+re
+d
+q
+a
+m
+=
+⋅
+−
+∑
+  
+ 
+ 
+(10) 
+(2) The distance between the customers. The above 
+clustering assignment algorithms cluster the customers 
+according to the customers’ geographic coordinates or 
+the Euclidean distances between customers, and the time 
+window information is ignored. Considering the 
+importance of time window in VRPTW, in the paper, 
+based on the consanguinity that is defined by Hong 
+Lianxi[12], the distance between customers is redefined:  
+( , )
+( , ) /
+ij
+dis i j
+Aff i j
+dis
+=
+ 
+,
+,
+i j
+C i
+j
+∈
+≠
+  
+(11) 
+With Aff(i,j) being the appetency between the 
+customer i and the customer j. Appetency is relevant with 
+the following factors: (1) disij, the euclidean distance 
+between the customer i and customer j; (2) TwDisij, time 
+window distance between the customer i and customer j. 
+The Aff(i,m) can be stated as follows: 
+(
+)
+,
+ij
+ij
+Dis
+TwDis
+i j
+Aff
+e
+ϕ
+γ
+−
++
+=
+ 
+,
+,
+i j
+C i
+j
+∈
+≠
+  
+(12) 
+With ϕ and γ being penalty, used to adjust each 
+factor’s magnitude. 
+Considering the above discussion, based on the 
+classic hierarchical clustering method, a new customer 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+-130-
+clustering assignment algorithm is designed, and its 
+procedure is as follows: 
+(1) Every customer is set as a cluster, which is that 
+there are n clusters. 
+(2) Calculate the distance between the clusters, 
+merge two clusters, whose distance is nearest and the 
+sum of whose demand is less than qre, into one cluster. 
+(3) Calculate the distance between the new cluster 
+and the rest clusters, and then merge two clusters, whose 
+distance is nearest and the sum of whose demand is less 
+than qre, into one cluster; and if the number of the 
+clusters is still larger than the vehicle number m, repeat 
+the above steps until all the customers are merged into m 
+clusters.  
+The distance between the clusters is identified by 
+the completely link method, and the distance between the 
+two clusters is the distance 
+( , )
+dis i j
+ between the 
+farthest customers. 
+ 
+4 Genetic algorithm 
+ 
+4.1 Chromosome representation 
+Many chromosome representations are applied to 
+the vehicle routing problem, in which the decimal code 
+based on vehicle routes[13,14,15], and the code based on 
+customers[16,17,18] are intuitive. The codes above are used 
+to solve the vehicle routing problem, in which the 
+number of vehicles is unlimited, and all the customers 
+are serviced, and they can not satisfy the model’s 
+requirement, because the number of the vehicle is limited 
+in the model of the paper. 
+A new chromosome code is developed from the 
+code based on customers designed by Zou Tong[18], to 
+achieve the following two objectives with the model: 
+If there are enough vehicles that can service all the 
+customers, the objective is to minimize the distance 
+traveled by the vehicles and the number of the vehicles 
+required. 
+Otherwise, the objective is to maximize the number 
+of the customers that are serviced, and to minimize the 
+distance traveled by the vehicles. 
+The chromosome representation designed by Zou 
+Tong[18] 
+is 
+stated 
+as 
+follows: 
+the 
+chromosome 
+representation is the sequence of the genes, which is 
+made up of two parts: vehicle number Vehicle-Num, 
+sequence number Sort-Value, denoting that the customer 
+i is serviced by the vehicle Vehicle-Num, and its 
+sequence in the route is determined by the all customers’ 
+Sort-Value. In our approach, to solve the situation that 
+there may be no enough vehicles to service all the 
+customers, the value of customer sequence number 
+Sort-Value is restricted: if the customer can be serviced, 
+its value of sequence number Sort-Value is natural 
+number, otherwise, that is 0. Compared with the other 
+chromosome representation, that of our approach does 
+not denote the route of each vehicle intuitively, but all 
+the customers that are serviced by the same vehicle are 
+sorted by Sort-Value, and the route of each vehicle is 
+easily gotten. 
+ 
+4.2 Fitness function 
+The value of the chromosome is evaluated by the 
+fitness assignment based on ranking, and the fitness 
+function [19] is defined as follows: 
+Step 1: the objective value of the individual is 
+calculated according to the objective function. In our 
+paper, there are three objectives for each individual: 
+0
+,
+,
+ijk
+ij ijk
+jk
+k V i C j N
+k V i N j N
+k V j C
+x
+c
+x
+x
+∈
+∈
+∈
+∈
+∈
+∈
+∈
+∈
+⎡
+⎤
+−
+⋅
+⎢
+⎥
+⎣
+⎦
+∑∑∑
+∑∑∑
+∑∑
+. 
+Step 2: the individuals are sorted by the first 
+objective
+ijk
+k V i C j N
+x
+∈
+∈
+∈
+−∑∑∑
+. If some individuals have the 
+same objective value, they are sorted by the second 
+objective
+ij
+ijk
+k V i N j N
+c
+x
+⋅
+∈
+∈
+∈
+∑∑∑
+, and the individuals are sorted 
+by the next objectives as the above actions. If some 
+individuals can not be sorted finally, they are sorted 
+randomly. 
+Step 3: the values of the chromosomes are evaluated 
+by comparing their performance in each objective 
+function through the sorting created by the objective 
+function. The fitness function is defined as follows[20]:  
+2
+2
+( )
+1
+(
+( ))
+( )
+( )
+1
+i
+i
+i
+i
+R
+N
+R
+x
+x
+E x
+kN
+R x
+⎧
+     
+>
+ 
+−
+⎪
+= ⎨
+                   
+= 
+⎪⎩
+ 
+N is the number of the individuals, xi is the i-th 
+individual in the population, R(xi) is the sequence 
+number of i-th individual after step1 and step3, and k is a 
+constant between 1 and 2, used to increase the fitness 
+when the individual is optimal. 
+ 
+4.3 The handling constraint method 
+In the calculating process, the individual may be 
+infeasible solution because of the violation of the time 
+window and capacity constraints. As the handling 
+constraint method, the punishment strategy is widely 
+used, which is that the penalty is imposed on the 
+infeasible solution to increase the objective function 
+value, and after the constant iterations, the population 
+gradually converges to the optimal feasible solution. 
+Tests show that when the chromosome code is the 
+above code based on customers and the handling 
+constraint method is the punishment strategy, it is not 
+ideal to deal with the large-scale m-VRPTW, which is 
+because the quality of solution relies on the selection of 
+the penalty factor in the punishment strategy, and if the 
+penalty factor is improper, the algorithm may converge at 
+the infeasible solution. The handling constraint method 
+of the paper is that of the literature[21]. This method 
+searches the solution space of the problem though the 
+admixture crossover of feasible and infeasible solutions, 
+and does the selection and operation on feasible and 
+infeasible populations, respectively. It avoids the 
+difficulty of selecting the penalty factor in penalty 
+strategy and makes the handling constrain simplify. 
+Experiment tests show that it is effective to solve 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+-131-
+m-VRPTW using the code based on customers. 
+ 
+4.4 Population initialization 
+The Vehicle-Num and Sort-Value in the literature[18] 
+is generated randomly when generating the initial 
+population. It is proved by the experiment that this 
+approach for the large-scale m-VRPTW convergences 
+slowly, which is because the rate that there are good 
+initial modes is low, if all the Vehicle-Num and 
+Sort-Value are generated randomly. In our approach, 
+considering 
+the 
+customer 
+clustering 
+assignment 
+algorithm, the feasible population is initialized by the 
+route construction algorithm, which is given as follows: 
+firstly, m customer clustering sets CustSeti are gotten by 
+the customer clustering assignment algorithm, the 
+customers’ Vehicle-Num in set CustSeti are all evaluated 
+as i to accomplish the initialization of Vehicle-Num; for 
+every CustSeti, the customer that satisfies the time 
+window constraint, is chosen randomly from it, and then 
+the customer in the CustSeti is inserted in turn by the 
+greedy algorithm until the time window constraint or 
+capacity constraint is not satisfied, with the shortest 
+distance in the greedy algorithm being 
+( , )
+dis i j defined 
+by the formula (11); the customers in CustSeti are sorted, 
+finally the sort of assignment is evaluated to Sort-Value, 
+and the customers that are not serviced are evaluated as 0, 
+to accomplish the initialization of the feasible 
+population. 
+For the initialization of the infeasible population, 
+the Vehicle-Num and Sort-Value are randomly generated 
+in the paper. 
+ 
+4.5 Genetic algorithm manipulation 
+(1) Selection 
+Selection is used to implement the survival of the 
+fittest individual, which is that the individuals in the 
+current population are copied to the new population 
+according to the probability that is proportional to the 
+fitness, and the mating pool is gotten (the middle 
+population between current generation and the next 
+generation). Selection operator is used to increase the 
+average fitness. In the paper, selection operator combines 
+the roulette wheel selection and the elite to retain 
+strategy to accelerate convergence. 
+(2) Crossover 
+The algorithm can generate new individuals by 
+crossover operator. Firstly, the individuals in the mating 
+pool are mated randomly; then, the genes in the 
+individuals mated are exchanged each other. From the 
+aspect of generating new individuals, the crossover 
+operator is the primary approach, which determines the 
+global search capability of GA. Crossover operator is 
+related 
+to 
+the 
+problem, 
+and 
+corresponds 
+with 
+chromosome representation. In our approach, crossover 
+operator mixes one-point crossover with two-point 
+crossover. 
+(3) Mutation 
+Mutation is to change a gene or a small group of 
+genes by a small probability. From the aspect of 
+generating new individuals, the mutation operator is an 
+assistant method of generating the new individuals, 
+which is indispensable, because it determines the genetic 
+algorithm local search capability. Different from the 
+mutation operation of binary coding, the mutation in our 
+approach is that genes of individuals are randomly 
+generated, which is generating the genes including 
+Vehicle-Num and Sort-Value. 
+ 
+4.6 Genetic algorithm procedure 
+step 0: initialization, set the crossover rate Px, the 
+mutation rate Pm, the feasible population size N1, the 
+infeasible population size N2, and the generation span 
+Gen; according to the constraints, divide the initial 
+population into the feasible population popf and the 
+infeasible population popinf. 
+step 1: operate the crossover and the mutation on 
+the feasible population and the infeasible population. 
+step 2: according to the constraints, divide the new 
+population after crossover and mutation, into the feasible 
+population popf and the infeasible population popinf. 
+step 3: selection operation: according to the fitness 
+of the individual, select N1 individuals which are good 
+enough to form new feasible population from the old 
+population and the new population; so is the new 
+infeasible population that has N2 individuals. 
+step 4: judge whether the algorithm reaches the 
+generation span Gen? NO: go to step 1; YES: terminate 
+procedures. 
+ 
+5 Experimental result 
+ 
+According to the above algorithm procedure, the 
+algorithm is implemented using Matlab language. Two 
+experiments are carried: experiment 1 is VRPTW, and 
+experiment 2 is m-VRPTW. The results below are based 
+on the following set of GA parameters: the feasible 
+population size N1=30, the infeasible population size 
+N2=30, crossover rate Px=0.8, mutation rate Pm=0.3, 
+generation span Gen=200. 
+ 
+Tab.1 The customer data 
+i
+(xi,yi) 
+di 
+[ETi, LTi] 
+0
+(99,39) 
+0 
+[0,1000] 
+1
+(39,70) 
+0.102 
+[74,124] 
+2
+(22,15) 
+0.113 
+[58,108] 
+3
+(97,79) 
+0.095 
+[15,65] 
+4
+(6,28) 
+0.131 
+[96,146] 
+5
+(62,79) 
+0.029 
+[47,97] 
+6
+(42,88) 
+0.306 
+[85,135] 
+7
+(86,3) 
+0.532 
+[21,71] 
+8
+(87,61) 
+0.617 
+[9,59] 
+9
+(88,91) 
+0.232 
+[37,87] 
+ 
+Experiment 1 is VRPTW. The customers’ data 
+comes from the literature [22], and the details can be 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+-132-
+seen from tab 1. 
+The minimum cost of example 1 is 459.18, and the 
+optimal route is 0-3-9-5-6-1-0-8-0-7-2-4-0, which is 
+better than that of the literature [22] (521.59), and is the 
+same with that of the literature [23] (459.18). 
+Experiment 2 is m-VRPTW. C101 and C106[24] are 
+given as Tab.2. 
+ 
+Tab.2 The optimal solution of the genetic algorithm 
+Vehicle number 
+10 
+9
+8 
+7 
+6 
+5
+4
+The result of the 
+literature [5] 
+100 92
+84 
+75 
+66 
+57
+47
+The result of the 
+literature [6] 
+100 92
+84 
+75 
+66 
+57
+45
+ 
+C101 
+The result of the 
+genetic algorithm 100 92
+84 
+75 
+66 
+57
+46
+Vehicle number 
+10 
+9
+8 
+7 
+6 
+5
+4
+The result of the 
+literature [5] 
+100 93
+86 
+77 
+68 
+58
+47
+The result of the 
+literature [6] 
+100 93
+85 
+76 
+67 
+57
+47
+ 
+C106 
+The result of the 
+genetic algorithm 100 93
+84 
+76 
+67 
+56
+47
+ 
+From the above data, the optimal solution gotten by 
+the algorithm of the paper generally corresponds with 
+that of the literature [6] and [7]; although the optimal 
+solutions of some examples are worse than those of 
+literature [6] and [7], it is only two customers lacked at 
+most, and the reason is as follows: in our approach, the 
+handling constraint method is to divide the population 
+into the feasible population and the infeasible population, 
+and to do genetic algorithm manipulation respectively, 
+although it avoids the difficulty of selecting the penalty 
+factor in penalty strategy and makes the handling 
+constrain simplify, in the implementation of the 
+algorithm, many individuals that have good modes, are 
+partitioned into the infeasible population, because they 
+violate the constraints; when selection is operated 
+without considering the constraint, many individuals’ 
+fitnesses in the infeasible population, are bigger than 
+those of the individuals that have the good modes but 
+violate the constraint, so the individuals that have the 
+good modes can’t be used in the next generation, 
+resulting in that the good modes are disposed. 
+ 
+6 Conclusion 
+ 
+This paper improves the mathematical model for the 
+vehicle routing problem with time windows where a 
+limited number of vehicles is given, which not only 
+reflects the feature of the limited number of vehicles in 
+the depot, but also is compatible with VRPTW; redefines 
+the distance between the customers used in the customer 
+clustering, designs the customer clustering assignment 
+algorithm, which can help achieve the initialization of 
+the genetic algorithm, and provides a new method for 
+VRPTW customer clustering assignment; proposes an 
+improved chromosome representation on the basis of 
+customer, which can denote the different vehicle number 
+sent by the depot and the customer unserviced; designs 
+the genetic algorithm to solve m-VRPTW, and proves the 
+validity of the algorithm by the experiments. In addition, 
+vehicle routing problem with time windows and a limited 
+number of vehicles is not only the same with the vehicle 
+number limit, but also is useful to the instance that there 
+are no enough cargo in the depot to service all the 
+customers, and what need to be done, is that the cargo is 
+assigned to the vehicles, which is the transmutation of 
+m-VRPTW. Many issues discussed in this paper need to 
+be discussed further, which is our next research, such as 
+to design the better handling constraint method. 
+ 
+References 
+ 
+[1]Berger J, Barkaoui M. A parallel hybrid genetic 
+algorithm for the vehicle routing problem with time 
+windows[J]. Computers and Operations Research, 2004, 
+31(12):2037-2053. 
+[2]Scheuerer S. A tabu search heuristic for the truck and 
+trailer routing problem[J]. Computers and Operations 
+Research, 2006, 3(4):894-909. 
+[3]O. Braysy, M. Gendreau. Tabu search heuristics for 
+the vehicle routing problem with time windows[J]. 
+SINTEF 
+Applied 
+Mathematics, 
+Department 
+of 
+Optimization, Norway, Technical Report STF42 A01022, 
+2001. 
+[4]Lang Mao-xiang. Study on simulated annealing 
+algorithm for vehicle routing problem with backhauls[J]. 
+Journal of Systems Engineering, 2005, 20(5):485-491. 
+(in Chinese) 
+[5]Czech, Z. J., Czarnas, P. Parallel simulated annealing 
+for the vehicle routing problem with time windows[C]// 
+10th Euromicro Workshop on Parallel, Distributed and 
+Network-Based Processing, Canary Islands, Spain, 
+2002(1):376-383. 
+[6]Lau H. C., Sim M., Teo K. M. Vehicle routing 
+problem with time windows and a limited number of 
+vehicles[J]. European Journal of Operation Research, 
+2003, 148(3):559-569. 
+[7]Deng Wei, Yan Pei-sheng and Gao Cheng-xiu. A new 
+algorithm for vehicle routing problem with time 
+windows and a limited number of vehicles[J]. Journal of 
+Mathematics, 2006, 26(5):545-550. (in Chinese) 
+[8]Gillett B E, Miller L R. A heuristic algorithm for the 
+vehicle-dispatch problem[J]. Operations Research, 1974, 
+22(2):240-349. 
+[9]Chen Meijun, Zhang Zhisheng, Shi Jinfei. Study on 
+multi-depot vehicle routing problem with time windows 
+base on clustering and ant colony Algorithm[DB/OL]. 
+Sciencepaper Online [2007-08-28]. http://www.paper.edu. 
+cn/downloadpaper.php?serial_number=200708-402. (in 
+Chinese) 
+[10]Zhang Qian, Gao Liqun, Hu Xiangpei, Wu wei. 
+Research on multi-objective vehicle routing problem of 
+optimization based on clustering analysis and improved 
+genetic algorithm[J]. Control and Decision, 2003, 18(4): 
+418-422. (in Chinese) 
+[11]Li jun, Xie Binglei, Guo Yaohuang. Genetic 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+-133-
+algorithm for vehicle scheduling problem with non-full 
+load[J]. Systems Engineering Theory Methodology 
+Applications, 2000, 9(3):235-239. (in Chinese) 
+[12]Hong Lian-xi, Dong Shao-hua. Multi-phase iterative 
+heuristic approach for solving MDVRPTW[J]. Computer 
+Engineering and Applications, 2007, 43(26):217-222. (in 
+Chinese) 
+[13]Hwang H. S.. An improved model for vehicle routing 
+problem with time constraint based on genetic algorithm 
+[J]. Computers & Industrial Engineering, 2002, 42: 
+361-369. 
+[14]Tan, K, Lee T, Ou K, et al. A messy genetic 
+algorithm for the vehicle routing problem with time 
+window constraints[C]//Proceedings of IEEE Congress 
+on Evolutionary Computation, 2001, 1:679-686. 
+[15]Xie Bing-lei, Li Jun and Liu Jian-xin. A heuristic 
+genetic algorithm for the travelling salesman problem 
+with time restraints[J]. Journal of Southwest Jiaotong 
+University, 2001, 36(2):211-213. (in Chinese) 
+[16]Baker B. and Ayechew M. A genetic algorithm for 
+the vehicle routing problem[J]. Computers & Operations 
+Research, 2003, 30:787-800. 
+[17]Zou Tong, Li Ning, Sun Debao, et al. Genetic 
+algorithm for multiple-depot vehicle routing problem[J]. 
+Computer Engineering and Applications, 2004, 40(21): 
+82-83. (in Chinese) 
+[18]Zou Tong, Li Ning, Sun Debao, et al. Genetic 
+algorithm for variable fleet vehicle routing problem with 
+time window[J]. Systems Engineering Theory & Practice, 
+2004, 24(6):134-138. (in Chinese) 
+[19]Gen M., Cheng R. W. Genetic algorithms and 
+engineering optimization[M]. New York: John Wiley & 
+Sons, Inc.2000. 
+[20]You Jinjun, Ji Changming and Fu Xiang. New 
+method for solving multi-objective problem based on 
+genetic algorithm[J]. Journal of Hydraulic Engineering, 
+2003, 34(7):64-69. (in Chinese) 
+[21]Su Yongyan. Single-objective and multi-objective 
+optimization evolutionary algorithm and their application 
+[D]. Wuhan: Wuhan University, 2007. 
+[22]Xie Bing-lei, Li Jun, Guo Yao-huang. Genetic 
+algorithm for vehicle scheduling problem of non-fu1l 
+1oads with time windows[J]. Journal of Systems 
+Engineering, 2000, 15(3):290-294. (in Chinese) 
+[23]Zhong Shiquan, He Guoguang. A tabu search 
+algorithm for vehicle scheduling problem with time 
+windows[J]. Systems Engineering Theory Methodology 
+Applications, 2005, 14(6): 522-526. (in Chinese) 
+[24]M. SOLOMON. VRPTW benchmark problems 
+[EB/OL].[2005-3-24].http://web.cba.neu.edu/~msolomon
+/problems.htm. 
+ 
+ 
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:17:52 UTC from IEEE Xplore.  Restrictions apply. 

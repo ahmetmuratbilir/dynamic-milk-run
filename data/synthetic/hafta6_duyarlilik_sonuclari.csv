@@ -1,0 +1,4 @@
+arac_sayisi,zamaninda_teslim,gecikmeli_teslim,karsilanamayan,karsilama_orani_pct,starvation_dk,starvation_pct,toplam_tur,toplam_kutu,ort_kutu_tur,doluluk_pct
+2,17,55,110,39.56,6000,52.08,16,74,4.62,18.5
+3,40,69,73,59.89,4160,36.11,24,111,4.62,18.5
+4,51,92,39,78.57,2242,19.46,32,146,4.56,18.2

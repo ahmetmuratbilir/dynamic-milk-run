@@ -48,10 +48,14 @@ class VRPTWSolver:
             return 0.0
         return self.time_matrix.get((from_node, to_node), 5.0)
 
-    def solve(self) -> tuple:
+    def solve(self, arac_sayisi: int = 2) -> tuple:
+        """
+        Olay bazlı VRPTW çözücü.
+        arac_sayisi: Filo büyüklüğü (varsayılan=2, K03). Duyarlılık analizi için 3, 4 vb.
+        """
         vehicles = {
-            "A1": {"musait_dk": 0, "mevcut_konum": "DEPOT", "tur_sayisi": 0},
-            "A2": {"musait_dk": 0, "mevcut_konum": "DEPOT", "tur_sayisi": 0}
+            f"A{i+1}": {"musait_dk": 0, "mevcut_konum": "DEPOT", "tur_sayisi": 0}
+            for i in range(arac_sayisi)
         }
 
         rotalar = []

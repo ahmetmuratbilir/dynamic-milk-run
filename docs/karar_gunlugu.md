@@ -347,6 +347,46 @@
 
 ---
 
+## HAFTA 6 KARARLARI (07.08.2026)
+
+### K37 — Analitik Filo İhtiyacı (Körösi Formülü)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Analitik Filo Boyutlandırma Sonucu |
+| **Değer** | Baz senaryo ($A=0.85, F_t=0.80$): $AN = 3.86 \rightarrow AN_{final} = 4$ araç |
+| **Kaynak** | Körösi & Duchoň (2026), *Scientific Reports / Nature*, 16:16797, **Sayfa 3–4** |
+| **Gerekçe** | K36 (darboğaz=zaman kısıtı) teşhisinin analitik ispatı. 2 araç en iyimser senaryoda bile yetersiz (AN=2.91→3). |
+| **Tarih** | 07.08.2026 |
+
+### K38 — Optimal Araç Sayısı (Deneysel Sonuç)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Deneysel Duyarlılık Analizi Sonucu |
+| **Değer** | 2 araç → %52.08 starvation; 3 araç → %36.11; 4 araç → %19.46 |
+| **Kaynak** | Sevim & Aykut (2026), *Pamukkale Üniv. Müh. Bil. Derg.*, **Sayfa 1001–1006** (2 vs 3 araç testi, 3 araç önerisi) |
+| **Gerekçe** | Araç sayısının starvation üzerindeki etkisi istatistiksel olarak anlamlı ($p=0$, Sevim s.820). 4 araç ile %62.6 iyileşme sağlanmıştır. |
+| **Tarih** | 07.08.2026 |
+
+### K39 — Duyarlılık Aralıkları ($A$, $F_t$ Etkisi)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Operasyonel Faktörlerin Filo İhtiyacına Etkisi |
+| **Değer** | Muhafazakar ($A=0.70, F_t=0.60$) → 7 araç; Baz ($A=0.85, F_t=0.80$) → 4 araç; İyimser ($A=0.95, F_t=0.95$) → 3 araç |
+| **Kaynak** | Körösi (2026) s.6 (SMARTENVELOPE: $A=0.7, F_t=0.5$) ve s.10 (SMARTHam: $A=0.99, F_t=0.99$) |
+| **Gerekçe** | Trafik faktörü ve kullanılabilirlik, filo ihtiyacını doğrusal olmayan şekilde etkiler ($\Phi = A \cdot F_t \cdot E_w$). |
+| **Tarih** | 07.08.2026 |
+
+### K40 — Filo Kısıtlı Amaç Fonksiyonu Önceliği
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | m-VRPTW'de Amaç Fonksiyonu Öncelik Sırası |
+| **Değer** | 1. Hizmet verilen istasyon sayısını maksimize et; 2. Toplam mesafeyi minimize et |
+| **Kaynak** | Wang (2008), *"GA for VRPTW with limited vehicles"*, **Sayfa 48–55** |
+| **Gerekçe** | Filo sınırlıyken (%18.5 doluluk, 2 araç) mesafe değil karşılama kapasitesi birincil metriktir. 2→4 araçla karşılama %39.6→%78.6. |
+| **Tarih** | 07.08.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*

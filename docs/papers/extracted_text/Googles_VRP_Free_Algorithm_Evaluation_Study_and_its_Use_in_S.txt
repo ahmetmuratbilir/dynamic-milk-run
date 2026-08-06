@@ -1,0 +1,1146 @@
+Google’s VRP Free Algorithm Evaluation Study
+and its Use in Small and Medium Transportation
+Problems
+Antonios Balikos†, Athanasios Pantopoulos†, Athanasios Lois†, Apostolis Xenakis*,
+George Floros+, Kostas Kolomvatsos‡ and Athanasios Ziliaskopoulos†
+†Department of Mechanical Engineering, University of Thessaly, Volos, Greece
+*Department of Digital Systems, University of Thessaly, Larissa, Greece
++Department of Electrical and Computer Engineering, University of Thessaly, Volos, Greece
+‡Department of Informatics and Telecommunications, Lamia, Greece
+{abalikos, apantopoulos, lois, axenakis, gefloros, kostasks, ziliasko}@uth.gr
+Abstract—Vehicle routing is one of the oldest, yet critical,
+problems of the logistics sector. Globalization and the rise of
+e-commerce as well as technological advances have allowed the
+development of a profitable routing software market, which has
+recently attracted the attention of technology giants. Among the
+plethora of routing software alternatives, Google’s open source
+optimization suite, OR-Tools, looks particularly promising, pro-
+viding a useful and affordable optimization tool for small and
+medium sized logistic companies and applications. The goal
+of this paper is to scientifically evaluate the accuracy, and
+performance of OR-Tools suite by examining the quality of its
+solution results in a set of capacitated vehicle routing problems
+with delivery time windows, also known as capacitated vehicle
+routing problem with time-windows (CVRPTW) or VRPTW. A
+comparative analysis is conducted by solving Solomon’s VRPTW
+problems for a small (25 customers), medium (50 customers), and
+large (100 customers) number of customers with OR-Tools and
+comparing the results with the known optimal solutions for a
+fixed maximum solution time and varied number of available
+vehicles. Additionally, in this paper we demonstrate a real case
+of application of the OR-Tool tools to a real problem concerning
+the online distribution of dairy products. But given the very
+nebulous definition of the online character of a problem, OR-
+Tool does not include online VRP algorithms. For this reason,
+we will convert the solution of the classic stationary VRP using
+OR-Tools into a solution for Online VRP.
+Index Terms—VRP, OR Tools, CVRPTW, VRPTW
+I. INTRODUCTION
+The rapid development of technology and evolution of busi-
+ness models in addition to ever-increasing globalization and
+the rise of e-commerce have put transportation networks and
+supply chains under an unprecedented strain. This complicated
+environment and current environmental concerns make the
+optimization of the supply chain vital to more and more
+companies in order to remain competitive, profitable and up-to
+date with new, more stringent regulations [1].
+Although many technical solutions have been introduced the
+truth is that most of small and medium sized businesses still
+rely on instinct, experience, or simplistic methods as the sole
+basis for their routing practices. A cause of this phenomenon
+is that the purchase and use of sophisticated routing or
+optimization software is often an expensive investment. Using
+open source optimization software is also challenging because
+it usually has severe limitations, or it is too complicated
+to implement in a real-world application. Recently, however,
+there has been a growing interest in the development of
+publicly available technology tools, including optimization and
+routing tools, by big technological giants. An interesting case
+is the open source optimization suite OR-Tools which is free,
+simple to use, constantly updated and backed by one of the
+world’s biggest IT companies, Google [2].
+The cost differentials between static Vehicle Routing Prob-
+lems (VRP) and their dynamic counterparts have been the
+subject of numerous studies. Findings from the literature offer
+some insight into the average cost increases, despite the fact
+that the exact percentage increase in objective costs when
+converting a static VRP to an online VRP can vary. According
+to research, the conversion of a static VRP to an online VRP
+results in an increase in operational expenses. For example,
+the results suggest that the expenses associated with online
+routing may be somewhat higher than those of static routing,
+which is indicative of inefficiencies that result from real-
+time adaptation to changing conditions [3]. In addition the
+competitive ratio provides an additional viewpoint on cost
+disparities by contrasting the performance of online algorithms
+with that of the optimal static solution. This ratio can reveal
+cost increases ranging from 20% to 40% when transitioning
+to online systems, depending on situational parameters such
+as route density and request frequency, according to certain
+studies [3]. Finally, empirical analyses have revealed scenarios
+in which online VRPs may incur higher costs as a result of
+the increased travel distances and delays necessary to accom-
+modate dynamic requests. In environments with significant
+variability in customer requests, online solutions can result in
+operational cost increases, as some literature cites a range of
+15% to 35% [4]. Nevertheless, it is important to acknowledge
+that dynamic policies can be more responsive in specific
+situations, despite the fact that they may result in higher costs
+in practice as a result of routing fluctuations.
+432
+2025 IEEE 45th International Conference on Distributed Computing Systems Workshops (ICDCSW)
+DOI 10.1109/ICDCSW63273.2025.00087
+2025 IEEE 45th International Conference on Distributed Computing Systems Workshops (ICDCSW) | 979-8-3315-1725-0/25/$31.00 ©2025 IEEE | DOI: 10.1109/ICDCSW63273.2025.00087
+979-8-3315-1725-0/25/$31.00 ©2025 IEEE
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+The motivation for this study and its development arose
+from the collaboration with the local dairy industry, with the
+aim of optimizing the company’s vehicle routing operations.
+The objective was to study the real-time optimization of a ver-
+sion of the vehicle routing problem, seeking to minimize and
+determine the transportation cost of the company’s products to
+various retail locations within the region of Magnesia, Greece.
+In this online model of the vehicle routing problem, new dairy
+product requests that emerge during the route execution do not
+affect the distance already traveled but do influence the route’s
+evolution and the sequence of visits to the remaining nodes.
+The challenge is to determine the best possible route as new
+demands arise. In practice, this route remains optimal only if
+no additional requests emerge after its beginning.
+II. BACKGROUND AND RELATED WORK
+A. The Vehicle Routing Problem
+The basic VRP calls for the determination of the optimal set
+of routes to be performed by a fleet of vehicles to serve a given
+set of customers from a central depot and is one of the most
+significant and studied combinatorial optimization problems.
+The VRP is classified as an NP-hard problem. In transportation
+and logistics, the VRP presents a major challenges marked by
+several variants that fit particular operational requirements and
+constraints. The main groups of VRP variants consist in:
+1)
+Capacitated Vehicle Routing Problem (CVRP): This
+well-established variant entails the identification of optimal
+routes for a fleet of vehicles, ensuring that the total demand of
+served customers does not exceed the capacity of any vehicle
+[5], [6].
+2) Vehicle Routing Problem with Time Windows (VRPTW):
+In this variation, the routing process is further complicated
+by the requirement for vehicles to service customers within
+specific time frames [7].
+3) Vehicle Routing Problem with Pick-up and Delivery
+(VRPPD): This variation is concerned with situations in which
+vehicles are responsible for the collection and delivery of
+goods at predetermined locations. In addition to the necessity
+of adhering to specific routing sequences for both pick-ups
+and deliveries, constraints encompass vehicle capacities [8].
+4) Heterogeneous Fleet Vehicle Routing Problem (HFVRP):
+The HFVRP effectively models the realistic fleet compositions
+found in many transport operations, in contrast to the homo-
+geneous fleet models typically considered in traditional VRP
+frameworks [9].
+5) Multi-Depot Vehicle Routing Problem (MDVRP): This
+variation of the VRP is applicable to situations in which
+multiple depots contain vehicles that can distribute goods to
+a variety of customer locations. This complexity introduces
+additional logistical considerations, as it necessitates the effi-
+cient management of routes that originate from multiple depots
+simultaneously [10].
+6) Open Vehicle Routing Problem (OVRP): A distinctive
+method that eliminates the necessity for vehicles to return
+to their initial location after delivering goods. This results in
+distinct considerations in route optimization and is particu-
+larly relevant in situations where the return journey is either
+economically unfeasible or unnecessary [11].
+7) Routing Issues for Electric Vehicles (E-VRPs): E-VRPs
+are exclusively concerned with the adaptation of conventional
+VRP frameworks to electric vehicles. They take into account
+the effects of electric vehicle performance on route efficiency,
+battery charging times, and driving range [12].
+B. Existing solution methods for the VRP
+The VRP includes a variety of solution methods that illus-
+trate its complexity and multiple formulations. The methods
+can be classified into three primary categories: exact algo-
+rithms, approximate algorithms, and heuristic/metaheuristic
+algorithms. Each category provides unique benefits and is ap-
+propriate for varying problem scales and specifications. Exact
+algorithms, by means of exhaustive search of the search space,
+offer definite solutions for the VRP. These approaches use
+mathematical programming to identify best paths and consist
+in linear programming, branch-and-bound, and branch-and-
+cut techniques. Nevertheless, scalability problems sometimes
+limit their applicability to small-to medium-sized instances
+of the problem by their computational intensity. Pisinger and
+Røpke stress the need of exact techniques for different VRP
+forms and their shortcomings in effectively handling more
+significant cases [13]. While it is usually unworkable for
+complicated VRPs involving many consumers or constraints,
+this category is helpful when ensuring the best solution is
+vital [14]. Approximate Algorithms, this group of methods
+seeks to provide solutions that are sufficiently good but do not
+guarantee optimality. They often employ a mix of problem-
+specific heuristics and optimization techniques, designed to
+quickly yield feasible solutions. A notable method in this cat-
+egory includes the use of greedy algorithms, which construct a
+solution by iteratively selecting the next best option based on a
+heuristic criterion [14]. These algorithms are particularly use-
+ful when time constraints prioritize rapid solution generation
+over optimality, especially in dynamic logistical settings.
+Heuristic and metaheuristic algorithms have attracted popu-
+larity in the literature since they offer strong solutions able to
+solve more general and more difficult cases of the VRP. While
+metaheuristics (e.g., genetic algorithms, simulated annealing,
+tabu search, and ant colony optimization) offer frameworks for
+more fully exploring the solution space, heuristics operate by
+producing solutions based on rule-of- thumb strategies without
+extensive computational overhead. Especially metaheuristics
+can dynamically change their approaches depending on the
+performance of past iterations, so improving the quality of
+the solutions over time [15], [16]. Empirical studies [17]
+and empirical data [18] have shown, for example, notable
+success of hybrid algorithms combining several metaheuristic
+approaches. Their adaptability qualifies them for real-world
+VRP uses since it combines efficiency with the capacity to
+manage constraints and variability usually present in logistics
+operations. As the difficulties in VRP solving have changed,
+hybrid algorithms—which combine the strengths of exact,
+433
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+approximative, and heuristic techniques—have surfaced. These
+approaches combine several algorithms to take use of their re-
+spective advantages, such improving computational economy
+and solution quality. Local search techniques combined with
+genetic algorithms, for instance, enable adaptive exploration
+of the solution space and honing of solutions over consecutive
+iterations [19], [20]. Moreover, hybrid approaches have been
+successfully applied to maximize new VRP models, including
+energy-minimizing vehicle routing problems, so demonstrating
+their adaptability to niche areas inside the VRP domain [15].
+III. OR-TOOLS SUITE FOR VRP PROBLEMS
+A. OR-Tools
+OR-Tools is an open source software suite for optimization,
+tuned for solving several variants of VRP, flows, integer and
+linear programming, and constraint programming. OR-Tools
+API can be used in some of the world’s most popular program-
+ming languages like C++, C#, Python and Java. OR-Tools suite
+provides modeling tools for routing and optimization problems
+and Google’s GLOP and CP-SAT mathematical. Third party
+open-source (SCIP, GLPK) or professional (Gurobi, CPLEX)
+solvers can also be used parallel to OR-Tools.
+With respect to vehicle routing, OR tools are able to solve
+most of the major VRP variants with no limits on the number
+of vehicles or customers. The VRP variants covered by OR-
+Tools are:
+• VRP
+• CVRP (there is the capability of solving the problem with
+dropping visits)
+• VRPTW (apart from time windows, loading and service
+times may be considered)
+• CVRPTW
+• PDP (Pick-up and Delivery Problem, a VRP variation
+which includes Pick-Ups)
+The suite can handle both symmetrical and asymmetrical
+problems and of homogeneous or not-homogeneous vehicle
+fleets. It should be noted that the methods used to solve routing
+problems are not exact, with OR-Tools instead relying on a
+library of heuristic and metaheuristic algorithms.
+Solomon’s problems [21] are a set of CVRPTW problems
+with known optimal solutions, which is often used for bench-
+marking solution algorithms. Problems are categorized into six
+subsets according to several factors that affect the behavior of
+routing and scheduling algorithms.
+The name of the subsets consists of two parts. The first part
+indicates the problem’s geographical data structure, with the
+possible values being R (randomly generated), C (clustered)
+or RC (randomly clustered), as shown in Fig. 1. The second
+part indicates low or high maximum capacity vehicles taking
+the values 1 and 2 accordingly.
+Each problem instance consists of 1 depot point and 100
+customer points (Euclidean graph), where travel times equal
+the corresponding distances. For each such problem, smaller
+problems have been created by considering only the first 25
+or 50 customers.
+Fig. 1. Different Solomon problem types.
+The customer coordinates are identical for all problems
+within one type (i.e., R, C and RC). The problems differ
+with respect to the width of the time windows with some of
+them having very tight time windows, while others have time
+windows which are hardly constraining.
+B. Methodology
+In this research the entirety of Solomon’s problem set is
+tested. Python code using OR-Tools Python interface inputs
+the data for each individual problem, which includes coor-
+dinates, demands, time windows, service times and vehicle
+capacities. Cases are tested with three different numbers of
+available vehicles equal to the number of vehicles in the known
+optimal solution plus 50% and 100% additional vehicles
+(rounded up). The maximum allowed computational time for
+all problems is fixed to 60 seconds. The table below shows
+the total number of optimization attempts for each type of
+problem.
+TABLE I
+OPTIMIZATION ATEMPS
+R1
+R2
+RC1
+RC2
+C1
+C2
+Total
+108
+99
+72
+72
+81
+72
+504
+Every specific case can have up to three different solutions,
+one for each number of available vehicles. For the purpose of
+this research, only the solution with the value closest to the
+value of the known optimal solution is retained and all others
+are rejected. If multiple solutions share the same value, the
+one with the smallest number of available vehicles is selected.
+A case is deemed unsolved if for every number of available
+vehicles, a solution cannot be found within 60 seconds.
+IV. EXPERIMENTAL RESULTS
+A. Small and Medium Transportation Problems
+In order to determine the usefulness of OR-Tools suite in
+real-world application, it was important to examine how well
+434
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+TABLE II
+SOLVED PROBLEMS
+Number of customers
+R1 type % solved
+R2 type % solved
+RC1 type % solved
+RC2 type % solved
+C1 type % solved
+C2 type % solved
+25
+91.67
+100
+75
+100
+55.56
+100
+50
+83.33
+100
+75
+100
+55.56
+62.5
+100
+91.67
+27.27
+87.5
+62.5
+88.89
+12.5
+TABLE III
+AVERAGE PERCENT DEVIATION
+Number of customers
+R1 type % #
+R2 type % #
+RC1 type % #
+RC2 type % #
+C1 type % #
+C2 type % #
+25
+3.11
+2.7
+4.64
+1.87
+0.31
+1.52
+50
+5.49
+6.95
+10.2
+4.41
+14.28
+6.07
+100
+6.48
+6.98
+8.58
+8.58
+10.89
+14.22
+TABLE IV
+AVERAGE EXTRA AVAILABLE AND UTILIZED VEHICLES
+Number of customers
+R1 % extra vehicles
+R2 % extra vehicles
+RC1% extra vehicles
+RC2% extra vehicles
+C1 % extra vehicles
+C2 % extra vehicles
+nva
+nvu
+nva
+nvu
+nva
+nvu
+nva
+nvu
+nva
+nvu
+nva
+nvu
+25
+74.5
+6.82
+39.4
+6.82
+58.33
+5.56
+0
+0
+26.7
+0
+37.5
+0
+50
+69
+9.05
+37.22
+-3.79
+76.67
+7.64
+39.16
+1.13
+76
+8
+60
+10
+100
+92.42
+14.95
+100
+51.39
+85.06
+15.92
+67.78
+25.99
+87.5
+3.75
+100
+0
+TABLE V
+DURATION (MIN), TOTAL DISTANCE (M), AND VEHICLE SPEED (KM/H) PER ROUTE IN THE ONLINE VEHICLE ROUTING PROBLEM
+route
+online time
+online dist
+online speed
+route
+online time
+online dist
+online speed
+1
+1639
+978373
+35.81597315
+26
+1698
+720008
+25.4419788
+2
+1612
+940924
+35.02198511
+27
+1660
+769623
+27.8176988
+3
+932
+487478
+31.38270386
+28
+1481
+865202
+35.05207292
+4
+1634
+724713
+26.61124847
+29
+1719
+763171
+26.63773124
+5
+1479
+915957
+37.15849899
+30
+1518
+579104
+22.88948617
+6
+1261
+956944
+45.5326249
+31
+1152
+524044
+27.29395833
+7
+1822
+864152
+28.45725576
+32
+1614
+794186
+29.52364312
+8
+1567
+950161
+36.38140396
+33
+1572
+707880
+27.01832061
+9
+1619
+721374
+26.73405806
+34
+1636
+627823
+23.0252934
+10
+1576
+875163
+33.31838832
+35
+1556
+988002
+38.0977635
+11
+1606
+1143185
+42.70927771
+36
+1589
+834845
+31.52341095
+12
+1232
+502413
+24.46816558
+37
+1043
+537488
+30.91973154
+13
+1759
+795418
+27.1319386
+38
+1508
+816946
+32.50448276
+14
+1508
+807543
+32.13035809
+39
+1683
+606626
+21.62659537
+15
+1464
+802472
+32.88819672
+40
+1039
+530570
+30.63926853
+16
+1468
+694792
+28.39749319
+41
+1680
+665087
+23.75310714
+17
+1704
+786367
+27.68897887
+42
+1813
+802222
+26.54899062
+18
+1535
+533608
+20.85764169
+43
+1533
+610505
+23.89452055
+19
+1861
+741425
+23.90408383
+44
+1782
+816657
+27.49686869
+20
+1683
+846440
+30.17611408
+45
+1743
+757164
+26.06416523
+21
+1723
+893736
+31.12255369
+46
+1379
+733111
+31.89750544
+22
+1794
+868601
+29.05020067
+47
+1698
+875818
+30.94763251
+23
+1418
+772363
+32.68108604
+48
+1680
+853043
+30.46582143
+24
+1219
+664372
+32.70083675
+49
+1494
+724937
+29.11393574
+25
+1513
+717771
+28.46415069
+50
+1639
+643139
+23.5438316
+could it operate under a strict computational time limit (60
+seconds). A good image can be obtained by examining the
+percentage of cases, where a feasible solution could be found,
+by problem type and size. The results are presented on Table
+II and Fig. 2.
+As it is expected bigger problems are increasingly harder to
+solve. For small (25 customers) and medium (50 customers)
+sized OR-Tools seem to perform well, solving on average more
+than 75% of the cases, performing better on problems with
+high capacity vehicles (R2, RC2, C2) and facing difficulties
+only in clustered problems with low capacity vehicles (C1
+type). The opposite seems to be truth for large (100 customers)
+problems where the percentage of successfully solved cases
+drops significantly for high capacity vehicle problems (R2,
+RC2, C2) while for low capacity vehicle problems it is
+over 87.5%. The results indicate that structure asymmetrically
+affects the solvability of different problem types.
+Another important factor that must be considered, as OR-
+Tools rely mostly on heuristics and metaheuristics, is the
+precision of the optimization process, which indicates how
+435
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+Fig. 2. Problems solved by type and size.
+Fig. 3. Average % deviation by type and size.
+close is the calculated solution to the actual mathematical
+optimal solution. A deviation percent error (ed) between the
+calculated (vc) and the known optimal (vk) solution values can
+be calculated using the formula ed = 100((vc −vk))/vk . The
+average ed value by problem type and size is presented on
+Table III and Fig. 3. The average ed is calculated excluding
+the unsolved cases.
+The results show that ed is bellow 15% for all the cases and
+for the majority of cases below 10%. As it is expected, larger
+problems are harder to solve, thus the increase of problem
+size correlates to the increase in the average ed. In large
+problems (100 customers) OR-Tools seem to perform better
+in problems with random structure (R type). As the problem
+structure becomes more clustered an increase in the average
+ed is observed.
+As previously mentioned, every case was tested for 3
+different numbers of available vehicles, 0%, 50% and 100%
+additional vehicles from the known optimal solution. Even
+though sometimes OR-Tools require more available vehicles to
+successfully find a solution they don’t necessarily utilize all
+of them. The average percentage of extra available vehicles
+needed (nva) for the OR-Tools to find a solution and the
+average percentage of extra vehicles utilized (nvu) in OR-
+Tools solution compared to the vehicles in the known optimal
+solution by problem type and size is presented on Table IV.
+The average values are calculated excluding the unsolved
+cases.
+The results indicate that even the nva values are generally
+high the values of nvu stay relatively low. This is positive
+because it means that if CVRPTW is hard to solve given a
+number of available vehicles, the strategy of increasing the
+number of available vehicles to make the problem easier to
+solve is valid because although the number of extra vehicles
+may be high the number of actual used vehicles will be close
+to the number of the starting available vehicles.
+B. Problem definition for our real life test Case
+A single transport vehicle is utilized, with sufficient capacity
+to fulfill all demands. Initially, the model computes an optimal
+route visiting all retail locations (a total of 30), starting from
+the company’s facilities (DEPOT – node 0), based on the input
+data (temporal sequence of demands and locations of retail
+points). As the vehicle visits a number of locations, a new
+demand for products arises, prompting the model to recalculate
+an optimized route that incorporates the new demand alongside
+the remaining unfulfilled ones. This process repeats as new
+demands emerge until all retail locations are visited. The
+demand study timeframe is divided into four time windows
+(0-120, 120-240, 240-360, 360-480 minutes) – (08:00-10:00,
+10:00-12:00, 12:00-14:00, 14:00-16:00) . Each new request is
+considered for fulfillment from the subsequent time window
+following its emergence. The waiting time for each node’s
+demand fulfillment was set to be sufficiently large to ensure
+that, in the event of multiple simultaneous requests within
+the same time window due to randomness, the results remain
+unaffected. The selection of both the number of submodels
+within the method (with a maximum of 3) and the number
+of retail points included in each submodel, as well as the
+time windows in which respective demands are met is random,
+following the steps below:
+(a) A number between 1 and 30 is selected, indicating the
+number of nodes to be served in the first submodel’s
+resolution.
+(b) A set of numbers between 1 and 30 is chosen, corre-
+sponding to the number selected in step (a). These nodes
+will be served in the first submodel’s resolution.
+(c) For each node selected in step (b), a number between 1
+and 4 is chosen, indicating the time window in which it
+will be served.
+(d) A number between 1 and [30 - (number from step (a)] is
+selected, determining the number of nodes to be served
+in the second submodel’s resolution.
+(e) A set of numbers between 1 and 30, corresponding to the
+number selected in step (d), is chosen. These nodes will
+be served in the second submodel’s resolution, excluding
+those already considered in the first submodel.
+(f) For each node selected in step (e), a number between 2
+and 4 is chosen, indicating the time window in which
+436
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+it will be served. The number 1 (first time window)
+is excluded, as the route has already started, and new
+requests can only be fulfilled from the second time
+window onwards.
+(g) A number between 1 and [(30 - (number from step (a))
+- (number from step (d))] is selected, determining the
+number of nodes to be served in the third submodel
+resolution.
+(h) A set of numbers between 1 and 30, corresponding to the
+number selected in step (g), is chosen, again excluding
+nodes already considered in the previous submodels.
+(i) For each node selected in step (h), a number between 3
+and 4 is chosen, indicating the time window in which it
+will be visited by the vehicle. Any remaining numbers
+between 1 and 30 that have not been selected in steps
+(b), (e), and (h) are the nodes not assigned to any time
+window and will be examined in the fourth and final one.
+In the first submodel, the initial node (DEPOT) is set as 0.
+In the second, the initial node is selected as the last visited
+node from the first submodel’s route within the first time
+window. By solving these subproblems, the total travel time
+of the routes is calculated, and by summing the individual arc
+distances, the total distance traveled by the vehicle is also de-
+termined, both for each submodel and the entire online model.
+A total of 50 models were studied. Based on the adopted
+methodology, the total transportation times of 50 dynamic
+models of the vehicle routing problem were determined, along
+with the corresponding times of each model’s submodels.
+The automatic solution strategy was applied in combination
+with the automatic improvement algorithm. Additionally, given
+the distances between nodes, the traveled distance of each
+submodel and the total model distance were calculated.
+C. Numerical Results
+By analyzing the solution results, a comparison was made
+between the behavior of the online and the offline system. In
+the offline system, all demands are known from the beginning
+of the problem, with no new requests emerging during the
+route execution. All demands are placed in chronological order
+and can only be fulfilled from the subsequent time window
+onward. The travel times of the static and dynamic versions
+were compared (Fig. 5), along with their respective total
+distances (Fig. 4). The numerical data, as well as the average
+vehicle speed for each model, are presented in Tables V and
+VI. The total travel time of the online version was defined as
+the sum of the individual submodels’ times.
+Based on the results, there is a significant difference in
+the travel times, and as expected, the solution degrades in
+the case of the online model. Knowledge of all the problem
+data from the outset seems to facilitate the modeling process,
+yielding better results. An exception is the third model, for
+which the two examined times are identical (932 minutes),
+and consequently, their standard deviation is zero. This can
+be explained by the fact that during the submodel definition
+process, all nodes were designated to be examined in the
+first submodel, making it the only submodel for the third
+0
+500
+1000
+1500
+2000
+1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49
+TIME (MIN)
+MODEL
+Total travel time
+online
+static
+Fig. 4. Diagram comparing travel times of the static and dynamic model.
+0
+200000
+400000
+600000
+800000
+1000000
+1200000
+1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49
+DISTANCE (M)
+MODEL
+Total travel distance
+online
+static
+Fig. 5. Diagram comparing travel distance of the static and dynamic model.
+model, with no difference from the corresponding static model.
+Furthermore, the standard deviation appears to be significantly
+smaller for the entirety of the observations in models 37 and
+39, where the dynamic version has two submodels instead of
+three. This occurred because, during the selection process for
+the submodel elements, in the second submodel of each case,
+the examined nodes were all those not considered in the first.
+V. CONCLUSIONS
+The outcome of comparative analysis shows that OR-Tools
+can be useful and accurate enough to meet the needs of
+small and medium sized CVRPTW applications. Small (25
+customers) and medium (50 customers) sized problems were
+solved on average over 75% of the time. For large problems
+(100 customers), cases with small capacity vehicles were
+solved on average over 87.5% of the time, while cases with
+high capacity vehicles were difficult to solve. The quality of
+the solutions produced, for most cases, was found to be good
+with average deviation less than 10% from the known optimal
+solutions. Finally, it was observed that a significant increase
+in the number of vehicles available, as inputs, was required
+to obtain solutions, but most of the additional vehicles were
+not used and the actual number of vehicles needed was less
+than 30% of the number of vehicles in the optimal solution.
+The results were obtained within strict time limits, which
+suggests that OR-Tools could be used reliably in real-world
+problems. Moreover, based on the above real world use case,
+the static model, in which all necessary data are known before
+the start of the route, seems to demonstrate better behavior and
+performance.
+437
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 
+TABLE VI
+DURATION (MIN), TOTAL DISTANCE (M), AND VEHICLE SPEED (KM/H) PER ROUTE IN THE OFFLINE VEHICLE ROUTING PROBLEM
+route
+static time
+static dist
+static speed
+route
+static time
+static dist
+static speed
+1
+948
+495426
+31.35607595
+26
+908
+472610
+31.22973568
+2
+812
+469910
+34.72241379
+27
+934
+481699
+30.94426124
+3
+932
+487478
+31.38270386
+28
+934
+481699
+30.94426124
+4
+937
+477807
+30.59596585
+29
+929
+472610
+30.52378902
+5
+583
+481725
+49.57718696
+30
+925
+472610
+30.65578378
+6
+662
+298960
+27.09607251
+31
+916
+466140
+30.53318777
+7
+876
+477807
+32.72650685
+32
+929
+472533
+30.51881593
+8
+751
+469910
+37.54274301
+33
+933
+495425
+31.86012862
+9
+929
+472533
+30.51881593
+34
+896
+472533
+31.64283482
+10
+915
+472533
+30.98577049
+35
+919
+472610
+30.85593036
+11
+925
+475324
+30.83182703
+36
+903
+472533
+31.39754153
+12
+912
+482144
+31.72844668
+37
+905
+481699
+31.9358453
+13
+929
+472533
+30.51881593
+38
+939
+493524
+31.53507987
+14
+700
+481725
+41.29071429
+39
+941
+484058
+30.86448459
+15
+939
+487478
+31.14875399
+40
+923
+466140
+30.30162514
+16
+925
+475324
+30.83182703
+41
+916
+484058
+31.7068559
+17
+929
+472610
+30.52378902
+42
+935
+505603
+32.4451123
+18
+942
+495829
+31.58146497
+43
+929
+483168
+31.20568353
+19
+934
+481699
+30.94426124
+44
+940
+493600
+31.50638298
+20
+919
+495425
+32.34548422
+45
+941
+484058
+30.86448459
+21
+905
+481699
+31.9358453
+46
+935
+490445
+31.47240642
+22
+894
+481775
+32.33389262
+47
+934
+489453
+31.44237687
+23
+925
+472610
+30.65578378
+48
+943
+498464
+31.71563097
+24
+919
+481699
+31.44933624
+49
+941
+493313
+31.45460149
+25
+693
+467119
+40.44320346
+50
+950
+505603
+31.93282105
+ACKNOWLEDGMENT
+The research leading to these results has been partially
+funded by the European Union’s Horizon Europe Research
+and Innovation Programme under the project “TRACE” (Grant
+Agreement No. 101104278). The content reflects only the au-
+thors’ views, and the European Commission is not responsible
+for any use that may be made of the information it contains.
+REFERENCES
+[1] Z. Wu and M. Pagell, “Balancing priorities: Decision-making in sus-
+tainable supply chain management,” Journal of operations management,
+vol. 29, no. 6, pp. 577–590, 2011.
+[2] F. Alves, F. Pacheco, A. M. A. Rocha, A. I. Pereira, and P. Leit˜ao,
+“Solving a logistics system for vehicle routing problem using an open-
+source tool,” in International Conference on Computational Science and
+Its Applications.
+Springer, 2021, pp. 397–412.
+[3] V. Pillac, M. Gendreau, C. Gu´eret, and A. L. Medaglia, “A review of
+dynamic vehicle routing problems,” European Journal of Operational
+Research, vol. 225, no. 1, pp. 1–11, 2013.
+[4] S. Mitra, “Discrete choice model of agricultural shipper’s mode choice,”
+Transportation Journal, vol. 52, no. 1, pp. 6–25, 2013.
+[5] K. Braekers, K. Ramaekers, and I. Van Nieuwenhuyse, “The vehicle
+routing problem: State of the art classification and review,” Computers
+& industrial engineering, vol. 99, pp. 300–313, 2016.
+[6] K. Meesuptaweekoon and P. Chaovalitwongse, “Dynamic vehicle rout-
+ing problem with multiple depots,” Engineering journal, vol. 18, no. 4,
+pp. 135–149, 2014.
+[7] Y. Shen, M. Liu, J. Yang, Y. Shi, and M. Middendorf, “A hybrid swarm
+intelligence algorithm for vehicle routing problem with time windows,”
+Ieee Access, vol. 8, pp. 93 882–93 893, 2020.
+[8] B. H. Rios, E. C. Xavier, F. K. Miyazawa, and P. Amorim, “Stochastic
+multi-depot capacitated vehicle routing problem with pickup and deliv-
+ery: heuristic approaches,” in Encontro de Teoria da Computac¸˜ao (ETC).
+SBC, 2021, pp. 90–93.
+[9] S. Irnich, M. Schneider, and D. Vigo, “Chapter 9: Four variants of the
+vehicle routing problem,” in Vehicle Routing: Problems, Methods, and
+Applications, Second Edition.
+SIAM, 2014, pp. 241–271.
+[10] E. Lalla-Ruiz, C. Exp´osito-Izquierdo, S. Taheripour, and S. Voß, “An
+improved formulation for the multi-depot open vehicle routing problem,”
+OR spectrum, vol. 38, pp. 175–187, 2016.
+[11] V. Soto-Mendoza, I. Garc´ıa-Calvillo, E. Ruiz-y Ruiz, and J. P´erez-
+Terrazas, “A hybrid grasshopper optimization algorithm applied to the
+open vehicle routing problem,” Algorithms, vol. 13, no. 4, p. 96, 2020.
+[12] A. Mu˜noz-Villamizar, J. R. Montoya-Torres, and J. Faulin, “Impact of
+the use of electric vehicles in collaborative urban transport networks: A
+case study,” Transportation Research Part D: Transport and Environ-
+ment, vol. 50, pp. 40–54, 2017.
+[13] D. Pisinger and S. Ropke, “A general heuristic for vehicle routing
+problems,” Computers & operations research, vol. 34, no. 8, pp. 2403–
+2435, 2007.
+[14] L. Wang, C. Song, Y. Sun, C. Lu, and Q. Chen, “A neural multi-objective
+capacitated vehicle routing optimization algorithm based on preference
+adjustment,” Electronics, vol. 12, no. 19, p. 4167, 2023.
+[15] N. Fr´ıas, F. Johnson, and C. Valle, “Hybrid algorithms for energy
+minimizing vehicle routing problem: Integrating clusterization and ant
+colony optimization,” Ieee Access, vol. 11, pp. 125 800–125 821, 2023.
+[16] V. R. M´aximo and M. C. Nascimento, “A hybrid adaptive iterated local
+search with diversification control to the capacitated vehicle routing
+problem,” European Journal of Operational Research, vol. 294, no. 3,
+pp. 1108–1119, 2021.
+[17] P. P. Repoussis, D. C. Paraskevopoulos, C. D. Tarantilis, and G. Ioannou,
+“A reactive greedy randomized variable neighborhood tabu search for the
+vehicle routing problem with time windows,” in International workshop
+on hybrid metaheuristics.
+Springer, 2006, pp. 124–138.
+[18] O. Br¨aysy and M. Gendreau, “Vehicle routing problem with time
+windows, part ii: Metaheuristics,” Transportation science, vol. 39, no. 1,
+pp. 119–139, 2005.
+[19] V. C. Hemmelmayr, J.-F. Cordeau, and T. G. Crainic, “An adaptive large
+neighborhood search heuristic for two-echelon vehicle routing problems
+arising in city logistics,” Computers & operations research, vol. 39,
+no. 12, pp. 3215–3228, 2012.
+[20] A. A. Juan, I. Pascual, D. Guimarans, and B. Barrios, “Combining biased
+randomization with iterated local search for solving the multidepot
+vehicle routing problem,” International Transactions in Operational
+Research, vol. 22, no. 4, pp. 647–667, 2015.
+[21] M. M. Solomon, “Algorithms for the vehicle routing and scheduling
+problems with time window constraints,” Operations research, vol. 35,
+no. 2, pp. 254–265, 1987.
+438
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 01,2026 at 22:39:42 UTC from IEEE Xplore.  Restrictions apply. 

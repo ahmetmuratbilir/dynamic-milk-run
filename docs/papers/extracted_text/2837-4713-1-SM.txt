@@ -1,0 +1,1000 @@
+- 571 - 
+ 
+ 
+     Manufacturing Science and Education 2025 
+ 
+      ACTA TECHNICA NAPOCENSIS 
+ 
+ Series: Applied Mathematics, Mechanics, and Engineering
+                      Vol. 68, Issue Special II, July 2025 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+IMPROVING THE PERFORMANCE OF MANUFACTURING SYSTEMS BY 
+MODELING WITH SPECIFIC ELEMENTS FROM SIMPY LIBRARY 
+ 
+Alin Florin POP, Claudiu INDRE, Florin BLAGA, Voichița HULE, Lajos VEREȘ,  
+Traian BUIDOȘ 
+ 
+ 
+Abstract: Modern industry requires continuous improvement of manufacturing processes to increase 
+efficiency and reduce costs. Modeling and simulation of manufacturing systems is an essential method for 
+performance analysis and workflow optimization. This paper explores the use of Python's SimPy library 
+for the simulation of manufacturing processes, with applicability to the machining of casting parts. 
+Different production scenarios are analyzed, highlighting the impact of operational parameters on 
+processing times and resource utilization. The results obtained allow the identification of critical points in 
+the system and the proposal of optimization solutions, demonstrating the advantages of using SimPy for the 
+analysis and improvement of industrial processes.  
+Keywords: Discrete event simulation, SimPy, production optimization, resource management, intelligent 
+manufacturing, Python. 
+ 
+1. INTRODUCTION  
+ 
+Today's modern industry requires the 
+improvement of manufacturing processes to be a 
+decisive factor in the context of competitiveness, 
+efficiency and cost reduction. Modeling and 
+simulation of manufacturing systems is a very 
+useful tool in evaluating and improving the 
+performance of a production system, facilitating 
+a detailed understanding of the flows, the 
+resources required and the linkages between the 
+various elements of the system. There are 
+numerous tools available for modeling and 
+simulation. One of these is the SimPy library in 
+the Python programming language. It has 
+become an increasingly popular choice among 
+researchers and experts due to its efficiency and 
+flexibility. 
+This paper deals with the use of SimPy tool 
+in the modeling and simulation of a production 
+system with the objective of improving the 
+manufacturing 
+system 
+performance. 
+Considering a case study in the field of castings 
+machining, we will build different models of the 
+production system, and we will simulate 
+different versions of the manufacturing system 
+highlighting the impact of these on the 
+machining times. The aim of this paper is to 
+show the efficiency of the SimPy library in 
+simulating a production system and to provide 
+recommendations for improving its efficiency. 
+This paper will also discuss the advantages 
+and limitations of the Simpy library. Different 
+simulation methods are analyzed in comparison 
+When 
+studying 
+the 
+performance 
+of 
+manufacturing systems, it is important that the 
+model created faithfully reflects the sequence of 
+events. Simply is a Python library used to model 
+and simulate discrete event-based processes by 
+defining them as Python functions. Thus, queues 
+and production systems can be simulated. The 
+simplicity in use, the integration into Python 
+language, the open-source character make this 
+tool 
+very 
+attractive 
+for 
+specialists 
+and 
+researchers. [1] Systems from different domains 
+can be modeled and simulated, ranging from 
+production systems to healthcare systems. Its 
+efficient event handling mechanism minimizes 
+the resources needed to simulate complex 
+models. Simply allows the parallel execution of 
+multiple processes, making it a useful means of 
+- 572 - 
+ 
+ 
+managing complex systems with multiple 
+components. 
+Simulation provides a virtual environment 
+where complex production scenarios can be 
+replicated, tested, and optimized without 
+interrupting the actual manufacturing processes. 
+It 
+enables 
+decision-makers 
+to 
+identify 
+inefficiencies, forecast outcomes under various 
+configurations, and evaluate the impact of 
+potential improvements. This approach is 
+especially 
+valuable 
+in 
+industries 
+where 
+downtime is costly and operational flexibility is 
+limited. 
+ 
+2. METHODS AND TECHNIQUES USED 
+IN THE SIMULATION OF PRODUCTION 
+SYSTEMS 
+ 
+Modeling and simulation of manufacturing 
+systems is an area of interest due to its ability to 
+provide methods and means to improve decision 
+making and to increase the efficiency of 
+manufacturing system performance. Among the 
+most widely used simulation methods are 
+Discrete Event Simulation (DES), based on the 
+fact 
+that 
+manufacturing 
+processes 
+are 
+represented as a sequence of events occurring 
+over a time interval. Using this method, 
+manufacturing process parameters such as 
+processing times, resource utilization and 
+waiting times can be highlighted.  
+In the literature, there are several models and 
+techniques 
+that 
+are 
+used 
+to 
+simulate 
+manufacturing systems. Among these, the most 
+common are Petri net-based models, simulations 
+with agents, and queueing network models. For 
+example, queueing models have been used 
+extensively to analyze the performance of 
+production lines and industrial equipment. They 
+allow to evaluate efficiency and identify 
+possible bottlenecks in production processes. 
+The simulations with agents [2] are used to 
+model the individual behavior of each individual 
+element, 
+especially 
+for 
+scenarios 
+with 
+interactions between elements. 
+Discrete event-based simulation remains one 
+of the most widely used techniques due to the 
+accuracy with which complex systems can be 
+modeled. 
+The paper [4] proposes a generic open-source 
+framework for 3D visualization of Digital Twins 
+(DT) of manufacturing systems based on 
+discrete event simulations (DES), such as 
+SimPy. 
+ 
+2.1. Using SimPy to simulate manufacturing 
+systems 
+Simpy is a Python library specifically for 
+discrete event simulation, which has been 
+increasingly used due to its ability to model 
+different systems and its compatibility with 
+other Pyhton libraries. Compared to other 
+simulation platforms such as AnyLogic or 
+Simul8, SimPy is a more customizable solution 
+due to its open-source nature.  
+For example, a study [3] demonstrated the 
+application of SimPy for modeling a production 
+system in a car factory, showing how it can be 
+used to evaluate waiting time and equipment 
+utilization. They emphasized the advantages of 
+SimPy in creating a flexible and easily adaptable 
+model that can be quickly extended to simulate 
+new scenarios. 
+Compared to other commercial platforms, 
+SimPy 
+better 
+integrates 
+with 
+Python 
+programming language libraries such as NumPy 
+and Pandas. In addition, SimPy allows the 
+development of highly customized and scalable 
+simulations that can be adapted for a wide range 
+of industrial applications. 
+In the literature, several advantages of using 
+SimPy over other simulation platforms have 
+been highlighted with such as the flexibility in 
+defining models. SimPy also provides an 
+intuitive syntax for creating processes and 
+events. It is ideal for researchers who want to 
+create complex models.  
+Another advantage is low cost: Being open-
+source, SimPy does not require additional 
+licensing costs, which makes it affordable for 
+small organizations or academic researchers. 
+SimPy is easy to integrate with other Python 
+libraries, which makes it possible to process 
+data, generate graphs, and analyze data in a more 
+advanced way. 
+However, SimPy also has some limitations, 
+such as lower performance compared to 
+commercial 
+platforms 
+for 
+very 
+complex 
+simulations or simulations with a large number 
+of entities. For many industrial process 
+simulation applications, these limitations are 
+minimal compared to the advantages it offers. 
+- 573 - 
+ 
+ 
+Furthermore, this study compares different 
+manufacturing scenarios by varying resource 
+availability and processing conditions, offering 
+a comprehensive analysis of how discrete-event 
+simulation supports strategic decision-making in 
+production environments. The inclusion of 
+stochastic processing times, variable workflows, 
+and shared resources aims to replicate real-world 
+challenges and demonstrate how simulation can 
+be used to mitigate them. 
+ 
+3. MODELING THE MANUFACTURING 
+PROCESS OF CASTING PARTS 
+ 
+In the automotive manufacturing industry, a 
+common process is the production of parts by die 
+casting of an aluminium alloy. After casting, the 
+parts are subjected to specific operations, 
+depending 
+on 
+the 
+requirements 
+and 
+particularities of each product. This approach is 
+characteristic of companies specializing in this 
+type 
+of 
+manufacturing. 
+Although 
+the 
+manufacturing process follows a general 
+structure, 
+each 
+product 
+has 
+its 
+own 
+particularities, 
+reflected 
+in 
+the 
+specific 
+processing stages. 
+Next, the manufacturing structure of the 
+products obtained by this method was presented, 
+starting with the pressure casting process. 
+The manufacturing process of aluminum 
+alloy castings includes several specific stages, 
+each of which has the role of ensuring the final 
+quality of the product.[5] Depending on the 
+complexity and requirements of the part, some 
+stages can be omitted or adapted. The first stage 
+in the manufacturing process is casting (pressure 
+casting). This process consists of injecting the 
+molten aluminum alloy into a mold, under high 
+pressure.[6] This process allows for the 
+production of parts with complex geometries 
+and reduced tolerances. After casting, Trimming 
+is performed (removal of networks and cutting 
+of burrs), where the excess material resulting 
+from the casting process is removed by 
+mechanical cutting. [7] This is an essential stage 
+for eliminating unwanted edges and preparing 
+the part for subsequent stages. For additional 
+surface finishing, several operations can be 
+chosen, such as: Automatic grinding and manual 
+shotblasting. Automatic grinding helps remove 
+imperfections, 
+and 
+manual 
+sandblasting 
+provides a uniform texture and improves the 
+adhesion of surface treatments. 
+A complex operation in terms of the process 
+itself and the resources required is machining, 
+where parts are processed through operations 
+such as milling, drilling or threading, to obtain 
+precise dimensions and strict tolerances. [8] This 
+stage is essential for parts that require fine 
+adjustments before use. After the machining 
+operation, deburring operations can be opted for. 
+[9] Deburring process, an operation necessary to 
+eliminate material residues and ensure smooth 
+edges, thus avoiding defects or problems during 
+assembly.  
+Next, the parts are subjected to a washing 
+stage, which removes oils, dust and other 
+impurities resulting from previous processing. 
+[10] Cleanliness is especially essential for parts 
+that will be subjected to rigorous tests. To verify 
+tightness and the absence of internal defects, a 
+Leakage test is performed. [11] This is a critical 
+test for components that must withstand high 
+pressures or prevent leakage of liquids and 
+gases. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig. 1. Manufacturing processes for casting parts  
+ 
+Casting 
+Trimming 
+Automatic 
+Grinding 
+Machining 
+Washing 
+Leaking test 
++ Packing 
+Deburring 
+Automatic 
+Grinding 
+- 574 - 
+ 
+ 
+A final step in the entire manufacturing 
+process is packaging, which ensures the 
+protection of the parts during transportation and 
+storage. [12] Depending on the customer's 
+specifications, packaging may include special 
+methods to prevent damage or contamination. 
+It is important to note that after each stage of 
+the 
+manufacturing 
+process, 
+the 
+product 
+undergoes rigorous inspections to ensure 
+compliance with quality standards. These checks 
+include 
+visual 
+inspection, 
+dimensional 
+measurements, and specific tests, depending on 
+the product requirements specific to each phase 
+of the process. [13] The quality assurance 
+process is integrated into the production flow so 
+that it does not affect the pace of manufacturing 
+but contributes to maintaining a constant level of 
+product performance and reliability. 
+ 
+3.1. Implementing simulation with SimPy 
+To achieve the manufacturing process model, 
+the Python programming language was used 
+using the SimPy library. This is a tool that allows 
+the creation of discrete event-based models. The 
+simulation of the workflow in a manufacturing 
+system, which includes resource analysis, is 
+recommended to be realistic with this model 
+time. 
+The model highlights the shared access to the 
+resources of the production system for the three 
+types of parts analyzed. Initially, model 
+configuration parameters are defined such as the 
+number of resources available for each 
+workstation, for example the number of 
+machines available for CNC machining.  
+The size of the manufacturing batch required 
+to be made, the total time for which the 
+simulation runs and the average processing time 
+for each workstation are defined. Table 1 shows 
+all these input variables numerically, for each 
+operation 
+Not all the parts follow the same technology. 
+ 
+Table 1 
+Manufacturing process times 
+Manufacturing process
+Manufacturing process times [sec]
+ 
+Part 1 
+Part 2 
+Part 3 
+Part 4 
+Part 5 
+Part 6 
+Part 7 
+CASTING 
+50 
+50 
+75 
+55 
+50 
+70 
+65 
+TRIMMING 
+50 
+60 
+50 
+50 
+50 
+60 
+50 
+AUTOMATIC GRINDIND 
+30 
+25 
+25 
+25 
+25 
+120 
+40 
+MANUAL 
+SHOTBLASTING 
+120 
+x 
+9 
+8 
+8 
+20 
+25 
+MACHINING 
+105 
+x 
+245 
+265 
+430 
+265 
+215 
+DEBURRING 
+x 
+x 
+30 
+60 
+60 
+90 
+25 
+WASHING 
+72 
+5 
+25 
+12 
+20 
+30 
+75 
+LEAKAGE TEST 
+50 
+x 
+21 
+55 
+55 
+30 
+55 
+The average manufacturing time is not 
+constant due to various disturbing factors such 
+as equipment wear, raw material quality, human 
+errors. The processing time for each operation is 
+a random time determined as a random variable 
+in the range: 
+[time – amplitude factor * time , time+amplitude 
+factor*time] 
+In the manufacturing system flow, there are 7 
+types of parts that can use common resources. 
+The parts studied in this paper can have different 
+technological paths.  
+Each machine is defined as a resource with a 
+different working time and having a capacity 
+defined at the beginning of the model. 
+with <process>.request() as req: 
+    yield req   
+    yield env.timeout(<process >._time())  
+    parts_< process >. += 1 
+ 
+One part at a given time requests a resource 
+(machine), if it is busy, the part waits in a queue 
+until it has priority over the requested machine. 
+The main simulation function in the created 
+program defines the environment in which the 
+simulation is performed, the resources are 
+- 575 - 
+ 
+ 
+created for each work machine and then the 
+processes that will produce the parts are called. 
+The duration of the simulation is for a period 
+defined by a numerically established variable in 
+the program. This variable is equal to the 
+program for one week, 3 shifts, 8 hours per day. 
+The queues are managed implicitly by 
+SimPy. Each resource (simpy.Resource) has a 
+list of entities waiting for access to the resource 
+(resource.queue).  
+Within the simulation, the queues are 
+monitored and periodically saved in the CSV file 
+for analysis. 
+The length of the queues is recorded every 
+500 seconds. 
+This 
+information 
+helps 
+to 
+identify 
+bottlenecks. If a queue grows excessively, it 
+means that that production step is a bottleneck 
+and needs optimization (e.g. adding an 
+additional workstation). 
+In addition to waiting queues, it is also 
+important to monitor the utilization of each 
+resource. This is done by calculating the actual 
+usage time for each station. Afterwards, the 
+occupancy rate is calculated. This is saved in the 
+CSV file for further analysis.  
+A high occupancy rate (above 85%) indicates 
+that the resource is overloaded, while a very low 
+rate (below 50%) shows that the resource is 
+underutilized and could be reduced to save costs. 
+ 
+3.2. Process execution and interaction 
+The simulation runs multiple processes 
+simultaneously, each corresponding to a part 
+going through the manufacturing stages. These 
+processes are launched in the run_simulation() 
+function, 
+where 
+each 
+part is 
+processed 
+independently.  
+Each part competes for access to resources, 
+and SimPy manages their scheduling based on 
+the availability of workstations. 
+Monitoring the simulation results is done by 
+writing them to a separate csv format file, thus 
+allowing further analysis of the information. In 
+the 
+monitoring 
+process, 
+the 
+following 
+parameters are highlighted: the size of the 
+queues for each processing operation, the 
+occupancy rate for each resource, and the 
+number of parts in process in each station.  
+The workflow in figure 2. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig. 2. Steps to create a model with the SimPy library 
+ 
+4. RESULTS AND ANALYSIS 
+ 
+By analyzing the data collected, we can draw 
+important conclusions about the system's 
+performance.  
+Large queues indicate the need to increase the 
+capacity of a stage. A low occupancy rate 
+suggests the possibility of reducing the number 
+of workstations to save costs. Through 
+simulation, we can test different configurations 
+before implementing real changes. 
+The fact that we have 7 types of parts with 
+different processing times for each part and the 
+resources shared by the 7 production flows 
+makes the occurrence of bottlenecks inevitable. 
+These can occur due to long execution times, 
+leading to high number of semi-finished 
+products accumulated in queues or due to 
+prioritization of some types of parts in favor of 
+others. Another reason for bottlenecks is the 
+inefficient use of resources if a resource is used 
+too little, with the risk of underutilization. The 
+performance analysis of a manufacturing system 
+is performed by measuring the length of queues, 
+resource occupancy rates, and total processing 
+time. 
+In 
+the 
+performance 
+analysis 
+of 
+the 
+manufacturing system, several work scenarios 
+are created. It starts with a scenario in which the 
+capacity of each piece of equipment is equal to 
+1. The equipment capacity scenarios are 
+presented in Table 2. 
+ 
+Initializing resources 
+Defining specific functions for parts 
+Resource monitoring 
+Running the simulation 
+576 
+ 
+ 
+Table 2 
+Resource distribution in the case of the six work scenarios 
+ 
+S 1
+S 2
+S 3
+S 4
+S 5
+S 6
+CASTING 
+1 
+1 
+1 
+1 
+1 
+1 
+TRIMMING
+1
+1
+1
+1
+1
+1
+AUTOMATIC GRINDIND
+1
+1
+1
+1
+1
+1
+MANUAL SHOTBLASTING
+1
+1
+1
+2
+2
+2
+MACHINING
+1
+1
+1
+1
+1
+1
+DEBURRING
+1
+2
+3
+3
+4
+5
+WASHING
+1
+1
+1
+1
+2
+2
+LEAKAGE TEST
+1
+1
+1
+1
+1
+1
+CASTING
+1
+1
+1
+1
+1
+1
+A first positive aspect is that the trimming, 
+grinding and deburring process are not 
+experiencing delays, which indicates a balance 
+between demand and capacity. However, there 
+are one problematic points: the CNC machining 
+operation (409 units pending – figure 3). These 
+accumulations 
+indicate 
+either 
+insufficient 
+capacity or longer processing times compared to 
+previous stages. 
+ 
+Fig. 3. Waiting time values in scenario 1 
+To improve process efficiency, specific 
+measures need to be taken. In the case of 
+polishing, one solution could be to increase 
+capacity by using additional equipment or 
+optimizing 
+cycle 
+times. 
+Similarly, 
+for 
+machining, reducing bottlenecks may involve 
+reorganizing production or increasing the 
+resources dedicated to this operation. 
+Figure 4 shows the resource occupancy rates 
+in modeling scenario 1. 
+ 
+Fig. 4. Occupancy Rate in Scenario 1 
+The occupancy rate for the CNC machining 
+is 100%, This is the stage with the highest 
+occupancy rate, which indicates either a high 
+demand for this operation or a potential capacity 
+issue (i.e. it may be a bottleneck - a critical point 
+that limits the process flow). Analysis may be 
+required to see if additional equipment or 
+optimizations are needed to avoid delays. The 
+fact that other operations have low occupancy 
+rates, this low utilization may be justified as 
+resources are used occasionally or in small 
+batches. 
+Table 3 
+Occupancy rate manufacturing process for each scenario 
+ 
+Occupancy rates in different work scenarios 
+ 
+V1 
+V2 
+V3 
+V4 
+V5 
+V6 
+Automatic grinding 
+32.41%
+43.08%
+66.67%
+30.68%
+40.91%
+48.61%
+Shotblasting manual 
+21.99%
+29.23%
+48.81%
+43.18%
+56.06%
+64.24%
+Machining 
+99.54%
+97.69%
+98.81%
+96.97%
+95.83%
+88.54%
+Deburring 
+21.99%
+31.54%
+50%
+55.68%
+72.73%
+83.33%
+Washing 
+17.94%
+40%
+60.71%
+52.27%
+32.58%
+43.4%
+Leakage test+Packing 
+17.94%
+41.54%
+58.33%
+60.23%
+81.82%
+82.01%
+- 577 - 
+ 
+ 
+In this second scenario, where the number of 
+CNC machines has doubled, we observe some 
+interesting changes in occupancy rates. At the 
+CNC operation even though it still has a high 
+occupancy rate, it has decreased slightly, this 
+suggests that the bottleneck problem has been 
+partially alleviated, but the operation remains a 
+critical one. The increase in occupancy for the 
+other operations. indicates that this stage has 
+become more utilized, probably to support the 
+increase in CNC capacity. 
+Doing a full analysis of the various 
+occupancy rates for the 6 scenarios presented in 
+table 3, initially there was a major bottleneck, 
+but as optimizations were made, the occupancy 
+rate gradually decreased, it is now more 
+balanced, which means that other operations 
+have taken more pressure from the process. The 
+occupancy rate for the Automatic Grinding 
+process, has steadily increased, indicating more 
+efficient capacity utilization. The Manual 
+Shotblasting 
+operation 
+had 
+a 
+significant 
+increase, especially after the third stage, 
+suggesting that this operation is starting to 
+become a constraint in the process. If it exceeds 
+70-80%, 
+it 
+may 
+require 
+expansion 
+or 
+automation. In the washing process the growth 
+accelerated, which indicates a much more 
+intense production flow, if it exceeds 85-90%, it 
+may become a bottleneck and solutions for 
+capacity expansion should be analyzed. Total 
+production times reflect the impact of additional 
+resources on the efficiency of the production 
+process. A significant reduction in duration is 
+observed as resources are increased. Figure 5 
+shows the variation in the time required to 
+produce the entire production batch. 
+ 
+ 
+Fig. 5. Total production time 
+ 
+ 
+5. CONCLUSION  
+ 
+This research demonstrated the importance of 
+using discrete event-based simulation for the 
+analysis and optimization of manufacturing 
+systems. Through the implementation of the 
+SimPy library, different operational scenarios 
+were evaluated, highlighting the impact of 
+process parameters on the performance of the 
+manufacturing system. 
+The results of the analysis showed that 
+bottlenecks in production can be identified by 
+monitoring queues and resource occupancy, 
+Resource optimization, such as increasing the 
+capacity of CNC equipment, significantly 
+reducing delays and improving the production 
+flow. 
+Simulations allow different configurations to 
+be tested before actual implementation, leading 
+to more informed production management 
+decisions. 
+The use of SimPy provides a flexible and 
+affordable alternative to other commercial 
+platforms and is easily integrated with other 
+Python libraries for advanced analysis. 
+In conclusion, modeling and simulation with 
+SimPy is a valuable tool for improving industrial 
+processes, facilitating data-driven decision 
+making and optimizing resource utilization. 
+Future studies can explore the extension of this 
+model by integrating artificial intelligence for 
+further optimizations and decision process 
+automation. 
+ 
+6. REFERENCES  
+ 
+[1] Fuchs, T., Enslin, C., Samsonov, V., 
+Lütticke, D., Schmitt, R. H., ProdSim: An 
+open-source python package for generating 
+high-resolution synthetic manufacturing data 
+on product, machine and shop-floor levels, 
+Procedia CIRP, 107, pp. 1343–1348, 2022 
+[2] Guerrero, 
+R., 
+Serrano-Hernandez, 
+A., 
+Pascual, J., Faulin, J., Simulation model for 
+wire harness design in the car production line 
+optimization 
+using 
+the 
+simpy 
+library, 
+Sustainability, 14(12), p. 7212, 2022 
+[3] Lodes, 
+L., 
+Hass, 
+E., 
+Dachtler, 
+K., 
+SmartManPy – Open Source Synthetic 
+0
+500
+1000
+1500
+2000
+S 1
+S 2
+S 3
+S 4
+S 5
+S 6
+Total production time [min]
+- 578 - 
+ 
+ 
+Manufacturing Data, Procedia Computer 
+Science, 253, pp. 1830–1839, 2025 
+[4] Joglekar, A., Bhandari, G., Sundaresan, R., 
+An open simulator framework for 3D 
+visualization of digital twins, in 2022 IEEE 
+International Conference on Internet of 
+Things and Intelligence Systems (IoTaIS), 
+Bali, Indonesia, pp. 278–284, 2022 
+[5] Otarawanna, S., Dahle, A. K., Casting of 
+aluminium alloys, 2011 
+[6] Huang, M., Zhou, Q., Wang, J., Li, S., Die 
+casting die design and process optimization 
+of aluminum alloy gearbox shell, Materials, 
+2021 
+[7] Li, S. et al., Processing method for trimming 
+edge of blanking die, Mar. 30, 2011 
+[8] Kumar, K., Zindani, D., Davim, J. P., 
+Introduction to Machining Processes, 2018 
+[9] Cheng, S., Deburring machining process of 
+metal product, May 21, 2019 
+[10] Rudawska, A., Wrona, P., Miturska, I., 
+Müller, 
+M., 
+Selected 
+aspects 
+of 
+the 
+technological processes of the aircraft engine 
+washing, Jan. 2017 
+[11] Serino, D. et al., Casting device, method 
+for detecting coolant leakage in said casting 
+device, and leak detection device, Jun. 01, 
+2017 
+[12] Barlier, C., Debboub, R., Method and 
+system for packaging a product, Jan. 11, 2018 
+[13] Kotus, M., Holota, T., Pauliček, T., Petrík, 
+M., Sklenár, M., Quality and reliability of 
+manufacturing process in automation of die-
+casting, Advanced Materials Research, 2013 
+ 
+ 
+Imbunătățirea performanțelor sistemelor de fabricație prin modelare cu elemente specifice 
+bibliotecii SimPy  
+ 
+Industria modernă necesită îmbunătățirea continuă a proceselor de fabricație pentru a spori eficiența și a reduce costurile. 
+Modelarea și simularea sistemelor de producție reprezintă o metodă esențială pentru analiza performanțelor și optimizarea 
+fluxurilor de lucru. Această lucrare explorează utilizarea bibliotecii SimPy din Python pentru simularea proceselor de 
+fabricație, cu aplicabilitate în prelucrarea pieselor turnate. Sunt analizate diferite scenarii de producție, evidențiindu-se 
+impactul parametrilor operaționali asupra timpilor de procesare și utilizării resurselor. Rezultatele obținute permit 
+identificarea punctelor critice din sistem și propunerea unor soluții de optimizare, demonstrând avantajele utilizării SimPy 
+pentru analiza și îmbunătățirea proceselor industriale. 
+ 
+Alin Florin POP, PhD, Assoc. Prof, University of Oradea, Department of Industrial Engineering, 
+Address: Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, afpop@uoradea.ro 
+Claudiu INDRE, PhD, Assistant, University of Oradea, Department of Industrial Engineering, 
+Address: Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, indreclaudiuioan@yahoo.com 
+Florin BLAGA, PhD, Professor, University of Oradea, Department of Industrial Engineering, 
+Address: Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, fblaga@uoradea.ro 
+Voichița HULE, PhD, Assoc. Prof, University of Oradea, Department of Mechanical Engineering and 
+Vehicles, Address: Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, vhule@uoradea.ro  
+Lajos VEREȘ, PhD Student, University of Oradea, Doctoral school of engineering sciences, Address: 
+Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, lajos_veres@yahoo.com. 
+Traian BUIDOȘ, PhD, Assoc. Prof, University of Oradea, Department of Industrial Engineering, 
+Address: Str. Universităţii nr. 1, Oradea, 410087, Bihor, Romania, tbuidos@gmail.com 

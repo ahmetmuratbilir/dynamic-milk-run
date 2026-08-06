@@ -1,0 +1,708 @@
+Inventory Control Systems with Safety Stock and  
+Reorder Point Approach 
+ 
+Devi Ajeng Efrilianda 
+Master Program of Information 
+Systems,  School of Post Graduate 
+Studies, Diponegoro University 
+Semarang, Indonesia 
+deviajgef@student.undip.ac.id 
+ 
+Mustafid 
+Department of Statistics 
+Faculty of Science and Mathematics  
+Diponegoro University, 
+Semarang, Central Java, Indonesia 
+mustafid55 @ undip.ac.id 
+                                                                          
+R. Rizal Isnanto 
+Department of Computer Systems, 
+Faculty of Engineering, 
+Diponegoro University, 
+Semarang, Indonesia 
+rizal_isnanto@yahoo.com
+Abstract- The inventory control systems has an important 
+role to monitor the condition of the goods at the supply 
+chain stage of goods distribution from the central 
+warehouse to retail in accordance with consumer demand. 
+The research aims to develop inventory control systems on 
+the supply chain distribution of goods from suppliers to 
+retail through the central warehouse with minimal supply 
+chain costs. Minimization of supply chain cost using 
+martingale model of forecast evaluation, and the result as 
+the basis for calculation of safety stock and reorder point. 
+The results of research are the system that can be used to 
+control inventory and renewal of goods in the central 
+warehouse by calculating the minimization of supply chain 
+cost based on consumer demand. Case studies were 
+conducted on the supply chain distribution of goods from 
+the central warehouse to the retail in Semarang. The 
+observation data derived from the goods distribution from 
+central warehouse to retail for certain products over 4 
+time periods. Through such inventory control system, can 
+minimize supply chain cost, and product inventory level 
+can be maintained in time and amount of inventory that 
+must be fulfilled. 
+ 
+Keywords- Supply chain cost, safety stock, reorder point, inventory 
+control systems  
+I. 
+INTRODUCTION  
+      Inventory control system has an important to monitor the 
+goods condition on supply chain distribution from central 
+warehouse to retail with consumer demand. Demand for goods 
+is dynamic on retailers, it makes problem in inventory control. 
+The problems are inventory goods unbalanced in the central 
+warehouse. Several methods have been developed to solve the 
+problem of  inventory control process at central warehouse. 
+Reorder Point (ROP) is one method using analyze the stock 
+control. 
+      The aim of inventory control is controlling inventory of 
+goods so the company does not the deficiency of stock and 
+optimizing the cost of supply chain distribution at central 
+warehouse. Optimizing inventory of goods can be ordered to 
+meet customer with approach [1]. Optimizing safety stock can 
+affect the cost of logistics in a company [2]. However, the 
+results of inventory control still experiencing delays. Because 
+the inventory control in central warehouses only estimates,  
+it needs average sales and maximum sales. There is no safety 
+stock and schedule for re-stock. 
+      It has known the flow of inventory distribution of goods, 
+so it needs inventory control at central warehouse. Then 
+central warehouse not over and less of goods. Inventory 
+control computation is using the safety stock approach as 
+inventory control to make available of goods at the central 
+warehouse. Safety stock has used to determine the minimum 
+and the maximum stock inventory in the central warehouse  
+with minimum cost supply chain. While ROP is the point 
+where the re-stock of goods and distribution of goods can be 
+on time. 
+      This research aims to develop inventory control systems 
+on the supply chain distribution of goods from suppliers to the 
+central warehouse with minimal supply chain costs. 
+Minimization of supply chain cost using martingale model. 
+Minimum cost of supply chain are derived using methods 
+martingale of forecast evaluation models (MMFE) based on 
+consumer demand, and the results using computation safety 
+stock and reorder point  
+ 
+II. 
+METHODOLOGY 
+Design of inventory control systems in supply chain 
+distribution of goods from supplier to central warehouse, it is 
+starting with design planning model of minimum cost supply 
+chain using MMFE method, and the results used computation 
+safety stock and reorder point. In planning modeling, 
+prediction of demand used for decision making and actual 
+sales used to determine the actual cost with demand data in 
+any period. Schemes of supply chain cost optimization 
+modeling with placement of the safety stock, it can be 
+depicted in Figure 1 [3]. The time of evaluation supply chain 
+and management policies is automatically, personal skills and 
+time for  simulation model applied on supply chain [4]. 
+Planning model minimum cost of the supply chain is to 
+computation safety stock and reorder point on framework 
+inventory control system with the input of demand predictions 
+data and actual data demand. The case of this study observed 
+the supply chain distribution from the central warehouse to 
+retail, observation data for certain product during the fourth 
+period within two months. 
+2018 International Conference on Information and Communications Technology (ICOIACT)
+978-1-5386-0954-5/18/$31.00 ©2018 IEEE
+844
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 05,2026 at 21:13:30 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+Figure 1. Schematic of safety stock placement approach 
+Observation data have used such as actual inventory data (I), 
+actual demand data (D) and actual backorder data (B) at 
+central warehouse. In Table 1 shows data from 4 periods (t), 
+and each period consists of 14 days of sales 
+ 
+Table 1. Total sales, inventory and reorder goods 
+ 
+t 
+D 
+I 
+B 
+1 
+1267 
+1245 
+1281 
+2 
+1389 
+1345 
+1214 
+3 
+1246 
+945 
+854 
+4 
+1193 
+1423 
+1102 
+ 
+a. Model optimization of supply chain 
+Demand forecast data is an input data for the planning 
+model, using MMFE as model to predict demand. MMFE 
+method has good prediction accuracy and minium cost supply 
+chain cost. Let dt, t + 1   is demand forecast, assuming that:   ݀
+௧ାଵ.௧ାଶ= ݀
+௧.௧ାଶ+ ߝ௧ାଵ.௧ାଶ  
+ (1) ݀
+௧ାଵ.௧ାଷ= ݀
+௧.௧ାଷ+ ߝ௧ାଵ.௧ାଷ  
+ (2) ݀
+௧ାଵ.௧ା்ାଵ= ߤ+ ߝ௧ାଵ.௧ା்ାଵ   
+ (3) 
+Demand prediction of consumer at the central warehouse for 
+next period  (݀
+௧,௧ା௞) demand prediction for previous period 
+(݀
+௧ିଵ,௧ା௞) and variable error for next period (ߝ௧,௧ା௞), it can 
+be seen from equation (4) [3]. ݀
+௧,௧ା௞= ݀
+௧ିଵ,௧ା௞+ ߝ௧,௧ା௞
+= ݀
+௧ିଶ,௧ା௞+ ߝ௧ିଵ,௧ା௞+ ߝ௧,௧ା௞ 
+= ⋯= ߤ+ ∑
+ߝ௧ି௜,௧ା௞்ି
+௞
+௜ୀଵ
+ 
+ 
+     (4) 
+ 
+In the model optimization (5) describes the maximum 
+goods are distributed in the supply chain process, and which 
+will be used to determine safety stock and reorder point. 
+Before computation safety stock and reorder point, it must 
+know the minimum cost supply chain planning. So, the central 
+warehouse can optimize goods distribution. Planning 
+minimum total cost supply chain distribution with formula [3]: 
+ 
+Π = ∑
+൫ߙ௝∑
+ܫመ௧
+௝்
+௧ୀଵ
+ ൯
+௃
+௝ୀଵ
++ ∑
+൫ߚ௝∑
+ܤ෠௧
+௝்
+௧ୀଵ
+ ൯
+୎
+୨ୀଵ
+ 
+  (5) 
+ 
+such that: 
+Î௧
+௝−Ḃ௧
+௝= (Î௧ିଵ
+௝
+−Ḃ௧ିଵ
+௝
+) + (ܴ
+௧
+௝− ݀
+௧
+௝) 
+ 
+  (6) ܴ
+௧
+௝= ܲ
+௧ି௅ೕ
+௝
+ 
+ 
+ 
+ 
+ 
+(7) ܲ
+௧
+௝= (1 − ߛ) ܨ௧
+௝+ ߛܣ௧
+௝  
+ 
+ 
+(8) ܲ
+௧
+௝≤ ܥ௝ 
+ 
+ 
+ 
+ 
+(9) ݀
+௧
+௝= ߜ௝ିଵ.௝.ܲ
+௧
+௝ିଵ . ∀௝≥2  
+ 
+ 
+(10) 
+ߛ= ቄ0 ݂݅
+ ݐ ≤ܮ
+1 ݋ݐℎ݁ݎݏ      
+ 
+ 
+ 
+(11) 
+I௧
+௝, ܤ௧
+௝, ܣ௧
+௝ ≥0 
+ 
+ 
+ 
+ 
+(12) 
+ 
+where : 
+ߙ௝  
+Unit cost of  distribution and inventory planning at 
+the stage of  j 
+ߚ௝ 
+Unit cost distribution  and backorder planning at the 
+stage j  
+ߜ௝ିଵ.௝ Bill of materials factors from stage j-1 to stage j 
+Î௧
+௝ 
+Planned inventory  level in time period t at stage j 
+Ḃ௧
+௝ 
+Planned backorder quantity in time period t at stage j ܲ
+௧
+௝ 
+Production quantity in time period t at stage j 
+ܨ௧
+௝ 
+Distribution quantity in time period t at stage j  
+ܣ௧
+௝ 
+Stocks quantity in time period t at stage j 
+ ܴ
+௧
+௝ 
+Replenishment quantity in time period t at stage j 
+ܥ௝ 
+Level of capacity at the stage j 
+Π 
+Planned total supply chain cost 
+ܮ௝ 
+Lead time of  stage j 
+ 
+The flow of supply chain information systems for goods 
+distribution is shown in Figure 2. 
+ 
+ 
+ 
+Figure 2. Supply chain information systems for goods 
+distribution 
+ 
+In optimizing total cost of  inventory and backorder can be 
+obtained from distribution unit and inventory planning cost at 
+the central warehouse (j) in  time t ( ߙ݆∑
+Iݐ݆ܶ
+ݐ=1
+) and 
+distribution backorder planning cost and backorder items at 
+the central warehouse for time period T (ߚ௝∑
+ܤ௧
+௝்
+௧ୀଵ
+). Then, 
+computation minimum cost of the supply chain from supplier 
+to central warehouse using equation (5). 
+     After computation of supply chain planning cost (݀
+௧
+௝),  the 
+next step determining actual inventory and backorder are 
+ 
+using actual sales data (D௧
+௝). This affects on the computation of 
+the service level in the central warehouse. Actual inventory 
+and backorder items in the equation: 
+2018 International Conference on Information and Communications Technology (ICOIACT)
+845
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 05,2026 at 21:13:30 UTC from IEEE Xplore.  Restrictions apply. 
+    I௧
+௝= ൫(I௧ିଵ
+௝
+− B௧ିଵ
+௝
+) + (R௧
+௝− D௧
+௝)൯ ା 
+          
+ (13) 
+B௧
+௝= ൫(B௧ିଵ
+௝
+− I௧ିଵ
+௝
+) −(R௧
+௝+ D௧
+௝)൯ ା 
+ 
+ (14) 
+where: 
+I௧
+௝    Actual inventory level in time period t stage j 
+B௧
+௝ Actual backorder quantity in time period  t stage j  
+D௧
+௝ Actual demand quantity in time period t 
+Π 
+Actual total supply chain cost ܵ
+ܮ௝  Actual service levels at the stage j  
+ 
+      Computation of Service level (SL) actual defined  
+inventory at retailers request by consumer have to be fulfilled. 
+Service level has based actual backorder and actual demand, 
+to measure customer satisfaction with the existing order 
+fulfillment, then expressed in the equation: ܵ
+ܮ௝ = 1 − 
+஺௖௧௨௔௟ ஻
+஺௖௧௨௔௟ ஽   
+ 
+ 
+    (15)                       
+ 
+ 
+ 
+ 
+ 
+b. The computation of the safety stock 
+Computation of safety stock data from stationary and not 
+stationary, it is used to optimize inventory of goods [5]. To 
+gets amount of safety stock (ܵܵ
+௝) amount of backorder at the 
+central warehouse at time t (∑ܤ௧
+௝
+௧
+) and service level in the 
+central warehouse (ܵܮ௝ ) with actual demand of goods in the 
+central warehouse  at time t (∑ܦ௧
+௝
+௧
+), The value of service level 
+is smaller than standard service level expressed in equation 
+(16). ܵܵ
+௝= ൜∑ܤ௧
+௝
+௧
+−( 1 −ܵܮ௝ ) ∑ܦ௧  
+௝  ݂݅
+   ܵܮ௝  <  ܵܮ௝
+∗
+௧
+0                                     ݋ݐℎ݁ݎݓ݅ݏ݁                    
+       (16) 
+ 
+ 
+ 
+  
+c. 
+The computation of reorder point (ROP) 
+Reorder point is an amount of reordering, it is demand 
+consumer during lead time. ROP is a method used to analyze  
+stock control [6]. The function objective cost per time to order 
+quantity reorder point (ROP). ROP can optimize re-stock of 
+goods at the company [10]. ROP gets the amount of inventory 
+goods with stock out. Computation of ROP during lead time 
+and safety stock at central warehouse, usually, ROP effects by 
+inventory in lead time. Computation of ROP expressed in 
+equation (17) [8]. 
+ ܴܱܲ
+= ܮ௝∗ 
+∑
+஽೟
+೟శ೟షభ
+೟
+௧
++ܵܵ
+ 
+ 
+ 
+(17) 
+III. 
+RESULTS 
+      In this research, design of inventory control system using   
+a framework of  the supply chain distribution on stage one 
+(Figure 2). Data input is demand data forecast and actual data 
+demand, while data output is a report  minimal cost of the 
+supply chain, the amount of safety stock and reorder point. 
+The aim is optimizing inventory to meet customer orders [9].  
+      The input process is demand data, inventory data, and 
+backorder data of goods in databased of inventory control 
+system by an administrator, the data will be display on the 
+main menu inventory control system. 
+      The process stage is activities of inventory control system, 
+to determines minimum cost supply chain to input data on the 
+system. The service level, the process is a computation of 
+satisfied customer based on demand goods. The safety stock is 
+determining inventory control. The aim to prevent over 
+capacities of inventory in the central warehouse. Computation 
+of cost supply chain is processing distribution any period. The 
+computation of reorder point based on safety stock with the 
+central warehouse.  
+      The output process is given information by inventory 
+control system. Output system such as supply chain cost 
+report, safety stock report and reorder point report. The report 
+can be seen minimum limit or safety stock standard at central 
+warehouse. Reorder point reports, a report that contains are 
+ordered by consumer, so central warehouse are known the 
+limit of stocks, then, the requirements on formula (6) until 
+(10) are met. Computation using one type of products at the 
+central warehouse with 4 periods and lead time for 2 days. 
+Provided that: 
+1. Îସ
+ଵ−Ḃସ
+ଵ= (Îସିଵ
+ଵ
+−Ḃସିଵ
+ଵ
+) + (ܴ
+ସ
+ଵ− ݀
+ସ
+ଵ)  
+1423 −1102 = (945-854) + (1423-1193) 
+321 = 91 + 230 
+321 = 321 
+2. ܴ
+ସ
+ଵ= ܲ
+ସି௅భ
+ଵ
+ 
+1423 = 1423 
+3. ܲ
+ସ
+ଵ= (1 − ߛ) ܨସ
+ଵ+ ߛܣସ
+ଵ ܲ
+ସ
+ଵ= (1 − 1) ܨସ
+ଵ+ 1. ܣସ
+ଵ  
+1423 = 1423  
+4. ܲ
+௧
+௝≤ ܥ௝ ܲ
+ସ
+ଵ≤ ܥଵ 
+ 
+1423 ≤5000 
+ 
+5. ݀
+ସ
+ଵ= ߜ௝ିଵ.௝.ܲ
+ସ
+௝ିଵ . ∀௝≥2 
+1193 = ߜ௝ିଵ.௝. 1423 . ∀௝≥2 
+6. Iସ
+ଵ, ܤସ
+ଵ, ܣସ
+ଵ ≥0   
+1423, 1246, 1423 ≥ 0 
+Thus, the condition from formula (6) until (10) has to be 
+fulfilled. Furthermore, the computation minimum cost of the 
+supply chain from supplier to central warehouse with formula 
+(6) until (10) to get the amount of minimum cost supply chain 
+costs. The unit cost of distribution, inventory, and backorder 
+of goods are 3% from the average price of goods. The data 
+used such as inventory and backorder data from historical data 
+first until the fourth period. The computation minimum cost of  
+the supply chain from supplier to central warehouse shown in 
+the following in formula:  
+2018 International Conference on Information and Communications Technology (ICOIACT)
+846
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 05,2026 at 21:13:30 UTC from IEEE Xplore.  Restrictions apply. 
+ 
+Π = ߙଵ∑
+I௧
+ଵ்
+ୀସ
+௧ୀଵ
++ ߚଵ∑
+ܤ௧
+ଵ்
+ୀସ
+௧ୀଵ
+  
+ 
+∑
+I௧
+ଵ்
+ୀସ
+௧ୀଵ
+= Iଵ
+ଵ+ Iଶ
+ଵ+ Iଷ
+ଵ+ Iସ
+ଵ 
+ 
+  
+    = 1245+1345+1240+1423 = 5253 
+∑
+ܤ௧
+ଵ்
+ୀସ
+௧ୀଵ
+= ܤଵ
+ଵ+ ܤଶ
+ଵ+ ܤଷ
+ଵ+ ܤସ
+ଵ 
+ 
+  
+    = 1281 + 1214 +854 + 1246 = 4595 
+Π = ߙଵ∑
+I௧
+ଵ்
+ୀସ
+௧ୀଵ
+ + ߚଵ∑
+ܤ௧
+ଵ்
+ୀସ
+௧ୀଵ
+  
+   = (615 x 5253) + (615 x 4595) 
+   = 3.230.595 + 2.825.925 = 6.056.520 
+     Computation of actual  inventory and actual backorder will 
+be used for computation service level. Service level is used to 
+measure the level of satisfaction services at central 
+warehouses. The service level such distribution of goods 
+ordered by the previous of retail demand. The next process is 
+the computation of actual Service Level (SL) used period 
+(T=4) based amount actual backorder of goods and actual 
+demand of goods on 4  periods : ܵ
+ܮ௝ = 1 − 
+஺௖௧௨௔௟ ஻
+஺௖௧௨௔௟ ஽  
+        = 1- 
+ସହଽହ
+ହ଴ଽହ  
+        = 1- 0.9 = 0.1 
+ 
+a. 
+The Computation of safety stock 
+Safety stock predictions of goods are used safety 
+stock approach. Computation of safety stock is affected by the 
+service level in retail, the amount of backorder and inventory 
+at a central warehouse. Data from CT001 products in the 
+fourth period will be the computation of safety stock on fourth 
+periods so it can be known the minimum limit of safety stock 
+from CT001 products. Computation of safety stock can be 
+shown in the equation. 
+  ܵܵ
+ଵ=   ∑ܤ௧
+ଵ−( 1 −ܵܮଵ ) ∑ܦ௧
+ଵ
+௧
+௧
+  
+        = 4595 – 509 
+        = 4085 
+ 
+b. The Computation of reorder point 
+Reorder predictions of goods at the central warehouse, to 
+meet the demand for retail and consumer. Computation of 
+reordering goods is using reorder point (ROP) method. ROP is 
+determined by the lead time (L), the amount of demand and 
+safety stock at central warehouse. Values of lead time get from 
+waiting time to use reorder of goods with demand consumer.  ܴܱܲ
+= ܮ௝× 
+∑
+஽೟
+೟శ೟షభ
+೟
+௧
++ܵܵ
+ 
+ 
+         = 2 × 
+ହ଴ଽହ
+ସ
++ 4085  
+          = 6901 
+If the result of ROP are getting, the central warehouse 
+must re-stock 6901 pieces in the fourth period. Warehouse 
+must restock in order to meet the demand for retails. Inventory 
+control system with MMFE method produces minimal cost 
+supply chain of distribution because of the major factor in 
+inventory control at the central warehouse. Then, the 
+inventory control system can determine safety stock of goods. 
+Computation of ROP produces the amount of re-stock that 
+must be fulfilled at the central warehouse and supplier will 
+distribute the number of demands. 
+IV. 
+CONCLUSIONS 
+Inventory control system at supply chain distribution from 
+supplier to retail with central warehouse so to minimum the 
+cost of supply chain. Inventory control system can determine 
+the amount of  supply chain cost, safety stock and reorder 
+point in the central warehouse. The product of goods gets 
+minimum cost of supply chain distribution based on the fourth 
+periods. Then, amount of safety stock and reorder point can be 
+derived using inventory control system. Inventory control 
+system can optimize of supply chain cost for controlling of 
+inventory goods at central warehouse. Inventory control 
+systems can know minimum cost supply chain of distribution, 
+safety stock levels and reorder point on real-time. It will make 
+easy in central warehouse to manage inventory. So there is no 
+shortage or vacancy goods. 
+REFERENCES 
+ 
+[1] 
+Aziz, MT. and Azila MNN., “Evaluating the effect of cost-related 
+factors on the quality relationship,” International Journal of Retail and 
+Distribution, vol. 41, pp 545-558, 2013.  
+[2] 
+Persona, A.,”Optimal safety stock levels of subassemblies and 
+components manufacturing,” International Journal of Production 
+Economics, vol. 110, pp 147-159, 2007. 
+[3] 
+Boulaksil, Y., “Safety stock placement in supply chains with demand 
+forecast updates,”  Operational Research Perspectives, vol. 3, pp 27-31, 
+2016. 
+[4] 
+Cigolini, R. Pero, M. and Rossi, T.,  “An object-oriented simulation 
+meta-models to analyze supply chain performance”, International 
+Journal of Production Research, vol. 49, pp 5917-5941, 2011. 
+[5] 
+Funaki, K.., “Strategies safety stock placement in supply chain design 
+with due-date based demand,” International Journal of Production 
+Economics,  vol. 135, pp 4-13, 2012. 
+[6] 
+Grewal, CS, Enns, ST, and Rogers, P., “Dynamic reorder point 
+replenishment strategies for a capacitated supply chain with seasonal 
+demand,”  Computer, and industrial engineering, vol. .80, pp 97-110, 
+2015.  
+[7] 
+Indrajit, RE, and Djokopranoto, R., “General merchandise and inventory 
+management of spare parts for maintenance, repair and operation”, 
+Yogyakarta: Grasindo, 2014. 
+[8] 
+Mebarki, N. and Shahzad, A., “Correlation among tardiness based 
+measures for priority scheduling using dispatching rules” Month, pp 1-
+14, 2012. 
+[9] 
+Omar, M., Bakri Zubir, M. and Moin, NH., “An alternative approach to 
+analyzing economic quantity and economic ordering quantity production 
+inventory problems using the completing the square method,” Computer 
+and Industrial  Engineering,  vol. 59, pp 362-364, 2010. 
+[10] Wang, CH., “Some remarks on an optimal order quantity and reorder 
+point when supply and demand are uncertain,” Computers and Industrial 
+Engineering, vol. 58, pp 809-813, 2010. 
+ 
+ 
+2018 International Conference on Information and Communications Technology (ICOIACT)
+847
+Authorized licensed use limited to: ULAKBIM UASL - Sakarya Universitesi. Downloaded on August 05,2026 at 21:13:30 UTC from IEEE Xplore.  Restrictions apply. 
