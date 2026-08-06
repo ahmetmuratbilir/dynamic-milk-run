@@ -82,19 +82,20 @@ Aynı 182 sinyal verisi (H4 çıktısı) 3 farklı filo boyutuyla çalıştırı
 | **Karşılama Oranı** | **%39.6** | **%59.9** | **%78.6** | **%90.7** | **%98.9** |
 | **Starvation (ist-dk)** | **6,000** | **4,160** | **2,242** | **599** | **112** |
 | **Starvation (%)** | **%52.08** | **%36.11** | **%19.46** | **%5.20** | **%0.97** |
-| Toplam Tur | 16 | 24 | 32 | 42 | 81 |
-| Araç Doluluk | %18.5 | %18.5 | %18.2 | ~%18 | ~%18 |
+| Toplam Tur Sayısı | 16 | 24 | 32 | 42 | 81 |
+| Ort. Tur Başı Kutu | 4.62 | 4.62 | 4.56 | 4.02 | 2.28 |
+| **Araç Doluluk (%)** | **%18.50** | **%18.50** | **%18.25** | **%16.10** | **%9.14** |
 
 ### 3.3 Değişim ve Azalan Getiri (Diminishing Returns) Analizi
 
-| Geçiş | Starvation Δ (puan) | Karşılama Δ (puan) |
-|--------|:---:|:---:|
-| 2 → 3 araç | −15.97 | +20.3 |
-| 3 → 4 araç | −16.65 | +18.7 |
-| 4 → 5 araç | −14.26 | +12.1 |
-| **5 → 6 araç** | **−4.23** | **+8.2** |
+| Geçiş | Starvation Δ (puan) | Karşılama Δ (puan) | Marjinal Eğilim |
+|--------|:---:|:---:|---|
+| 2 → 3 araç | −15.97 | +20.3 | Artan marjinal fayda |
+| **3 → 4 araç** | **−16.65** | **+18.7** | **Zirve marjinal fayda** |
+| 4 → 5 araç | −14.26 | +12.1 | Düşüş başlangıcı |
+| **5 → 6 araç** | **−4.23** | **+8.2** | **Sert azalan getiri** |
 
-> **Gözlem:** 2→5 arası her ek araç ortalama ~15 puan starvation düşürüyor. Ancak 5→6 geçişinde marjinal iyileşme yalnızca 4.23 puana düşüyor — **azalan getiri (diminishing returns) etkisi 5. araçtan sonra belirginleşmektedir.**
+> **Gözlem:** Marjinal fayda 3→4 araç geçişinde zirve yapmakta (16.65 puan düşüş), 4. araçtan sonra azalmaya başlamakta, 5→6 geçişinde ise belirgin şekilde düşmektedir (4.23 puan) — **klasik azalan getiri eğrisi 4–5 araç bandında netleşmektedir.**
 
 ---
 
@@ -115,9 +116,10 @@ Körösi'nin analitik modeli ile bizim stokastik simülasyonumuz arasındaki far
 
 Sevim & Aykut, benzer bir fabrika-içi milk-run sisteminde 2→3 araca geçişin istatistiksel olarak anlamlı etki yarattığını ve **3 araç önerildiğini** raporlamıştır (s.1001–1006). Bizim sonuçlarımız bunu destekler: 3 araçla karşılanamayan sinyal 110'dan 73'e düşmüştür (%33.6 iyileşme). Ancak bizim sistemimizde 3 araç yeterli değildir — bu fark, istasyon sayısı (bizde 24, Sevim'de daha az) ve talep yapısından kaynaklanmaktadır.
 
-### 4.4 Araç Doluluk Oranının Sabitliği
+### 4.4 Araç Doluluk Oranının Seyri (Kapasite vs Atıl Filo)
 
-Tüm senaryolarda araç doluluk oranı %18.2–%18.5 arasında kalmıştır. Bu K36 teşhisini güçlü şekilde doğrular: **darboğaz kutu kapasitesi değil, araç zamanıdır**. Araç sayısı artırıldığında doluluk değişmez, ama daha fazla tur yapılabilir.
+2, 3 ve 4 araç senaryolarında araç doluluk oranı **%18.25–%18.50** bandında neredeyse sabittir (ort. ~4.6 kutu/tur). Bu durum, 4 araca kadar olan bantta araçların her seferde ellerindeki maksimum sinyali topladıklarını ve kısıtın kutu kapasitesi değil **araç zamanı/sayısı** olduğunu (K36) teyit eder. 
+Ancak 5 araçta doluluk **%16.10**'a, 6 araçta ise **%9.14**'e (ort. 2.28 kutu/tur, 81 tur) gerilemektedir. 6 araçlı sistemde araçlar biriken sinyalleri beklemeden hemen yola çıktığı için starvation %0.97'ye inmekte, fakat araç kapasite kullanımı yarı yarıya düşerek **aşırı filo kapasitesi (atıl filo / israf)** oluşmaktadır.
 
 ### 4.5 Wang (2008) Perspektifi
 
@@ -128,8 +130,9 @@ Wang'ın m-VRPTW'de "hizmet verilen müşteri sayısını maksimize et" önceli�
 ## 5. Sonuç ve Sonraki Adım
 
 - **K03 kararı (2 araç) yetersizdir** — hem analitik (Körösi: AN=3.86→4) hem deneysel (%52.08 starvation) olarak kanıtlanmıştır.
-- Araç sayısı arttıkça starvation **düzenli ve monoton** azalmaktadır: %52→%36→%19→%5→%1.
-- 5. araçtan sonra **azalan getiri (diminishing returns)** etkisi başlamaktadır (Δ 15 puan → 4 puan).
-- 4 araçla bile starvation sıfırlanmıyor (%19.46). Bu, ya daha fazla araç gerektiğini ya da dispatch/çizelgeleme optimizasyonunun ek katkı sağlayabileceğini göstermektedir — **hangisinin maliyet-etkinlik açısından daha verimli olduğu, gelecek çalışma konusudur.**
-- **Sonraki adım (Hafta 7–8):** SimPy entegrasyonu ile stokastik simülasyon altyapısının kurulması ve farklı dispatch stratejilerinin test edilmesi.
+- Araç sayısı arttıkça starvation düzenli azalmaktadır: %52.08 → %36.11 → %19.46 → %5.20 → %0.97.
+- **Marjinal fayda 3→4 araç geçişinde zirve yapmakta (16.65 puan), 4. araçtan sonra azalmaya başlamakta, 5→6 geçişinde ise belirgin şekilde düşmektedir (4.23 puan) — klasik azalan getiri eğrisi 4–5 araç bandında netleşmektedir.**
+- 4 araçla bile starvation %19.46 seviyesindedir; 6 araçla starvation %0.97'ye inerken doluluk %9.14'e düşmektedir. Bu durum, filoyu 6'ya çıkararak atıl kapasite yaratmak yerine **dispatch/çizelgeleme optimizasyonu** yapılmasının maliyet-etkinlik açısından daha sürdürülebilir bir yol olduğunu göstermektedir.
+- **Sonraki adım (Hafta 7–8):** SimPy entegrasyonu ile stokastik simülasyon altyapısının kurulması ve farklı dispatch/önceliklendirme stratejilerinin test edilmesi.
+
 
