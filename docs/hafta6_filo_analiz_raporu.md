@@ -132,7 +132,7 @@ Wang'ın m-VRPTW'de "hizmet verilen müşteri sayısını maksimize et" önceli�
 - **K03 kararı (2 araç) yetersizdir** — hem analitik (Körösi: AN=3.86→4) hem deneysel (%52.08 starvation) olarak kanıtlanmıştır.
 - Araç sayısı arttıkça starvation düzenli azalmaktadır: %52.08 → %36.11 → %19.46 → %5.20 → %0.97.
 - **Marjinal fayda 3→4 araç geçişinde zirve yapmakta (16.65 puan), 4. araçtan sonra azalmaya başlamakta, 5→6 geçişinde ise belirgin şekilde düşmektedir (4.23 puan) — klasik azalan getiri eğrisi 4–5 araç bandında netleşmektedir.**
-- 4 araçla bile starvation %19.46 seviyesindedir; 6 araçla starvation %0.97'ye inerken doluluk %9.14'e düşmektedir. Bu durum, filoyu 6'ya çıkararak atıl kapasite yaratmak yerine **dispatch/çizelgeleme optimizasyonu** yapılmasının maliyet-etkinlik açısından daha sürdürülebilir bir yol olduğunu göstermektedir.
+- 4 araçla bile starvation %19.46 seviyesindedir; 6 araçla starvation %0.97'ye inerken doluluk %9.14'e düşmektedir. Bu durum, filoyu 6'ya çıkararak atıl kapasite yaratmak yerine **dispatch/çizelgeleme optimizasyonunun** potansiyel olarak daha sürdürülebilir bir alternatif olabileceğini düşündürmektedir; bu iki yaklaşımın maliyet-etkinlik karşılaştırması bu çalışmanın kapsamı dışındadır ve gelecek çalışma (Hafta 7–8) önerisi olarak bırakılmıştır.
 - **Sonraki adım (Hafta 7–8):** SimPy entegrasyonu ile stokastik simülasyon altyapısının kurulması ve farklı dispatch/önceliklendirme stratejilerinin test edilmesi.
 
 
