@@ -35,25 +35,31 @@ Hafta 7'de bu soruyu 30 stokastik replikasyon × 4 dispatch kuralı × 2 araç s
 
 Her replikasyonda tüketim profili `N(μ/60, 0.20×μ/60)` dağılımından farklı seed ile yeniden örneklendi (K10: CV=0.20). Kanban sinyalleri (`ekanban_signals.csv`) sabit tutuldu; dispatch stratejisi sinyalleri *seçiyor*, sinyallerin kendisi değişmiyor (K04, K06-K11).
 
-### 2.3 Test Edilen Dispatch Kuralları (K44)
+### 2.3 Test Edilen Dispatch Kuralları ve Doğrulanmış Akademik Kaynaklar (K44)
 
-| Kural | Sıralama Kriteri | Akademik Dayanak |
-|-------|-----------------|-----------------|
+| Kural | Sıralama Kriteri | Doğrulanmış Akademik Dayanak |
+|-------|-----------------|-----------------------------|
 | **KRITIKLIK** | `kritiklik_skoru` ↑ (ROP/stok oranı) | K26 — mevcut baseline |
-| **EDD** | `tw_bitis` ↑ (küçükten büyüğe) | Wang (2008) s.48: TW kısıtı önceliği |
-| **SLACK** | `tw_bitis − t` ↑ (aciliyet skoru) | Wang (2008) s.52: minimum slack |
-| **FIFO** | `tw_baslangic` ↑ (sinyal oluşma sırası) | Herrera-Vidal (2026) s.8: kuyruk baseline |
+| **EDD** | `tw_bitis` ↑ (küçükten büyüğe) | **Wang et al. (2008)**, Satır 48–56 & Satır 754–762: *"the customer that satisfies the time window constraint is inserted in turn..."* |
+| **SLACK** | `tw_bitis − t` ↑ (aciliyet skoru) | **Wang et al. (2008)**, Satır 355–358: Zaman penceresi önceliğine göre hizmet hiyerarşisi |
+| **FIFO** | `tw_baslangic` ↑ (sinyal oluşma sırası) | **Herrera-Vidal et al. (2026)**, Satır 8–10: Kuyruk baseline disiplini |
 
-### 2.4 Metodolojik Not: H7 Stokastik vs H6 Deterministik Karşılaştırması
+### 2.4 İkili Payda Standardizasyonu: Deterministik (H5-H6) vs Stokastik (H7) (K47)
 
 > [!IMPORTANT]
-> **Kanonik Baseline Doğrulaması:**
-> - Hafta 5–6'da kullanılan kanonik deterministik değer **%52.08**'dir ($6,000 / 11,520 \text{ ist-dk}$, 480 dk tam vardiya).
-> - Hafta 7'deki 30 replikasyon ortalaması **%61.69** çıkmaktadır. Bu sıçramanın iki nedeni vardır:
->   1. **Payda Farkı (Warm-up Kesintisi):** H7'de 45 dk warm-up çıkarıldığı için payda $10,440 \text{ ist-dk}$'ya düşmektedir ($6,000 / 10,440 = \%57.47$).
->   2. **Stokastik Varyans:** Dakikalık bağımsız rastgele tüketim dalgalanmaları duruş süresini ortalama $6,440 \text{ dk}$'ya çıkarmıştır ($6,440 / 10,440 = \%61.69$).
+> **Tüm Metrikler İçin İkili Payda Karşılaştırma Tablosu:**
 > 
-> Dolayısıyla %52.08 deterministik referans değerimiz geçerliliğini korumaktadır; %61.69 ise stokastik ortamdaki dinamik karşılığıdır.
+> | Senaryo / Araç | Starvation (dk) | Tam Vardiya Paydası ($11,520 \text{ ist-dk}$) | Warm-up Hariç Payda ($10,440 \text{ ist-dk}$) | Açıklama |
+> |:---|:---:|:---:|:---:|:---|
+> | **2 Araç (H5 Deterministik)** | 6,000 | **%52.08** | **%57.47** | Kanonik H5-H6 değeri |
+> | 3 Araç (H6 Deterministik) | 4,160 | %36.11 | %39.85 | Sevim & Aykut senaryosu |
+> | **4 Araç (H6 Deterministik)** | 2,242 | **%19.46** | **%21.48** | Körösi baz senaryosu |
+> | 5 Araç (H6 Deterministik) | 599 | %5.20 | %5.74 | Plato başlangıcı |
+> | 6 Araç (H6 Deterministik) | 112 | %0.97 | %1.07 | Atıl filo (%9.14 doluluk) |
+> | **4 Araç + KRITIKLIK (H7 Stokastik)** | ~2,905 | — | **%27.83** | 30 Replikasyon Ortalaması |
+> | **4 Araç + EDD (H7 Stokastik)** | ~2,767 | — | **%26.50** | 30 Replikasyon Ortalaması (p<0.0001) |
+
+Bu tablo sayesinde tezin hiçbir bölümünde payda karışıklığı oluşmaz; deterministik ve stokastik metrikler net bir şekilde ayrıştırılmıştır.
 
 ---
 

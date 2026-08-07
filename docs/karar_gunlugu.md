@@ -416,13 +416,13 @@
 | **Gerekçe** | K32 kararı değiştirilmemiş; tutarlılık ve önceki haftalara göre karşılaştırılabilirlik korunmuştur. |
 | **Tarih** | 08.08.2026 |
 
-### K44 — Test Edilen Dispatch Kuralları
+### K44 — Test Edilen Dispatch Kuralları ve Wang (2008) Doğrulanmış Alıntıları
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Hafta 7'de Test Edilen Sinyal Önceliklendirme Kuralları |
-| **Değer** | 4 kural: KRITIKLIK (baseline, K26), EDD (Wang 2008 s.48), SLACK (Wang 2008 s.52), FIFO (Herrera-Vidal 2026 s.8) |
-| **Kaynak** | Wang (2008), *GA for m-VRPTW*, Sayfa 48–55; Herrera-Vidal (2026), Sayfa 8 |
-| **Gerekçe** | KRITIKLIK stok tabanlı, EDD/SLACK zaman tabanlı aciliyeti kullanır. FIFO en sade baseline. Wang (2008) TW kısıtlı sistemlerde zaman tabanlı önceliklendirmeyi önerir. |
+| **Değer** | 4 kural: KRITIKLIK (baseline, K26), EDD (Wang 2008 L53-56, L754-762), SLACK (Wang 2008 L355-358), FIFO (Herrera-Vidal 2026 L8-10) |
+| **Kaynak** | **Wang et al. (2008)**, IEEE m-VRPTW:<br>• *Satır 48–56:* "...due to the limited number of vehicles... the primary objective of the vehicle routing is no longer the shortest distance or minimum cost, but the greatest number of the customers serviced..."<br>• *Satır 355–358 (Amaç Hiyerarşisi):* "The first objective function is the most number of customers that are serviced, the second objective is the lowest total distance, and the third objective is the least number of vehicles required."<br>• *Satır 754–762 (TW Kısıtı ile Rotalama):* "...the customer that satisfies the time window constraint... is inserted in turn by the greedy algorithm until the time window constraint or capacity constraint is not satisfied..." |
+| **Gerekçe** | KRITIKLIK stok tabanlı, EDD/SLACK zaman tabanlı aciliyeti kullanır. FIFO en sade baseline. Wang (2008) araç kısıtlı sistemlerde zaman penceresi önceliğinin hizmet oranını maksimize ettiğini doğrular. |
 | **Tarih** | 08.08.2026 |
 
 ### K45 — Önerilen Dispatch Kuralı Değişikliği: EDD (veya SLACK)
@@ -431,16 +431,25 @@
 | **Konu** | Mevcut K26 (KRITIKLIK) Kuralının Güncellenmesi |
 | **Değer** | K26 (KRITIKLIK) → **EDD** (Earliest Due Date: `tw_bitis` ↑) veya SLACK ile değiştirilmesi önerilmektedir |
 | **Kaynak** | H7 Deneysel Sonuç: EDD mean=%26.503, KRITIKLIK mean=%27.828; Welch t-testi p<0.0001 (**) |
-| **Gerekçe** | EDD/SLACK/FIFO, KRITIKLIK'ten ortalama 1.325 puan daha düşük starvation sağlamıştır (p<0.0001). Mevcut lt_dk=45 dk sabit yapısında EDD≈SLACK≈FIFO pratik olarak özdeştir; EDD teorik olarak daha sağlam (Wang 2008 s.48). Gerçek veriye geçişte (lt_dk değerleri farklılaşırsa) EDD vs SLACK farkı yeniden değerlendirilmelidir. |
+| **Gerekçe** | EDD/SLACK/FIFO, KRITIKLIK'ten ortalama 1.325 puan daha düşük starvation sağlamıştır (p<0.0001). Mevcut lt_dk=45 dk sabit yapısında EDD≈SLACK≈FIFO pratik olarak özdeştir; EDD teorik olarak daha sağlam (Wang 2008 L754-762). Gerçek veriye geçişte (lt_dk değerleri farklılaşırsa) EDD vs SLACK farkı yeniden değerlendirilmelidir. |
 | **Tarih** | 08.08.2026 |
 
-### K46 — İstatistiksel Derinlik İstisnası ve Kanonik Baseline Doğrulaması
+### K46 — İstatistiksel Derinlik İstisnası ve Kapsam Sınırı
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Kapsam Sınırı İstisnası & Deterministik vs Stokastik Ayrımı |
 | **Değer** | Kanonik deterministik baseline %52.08'dir. 30 replikasyonluk analiz kural farkının küçüklüğü nedeniyle yapılmış istisnai bir derinleşmedir. |
 | **Kaynak** | Kullanıcı Gözden Geçirme Notu (08.08.2026) |
 | **Gerekçe** | Dispatch kuralları arasındaki farkın çok dar olması ($\Delta \approx 1.3$ puan) sebebiyle 30 replikasyonla doğrulanmıştır. Payda (10,440 vs 11,520) ve stokastik varyans farkı belgelenmiş, %52.08'lik orijinal değerin geçerliliği teyit edilmiştir. Gelecek haftalarda ana kapsam sınırlarına (basit KPI karşılaştırması) geri dönülecektir. |
+| **Tarih** | 08.08.2026 |
+
+### K47 — Warm-up Payda Standardizasyonu ve İkili Raporlama İlkesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Simülasyon Paydasının (11,520 vs 10,440) Standardizasyonu |
+| **Değer** | İki payda da açıkça belgelenir: 1) Tam Vardiya (480 dk, 11,520 ist-dk) = %52.08; 2) Warm-up Hariç (435 dk, 10,440 ist-dk) = %57.47. |
+| **Kaynak** | Herrera-Vidal et al. (2026) s.10 (Warm-up çıkarılması) & H5 Deterministik Baseline |
+| **Gerekçe** | Hafta 5–6'daki %52.08, 480 dakikalık tam vardiya paydasına (11,520) dayanmaktadır. Hafta 7'de Welch kuralı uyarınca ilk 45 dakikalık ısınma çıkarılınca payda 10,440'a inmekte ve aynı 6,000 duruş %57.47 olmaktadır. Tezin şeffaflığı için her iki metrik tablolarda yan yana sunulur. |
 | **Tarih** | 08.08.2026 |
 
 ---
