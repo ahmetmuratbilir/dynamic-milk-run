@@ -434,6 +434,15 @@
 | **Gerekçe** | EDD/SLACK/FIFO, KRITIKLIK'ten ortalama 1.325 puan daha düşük starvation sağlamıştır (p<0.0001). Mevcut lt_dk=45 dk sabit yapısında EDD≈SLACK≈FIFO pratik olarak özdeştir; EDD teorik olarak daha sağlam (Wang 2008 s.48). Gerçek veriye geçişte (lt_dk değerleri farklılaşırsa) EDD vs SLACK farkı yeniden değerlendirilmelidir. |
 | **Tarih** | 08.08.2026 |
 
+### K46 — İstatistiksel Derinlik İstisnası ve Kanonik Baseline Doğrulaması
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Kapsam Sınırı İstisnası & Deterministik vs Stokastik Ayrımı |
+| **Değer** | Kanonik deterministik baseline %52.08'dir. 30 replikasyonluk analiz kural farkının küçüklüğü nedeniyle yapılmış istisnai bir derinleşmedir. |
+| **Kaynak** | Kullanıcı Gözden Geçirme Notu (08.08.2026) |
+| **Gerekçe** | Dispatch kuralları arasındaki farkın çok dar olması ($\Delta \approx 1.3$ puan) sebebiyle 30 replikasyonla doğrulanmıştır. Payda (10,440 vs 11,520) ve stokastik varyans farkı belgelenmiş, %52.08'lik orijinal değerin geçerliliği teyit edilmiştir. Gelecek haftalarda ana kapsam sınırlarına (basit KPI karşılaştırması) geri dönülecektir. |
+| **Tarih** | 08.08.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

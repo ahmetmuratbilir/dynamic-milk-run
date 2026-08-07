@@ -44,14 +44,16 @@ Her replikasyonda tüketim profili `N(μ/60, 0.20×μ/60)` dağılımından fark
 | **SLACK** | `tw_bitis − t` ↑ (aciliyet skoru) | Wang (2008) s.52: minimum slack |
 | **FIFO** | `tw_baslangic` ↑ (sinyal oluşma sırası) | Herrera-Vidal (2026) s.8: kuyruk baseline |
 
-### 2.4 Metodolojik Not: H7 vs H6 Karşılaştırılabilirliği
+### 2.4 Metodolojik Not: H7 Stokastik vs H6 Deterministik Karşılaştırması
 
 > [!IMPORTANT]
-> H7 stokastik sonuçları ile H6 deterministik sonuçları **doğrudan karşılaştırılamaz.** İki fark:
-> 1. **Denominator:** H6 = 24×480=11.520 (warm-up dahil); H7 = 24×435=10.440 (warm-up çıkarıldı)
-> 2. **Tüketim:** H6 = seed=42 (tek profil); H7 = seed=100–129 (30 farklı stokastik profil)
->
-> Bu nedenle H7'de KRITIKLIK ile 4 araçta %27.83 çıkması, H6'nın %19.46 ile çelişmez — metodoloji farkından kaynaklanmaktadır. Anlamlı karşılaştırma **yalnızca H7 içinde** (aynı 30 replikasyon, aynı denominator) yapılmıştır.
+> **Kanonik Baseline Doğrulaması:**
+> - Hafta 5–6'da kullanılan kanonik deterministik değer **%52.08**'dir ($6,000 / 11,520 \text{ ist-dk}$, 480 dk tam vardiya).
+> - Hafta 7'deki 30 replikasyon ortalaması **%61.69** çıkmaktadır. Bu sıçramanın iki nedeni vardır:
+>   1. **Payda Farkı (Warm-up Kesintisi):** H7'de 45 dk warm-up çıkarıldığı için payda $10,440 \text{ ist-dk}$'ya düşmektedir ($6,000 / 10,440 = \%57.47$).
+>   2. **Stokastik Varyans:** Dakikalık bağımsız rastgele tüketim dalgalanmaları duruş süresini ortalama $6,440 \text{ dk}$'ya çıkarmıştır ($6,440 / 10,440 = \%61.69$).
+> 
+> Dolayısıyla %52.08 deterministik referans değerimiz geçerliliğini korumaktadır; %61.69 ise stokastik ortamdaki dinamik karşılığıdır.
 
 ---
 
