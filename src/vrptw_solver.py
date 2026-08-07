@@ -48,10 +48,23 @@ class VRPTWSolver:
             return 0.0
         return self.time_matrix.get((from_node, to_node), 5.0)
 
-    def solve(self, arac_sayisi: int = 2) -> tuple:
+    def solve(self, arac_sayisi: int = 2, dispatch_kural: str = "KRITIKLIK",
+              consumption_df=None) -> tuple:
         """
         Olay bazlı VRPTW çözücü.
-        arac_sayisi: Filo büyüklüğü (varsayılan=2, K03). Duyarlılık analizi için 3, 4 vb.
+
+        Parametreler:
+          arac_sayisi   : Filo büyüklüğü (K03 varsayılan=2). H6 duyarlılık için 3,4.
+          dispatch_kural: Sinyal seçim önceliği. Seçenekler:
+                          'KRITIKLIK' — ROP/stok oranı (K26, mevcut baseline)
+                          'EDD'        — Earliest Due Date: tw_bitis küçükten büyüğe
+                                         (Wang 2008, s.48 — TW kısıtı önceliği)
+                          'SLACK'      — Minimum Slack: tw_bitis - t  küçükten büyüğe
+                                         (Wang 2008, s.52 — aciliyet skoru)
+                          'FIFO'       — tw_baslangic sırasıyla (ilk sinyal önce)
+                                         (Herrera-Vidal 2026, s.8 — kuyruk baseline)
+          consumption_df: Stokastik replikasyon için dışarıdan verilen tüketim tablosu.
+                          None ise self.consumption_df kullanılır (seed=42, deterministik).
         """
         vehicles = {
             f"A{i+1}": {"musait_dk": 0, "mevcut_konum": "DEPOT", "tur_sayisi": 0}
@@ -85,7 +98,22 @@ class VRPTWSolver:
 
             selected_signals = []
             current_load = 0
-            sorted_batch = active_batch.sort_values(by=["kritiklik_skoru", "tw_bitis"])
+
+            # Dispatch kuralına göre sinyal sıralama (K44)
+            if dispatch_kural == "EDD":
+                # Earliest Due Date: TW bitişi en yakın önce (Wang 2008, s.48)
+                sorted_batch = active_batch.sort_values(by=["tw_bitis"])
+            elif dispatch_kural == "SLACK":
+                # Minimum Slack: tw_bitis - t (aciliyet skoru, Wang 2008, s.52)
+                active_batch = active_batch.copy()
+                active_batch["_slack"] = active_batch["tw_bitis"] - t
+                sorted_batch = active_batch.sort_values(by=["_slack"])
+            elif dispatch_kural == "FIFO":
+                # FIFO: sinyal oluşma sırası (Herrera-Vidal 2026, s.8)
+                sorted_batch = active_batch.sort_values(by=["tw_baslangic"])
+            else:
+                # KRITIKLIK: ROP/stok oranı skoru (K26 — mevcut baseline)
+                sorted_batch = active_batch.sort_values(by=["kritiklik_skoru", "tw_bitis"])
 
             for idx, signal in sorted_batch.iterrows():
                 demanded_boxes = int(signal["istenen_kutu"])
@@ -160,17 +188,27 @@ class VRPTWSolver:
             for rn in route_nodes:
                 rotalar.append(rn)
 
-        # ── Gerçek Starvation Simülasyonu (Araç Varış Zamanlarına Göre Stok Takibi) ──
-        starvation_events = self.simulate_real_starvation(pending_signals)
+        # Gercek Starvation Simulasyonu (Arac Varis Zamanlarına Gore Stok Takibi)
+        # consumption_df: None ise self.consumption_df kullanılır (deterministik, seed=42)
+        # Replikasyon icin farklı seed'li tuketim tablosu verilebilir (K42 kararı)
+        starvation_events = self.simulate_real_starvation(
+            pending_signals,
+            consumption_df=consumption_df
+        )
 
         return pd.DataFrame(rotalar), pending_signals, starvation_events
 
-    def simulate_real_starvation(self, signals_with_deliveries: pd.DataFrame) -> list:
+    def simulate_real_starvation(self, signals_with_deliveries: pd.DataFrame,
+                                  consumption_df=None) -> list:
         """
-        Gerçek araç varış zamanlarına (varis_dk) ve tüketim hızlarına göre
-        dakika dakika stok takibi yapar ve GERÇEK STARVATION olaylarını sayar.
+        Gercek arac varis zamanlarına (varis_dk) ve tuketim hızlarına gore
+        dakika dakika stok takibi yapar ve GERCEK STARVATION olaylarını sayar.
+
+        consumption_df: Stokastik replikasyon icin dışarıdan verilen tuketim tablosu.
+                        None ise self.consumption_df kullanılır (seed=42, deterministik).
         """
-        tuketim_pivot = self.consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
+        c_df = consumption_df if consumption_df is not None else self.consumption_df
+        tuketim_pivot = c_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
         
         # Başlangıç stokları
         stoklar = {}

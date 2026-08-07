@@ -396,6 +396,46 @@
 
 ---
 
+## HAFTA 7 KARARLARI (08.08.2026)
+
+### K42 — Replikasyon Sayısı: 30
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Stokastik Replikasyon Sayısı |
+| **Değer** | 30 bağımsız replikasyon (seed=100–129) |
+| **Kaynak** | Herrera-Vidal et al. (2026), *Applied Sciences*, 16:1701, **Sayfa 10** — 50 replikasyon önerir; 45 rep sonrası %95 CI < %2 kriterine ulaşılmıştır |
+| **Gerekçe** | Test ortamı zaman kısıtı nedeniyle 30 replikasyon kullanılmıştır. 30 replikasyonda CI±95 = 0.059–0.074 puan olup kural karşılaştırması için yeterli istatistiksel güç sağlanmıştır (delta ~1.3 puan >> CI). |
+| **Tarih** | 08.08.2026 |
+
+### K43 — Warm-up Süresi: 45 Dakika (K32 Korundu)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Simülasyon Isınma Periyodu |
+| **Değer** | 45 dk (K32 kararı korunmuştur) |
+| **Kaynak** | Herrera-Vidal (2026) s.10: 30 dk Welch warm-up önerisi. K32 daha muhafazakâr olan 45 dk'yı seçmiştir. |
+| **Gerekçe** | K32 kararı değiştirilmemiş; tutarlılık ve önceki haftalara göre karşılaştırılabilirlik korunmuştur. |
+| **Tarih** | 08.08.2026 |
+
+### K44 — Test Edilen Dispatch Kuralları
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Hafta 7'de Test Edilen Sinyal Önceliklendirme Kuralları |
+| **Değer** | 4 kural: KRITIKLIK (baseline, K26), EDD (Wang 2008 s.48), SLACK (Wang 2008 s.52), FIFO (Herrera-Vidal 2026 s.8) |
+| **Kaynak** | Wang (2008), *GA for m-VRPTW*, Sayfa 48–55; Herrera-Vidal (2026), Sayfa 8 |
+| **Gerekçe** | KRITIKLIK stok tabanlı, EDD/SLACK zaman tabanlı aciliyeti kullanır. FIFO en sade baseline. Wang (2008) TW kısıtlı sistemlerde zaman tabanlı önceliklendirmeyi önerir. |
+| **Tarih** | 08.08.2026 |
+
+### K45 — Önerilen Dispatch Kuralı Değişikliği: EDD (veya SLACK)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Mevcut K26 (KRITIKLIK) Kuralının Güncellenmesi |
+| **Değer** | K26 (KRITIKLIK) → **EDD** (Earliest Due Date: `tw_bitis` ↑) veya SLACK ile değiştirilmesi önerilmektedir |
+| **Kaynak** | H7 Deneysel Sonuç: EDD mean=%26.503, KRITIKLIK mean=%27.828; Welch t-testi p<0.0001 (**) |
+| **Gerekçe** | EDD/SLACK/FIFO, KRITIKLIK'ten ortalama 1.325 puan daha düşük starvation sağlamıştır (p<0.0001). Mevcut lt_dk=45 dk sabit yapısında EDD≈SLACK≈FIFO pratik olarak özdeştir; EDD teorik olarak daha sağlam (Wang 2008 s.48). Gerçek veriye geçişte (lt_dk değerleri farklılaşırsa) EDD vs SLACK farkı yeniden değerlendirilmelidir. |
+| **Tarih** | 08.08.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
