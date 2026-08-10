@@ -465,13 +465,13 @@
 | **Gerekçe** | Hafta 5'te solver kodlaması erken tamamlandığı için proje takvimi önden ilerlemektedir. Tez tesliminde hafta numaraları konu bazlı eşleştirilecektir. |
 | **Tarih** | 10.08.2026 |
 
-### K49 — İstasyon Bazlı Değişken Lead Time Modeli
+### K49 — İstasyon Bazlı Değişken Lead Time Modeli (Min-Max Normalizasyonu)
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Mesafeye Dayalı Deterministik $LT_i$ Dağılımı |
-| **Değer** | $LT_i = 30 + \lfloor (\text{Mesafe}(Depo, S_i) / 250) \times 30 \rfloor \text{ dk}$ $\rightarrow$ $LT_i \in [40, 60] \text{ dk}$ |
-| **Kaynak** | Operasyonel Mühendislik Kararı |
-| **Gerekçe** | Depoya yakın istasyonların (Hat-1: 40 dk) ve uzak istasyonların (Hat-4: 60 dk) tedarik süreleri fiziksel koridor mesafeleriyle tutarlı hale getirilmiştir. |
+| **Değer** | $LT_i = 30 + \text{round}\left( \frac{\text{Mesafe}(Depo, S_i) - 90}{250 - 90} \times 30 \right) \text{ dk}$ $\rightarrow$ $LT_i \in [30, 60] \text{ dk}$ |
+| **Kaynak** | Operasyonel Mühendislik Kararı (Min-Max Normalizasyonu) |
+| **Gerekçe** | En yakın istasyonun (Hat-1, 90m) tam 30 dk, en uzak istasyonun (Hat-4, 250m) tam 60 dk alması sağlanarak 30 dakikalık tam yayılım aralığı ($[30, 60] \text{ dk}$) garanti edilmiştir. |
 | **Tarih** | 10.08.2026 |
 
 ### K50 — Statik Kanban Sefer Standardı (Senaryo A)

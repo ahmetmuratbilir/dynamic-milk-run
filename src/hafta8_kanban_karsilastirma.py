@@ -202,6 +202,32 @@ class StaticMilkRunSimulator:
         }
 
 
+def hesapla_dinamik_wip(signals_with_deliveries: pd.DataFrame, stations_df: pd.DataFrame, consumption_df: pd.DataFrame) -> float:
+    tuketim_pivot = consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
+    stoklar = {row["istasyon_id"]: float(row["baslangic_stok_adet"]) for _, row in stations_df.iterrows()}
+    ist_c = {row["istasyon_id"]: float(row["kutu_kapasitesi"]) for _, row in stations_df.iterrows()}
+
+    deliveries = {}
+    serviced = signals_with_deliveries[signals_with_deliveries["serviced"] == True]
+    for _, row in serviced.iterrows():
+        if row["varis_dk"] is not None:
+            arr_m = int(math.floor(row["varis_dk"]))
+            deliveries.setdefault(arr_m, []).append((row["istasyon_id"], row["istenen_kutu"] * ist_c[row["istasyon_id"]]))
+
+    wip_log = []
+    for m in range(480):
+        if m in deliveries:
+            for sid, miktar in deliveries[m]:
+                stoklar[sid] += miktar
+        for sid in stoklar:
+            c_val = tuketim_pivot.loc[m, sid] if m in tuketim_pivot.index and sid in tuketim_pivot.columns else 0.0
+            stoklar[sid] -= c_val
+            if stoklar[sid] <= 0:
+                stoklar[sid] = 0.0
+        wip_log.append(sum(stoklar.values()))
+    return round(float(np.mean(wip_log)), 1)
+
+
 def main():
     loader = DataLoader()
 
@@ -224,6 +250,7 @@ def main():
     tur_d2 = rot_d2["rota_id"].nunique() if len(rot_d2) > 0 else 0
     kutu_d2 = rot_d2["istenen_kutu"].sum() if len(rot_d2) > 0 else 0
     ort_kutu_d2 = kutu_d2 / tur_d2 if tur_d2 > 0 else 0
+    wip_d2 = hesapla_dinamik_wip(sig_d2, loader.get_stations(), loader.get_consumption())
     
     # Dinamik mesafe hesabı
     dist_m_d2 = 0.0
@@ -238,7 +265,7 @@ def main():
         "starv_dk": starv_d2_tot,
         "starv_pct_11520": (starv_d2_tot / 11520.0) * 100.0,
         "starv_pct_10440": (starv_d2_warm / 10440.0) * 100.0,
-        "ort_wip_stok": 312.4,  # Anlık dinamik simülasyon takibi
+        "ort_wip_stok": wip_d2,
         "toplam_mesafe_km": round(dist_m_d2 / 1000.0, 2),
         "toplam_tur": tur_d2,
         "ort_kutu_tur": round(ort_kutu_d2, 2),
@@ -252,6 +279,7 @@ def main():
     tur_d4 = rot_d4["rota_id"].nunique() if len(rot_d4) > 0 else 0
     kutu_d4 = rot_d4["istenen_kutu"].sum() if len(rot_d4) > 0 else 0
     ort_kutu_d4 = kutu_d4 / tur_d4 if tur_d4 > 0 else 0
+    wip_d4 = hesapla_dinamik_wip(sig_d4, loader.get_stations(), loader.get_consumption())
 
     dist_m_d4 = 0.0
     for rid, rgroup in rot_d4.groupby("rota_id"):
@@ -265,7 +293,7 @@ def main():
         "starv_dk": starv_d4_tot,
         "starv_pct_11520": (starv_d4_tot / 11520.0) * 100.0,
         "starv_pct_10440": (starv_d4_warm / 10440.0) * 100.0,
-        "ort_wip_stok": 365.8,
+        "ort_wip_stok": wip_d4,
         "toplam_mesafe_km": round(dist_m_d4 / 1000.0, 2),
         "toplam_tur": tur_d4,
         "ort_kutu_tur": round(ort_kutu_d4, 2),
@@ -285,10 +313,11 @@ def main():
             "Starv (dk)": f"{r['starv_dk']} dk [Kod çıktısı]",
             "Starvation (11.520)": f"%{r['starv_pct_11520']:.2f} [Kod çıktısı]",
             "Starvation (10.440)": f"%{r['starv_pct_10440']:.2f} [Kod çıktısı]",
+            "Ort. WIP Stok": f"{r['ort_wip_stok']:.1f} adet [Kod çıktısı]",
             "Kat Edilen Mesafe": f"{r['toplam_mesafe_km']:.2f} km [Kod çıktısı]",
             "Sefer Sayısı": f"{r['toplam_tur']} tur [Kod çıktısı]",
             "Ort Kutu/Tur": f"{r['ort_kutu_tur']:.2f} kutu [Kod çıktısı]",
-            "Doluluk (%)": f"%{r['doluluk_pct']:.1f} [K04 Q=25]"
+            "Doluluk (%)": f"%{r['doluluk_pct']:.1f} [Kod çıktısı ÷ K04 Q=25]"
         })
     disp_df = pd.DataFrame(display_cols)
     print(disp_df.to_string(index=False))
@@ -296,6 +325,10 @@ def main():
     out_csv = os.path.join(loader.base_dir, "data", "synthetic", "hafta8_kanban_karsilastirma_sonuclari.csv")
     comp_df.to_csv(out_csv, index=False, encoding="utf-8")
     print(f"\nSonuçlar kaydedildi: {out_csv}")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":

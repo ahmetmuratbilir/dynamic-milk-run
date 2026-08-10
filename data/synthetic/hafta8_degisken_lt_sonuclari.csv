@@ -1,9 +1,9 @@
-Araç Sayısı,Kural,Starv (dk),Starvation (11.520 Payda),Starvation (10.440 Payda),Karşılama (%),Zamanında,Gecikmeli,Karşılanamayan,Tur Sayısı
-2 Araç [K03/K37],KRITIKLIK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],180,1,0,69
-2 Araç [K03/K37],FIFO,143,%1.24 [Kod çıktısı],%1.37 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
-2 Araç [K03/K37],EDD,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
-2 Araç [K03/K37],SLACK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
-4 Araç [K03/K37],KRITIKLIK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
-4 Araç [K03/K37],FIFO,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
-4 Araç [K03/K37],EDD,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
-4 Araç [K03/K37],SLACK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
+Araç Sayısı,Kural,Starv (dk),Starvation (11.520 Payda),Starvation (10.440 Payda),Ort WIP Stok (adet),Karşılama (%),Zamanında,Gecikmeli,Karşılanamayan,Tur Sayısı
+2 Araç [K03/K37],KRITIKLIK,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.9 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
+2 Araç [K03/K37],FIFO,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],469.4 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
+2 Araç [K03/K37],EDD,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.3 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
+2 Araç [K03/K37],SLACK,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.3 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
+4 Araç [K03/K37],KRITIKLIK,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
+4 Araç [K03/K37],FIFO,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
+4 Araç [K03/K37],EDD,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
+4 Araç [K03/K37],SLACK,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144

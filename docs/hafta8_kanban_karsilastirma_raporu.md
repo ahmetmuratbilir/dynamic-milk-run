@@ -10,8 +10,8 @@
 ## 1. Amaç (Objective)
 
 Hafta 8 çalışmasının iki temel araştırma hedefi bulunmaktadır:
-1. **Değişken Lead Time ($LT_i \in [40, 60] \text{ dk}$) Altında Çizelgeleme Hipotezi:** Sentetik modelde istasyonların depoya olan mesafelerine göre heterojen teslim süreleri tanımlandığında zaman odaklı sevk kurallarının (`EDD` vs `SLACK`) sistem duruşlarına etkisinin incelenmesi.
-2. **Statik vs. Dinamik Politika Karşılaştırması:** Geleneksel sabit periyodik seferli Milk-Run (Senaryo A) ile ROP tetiklemeli Dinamik E-Kanban VRPTW sisteminin (Senaryo B) adil ve eşit kısıtlar altında çok boyutlu (Starvation, Mesafe, Sefer Sayısı, Araç Doluluğu) karşılaştırılması.
+1. **Değişken Lead Time ($LT_i \in [30, 60] \text{ dk}$) Altında Çizelgeleme Hipotezi:** Sentetik modelde istasyonların depoya olan mesafelerine göre Min-Max normalizasyonuyla deterministik teslim süreleri ($LT_i \in [30, 60] \text{ dk}$) tanımlandığında zaman odaklı sevk kurallarının (`EDD` vs `SLACK`) sistem duruşlarına ve hat başı stoklarına etkisinin incelenmesi.
+2. **Statik vs. Dinamik Politika Karşılaştırması:** Geleneksel sabit periyodik seferli Milk-Run (Senaryo A) ile ROP tetiklemeli Dinamik E-Kanban VRPTW sisteminin (Senaryo B) adil ve eşit kısıtlar altında çok boyutlu (Starvation, WIP Stok, Mesafe, Sefer Sayısı, Araç Doluluğu) karşılaştırılması.
 
 ---
 
@@ -40,58 +40,61 @@ Her iki senaryo da birebir aynı fabrika parametreleri altında test edilmiştir
 
 ### 3.1 İstasyon Bazlı Değişken Lead Time ($LT$) ve Dispatch Sonuçları
 
-İstasyonların depoya mesafesine göre deterministik $LT_i$ dağılımı ($30 + \lfloor (\text{Mesafe}/250) \times 30 \rfloor \text{ dk}$):
-- `Hat-1` ($S_1 - S_6$, $90\text{ m}$): $LT = 40 \text{ dk}$ `[Mühendislik Kararı]`
-- `Hat-2` ($S_7 - S_{12}$, $120\text{ m}$): $LT = 44 \text{ dk}$ `[Mühendislik Kararı]`
-- `Hat-3` ($S_{13} - S_{18}$, $180\text{ m}$): $LT = 51 \text{ dk}$ `[Mühendislik Kararı]`
-- `Hat-4` ($S_{19} - S_{24}$, $250\text{ m}$): $LT = 60 \text{ dk}$ `[Mühendislik Kararı]`
+İstasyonların depoya mesafesine göre Min-Max normalizasyonlu deterministik $LT_i$ dağılımı ($30 + \text{round}( (\text{Mesafe}-90)/(250-90) \times 30 ) \text{ dk}$):
+- `Hat-1` ($S_1 - S_6$, $90\text{ m}$): $LT = 30 \text{ dk}$, Ortalama ROP = $10.05 \text{ adet}$ `[Mühendislik Kararı - Min-Max]`
+- `Hat-2` ($S_7 - S_{12}$, $120\text{ m}$): $LT = 36 \text{ dk}$, Ortalama ROP = $11.31 \text{ adet}$ `[Mühendislik Kararı - Min-Max]`
+- `Hat-3` ($S_{13} - S_{18}$, $180\text{ m}$): $LT = 47 \text{ dk}$, Ortalama ROP = $16.66 \text{ adet}$ `[Mühendislik Kararı - Min-Max]`
+- `Hat-4` ($S_{19} - S_{24}$, $250\text{ m}$): $LT = 60 \text{ dk}$, Ortalama ROP = $18.50 \text{ adet}$ `[Mühendislik Kararı - Min-Max]`
 
 **Değişken $LT$ Altında Dispatch Kuralları Karşılaştırması:**
 
-| Filo | Kural | Duruş (dk) | Starvation ($11,520$ Payda) | Starvation ($10,440$ Payda) | Karşılama (%) | Zamanında | Gecikmeli | Karşılanamayan | Sefer Sayısı |
-|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 2 Araç | KRITIKLIK | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 1 | 0 | 69 |
-| 2 Araç | FIFO | 143 | **%1.24** `[Kod çıktısı]` | **%1.37** `[Kod çıktısı]` | %99.4 `[Kod çıktısı]` | 180 | 0 | 1 | 66 |
-| 2 Araç | EDD | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %99.4 `[Kod çıktısı]` | 180 | 0 | 1 | 66 |
-| 2 Araç | SLACK | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %99.4 `[Kod çıktısı]` | 180 | 0 | 1 | 66 |
-| 4 Araç | KRITIKLIK | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 181 | 0 | 0 | 140 |
-| 4 Araç | FIFO | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 181 | 0 | 0 | 140 |
-| 4 Araç | EDD | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 181 | 0 | 0 | 140 |
-| 4 Araç | SLACK | 144 | **%1.25** `[Kod çıktısı]` | **%1.38** `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 181 | 0 | 0 | 140 |
-
-> **Gözlem:** Değişken $LT$ modelinde uzak istasyonların $ROP_i$ eşiği yükseldiği için sinyaller daha erken tetiklenmiş ve duruşlar %1.25 seviyesine gerilemiştir. Ancak SLACK kuralı ile EDD kuralı arasında duruş süresi açısından belirgin bir fark gözlenmemiştir (her ikisi de 144 dk duruş üretmiştir).
+| Filo Büyüklüğü | Sevk Kuralı | Duruş Süresi (dk) | Starvation ($11,520$ Payda) | Starvation ($10,440$ Payda) | Ortalama Hat Başı WIP Stok | Karşılama Oranı (%) | Zamanında Teslim | Gecikmeli Teslim | Karşılanamayan | Sefer Sayısı |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 2 Araç | KRİTİKLİK | 151 dk `[Kod çıktısı]` | **%1.31** `[Kod çıktısı]` | **%1.45** `[Kod çıktısı]` | 468.9 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 76 tur `[Kod çıktısı]` |
+| 2 Araç | FIFO | 151 dk `[Kod çıktısı]` | **%1.31** `[Kod çıktısı]` | **%1.45** `[Kod çıktısı]` | 469.4 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 76 tur `[Kod çıktısı]` |
+| 2 Araç | EDD | 151 dk `[Kod çıktısı]` | **%1.31** `[Kod çıktısı]` | **%1.45** `[Kod çıktısı]` | 468.3 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 76 tur `[Kod çıktısı]` |
+| 2 Araç | SLACK | 151 dk `[Kod çıktısı]` | **%1.31** `[Kod çıktısı]` | **%1.45** `[Kod çıktısı]` | 468.3 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 76 tur `[Kod çıktısı]` |
+| 4 Araç | KRİTİKLİK | 147 dk `[Kod çıktısı]` | **%1.28** `[Kod çıktısı]` | **%1.41** `[Kod çıktısı]` | 511.6 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 144 tur `[Kod çıktısı]` |
+| 4 Araç | FIFO | 147 dk `[Kod çıktısı]` | **%1.28** `[Kod çıktısı]` | **%1.41** `[Kod çıktısı]` | 511.6 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 144 tur `[Kod çıktısı]` |
+| 4 Araç | EDD | 147 dk `[Kod çıktısı]` | **%1.28** `[Kod çıktısı]` | **%1.41** `[Kod çıktısı]` | 511.6 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 144 tur `[Kod çıktısı]` |
+| 4 Araç | SLACK | 147 dk `[Kod çıktısı]` | **%1.28** `[Kod çıktısı]` | **%1.41** `[Kod çıktısı]` | 511.6 adet `[Kod çıktısı]` | %100.0 `[Kod çıktısı]` | 180 | 0 | 0 | 144 tur `[Kod çıktısı]` |
 
 ---
 
 ### 3.2 Statik (Senaryo A) vs Dinamik (Senaryo B) Karşılaştırması
 
-| Sistem Politikası | Filo | Duruş Süresi (dk) | Starvation ($11,520$ Payda) | Starvation ($10,440$ Payda) | Kat Edilen Mesafe ($km$) | Sefer Sayısı | Ort. Kutu / Sefer | Araç Doluluk Oranı (%) |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Senaryo A (Statik 60 dk Sabit Sefer)** | 2 Araç | 620 dk `[Kod çıktısı]` | **%5.38** `[Kod çıktısı]` | **%5.94** `[Kod çıktısı]` | 34.55 km `[Kod çıktısı]` | 14 tur `[Kod çıktısı]` | 12.00 kutu `[Kod çıktısı]` | **%48.0** `[K04 Q=25]` |
-| **Senaryo B (Dinamik E-Kanban EDD)** | 2 Araç | 5,922 dk `[Kod çıktısı]` | **%51.41** `[Kod çıktısı]` | **%56.72** `[Kod çıktısı]` | **26.97 km** `[Kod çıktısı]` | 16 tur `[Kod çıktısı]` | 4.62 kutu `[Kod çıktısı]` | **%18.5** `[K04 Q=25]` |
-| **Senaryo A (Statik 60 dk Sabit Sefer)** | 4 Araç | 341 dk `[Kod çıktısı]` | **%2.96** `[Kod çıktısı]` | **%3.27** `[Kod çıktısı]` | **34.16 km** `[Kod çıktısı]` | 28 tur `[Kod çıktısı]` | 6.00 kutu `[Kod çıktısı]` | **%24.0** `[K04 Q=25]` |
-| **Senaryo B (Dinamik E-Kanban EDD)** | 4 Araç | 1,963 dk `[Kod çıktısı]` | **%17.04** `[Kod çıktısı]` | **%18.80** `[Kod çıktısı]` | 48.49 km `[Kod çıktısı]` | 32 tur `[Kod çıktısı]` | 4.59 kutu `[Kod çıktısı]` | **%18.4** `[K04 Q=25]` |
+| Sistem Politikası | Filo Büyüklüğü | Duruş Süresi (dk) | Starvation ($11,520$ Payda) | Starvation ($10,440$ Payda) | Ortalama Hat Başı WIP Stok | Kat Edilen Mesafe ($km$) | Toplam Sefer Sayısı | Sefer Başı Ort. Kutu | Araç Doluluk Oranı (%) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Senaryo A (Statik 60 dk Sabit Sefer)** | 2 Araç | 620 dk `[Kod çıktısı]` | **%5.38** `[Kod çıktısı]` | **%5.94** `[Kod çıktısı]` | **316.3 adet** `[Kod çıktısı]` | 34.55 km `[Kod çıktısı]` | 14 tur `[Kod çıktısı]` | 12.00 kutu `[Kod çıktısı]` | **%48.0** `[Kod çıktısı ÷ K04 Q=25]` |
+| **Senaryo B (Dinamik E-Kanban EDD)** | 2 Araç | 5,922 dk `[Kod çıktısı]` | **%51.41** `[Kod çıktısı]` | **%56.72** `[Kod çıktısı]` | **121.2 adet** `[Kod çıktısı]` | **26.97 km** `[Kod çıktısı]` | 16 tur `[Kod çıktısı]` | 4.62 kutu `[Kod çıktısı]` | **%18.5** `[Kod çıktısı ÷ K04 Q=25]` |
+| **Senaryo A (Statik 60 dk Sabit Sefer)** | 4 Araç | 341 dk `[Kod çıktısı]` | **%2.96** `[Kod çıktısı]` | **%3.27** `[Kod çıktısı]` | **332.8 adet** `[Kod çıktısı]` | **34.16 km** `[Kod çıktısı]` | 28 tur `[Kod çıktısı]` | 6.00 kutu `[Kod çıktısı]` | **%24.0** `[Kod çıktısı ÷ K04 Q=25]` |
+| **Senaryo B (Dinamik E-Kanban EDD)** | 4 Araç | 1,963 dk `[Kod çıktısı]` | **%17.04** `[Kod çıktısı]` | **%18.80** `[Kod çıktısı]` | **229.8 adet** `[Kod çıktısı]` | 48.49 km `[Kod çıktısı]` | 32 tur `[Kod çıktısı]` | 4.59 kutu `[Kod çıktısı]` | **%18.4** `[Kod çıktısı ÷ K04 Q=25]` |
 
 ---
 
-## 4. Tartışma ve Trade-off Analizi (Discussion)
+## 4. Tartışma ve Çok Boyutlu Trade-off Analizi (Discussion)
 
-### 4.1 İki Politika Arasındaki Temel Trade-off'lar
-Bulgularımız iki sistemin tek taraflı bir "üstünlük" sergilemediğini, net operasyonel ödünleşimler (trade-offs) içerdiğini göstermektedir:
+### 4.1 İki Politika Arasındaki Temel Ödünleşimler (WIP vs. Starvation vs. Mesafe)
+Sayısal bulgularımız iki sistemin birbirine karşı mutlak bir üstünlüğü olmadığını, operasyonel hedeflere göre değişen ödünleşimler içerdiğini göstermektedir:
 
-1. **Taşıma Verimliliği ve Yalın Lojistik:**
-   * 2 araçlı senaryoda Dinamik Sistem (Senaryo B), Statik Sisteme (Senaryo A) kıyasla **%21.9 daha az mesafe** kat etmiştir ($26.97 \text{ km}$ vs $34.55 \text{ km}$). Dinamik sistem boşta kalan istasyonlara gitmeyerek yol tasarrufu sağlamıştır.
-2. **Kapasite Kullanımı ve Duruş Riski:**
-   * Statik sistem her saat başında toplu halde tüm istasyonlara stok aktardığı için araç doluluk oranı daha yüksektir (%48.0 vs %18.5) ve hat duruş oranı daha düşüktür (%5.38 vs %51.41).
-   * Ancak statik sistemin bu duruş başarısı, hat başında sürekli **yüksek WIP stok biriktirilmesi** pahasına elde edilmektedir.
+1. **WIP Stok Azaltma ve Yalınlık (Dinamik Sistemin Avantajı):**
+   * 2 araçlı modelde Dinamik Sistem hat başında ortalama **121.2 adet** stok tutarken, Statik Sistem **316.3 adet** stok tutmaktadır (**%61.7 daha düşük WIP stok**).
+   * 4 araçlı modelde Dinamik Sistem ortalama **229.8 adet** stokla çalışırken, Statik Sistem **332.8 adet** stok tutmaktadır (**%31.0 daha düşük WIP stok**).
+2. **Taşıma Mesafesi Tasarrufu (Dinamik Sistemin Avantajı):**
+   * 2 araçlı senaryoda Dinamik Sistem gereksiz istasyon ziyaretlerini eleyerek Statik Sisteme göre **%21.9 daha az mesafe** kat etmiştir ($26.97 \text{ km}$ vs $34.55 \text{ km}$).
+3. **Duruş Güvenliği ve Doluluk (Statik Sistemin Avantajı):**
+   * Statik Sistem her 60 dakikada bir tüm istasyonları toplu beslediği için araç doluluk oranı daha yüksektir (%48.0 vs %18.5) ve duruş riski daha düşüktür (%5.38 vs %51.41). Ancak bu avantaj, sahada **yüksek stok yığılması** pahasına elde edilmektedir.
 
-### 4.2 EDD vs SLACK Hipotezinin Değerlendirilmesi
-Klasik çizelgeleme teorisindeki "değişken teslim sürelerinde SLACK kuralının daha esnek olduğu" hipotezi, bu sentetik veri setinde anlamlı bir sayısal fark üretmemiştir (EDD ve SLACK aynı 144 dk duruşu vermiştir). Bunun temel nedeni, fabrika içi mesafelerin ($90 - 250 \text{ m}$) seyahat süresi farklarının ($0.54 - 1.50 \text{ dk}$), toplam $LT$ süresi ($40 - 60 \text{ dk}$) yanında çok küçük kalmasıdır.
+### 4.2 Değişken $LT$ Tablosundaki Düşük Duruşun Teşhisi
+Tablo 2'de değişken $LT \in [30, 60] \text{ dk}$ modelinde duruşun aniden %1.25 seviyesine inmesinin ve araç sayısının fark yaratmamasının nedeni:
+- Uzak istasyonların (Hat-3 ve Hat-4) teslim süreleri $47-60 \text{ dk}$'ya çıktığında, $ROP_i$ eşikleri $16.6-24.1 \text{ adet}$ seviyesine yükselmiştir.
+- İstasyonlar çok daha yüksek stok seviyesindeyken erken sinyal üretmiş ve hat başında ortalama WIP stok seviyesi **$468 - 511 \text{ adet}$** gibi yüksek bir emniyet tamponuna ulaşmıştır.
+- Düşük duruş, sevk algoritmasının başarısından ziyade **yükselen güvenlik stoku ($ROP_i$) ve yüksek sefer sıklığı (76-144 tur)** sayesinde gerçekleşmiştir.
 
 ---
 
 ## 5. Sonuç (Conclusion)
 
-- **Senaryo A (Statik):** Yüksek hat başı stok tamponu yaratarak duruşları azaltmakta fakat gereksiz taşıma ve hat yoğunluğu oluşturmaktadır.
-- **Senaryo B (Dinamik):** Yalın prensiplere uygun olarak yalnızca ihtiyaç anında taşıma yapmakta ve mesafeyi düşürmekte; ancak filo kısıtı (2 araç) durumunda zaman kısıtına takılmaktadır.
-- **Öneri:** Gerçek fabrika koşullarında dinamik sistemin uygulanabilmesi için Hafta 6 bulgumuz olan **en az 4 araçlık filo büyüklüğü** veya hibrit periyodik-dinamik sevk politikası gereklidir.
+- **Statik Model:** Yüksek hat başı stok tamponu (316–333 adet) ile duruşları minimize etmekte, ancak yalın üretim ilkelerine aykırı olarak hat başında stok maliyeti yaratmaktadır.
+- **Dinamik Model:** Hat başı stoku %31–%62 oranında azaltarak yalın lojistik sağlamakta; ancak 2 araçlı filo kısıtında araçlar zaman darboğazına girdiğinde duruş yaşamaktadır.
+- **Öneri:** Gerçek fabrika koşullarında dinamik sistemin uygulanabilmesi için Hafta 6 bulgumuz olan **en az 4 araçlık filo büyüklüğü** veya hat yoğunluğuna göre dinamik tetiklenen hibrit sevk politikası önerilmektedir.

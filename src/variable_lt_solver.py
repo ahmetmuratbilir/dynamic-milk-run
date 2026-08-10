@@ -59,21 +59,24 @@ class VariableLTSimulator:
     def _hesapla_degisken_lt(self) -> dict:
         """
         Depo (Node 0) ile istasyonlar (Node 1..24) arasındaki mesafeye göre LT_i in [30, 60] dk belirler.
-        Mühendislik Formülü: LT_i = 30 + floor( (Mesafe / Maks_Mesafe) * 30 )
+        Min-Max Normalizasyon Formülü: LT_i = 30 + round( ((Mesafe - Min_Mesafe) / (Maks_Mesafe - Min_Mesafe)) * 30 )
+        Böylece en yakın istasyon (90m) tam 30 dk, en uzak istasyon (250m) tam 60 dk alır.
         """
         depot_distances = {}
         for sid in self.stations_df["istasyon_id"]:
-            # İstasyon index: S1 -> 1, S24 -> 24
             s_num = sid.replace("S", "")
             dist = self.dist_matrix.get(("0", s_num), self.dist_matrix.get(("DEPOT", sid), 150.0))
             depot_distances[sid] = dist
 
-        max_dist = max(depot_distances.values()) if depot_distances else 300.0
+        min_dist = min(depot_distances.values()) if depot_distances else 90.0
+        max_dist = max(depot_distances.values()) if depot_distances else 250.0
 
         station_lt = {}
         for sid, dist in depot_distances.items():
-            lt_val = 30 + int(math.floor((dist / max_dist) * 30))
-            # Sınırla [30, 60]
+            if max_dist > min_dist:
+                lt_val = 30 + int(round(((dist - min_dist) / (max_dist - min_dist)) * 30))
+            else:
+                lt_val = 45
             lt_val = max(30, min(60, lt_val))
             station_lt[sid] = {
                 "mesafe_m": dist,
@@ -302,6 +305,7 @@ class VariableLTSimulator:
                 deliveries.setdefault(arr_m, []).append((row["istasyon_id"], row["istenen_kutu"] * ist_c[row["istasyon_id"]]))
 
         starvation_events = []
+        wip_records = []
         for m in range(480):
             # Teslimat ekle
             if m in deliveries:
@@ -316,32 +320,40 @@ class VariableLTSimulator:
                     starvation_events.append({"dakika": m, "istasyon_id": sid})
                     stoklar[sid] = 0.0
 
-        return starvation_events
+            wip_records.append(sum(stoklar.values()))
+
+        avg_wip = np.mean(wip_records)
+        return starvation_events, avg_wip
 
 
 def main():
     loader = DataLoader()
     sim = VariableLTSimulator(loader)
 
-    print("=" * 75)
+    print("=" * 85)
     print("HAFTA 8: DEĞİŞKEN LEAD TIME (LT in [30, 60] dk) VE EDD vs SLACK ANALİZİ")
-    print("=" * 75)
+    print("=" * 85)
 
     # 1. İstasyon LT Dağılım Tablosu
     print("\n--- 1. İSTASYON BAZLI DEĞİŞKEN LT DAĞILIMI ---")
     lt_rows = []
+    rop_toplam = 0.0
     for sid, info in sorted(sim.station_lt.items(), key=lambda x: int(x[0].replace("S", ""))):
         hat = sim.stations_df[sim.stations_df["istasyon_id"] == sid]["hat"].values[0]
+        D_dk = float(sim.stations_df[sim.stations_df["istasyon_id"] == sid]["ort_tuketim_saat"].values[0]) / 60.0
+        rop_val = D_dk * info["lt_dk"] * (1 + sim.ALPHA)
+        rop_toplam += rop_val
         lt_rows.append({
             "İstasyon": sid, "Hat": hat, "Mesafe (m)": info["mesafe_m"], "Atanan LT (dk)": info["lt_dk"],
-            "Kaynak": "[Mühendislik Kararı - Mesafeye Orantılı]"
+            "ROP (adet)": round(rop_val, 2), "Kaynak": "[Mühendislik Kararı - Min-Max Normalizasyon]"
         })
     lt_df = pd.DataFrame(lt_rows)
     print(lt_df.to_string(index=False))
+    print(f"\nOrtalama İstasyon ROP Eşiği: {rop_toplam/24.0:.2f} adet (Sabit LT=45dk için 18.06 adetti) [Kod çıktısı]")
 
     # Sinyalleri üret
     signals = sim.uret_degisken_lt_sinyalleri()
-    print(f"\nToplam üretilen değişken LT sinyali: {len(signals)} adet [Kod çıktısı]")
+    print(f"Toplam üretilen değişken LT sinyali: {len(signals)} adet [Kod çıktısı]")
 
     # 2. Kuralları Koş (2 ve 4 Araç)
     print("\n--- 2. DEĞİŞKEN LT ALTINDA DİSPATCH KURALLARI KARŞILAŞTIRMASI ---")
@@ -349,7 +361,7 @@ def main():
 
     for arac in [2, 4]:
         for kural in ["KRITIKLIK", "FIFO", "EDD", "SLACK"]:
-            rotalar, sig_out, starvs = sim.solve_vrptw(signals, arac_sayisi=arac, dispatch_kural=kural)
+            rotalar, sig_out, (starvs, avg_wip) = sim.solve_vrptw(signals, arac_sayisi=arac, dispatch_kural=kural)
             
             toplam_starv_dk = len(starvs)
             warmup_starv_dk = len([s for s in starvs if s["dakika"] >= 45])
@@ -371,6 +383,7 @@ def main():
                 "Starv (dk)": toplam_starv_dk,
                 "Starvation (11.520 Payda)": f"%{pct_11520:.2f} [Kod çıktısı]",
                 "Starvation (10.440 Payda)": f"%{pct_10440:.2f} [Kod çıktısı]",
+                "Ort WIP Stok (adet)": f"{avg_wip:.1f} [Kod çıktısı]",
                 "Karşılama (%)": f"%{karsilama_orani:.1f} [Kod çıktısı]",
                 "Zamanında": zamaninda,
                 "Gecikmeli": gecikmeli,
