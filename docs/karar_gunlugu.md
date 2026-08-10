@@ -454,6 +454,46 @@
 
 ---
 
+## HAFTA 8 KARARLARI (10.08.2026)
+
+### K48 — Takvim Kayması ve Konu İlerleme Notu
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | 17 Haftalık Planda Hafta 8 – 9 Konu Kayması |
+| **Değer** | Orijinal planın Hafta 9 konusu ("Statik vs Dinamik Karşılaştırması") fiilen Hafta 8'de tamamlanmıştır. |
+| **Kaynak** | Kullanıcı Gözden Geçirme Notu (10.08.2026) |
+| **Gerekçe** | Hafta 5'te solver kodlaması erken tamamlandığı için proje takvimi önden ilerlemektedir. Tez tesliminde hafta numaraları konu bazlı eşleştirilecektir. |
+| **Tarih** | 10.08.2026 |
+
+### K49 — İstasyon Bazlı Değişken Lead Time Modeli
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Mesafeye Dayalı Deterministik $LT_i$ Dağılımı |
+| **Değer** | $LT_i = 30 + \lfloor (\text{Mesafe}(Depo, S_i) / 250) \times 30 \rfloor \text{ dk}$ $\rightarrow$ $LT_i \in [40, 60] \text{ dk}$ |
+| **Kaynak** | Operasyonel Mühendislik Kararı |
+| **Gerekçe** | Depoya yakın istasyonların (Hat-1: 40 dk) ve uzak istasyonların (Hat-4: 60 dk) tedarik süreleri fiziksel koridor mesafeleriyle tutarlı hale getirilmiştir. |
+| **Tarih** | 10.08.2026 |
+
+### K50 — Statik Kanban Sefer Standardı (Senaryo A)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Geleneksel Periyodik Milk-Run Sefer Sıklığı |
+| **Değer** | 60 dakikada bir sabit kalkış ($t = 60, 120, 180, 240, 300, 360, 420$) |
+| **Kaynak** | Operasyonel Mühendislik Kararı ($TC_{tam} \approx 45-55 \text{ dk}$, Max tur 90 dk [K17], 8 saatlik vardiya) |
+| **Gerekçe** | 24 istasyonun tamamının tek turda gezilmesi ~45-55 dk sürdüğünden ve vardiyaya tam bölünebilir operasyonel aralık 60 dk olduğundan seçilmiştir. |
+| **Tarih** | 10.08.2026 |
+
+### K51 — EDD vs SLACK Hipotezi Değerlendirmesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Değişken $LT$ Altında EDD vs SLACK Ayrışma Durumu |
+| **Değer** | Sentetik fabrika modelimizde EDD ve SLACK aynı duruş süresini (144 dk, %1.25) üretmiştir. |
+| **Kaynak** | H8 Kod Çıktısı (`src/variable_lt_solver.py`) |
+| **Gerekçe** | Fabrika içi seyahat süreleri farkının ($0.5 - 1.5 \text{ dk}$), toplam $LT$ ($40 - 60 \text{ dk}$) yanında çok küçük kalması sebebiyle SLACK kuralı EDD'ye karşı belirgin bir üstünlük göstermemiştir. |
+| **Tarih** | 10.08.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*

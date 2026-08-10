@@ -1,0 +1,9 @@
+Araç Sayısı,Kural,Starv (dk),Starvation (11.520 Payda),Starvation (10.440 Payda),Karşılama (%),Zamanında,Gecikmeli,Karşılanamayan,Tur Sayısı
+2 Araç [K03/K37],KRITIKLIK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],180,1,0,69
+2 Araç [K03/K37],FIFO,143,%1.24 [Kod çıktısı],%1.37 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
+2 Araç [K03/K37],EDD,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
+2 Araç [K03/K37],SLACK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%99.4 [Kod çıktısı],180,0,1,66
+4 Araç [K03/K37],KRITIKLIK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
+4 Araç [K03/K37],FIFO,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
+4 Araç [K03/K37],EDD,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
+4 Araç [K03/K37],SLACK,144,%1.25 [Kod çıktısı],%1.38 [Kod çıktısı],%100.0 [Kod çıktısı],181,0,0,140
