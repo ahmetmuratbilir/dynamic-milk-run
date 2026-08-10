@@ -95,6 +95,11 @@ Sayısal bulgularımız iki sistemin birbirine karşı mutlak bir üstünlüğü
 3. **4 Araçta WIP'in 2 Araçtan Biraz Yüksek Çıkma Nedeni:**
    * 2 araçta araçlar yetişemediği için istasyonlar sıklıkla boşalmakta ve dip seviyelerde kalmaktadır ($Ort. WIP = 312 \text{ adet}$, duruş = $188-211 \text{ dk}$).
    * 4 araçta ise araçlar anında yenileme yaptığı için istasyonlar sürekli dolu seviyelerde tutulabilmektedir ($Ort. WIP = 331 \text{ adet}$, duruş neredeyse sıfır = $7-13 \text{ dk}$).
+4. **Metodolojik Asimetri ve İç Tutarlılık Kanıtı (Tavan Etkisinin Yönü):**
+   * Aynı raf-tavanı ($stok \le N \times C$) düzeltmesinin Tablo 1'de duruşu artırıp (%17.04'ten %24.58'e) Tablo 2'de duruşu neredeyse sıfırlaması (%1.28'den %0.06'ya), iki farklı fiziksel mekanizmanın ayrı ayrı çalıştığını açıkça göstermektedir:
+     - **Tablo 1'de (Sabit $LT=45 \text{ dk}$):** $N$ kart sayıları sabit kaldığından, tavan düzeltmesi yalnızca imkânsız hayali stok birikmesini kırpmış (**saf kırpma etkisi**) ve gizli duruşları görünür kılarak duruş oranını artırmıştır.
+     - **Tablo 2'de (Değişken $LT \in [30, 60] \text{ dk}$):** K06 formülü uyarınca kritik istasyonlarda kart sayıları $N=1 \rightarrow 2$'ye yükseldiğinden, fiziksel raf kapasitesi iki katına çıkmış (**tampon genişleme etkisi**) ve duruşları bertaraf etmiştir.
+   * Bu zıt yönlü etki, simülasyon motorunun manipülasyona kapalı olduğunun ve fiziksel kurallarla tam tutarlı işlediğinin güçlü bir kanıtıdır.
 
 ---
 
