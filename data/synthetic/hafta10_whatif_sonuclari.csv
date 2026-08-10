@@ -1,0 +1,5 @@
+Senaryo,Filo,Duruş (dk),Starv (11.520),Starv (10.440),Ort WIP,Açıklama
+0. Baz Durum (Standart),4 Araç [K37],2832,24.583333333333332,27.126436781609197,182.3,Standart tüketim ve tam filo
+1. Talep Şoku (+%20 Tüketim),4 Araç [K37],3995,34.67881944444444,38.26628352490422,154.5,Tüm istasyonlarda tüketim hızı %20 arttı
+2. Araç Arızası (4 -> 3 Araç),3 Araç [K37-1],4254,36.927083333333336,40.74712643678161,148.5,"1 araç arızalandı, 3 araç devrede"
+3. Kritik Arıza (2 -> 1 Araç),1 Araç [K03-1],8006,69.49652777777777,76.68582375478927,71.5,"Tek araç kaldı, sistem aşırı darboğazda"

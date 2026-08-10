@@ -494,6 +494,37 @@
 
 ---
 
+## HAFTA 9 & 10 KARARLARI (10.08.2026)
+
+### K52 — Eşit WIP Seviyesinde Pareto Sınırı Bulgusu
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Farklı Tur Sıklıklarında Statik vs Dinamik Pareto Karşılaştırması |
+| **Değer** | Statik sistemin sefer aralığı 120 dk'ya çıkarılıp ortalama WIP ~119 adede düşürüldüğünde duruş oranı %45.54'e çıkmaktadır. Dinamik sistem (WIP=111 adet, duruş=%53.01) ile benzer seviyede kalmaktadır. |
+| **Kaynak** | H9 Kod Çıktısı (`src/hafta9_pareto_analizi.py`) |
+| **Gerekçe** | Duruş farklarının ana sebebi rota algoritmasından ziyade sahada tutulan toplam tampon WIP stok seviyesidir. |
+| **Tarih** | 10.08.2026 |
+
+### K53 — WIP–Starvation Temel Mühendislik Trade-off İlkesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Düşük WIP ile Düşük Duruşun Birlikte Sağlanamaması |
+| **Değer** | Düşük WIP ve sıfır duruş aynı anda sınırlı filo altında sağlanamaz; bu bir algoritma hatası değil, fiziksel lojistik ödünleşimidir. |
+| **Kaynak** | H9 Sentez ve Pareto Analizi |
+| **Gerekçe** | Statik sistem yüksek stok tutarak duruşu önlerken, Dinamik sistem stoku düşük tutup mesafeyi azaltmakta fakat filo kısıtında duruş riski yaşamaktadır. |
+| **Tarih** | 10.08.2026 |
+
+### K54 — What-If Dayanıklılık (Resilience) Test Parametreleri
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Bozucu Senaryo Stres Testi |
+| **Değer** | 3 senaryo: 1) Talep Şoku (+%20 tüketim $\rightarrow$ duruş +10.1 puan), 2) Araç Arızası (4$\rightarrow$3 araç $\rightarrow$ duruş +12.4 puan), 3) Kritik Arıza (2$\rightarrow$1 araç $\rightarrow$ %69.5 duruş). |
+| **Kaynak** | H10 Kod Çıktısı (`src/hafta10_whatif_senaryolari.py`) |
+| **Gerekçe** | Sistemin beklenmedik fabrika içi krizlere karşı tolerans sınırları belirlenmiştir. |
+| **Tarih** | 10.08.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
