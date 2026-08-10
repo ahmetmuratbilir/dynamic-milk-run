@@ -160,12 +160,13 @@ class StaticMilkRunSimulator:
         # Dakika dakika simülasyon ve Starvation / WIP takibi
         starvation_events = []
         wip_stok_kayitlari = []
+        ist_cap = {row["istasyon_id"]: float(row["kanban_n"] * row["kutu_kapasitesi"]) for _, row in self.stations_df.iterrows()}
 
         for m in range(480):
-            # Teslimatlar
+            # Teslimatlar (Kanban kuralı: Stok asla N * C tavanını aşamaz)
             if m in deliveries_by_min:
                 for sid, miktar in deliveries_by_min[m]:
-                    stoklar[sid] += miktar
+                    stoklar[sid] = min(ist_cap[sid], stoklar[sid] + miktar)
 
             # Tüketim
             for sid in stoklar:
@@ -202,9 +203,10 @@ class StaticMilkRunSimulator:
         }
 
 
-def hesapla_dinamik_wip(signals_with_deliveries: pd.DataFrame, stations_df: pd.DataFrame, consumption_df: pd.DataFrame) -> float:
+def hesapla_dinamik_wip_ve_starvation(signals_with_deliveries: pd.DataFrame, stations_df: pd.DataFrame, consumption_df: pd.DataFrame) -> tuple:
     tuketim_pivot = consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
     stoklar = {row["istasyon_id"]: float(row["baslangic_stok_adet"]) for _, row in stations_df.iterrows()}
+    ist_cap = {row["istasyon_id"]: float(row["kanban_n"] * row["kutu_kapasitesi"]) for _, row in stations_df.iterrows()}
     ist_c = {row["istasyon_id"]: float(row["kutu_kapasitesi"]) for _, row in stations_df.iterrows()}
 
     deliveries = {}
@@ -215,17 +217,23 @@ def hesapla_dinamik_wip(signals_with_deliveries: pd.DataFrame, stations_df: pd.D
             deliveries.setdefault(arr_m, []).append((row["istasyon_id"], row["istenen_kutu"] * ist_c[row["istasyon_id"]]))
 
     wip_log = []
+    starvation_events = []
     for m in range(480):
+        # Teslimat (Kanban kuralı: Stok asla N * C tavanını aşamaz)
         if m in deliveries:
             for sid, miktar in deliveries[m]:
-                stoklar[sid] += miktar
+                stoklar[sid] = min(ist_cap[sid], stoklar[sid] + miktar)
         for sid in stoklar:
             c_val = tuketim_pivot.loc[m, sid] if m in tuketim_pivot.index and sid in tuketim_pivot.columns else 0.0
             stoklar[sid] -= c_val
             if stoklar[sid] <= 0:
+                starvation_events.append({"dakika": m, "istasyon_id": sid})
                 stoklar[sid] = 0.0
         wip_log.append(sum(stoklar.values()))
-    return round(float(np.mean(wip_log)), 1)
+    
+    toplam_starv = len(starvation_events)
+    warmup_starv = len([s for s in starvation_events if s["dakika"] >= 45])
+    return round(float(np.mean(wip_log)), 1), toplam_starv, warmup_starv
 
 
 def main():
@@ -244,13 +252,11 @@ def main():
     dynamic_solver = VRPTWSolver(loader)
     
     # 2 Araç Dinamik
-    rot_d2, sig_d2, starv_d2 = dynamic_solver.solve(arac_sayisi=2, dispatch_kural="EDD")
-    starv_d2_tot = len(starv_d2)
-    starv_d2_warm = len([s for s in starv_d2 if s["dakika"] >= 45])
+    rot_d2, sig_d2, _ = dynamic_solver.solve(arac_sayisi=2, dispatch_kural="EDD")
+    wip_d2, starv_d2_tot, starv_d2_warm = hesapla_dinamik_wip_ve_starvation(sig_d2, loader.get_stations(), loader.get_consumption())
     tur_d2 = rot_d2["rota_id"].nunique() if len(rot_d2) > 0 else 0
     kutu_d2 = rot_d2["istenen_kutu"].sum() if len(rot_d2) > 0 else 0
     ort_kutu_d2 = kutu_d2 / tur_d2 if tur_d2 > 0 else 0
-    wip_d2 = hesapla_dinamik_wip(sig_d2, loader.get_stations(), loader.get_consumption())
     
     # Dinamik mesafe hesabı
     dist_m_d2 = 0.0
@@ -273,13 +279,11 @@ def main():
     }
 
     # 4 Araç Dinamik
-    rot_d4, sig_d4, starv_d4 = dynamic_solver.solve(arac_sayisi=4, dispatch_kural="EDD")
-    starv_d4_tot = len(starv_d4)
-    starv_d4_warm = len([s for s in starv_d4 if s["dakika"] >= 45])
+    rot_d4, sig_d4, _ = dynamic_solver.solve(arac_sayisi=4, dispatch_kural="EDD")
+    wip_d4, starv_d4_tot, starv_d4_warm = hesapla_dinamik_wip_ve_starvation(sig_d4, loader.get_stations(), loader.get_consumption())
     tur_d4 = rot_d4["rota_id"].nunique() if len(rot_d4) > 0 else 0
     kutu_d4 = rot_d4["istenen_kutu"].sum() if len(rot_d4) > 0 else 0
     ort_kutu_d4 = kutu_d4 / tur_d4 if tur_d4 > 0 else 0
-    wip_d4 = hesapla_dinamik_wip(sig_d4, loader.get_stations(), loader.get_consumption())
 
     dist_m_d4 = 0.0
     for rid, rgroup in rot_d4.groupby("rota_id"):
