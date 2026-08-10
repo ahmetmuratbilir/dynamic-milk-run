@@ -48,3 +48,18 @@ Statik sistemin tur sıklığı $45, 60, 80, 90, 120 \text{ dakika}$ olarak değ
 | **1. Talep Şoku (+%20 Tüketim)** | 4 Araç | 3,995 dk `[Kod çıktısı]` | %34.68 `[Kod çıktısı]` | %38.27 `[Kod çıktısı]` | 154.5 adet `[Kod çıktısı]` | Duruş +10.1 puan arttı |
 | **2. Araç Arızası ($4 \rightarrow 3$ Araç)** | 3 Araç | 4,254 dk `[Kod çıktısı]` | %36.93 `[Kod çıktısı]` | %40.75 `[Kod çıktısı]` | 148.5 adet `[Kod çıktısı]` | Duruş +12.4 puan arttı |
 | **3. Kritik Arıza ($2 \rightarrow 1$ Araç)** | 1 Araç | 8,006 dk `[Kod çıktısı]` | %69.50 `[Kod çıktısı]` | %76.69 `[Kod çıktısı]` | 71.5 adet `[Kod çıktısı]` | Sistem ağır darboğaza girdi |
+
+---
+
+## 4. Tartışma ve Metodolojik Çıkarımlar (Discussion)
+
+### 4.1 Eşit WIP Seviyesinde Kalan Fark (WIP vs. Sevk Mekanizması)
+- Pareto tablosu incelendiğinde, ortalama WIP seviyesi eşitlendiğinde dahi Statik sistemin Dinamik sisteme göre **%5 – %7 puan daha düşük duruş** sağladığı görülmektedir:
+  - 2 Araç: Statik (120 dk, WIP≈119) %45.54 vs Dinamik (WIP≈111) %53.01 ($\Delta = 7.47$ puan).
+  - 4 Araç: Statik (80 dk, WIP≈177) %19.31 vs Dinamik (WIP≈182) %24.58 ($\Delta = 5.27$ puan).
+- **Bilimsel Yorum:** WIP seviyesi hat duruşunun **baskın belirleyicisidir**; ancak eşit WIP'te dahi gözlenen bu %5–7 puanlık kalan fark, statik rotalamanın *düzenli ve öngörülebilir çevrim yapısının*, olay bazlı dinamik sistemdeki *sinyal-reaksiyon gecikmesine (reaktif gecikme)* karşı ek bir operasyonel avantaj sağladığını düşündürmektedir.
+
+### 4.2 Filo Büyüklüğü ve Başarı Eşiği (Hafta 6 ile Uyum)
+- 4 araçlık konfigürasyonda dinamik sistemin duruş oranı (%24.58), statik baz sistemin (%3.04) belirgin şekilde gerisinde kalmaktadır.
+- Dolayısıyla 4 araç bir "başarı eşiği" değil, duruşu %53'ten %24'e indiren **bir ara iyileşme adımıdır**.
+- Dinamik sistemin statik sistemle rekabet edebilecek seviyede düşük duruş oranlarına (<%5) ulaşabilmesi için, Hafta 6 duyarlılık analizinde tespit edilen **5–6 araçlık filo bandına** (5 araçta %5.20, 6 araçta %0.97) yaklaşması gerekmektedir.

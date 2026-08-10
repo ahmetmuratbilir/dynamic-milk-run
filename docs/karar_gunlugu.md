@@ -509,9 +509,9 @@
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Düşük WIP ile Düşük Duruşun Birlikte Sağlanamaması |
-| **Değer** | Düşük WIP ve sıfır duruş aynı anda sınırlı filo altında sağlanamaz; bu bir algoritma hatası değil, fiziksel lojistik ödünleşimidir. |
+| **Değer** | WIP seviyesi starvation'ın baskın belirleyicisidir; ancak eşit WIP'te dahi statik sistem lehine gözlenen %5–7 puanlık fark, deterministik çevrim düzenliliğinin reaktif gecikmeye karşı ek avantaj sağladığını göstermektedir. Dinamik sistemin nihai başarı eşiği 4 araç değil, Hafta 6'da bulunan 5–6 araç bandıdır. |
 | **Kaynak** | H9 Sentez ve Pareto Analizi |
-| **Gerekçe** | Statik sistem yüksek stok tutarak duruşu önlerken, Dinamik sistem stoku düşük tutup mesafeyi azaltmakta fakat filo kısıtında duruş riski yaşamaktadır. |
+| **Gerekçe** | 4 araç duruşu %53'ten %24'e indiren bir ara iyileşmedir; tam rekabetçilik için 5–6 araç gereklidir. |
 | **Tarih** | 10.08.2026 |
 
 ### K54 — What-If Dayanıklılık (Resilience) Test Parametreleri
