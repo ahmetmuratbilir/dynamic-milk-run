@@ -1,9 +1,9 @@
 Araç Sayısı,Kural,Starv (dk),Starvation (11.520 Payda),Starvation (10.440 Payda),Ort WIP Stok (adet),Karşılama (%),Zamanında,Gecikmeli,Karşılanamayan,Tur Sayısı
-2 Araç [K03/K37],KRITIKLIK,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.9 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
-2 Araç [K03/K37],FIFO,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],469.4 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
-2 Araç [K03/K37],EDD,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.3 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
-2 Araç [K03/K37],SLACK,151,%1.31 [Kod çıktısı],%1.45 [Kod çıktısı],468.3 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,76
-4 Araç [K03/K37],KRITIKLIK,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
-4 Araç [K03/K37],FIFO,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
-4 Araç [K03/K37],EDD,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
-4 Araç [K03/K37],SLACK,147,%1.28 [Kod çıktısı],%1.41 [Kod çıktısı],511.6 [Kod çıktısı],%100.0 [Kod çıktısı],180,0,0,144
+2 Araç [K03/K37],KRITIKLIK,211,%1.83 [Kod çıktısı],%2.02 [Kod çıktısı],317.7 [Kod çıktısı],%98.5 [Kod çıktısı],192,1,3,64
+2 Araç [K03/K37],FIFO,188,%1.63 [Kod çıktısı],%1.80 [Kod çıktısı],315.5 [Kod çıktısı],%99.5 [Kod çıktısı],195,0,1,57
+2 Araç [K03/K37],EDD,195,%1.69 [Kod çıktısı],%1.87 [Kod çıktısı],312.4 [Kod çıktısı],%99.0 [Kod çıktısı],194,0,2,57
+2 Araç [K03/K37],SLACK,195,%1.69 [Kod çıktısı],%1.87 [Kod çıktısı],312.4 [Kod çıktısı],%99.0 [Kod çıktısı],194,0,2,57
+4 Araç [K03/K37],KRITIKLIK,7,%0.06 [Kod çıktısı],%0.07 [Kod çıktısı],331.0 [Kod çıktısı],%100.0 [Kod çıktısı],196,0,0,155
+4 Araç [K03/K37],FIFO,13,%0.11 [Kod çıktısı],%0.12 [Kod çıktısı],331.1 [Kod çıktısı],%100.0 [Kod çıktısı],196,0,0,155
+4 Araç [K03/K37],EDD,13,%0.11 [Kod çıktısı],%0.12 [Kod çıktısı],331.0 [Kod çıktısı],%100.0 [Kod çıktısı],196,0,0,155
+4 Araç [K03/K37],SLACK,13,%0.11 [Kod çıktısı],%0.12 [Kod çıktısı],331.0 [Kod çıktısı],%100.0 [Kod çıktısı],196,0,0,155

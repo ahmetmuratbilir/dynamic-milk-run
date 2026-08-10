@@ -92,6 +92,7 @@ class VariableLTSimulator:
     def uret_degisken_lt_sinyalleri(self) -> pd.DataFrame:
         """
         İstasyon bazlı ROP_i ve LT_i değerlerine göre 480 dakikalık E-Kanban sinyallerini üretir.
+        K06 gereği N_i = ceil( D_i * LT_i * (1+alpha) / C_i ) formülüyle kart sayıları da güncellenir.
         Her istasyon için açık sinyal t + LT_i anında kapanır ve yeni döngüye izin verir (K28/K29).
         """
         tuketim_pivot = self.consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
@@ -102,15 +103,19 @@ class VariableLTSimulator:
             sid = row["istasyon_id"]
             D_dk = float(row["ort_tuketim_saat"]) / 60.0
             lt_i = self.station_lt[sid]["lt_dk"]
+            C_val = float(row["kutu_kapasitesi"])
             rop_i = D_dk * lt_i * (1 + self.ALPHA)  # K25
+            # K06: Değişken LT_i için yeni N_i hesaplaması
+            n_i = math.ceil(rop_i / C_val)
+            
             ist_durum[sid] = {
                 "hat": row["hat"],
                 "D_dk": D_dk,
-                "C": float(row["kutu_kapasitesi"]),
-                "N": int(row["kanban_n"]),
+                "C": C_val,
+                "N": n_i,
                 "lt_i": lt_i,
                 "rop": rop_i,
-                "stok": float(row["baslangic_stok_adet"]),
+                "stok": float(n_i * C_val),  # Başlangıç stoku = N_i * C_i
                 "acik_sinyal": False,
                 "yenileme_dk": None,
                 "sinyal_id_sayac": 0
@@ -122,7 +127,8 @@ class VariableLTSimulator:
             # 1. Stok yenileme (t == yenileme_dk)
             for sid, ist in ist_durum.items():
                 if ist["acik_sinyal"] and ist["yenileme_dk"] == t:
-                    ist["stok"] += ist["N"] * ist["C"]
+                    # Kanban kuralı: Stok asla N * C tavanını aşamaz
+                    ist["stok"] = min(float(ist["N"] * ist["C"]), ist["stok"] + ist["C"])
                     ist["acik_sinyal"] = False
                     ist["yenileme_dk"] = None
 
@@ -291,11 +297,19 @@ class VariableLTSimulator:
         tuketim_pivot = self.consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
         
         stoklar = {}
+        stoklar = {}
         ist_c = {}
+        ist_cap = {}
         for _, row in self.stations_df.iterrows():
             sid = row["istasyon_id"]
-            stoklar[sid] = float(row["baslangic_stok_adet"])
-            ist_c[sid] = float(row["kutu_kapasitesi"])
+            D_dk = float(row["ort_tuketim_saat"]) / 60.0
+            lt_i = self.station_lt[sid]["lt_dk"]
+            C_val = float(row["kutu_kapasitesi"])
+            rop_i = D_dk * lt_i * (1 + self.ALPHA)
+            n_i = math.ceil(rop_i / C_val)
+            ist_c[sid] = C_val
+            ist_cap[sid] = float(n_i * C_val)
+            stoklar[sid] = float(n_i * C_val)  # Başlangıç stoku = N_i * C_i
 
         deliveries = {}
         serviced = signals_df[signals_df["serviced"] == True]
@@ -307,10 +321,10 @@ class VariableLTSimulator:
         starvation_events = []
         wip_records = []
         for m in range(480):
-            # Teslimat ekle
+            # Teslimat ekle (Kanban kuralı: Stok asla N * C tavanını aşamaz)
             if m in deliveries:
                 for sid, miktar in deliveries[m]:
-                    stoklar[sid] += miktar
+                    stoklar[sid] = min(ist_cap[sid], stoklar[sid] + miktar)
 
             # Tüketim düş
             for sid in stoklar:
