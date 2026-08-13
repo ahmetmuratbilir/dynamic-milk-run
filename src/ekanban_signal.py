@@ -36,10 +36,10 @@ class EKanbanSimulator:
       5. Starvation kaydı
     """
 
-    def __init__(self, loader: DataLoader):
+    def __init__(self, loader: DataLoader, alpha: float = 0.15):
         self.loader    = loader
         self.LT        = 45      # K07
-        self.ALPHA     = 0.15    # K08
+        self.ALPHA     = alpha   # K08
         self.TW_MAX    = 60      # K16 — üst sınır
         self.TW_SAFETY = 5       # K27 — starvation'dan kaç dk önce pencere kapansın
 

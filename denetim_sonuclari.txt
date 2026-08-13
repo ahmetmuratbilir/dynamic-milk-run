@@ -1,0 +1,58 @@
+=== HAFTA 5: TAVANLI vs TAVANSIZ ===
+| Mod | Starvation (dk) | % (11,520) | % (10,440) | Ort WIP |
+| Tavansız | 5986 | %51.96 | %57.34 | 140.1 |
+| Tavanlı  | 6506 | %56.48 | %62.32 | 103.7 |
+
+=== HAFTA 6: FİLO ANALİZİ TAVANLI vs TAVANSIZ ===
+| Araç | Mod | Starvation (dk) | % (11,520) | % (10,440) | Ort WIP |
+| 2 | Tavansız | 5986 | %51.96 | %57.34 | 140.1 |
+| 2 | Tavanlı  | 6506 | %56.48 | %62.32 | 103.7 |
+| 3 | Tavansız | 4149 | %36.02 | %39.74 | 199.6 |
+| 3 | Tavanlı  | 5153 | %44.73 | %49.36 | 136.4 |
+| 4 | Tavansız | 2237 | %19.42 | %21.43 | 263.9 |
+| 4 | Tavanlı  | 3355 | %29.12 | %32.14 | 175.3 |
+| 5 | Tavansız | 598 | %5.19 | %5.73 | 351.3 |
+| 5 | Tavanlı  | 2068 | %17.95 | %19.81 | 207.0 |
+| 6 | Tavansız | 112 | %0.97 | %1.07 | 427.7 |
+| 6 | Tavanlı  | 1392 | %12.08 | %13.33 | 221.0 |
+
+=== HAFTA 7: DISPATCH KURALLARI TAVANLI vs TAVANSIZ ===
+| Kural | Mod | Starvation (dk) | % (11,520) | % (10,440) | Ort WIP |
+| KRITIKLIK | Tavansız | 5986 | %51.96 | %57.34 | 140.1 |
+| KRITIKLIK | Tavanlı  | 6506 | %56.48 | %62.32 | 103.7 |
+| EDD | Tavansız | 5907 | %51.28 | %56.58 | 121.2 |
+| EDD | Tavanlı  | 6107 | %53.01 | %58.50 | 111.1 |
+| SLACK | Tavansız | 5907 | %51.28 | %56.58 | 121.2 |
+| SLACK | Tavanlı  | 6107 | %53.01 | %58.50 | 111.1 |
+| FIFO | Tavansız | 5909 | %51.29 | %56.60 | 121.1 |
+| FIFO | Tavanlı  | 6109 | %53.03 | %58.52 | 111.0 |
+
+=== KAPSAM SIZINTISI TARAMASI ===
+src\denetim_reproduksiyon_testi.py:44 - digital twin
+src\denetim_reproduksiyon_testi.py:44 - deep learning
+src\denetim_reproduksiyon_testi.py:44 - machine learning
+src\denetim_reproduksiyon_testi.py:44 - MILP
+src\denetim_reproduksiyon_testi.py:44 - mixed integer
+src\denetim_reproduksiyon_testi.py:44 - neural
+src\denetim_reproduksiyon_testi.py:44 - reinforcement learning
+docs\karar_gunlugu.md:287 - MILP
+docs\karar_gunlugu.md:303 - MILP
+docs\karar_gunlugu.md:343 - MILP
+docs\makale_katalogu_grup1.md:91 - reinforcement learning
+docs\makale_katalogu_grup1.md:179 - MILP
+docs\makale_katalogu_grup1.md:257 - MILP
+docs\makale_katalogu_grup1.md:257 - mixed integer
+docs\makale_katalogu_grup4.md:18 - MILP
+docs\makale_katalogu_grup4.md:36 - MILP
+docs\makale_katalogu_grup4.md:77 - digital twin
+docs\master_makale_katalogu.md:106 - reinforcement learning
+docs\master_makale_katalogu.md:194 - MILP
+docs\master_makale_katalogu.md:272 - MILP
+docs\master_makale_katalogu.md:272 - mixed integer
+docs\master_makale_katalogu.md:995 - MILP
+docs\master_makale_katalogu.md:1013 - MILP
+docs\master_makale_katalogu.md:1054 - digital twin
+docs\tez_bilgi_rehberi.md:57 - digital twin
+
+=== REPRODÜKSİYON TESTİ ===
+Tüm betikler sıfırdan çalıştırıldı: BAŞARILI

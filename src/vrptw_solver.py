@@ -49,7 +49,7 @@ class VRPTWSolver:
         return self.time_matrix.get((from_node, to_node), 5.0)
 
     def solve(self, arac_sayisi: int = 2, dispatch_kural: str = "KRITIKLIK",
-              consumption_df=None) -> tuple:
+              consumption_df=None, hiz_carpani: float = 1.0) -> tuple:
         """
         Olay bazlı VRPTW çözücü.
 
@@ -65,6 +65,7 @@ class VRPTWSolver:
                                          (Herrera-Vidal 2026, s.8 — kuyruk baseline)
           consumption_df: Stokastik replikasyon için dışarıdan verilen tüketim tablosu.
                           None ise self.consumption_df kullanılır (seed=42, deterministik).
+          hiz_carpani   : Hız ölçekleme katsayısı (K12). Zamanları etkiler, mesafeyi etkilemez.
         """
         vehicles = {
             f"A{i+1}": {"musait_dk": 0, "mevcut_konum": "DEPOT", "tur_sayisi": 0}
@@ -137,7 +138,7 @@ class VRPTWSolver:
 
                 for sig in unvisited:
                     target_node = str(sig["istasyon_id"])
-                    tt = self.get_travel_time(curr_node, target_node)
+                    tt = self.get_travel_time(curr_node, target_node) * hiz_carpani
                     if tt < best_travel_time:
                         best_travel_time = tt
                         best_next = sig
@@ -179,7 +180,7 @@ class VRPTWSolver:
                 curr_node = target_node
                 curr_time = dept_time
 
-            return_tt = self.get_travel_time(curr_node, "DEPOT")
+            return_tt = self.get_travel_time(curr_node, "DEPOT") * hiz_carpani
             tour_end_time = curr_time + return_tt
             vehicles[available_v_id]["musait_dk"] = tour_end_time
             vehicles[available_v_id]["tur_sayisi"] += 1

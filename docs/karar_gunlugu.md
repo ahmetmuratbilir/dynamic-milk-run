@@ -492,6 +492,33 @@
 | **Gerekçe** | Fabrika içi seyahat süreleri farkının ($0.5 - 1.5 \text{ dk}$), toplam $LT$ ($40 - 60 \text{ dk}$) yanında çok küçük kalması sebebiyle SLACK kuralı EDD'ye karşı belirgin bir üstünlük göstermemiştir. |
 | **Tarih** | 10.08.2026 |
 
+### K55 — α–N Çift Mod Tasarım ve Değerlendirme İlkesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Safety Factor ($\alpha$) ve Kart Sayısı ($N$) Boyutlandırma Metodolojisi |
+| **Değer** | Mod A (Sabit N, yalnızca ROP kayar) ve Mod B (Dinamik N, $N = \lceil ROP/C \rceil$ yeniden hesaplanır) olarak iki modda test edilmiştir. Sabit N modunda α etkisi zayıftır (2.68 puan fark); Dinamik N modunda α etkisi belirgindir (7.42 puan iyileşme, %25.32 → %17.90). |
+| **Kaynak** | H10 Kod Çıktısı (`src/hafta10_whatif_senaryolari.py`) |
+| **Gerekçe** | Raf boyutu ve kart sayısı güncellenmeden yalnızca ROP eşiğini değiştirmenin sınırlı etki yarattığı kanıtlanmıştır. |
+| **Tarih** | 14.08.2026 |
+
+### K56 — Kademeli Filo Arıza Standardı ($4 \rightarrow 3 \rightarrow 2 \rightarrow 1$)
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Kademeli Filo Kaybı Zinciri ve Operasyonel Esneklik |
+| **Değer** | Filo küçüldükçe duruş oranı monoton artmaktadır: 4 araç (%24.58) $\rightarrow$ 3 araç (%36.93) $\rightarrow$ 2 araç (%53.01) $\rightarrow$ 1 araç (%69.50). Her araç kaybı ortalama +12–16 puan duruş artışı getirmektedir. |
+| **Kaynak** | H10 Kod Çıktısı (`src/hafta10_whatif_senaryolari.py`) |
+| **Gerekçe** | Araç sayısının sistemdeki en baskın kontrol değişkeni olduğu kesinleşmiştir. |
+| **Tarih** | 14.08.2026 |
+
+### K57 — Kanonik Simülasyon Motoru Birleştirmesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Simülasyon Hesaplama Motorunun Tekleşmesi ve Tutarlılık |
+| **Değer** | Tüm starvation ve WIP ölçümleri `hesapla_dinamik_wip_ve_starvation()` fonksiyonu altında birleştirilmiştir. `vrptw_solver.py`'ye `hiz_carpani`, `ekanban_signal.py`'ye `alpha` parametreleri eklenmiştir. Baz senaryo regresyonunda %24.58 duruş ve 182.3 ortalama WIP değerleri birebir doğrulanmıştır. |
+| **Kaynak** | H10 Kod Çıktıları (`src/denetim_reproduksiyon_testi.py`, `src/hafta10_whatif_senaryolari.py`) |
+| **Gerekçe** | İki farklı simülasyon kodunun sessizce ayrışması ve farklı sonuçlar üretmesi riski tamamen ortadan kaldırılmıştır. |
+| **Tarih** | 14.08.2026 |
+
 ---
 
 ## HAFTA 9 & 10 KARARLARI (10.08.2026)
