@@ -1,4 +1,4 @@
-﻿# TEZ METODOLOJİ VE BULGU REHBERİ
+# TEZ METODOLOJİ VE BULGU REHBERİ
 # Ne yaptık, neden yaptık, ne bulduk — tez yazımı için hazır kaynak
 # Tarih: 15.08.2026 | Proje: Dinamik Milk-Run & E-Kanban Karar Destek Sistemi
 
@@ -147,29 +147,49 @@ NE YAPILDI:
   - Analitik filo boyutlandırma: Körösi & Duchoň (2026) formülü uygulandı
   - Azalan getiri eğrisi analizi yapıldı
 
-BULGULAR (TAVANSIZ — KRİTİKLİK kuralı):
+BULGULAR (TAVANSIZ — KRİTİKLİK kuralı, orijinal H6):
   2 araç → %52.08 starvation, WIP=140.1
   3 araç → %36.11 starvation
   4 araç → %19.46 starvation  (Körösi analitik baz: 4 araç)
   5 araç → %5.20 starvation   ← eski "yeterli" eşiği
   6 araç → %0.97 starvation   ← eski "yeterli" eşiği
 
-ERRATA (HAFTA 10 DÜZELTMESİ):
-  Yukarıdaki değerler TAVANSIZ (sınırsız stok) modele aittir.
-  Fiziksel raf tavanı (stok ≤ N×C) uygulandığında TAVANSIZ modelde
-  oluşan hayali stok birikimi kırpılır. Gerçek değerler:
-  5 araç → %15.98 starvation (eski %5.20 değil)
-  6 araç → %11.27 starvation (eski %0.97 değil)
-  7 araç → %7.00 starvation
-  8 araç → %3.50 starvation  ← gerçek <%5 eşiği
-  Yani: <%5 duruş için 5-6 araç değil, 8 araç gerekmektedir.
+ERRATA (HAFTA 10 DÜZELTMESİ — TAM 2-8 ARAÇ SERİSİ):
+  Orijinal değerler TAVANSIZ (sınırsız stok) + KRİTİKLİK dispatch modeline aittir.
+  Hafta 10'da aynı çalışma EDD dispatch + TAVANLI (stok ≤ N×C) kanonik motorla
+  yeniden koşuldu. Tam 2-8 araç serisi aşağıdadır:
 
-AZALAN GETİRİ ANALİZİ (orijinal tavansız, hâlâ geçerli örüntü):
+  Araç | Tavansız % [EDD] | Tavanlı % [EDD] | Tavanlı WIP | Tavan Etkisi
+  -----+------------------+-----------------+-------------+-------------
+    2  |     %51.28       |    %53.01       |    111.1    | +1.74 puan
+    3  |     %33.75       |    %36.93       |    148.5    | +3.18 puan
+    4  |     %17.00       |    %24.58       |    182.3    | +7.59 puan
+    5  |      %3.96       |    %15.98       |    211.0    | +12.02 puan  ← MAKSİMUM
+    6  |      %0.64       |    %11.27       |    224.4    | +10.62 puan
+    7  |      %0.28       |     %7.00       |    232.9    | +6.72 puan
+    8  |      %0.10       |     %3.50       |    237.3    | +3.40 puan
+  [Kaynak: src/hafta10_whatif_senaryolari.py — kanonik motor K57]
+
+  NEDEN 6 ARAÇTA İKİ FARKLI DEĞER VAR (%12.08 ve %11.27):
+  Denetim testinden (denetim_reproduksiyon_testi.py) gelen değer %12.08, orada
+  KRİTİKLİK dispatch kuralı kullanıldı. Yukarıdaki tablo EDD kuralıyla koşuldu
+  (%11.27). KRİTİKLİK kuralı acil istasyona önce gider ama WIP'i yüksek tutar;
+  EDD kuralı deadline'a göre önceliklendirir ve birkaç puan daha düşük duruş üretir.
+  BU BİR YAZIM HATASI DEĞİLDİR — dispatch kuralı farkından kaynaklanan sistematik
+  bir farktır. H8-H10 baz değerleri EDD tabanlı olduğundan bu tablodaki EDD
+  değerleri (%11.27 vb.) baz ile tutarlıdır ve tezde kullanılacaktır.
+
+  SONUÇ: <%5 duruş için TAVANLI + EDD modelde minimum 8 araç gerekmektedir (%3.50).
+  Orijinal "5-6 araç yeterli" sonucu tavansız (idealize) modelden kaynaklanmaktaydı.
+
+AZALAN GETİRİ ANALİZİ (orijinal tavansız, genel örüntü hâlâ geçerli):
   2→3 araç: −15.97 puan (artan marjinal fayda)
   3→4 araç: −16.65 puan (ZİRVE marjinal fayda)
   4→5 araç: −14.26 puan (düşüş başlangıcı)
   5→6 araç: −4.23 puan (SERT azalan getiri)
   Klasik azalan getiri eğrisi — 3→4 araç geçişi en verimli noktadır.
+  NOT: Bu örüntü orijinal (tavansız, KRİTİKLİK) verilere aittir. Tavanlı EDD
+  serisinde de genel yön aynıdır ancak eşik değerleri farklılaşmaktadır.
 
 ### HAFTA 7: Dispatch Kuralı Karşılaştırması
 
@@ -180,12 +200,31 @@ NE YAPILDI:
   - SLACK: en az gevşek zaman penceresi önce
   - FIFO: geliş sırasına göre
 
-BULGULAR (2 araç, KRİTİKLİK kuralı, tavansız):
-  KRİTİKLİK: %51.96 starvation (en yüksek — ama WIP en yüksek)
-  EDD:       %51.28 starvation
-  SLACK:     %51.28 starvation
-  FIFO:      %51.29 starvation
+BULGULAR — TAVANSIZ (2 araç, 11,520 payda):
+  Kural       | Tavansız % | Tavansız WIP
+  ------------+------------+-------------
+  KRİTİKLİK  |   %51.96   |    140.1
+  EDD         |   %51.28   |    121.2
+  SLACK       |   %51.28   |    121.2
+  FIFO        |   %51.29   |    121.1
   Fark çok küçük (< 1 puan) — 2 araçla kural değil filo kısıtı belirleyici.
+
+ERRATA (HAFTA 10 DÜZELTMESİ — TAVANLI KARŞILAŞTIRMA):
+  Hafta 10 denetiminde aynı 4 kural, TAVANLI (stok ≤ N×C) modelle yeniden koşuldu.
+  [Kaynak: denetim_reproduksiyon_testi.py, KRİTİKLİK kuralı bazlı, 11,520 payda]
+
+  Kural       | Tavansız % | Tavanlı %  | Tavanlı WIP | Tavan Etkisi
+  ------------+------------+------------+-------------+-------------
+  KRİTİKLİK  |   %51.96   |   %56.48   |    103.7    | +4.52 puan
+  EDD         |   %51.28   |   %53.01   |    111.1    | +1.74 puan
+  SLACK       |   %51.28   |   %53.01   |    111.1    | +1.74 puan
+  FIFO        |   %51.29   |   %53.03   |    111.0    | +1.74 puan
+
+  TEMEL GÖZLEM: Raf tavanı eklendikten sonra da sıralama korunuyor.
+  EDD ≈ SLACK ≈ FIFO (birbirinden < 0.03 puan fark) ve KRİTİKLİK en yüksek duruş.
+  Tavan kısıtı KRİTİKLİK kuralını orantısız biçimde etkiliyor (+4.52 puan) çünkü
+  KRİTİKLİK en kritik istasyona önce gidiyor → orada stok dolup tavana çarpıyor →
+  diğer istasyonlara geç kalıyor. EDD'de tavan etkisi daha eşit dağılıyor (+1.74 puan).
 
 TEMEL ÇIKARIM:
   Dispatch kuralları birbirinden çok az farklılaşıyor çünkü 2 araçla sistem
@@ -194,6 +233,7 @@ TEMEL ÇIKARIM:
   (1) Literatürde en yaygın kullanılan
   (2) Zaman penceresini doğrudan dikkate alıyor
   (3) SLACK ile neredeyse özdeş performans
+  (4) Tavan kısıtı altında KRİTİKLİK'e göre 3.47 puan daha iyi
 
 ### HAFTA 8: Statik vs Dinamik Kapsamlı Karşılaştırma
 
@@ -307,8 +347,11 @@ BULGU 2 — Filo Boyutunun Baskınlığı (K56):
 BULGU 3 — Fiziksel Raf Kısıtının Filo İhtiyacını Artırması (H10 ERRATA):
   Sınırsız stok varsayımıyla: 5-6 araç <%5 eşiğine yeterli görünüyor
   Fiziksel raf tavanıyla (gerçekçi model): <%5 için 8 araç gerekiyor
-  Bu bulgu, basitleştirilmiş simülasyonların sistematik olarak filo ihtiyacını
-  eksik tahmin ettiğini kanıtlamaktadır.
+  Bu bulgu, bu çalışmada kullanılan simülasyon modelinde basitleştirilmiş
+  (sınırsız stok) varsayımın filo ihtiyacını eksik tahmin ettiğini
+  göstermektedir; bu gözlemin genellenebilirliği, farklı sistem
+  konfigürasyonlarında (farklı istasyon sayısı, tüketim dağılımı, araç kapasitesi)
+  test edilmesi gereken bir gelecek çalışma sorusudur.
 
 BULGU 4 — α'nın Etkisi Yalnızca Dinamik N Modunda Anlamlı (K55):
   Raf boyutu sabitken α'yı artırmak sınırlı fayda sağlar (2.18 puan).
@@ -391,9 +434,11 @@ Starvation oranı iki şekilde raporlandı:
 
 3. "Fiziksel raf tavanı kısıtının (stok ≤ N×C) modele dahil edilmesi, <%5 starvation
    eşiğine ulaşmak için gereken filo büyüklüğünü tahmin edilen 5-6 araçtan 8 araca
-   yükseltmiştir. Bu bulgu, basitleştirilmiş (sınırsız stok) simülasyonların filo
-   ihtiyacını sistematik olarak eksik tahmin ettiğini ve fiziksel kısıtların simülasyon
-   modeline dahil edilmesinin zorunluluğunu göstermektedir."
+   yükseltmiştir. Bu bulgu, çalışmada incelenen sentetik fabrika modelinde
+   basitleştirilmiş (sınırsız stok) varsayımın filo ihtiyacını eksik tahmin ettiğini
+   göstermektedir; fiziksel stok kısıtlarının benzer sonuçlar üretip üretmeyeceği
+   farklı sistem konfigürasyonlarında araştırılması gereken bir gelecek çalışma
+   sorusu olarak önerilmektedir."
 
 ---
 
@@ -406,6 +451,9 @@ Starvation oranı iki şekilde raporlandı:
 - Simić, D. (2020) — Milk-run & Kanban parametreleri
 - Sevim & Görkemli Aykut (2025) — Dinamik milk-run, 2 vs 3 araç testi
 - Vojdani & Drechsler (2022) — Geleneksel 1 saatlik sabit tur sistemi
+  ⚠️ DOĞRULAMA NOTU: Bu makale statik sistemin (60 dk sabit periyot) gerekçesi
+  olarak kullanılmaktadır ancak PDF'ten doğrudan alıntı teyidi henüz yapılmamıştır.
+  Tez teslimine yakın Wang/Facchini gibi satır numarasıyla doğrulanmalıdır.
 
 Tüm referansların tam kaynakları: docs/master_makale_katalogu.md
 
