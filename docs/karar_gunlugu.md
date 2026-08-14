@@ -496,7 +496,7 @@
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Safety Factor ($\alpha$) ve Kart Sayısı ($N$) Boyutlandırma Metodolojisi |
-| **Değer** | Mod A (Sabit N, yalnızca ROP kayar) ve Mod B (Dinamik N, $N = \lceil ROP/C \rceil$ yeniden hesaplanır) olarak iki modda test edilmiştir. Sabit N modunda α etkisi zayıftır (2.68 puan fark); Dinamik N modunda α etkisi belirgindir (7.42 puan iyileşme, %25.32 → %17.90). |
+| **Değer** | Mod A (Sabit N, yalnızca ROP kayar) ve Mod B (Dinamik N, $N = \lceil ROP/C \rceil$ yeniden hesaplanır) olarak iki modda test edilmiştir. Sabit N modunda α etkisi zayıftır: α=0.05 (%24.08) ile α=0.30 (%21.90) arasındaki min-max fark **2.18 puan**; baz duruma (α=0.15, %24.58) göre azami iyileşme **2.68 puan**. Dinamik N modunda α etkisi belirgindir (7.42 puan iyileşme, %25.32 → %17.90). |
 | **Kaynak** | H10 Kod Çıktısı (`src/hafta10_whatif_senaryolari.py`) |
 | **Gerekçe** | Raf boyutu ve kart sayısı güncellenmeden yalnızca ROP eşiğini değiştirmenin sınırlı etki yarattığı kanıtlanmıştır. |
 | **Tarih** | 14.08.2026 |
