@@ -466,18 +466,43 @@ Dosya: docs/hafta10_metodoloji_ve_bulgu_rehberi.md
 
 ## BÖLÜM 7: SEED SAGLAMLIK TESTI SONUÇLARI
 
+--- TUTARSIZLIK TESPiTi VE DÜZELTME SERGÜVENi ---
+Ilk seed testi su değerleri verdi: seed=42 Statik=%17.60 WIP=191.5
+Kanonik beklenti (Hafta 9 raporundan): Statik=%19.31 WIP=177.0
+Fark: 1.71 puan ve 14.5 birim WIP -- ACIKLANMADAN GECILMEMELI
+
+ARASTIRMA:
+Ilk seed testindeki hesapla_statik() fonksiyonu iki hatali parametre iceriyordu:
+  (1) tur_suresi_dk=80 DOGRU, ama kalkis takvimi buna gore kurulmamis
+  (2) kutu_per_ist = max(1, 4*25//24) = 4 kutu/ist -- YANLIS
+      Kanonik Hafta 9 senaryosu: 1 kutu/ist/tur kullanir (StaticMilkRunSimulator L133)
+
+IKINCi KESiF -- KANONiK StaticMilkRunSimulator KODU 60 dk HARD-CODED:
+  StaticMilkRunSimulator.run_static_simulation() L97:
+    kalkis_dakikalari = [60, 120, 180, 240, 300, 360, 420]
+  Ama Hafta 9'da raporlanan kanonik deger 80 dk tur takviminden uretilmis.
+  Yani: StaticMilkRunSimulator olduqu haliyle %19.31'i reprodukte etmiyor (%3.04 veriyor).
+  Bu, kod ile rapor arasinda sessiz bir tutarsizlik -- Hafta 11'de duzeltilmesi gerekiyor.
+  [NOT: StaticMilkRunSimulator L97'deki 60dk sabit tur, Hafta 8 orijinal tasarimi;
+   Hafta 9'da WIP esitleme icin 80dk tura gecilmis ama kod guncellenmemis.]
+
+KANONiK 80DK TESTI ile REPRODUKSIYON:
+  80dk kalkis = [80, 160, 240, 320, 400], 1 kutu/ist, 4 arac (src/seed_testi_kanonik2.py)
+  seed=42: Statik=%19.31 WIP=177.0 -- KANONiK DEGERLE TAMAMEN ESLESIYOR
+
 ANA TRADE-OFF BULGUSUNUN DÜRÜST SEED TESTI
 Kural: Tum sonuclar raporlanacak, seçici davranilmayacak.
-Yontem: seed=42 deterministik tüketim + seed 7/99/123 stokastik tüketim
+Yontem: seed=42 deterministik + seed 7/99/123 stokastik tuketim
         (src/stokastik_replikasyon.py -> uret_stokastik_tuketim)
-Senaryo: 4 araç, Statik (80 dk tur, tavanli) vs Dinamik (EDD, tavanli)
+Senaryo: 4 arac, Statik (80dk tur, 1 kutu/ist, tavanli) vs Dinamik (EDD, tavanli)
+[Kaynak: src/seed_testi_kanonik2.py]
 
-Seed  | Tuketim      | Statik % | WIP_S  | Dinamik % | WIP_D  | Fark   | Yon
-------+--------------+----------+--------+-----------+--------+--------+----------------
- 42   | Deterministik| %17.60   | 191.5  | %24.58    | 182.3  | +6.98  | STATIK LEHINE
-  7   | Stokastik    | %25.42   | 176.1  | %29.53    | 171.1  | +4.11  | STATIK LEHINE
- 99   | Stokastik    | %25.38   | 175.9  | %29.88    | 170.6  | +4.50  | STATIK LEHINE
-123   | Stokastik    | %25.45   | 175.5  | %29.90    | 170.4  | +4.45  | STATIK LEHINE
+Seed   | Tuketim      | Statik % | WIP_S | Dinamik % | WIP_D | Fark  | Yon
+-------+--------------+----------+-------+-----------+-------+-------+----------------
+42-det | Deterministik| %19.31   | 177.0 | %24.58    | 182.3 | +5.27 | STATIK LEHINE
+     7 | Stokastik    | %26.61   | 162.3 | %29.53    | 171.1 | +2.92 | STATIK LEHINE
+    99 | Stokastik    | %26.76   | 161.6 | %29.88    | 170.6 | +3.12 | STATIK LEHINE
+   123 | Stokastik    | %26.77   | 161.7 | %29.90    | 170.4 | +3.13 | STATIK LEHINE
 
 NIHAI SONUC: 4/4 seed icinde STATIK LEHINE
 
