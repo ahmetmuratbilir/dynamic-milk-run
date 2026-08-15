@@ -336,8 +336,12 @@ KRİTİK TASARIM BULGUSU — α MOD A vs MOD B (K55):
 BULGU 1 — WIP-Starvation Temel Trade-off (K53):
   Düşük WIP (az stok) ile düşük starvation (az duruş) aynı anda elde edilemiyor.
   Bu temel bir mühendislik gerilimi/trade-off'udur.
-  Eşit WIP seviyesinde bile statik sistem 5-7 puan avantajlıdır.
+  Eşit WIP seviyesinde statik sistem ~3-5 puan avantajlıdır (seed'e bağlı olarak):
+    Deterministik tüketim (seed=42): +5.27 puan statik lehine
+    Stokastik tüketim (3 farklı seed ortalaması): +3.06 puan statik lehine
   Mekanizma: deterministik çevrim vs reaktif gecikme.
+  NOT: "5-7 puan avantaj" ifadesi yalnızca deterministik seed bazı alınırsa
+  doğruydu; stokastik koşulda gerçekçi aralık ~3-5 puan'dır (K58 bağlamı).
 
 BULGU 2 — Filo Boyutunun Baskınlığı (K56):
   Dispatch kuralı değil, filo büyüklüğü sistemi en çok etkileyen değişkendir.
@@ -510,22 +514,29 @@ ANALIZ:
 1. YON DEGISMEDI: 4 farkli tuketim profili altinda da statik sistem daha dusuk
    starvation uretiyor. Ana trade-off bulgumuz seed'e bagimli bir yapay sonuc degil.
 
-2. FAR BUYUKLuGu: Deterministik (seed=42) 6.98 puan fark, stokastik seedler 4.11-4.50
-   puan fark. Stokastik koşulda fark biraz kuculuyor ama yön kesinlikle korunuyor.
+2. FAR BUYUKLUGU (GUNCELLENMIS, DOGRU DEGERLER):
+   Deterministik (seed=42): +5.27 puan statik lehine
+   Stokastik seed 7:  +2.92 puan statik lehine
+   Stokastik seed 99: +3.12 puan statik lehine
+   Stokastik seed 123: +3.13 puan statik lehine
+   GERCEKCI ARALIK: ~3-5 puan (seed bazli)
+   NOT: Onceki raporlarda yazan '5-7 puan' araligi yalnizca deterministik
+   seed=42 bazliydi; stokastik testler bu degerin ust siniri oldugunu gosteriyor.
 
-3. NEDEN STOKASTIKTE FARK KÜÇÜLÜYOR: Stokastik tüketim (CV=%20) daha dalgalı talep
-   üretiyor. Dalgali taleple dinamik sistem, anlık acil sinyallere daha hizli tepki
-   veriyor — bu farkı biraz kapatıyor ama kapatmıyor.
+3. NEDEN STOKASTIKTE FARK KUCULUYOR: Stokastik tuketim (CV=%20) daha dalgali
+   talep uretiyor. Dalgali taleple dinamik sistem, anlik acil sinyallere daha
+   hizli tepki veriyor -- bu farki biraz kapatiyor ama kapatamiyor.
 
 4. SINIRLAMA: Bu test 4 seed ile yapildi (K46 uyarinca tam replikasyon kapsam disi).
-   Fiziksel mekanizma (reaktif gecikme) deterministik oldugu icin yön değişmesi
+   Fiziksel mekanizma (reaktif gecikme) deterministik oldugu icin yon degismesi
    teorik olarak beklenmiyor; 4 seed bu tezi desteklemektedir.
 
 TEZ IFADESI ONERISI:
-"Ana bulgumuzu (statik sistem, esit WIP koşulunda edd-tabanli dinamik sistemden
-4-7 puan daha dusuk starvation uretmektedir) ucbirbirinden bagimsiz stokastik
-tuketim profili altinda test ettik; 4/4 denemede istatistiksel yon korunmuştur.
-Bu sonuc, bulgunun belirli bir tuketim desenine ozgu olmadıgini gostermektedir."
+"Deterministik seed'de (42) gozlenen 5.27 puanlik statik-lehine fark, stokastik
+seed'lerde 2.92-3.13 puana daralmaktadir -- bu, deterministik tuketim varsayiminin
+fark buyuklugunu hafifce abarttigini, ancak yonunu (statik lehine) etkilemedigini
+gostermektedir. Tez sonuc bolumunde 'statik sistem 5-7 puan avantajli' yerine
+'statik sistem ~3-5 puan avantajli (seed'e bagli olarak)' araligi kullanilmalidir."
 
 ---
 
