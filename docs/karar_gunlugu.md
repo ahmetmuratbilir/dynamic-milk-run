@@ -552,16 +552,17 @@
 
 ---
 
-### K58 — StaticMilkRunSimulator Tur Sıklığı: Kod-Rapor Uyuşmazlığı
+### K58 — StaticMilkRunSimulator Tur Sıklığı: Kod-Rapor Uyuşmazlığı ✅ KAPANDI
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | `StaticMilkRunSimulator` 60 dk Hard-Coded Kalkış Takvimi ile Hafta 9 Kanonik 80 dk Raporunun Uyuşmazlığı |
 | **Tespit** | `src/hafta8_kanban_karsilastirma.py` L97: `kalkis_dakikalari = [60, 120, 180, 240, 300, 360, 420]` (60 dk sabit). Ancak Hafta 9'da WIP eşitleme analizi için 80 dk tur kullanıldı ve `%19.31 / WIP=177.0` olarak raporlandı. Mevcut kod çalıştırıldığında `%3.04 / WIP=231.4` veriyor — kanonik değerle uyuşmuyor. |
 | **Reproduksiyon** | 80 dk kalkış takvimi ([80, 160, 240, 320, 400]) + 1 kutu/ist ile kanonik `%19.31 / WIP=177.0` birebir doğrulandı (`src/seed_testi_kanonik2.py`, `src/test_80dk.py`). |
-| **Seed Testi Etkisi** | Bu tutarsızlık, seed sağlamlık testinde ilk seferde yanlış statik model kullanılmasına yol açtı (`%17.60 / WIP=191.5`). Düzeltilmiş test doğru parametrelerle yeniden koşuldu; sonuç **4/4 STATIK LEHINE** korundu. |
-| **Karar** | **Hafta 11'in ilk görevi olarak düzeltilecek** — dashboard'a geçmeden önce. `StaticMilkRunSimulator.run_static_simulation()` metoduna `tur_sikligi_dk: int = 60` parametresi eklenecek. 80 dk tur için `run_static_simulation(arac_sayisi=4, tur_sikligi_dk=80)` çağrısı yapılacak. Bu düzeltme olmadan kod ile rapor arasındaki uyuşmazlık gelecek çalışmalarda sessiz hataya yol açabilir. |
-| **Kaynak** | Hafta 11 Seed Testi Araştırması (`src/seed_testi_kanonik2.py`, `src/test_80dk.py`) |
+| **Düzeltme** | `run_static_simulation(arac_sayisi, tur_sikligi_dk=60)` parametresi eklendi. Kalkış takvimi artık `range(tur_sikligi_dk, 480, tur_sikligi_dk)` ile dinamik üretilir. Geri dönük uyumluluk korundu (varsayılan=60 dk). |
+| **Regresyon** | `run_static_simulation(arac_sayisi=4, tur_sikligi_dk=80)` → `%19.31 / WIP=177.0` ✅ Tam eşleşme. Varsayılan `(arac_sayisi=2)` → `%5.45 / WIP=226.7` ✅ Geri uyumluluk sağlam. |
+| **Kaynak** | `src/hafta8_kanban_karsilastirma.py` (K58 düzeltmesi), `src/k58_regresyon_testi.py` |
 | **Tarih** | 15.08.2026 |
+
 
 ---
 

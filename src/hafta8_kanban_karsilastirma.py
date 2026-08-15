@@ -78,9 +78,19 @@ class StaticMilkRunSimulator:
             return 0.0
         return self.dist_matrix.get((from_node, to_node), 100.0)
 
-    def run_static_simulation(self, arac_sayisi: int = 2) -> dict:
+    def run_static_simulation(self, arac_sayisi: int = 2, tur_sikligi_dk: int = 60) -> dict:
         """
-        Her 60 dakikada bir (t=60, 120, 180, 240, 300, 360, 420) sabit periyodik tur çalıştırır.
+        Sabit periyodik tur simülasyonu (K58).
+
+        Parameters
+        ----------
+        arac_sayisi : int
+            Kullanılacak araç sayısı (varsayılan 2).
+        tur_sikligi_dk : int
+            Kalkış aralığı (dakika). Varsayılan 60 dk (Hafta 8 orijinal kararı, K50).
+            80 dk kullanılınca Hafta 9 kanoni k değerini (%19.31/WIP=177) verir.
+            Kalkış zamanları [tur_sikligi_dk, 2*tur_sikligi_dk, ...] şeklinde
+            480 dk sınırında dinamik olarak üretilir.
         """
         tuketim_pivot = self.consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
 
@@ -93,8 +103,8 @@ class StaticMilkRunSimulator:
             ist_c[sid] = float(row["kutu_kapasitesi"])
             ist_n[sid] = int(row["kanban_n"])
 
-        # Sabit tur kalkış dakikaları: Her 60 dk [Mühendislik Kararı]
-        kalkis_dakikalari = [60, 120, 180, 240, 300, 360, 420]
+        # Dinamik kalkış takvimi: [tur_sikligi_dk, 2*tur_sikligi_dk, ...] (480 dk öncesi) [K58]
+        kalkis_dakikalari = list(range(tur_sikligi_dk, 480, tur_sikligi_dk))
 
         # İstasyonların sabit sıra rotası: S1..S24
         sabit_istasyon_sirasi = [f"S{i}" for i in range(1, 25)]
@@ -190,8 +200,10 @@ class StaticMilkRunSimulator:
         doluluk_pct = (ort_kutu_tur / self.Q_arac) * 100.0
 
         return {
-            "senaryo": "Senaryo A (Statik 60 dk Sabit Sefer)",
+            "senaryo": f"Senaryo A (Statik {tur_sikligi_dk} dk Sabit Sefer)",
             "arac_sayisi": arac_sayisi,
+            "tur_sikligi_dk": tur_sikligi_dk,
+            "kalkis_dakikalari": kalkis_dakikalari,
             "starv_dk": toplam_starv_dk,
             "starv_pct_11520": pct_11520,
             "starv_pct_10440": pct_10440,
