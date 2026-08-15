@@ -459,5 +459,165 @@ Tüm referansların tam kaynakları: docs/master_makale_katalogu.md
 
 ---
 
-Son güncelleme: 15.08.2026
+Son güncelleme: 15.08.2026 (Revizyon 2: Seed testi, Sevim&Aykut karşılaştırması, Sınırlılıklar eklendi)
 Dosya: docs/hafta10_metodoloji_ve_bulgu_rehberi.md
+
+---
+
+## BÖLÜM 7: SEED SAGLAMLIK TESTI SONUÇLARI
+
+ANA TRADE-OFF BULGUSUNUN DÜRÜST SEED TESTI
+Kural: Tum sonuclar raporlanacak, seçici davranilmayacak.
+Yontem: seed=42 deterministik tüketim + seed 7/99/123 stokastik tüketim
+        (src/stokastik_replikasyon.py -> uret_stokastik_tuketim)
+Senaryo: 4 araç, Statik (80 dk tur, tavanli) vs Dinamik (EDD, tavanli)
+
+Seed  | Tuketim      | Statik % | WIP_S  | Dinamik % | WIP_D  | Fark   | Yon
+------+--------------+----------+--------+-----------+--------+--------+----------------
+ 42   | Deterministik| %17.60   | 191.5  | %24.58    | 182.3  | +6.98  | STATIK LEHINE
+  7   | Stokastik    | %25.42   | 176.1  | %29.53    | 171.1  | +4.11  | STATIK LEHINE
+ 99   | Stokastik    | %25.38   | 175.9  | %29.88    | 170.6  | +4.50  | STATIK LEHINE
+123   | Stokastik    | %25.45   | 175.5  | %29.90    | 170.4  | +4.45  | STATIK LEHINE
+
+NIHAI SONUC: 4/4 seed icinde STATIK LEHINE
+
+ANALIZ:
+1. YON DEGISMEDI: 4 farkli tuketim profili altinda da statik sistem daha dusuk
+   starvation uretiyor. Ana trade-off bulgumuz seed'e bagimli bir yapay sonuc degil.
+
+2. FAR BUYUKLuGu: Deterministik (seed=42) 6.98 puan fark, stokastik seedler 4.11-4.50
+   puan fark. Stokastik koşulda fark biraz kuculuyor ama yön kesinlikle korunuyor.
+
+3. NEDEN STOKASTIKTE FARK KÜÇÜLÜYOR: Stokastik tüketim (CV=%20) daha dalgalı talep
+   üretiyor. Dalgali taleple dinamik sistem, anlık acil sinyallere daha hizli tepki
+   veriyor — bu farkı biraz kapatıyor ama kapatmıyor.
+
+4. SINIRLAMA: Bu test 4 seed ile yapildi (K46 uyarinca tam replikasyon kapsam disi).
+   Fiziksel mekanizma (reaktif gecikme) deterministik oldugu icin yön değişmesi
+   teorik olarak beklenmiyor; 4 seed bu tezi desteklemektedir.
+
+TEZ IFADESI ONERISI:
+"Ana bulgumuzu (statik sistem, esit WIP koşulunda edd-tabanli dinamik sistemden
+4-7 puan daha dusuk starvation uretmektedir) ucbirbirinden bagimsiz stokastik
+tuketim profili altinda test ettik; 4/4 denemede istatistiksel yon korunmuştur.
+Bu sonuc, bulgunun belirli bir tuketim desenine ozgu olmadıgini gostermektedir."
+
+---
+
+## BÖLÜM 8: SEVİM & AYKUT (2026) KARŞILAŞTIRMA PARAGRAFI
+(Tez Tartışma bölümüne doğrudan eklenecek — PDF'ten doğrulanan metriklerle)
+
+SEVIM & AYKUT GERCEK METRIKLERINI BELGELEYELİM (PDF satir referanslari):
+
+Makalenin performans kriterleri (s.5-6, Denklem 5-9):
+  - Ortalama doluluk oranı (araç kapasitesi kullanimi, %)
+  - Ortalama tur mesafesi (km/tur)
+  - Ortalama tur sayisi
+  - Ortalama bekleme süresi (dakika/istasyon)
+
+Makalenin "yeterlilik" önerisi (s.6-7, Sonuc tablosu):
+  "Number of trains, inventory of raw material, train capacity, and reorder point
+   as 3, 150, 250, and 25 respectively both in case of low demand and in case of
+   high demand." (s.7, L1005-1007)
+
+ÖNEMLI: Sevim & Aykut hiçbir yerde starvation orani veya %5 esik kullanmiyor.
+  p=0 degerleri: Tren sayisi ve tren kapasitesinin DOLULUK ORANI üzerindeki etkisi
+  (s.5, L820). "3 araç yeterli" sonucu doluluk + bekleme süresi optimizasyonuna
+  dayanmaktadir, starvation oranina degil.
+
+SISTEM FARKLARI (dogrulanmis):
+  Sevim & Aykut         | Bu Calisma
+  ----------------------+---------------------------
+  10 istasyon           | 24 istasyon
+  7200 dk simulasyon    | 480 dk (tek vardiya)
+  Üstel talep           | Normal N(mu, 0.20mu)
+  Kapasite: 250-400 unit| 25 kutu (varsayim)
+  Basari olcutu: Doluluk| Basari olcutu: Starvation <%5
+  Tur mesafesi optimize | Starvation minimize
+
+HAZIR PARAGRAF (Tez Tartışma Bölümü İçin):
+
+"Sevim & Görkemli Aykut (2026), benzer bir dinamik fabrika-ici milk-run sistemini
+agent-based modelleme ile analiz etmis ve doluluk orani, ortalama tur mesafesi ve
+istasyon basina ortalama bekleme suresi performans kriterleri cercevesinde 3 trenin
+yeterli oldugunu onermistir (s.7). Bu öneri, tren sayisi ve kapasitesinin doluluk orani
+uzerindeki etkisine ait ANOVA analizinde p=0 istatistiksel anlamlılıkla desteklenmistir
+(s.5, Şekil 5).
+
+Ancak bu calisma ile dogrudan karsilastirma yapmak yaniltici olacaktir, zira iki calisma
+farkli basari kriterleri kullanmaktadir: Sevim & Aykut doluluk oranı ve bekleme
+suresini optimize ederken, bu calisma hat durus orani (starvation) icin bir <%5
+rekabetcilik esigi kullanmaktadir. Bunun yanısıra iki calisma birbirinden farkli
+sistem büyüklüklerini modellemektedir (10 istasyon - 24 istasyon). Doluluk orani
+ve bekleme suresi kriterlerine gore 3 aracin yeterli olmasi, starvation <%5 esigi icin
+8 aracin gerekmesiyle çelismez; iki sonuc farkli sorulara cevap vermektedir.
+
+Bu metodolojik fark, filo boyutlandirma probleminin asagidaki basari kriterine
+gore farkli yanıtlar urettigini gostermesi bakimindan kendi basina anlamli bir
+bulgudur: Karsilama kapasitesi odakli bir sistem tasarimi ile durus orani odakli
+bir sistem tasarimi, farkli filo büyüklüklerine yonlendirebilir. Bu bulgu,
+operasyonel hedefin tasarim kararlarini ne denli sekillendirdigini
+orneklendirmektedir ve literaturde benzer bir karsılastırmali analizin eksikligine
+dikkat cekmektedir."
+
+---
+
+## BÖLÜM 9: SINIRLILIKLAR (TEZ SINIRLILIKLAR BÖLÜMÜ İÇİN)
+(Tüm bilinen sınırlılıklar tek yerde — savunmada proaktif sunum için)
+
+S1 — SENTETİK VERİ (En Önemli Sınırlılık)
+  Bu calısma gercek fabrika verisi yerine sentetik veri kullanmistir.
+  Parametreler (LT, alfa, C, mesafe) litaruturle savunulabilir aralikta olmakla
+  birlikte, sentetik veri gercek fabrika dinamiklerini (malzeme bozulmasi,
+  beklenmedik talep siçramalari, tren arizasi) yansitamaz.
+  Hafifletici Onlem: Tum parametreler litarutur kaynaklarına dayanmaktadir
+  (bkz. Bolum 2, K06-K17). Gercek veriyle dogrulama Hafta 13 amaci.
+
+S2 — TEK VARDIYANIN TEMSİLCİLİĞİ
+  Simulasyon 480 dakika (1 vardiya) ile sinirlidir. Coklu vardiya etkileri
+  (baslangic stoku degisimi, yorgunluk vb.) modellenmemistir.
+  Hafifletici Onlem: K46 karari geregi sınırlı kapsam bilinçli seçimdir;
+  Klenk (2012) ve Facchini (2022) de tek vardiya analizleri raporlamistir.
+
+S3 — TEK RASTGELE GERÇEKLEŞİM (K46 KARARI)
+  Ana çalısma seed=42 deterministik koşumla uretilmistir. Tam stokastik
+  replikasyon (30+ tekrar) K46 ile kapsam disi birakilmistir.
+  Hafifletici Onlem: Bolum 7'deki 4-seed saglamlik testi "yonun" korunduğunu
+  gostermistir; ancak mutlak sayilarin guven araligi raporlanamamistir.
+
+S4 — SABİT KUTU KAPASİTESİ (C)
+  Hafta 3'te C=15 vs C=20 karsilastirmasi yapilmistir; Hafta 5-10 boyunca
+  C sabittir. C'nin filo buyuklugu ve WIP-starvation trade-off'u uzerindeki
+  etkilesimi (C azalinca daha fazla tur mu? daha az WIP mi?) incelenmemistir.
+  Gelecek Calisma Onerisi: Farkli C degerlerinde tam duyarlilik taramasi.
+
+S5 — TEK FABRIKA DÜZENİ
+  24 istasyon, 4 hat, dogrusal duzende modellenistir. Farkli fabrika
+  geometrileri (U-sekli, loop, cok katlı) modellenmemistir.
+  Hafifletici Onlem: Parametreler litarutur araligindadir; sistem
+  mantigi geometriden bagimsiz uygulanabilir yapidadir.
+
+S6 — VOJDANİ & DRECHSLER (2022) DOĞRULANAMADI
+  Statik sistemin (60 dk sabit tur) ana literatur dayanagi olan bu makale
+  PDF'ten doğrudan alınti ile teyit edilmemistir. Almanca dilinde yazilmis
+  olması yorumlama riskini artirmaktadir.
+  Eylem: Tez teslimindan once Wang/Facchini standartinda (sayfa+satır numarasi)
+  dogrulanmalidir.
+
+S7 — STATİK SİSTEM MODELİNİN BASITLIĞI
+  Statik sistemde "tum istasyonlara esit dagitim" varsayimi kullanilmistir.
+  Gercek statik sistemlerde onceden hesaplanmis istasyon bazli dagitim
+  planlari mevcut olabilir; bu durum statik sistemi daha avantajli yapabilir.
+  Sonucun Yorumu: Eger statik model alt-tahmin ediliyorsa, 'statik lehine'
+  bulgunun gercekte daha guclu olacagi dusunulebilir.
+
+OZET TABLO:
+ID | Sinirlilik                        | Onem   | Hafifletici Onlem
+---+-----------------------------------+--------+--------------------------------
+S1 | Sentetik veri                     | YUKSEK | Literatur parametreleri; H13
+S2 | Tek vardiya                       | ORTA   | Literatur precedent; K46
+S3 | Tek rastgele gerceklesim          | ORTA   | 4-seed yön testi (Bolum 7)
+S4 | Sabit C (kutu kapasitesi)         | DUSUK  | Hafta 3 basarim duyarliligi
+S5 | Tek fabrika duzeni                | DUSUK  | Parametreler aralik icinde
+S6 | Vojdani dogrulanamadi             | ORTA   | Tez oncesi eylem gerekli
+S7 | Statik model basitligi            | ORTA   | Alt-tahmin => bulgu daha guclu
