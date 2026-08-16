@@ -1,4 +1,4 @@
-﻿"""
+"""
 generate_dashboard_data.py
 ===========================
 Dashboard için tüm Ne-Olursa-Ne-Olur (What-If) senaryo kombinasyonlarını 
@@ -17,15 +17,28 @@ from multiprocessing import Pool, cpu_count
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.data_loader import DataLoader
+from src.ekanban_signal import EKanbanSimulator
 from src.vrptw_solver import VRPTWSolver
 from src.hafta8_kanban_karsilastirma import hesapla_dinamik_wip_ve_starvation
+
+class MockLoader:
+    def __init__(self, c_df, s_df):
+        self.c_df = c_df
+        self.s_df = s_df
+        self.base_loader = DataLoader()
+        self.base_dir = self.base_loader.base_dir
+    def get_consumption(self): return self.c_df.copy()
+    def get_stations(self): return self.s_df.copy()
+    def get_inventory(self): return self.base_loader.get_inventory()
+    def get_distances(self): return self.base_loader.get_distances()
+    def get_vehicles(self): return self.base_loader.get_vehicles()
 
 def tek_senaryo_hesapla(args):
     arac_sayisi, alpha, talep_faktor, dispatch_kural, n_modu = args
     
-    loader = DataLoader()
-    stations_df = loader.get_stations().copy()
-    consumption_df = loader.get_consumption().copy()
+    loader_base = DataLoader()
+    stations_df = loader_base.get_stations().copy()
+    consumption_df = loader_base.get_consumption().copy()
     
     # 1. Talep Ölçekleme (Talep Şoku)
     if talep_faktor != 1.0:
@@ -35,29 +48,32 @@ def tek_senaryo_hesapla(args):
 
     # 2. Alpha & N Modu Güncellemesi (K55)
     LT_dk = 45.0
-    for idx, row in stations_df.iterrows():
-        D_dk = row['ort_tuketim_dk']
-        C = row['kutu_kapasitesi']
-        
-        rop_adet = D_dk * LT_dk * (1.0 + alpha)
-        stations_df.at[idx, 'reorder_point_kutu'] = max(1, math.ceil(rop_adet / C))
-        
-        if n_modu == 'Dinamik_N':
+    if n_modu == 'Dinamik_N':
+        for idx, row in stations_df.iterrows():
+            D_dk = row['ort_tuketim_saat'] / 60.0
+            C = row['kutu_kapasitesi']
+            rop_adet = D_dk * LT_dk * (1.0 + alpha)
             n_kart = max(1, math.ceil(rop_adet / C))
             stations_df.at[idx, 'kanban_n'] = n_kart
             stations_df.at[idx, 'baslangic_stok_adet'] = n_kart * C
 
-    loader.stations_df = stations_df
-    solver = VRPTWSolver(loader)
+    # 3. E-Kanban Sinyal Üretimi (Doğru Alpha ve Talep ile)
+    m_loader = MockLoader(consumption_df, stations_df)
+    sim = EKanbanSimulator(m_loader, alpha=alpha)
+    signals_df = sim.run()
     
-    _, signals_df, _ = solver.solve(
+    # 4. VRPTW Çözümü
+    solver = VRPTWSolver(m_loader)
+    solver.signals_df = signals_df
+    
+    _, out_signals, _ = solver.solve(
         arac_sayisi=arac_sayisi,
         dispatch_kural=dispatch_kural,
         consumption_df=consumption_df
     )
     
     wip_d, starv_tot, starv_warm = hesapla_dinamik_wip_ve_starvation(
-        signals_df, stations_df, consumption_df
+        out_signals, stations_df, consumption_df
     )
     
     starv_pct = round((starv_tot / 11520.0) * 100.0, 2)
@@ -73,6 +89,7 @@ def tek_senaryo_hesapla(args):
         "starv_dk": starv_tot,
         "ort_wip": wip_d
     }
+
 
 def main():
     print("=" * 80)

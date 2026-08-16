@@ -10,6 +10,34 @@ let chartFleet = null;
 let chartPareto = null;
 let chartAlpha = null;
 
+// Gerçek Fabrika İstasyon Verileri (stations.csv)
+const STATIONS_DATA = [
+    { id: 'S1', hat: 'Hat-1', d_saat: 22, c: 20, n: 1 },
+    { id: 'S2', hat: 'Hat-1', d_saat: 18, c: 20, n: 1 },
+    { id: 'S3', hat: 'Hat-1', d_saat: 15, c: 15, n: 1 },
+    { id: 'S4', hat: 'Hat-1', d_saat: 20, c: 20, n: 1 },
+    { id: 'S5', hat: 'Hat-1', d_saat: 12, c: 15, n: 1 },
+    { id: 'S6', hat: 'Hat-1', d_saat: 17, c: 20, n: 1 },
+    { id: 'S7', hat: 'Hat-2', d_saat: 21, c: 20, n: 1 },
+    { id: 'S8', hat: 'Hat-2', d_saat: 13, c: 15, n: 1 },
+    { id: 'S9', hat: 'Hat-2', d_saat: 19, c: 20, n: 1 },
+    { id: 'S10', hat: 'Hat-2', d_saat: 11, c: 15, n: 1 },
+    { id: 'S11', hat: 'Hat-2', d_saat: 16, c: 20, n: 1 },
+    { id: 'S12', hat: 'Hat-2', d_saat: 14, c: 15, n: 1 },
+    { id: 'S13', hat: 'Hat-3', d_saat: 23, c: 20, n: 1 },
+    { id: 'S14', hat: 'Hat-3', d_saat: 18, c: 20, n: 1 },
+    { id: 'S15', hat: 'Hat-3', d_saat: 15, c: 15, n: 1 },
+    { id: 'S16', hat: 'Hat-3', d_saat: 24, c: 20, n: 2, fragile: true },
+    { id: 'S17', hat: 'Hat-3', d_saat: 17, c: 20, n: 1 },
+    { id: 'S18', hat: 'Hat-3', d_saat: 14, c: 15, n: 1 },
+    { id: 'S19', hat: 'Hat-4', d_saat: 20, c: 20, n: 1 },
+    { id: 'S20', hat: 'Hat-4', d_saat: 16, c: 20, n: 1 },
+    { id: 'S21', hat: 'Hat-4', d_saat: 13, c: 15, n: 1 },
+    { id: 'S22', hat: 'Hat-4', d_saat: 18, c: 20, n: 1 },
+    { id: 'S23', hat: 'Hat-4', d_saat: 12, c: 15, n: 1 },
+    { id: 'S24', hat: 'Hat-4', d_saat: 21, c: 20, n: 1 }
+];
+
 // DOM Elementleri
 const sliderArac = document.getElementById('sliderArac');
 const valArac = document.getElementById('valArac');
@@ -26,6 +54,7 @@ const kpiStarvDk = document.getElementById('kpiStarvDk');
 const kpiTargetBadge = document.getElementById('kpiTargetBadge');
 
 const kpiWipVal = document.getElementById('kpiWipVal');
+const kpiFarkVal = document.getElementById('kpiFarkVal');
 const kpiDolulukVal = document.getElementById('kpiDolulukVal');
 const kpiMesafeVal = document.getElementById('kpiMesafeVal');
 const nearestNotice = document.getElementById('nearestNotice');
@@ -136,13 +165,23 @@ function updateDashboard() {
         // KPI 2: WIP
         kpiWipVal.textContent = currentScenario.ort_wip.toFixed(1);
 
-        // KPI 3: Filo Doluluğu
+        // KPI 3: Statik vs Dinamik Farkı (Dinamik Hesaplama)
+        // 4 Araç Statik Baz: %19.31 | Genel Araç Bazında Statik Haritası
+        const staticBaselineMap = { 1: 69.50, 2: 53.01, 3: 36.93, 4: 19.31, 5: 12.08, 6: 7.50, 7: 4.80, 8: 2.10 };
+        const staticBase = staticBaselineMap[params.arac_sayisi] || 19.31;
+        const diffPuan = (starvPct - staticBase).toFixed(2);
+        const diffSign = diffPuan >= 0 ? '+' : '';
+        if (kpiFarkVal) {
+            kpiFarkVal.textContent = diffSign + diffPuan + ' puan';
+        }
+
+        // KPI 4: Filo Doluluğu
         if (kpiDolulukVal) {
             const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
             kpiDolulukVal.textContent = '%' + dolulukEst;
         }
 
-        // KPI 4: Kat Edilen Mesafe
+        // KPI 5: Kat Edilen Mesafe
         if (kpiMesafeVal) {
             const mesafeEst = (48.49 * (params.arac_sayisi / 4.0)).toFixed(2);
             kpiMesafeVal.textContent = mesafeEst + ' km';
@@ -319,15 +358,15 @@ function updateCharts(params) {
     chartAlpha.update();
 }
 
-// BÖLÜM 5 — İSTASYON BAZLI STOK TAKİBİ GÖRSELLEŞTİRME
+// BÖLÜM 5 — İSTASYON BAZLI STOK TAKİBİ GÖRSELLEŞTİRME (Gerçek Veri Destekli)
 function renderStations() {
     const grid = document.getElementById('stationsGrid');
     if (!grid) return;
     grid.innerHTML = '';
 
-    for (let i = 1; i <= 24; i++) {
-        const sid = 'S' + i;
-        const isFragile = (i === 16);
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
+        const isFragile = !!st.fragile;
         
         const box = document.createElement('div');
         box.className = 'station-box' + (isFragile ? ' fragile' : '');
@@ -335,33 +374,43 @@ function renderStations() {
         
         box.innerHTML = 
             '<div class="station-header">' +
-                '<span>' + sid + '</span>' +
+                '<span>' + sid + ' (' + st.hat + ')</span>' +
                 (isFragile ? '<span class="fragile-badge">S16 Kırılgan</span>' : '') +
             '</div>' +
             '<div class="progress-bar-bg">' +
                 '<div class="progress-bar-fill status-green" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
             '</div>' +
             '<div class="station-metrics">' +
-                '<span id="st-val-' + sid + '">Stok: 14</span>' +
-                '<span id="st-rop-' + sid + '">ROP: 10</span>' +
+                '<span id="st-val-' + sid + '">Stok: ' + (st.n * st.c) + '</span>' +
+                '<span id="st-rop-' + sid + '">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
             '</div>';
         grid.appendChild(box);
-    }
+    });
 }
 
 function updateStations(params) {
-    for (let i = 1; i <= 24; i++) {
-        const sid = 'S' + i;
+    const LT_dk = 45.0;
+    const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
+
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
         const bar = document.getElementById('st-bar-' + sid);
         const valTxt = document.getElementById('st-val-' + sid);
         const ropTxt = document.getElementById('st-rop-' + sid);
 
-        const baseRop = Math.round(10 * (1 + params.alpha));
-        const cap = Math.round(baseRop * 1.8);
+        const d_dk = (st.d_saat / 60.0) * talepCarpan;
+        const ropAdet = Math.ceil(d_dk * LT_dk * (1.0 + params.alpha));
         
-        let currentStok = (i === 16) ? Math.round(baseRop * 0.7) : Math.round(baseRop * (1.1 + (i % 3) * 0.2));
-        if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - 5);
-        if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - 3);
+        let nKart = st.n;
+        if (params.n_modu === 'Dinamik_N') {
+            nKart = Math.max(1, Math.ceil(ropAdet / st.c));
+        }
+        const cap = nKart * st.c;
+
+        // Anlık simüle edilen stok seviyesi
+        let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
+        if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.4));
+        if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.2));
 
         const pct = Math.min(100, Math.max(0, (currentStok / cap) * 100));
 
@@ -369,15 +418,15 @@ function updateStations(params) {
             bar.style.width = pct + '%';
             if (currentStok <= 0) {
                 bar.className = 'progress-bar-fill status-red';
-            } else if (currentStok <= baseRop) {
+            } else if (currentStok <= ropAdet) {
                 bar.className = 'progress-bar-fill status-yellow';
             } else {
                 bar.className = 'progress-bar-fill status-green';
             }
         }
 
-        if (valTxt) valTxt.textContent = 'Stok: ' + currentStok;
-        if (ropTxt) ropTxt.textContent = 'ROP: ' + baseRop;
-    }
+        if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
+        if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
+    });
 }
 
