@@ -66,7 +66,7 @@ def tek_senaryo_hesapla(args):
     solver = VRPTWSolver(m_loader)
     solver.signals_df = signals_df
     
-    _, out_signals, _ = solver.solve(
+    rotalar_df, out_signals, _ = solver.solve(
         arac_sayisi=arac_sayisi,
         dispatch_kural=dispatch_kural,
         consumption_df=consumption_df
@@ -78,6 +78,16 @@ def tek_senaryo_hesapla(args):
     
     starv_pct = round((starv_tot / 11520.0) * 100.0, 2)
     
+    # 5. Sefer Sayısı ve Kat Edilen Gerçek Mesafe (km)
+    sefer_sayisi = rotalar_df["rota_id"].nunique() if len(rotalar_df) > 0 else 0
+    toplam_mesafe_m = 0.0
+    if len(rotalar_df) > 0:
+        for rid, rgroup in rotalar_df.groupby("rota_id"):
+            nodes = ["0"] + [str(r["istasyon_id"]).replace("S", "") for _, r in rgroup.iterrows()] + ["0"]
+            for i in range(len(nodes) - 1):
+                toplam_mesafe_m += solver.dist_matrix.get((nodes[i], nodes[i+1]), 100.0)
+    toplam_mesafe_km = round(toplam_mesafe_m / 1000.0, 2)
+    
     return {
         "arac_sayisi": arac_sayisi,
         "alpha": alpha,
@@ -87,8 +97,11 @@ def tek_senaryo_hesapla(args):
         "n_modu": n_modu,
         "starv_pct": starv_pct,
         "starv_dk": starv_tot,
-        "ort_wip": wip_d
+        "ort_wip": wip_d,
+        "sefer_sayisi": sefer_sayisi,
+        "mesafe_km": toplam_mesafe_km
     }
+
 
 
 def main():

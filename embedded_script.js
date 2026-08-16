@@ -15,7 +15,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.6,
     "starv_dk": 7327,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -26,7 +28,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.26,
     "starv_dk": 5099,
-    "ort_wip": 124.6
+    "ort_wip": 124.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.54
   },
   {
     "arac_sayisi": 3,
@@ -37,7 +41,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 167.7
+    "ort_wip": 167.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.23
   },
   {
     "arac_sayisi": 4,
@@ -48,7 +54,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.54,
     "starv_dk": 1445,
-    "ort_wip": 206.3
+    "ort_wip": 206.3,
+    "sefer_sayisi": 31,
+    "mesafe_km": 46.65
   },
   {
     "arac_sayisi": 5,
@@ -59,7 +67,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.36,
     "starv_dk": 1078,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 63,
+    "mesafe_km": 49.62
   },
   {
     "arac_sayisi": 6,
@@ -70,7 +80,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.58,
     "starv_dk": 528,
-    "ort_wip": 226.8
+    "ort_wip": 226.8,
+    "sefer_sayisi": 93,
+    "mesafe_km": 49.49
   },
   {
     "arac_sayisi": 7,
@@ -81,7 +93,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.57,
     "starv_dk": 411,
-    "ort_wip": 228.6
+    "ort_wip": 228.6,
+    "sefer_sayisi": 107,
+    "mesafe_km": 48.1
   },
   {
     "arac_sayisi": 8,
@@ -92,7 +106,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.42,
     "starv_dk": 279,
-    "ort_wip": 229.3
+    "ort_wip": 229.3,
+    "sefer_sayisi": 114,
+    "mesafe_km": 47.94
   },
   {
     "arac_sayisi": 1,
@@ -103,7 +119,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7325,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -114,7 +132,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.24,
     "starv_dk": 5097,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.38
   },
   {
     "arac_sayisi": 3,
@@ -125,7 +145,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.92,
     "starv_dk": 3101,
-    "ort_wip": 168.0
+    "ort_wip": 168.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.52
   },
   {
     "arac_sayisi": 4,
@@ -136,7 +158,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.26,
     "starv_dk": 1297,
-    "ort_wip": 209.0
+    "ort_wip": 209.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 5,
@@ -147,7 +171,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.27,
     "starv_dk": 953,
-    "ort_wip": 220.8
+    "ort_wip": 220.8,
+    "sefer_sayisi": 68,
+    "mesafe_km": 48.63
   },
   {
     "arac_sayisi": 6,
@@ -158,7 +184,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.19,
     "starv_dk": 598,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 99,
+    "mesafe_km": 48.96
   },
   {
     "arac_sayisi": 7,
@@ -169,7 +197,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.23,
     "starv_dk": 372,
-    "ort_wip": 229.0
+    "ort_wip": 229.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 48.75
   },
   {
     "arac_sayisi": 8,
@@ -180,7 +210,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 229.9
+    "ort_wip": 229.9,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.83
   },
   {
     "arac_sayisi": 1,
@@ -191,7 +223,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.65,
     "starv_dk": 7332,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.46
   },
   {
     "arac_sayisi": 2,
@@ -202,7 +236,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.18,
     "starv_dk": 5090,
-    "ort_wip": 124.8
+    "ort_wip": 124.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.69
   },
   {
     "arac_sayisi": 3,
@@ -213,7 +249,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.77
   },
   {
     "arac_sayisi": 4,
@@ -224,7 +262,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.2,
     "starv_dk": 1521,
-    "ort_wip": 206.3
+    "ort_wip": 206.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.31
   },
   {
     "arac_sayisi": 5,
@@ -235,7 +275,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.7,
     "starv_dk": 1117,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.23
   },
   {
     "arac_sayisi": 6,
@@ -246,7 +288,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.97,
     "starv_dk": 572,
-    "ort_wip": 227.2
+    "ort_wip": 227.2,
+    "sefer_sayisi": 100,
+    "mesafe_km": 47.99
   },
   {
     "arac_sayisi": 7,
@@ -257,7 +301,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.31,
     "starv_dk": 266,
-    "ort_wip": 230.7
+    "ort_wip": 230.7,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.16
   },
   {
     "arac_sayisi": 8,
@@ -268,7 +314,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.71,
     "starv_dk": 197,
-    "ort_wip": 231.0
+    "ort_wip": 231.0,
+    "sefer_sayisi": 124,
+    "mesafe_km": 47.72
   },
   {
     "arac_sayisi": 1,
@@ -279,7 +327,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.63,
     "starv_dk": 7330,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.03
   },
   {
     "arac_sayisi": 2,
@@ -290,7 +340,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.16,
     "starv_dk": 5087,
-    "ort_wip": 124.9
+    "ort_wip": 124.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.92
   },
   {
     "arac_sayisi": 3,
@@ -301,7 +353,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.56
   },
   {
     "arac_sayisi": 4,
@@ -312,7 +366,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.99,
     "starv_dk": 1612,
-    "ort_wip": 204.7
+    "ort_wip": 204.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.52
   },
   {
     "arac_sayisi": 5,
@@ -323,7 +379,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.51,
     "starv_dk": 980,
-    "ort_wip": 221.4
+    "ort_wip": 221.4,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.81
   },
   {
     "arac_sayisi": 6,
@@ -334,7 +392,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.03,
     "starv_dk": 579,
-    "ort_wip": 226.2
+    "ort_wip": 226.2,
+    "sefer_sayisi": 96,
+    "mesafe_km": 51.01
   },
   {
     "arac_sayisi": 7,
@@ -345,7 +405,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.46,
     "starv_dk": 283,
-    "ort_wip": 230.1
+    "ort_wip": 230.1,
+    "sefer_sayisi": 118,
+    "mesafe_km": 50.16
   },
   {
     "arac_sayisi": 8,
@@ -356,7 +418,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.42,
     "starv_dk": 164,
-    "ort_wip": 230.8
+    "ort_wip": 230.8,
+    "sefer_sayisi": 126,
+    "mesafe_km": 49.22
   },
   {
     "arac_sayisi": 1,
@@ -367,7 +431,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.62,
     "starv_dk": 7329,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.01
   },
   {
     "arac_sayisi": 2,
@@ -378,7 +444,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.13,
     "starv_dk": 5084,
-    "ort_wip": 125.1
+    "ort_wip": 125.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.12
   },
   {
     "arac_sayisi": 3,
@@ -389,7 +457,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.39,
     "starv_dk": 3040,
-    "ort_wip": 168.3
+    "ort_wip": 168.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -400,7 +470,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.15,
     "starv_dk": 1285,
-    "ort_wip": 209.6
+    "ort_wip": 209.6,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.41
   },
   {
     "arac_sayisi": 5,
@@ -411,7 +483,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.99,
     "starv_dk": 1036,
-    "ort_wip": 221.9
+    "ort_wip": 221.9,
+    "sefer_sayisi": 68,
+    "mesafe_km": 50.83
   },
   {
     "arac_sayisi": 6,
@@ -422,7 +496,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.02,
     "starv_dk": 578,
-    "ort_wip": 226.9
+    "ort_wip": 226.9,
+    "sefer_sayisi": 97,
+    "mesafe_km": 49.67
   },
   {
     "arac_sayisi": 7,
@@ -433,7 +509,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.0,
     "starv_dk": 346,
-    "ort_wip": 229.4
+    "ort_wip": 229.4,
+    "sefer_sayisi": 117,
+    "mesafe_km": 49.44
   },
   {
     "arac_sayisi": 8,
@@ -444,7 +522,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.48,
     "starv_dk": 286,
-    "ort_wip": 229.6
+    "ort_wip": 229.6,
+    "sefer_sayisi": 124,
+    "mesafe_km": 49.0
   },
   {
     "arac_sayisi": 1,
@@ -455,7 +535,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7326,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.09
   },
   {
     "arac_sayisi": 2,
@@ -466,7 +548,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.09,
     "starv_dk": 5079,
-    "ort_wip": 125.2
+    "ort_wip": 125.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.53
   },
   {
     "arac_sayisi": 3,
@@ -477,7 +561,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.98,
     "starv_dk": 3108,
-    "ort_wip": 168.5
+    "ort_wip": 168.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.84
   },
   {
     "arac_sayisi": 4,
@@ -488,7 +574,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.28,
     "starv_dk": 1300,
-    "ort_wip": 209.0
+    "ort_wip": 209.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.88
   },
   {
     "arac_sayisi": 5,
@@ -499,7 +587,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.84,
     "starv_dk": 1018,
-    "ort_wip": 221.1
+    "ort_wip": 221.1,
+    "sefer_sayisi": 65,
+    "mesafe_km": 50.79
   },
   {
     "arac_sayisi": 6,
@@ -510,7 +600,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.57,
     "starv_dk": 526,
-    "ort_wip": 228.0
+    "ort_wip": 228.0,
+    "sefer_sayisi": 95,
+    "mesafe_km": 50.26
   },
   {
     "arac_sayisi": 7,
@@ -521,7 +613,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.18,
     "starv_dk": 366,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 111,
+    "mesafe_km": 50.02
   },
   {
     "arac_sayisi": 8,
@@ -532,7 +626,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.44,
     "starv_dk": 281,
-    "ort_wip": 230.2
+    "ort_wip": 230.2,
+    "sefer_sayisi": 121,
+    "mesafe_km": 49.76
   },
   {
     "arac_sayisi": 1,
@@ -543,7 +639,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.34,
     "starv_dk": 7758,
-    "ort_wip": 72.2
+    "ort_wip": 72.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.06
   },
   {
     "arac_sayisi": 2,
@@ -554,7 +652,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.64,
     "starv_dk": 5719,
-    "ort_wip": 112.0
+    "ort_wip": 112.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.44
   },
   {
     "arac_sayisi": 3,
@@ -565,7 +665,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.45,
     "starv_dk": 3853,
-    "ort_wip": 151.0
+    "ort_wip": 151.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.4
   },
   {
     "arac_sayisi": 4,
@@ -576,7 +678,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.5,
     "starv_dk": 2131,
-    "ort_wip": 188.8
+    "ort_wip": 188.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.68
   },
   {
     "arac_sayisi": 5,
@@ -587,7 +691,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.61,
     "starv_dk": 1568,
-    "ort_wip": 210.2
+    "ort_wip": 210.2,
+    "sefer_sayisi": 52,
+    "mesafe_km": 56.06
   },
   {
     "arac_sayisi": 6,
@@ -598,7 +704,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.95,
     "starv_dk": 1031,
-    "ort_wip": 218.8
+    "ort_wip": 218.8,
+    "sefer_sayisi": 83,
+    "mesafe_km": 54.29
   },
   {
     "arac_sayisi": 7,
@@ -609,7 +717,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.95,
     "starv_dk": 570,
-    "ort_wip": 224.0
+    "ort_wip": 224.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 53.78
   },
   {
     "arac_sayisi": 8,
@@ -620,7 +730,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.8,
     "starv_dk": 438,
-    "ort_wip": 225.4
+    "ort_wip": 225.4,
+    "sefer_sayisi": 125,
+    "mesafe_km": 53.46
   },
   {
     "arac_sayisi": 1,
@@ -631,7 +743,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.3,
     "starv_dk": 7753,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.61
   },
   {
     "arac_sayisi": 2,
@@ -642,7 +756,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.67,
     "starv_dk": 5722,
-    "ort_wip": 112.1
+    "ort_wip": 112.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.85
   },
   {
     "arac_sayisi": 3,
@@ -653,7 +769,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.32,
     "starv_dk": 3838,
-    "ort_wip": 151.4
+    "ort_wip": 151.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.43
   },
   {
     "arac_sayisi": 4,
@@ -664,7 +782,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.29,
     "starv_dk": 2337,
-    "ort_wip": 185.8
+    "ort_wip": 185.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.27
   },
   {
     "arac_sayisi": 5,
@@ -675,7 +795,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.49,
     "starv_dk": 1439,
-    "ort_wip": 211.1
+    "ort_wip": 211.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 58.88
   },
   {
     "arac_sayisi": 6,
@@ -686,7 +808,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.9,
     "starv_dk": 910,
-    "ort_wip": 221.4
+    "ort_wip": 221.4,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.76
   },
   {
     "arac_sayisi": 7,
@@ -697,7 +821,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.69,
     "starv_dk": 540,
-    "ort_wip": 224.6
+    "ort_wip": 224.6,
+    "sefer_sayisi": 120,
+    "mesafe_km": 54.17
   },
   {
     "arac_sayisi": 8,
@@ -708,7 +834,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.79,
     "starv_dk": 437,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 128,
+    "mesafe_km": 53.69
   },
   {
     "arac_sayisi": 1,
@@ -719,7 +847,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.3,
     "starv_dk": 7753,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.46
   },
   {
     "arac_sayisi": 2,
@@ -730,7 +860,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.61,
     "starv_dk": 5715,
-    "ort_wip": 112.1
+    "ort_wip": 112.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.72
   },
   {
     "arac_sayisi": 3,
@@ -741,7 +873,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.63,
     "starv_dk": 3874,
-    "ort_wip": 151.3
+    "ort_wip": 151.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -752,7 +886,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.78,
     "starv_dk": 2164,
-    "ort_wip": 188.2
+    "ort_wip": 188.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.66
   },
   {
     "arac_sayisi": 5,
@@ -763,7 +899,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.74,
     "starv_dk": 1468,
-    "ort_wip": 210.8
+    "ort_wip": 210.8,
+    "sefer_sayisi": 52,
+    "mesafe_km": 54.19
   },
   {
     "arac_sayisi": 6,
@@ -774,7 +912,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.08,
     "starv_dk": 931,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 92,
+    "mesafe_km": 55.31
   },
   {
     "arac_sayisi": 7,
@@ -785,7 +925,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.12,
     "starv_dk": 475,
-    "ort_wip": 226.1
+    "ort_wip": 226.1,
+    "sefer_sayisi": 117,
+    "mesafe_km": 54.68
   },
   {
     "arac_sayisi": 8,
@@ -796,7 +938,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.51,
     "starv_dk": 404,
-    "ort_wip": 225.8
+    "ort_wip": 225.8,
+    "sefer_sayisi": 132,
+    "mesafe_km": 54.31
   },
   {
     "arac_sayisi": 1,
@@ -807,7 +951,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.34,
     "starv_dk": 7758,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.48
   },
   {
     "arac_sayisi": 2,
@@ -818,7 +964,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.56,
     "starv_dk": 5709,
-    "ort_wip": 112.2
+    "ort_wip": 112.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.58
   },
   {
     "arac_sayisi": 3,
@@ -829,7 +977,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.33,
     "starv_dk": 3840,
-    "ort_wip": 151.9
+    "ort_wip": 151.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.32
   },
   {
     "arac_sayisi": 4,
@@ -840,7 +990,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.6,
     "starv_dk": 2143,
-    "ort_wip": 188.8
+    "ort_wip": 188.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.52
   },
   {
     "arac_sayisi": 5,
@@ -851,7 +1003,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.83,
     "starv_dk": 1248,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 53,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -862,7 +1016,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.39,
     "starv_dk": 967,
-    "ort_wip": 220.2
+    "ort_wip": 220.2,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.7
   },
   {
     "arac_sayisi": 7,
@@ -873,7 +1029,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.01,
     "starv_dk": 577,
-    "ort_wip": 224.7
+    "ort_wip": 224.7,
+    "sefer_sayisi": 119,
+    "mesafe_km": 54.85
   },
   {
     "arac_sayisi": 8,
@@ -884,7 +1042,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.77,
     "starv_dk": 319,
-    "ort_wip": 227.0
+    "ort_wip": 227.0,
+    "sefer_sayisi": 135,
+    "mesafe_km": 53.61
   },
   {
     "arac_sayisi": 1,
@@ -895,7 +1055,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.25
   },
   {
     "arac_sayisi": 2,
@@ -906,7 +1068,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.36,
     "starv_dk": 5571,
-    "ort_wip": 122.6
+    "ort_wip": 122.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -917,7 +1081,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.66,
     "starv_dk": 3647,
-    "ort_wip": 163.5
+    "ort_wip": 163.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.31
   },
   {
     "arac_sayisi": 4,
@@ -928,7 +1094,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.19,
     "starv_dk": 2096,
-    "ort_wip": 201.7
+    "ort_wip": 201.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.14
   },
   {
     "arac_sayisi": 5,
@@ -939,7 +1107,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.04,
     "starv_dk": 1272,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.52
   },
   {
     "arac_sayisi": 6,
@@ -950,7 +1120,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.6
+    "ort_wip": 232.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.91
   },
   {
     "arac_sayisi": 7,
@@ -961,7 +1133,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.5
   },
   {
     "arac_sayisi": 8,
@@ -972,7 +1146,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.21,
     "starv_dk": 370,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 1,
@@ -983,7 +1159,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.33,
     "starv_dk": 7526,
-    "ort_wip": 85.9
+    "ort_wip": 85.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.49
   },
   {
     "arac_sayisi": 2,
@@ -994,7 +1172,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.33,
     "starv_dk": 5452,
-    "ort_wip": 130.9
+    "ort_wip": 130.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.41
   },
   {
     "arac_sayisi": 3,
@@ -1005,7 +1185,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.64,
     "starv_dk": 3415,
-    "ort_wip": 176.3
+    "ort_wip": 176.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.93
   },
   {
     "arac_sayisi": 4,
@@ -1016,7 +1198,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.52,
     "starv_dk": 2018,
-    "ort_wip": 214.4
+    "ort_wip": 214.4,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.43
   },
   {
     "arac_sayisi": 5,
@@ -1027,7 +1211,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.0,
     "starv_dk": 1382,
-    "ort_wip": 236.7
+    "ort_wip": 236.7,
+    "sefer_sayisi": 56,
+    "mesafe_km": 51.64
   },
   {
     "arac_sayisi": 6,
@@ -1038,7 +1224,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.38,
     "starv_dk": 735,
-    "ort_wip": 247.1
+    "ort_wip": 247.1,
+    "sefer_sayisi": 96,
+    "mesafe_km": 52.36
   },
   {
     "arac_sayisi": 7,
@@ -1049,7 +1237,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.11,
     "starv_dk": 358,
-    "ort_wip": 251.1
+    "ort_wip": 251.1,
+    "sefer_sayisi": 124,
+    "mesafe_km": 50.89
   },
   {
     "arac_sayisi": 8,
@@ -1060,7 +1250,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.47,
     "starv_dk": 284,
-    "ort_wip": 251.8
+    "ort_wip": 251.8,
+    "sefer_sayisi": 129,
+    "mesafe_km": 51.32
   },
   {
     "arac_sayisi": 1,
@@ -1071,7 +1263,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.46,
     "starv_dk": 8117,
-    "ort_wip": 65.2
+    "ort_wip": 65.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.82
   },
   {
     "arac_sayisi": 2,
@@ -1082,7 +1276,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.14,
     "starv_dk": 6237,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.7
   },
   {
     "arac_sayisi": 3,
@@ -1093,7 +1289,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.83,
     "starv_dk": 4473,
-    "ort_wip": 137.7
+    "ort_wip": 137.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.84
   },
   {
     "arac_sayisi": 4,
@@ -1104,7 +1302,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.33,
     "starv_dk": 2803,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.54
   },
   {
     "arac_sayisi": 5,
@@ -1115,7 +1315,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.68,
     "starv_dk": 1806,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.94
   },
   {
     "arac_sayisi": 6,
@@ -1126,7 +1328,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.0,
     "starv_dk": 1498,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 76,
+    "mesafe_km": 63.61
   },
   {
     "arac_sayisi": 7,
@@ -1137,7 +1341,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.3,
     "starv_dk": 956,
-    "ort_wip": 217.4
+    "ort_wip": 217.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 61.22
   },
   {
     "arac_sayisi": 8,
@@ -1148,7 +1354,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.3,
     "starv_dk": 495,
-    "ort_wip": 225.6
+    "ort_wip": 225.6,
+    "sefer_sayisi": 142,
+    "mesafe_km": 59.65
   },
   {
     "arac_sayisi": 1,
@@ -1159,7 +1367,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.43,
     "starv_dk": 8113,
-    "ort_wip": 65.3
+    "ort_wip": 65.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.01
   },
   {
     "arac_sayisi": 2,
@@ -1170,7 +1380,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.17,
     "starv_dk": 6240,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -1181,7 +1393,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.69,
     "starv_dk": 4457,
-    "ort_wip": 138.0
+    "ort_wip": 138.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.84
   },
   {
     "arac_sayisi": 4,
@@ -1192,7 +1406,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.49,
     "starv_dk": 2821,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.65
   },
   {
     "arac_sayisi": 5,
@@ -1203,7 +1419,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.84,
     "starv_dk": 1709,
-    "ort_wip": 201.3
+    "ort_wip": 201.3,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.0
   },
   {
     "arac_sayisi": 6,
@@ -1214,7 +1432,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.65,
     "starv_dk": 1457,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 75,
+    "mesafe_km": 60.41
   },
   {
     "arac_sayisi": 7,
@@ -1225,7 +1445,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.48,
     "starv_dk": 1092,
-    "ort_wip": 217.5
+    "ort_wip": 217.5,
+    "sefer_sayisi": 112,
+    "mesafe_km": 60.52
   },
   {
     "arac_sayisi": 8,
@@ -1236,7 +1458,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.13,
     "starv_dk": 476,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 139,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 1,
@@ -1247,7 +1471,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.88
   },
   {
     "arac_sayisi": 2,
@@ -1258,7 +1484,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.1
+    "ort_wip": 111.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.97
   },
   {
     "arac_sayisi": 3,
@@ -1269,7 +1497,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.5
+    "ort_wip": 148.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -1280,7 +1510,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.3
+    "ort_wip": 182.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -1291,7 +1523,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.98,
     "starv_dk": 1841,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -1302,7 +1536,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.27,
     "starv_dk": 1298,
-    "ort_wip": 224.4
+    "ort_wip": 224.4,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.36
   },
   {
     "arac_sayisi": 7,
@@ -1313,7 +1549,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.65
   },
   {
     "arac_sayisi": 8,
@@ -1324,7 +1562,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.5,
     "starv_dk": 403,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.37
   },
   {
     "arac_sayisi": 1,
@@ -1335,7 +1575,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.65,
     "starv_dk": 7908,
-    "ort_wip": 77.4
+    "ort_wip": 77.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.99
   },
   {
     "arac_sayisi": 2,
@@ -1346,7 +1588,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.97,
     "starv_dk": 5987,
-    "ort_wip": 119.1
+    "ort_wip": 119.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.74
   },
   {
     "arac_sayisi": 3,
@@ -1357,7 +1601,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.53,
     "starv_dk": 4093,
-    "ort_wip": 160.2
+    "ort_wip": 160.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.99
   },
   {
     "arac_sayisi": 4,
@@ -1368,7 +1614,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.7,
     "starv_dk": 2500,
-    "ort_wip": 197.7
+    "ort_wip": 197.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.4
   },
   {
     "arac_sayisi": 5,
@@ -1379,7 +1627,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.44,
     "starv_dk": 1548,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 45,
+    "mesafe_km": 59.76
   },
   {
     "arac_sayisi": 6,
@@ -1390,7 +1640,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.25,
     "starv_dk": 1411,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 83,
+    "mesafe_km": 58.15
   },
   {
     "arac_sayisi": 7,
@@ -1401,7 +1653,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.19,
     "starv_dk": 713,
-    "ort_wip": 243.8
+    "ort_wip": 243.8,
+    "sefer_sayisi": 113,
+    "mesafe_km": 56.56
   },
   {
     "arac_sayisi": 8,
@@ -1412,7 +1666,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.42,
     "starv_dk": 394,
-    "ort_wip": 247.3
+    "ort_wip": 247.3,
+    "sefer_sayisi": 137,
+    "mesafe_km": 56.93
   },
   {
     "arac_sayisi": 1,
@@ -1423,7 +1679,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.68,
     "starv_dk": 7797,
-    "ort_wip": 84.2
+    "ort_wip": 84.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.35
   },
   {
     "arac_sayisi": 2,
@@ -1434,7 +1692,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.85,
     "starv_dk": 5858,
-    "ort_wip": 127.5
+    "ort_wip": 127.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.89
   },
   {
     "arac_sayisi": 3,
@@ -1445,7 +1705,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.98,
     "starv_dk": 3915,
-    "ort_wip": 169.8
+    "ort_wip": 169.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.78
   },
   {
     "arac_sayisi": 4,
@@ -1456,7 +1718,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.6,
     "starv_dk": 2373,
-    "ort_wip": 211.4
+    "ort_wip": 211.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.86
   },
   {
     "arac_sayisi": 5,
@@ -1467,7 +1731,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.3,
     "starv_dk": 1532,
-    "ort_wip": 241.0
+    "ort_wip": 241.0,
+    "sefer_sayisi": 47,
+    "mesafe_km": 57.74
   },
   {
     "arac_sayisi": 6,
@@ -1478,7 +1744,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.98,
     "starv_dk": 1034,
-    "ort_wip": 250.2
+    "ort_wip": 250.2,
+    "sefer_sayisi": 88,
+    "mesafe_km": 56.77
   },
   {
     "arac_sayisi": 7,
@@ -1489,7 +1757,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.12,
     "starv_dk": 590,
-    "ort_wip": 257.1
+    "ort_wip": 257.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 56.42
   },
   {
     "arac_sayisi": 8,
@@ -1500,7 +1770,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.39,
     "starv_dk": 390,
-    "ort_wip": 259.1
+    "ort_wip": 259.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 56.73
   },
   {
     "arac_sayisi": 1,
@@ -1511,7 +1783,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.73,
     "starv_dk": 7572,
-    "ort_wip": 98.4
+    "ort_wip": 98.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.1
   },
   {
     "arac_sayisi": 2,
@@ -1522,7 +1796,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.23,
     "starv_dk": 5556,
-    "ort_wip": 146.1
+    "ort_wip": 146.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.99
   },
   {
     "arac_sayisi": 3,
@@ -1533,7 +1809,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.56,
     "starv_dk": 3520,
-    "ort_wip": 193.7
+    "ort_wip": 193.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.81
   },
   {
     "arac_sayisi": 4,
@@ -1544,7 +1822,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.45,
     "starv_dk": 2010,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.55
   },
   {
     "arac_sayisi": 5,
@@ -1555,7 +1835,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.25,
     "starv_dk": 1296,
-    "ort_wip": 267.9
+    "ort_wip": 267.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.12
   },
   {
     "arac_sayisi": 6,
@@ -1566,7 +1848,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.82,
     "starv_dk": 786,
-    "ort_wip": 278.0
+    "ort_wip": 278.0,
+    "sefer_sayisi": 92,
+    "mesafe_km": 53.31
   },
   {
     "arac_sayisi": 7,
@@ -1577,7 +1861,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.6,
     "starv_dk": 530,
-    "ort_wip": 281.2
+    "ort_wip": 281.2,
+    "sefer_sayisi": 114,
+    "mesafe_km": 53.46
   },
   {
     "arac_sayisi": 8,
@@ -1588,7 +1874,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.72,
     "starv_dk": 313,
-    "ort_wip": 283.2
+    "ort_wip": 283.2,
+    "sefer_sayisi": 126,
+    "mesafe_km": 52.89
   },
   {
     "arac_sayisi": 1,
@@ -1599,7 +1887,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -1610,7 +1900,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -1621,7 +1913,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -1632,7 +1926,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -1643,7 +1939,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -1654,7 +1952,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -1665,7 +1965,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -1676,7 +1978,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -1687,7 +1991,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.39,
     "starv_dk": 8224,
-    "ort_wip": 70.5
+    "ort_wip": 70.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.37
   },
   {
     "arac_sayisi": 2,
@@ -1698,7 +2004,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 55.98,
     "starv_dk": 6449,
-    "ort_wip": 109.0
+    "ort_wip": 109.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.34
   },
   {
     "arac_sayisi": 3,
@@ -1709,7 +2017,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.54,
     "starv_dk": 4670,
-    "ort_wip": 146.9
+    "ort_wip": 146.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.36
   },
   {
     "arac_sayisi": 4,
@@ -1720,7 +2030,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 27.08,
     "starv_dk": 3120,
-    "ort_wip": 182.6
+    "ort_wip": 182.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.36
   },
   {
     "arac_sayisi": 5,
@@ -1731,7 +2043,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.58,
     "starv_dk": 1910,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 6,
@@ -1742,7 +2056,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.85,
     "starv_dk": 1480,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 66,
+    "mesafe_km": 64.63
   },
   {
     "arac_sayisi": 7,
@@ -1753,7 +2069,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.1,
     "starv_dk": 1163,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 106,
+    "mesafe_km": 64.43
   },
   {
     "arac_sayisi": 8,
@@ -1764,7 +2082,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.93,
     "starv_dk": 683,
-    "ort_wip": 243.6
+    "ort_wip": 243.6,
+    "sefer_sayisi": 127,
+    "mesafe_km": 63.82
   },
   {
     "arac_sayisi": 1,
@@ -1775,7 +2095,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.44,
     "starv_dk": 8115,
-    "ort_wip": 76.8
+    "ort_wip": 76.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.48
   },
   {
     "arac_sayisi": 2,
@@ -1786,7 +2108,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.8,
     "starv_dk": 6313,
-    "ort_wip": 116.3
+    "ort_wip": 116.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.93
   },
   {
     "arac_sayisi": 3,
@@ -1797,7 +2121,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.03,
     "starv_dk": 4612,
-    "ort_wip": 154.8
+    "ort_wip": 154.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.12
   },
   {
     "arac_sayisi": 4,
@@ -1808,7 +2134,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.11,
     "starv_dk": 3008,
-    "ort_wip": 194.9
+    "ort_wip": 194.9,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.77
   },
   {
     "arac_sayisi": 5,
@@ -1819,7 +2147,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.87,
     "starv_dk": 2059,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 58.27
   },
   {
     "arac_sayisi": 6,
@@ -1830,7 +2160,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.28,
     "starv_dk": 1530,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 72,
+    "mesafe_km": 63.59
   },
   {
     "arac_sayisi": 7,
@@ -1841,7 +2173,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.18,
     "starv_dk": 942,
-    "ort_wip": 250.4
+    "ort_wip": 250.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 62.16
   },
   {
     "arac_sayisi": 8,
@@ -1852,7 +2186,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.84,
     "starv_dk": 557,
-    "ort_wip": 256.3
+    "ort_wip": 256.3,
+    "sefer_sayisi": 134,
+    "mesafe_km": 62.08
   },
   {
     "arac_sayisi": 1,
@@ -1863,7 +2199,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.68,
     "starv_dk": 7912,
-    "ort_wip": 89.7
+    "ort_wip": 89.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -1874,7 +2212,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.55,
     "starv_dk": 6054,
-    "ort_wip": 134.5
+    "ort_wip": 134.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.8
   },
   {
     "arac_sayisi": 3,
@@ -1885,7 +2225,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.69,
     "starv_dk": 4111,
-    "ort_wip": 178.0
+    "ort_wip": 178.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.88
   },
   {
     "arac_sayisi": 4,
@@ -1896,7 +2238,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.74,
     "starv_dk": 2505,
-    "ort_wip": 222.8
+    "ort_wip": 222.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.28
   },
   {
     "arac_sayisi": 5,
@@ -1907,7 +2251,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.13,
     "starv_dk": 1858,
-    "ort_wip": 252.8
+    "ort_wip": 252.8,
+    "sefer_sayisi": 43,
+    "mesafe_km": 59.23
   },
   {
     "arac_sayisi": 6,
@@ -1918,7 +2264,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.85,
     "starv_dk": 1365,
-    "ort_wip": 267.6
+    "ort_wip": 267.6,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.09
   },
   {
     "arac_sayisi": 7,
@@ -1929,7 +2277,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.64,
     "starv_dk": 880,
-    "ort_wip": 273.2
+    "ort_wip": 273.2,
+    "sefer_sayisi": 112,
+    "mesafe_km": 58.68
   },
   {
     "arac_sayisi": 8,
@@ -1940,7 +2290,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.28,
     "starv_dk": 493,
-    "ort_wip": 278.9
+    "ort_wip": 278.9,
+    "sefer_sayisi": 129,
+    "mesafe_km": 57.83
   },
   {
     "arac_sayisi": 1,
@@ -1951,7 +2303,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.79,
     "starv_dk": 7464,
-    "ort_wip": 113.5
+    "ort_wip": 113.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.59
   },
   {
     "arac_sayisi": 2,
@@ -1962,7 +2316,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.66,
     "starv_dk": 5491,
-    "ort_wip": 170.0
+    "ort_wip": 170.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.54
   },
   {
     "arac_sayisi": 3,
@@ -1973,7 +2329,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.33,
     "starv_dk": 3494,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.25
   },
   {
     "arac_sayisi": 4,
@@ -1984,7 +2342,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.79,
     "starv_dk": 1934,
-    "ort_wip": 272.8
+    "ort_wip": 272.8,
+    "sefer_sayisi": 34,
+    "mesafe_km": 48.52
   },
   {
     "arac_sayisi": 5,
@@ -1995,7 +2355,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.66,
     "starv_dk": 1343,
-    "ort_wip": 303.2
+    "ort_wip": 303.2,
+    "sefer_sayisi": 58,
+    "mesafe_km": 53.7
   },
   {
     "arac_sayisi": 6,
@@ -2006,7 +2368,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.83,
     "starv_dk": 902,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 92,
+    "mesafe_km": 51.58
   },
   {
     "arac_sayisi": 7,
@@ -2017,7 +2381,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.38,
     "starv_dk": 505,
-    "ort_wip": 316.8
+    "ort_wip": 316.8,
+    "sefer_sayisi": 117,
+    "mesafe_km": 51.01
   },
   {
     "arac_sayisi": 8,
@@ -2028,7 +2394,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.84,
     "starv_dk": 327,
-    "ort_wip": 319.1
+    "ort_wip": 319.1,
+    "sefer_sayisi": 128,
+    "mesafe_km": 51.58
   },
   {
     "arac_sayisi": 1,
@@ -2039,7 +2407,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.87,
     "starv_dk": 7127,
-    "ort_wip": 131.8
+    "ort_wip": 131.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.06
   },
   {
     "arac_sayisi": 2,
@@ -2050,7 +2420,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.48,
     "starv_dk": 5009,
-    "ort_wip": 196.6
+    "ort_wip": 196.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.05
   },
   {
     "arac_sayisi": 3,
@@ -2061,7 +2433,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.7,
     "starv_dk": 3076,
-    "ort_wip": 258.6
+    "ort_wip": 258.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.11
   },
   {
     "arac_sayisi": 4,
@@ -2072,7 +2446,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.09,
     "starv_dk": 1623,
-    "ort_wip": 314.8
+    "ort_wip": 314.8,
+    "sefer_sayisi": 34,
+    "mesafe_km": 46.21
   },
   {
     "arac_sayisi": 5,
@@ -2083,7 +2459,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.31,
     "starv_dk": 1072,
-    "ort_wip": 334.7
+    "ort_wip": 334.7,
+    "sefer_sayisi": 64,
+    "mesafe_km": 47.39
   },
   {
     "arac_sayisi": 6,
@@ -2094,7 +2472,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.66,
     "starv_dk": 883,
-    "ort_wip": 341.2
+    "ort_wip": 341.2,
+    "sefer_sayisi": 88,
+    "mesafe_km": 47.23
   },
   {
     "arac_sayisi": 7,
@@ -2105,7 +2485,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.42,
     "starv_dk": 509,
-    "ort_wip": 346.3
+    "ort_wip": 346.3,
+    "sefer_sayisi": 108,
+    "mesafe_km": 46.9
   },
   {
     "arac_sayisi": 8,
@@ -2116,7 +2498,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.12,
     "starv_dk": 359,
-    "ort_wip": 347.9
+    "ort_wip": 347.9,
+    "sefer_sayisi": 115,
+    "mesafe_km": 46.77
   },
   {
     "arac_sayisi": 1,
@@ -2127,7 +2511,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.8,
     "starv_dk": 8387,
-    "ort_wip": 70.4
+    "ort_wip": 70.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.42
   },
   {
     "arac_sayisi": 2,
@@ -2138,7 +2524,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.16,
     "starv_dk": 6700,
-    "ort_wip": 107.8
+    "ort_wip": 107.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.87
   },
   {
     "arac_sayisi": 3,
@@ -2149,7 +2537,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.55,
     "starv_dk": 5017,
-    "ort_wip": 143.7
+    "ort_wip": 143.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -2160,7 +2550,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.2,
     "starv_dk": 3710,
-    "ort_wip": 178.6
+    "ort_wip": 178.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.75
   },
   {
     "arac_sayisi": 5,
@@ -2171,7 +2563,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.83,
     "starv_dk": 2400,
-    "ort_wip": 211.4
+    "ort_wip": 211.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.2
   },
   {
     "arac_sayisi": 6,
@@ -2182,7 +2576,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.86,
     "starv_dk": 1827,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 59,
+    "mesafe_km": 68.74
   },
   {
     "arac_sayisi": 7,
@@ -2193,7 +2589,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.52,
     "starv_dk": 1442,
-    "ort_wip": 240.8
+    "ort_wip": 240.8,
+    "sefer_sayisi": 101,
+    "mesafe_km": 68.23
   },
   {
     "arac_sayisi": 8,
@@ -2204,7 +2602,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.16,
     "starv_dk": 1055,
-    "ort_wip": 247.5
+    "ort_wip": 247.5,
+    "sefer_sayisi": 130,
+    "mesafe_km": 66.91
   },
   {
     "arac_sayisi": 1,
@@ -2215,7 +2615,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.14,
     "starv_dk": 8195,
-    "ort_wip": 82.3
+    "ort_wip": 82.3,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.28
   },
   {
     "arac_sayisi": 2,
@@ -2226,7 +2628,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.02,
     "starv_dk": 6453,
-    "ort_wip": 123.3
+    "ort_wip": 123.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.17
   },
   {
     "arac_sayisi": 3,
@@ -2237,7 +2641,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.69,
     "starv_dk": 4687,
-    "ort_wip": 164.2
+    "ort_wip": 164.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.8
   },
   {
     "arac_sayisi": 4,
@@ -2248,7 +2654,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.73,
     "starv_dk": 3079,
-    "ort_wip": 207.7
+    "ort_wip": 207.7,
+    "sefer_sayisi": 30,
+    "mesafe_km": 46.61
   },
   {
     "arac_sayisi": 5,
@@ -2259,7 +2667,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.09,
     "starv_dk": 2084,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 39,
+    "mesafe_km": 55.25
   },
   {
     "arac_sayisi": 6,
@@ -2270,7 +2680,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.72,
     "starv_dk": 1581,
-    "ort_wip": 258.7
+    "ort_wip": 258.7,
+    "sefer_sayisi": 70,
+    "mesafe_km": 64.81
   },
   {
     "arac_sayisi": 7,
@@ -2281,7 +2693,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.54,
     "starv_dk": 1329,
-    "ort_wip": 264.6
+    "ort_wip": 264.6,
+    "sefer_sayisi": 103,
+    "mesafe_km": 63.92
   },
   {
     "arac_sayisi": 8,
@@ -2292,7 +2706,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.44,
     "starv_dk": 972,
-    "ort_wip": 270.2
+    "ort_wip": 270.2,
+    "sefer_sayisi": 129,
+    "mesafe_km": 63.09
   },
   {
     "arac_sayisi": 1,
@@ -2303,7 +2719,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.6,
     "starv_dk": 7787,
-    "ort_wip": 104.0
+    "ort_wip": 104.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.29
   },
   {
     "arac_sayisi": 2,
@@ -2314,7 +2732,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.59,
     "starv_dk": 5943,
-    "ort_wip": 156.6
+    "ort_wip": 156.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.54
   },
   {
     "arac_sayisi": 3,
@@ -2325,7 +2745,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.0,
     "starv_dk": 4032,
-    "ort_wip": 205.7
+    "ort_wip": 205.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.48
   },
   {
     "arac_sayisi": 4,
@@ -2336,7 +2758,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.12,
     "starv_dk": 2663,
-    "ort_wip": 251.2
+    "ort_wip": 251.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.05
   },
   {
     "arac_sayisi": 5,
@@ -2347,7 +2771,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.11,
     "starv_dk": 1625,
-    "ort_wip": 290.6
+    "ort_wip": 290.6,
+    "sefer_sayisi": 45,
+    "mesafe_km": 56.2
   },
   {
     "arac_sayisi": 6,
@@ -2358,7 +2784,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.47,
     "starv_dk": 1321,
-    "ort_wip": 302.3
+    "ort_wip": 302.3,
+    "sefer_sayisi": 83,
+    "mesafe_km": 57.55
   },
   {
     "arac_sayisi": 7,
@@ -2369,7 +2797,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.82,
     "starv_dk": 786,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 57.96
   },
   {
     "arac_sayisi": 8,
@@ -2380,7 +2810,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.09,
     "starv_dk": 471,
-    "ort_wip": 314.9
+    "ort_wip": 314.9,
+    "sefer_sayisi": 134,
+    "mesafe_km": 57.71
   },
   {
     "arac_sayisi": 1,
@@ -2391,7 +2823,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.87,
     "starv_dk": 7473,
-    "ort_wip": 120.9
+    "ort_wip": 120.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.42
   },
   {
     "arac_sayisi": 2,
@@ -2402,7 +2836,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.53,
     "starv_dk": 5476,
-    "ort_wip": 181.8
+    "ort_wip": 181.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.72
   },
   {
     "arac_sayisi": 3,
@@ -2413,7 +2849,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.57,
     "starv_dk": 3522,
-    "ort_wip": 241.9
+    "ort_wip": 241.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.3
   },
   {
     "arac_sayisi": 4,
@@ -2424,7 +2862,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 19.01,
     "starv_dk": 2190,
-    "ort_wip": 292.5
+    "ort_wip": 292.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.59
   },
   {
     "arac_sayisi": 5,
@@ -2435,7 +2875,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.04,
     "starv_dk": 1387,
-    "ort_wip": 325.1
+    "ort_wip": 325.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 55.21
   },
   {
     "arac_sayisi": 6,
@@ -2446,7 +2888,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.54,
     "starv_dk": 869,
-    "ort_wip": 336.4
+    "ort_wip": 336.4,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.65
   },
   {
     "arac_sayisi": 7,
@@ -2457,7 +2901,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.58,
     "starv_dk": 758,
-    "ort_wip": 337.5
+    "ort_wip": 337.5,
+    "sefer_sayisi": 114,
+    "mesafe_km": 54.27
   },
   {
     "arac_sayisi": 8,
@@ -2468,7 +2914,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.18,
     "starv_dk": 482,
-    "ort_wip": 340.5
+    "ort_wip": 340.5,
+    "sefer_sayisi": 133,
+    "mesafe_km": 52.94
   },
   {
     "arac_sayisi": 1,
@@ -2479,7 +2927,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.88,
     "starv_dk": 7129,
-    "ort_wip": 141.9
+    "ort_wip": 141.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.16
   },
   {
     "arac_sayisi": 2,
@@ -2490,7 +2940,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.38,
     "starv_dk": 4997,
-    "ort_wip": 213.3
+    "ort_wip": 213.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.67
   },
   {
     "arac_sayisi": 3,
@@ -2501,7 +2953,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.61,
     "starv_dk": 3066,
-    "ort_wip": 284.3
+    "ort_wip": 284.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.93
   },
   {
     "arac_sayisi": 4,
@@ -2512,7 +2966,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.48,
     "starv_dk": 1553,
-    "ort_wip": 343.2
+    "ort_wip": 343.2,
+    "sefer_sayisi": 36,
+    "mesafe_km": 48.58
   },
   {
     "arac_sayisi": 5,
@@ -2523,7 +2979,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.99,
     "starv_dk": 1151,
-    "ort_wip": 366.6
+    "ort_wip": 366.6,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.32
   },
   {
     "arac_sayisi": 6,
@@ -2534,7 +2992,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.19,
     "starv_dk": 713,
-    "ort_wip": 374.9
+    "ort_wip": 374.9,
+    "sefer_sayisi": 91,
+    "mesafe_km": 48.08
   },
   {
     "arac_sayisi": 7,
@@ -2545,7 +3005,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.89,
     "starv_dk": 448,
-    "ort_wip": 377.8
+    "ort_wip": 377.8,
+    "sefer_sayisi": 108,
+    "mesafe_km": 47.73
   },
   {
     "arac_sayisi": 8,
@@ -2556,7 +3018,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.8,
     "starv_dk": 322,
-    "ort_wip": 380.0
+    "ort_wip": 380.0,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.62
   },
   {
     "arac_sayisi": 1,
@@ -2567,7 +3031,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 59.84,
     "starv_dk": 6894,
-    "ort_wip": 154.5
+    "ort_wip": 154.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.15
   },
   {
     "arac_sayisi": 2,
@@ -2578,7 +3044,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.16,
     "starv_dk": 4627,
-    "ort_wip": 233.8
+    "ort_wip": 233.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.68
   },
   {
     "arac_sayisi": 3,
@@ -2589,7 +3057,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 22.74,
     "starv_dk": 2620,
-    "ort_wip": 312.6
+    "ort_wip": 312.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.91
   },
   {
     "arac_sayisi": 4,
@@ -2600,7 +3070,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.27,
     "starv_dk": 1183,
-    "ort_wip": 376.1
+    "ort_wip": 376.1,
+    "sefer_sayisi": 40,
+    "mesafe_km": 46.72
   },
   {
     "arac_sayisi": 5,
@@ -2611,7 +3083,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.5,
     "starv_dk": 864,
-    "ort_wip": 389.7
+    "ort_wip": 389.7,
+    "sefer_sayisi": 72,
+    "mesafe_km": 45.72
   },
   {
     "arac_sayisi": 6,
@@ -2622,7 +3096,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.31,
     "starv_dk": 727,
-    "ort_wip": 393.2
+    "ort_wip": 393.2,
+    "sefer_sayisi": 96,
+    "mesafe_km": 45.82
   },
   {
     "arac_sayisi": 7,
@@ -2633,7 +3109,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.95,
     "starv_dk": 340,
-    "ort_wip": 399.3
+    "ort_wip": 399.3,
+    "sefer_sayisi": 111,
+    "mesafe_km": 45.47
   },
   {
     "arac_sayisi": 8,
@@ -2644,7 +3122,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.11,
     "starv_dk": 243,
-    "ort_wip": 399.6
+    "ort_wip": 399.6,
+    "sefer_sayisi": 117,
+    "mesafe_km": 44.63
   },
   {
     "arac_sayisi": 1,
@@ -2655,7 +3135,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.6,
     "starv_dk": 7327,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -2666,7 +3148,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.26,
     "starv_dk": 5099,
-    "ort_wip": 124.6
+    "ort_wip": 124.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.54
   },
   {
     "arac_sayisi": 3,
@@ -2677,7 +3161,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 167.7
+    "ort_wip": 167.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.23
   },
   {
     "arac_sayisi": 4,
@@ -2688,7 +3174,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.54,
     "starv_dk": 1445,
-    "ort_wip": 206.3
+    "ort_wip": 206.3,
+    "sefer_sayisi": 31,
+    "mesafe_km": 46.65
   },
   {
     "arac_sayisi": 5,
@@ -2699,7 +3187,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.36,
     "starv_dk": 1078,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 63,
+    "mesafe_km": 49.62
   },
   {
     "arac_sayisi": 6,
@@ -2710,7 +3200,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.58,
     "starv_dk": 528,
-    "ort_wip": 226.8
+    "ort_wip": 226.8,
+    "sefer_sayisi": 93,
+    "mesafe_km": 49.49
   },
   {
     "arac_sayisi": 7,
@@ -2721,7 +3213,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.57,
     "starv_dk": 411,
-    "ort_wip": 228.6
+    "ort_wip": 228.6,
+    "sefer_sayisi": 107,
+    "mesafe_km": 48.1
   },
   {
     "arac_sayisi": 8,
@@ -2732,7 +3226,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.42,
     "starv_dk": 279,
-    "ort_wip": 229.3
+    "ort_wip": 229.3,
+    "sefer_sayisi": 114,
+    "mesafe_km": 47.94
   },
   {
     "arac_sayisi": 1,
@@ -2743,7 +3239,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7325,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -2754,7 +3252,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.24,
     "starv_dk": 5097,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.38
   },
   {
     "arac_sayisi": 3,
@@ -2765,7 +3265,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.92,
     "starv_dk": 3101,
-    "ort_wip": 168.0
+    "ort_wip": 168.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.52
   },
   {
     "arac_sayisi": 4,
@@ -2776,7 +3278,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.26,
     "starv_dk": 1297,
-    "ort_wip": 209.0
+    "ort_wip": 209.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 5,
@@ -2787,7 +3291,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.27,
     "starv_dk": 953,
-    "ort_wip": 220.8
+    "ort_wip": 220.8,
+    "sefer_sayisi": 68,
+    "mesafe_km": 48.63
   },
   {
     "arac_sayisi": 6,
@@ -2798,7 +3304,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.19,
     "starv_dk": 598,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 99,
+    "mesafe_km": 48.96
   },
   {
     "arac_sayisi": 7,
@@ -2809,7 +3317,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.23,
     "starv_dk": 372,
-    "ort_wip": 229.0
+    "ort_wip": 229.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 48.75
   },
   {
     "arac_sayisi": 8,
@@ -2820,7 +3330,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 229.9
+    "ort_wip": 229.9,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.83
   },
   {
     "arac_sayisi": 1,
@@ -2831,7 +3343,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.65,
     "starv_dk": 7332,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.46
   },
   {
     "arac_sayisi": 2,
@@ -2842,7 +3356,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.18,
     "starv_dk": 5090,
-    "ort_wip": 124.8
+    "ort_wip": 124.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.69
   },
   {
     "arac_sayisi": 3,
@@ -2853,7 +3369,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.77
   },
   {
     "arac_sayisi": 4,
@@ -2864,7 +3382,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.2,
     "starv_dk": 1521,
-    "ort_wip": 206.3
+    "ort_wip": 206.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.31
   },
   {
     "arac_sayisi": 5,
@@ -2875,7 +3395,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.7,
     "starv_dk": 1117,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.23
   },
   {
     "arac_sayisi": 6,
@@ -2886,7 +3408,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.97,
     "starv_dk": 572,
-    "ort_wip": 227.2
+    "ort_wip": 227.2,
+    "sefer_sayisi": 100,
+    "mesafe_km": 47.99
   },
   {
     "arac_sayisi": 7,
@@ -2897,7 +3421,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.31,
     "starv_dk": 266,
-    "ort_wip": 230.7
+    "ort_wip": 230.7,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.16
   },
   {
     "arac_sayisi": 8,
@@ -2908,7 +3434,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.71,
     "starv_dk": 197,
-    "ort_wip": 231.0
+    "ort_wip": 231.0,
+    "sefer_sayisi": 124,
+    "mesafe_km": 47.72
   },
   {
     "arac_sayisi": 1,
@@ -2919,7 +3447,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.63,
     "starv_dk": 7330,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.03
   },
   {
     "arac_sayisi": 2,
@@ -2930,7 +3460,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.16,
     "starv_dk": 5087,
-    "ort_wip": 124.9
+    "ort_wip": 124.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.92
   },
   {
     "arac_sayisi": 3,
@@ -2941,7 +3473,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.56
   },
   {
     "arac_sayisi": 4,
@@ -2952,7 +3486,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.99,
     "starv_dk": 1612,
-    "ort_wip": 204.7
+    "ort_wip": 204.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.52
   },
   {
     "arac_sayisi": 5,
@@ -2963,7 +3499,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.51,
     "starv_dk": 980,
-    "ort_wip": 221.4
+    "ort_wip": 221.4,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.81
   },
   {
     "arac_sayisi": 6,
@@ -2974,7 +3512,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.03,
     "starv_dk": 579,
-    "ort_wip": 226.2
+    "ort_wip": 226.2,
+    "sefer_sayisi": 96,
+    "mesafe_km": 51.01
   },
   {
     "arac_sayisi": 7,
@@ -2985,7 +3525,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.46,
     "starv_dk": 283,
-    "ort_wip": 230.1
+    "ort_wip": 230.1,
+    "sefer_sayisi": 118,
+    "mesafe_km": 50.16
   },
   {
     "arac_sayisi": 8,
@@ -2996,7 +3538,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.42,
     "starv_dk": 164,
-    "ort_wip": 230.8
+    "ort_wip": 230.8,
+    "sefer_sayisi": 126,
+    "mesafe_km": 49.22
   },
   {
     "arac_sayisi": 1,
@@ -3007,7 +3551,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.62,
     "starv_dk": 7329,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.01
   },
   {
     "arac_sayisi": 2,
@@ -3018,7 +3564,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.13,
     "starv_dk": 5084,
-    "ort_wip": 125.1
+    "ort_wip": 125.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.12
   },
   {
     "arac_sayisi": 3,
@@ -3029,7 +3577,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.39,
     "starv_dk": 3040,
-    "ort_wip": 168.3
+    "ort_wip": 168.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -3040,7 +3590,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.15,
     "starv_dk": 1285,
-    "ort_wip": 209.6
+    "ort_wip": 209.6,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.41
   },
   {
     "arac_sayisi": 5,
@@ -3051,7 +3603,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.99,
     "starv_dk": 1036,
-    "ort_wip": 221.9
+    "ort_wip": 221.9,
+    "sefer_sayisi": 68,
+    "mesafe_km": 50.83
   },
   {
     "arac_sayisi": 6,
@@ -3062,7 +3616,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.02,
     "starv_dk": 578,
-    "ort_wip": 226.9
+    "ort_wip": 226.9,
+    "sefer_sayisi": 97,
+    "mesafe_km": 49.67
   },
   {
     "arac_sayisi": 7,
@@ -3073,7 +3629,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.0,
     "starv_dk": 346,
-    "ort_wip": 229.4
+    "ort_wip": 229.4,
+    "sefer_sayisi": 117,
+    "mesafe_km": 49.44
   },
   {
     "arac_sayisi": 8,
@@ -3084,7 +3642,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.48,
     "starv_dk": 286,
-    "ort_wip": 229.6
+    "ort_wip": 229.6,
+    "sefer_sayisi": 124,
+    "mesafe_km": 49.0
   },
   {
     "arac_sayisi": 1,
@@ -3095,7 +3655,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7326,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.09
   },
   {
     "arac_sayisi": 2,
@@ -3106,7 +3668,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.09,
     "starv_dk": 5079,
-    "ort_wip": 125.2
+    "ort_wip": 125.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.53
   },
   {
     "arac_sayisi": 3,
@@ -3117,7 +3681,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.98,
     "starv_dk": 3108,
-    "ort_wip": 168.5
+    "ort_wip": 168.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.84
   },
   {
     "arac_sayisi": 4,
@@ -3128,7 +3694,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.28,
     "starv_dk": 1300,
-    "ort_wip": 209.0
+    "ort_wip": 209.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.88
   },
   {
     "arac_sayisi": 5,
@@ -3139,7 +3707,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.84,
     "starv_dk": 1018,
-    "ort_wip": 221.1
+    "ort_wip": 221.1,
+    "sefer_sayisi": 65,
+    "mesafe_km": 50.79
   },
   {
     "arac_sayisi": 6,
@@ -3150,7 +3720,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.57,
     "starv_dk": 526,
-    "ort_wip": 228.0
+    "ort_wip": 228.0,
+    "sefer_sayisi": 95,
+    "mesafe_km": 50.26
   },
   {
     "arac_sayisi": 7,
@@ -3161,7 +3733,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.18,
     "starv_dk": 366,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 111,
+    "mesafe_km": 50.02
   },
   {
     "arac_sayisi": 8,
@@ -3172,7 +3746,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.44,
     "starv_dk": 281,
-    "ort_wip": 230.2
+    "ort_wip": 230.2,
+    "sefer_sayisi": 121,
+    "mesafe_km": 49.76
   },
   {
     "arac_sayisi": 1,
@@ -3183,7 +3759,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.34,
     "starv_dk": 7758,
-    "ort_wip": 72.2
+    "ort_wip": 72.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.06
   },
   {
     "arac_sayisi": 2,
@@ -3194,7 +3772,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.64,
     "starv_dk": 5719,
-    "ort_wip": 112.0
+    "ort_wip": 112.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.44
   },
   {
     "arac_sayisi": 3,
@@ -3205,7 +3785,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.45,
     "starv_dk": 3853,
-    "ort_wip": 151.0
+    "ort_wip": 151.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.4
   },
   {
     "arac_sayisi": 4,
@@ -3216,7 +3798,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.5,
     "starv_dk": 2131,
-    "ort_wip": 188.8
+    "ort_wip": 188.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.68
   },
   {
     "arac_sayisi": 5,
@@ -3227,7 +3811,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.61,
     "starv_dk": 1568,
-    "ort_wip": 210.2
+    "ort_wip": 210.2,
+    "sefer_sayisi": 52,
+    "mesafe_km": 56.06
   },
   {
     "arac_sayisi": 6,
@@ -3238,7 +3824,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.95,
     "starv_dk": 1031,
-    "ort_wip": 218.8
+    "ort_wip": 218.8,
+    "sefer_sayisi": 83,
+    "mesafe_km": 54.29
   },
   {
     "arac_sayisi": 7,
@@ -3249,7 +3837,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.95,
     "starv_dk": 570,
-    "ort_wip": 224.0
+    "ort_wip": 224.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 53.78
   },
   {
     "arac_sayisi": 8,
@@ -3260,7 +3850,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.8,
     "starv_dk": 438,
-    "ort_wip": 225.4
+    "ort_wip": 225.4,
+    "sefer_sayisi": 125,
+    "mesafe_km": 53.46
   },
   {
     "arac_sayisi": 1,
@@ -3271,7 +3863,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.3,
     "starv_dk": 7753,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.61
   },
   {
     "arac_sayisi": 2,
@@ -3282,7 +3876,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.67,
     "starv_dk": 5722,
-    "ort_wip": 112.1
+    "ort_wip": 112.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.85
   },
   {
     "arac_sayisi": 3,
@@ -3293,7 +3889,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.32,
     "starv_dk": 3838,
-    "ort_wip": 151.4
+    "ort_wip": 151.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.43
   },
   {
     "arac_sayisi": 4,
@@ -3304,7 +3902,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.29,
     "starv_dk": 2337,
-    "ort_wip": 185.8
+    "ort_wip": 185.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.27
   },
   {
     "arac_sayisi": 5,
@@ -3315,7 +3915,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.49,
     "starv_dk": 1439,
-    "ort_wip": 211.1
+    "ort_wip": 211.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 58.88
   },
   {
     "arac_sayisi": 6,
@@ -3326,7 +3928,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.9,
     "starv_dk": 910,
-    "ort_wip": 221.4
+    "ort_wip": 221.4,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.76
   },
   {
     "arac_sayisi": 7,
@@ -3337,7 +3941,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.69,
     "starv_dk": 540,
-    "ort_wip": 224.6
+    "ort_wip": 224.6,
+    "sefer_sayisi": 120,
+    "mesafe_km": 54.17
   },
   {
     "arac_sayisi": 8,
@@ -3348,7 +3954,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.79,
     "starv_dk": 437,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 128,
+    "mesafe_km": 53.69
   },
   {
     "arac_sayisi": 1,
@@ -3359,7 +3967,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.3,
     "starv_dk": 7753,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.46
   },
   {
     "arac_sayisi": 2,
@@ -3370,7 +3980,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.61,
     "starv_dk": 5715,
-    "ort_wip": 112.1
+    "ort_wip": 112.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.72
   },
   {
     "arac_sayisi": 3,
@@ -3381,7 +3993,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.63,
     "starv_dk": 3874,
-    "ort_wip": 151.3
+    "ort_wip": 151.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -3392,7 +4006,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.78,
     "starv_dk": 2164,
-    "ort_wip": 188.2
+    "ort_wip": 188.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.66
   },
   {
     "arac_sayisi": 5,
@@ -3403,7 +4019,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.74,
     "starv_dk": 1468,
-    "ort_wip": 210.8
+    "ort_wip": 210.8,
+    "sefer_sayisi": 52,
+    "mesafe_km": 54.19
   },
   {
     "arac_sayisi": 6,
@@ -3414,7 +4032,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.08,
     "starv_dk": 931,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 92,
+    "mesafe_km": 55.31
   },
   {
     "arac_sayisi": 7,
@@ -3425,7 +4045,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.12,
     "starv_dk": 475,
-    "ort_wip": 226.1
+    "ort_wip": 226.1,
+    "sefer_sayisi": 117,
+    "mesafe_km": 54.68
   },
   {
     "arac_sayisi": 8,
@@ -3436,7 +4058,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.51,
     "starv_dk": 404,
-    "ort_wip": 225.8
+    "ort_wip": 225.8,
+    "sefer_sayisi": 132,
+    "mesafe_km": 54.31
   },
   {
     "arac_sayisi": 1,
@@ -3447,7 +4071,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.34,
     "starv_dk": 7758,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.48
   },
   {
     "arac_sayisi": 2,
@@ -3458,7 +4084,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.56,
     "starv_dk": 5709,
-    "ort_wip": 112.2
+    "ort_wip": 112.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.58
   },
   {
     "arac_sayisi": 3,
@@ -3469,7 +4097,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.33,
     "starv_dk": 3840,
-    "ort_wip": 151.9
+    "ort_wip": 151.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.32
   },
   {
     "arac_sayisi": 4,
@@ -3480,7 +4110,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.6,
     "starv_dk": 2143,
-    "ort_wip": 188.8
+    "ort_wip": 188.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.52
   },
   {
     "arac_sayisi": 5,
@@ -3491,7 +4123,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.83,
     "starv_dk": 1248,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 53,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -3502,7 +4136,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.39,
     "starv_dk": 967,
-    "ort_wip": 220.2
+    "ort_wip": 220.2,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.7
   },
   {
     "arac_sayisi": 7,
@@ -3513,7 +4149,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.01,
     "starv_dk": 577,
-    "ort_wip": 224.7
+    "ort_wip": 224.7,
+    "sefer_sayisi": 119,
+    "mesafe_km": 54.85
   },
   {
     "arac_sayisi": 8,
@@ -3524,7 +4162,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.77,
     "starv_dk": 319,
-    "ort_wip": 227.0
+    "ort_wip": 227.0,
+    "sefer_sayisi": 135,
+    "mesafe_km": 53.61
   },
   {
     "arac_sayisi": 1,
@@ -3535,7 +4175,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.25
   },
   {
     "arac_sayisi": 2,
@@ -3546,7 +4188,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.36,
     "starv_dk": 5571,
-    "ort_wip": 122.6
+    "ort_wip": 122.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -3557,7 +4201,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.66,
     "starv_dk": 3647,
-    "ort_wip": 163.5
+    "ort_wip": 163.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.31
   },
   {
     "arac_sayisi": 4,
@@ -3568,7 +4214,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.19,
     "starv_dk": 2096,
-    "ort_wip": 201.7
+    "ort_wip": 201.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.14
   },
   {
     "arac_sayisi": 5,
@@ -3579,7 +4227,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.04,
     "starv_dk": 1272,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.52
   },
   {
     "arac_sayisi": 6,
@@ -3590,7 +4240,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.6
+    "ort_wip": 232.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.91
   },
   {
     "arac_sayisi": 7,
@@ -3601,7 +4253,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.5
   },
   {
     "arac_sayisi": 8,
@@ -3612,7 +4266,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.21,
     "starv_dk": 370,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 1,
@@ -3623,7 +4279,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.33,
     "starv_dk": 7526,
-    "ort_wip": 85.9
+    "ort_wip": 85.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.49
   },
   {
     "arac_sayisi": 2,
@@ -3634,7 +4292,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.33,
     "starv_dk": 5452,
-    "ort_wip": 130.9
+    "ort_wip": 130.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.41
   },
   {
     "arac_sayisi": 3,
@@ -3645,7 +4305,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.64,
     "starv_dk": 3415,
-    "ort_wip": 176.3
+    "ort_wip": 176.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.93
   },
   {
     "arac_sayisi": 4,
@@ -3656,7 +4318,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.52,
     "starv_dk": 2018,
-    "ort_wip": 214.4
+    "ort_wip": 214.4,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.43
   },
   {
     "arac_sayisi": 5,
@@ -3667,7 +4331,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.0,
     "starv_dk": 1382,
-    "ort_wip": 236.7
+    "ort_wip": 236.7,
+    "sefer_sayisi": 56,
+    "mesafe_km": 51.64
   },
   {
     "arac_sayisi": 6,
@@ -3678,7 +4344,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.38,
     "starv_dk": 735,
-    "ort_wip": 247.1
+    "ort_wip": 247.1,
+    "sefer_sayisi": 96,
+    "mesafe_km": 52.36
   },
   {
     "arac_sayisi": 7,
@@ -3689,7 +4357,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.11,
     "starv_dk": 358,
-    "ort_wip": 251.1
+    "ort_wip": 251.1,
+    "sefer_sayisi": 124,
+    "mesafe_km": 50.89
   },
   {
     "arac_sayisi": 8,
@@ -3700,7 +4370,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.47,
     "starv_dk": 284,
-    "ort_wip": 251.8
+    "ort_wip": 251.8,
+    "sefer_sayisi": 129,
+    "mesafe_km": 51.32
   },
   {
     "arac_sayisi": 1,
@@ -3711,7 +4383,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.46,
     "starv_dk": 8117,
-    "ort_wip": 65.2
+    "ort_wip": 65.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.82
   },
   {
     "arac_sayisi": 2,
@@ -3722,7 +4396,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.14,
     "starv_dk": 6237,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.7
   },
   {
     "arac_sayisi": 3,
@@ -3733,7 +4409,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.83,
     "starv_dk": 4473,
-    "ort_wip": 137.7
+    "ort_wip": 137.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.84
   },
   {
     "arac_sayisi": 4,
@@ -3744,7 +4422,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.33,
     "starv_dk": 2803,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.54
   },
   {
     "arac_sayisi": 5,
@@ -3755,7 +4435,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.68,
     "starv_dk": 1806,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.94
   },
   {
     "arac_sayisi": 6,
@@ -3766,7 +4448,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.0,
     "starv_dk": 1498,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 76,
+    "mesafe_km": 63.61
   },
   {
     "arac_sayisi": 7,
@@ -3777,7 +4461,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.3,
     "starv_dk": 956,
-    "ort_wip": 217.4
+    "ort_wip": 217.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 61.22
   },
   {
     "arac_sayisi": 8,
@@ -3788,7 +4474,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.3,
     "starv_dk": 495,
-    "ort_wip": 225.6
+    "ort_wip": 225.6,
+    "sefer_sayisi": 142,
+    "mesafe_km": 59.65
   },
   {
     "arac_sayisi": 1,
@@ -3799,7 +4487,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.43,
     "starv_dk": 8113,
-    "ort_wip": 65.3
+    "ort_wip": 65.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.01
   },
   {
     "arac_sayisi": 2,
@@ -3810,7 +4500,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.17,
     "starv_dk": 6240,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -3821,7 +4513,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.69,
     "starv_dk": 4457,
-    "ort_wip": 138.0
+    "ort_wip": 138.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.84
   },
   {
     "arac_sayisi": 4,
@@ -3832,7 +4526,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.49,
     "starv_dk": 2821,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.65
   },
   {
     "arac_sayisi": 5,
@@ -3843,7 +4539,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.84,
     "starv_dk": 1709,
-    "ort_wip": 201.3
+    "ort_wip": 201.3,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.0
   },
   {
     "arac_sayisi": 6,
@@ -3854,7 +4552,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.65,
     "starv_dk": 1457,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 75,
+    "mesafe_km": 60.41
   },
   {
     "arac_sayisi": 7,
@@ -3865,7 +4565,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.48,
     "starv_dk": 1092,
-    "ort_wip": 217.5
+    "ort_wip": 217.5,
+    "sefer_sayisi": 112,
+    "mesafe_km": 60.52
   },
   {
     "arac_sayisi": 8,
@@ -3876,7 +4578,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.13,
     "starv_dk": 476,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 139,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 1,
@@ -3887,7 +4591,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.88
   },
   {
     "arac_sayisi": 2,
@@ -3898,7 +4604,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.1
+    "ort_wip": 111.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.97
   },
   {
     "arac_sayisi": 3,
@@ -3909,7 +4617,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.5
+    "ort_wip": 148.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -3920,7 +4630,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.3
+    "ort_wip": 182.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -3931,7 +4643,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.98,
     "starv_dk": 1841,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -3942,7 +4656,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.27,
     "starv_dk": 1298,
-    "ort_wip": 224.4
+    "ort_wip": 224.4,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.36
   },
   {
     "arac_sayisi": 7,
@@ -3953,7 +4669,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.65
   },
   {
     "arac_sayisi": 8,
@@ -3964,7 +4682,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.5,
     "starv_dk": 403,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.37
   },
   {
     "arac_sayisi": 1,
@@ -3975,7 +4695,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.65,
     "starv_dk": 7908,
-    "ort_wip": 77.4
+    "ort_wip": 77.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.99
   },
   {
     "arac_sayisi": 2,
@@ -3986,7 +4708,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.97,
     "starv_dk": 5987,
-    "ort_wip": 119.1
+    "ort_wip": 119.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.74
   },
   {
     "arac_sayisi": 3,
@@ -3997,7 +4721,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.53,
     "starv_dk": 4093,
-    "ort_wip": 160.2
+    "ort_wip": 160.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.99
   },
   {
     "arac_sayisi": 4,
@@ -4008,7 +4734,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.7,
     "starv_dk": 2500,
-    "ort_wip": 197.7
+    "ort_wip": 197.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.4
   },
   {
     "arac_sayisi": 5,
@@ -4019,7 +4747,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.44,
     "starv_dk": 1548,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 45,
+    "mesafe_km": 59.76
   },
   {
     "arac_sayisi": 6,
@@ -4030,7 +4760,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.25,
     "starv_dk": 1411,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 83,
+    "mesafe_km": 58.15
   },
   {
     "arac_sayisi": 7,
@@ -4041,7 +4773,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.19,
     "starv_dk": 713,
-    "ort_wip": 243.8
+    "ort_wip": 243.8,
+    "sefer_sayisi": 113,
+    "mesafe_km": 56.56
   },
   {
     "arac_sayisi": 8,
@@ -4052,7 +4786,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.42,
     "starv_dk": 394,
-    "ort_wip": 247.3
+    "ort_wip": 247.3,
+    "sefer_sayisi": 137,
+    "mesafe_km": 56.93
   },
   {
     "arac_sayisi": 1,
@@ -4063,7 +4799,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.68,
     "starv_dk": 7797,
-    "ort_wip": 84.2
+    "ort_wip": 84.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.35
   },
   {
     "arac_sayisi": 2,
@@ -4074,7 +4812,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.85,
     "starv_dk": 5858,
-    "ort_wip": 127.5
+    "ort_wip": 127.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.89
   },
   {
     "arac_sayisi": 3,
@@ -4085,7 +4825,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.98,
     "starv_dk": 3915,
-    "ort_wip": 169.8
+    "ort_wip": 169.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.78
   },
   {
     "arac_sayisi": 4,
@@ -4096,7 +4838,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.6,
     "starv_dk": 2373,
-    "ort_wip": 211.4
+    "ort_wip": 211.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.86
   },
   {
     "arac_sayisi": 5,
@@ -4107,7 +4851,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.3,
     "starv_dk": 1532,
-    "ort_wip": 241.0
+    "ort_wip": 241.0,
+    "sefer_sayisi": 47,
+    "mesafe_km": 57.74
   },
   {
     "arac_sayisi": 6,
@@ -4118,7 +4864,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.98,
     "starv_dk": 1034,
-    "ort_wip": 250.2
+    "ort_wip": 250.2,
+    "sefer_sayisi": 88,
+    "mesafe_km": 56.77
   },
   {
     "arac_sayisi": 7,
@@ -4129,7 +4877,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.12,
     "starv_dk": 590,
-    "ort_wip": 257.1
+    "ort_wip": 257.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 56.42
   },
   {
     "arac_sayisi": 8,
@@ -4140,7 +4890,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.39,
     "starv_dk": 390,
-    "ort_wip": 259.1
+    "ort_wip": 259.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 56.73
   },
   {
     "arac_sayisi": 1,
@@ -4151,7 +4903,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.73,
     "starv_dk": 7572,
-    "ort_wip": 98.4
+    "ort_wip": 98.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.1
   },
   {
     "arac_sayisi": 2,
@@ -4162,7 +4916,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.23,
     "starv_dk": 5556,
-    "ort_wip": 146.1
+    "ort_wip": 146.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.99
   },
   {
     "arac_sayisi": 3,
@@ -4173,7 +4929,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.56,
     "starv_dk": 3520,
-    "ort_wip": 193.7
+    "ort_wip": 193.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.81
   },
   {
     "arac_sayisi": 4,
@@ -4184,7 +4942,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.45,
     "starv_dk": 2010,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.55
   },
   {
     "arac_sayisi": 5,
@@ -4195,7 +4955,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.25,
     "starv_dk": 1296,
-    "ort_wip": 267.9
+    "ort_wip": 267.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.12
   },
   {
     "arac_sayisi": 6,
@@ -4206,7 +4968,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.82,
     "starv_dk": 786,
-    "ort_wip": 278.0
+    "ort_wip": 278.0,
+    "sefer_sayisi": 92,
+    "mesafe_km": 53.31
   },
   {
     "arac_sayisi": 7,
@@ -4217,7 +4981,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.6,
     "starv_dk": 530,
-    "ort_wip": 281.2
+    "ort_wip": 281.2,
+    "sefer_sayisi": 114,
+    "mesafe_km": 53.46
   },
   {
     "arac_sayisi": 8,
@@ -4228,7 +4994,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.72,
     "starv_dk": 313,
-    "ort_wip": 283.2
+    "ort_wip": 283.2,
+    "sefer_sayisi": 126,
+    "mesafe_km": 52.89
   },
   {
     "arac_sayisi": 1,
@@ -4239,7 +5007,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -4250,7 +5020,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -4261,7 +5033,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -4272,7 +5046,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -4283,7 +5059,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -4294,7 +5072,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -4305,7 +5085,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -4316,7 +5098,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -4327,7 +5111,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.39,
     "starv_dk": 8224,
-    "ort_wip": 70.5
+    "ort_wip": 70.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.37
   },
   {
     "arac_sayisi": 2,
@@ -4338,7 +5124,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 55.98,
     "starv_dk": 6449,
-    "ort_wip": 109.0
+    "ort_wip": 109.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.34
   },
   {
     "arac_sayisi": 3,
@@ -4349,7 +5137,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.54,
     "starv_dk": 4670,
-    "ort_wip": 146.9
+    "ort_wip": 146.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.36
   },
   {
     "arac_sayisi": 4,
@@ -4360,7 +5150,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 27.08,
     "starv_dk": 3120,
-    "ort_wip": 182.6
+    "ort_wip": 182.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.36
   },
   {
     "arac_sayisi": 5,
@@ -4371,7 +5163,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.58,
     "starv_dk": 1910,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 6,
@@ -4382,7 +5176,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.85,
     "starv_dk": 1480,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 66,
+    "mesafe_km": 64.63
   },
   {
     "arac_sayisi": 7,
@@ -4393,7 +5189,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.1,
     "starv_dk": 1163,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 106,
+    "mesafe_km": 64.43
   },
   {
     "arac_sayisi": 8,
@@ -4404,7 +5202,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.93,
     "starv_dk": 683,
-    "ort_wip": 243.6
+    "ort_wip": 243.6,
+    "sefer_sayisi": 127,
+    "mesafe_km": 63.82
   },
   {
     "arac_sayisi": 1,
@@ -4415,7 +5215,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.44,
     "starv_dk": 8115,
-    "ort_wip": 76.8
+    "ort_wip": 76.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.48
   },
   {
     "arac_sayisi": 2,
@@ -4426,7 +5228,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.8,
     "starv_dk": 6313,
-    "ort_wip": 116.3
+    "ort_wip": 116.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.93
   },
   {
     "arac_sayisi": 3,
@@ -4437,7 +5241,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.03,
     "starv_dk": 4612,
-    "ort_wip": 154.8
+    "ort_wip": 154.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.12
   },
   {
     "arac_sayisi": 4,
@@ -4448,7 +5254,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.11,
     "starv_dk": 3008,
-    "ort_wip": 194.9
+    "ort_wip": 194.9,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.77
   },
   {
     "arac_sayisi": 5,
@@ -4459,7 +5267,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.87,
     "starv_dk": 2059,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 58.27
   },
   {
     "arac_sayisi": 6,
@@ -4470,7 +5280,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.28,
     "starv_dk": 1530,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 72,
+    "mesafe_km": 63.59
   },
   {
     "arac_sayisi": 7,
@@ -4481,7 +5293,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.18,
     "starv_dk": 942,
-    "ort_wip": 250.4
+    "ort_wip": 250.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 62.16
   },
   {
     "arac_sayisi": 8,
@@ -4492,7 +5306,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.84,
     "starv_dk": 557,
-    "ort_wip": 256.3
+    "ort_wip": 256.3,
+    "sefer_sayisi": 134,
+    "mesafe_km": 62.08
   },
   {
     "arac_sayisi": 1,
@@ -4503,7 +5319,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.68,
     "starv_dk": 7912,
-    "ort_wip": 89.7
+    "ort_wip": 89.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -4514,7 +5332,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.55,
     "starv_dk": 6054,
-    "ort_wip": 134.5
+    "ort_wip": 134.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.8
   },
   {
     "arac_sayisi": 3,
@@ -4525,7 +5345,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.69,
     "starv_dk": 4111,
-    "ort_wip": 178.0
+    "ort_wip": 178.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.88
   },
   {
     "arac_sayisi": 4,
@@ -4536,7 +5358,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.74,
     "starv_dk": 2505,
-    "ort_wip": 222.8
+    "ort_wip": 222.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.28
   },
   {
     "arac_sayisi": 5,
@@ -4547,7 +5371,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.13,
     "starv_dk": 1858,
-    "ort_wip": 252.8
+    "ort_wip": 252.8,
+    "sefer_sayisi": 43,
+    "mesafe_km": 59.23
   },
   {
     "arac_sayisi": 6,
@@ -4558,7 +5384,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.85,
     "starv_dk": 1365,
-    "ort_wip": 267.6
+    "ort_wip": 267.6,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.09
   },
   {
     "arac_sayisi": 7,
@@ -4569,7 +5397,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.64,
     "starv_dk": 880,
-    "ort_wip": 273.2
+    "ort_wip": 273.2,
+    "sefer_sayisi": 112,
+    "mesafe_km": 58.68
   },
   {
     "arac_sayisi": 8,
@@ -4580,7 +5410,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.28,
     "starv_dk": 493,
-    "ort_wip": 278.9
+    "ort_wip": 278.9,
+    "sefer_sayisi": 129,
+    "mesafe_km": 57.83
   },
   {
     "arac_sayisi": 1,
@@ -4591,7 +5423,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.79,
     "starv_dk": 7464,
-    "ort_wip": 113.5
+    "ort_wip": 113.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.59
   },
   {
     "arac_sayisi": 2,
@@ -4602,7 +5436,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.66,
     "starv_dk": 5491,
-    "ort_wip": 170.0
+    "ort_wip": 170.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.54
   },
   {
     "arac_sayisi": 3,
@@ -4613,7 +5449,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.33,
     "starv_dk": 3494,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.25
   },
   {
     "arac_sayisi": 4,
@@ -4624,7 +5462,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.79,
     "starv_dk": 1934,
-    "ort_wip": 272.8
+    "ort_wip": 272.8,
+    "sefer_sayisi": 34,
+    "mesafe_km": 48.52
   },
   {
     "arac_sayisi": 5,
@@ -4635,7 +5475,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.66,
     "starv_dk": 1343,
-    "ort_wip": 303.2
+    "ort_wip": 303.2,
+    "sefer_sayisi": 58,
+    "mesafe_km": 53.7
   },
   {
     "arac_sayisi": 6,
@@ -4646,7 +5488,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.83,
     "starv_dk": 902,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 92,
+    "mesafe_km": 51.58
   },
   {
     "arac_sayisi": 7,
@@ -4657,7 +5501,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.38,
     "starv_dk": 505,
-    "ort_wip": 316.8
+    "ort_wip": 316.8,
+    "sefer_sayisi": 117,
+    "mesafe_km": 51.01
   },
   {
     "arac_sayisi": 8,
@@ -4668,7 +5514,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.84,
     "starv_dk": 327,
-    "ort_wip": 319.1
+    "ort_wip": 319.1,
+    "sefer_sayisi": 128,
+    "mesafe_km": 51.58
   },
   {
     "arac_sayisi": 1,
@@ -4679,7 +5527,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.87,
     "starv_dk": 7127,
-    "ort_wip": 131.8
+    "ort_wip": 131.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.06
   },
   {
     "arac_sayisi": 2,
@@ -4690,7 +5540,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.48,
     "starv_dk": 5009,
-    "ort_wip": 196.6
+    "ort_wip": 196.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.05
   },
   {
     "arac_sayisi": 3,
@@ -4701,7 +5553,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.7,
     "starv_dk": 3076,
-    "ort_wip": 258.6
+    "ort_wip": 258.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.11
   },
   {
     "arac_sayisi": 4,
@@ -4712,7 +5566,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.09,
     "starv_dk": 1623,
-    "ort_wip": 314.8
+    "ort_wip": 314.8,
+    "sefer_sayisi": 34,
+    "mesafe_km": 46.21
   },
   {
     "arac_sayisi": 5,
@@ -4723,7 +5579,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.31,
     "starv_dk": 1072,
-    "ort_wip": 334.7
+    "ort_wip": 334.7,
+    "sefer_sayisi": 64,
+    "mesafe_km": 47.39
   },
   {
     "arac_sayisi": 6,
@@ -4734,7 +5592,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.66,
     "starv_dk": 883,
-    "ort_wip": 341.2
+    "ort_wip": 341.2,
+    "sefer_sayisi": 88,
+    "mesafe_km": 47.23
   },
   {
     "arac_sayisi": 7,
@@ -4745,7 +5605,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.42,
     "starv_dk": 509,
-    "ort_wip": 346.3
+    "ort_wip": 346.3,
+    "sefer_sayisi": 108,
+    "mesafe_km": 46.9
   },
   {
     "arac_sayisi": 8,
@@ -4756,7 +5618,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.12,
     "starv_dk": 359,
-    "ort_wip": 347.9
+    "ort_wip": 347.9,
+    "sefer_sayisi": 115,
+    "mesafe_km": 46.77
   },
   {
     "arac_sayisi": 1,
@@ -4767,7 +5631,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.8,
     "starv_dk": 8387,
-    "ort_wip": 70.4
+    "ort_wip": 70.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.42
   },
   {
     "arac_sayisi": 2,
@@ -4778,7 +5644,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.16,
     "starv_dk": 6700,
-    "ort_wip": 107.8
+    "ort_wip": 107.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.87
   },
   {
     "arac_sayisi": 3,
@@ -4789,7 +5657,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.55,
     "starv_dk": 5017,
-    "ort_wip": 143.7
+    "ort_wip": 143.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -4800,7 +5670,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.2,
     "starv_dk": 3710,
-    "ort_wip": 178.6
+    "ort_wip": 178.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.75
   },
   {
     "arac_sayisi": 5,
@@ -4811,7 +5683,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.83,
     "starv_dk": 2400,
-    "ort_wip": 211.4
+    "ort_wip": 211.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.2
   },
   {
     "arac_sayisi": 6,
@@ -4822,7 +5696,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.86,
     "starv_dk": 1827,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 59,
+    "mesafe_km": 68.74
   },
   {
     "arac_sayisi": 7,
@@ -4833,7 +5709,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.52,
     "starv_dk": 1442,
-    "ort_wip": 240.8
+    "ort_wip": 240.8,
+    "sefer_sayisi": 101,
+    "mesafe_km": 68.23
   },
   {
     "arac_sayisi": 8,
@@ -4844,7 +5722,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.16,
     "starv_dk": 1055,
-    "ort_wip": 247.5
+    "ort_wip": 247.5,
+    "sefer_sayisi": 130,
+    "mesafe_km": 66.91
   },
   {
     "arac_sayisi": 1,
@@ -4855,7 +5735,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.14,
     "starv_dk": 8195,
-    "ort_wip": 82.3
+    "ort_wip": 82.3,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.28
   },
   {
     "arac_sayisi": 2,
@@ -4866,7 +5748,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.02,
     "starv_dk": 6453,
-    "ort_wip": 123.3
+    "ort_wip": 123.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.17
   },
   {
     "arac_sayisi": 3,
@@ -4877,7 +5761,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.69,
     "starv_dk": 4687,
-    "ort_wip": 164.2
+    "ort_wip": 164.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.8
   },
   {
     "arac_sayisi": 4,
@@ -4888,7 +5774,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.73,
     "starv_dk": 3079,
-    "ort_wip": 207.7
+    "ort_wip": 207.7,
+    "sefer_sayisi": 30,
+    "mesafe_km": 46.61
   },
   {
     "arac_sayisi": 5,
@@ -4899,7 +5787,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.09,
     "starv_dk": 2084,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 39,
+    "mesafe_km": 55.25
   },
   {
     "arac_sayisi": 6,
@@ -4910,7 +5800,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.72,
     "starv_dk": 1581,
-    "ort_wip": 258.7
+    "ort_wip": 258.7,
+    "sefer_sayisi": 70,
+    "mesafe_km": 64.81
   },
   {
     "arac_sayisi": 7,
@@ -4921,7 +5813,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.54,
     "starv_dk": 1329,
-    "ort_wip": 264.6
+    "ort_wip": 264.6,
+    "sefer_sayisi": 103,
+    "mesafe_km": 63.92
   },
   {
     "arac_sayisi": 8,
@@ -4932,7 +5826,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.44,
     "starv_dk": 972,
-    "ort_wip": 270.2
+    "ort_wip": 270.2,
+    "sefer_sayisi": 129,
+    "mesafe_km": 63.09
   },
   {
     "arac_sayisi": 1,
@@ -4943,7 +5839,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.6,
     "starv_dk": 7787,
-    "ort_wip": 104.0
+    "ort_wip": 104.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.29
   },
   {
     "arac_sayisi": 2,
@@ -4954,7 +5852,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.59,
     "starv_dk": 5943,
-    "ort_wip": 156.6
+    "ort_wip": 156.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.54
   },
   {
     "arac_sayisi": 3,
@@ -4965,7 +5865,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.0,
     "starv_dk": 4032,
-    "ort_wip": 205.7
+    "ort_wip": 205.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.48
   },
   {
     "arac_sayisi": 4,
@@ -4976,7 +5878,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.12,
     "starv_dk": 2663,
-    "ort_wip": 251.2
+    "ort_wip": 251.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.05
   },
   {
     "arac_sayisi": 5,
@@ -4987,7 +5891,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.11,
     "starv_dk": 1625,
-    "ort_wip": 290.6
+    "ort_wip": 290.6,
+    "sefer_sayisi": 45,
+    "mesafe_km": 56.2
   },
   {
     "arac_sayisi": 6,
@@ -4998,7 +5904,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.47,
     "starv_dk": 1321,
-    "ort_wip": 302.3
+    "ort_wip": 302.3,
+    "sefer_sayisi": 83,
+    "mesafe_km": 57.55
   },
   {
     "arac_sayisi": 7,
@@ -5009,7 +5917,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.82,
     "starv_dk": 786,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 57.96
   },
   {
     "arac_sayisi": 8,
@@ -5020,7 +5930,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.09,
     "starv_dk": 471,
-    "ort_wip": 314.9
+    "ort_wip": 314.9,
+    "sefer_sayisi": 134,
+    "mesafe_km": 57.71
   },
   {
     "arac_sayisi": 1,
@@ -5031,7 +5943,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.87,
     "starv_dk": 7473,
-    "ort_wip": 120.9
+    "ort_wip": 120.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.42
   },
   {
     "arac_sayisi": 2,
@@ -5042,7 +5956,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.53,
     "starv_dk": 5476,
-    "ort_wip": 181.8
+    "ort_wip": 181.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.72
   },
   {
     "arac_sayisi": 3,
@@ -5053,7 +5969,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.57,
     "starv_dk": 3522,
-    "ort_wip": 241.9
+    "ort_wip": 241.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.3
   },
   {
     "arac_sayisi": 4,
@@ -5064,7 +5982,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 19.01,
     "starv_dk": 2190,
-    "ort_wip": 292.5
+    "ort_wip": 292.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.59
   },
   {
     "arac_sayisi": 5,
@@ -5075,7 +5995,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.04,
     "starv_dk": 1387,
-    "ort_wip": 325.1
+    "ort_wip": 325.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 55.21
   },
   {
     "arac_sayisi": 6,
@@ -5086,7 +6008,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.54,
     "starv_dk": 869,
-    "ort_wip": 336.4
+    "ort_wip": 336.4,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.65
   },
   {
     "arac_sayisi": 7,
@@ -5097,7 +6021,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.58,
     "starv_dk": 758,
-    "ort_wip": 337.5
+    "ort_wip": 337.5,
+    "sefer_sayisi": 114,
+    "mesafe_km": 54.27
   },
   {
     "arac_sayisi": 8,
@@ -5108,7 +6034,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.18,
     "starv_dk": 482,
-    "ort_wip": 340.5
+    "ort_wip": 340.5,
+    "sefer_sayisi": 133,
+    "mesafe_km": 52.94
   },
   {
     "arac_sayisi": 1,
@@ -5119,7 +6047,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.88,
     "starv_dk": 7129,
-    "ort_wip": 141.9
+    "ort_wip": 141.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.16
   },
   {
     "arac_sayisi": 2,
@@ -5130,7 +6060,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.38,
     "starv_dk": 4997,
-    "ort_wip": 213.3
+    "ort_wip": 213.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.67
   },
   {
     "arac_sayisi": 3,
@@ -5141,7 +6073,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.61,
     "starv_dk": 3066,
-    "ort_wip": 284.3
+    "ort_wip": 284.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.93
   },
   {
     "arac_sayisi": 4,
@@ -5152,7 +6086,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.48,
     "starv_dk": 1553,
-    "ort_wip": 343.2
+    "ort_wip": 343.2,
+    "sefer_sayisi": 36,
+    "mesafe_km": 48.58
   },
   {
     "arac_sayisi": 5,
@@ -5163,7 +6099,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.99,
     "starv_dk": 1151,
-    "ort_wip": 366.6
+    "ort_wip": 366.6,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.32
   },
   {
     "arac_sayisi": 6,
@@ -5174,7 +6112,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.19,
     "starv_dk": 713,
-    "ort_wip": 374.9
+    "ort_wip": 374.9,
+    "sefer_sayisi": 91,
+    "mesafe_km": 48.08
   },
   {
     "arac_sayisi": 7,
@@ -5185,7 +6125,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.89,
     "starv_dk": 448,
-    "ort_wip": 377.8
+    "ort_wip": 377.8,
+    "sefer_sayisi": 108,
+    "mesafe_km": 47.73
   },
   {
     "arac_sayisi": 8,
@@ -5196,7 +6138,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.8,
     "starv_dk": 322,
-    "ort_wip": 380.0
+    "ort_wip": 380.0,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.62
   },
   {
     "arac_sayisi": 1,
@@ -5207,7 +6151,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 59.84,
     "starv_dk": 6894,
-    "ort_wip": 154.5
+    "ort_wip": 154.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.15
   },
   {
     "arac_sayisi": 2,
@@ -5218,7 +6164,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.16,
     "starv_dk": 4627,
-    "ort_wip": 233.8
+    "ort_wip": 233.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.68
   },
   {
     "arac_sayisi": 3,
@@ -5229,7 +6177,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 22.74,
     "starv_dk": 2620,
-    "ort_wip": 312.6
+    "ort_wip": 312.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.91
   },
   {
     "arac_sayisi": 4,
@@ -5240,7 +6190,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.27,
     "starv_dk": 1183,
-    "ort_wip": 376.1
+    "ort_wip": 376.1,
+    "sefer_sayisi": 40,
+    "mesafe_km": 46.72
   },
   {
     "arac_sayisi": 5,
@@ -5251,7 +6203,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.5,
     "starv_dk": 864,
-    "ort_wip": 389.7
+    "ort_wip": 389.7,
+    "sefer_sayisi": 72,
+    "mesafe_km": 45.72
   },
   {
     "arac_sayisi": 6,
@@ -5262,7 +6216,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.31,
     "starv_dk": 727,
-    "ort_wip": 393.2
+    "ort_wip": 393.2,
+    "sefer_sayisi": 96,
+    "mesafe_km": 45.82
   },
   {
     "arac_sayisi": 7,
@@ -5273,7 +6229,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.95,
     "starv_dk": 340,
-    "ort_wip": 399.3
+    "ort_wip": 399.3,
+    "sefer_sayisi": 111,
+    "mesafe_km": 45.47
   },
   {
     "arac_sayisi": 8,
@@ -5284,7 +6242,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.11,
     "starv_dk": 243,
-    "ort_wip": 399.6
+    "ort_wip": 399.6,
+    "sefer_sayisi": 117,
+    "mesafe_km": 44.63
   },
   {
     "arac_sayisi": 1,
@@ -5295,7 +6255,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.6,
     "starv_dk": 7327,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -5306,7 +6268,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.26,
     "starv_dk": 5099,
-    "ort_wip": 124.6
+    "ort_wip": 124.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.54
   },
   {
     "arac_sayisi": 3,
@@ -5317,7 +6281,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.86,
     "starv_dk": 3094,
-    "ort_wip": 167.7
+    "ort_wip": 167.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.23
   },
   {
     "arac_sayisi": 4,
@@ -5328,7 +6294,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.54,
     "starv_dk": 1445,
-    "ort_wip": 206.3
+    "ort_wip": 206.3,
+    "sefer_sayisi": 31,
+    "mesafe_km": 46.65
   },
   {
     "arac_sayisi": 5,
@@ -5339,7 +6307,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.36,
     "starv_dk": 1078,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 63,
+    "mesafe_km": 49.62
   },
   {
     "arac_sayisi": 6,
@@ -5350,7 +6320,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.58,
     "starv_dk": 528,
-    "ort_wip": 226.8
+    "ort_wip": 226.8,
+    "sefer_sayisi": 93,
+    "mesafe_km": 49.49
   },
   {
     "arac_sayisi": 7,
@@ -5361,7 +6333,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.57,
     "starv_dk": 411,
-    "ort_wip": 228.6
+    "ort_wip": 228.6,
+    "sefer_sayisi": 107,
+    "mesafe_km": 48.1
   },
   {
     "arac_sayisi": 8,
@@ -5372,7 +6346,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.42,
     "starv_dk": 279,
-    "ort_wip": 229.3
+    "ort_wip": 229.3,
+    "sefer_sayisi": 114,
+    "mesafe_km": 47.94
   },
   {
     "arac_sayisi": 1,
@@ -5383,7 +6359,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7325,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.13
   },
   {
     "arac_sayisi": 2,
@@ -5394,7 +6372,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.24,
     "starv_dk": 5097,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.38
   },
   {
     "arac_sayisi": 3,
@@ -5405,7 +6385,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.92,
     "starv_dk": 3101,
-    "ort_wip": 168.0
+    "ort_wip": 168.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.52
   },
   {
     "arac_sayisi": 4,
@@ -5416,7 +6398,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.26,
     "starv_dk": 1297,
-    "ort_wip": 209.0
+    "ort_wip": 209.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 5,
@@ -5427,7 +6411,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.27,
     "starv_dk": 953,
-    "ort_wip": 220.8
+    "ort_wip": 220.8,
+    "sefer_sayisi": 68,
+    "mesafe_km": 48.63
   },
   {
     "arac_sayisi": 6,
@@ -5438,7 +6424,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.19,
     "starv_dk": 598,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 99,
+    "mesafe_km": 48.96
   },
   {
     "arac_sayisi": 7,
@@ -5449,7 +6437,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.23,
     "starv_dk": 372,
-    "ort_wip": 229.0
+    "ort_wip": 229.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 48.75
   },
   {
     "arac_sayisi": 8,
@@ -5460,7 +6450,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 229.9
+    "ort_wip": 229.9,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.83
   },
   {
     "arac_sayisi": 1,
@@ -5471,7 +6463,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.61,
     "starv_dk": 7328,
-    "ort_wip": 80.8
+    "ort_wip": 80.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.81
   },
   {
     "arac_sayisi": 2,
@@ -5482,7 +6476,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.18,
     "starv_dk": 5090,
-    "ort_wip": 124.8
+    "ort_wip": 124.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.41
   },
   {
     "arac_sayisi": 3,
@@ -5493,7 +6489,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.91,
     "starv_dk": 3100,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.77
   },
   {
     "arac_sayisi": 4,
@@ -5504,7 +6502,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.09,
     "starv_dk": 1508,
-    "ort_wip": 206.6
+    "ort_wip": 206.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.02
   },
   {
     "arac_sayisi": 5,
@@ -5515,7 +6515,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.63,
     "starv_dk": 1109,
-    "ort_wip": 220.3
+    "ort_wip": 220.3,
+    "sefer_sayisi": 67,
+    "mesafe_km": 49.31
   },
   {
     "arac_sayisi": 6,
@@ -5526,7 +6528,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.9,
     "starv_dk": 565,
-    "ort_wip": 227.1
+    "ort_wip": 227.1,
+    "sefer_sayisi": 100,
+    "mesafe_km": 47.82
   },
   {
     "arac_sayisi": 7,
@@ -5537,7 +6541,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.29,
     "starv_dk": 264,
-    "ort_wip": 230.6
+    "ort_wip": 230.6,
+    "sefer_sayisi": 117,
+    "mesafe_km": 47.98
   },
   {
     "arac_sayisi": 8,
@@ -5548,7 +6554,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.69,
     "starv_dk": 195,
-    "ort_wip": 231.0
+    "ort_wip": 231.0,
+    "sefer_sayisi": 124,
+    "mesafe_km": 47.65
   },
   {
     "arac_sayisi": 1,
@@ -5559,7 +6567,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.63,
     "starv_dk": 7330,
-    "ort_wip": 80.9
+    "ort_wip": 80.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.03
   },
   {
     "arac_sayisi": 2,
@@ -5570,7 +6580,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.16,
     "starv_dk": 5087,
-    "ort_wip": 124.9
+    "ort_wip": 124.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.89
   },
   {
     "arac_sayisi": 3,
@@ -5581,7 +6593,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.79,
     "starv_dk": 3086,
-    "ort_wip": 168.4
+    "ort_wip": 168.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 40.0
   },
   {
     "arac_sayisi": 4,
@@ -5592,7 +6606,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.11,
     "starv_dk": 1625,
-    "ort_wip": 204.7
+    "ort_wip": 204.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.58
   },
   {
     "arac_sayisi": 5,
@@ -5603,7 +6619,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.5,
     "starv_dk": 979,
-    "ort_wip": 221.1
+    "ort_wip": 221.1,
+    "sefer_sayisi": 67,
+    "mesafe_km": 51.14
   },
   {
     "arac_sayisi": 6,
@@ -5614,7 +6632,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.22,
     "starv_dk": 601,
-    "ort_wip": 226.1
+    "ort_wip": 226.1,
+    "sefer_sayisi": 96,
+    "mesafe_km": 51.16
   },
   {
     "arac_sayisi": 7,
@@ -5625,7 +6645,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.56,
     "starv_dk": 295,
-    "ort_wip": 229.9
+    "ort_wip": 229.9,
+    "sefer_sayisi": 118,
+    "mesafe_km": 50.31
   },
   {
     "arac_sayisi": 8,
@@ -5636,7 +6658,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.55,
     "starv_dk": 178,
-    "ort_wip": 230.7
+    "ort_wip": 230.7,
+    "sefer_sayisi": 126,
+    "mesafe_km": 49.38
   },
   {
     "arac_sayisi": 1,
@@ -5647,7 +6671,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.62,
     "starv_dk": 7329,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.81
   },
   {
     "arac_sayisi": 2,
@@ -5658,7 +6684,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.13,
     "starv_dk": 5084,
-    "ort_wip": 125.1
+    "ort_wip": 125.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -5669,7 +6697,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.29,
     "starv_dk": 3029,
-    "ort_wip": 168.5
+    "ort_wip": 168.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -5680,7 +6710,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.86,
     "starv_dk": 1251,
-    "ort_wip": 209.8
+    "ort_wip": 209.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.58
   },
   {
     "arac_sayisi": 5,
@@ -5691,7 +6723,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.18,
     "starv_dk": 1057,
-    "ort_wip": 221.7
+    "ort_wip": 221.7,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.96
   },
   {
     "arac_sayisi": 6,
@@ -5702,7 +6736,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.24,
     "starv_dk": 604,
-    "ort_wip": 226.5
+    "ort_wip": 226.5,
+    "sefer_sayisi": 97,
+    "mesafe_km": 48.88
   },
   {
     "arac_sayisi": 7,
@@ -5713,7 +6749,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.04,
     "starv_dk": 350,
-    "ort_wip": 229.4
+    "ort_wip": 229.4,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.64
   },
   {
     "arac_sayisi": 8,
@@ -5724,7 +6762,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.49,
     "starv_dk": 287,
-    "ort_wip": 229.8
+    "ort_wip": 229.8,
+    "sefer_sayisi": 124,
+    "mesafe_km": 48.32
   },
   {
     "arac_sayisi": 1,
@@ -5735,7 +6775,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 63.59,
     "starv_dk": 7326,
-    "ort_wip": 81.0
+    "ort_wip": 81.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.91
   },
   {
     "arac_sayisi": 2,
@@ -5746,7 +6788,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.1,
     "starv_dk": 5080,
-    "ort_wip": 125.4
+    "ort_wip": 125.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.98
   },
   {
     "arac_sayisi": 3,
@@ -5757,7 +6801,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.73,
     "starv_dk": 3079,
-    "ort_wip": 168.7
+    "ort_wip": 168.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.89
   },
   {
     "arac_sayisi": 4,
@@ -5768,7 +6814,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.32,
     "starv_dk": 1304,
-    "ort_wip": 209.2
+    "ort_wip": 209.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.64
   },
   {
     "arac_sayisi": 5,
@@ -5779,7 +6827,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.89,
     "starv_dk": 1024,
-    "ort_wip": 221.1
+    "ort_wip": 221.1,
+    "sefer_sayisi": 65,
+    "mesafe_km": 50.25
   },
   {
     "arac_sayisi": 6,
@@ -5790,7 +6840,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.66,
     "starv_dk": 537,
-    "ort_wip": 227.9
+    "ort_wip": 227.9,
+    "sefer_sayisi": 95,
+    "mesafe_km": 49.6
   },
   {
     "arac_sayisi": 7,
@@ -5801,7 +6853,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.17,
     "starv_dk": 365,
-    "ort_wip": 229.6
+    "ort_wip": 229.6,
+    "sefer_sayisi": 111,
+    "mesafe_km": 49.36
   },
   {
     "arac_sayisi": 8,
@@ -5812,7 +6866,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.36,
     "starv_dk": 272,
-    "ort_wip": 230.4
+    "ort_wip": 230.4,
+    "sefer_sayisi": 121,
+    "mesafe_km": 49.2
   },
   {
     "arac_sayisi": 1,
@@ -5823,7 +6879,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.34,
     "starv_dk": 7758,
-    "ort_wip": 72.2
+    "ort_wip": 72.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.06
   },
   {
     "arac_sayisi": 2,
@@ -5834,7 +6892,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.64,
     "starv_dk": 5719,
-    "ort_wip": 112.0
+    "ort_wip": 112.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.44
   },
   {
     "arac_sayisi": 3,
@@ -5845,7 +6905,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.45,
     "starv_dk": 3853,
-    "ort_wip": 151.0
+    "ort_wip": 151.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.4
   },
   {
     "arac_sayisi": 4,
@@ -5856,7 +6918,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.5,
     "starv_dk": 2131,
-    "ort_wip": 188.8
+    "ort_wip": 188.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.68
   },
   {
     "arac_sayisi": 5,
@@ -5867,7 +6931,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.61,
     "starv_dk": 1568,
-    "ort_wip": 210.2
+    "ort_wip": 210.2,
+    "sefer_sayisi": 52,
+    "mesafe_km": 56.06
   },
   {
     "arac_sayisi": 6,
@@ -5878,7 +6944,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.95,
     "starv_dk": 1031,
-    "ort_wip": 218.8
+    "ort_wip": 218.8,
+    "sefer_sayisi": 83,
+    "mesafe_km": 54.29
   },
   {
     "arac_sayisi": 7,
@@ -5889,7 +6957,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.95,
     "starv_dk": 570,
-    "ort_wip": 224.0
+    "ort_wip": 224.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 53.78
   },
   {
     "arac_sayisi": 8,
@@ -5900,7 +6970,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.8,
     "starv_dk": 438,
-    "ort_wip": 225.4
+    "ort_wip": 225.4,
+    "sefer_sayisi": 125,
+    "mesafe_km": 53.46
   },
   {
     "arac_sayisi": 1,
@@ -5911,7 +6983,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.3,
     "starv_dk": 7753,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.61
   },
   {
     "arac_sayisi": 2,
@@ -5922,7 +6996,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.67,
     "starv_dk": 5722,
-    "ort_wip": 112.1
+    "ort_wip": 112.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.85
   },
   {
     "arac_sayisi": 3,
@@ -5933,7 +7009,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.32,
     "starv_dk": 3838,
-    "ort_wip": 151.4
+    "ort_wip": 151.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.43
   },
   {
     "arac_sayisi": 4,
@@ -5944,7 +7022,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.29,
     "starv_dk": 2337,
-    "ort_wip": 185.8
+    "ort_wip": 185.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.27
   },
   {
     "arac_sayisi": 5,
@@ -5955,7 +7035,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.49,
     "starv_dk": 1439,
-    "ort_wip": 211.1
+    "ort_wip": 211.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 58.88
   },
   {
     "arac_sayisi": 6,
@@ -5966,7 +7048,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.9,
     "starv_dk": 910,
-    "ort_wip": 221.4
+    "ort_wip": 221.4,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.76
   },
   {
     "arac_sayisi": 7,
@@ -5977,7 +7061,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.69,
     "starv_dk": 540,
-    "ort_wip": 224.6
+    "ort_wip": 224.6,
+    "sefer_sayisi": 120,
+    "mesafe_km": 54.17
   },
   {
     "arac_sayisi": 8,
@@ -5988,7 +7074,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.79,
     "starv_dk": 437,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 128,
+    "mesafe_km": 53.69
   },
   {
     "arac_sayisi": 1,
@@ -5999,7 +7087,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.31,
     "starv_dk": 7754,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.39
   },
   {
     "arac_sayisi": 2,
@@ -6010,7 +7100,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.6,
     "starv_dk": 5714,
-    "ort_wip": 112.0
+    "ort_wip": 112.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.59
   },
   {
     "arac_sayisi": 3,
@@ -6021,7 +7113,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.49,
     "starv_dk": 3858,
-    "ort_wip": 151.4
+    "ort_wip": 151.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.28
   },
   {
     "arac_sayisi": 4,
@@ -6032,7 +7126,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.8,
     "starv_dk": 2166,
-    "ort_wip": 188.2
+    "ort_wip": 188.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.41
   },
   {
     "arac_sayisi": 5,
@@ -6043,7 +7139,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.68,
     "starv_dk": 1461,
-    "ort_wip": 210.9
+    "ort_wip": 210.9,
+    "sefer_sayisi": 52,
+    "mesafe_km": 54.1
   },
   {
     "arac_sayisi": 6,
@@ -6054,7 +7152,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.93,
     "starv_dk": 913,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 92,
+    "mesafe_km": 54.8
   },
   {
     "arac_sayisi": 7,
@@ -6065,7 +7165,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.35,
     "starv_dk": 501,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 117,
+    "mesafe_km": 54.66
   },
   {
     "arac_sayisi": 8,
@@ -6076,7 +7178,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.48,
     "starv_dk": 401,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 132,
+    "mesafe_km": 54.26
   },
   {
     "arac_sayisi": 1,
@@ -6087,7 +7191,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.35,
     "starv_dk": 7759,
-    "ort_wip": 72.4
+    "ort_wip": 72.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.57
   },
   {
     "arac_sayisi": 2,
@@ -6098,7 +7204,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.58,
     "starv_dk": 5712,
-    "ort_wip": 112.3
+    "ort_wip": 112.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.78
   },
   {
     "arac_sayisi": 3,
@@ -6109,7 +7217,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.24,
     "starv_dk": 3829,
-    "ort_wip": 151.9
+    "ort_wip": 151.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.42
   },
   {
     "arac_sayisi": 4,
@@ -6120,7 +7230,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.79,
     "starv_dk": 2165,
-    "ort_wip": 188.6
+    "ort_wip": 188.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.4
   },
   {
     "arac_sayisi": 5,
@@ -6131,7 +7243,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.93,
     "starv_dk": 1259,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 53,
+    "mesafe_km": 57.09
   },
   {
     "arac_sayisi": 6,
@@ -6142,7 +7256,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.25,
     "starv_dk": 950,
-    "ort_wip": 220.4
+    "ort_wip": 220.4,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.75
   },
   {
     "arac_sayisi": 7,
@@ -6153,7 +7269,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.72,
     "starv_dk": 544,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 119,
+    "mesafe_km": 54.7
   },
   {
     "arac_sayisi": 8,
@@ -6164,7 +7282,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.46,
     "starv_dk": 283,
-    "ort_wip": 227.0
+    "ort_wip": 227.0,
+    "sefer_sayisi": 135,
+    "mesafe_km": 53.57
   },
   {
     "arac_sayisi": 1,
@@ -6175,7 +7295,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.2
   },
   {
     "arac_sayisi": 2,
@@ -6186,7 +7308,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.37,
     "starv_dk": 5572,
-    "ort_wip": 122.5
+    "ort_wip": 122.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.54
   },
   {
     "arac_sayisi": 3,
@@ -6197,7 +7321,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.9,
     "starv_dk": 3675,
-    "ort_wip": 162.7
+    "ort_wip": 162.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.55
   },
   {
     "arac_sayisi": 4,
@@ -6208,7 +7334,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.76,
     "starv_dk": 2046,
-    "ort_wip": 202.1
+    "ort_wip": 202.1,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.95
   },
   {
     "arac_sayisi": 5,
@@ -6219,7 +7347,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.95,
     "starv_dk": 1262,
-    "ort_wip": 225.3
+    "ort_wip": 225.3,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.82
   },
   {
     "arac_sayisi": 6,
@@ -6230,7 +7360,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.37,
     "starv_dk": 964,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.19
   },
   {
     "arac_sayisi": 7,
@@ -6241,7 +7373,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.45,
     "starv_dk": 513,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.72
   },
   {
     "arac_sayisi": 8,
@@ -6252,7 +7386,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.97,
     "starv_dk": 342,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.27
   },
   {
     "arac_sayisi": 1,
@@ -6263,7 +7399,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.35,
     "starv_dk": 7528,
-    "ort_wip": 85.8
+    "ort_wip": 85.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.7
   },
   {
     "arac_sayisi": 2,
@@ -6274,7 +7412,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.31,
     "starv_dk": 5450,
-    "ort_wip": 130.9
+    "ort_wip": 130.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.5
   },
   {
     "arac_sayisi": 3,
@@ -6285,7 +7425,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.64,
     "starv_dk": 3415,
-    "ort_wip": 175.8
+    "ort_wip": 175.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.38
   },
   {
     "arac_sayisi": 4,
@@ -6296,7 +7438,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.5,
     "starv_dk": 2016,
-    "ort_wip": 214.2
+    "ort_wip": 214.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.6
   },
   {
     "arac_sayisi": 5,
@@ -6307,7 +7451,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.81,
     "starv_dk": 1361,
-    "ort_wip": 236.7
+    "ort_wip": 236.7,
+    "sefer_sayisi": 56,
+    "mesafe_km": 51.54
   },
   {
     "arac_sayisi": 6,
@@ -6318,7 +7464,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.19,
     "starv_dk": 713,
-    "ort_wip": 246.8
+    "ort_wip": 246.8,
+    "sefer_sayisi": 96,
+    "mesafe_km": 52.78
   },
   {
     "arac_sayisi": 7,
@@ -6329,7 +7477,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.07,
     "starv_dk": 354,
-    "ort_wip": 250.7
+    "ort_wip": 250.7,
+    "sefer_sayisi": 124,
+    "mesafe_km": 50.92
   },
   {
     "arac_sayisi": 8,
@@ -6340,7 +7490,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.45,
     "starv_dk": 282,
-    "ort_wip": 251.6
+    "ort_wip": 251.6,
+    "sefer_sayisi": 129,
+    "mesafe_km": 51.31
   },
   {
     "arac_sayisi": 1,
@@ -6351,7 +7503,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.46,
     "starv_dk": 8117,
-    "ort_wip": 65.2
+    "ort_wip": 65.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.82
   },
   {
     "arac_sayisi": 2,
@@ -6362,7 +7516,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.14,
     "starv_dk": 6237,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.7
   },
   {
     "arac_sayisi": 3,
@@ -6373,7 +7529,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.83,
     "starv_dk": 4473,
-    "ort_wip": 137.7
+    "ort_wip": 137.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.84
   },
   {
     "arac_sayisi": 4,
@@ -6384,7 +7542,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.33,
     "starv_dk": 2803,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.54
   },
   {
     "arac_sayisi": 5,
@@ -6395,7 +7555,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.68,
     "starv_dk": 1806,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.94
   },
   {
     "arac_sayisi": 6,
@@ -6406,7 +7568,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.0,
     "starv_dk": 1498,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 76,
+    "mesafe_km": 63.61
   },
   {
     "arac_sayisi": 7,
@@ -6417,7 +7581,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.3,
     "starv_dk": 956,
-    "ort_wip": 217.4
+    "ort_wip": 217.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 61.22
   },
   {
     "arac_sayisi": 8,
@@ -6428,7 +7594,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.3,
     "starv_dk": 495,
-    "ort_wip": 225.6
+    "ort_wip": 225.6,
+    "sefer_sayisi": 142,
+    "mesafe_km": 59.65
   },
   {
     "arac_sayisi": 1,
@@ -6439,7 +7607,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.43,
     "starv_dk": 8113,
-    "ort_wip": 65.3
+    "ort_wip": 65.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.01
   },
   {
     "arac_sayisi": 2,
@@ -6450,7 +7620,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.17,
     "starv_dk": 6240,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -6461,7 +7633,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.69,
     "starv_dk": 4457,
-    "ort_wip": 138.0
+    "ort_wip": 138.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.84
   },
   {
     "arac_sayisi": 4,
@@ -6472,7 +7646,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.49,
     "starv_dk": 2821,
-    "ort_wip": 172.4
+    "ort_wip": 172.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.65
   },
   {
     "arac_sayisi": 5,
@@ -6483,7 +7659,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.84,
     "starv_dk": 1709,
-    "ort_wip": 201.3
+    "ort_wip": 201.3,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.0
   },
   {
     "arac_sayisi": 6,
@@ -6494,7 +7672,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.65,
     "starv_dk": 1457,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 75,
+    "mesafe_km": 60.41
   },
   {
     "arac_sayisi": 7,
@@ -6505,7 +7685,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.48,
     "starv_dk": 1092,
-    "ort_wip": 217.5
+    "ort_wip": 217.5,
+    "sefer_sayisi": 112,
+    "mesafe_km": 60.52
   },
   {
     "arac_sayisi": 8,
@@ -6516,7 +7698,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.13,
     "starv_dk": 476,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 139,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 1,
@@ -6527,7 +7711,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.77
   },
   {
     "arac_sayisi": 2,
@@ -6538,7 +7724,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 53.03,
     "starv_dk": 6109,
-    "ort_wip": 111.0
+    "ort_wip": 111.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.91
   },
   {
     "arac_sayisi": 3,
@@ -6549,7 +7737,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 36.94,
     "starv_dk": 4255,
-    "ort_wip": 148.4
+    "ort_wip": 148.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.28
   },
   {
     "arac_sayisi": 4,
@@ -6560,7 +7750,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.4
+    "ort_wip": 182.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.32
   },
   {
     "arac_sayisi": 5,
@@ -6571,7 +7763,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.93,
     "starv_dk": 1835,
-    "ort_wip": 211.1
+    "ort_wip": 211.1,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.06
   },
   {
     "arac_sayisi": 6,
@@ -6582,7 +7776,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.17,
     "starv_dk": 1287,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.31
   },
   {
     "arac_sayisi": 7,
@@ -6593,7 +7789,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.89,
     "starv_dk": 794,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.6
   },
   {
     "arac_sayisi": 8,
@@ -6604,7 +7802,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.41,
     "starv_dk": 393,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.32
   },
   {
     "arac_sayisi": 1,
@@ -6615,7 +7815,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.65,
     "starv_dk": 7908,
-    "ort_wip": 77.4
+    "ort_wip": 77.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.99
   },
   {
     "arac_sayisi": 2,
@@ -6626,7 +7828,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.97,
     "starv_dk": 5987,
-    "ort_wip": 119.1
+    "ort_wip": 119.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.74
   },
   {
     "arac_sayisi": 3,
@@ -6637,7 +7841,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.53,
     "starv_dk": 4093,
-    "ort_wip": 160.2
+    "ort_wip": 160.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.99
   },
   {
     "arac_sayisi": 4,
@@ -6648,7 +7854,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.7,
     "starv_dk": 2500,
-    "ort_wip": 197.7
+    "ort_wip": 197.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.4
   },
   {
     "arac_sayisi": 5,
@@ -6659,7 +7867,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.44,
     "starv_dk": 1548,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 45,
+    "mesafe_km": 60.26
   },
   {
     "arac_sayisi": 6,
@@ -6670,7 +7880,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.25,
     "starv_dk": 1411,
-    "ort_wip": 236.9
+    "ort_wip": 236.9,
+    "sefer_sayisi": 83,
+    "mesafe_km": 58.16
   },
   {
     "arac_sayisi": 7,
@@ -6681,7 +7893,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.03,
     "starv_dk": 695,
-    "ort_wip": 244.6
+    "ort_wip": 244.6,
+    "sefer_sayisi": 113,
+    "mesafe_km": 56.62
   },
   {
     "arac_sayisi": 8,
@@ -6692,7 +7906,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.2,
     "starv_dk": 369,
-    "ort_wip": 248.0
+    "ort_wip": 248.0,
+    "sefer_sayisi": 137,
+    "mesafe_km": 56.99
   },
   {
     "arac_sayisi": 1,
@@ -6703,7 +7919,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.66,
     "starv_dk": 7795,
-    "ort_wip": 84.3
+    "ort_wip": 84.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.52
   },
   {
     "arac_sayisi": 2,
@@ -6714,7 +7932,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.86,
     "starv_dk": 5859,
-    "ort_wip": 127.5
+    "ort_wip": 127.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.78
   },
   {
     "arac_sayisi": 3,
@@ -6725,7 +7945,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.99,
     "starv_dk": 3916,
-    "ort_wip": 169.4
+    "ort_wip": 169.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.76
   },
   {
     "arac_sayisi": 4,
@@ -6736,7 +7958,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.55,
     "starv_dk": 2367,
-    "ort_wip": 211.3
+    "ort_wip": 211.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.76
   },
   {
     "arac_sayisi": 5,
@@ -6747,7 +7971,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.4,
     "starv_dk": 1544,
-    "ort_wip": 240.9
+    "ort_wip": 240.9,
+    "sefer_sayisi": 47,
+    "mesafe_km": 57.57
   },
   {
     "arac_sayisi": 6,
@@ -6758,7 +7984,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.9,
     "starv_dk": 1025,
-    "ort_wip": 250.0
+    "ort_wip": 250.0,
+    "sefer_sayisi": 88,
+    "mesafe_km": 56.6
   },
   {
     "arac_sayisi": 7,
@@ -6769,7 +7997,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.74,
     "starv_dk": 546,
-    "ort_wip": 257.1
+    "ort_wip": 257.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 56.41
   },
   {
     "arac_sayisi": 8,
@@ -6780,7 +8010,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.25,
     "starv_dk": 374,
-    "ort_wip": 259.0
+    "ort_wip": 259.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 56.71
   },
   {
     "arac_sayisi": 1,
@@ -6791,7 +8023,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.74,
     "starv_dk": 7573,
-    "ort_wip": 98.3
+    "ort_wip": 98.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.25
   },
   {
     "arac_sayisi": 2,
@@ -6802,7 +8036,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.2,
     "starv_dk": 5553,
-    "ort_wip": 146.3
+    "ort_wip": 146.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.05
   },
   {
     "arac_sayisi": 3,
@@ -6813,7 +8049,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.49,
     "starv_dk": 3512,
-    "ort_wip": 193.6
+    "ort_wip": 193.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.63
   },
   {
     "arac_sayisi": 4,
@@ -6824,7 +8062,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.51,
     "starv_dk": 2017,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.39
   },
   {
     "arac_sayisi": 5,
@@ -6835,7 +8075,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.4,
     "starv_dk": 1313,
-    "ort_wip": 267.8
+    "ort_wip": 267.8,
+    "sefer_sayisi": 55,
+    "mesafe_km": 52.86
   },
   {
     "arac_sayisi": 6,
@@ -6846,7 +8088,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.92,
     "starv_dk": 797,
-    "ort_wip": 277.7
+    "ort_wip": 277.7,
+    "sefer_sayisi": 92,
+    "mesafe_km": 53.39
   },
   {
     "arac_sayisi": 7,
@@ -6857,7 +8101,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.44,
     "starv_dk": 512,
-    "ort_wip": 281.2
+    "ort_wip": 281.2,
+    "sefer_sayisi": 114,
+    "mesafe_km": 53.45
   },
   {
     "arac_sayisi": 8,
@@ -6868,7 +8114,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.51,
     "starv_dk": 289,
-    "ort_wip": 283.3
+    "ort_wip": 283.3,
+    "sefer_sayisi": 126,
+    "mesafe_km": 52.95
   },
   {
     "arac_sayisi": 1,
@@ -6879,7 +8127,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -6890,7 +8140,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -6901,7 +8153,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -6912,7 +8166,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -6923,7 +8179,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -6934,7 +8192,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -6945,7 +8205,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -6956,7 +8218,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -6967,7 +8231,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.39,
     "starv_dk": 8224,
-    "ort_wip": 70.5
+    "ort_wip": 70.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.37
   },
   {
     "arac_sayisi": 2,
@@ -6978,7 +8244,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 55.98,
     "starv_dk": 6449,
-    "ort_wip": 109.0
+    "ort_wip": 109.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.34
   },
   {
     "arac_sayisi": 3,
@@ -6989,7 +8257,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.54,
     "starv_dk": 4670,
-    "ort_wip": 146.9
+    "ort_wip": 146.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.36
   },
   {
     "arac_sayisi": 4,
@@ -7000,7 +8270,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 27.08,
     "starv_dk": 3120,
-    "ort_wip": 182.6
+    "ort_wip": 182.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.36
   },
   {
     "arac_sayisi": 5,
@@ -7011,7 +8283,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.58,
     "starv_dk": 1910,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.49
   },
   {
     "arac_sayisi": 6,
@@ -7022,7 +8296,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.85,
     "starv_dk": 1480,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 66,
+    "mesafe_km": 64.63
   },
   {
     "arac_sayisi": 7,
@@ -7033,7 +8309,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.1,
     "starv_dk": 1163,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 106,
+    "mesafe_km": 64.43
   },
   {
     "arac_sayisi": 8,
@@ -7044,7 +8322,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.93,
     "starv_dk": 683,
-    "ort_wip": 243.6
+    "ort_wip": 243.6,
+    "sefer_sayisi": 127,
+    "mesafe_km": 63.82
   },
   {
     "arac_sayisi": 1,
@@ -7055,7 +8335,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.44,
     "starv_dk": 8115,
-    "ort_wip": 76.8
+    "ort_wip": 76.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.62
   },
   {
     "arac_sayisi": 2,
@@ -7066,7 +8348,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.83,
     "starv_dk": 6316,
-    "ort_wip": 116.3
+    "ort_wip": 116.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.13
   },
   {
     "arac_sayisi": 3,
@@ -7077,7 +8361,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.04,
     "starv_dk": 4613,
-    "ort_wip": 155.1
+    "ort_wip": 155.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.04
   },
   {
     "arac_sayisi": 4,
@@ -7088,7 +8374,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.41,
     "starv_dk": 3042,
-    "ort_wip": 194.6
+    "ort_wip": 194.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.86
   },
   {
     "arac_sayisi": 5,
@@ -7099,7 +8387,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.07,
     "starv_dk": 2082,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 58.3
   },
   {
     "arac_sayisi": 6,
@@ -7110,7 +8400,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.81,
     "starv_dk": 1476,
-    "ort_wip": 241.9
+    "ort_wip": 241.9,
+    "sefer_sayisi": 72,
+    "mesafe_km": 64.03
   },
   {
     "arac_sayisi": 7,
@@ -7121,7 +8413,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.38,
     "starv_dk": 965,
-    "ort_wip": 250.4
+    "ort_wip": 250.4,
+    "sefer_sayisi": 107,
+    "mesafe_km": 62.36
   },
   {
     "arac_sayisi": 8,
@@ -7132,7 +8426,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.64,
     "starv_dk": 535,
-    "ort_wip": 256.6
+    "ort_wip": 256.6,
+    "sefer_sayisi": 134,
+    "mesafe_km": 62.14
   },
   {
     "arac_sayisi": 1,
@@ -7143,7 +8439,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.68,
     "starv_dk": 7912,
-    "ort_wip": 89.7
+    "ort_wip": 89.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -7154,7 +8452,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.55,
     "starv_dk": 6054,
-    "ort_wip": 134.4
+    "ort_wip": 134.4,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.91
   },
   {
     "arac_sayisi": 3,
@@ -7165,7 +8465,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.64,
     "starv_dk": 4106,
-    "ort_wip": 178.0
+    "ort_wip": 178.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.99
   },
   {
     "arac_sayisi": 4,
@@ -7176,7 +8478,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.74,
     "starv_dk": 2504,
-    "ort_wip": 222.8
+    "ort_wip": 222.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.29
   },
   {
     "arac_sayisi": 5,
@@ -7187,7 +8491,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.25,
     "starv_dk": 1872,
-    "ort_wip": 252.6
+    "ort_wip": 252.6,
+    "sefer_sayisi": 43,
+    "mesafe_km": 59.23
   },
   {
     "arac_sayisi": 6,
@@ -7198,7 +8504,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.94,
     "starv_dk": 1375,
-    "ort_wip": 267.6
+    "ort_wip": 267.6,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.09
   },
   {
     "arac_sayisi": 7,
@@ -7209,7 +8517,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.73,
     "starv_dk": 890,
-    "ort_wip": 273.2
+    "ort_wip": 273.2,
+    "sefer_sayisi": 112,
+    "mesafe_km": 58.68
   },
   {
     "arac_sayisi": 8,
@@ -7220,7 +8530,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.38,
     "starv_dk": 505,
-    "ort_wip": 278.9
+    "ort_wip": 278.9,
+    "sefer_sayisi": 129,
+    "mesafe_km": 57.83
   },
   {
     "arac_sayisi": 1,
@@ -7231,7 +8543,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.8,
     "starv_dk": 7465,
-    "ort_wip": 113.5
+    "ort_wip": 113.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.2
   },
   {
     "arac_sayisi": 2,
@@ -7242,7 +8556,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.66,
     "starv_dk": 5490,
-    "ort_wip": 170.0
+    "ort_wip": 170.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.23
   },
   {
     "arac_sayisi": 3,
@@ -7253,7 +8569,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.34,
     "starv_dk": 3495,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.23
   },
   {
     "arac_sayisi": 4,
@@ -7264,7 +8582,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.7,
     "starv_dk": 1924,
-    "ort_wip": 273.3
+    "ort_wip": 273.3,
+    "sefer_sayisi": 34,
+    "mesafe_km": 48.26
   },
   {
     "arac_sayisi": 5,
@@ -7275,7 +8595,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.5,
     "starv_dk": 1325,
-    "ort_wip": 303.6
+    "ort_wip": 303.6,
+    "sefer_sayisi": 58,
+    "mesafe_km": 53.36
   },
   {
     "arac_sayisi": 6,
@@ -7286,7 +8608,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.34,
     "starv_dk": 961,
-    "ort_wip": 310.3
+    "ort_wip": 310.3,
+    "sefer_sayisi": 92,
+    "mesafe_km": 51.35
   },
   {
     "arac_sayisi": 7,
@@ -7297,7 +8621,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.67,
     "starv_dk": 538,
-    "ort_wip": 316.2
+    "ort_wip": 316.2,
+    "sefer_sayisi": 117,
+    "mesafe_km": 51.04
   },
   {
     "arac_sayisi": 8,
@@ -7308,7 +8634,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.57,
     "starv_dk": 296,
-    "ort_wip": 319.4
+    "ort_wip": 319.4,
+    "sefer_sayisi": 128,
+    "mesafe_km": 51.39
   },
   {
     "arac_sayisi": 1,
@@ -7319,7 +8647,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.86,
     "starv_dk": 7126,
-    "ort_wip": 131.8
+    "ort_wip": 131.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.22
   },
   {
     "arac_sayisi": 2,
@@ -7330,7 +8660,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.46,
     "starv_dk": 5007,
-    "ort_wip": 196.7
+    "ort_wip": 196.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.08
   },
   {
     "arac_sayisi": 3,
@@ -7341,7 +8673,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.73,
     "starv_dk": 3079,
-    "ort_wip": 258.3
+    "ort_wip": 258.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.85
   },
   {
     "arac_sayisi": 4,
@@ -7352,7 +8686,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.85,
     "starv_dk": 1595,
-    "ort_wip": 314.6
+    "ort_wip": 314.6,
+    "sefer_sayisi": 34,
+    "mesafe_km": 46.53
   },
   {
     "arac_sayisi": 5,
@@ -7363,7 +8699,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.26,
     "starv_dk": 1067,
-    "ort_wip": 334.9
+    "ort_wip": 334.9,
+    "sefer_sayisi": 64,
+    "mesafe_km": 48.6
   },
   {
     "arac_sayisi": 6,
@@ -7374,7 +8712,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.45,
     "starv_dk": 858,
-    "ort_wip": 341.6
+    "ort_wip": 341.6,
+    "sefer_sayisi": 88,
+    "mesafe_km": 47.76
   },
   {
     "arac_sayisi": 7,
@@ -7385,7 +8725,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.18,
     "starv_dk": 481,
-    "ort_wip": 346.8
+    "ort_wip": 346.8,
+    "sefer_sayisi": 108,
+    "mesafe_km": 47.42
   },
   {
     "arac_sayisi": 8,
@@ -7396,7 +8738,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.91,
     "starv_dk": 335,
-    "ort_wip": 348.2
+    "ort_wip": 348.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.15
   },
   {
     "arac_sayisi": 1,
@@ -7407,7 +8751,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.8,
     "starv_dk": 8387,
-    "ort_wip": 70.4
+    "ort_wip": 70.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.42
   },
   {
     "arac_sayisi": 2,
@@ -7418,7 +8764,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.16,
     "starv_dk": 6700,
-    "ort_wip": 107.8
+    "ort_wip": 107.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.87
   },
   {
     "arac_sayisi": 3,
@@ -7429,7 +8777,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.55,
     "starv_dk": 5017,
-    "ort_wip": 143.7
+    "ort_wip": 143.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -7440,7 +8790,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.2,
     "starv_dk": 3710,
-    "ort_wip": 178.6
+    "ort_wip": 178.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.75
   },
   {
     "arac_sayisi": 5,
@@ -7451,7 +8803,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 20.83,
     "starv_dk": 2400,
-    "ort_wip": 211.4
+    "ort_wip": 211.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.2
   },
   {
     "arac_sayisi": 6,
@@ -7462,7 +8816,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.86,
     "starv_dk": 1827,
-    "ort_wip": 230.3
+    "ort_wip": 230.3,
+    "sefer_sayisi": 59,
+    "mesafe_km": 68.74
   },
   {
     "arac_sayisi": 7,
@@ -7473,7 +8829,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.52,
     "starv_dk": 1442,
-    "ort_wip": 240.8
+    "ort_wip": 240.8,
+    "sefer_sayisi": 101,
+    "mesafe_km": 68.23
   },
   {
     "arac_sayisi": 8,
@@ -7484,7 +8842,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.16,
     "starv_dk": 1055,
-    "ort_wip": 247.5
+    "ort_wip": 247.5,
+    "sefer_sayisi": 130,
+    "mesafe_km": 66.91
   },
   {
     "arac_sayisi": 1,
@@ -7495,7 +8855,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.14,
     "starv_dk": 8195,
-    "ort_wip": 82.3
+    "ort_wip": 82.3,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.28
   },
   {
     "arac_sayisi": 2,
@@ -7506,7 +8868,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.02,
     "starv_dk": 6453,
-    "ort_wip": 123.3
+    "ort_wip": 123.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.17
   },
   {
     "arac_sayisi": 3,
@@ -7517,7 +8881,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.69,
     "starv_dk": 4687,
-    "ort_wip": 164.2
+    "ort_wip": 164.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.8
   },
   {
     "arac_sayisi": 4,
@@ -7528,7 +8894,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.73,
     "starv_dk": 3079,
-    "ort_wip": 207.7
+    "ort_wip": 207.7,
+    "sefer_sayisi": 30,
+    "mesafe_km": 46.61
   },
   {
     "arac_sayisi": 5,
@@ -7539,7 +8907,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.09,
     "starv_dk": 2084,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 39,
+    "mesafe_km": 55.25
   },
   {
     "arac_sayisi": 6,
@@ -7550,7 +8920,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.72,
     "starv_dk": 1581,
-    "ort_wip": 258.7
+    "ort_wip": 258.7,
+    "sefer_sayisi": 70,
+    "mesafe_km": 64.81
   },
   {
     "arac_sayisi": 7,
@@ -7561,7 +8933,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.54,
     "starv_dk": 1329,
-    "ort_wip": 264.6
+    "ort_wip": 264.6,
+    "sefer_sayisi": 103,
+    "mesafe_km": 63.92
   },
   {
     "arac_sayisi": 8,
@@ -7572,7 +8946,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.44,
     "starv_dk": 972,
-    "ort_wip": 270.2
+    "ort_wip": 270.2,
+    "sefer_sayisi": 129,
+    "mesafe_km": 63.09
   },
   {
     "arac_sayisi": 1,
@@ -7583,7 +8959,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.6,
     "starv_dk": 7787,
-    "ort_wip": 104.1
+    "ort_wip": 104.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.49
   },
   {
     "arac_sayisi": 2,
@@ -7594,7 +8972,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.6,
     "starv_dk": 5944,
-    "ort_wip": 156.5
+    "ort_wip": 156.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.82
   },
   {
     "arac_sayisi": 3,
@@ -7605,7 +8985,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.0,
     "starv_dk": 4032,
-    "ort_wip": 205.7
+    "ort_wip": 205.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.33
   },
   {
     "arac_sayisi": 4,
@@ -7616,7 +8998,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.24,
     "starv_dk": 2677,
-    "ort_wip": 251.0
+    "ort_wip": 251.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.21
   },
   {
     "arac_sayisi": 5,
@@ -7627,7 +9011,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.1,
     "starv_dk": 1624,
-    "ort_wip": 290.6
+    "ort_wip": 290.6,
+    "sefer_sayisi": 45,
+    "mesafe_km": 56.37
   },
   {
     "arac_sayisi": 6,
@@ -7638,7 +9024,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.52,
     "starv_dk": 1327,
-    "ort_wip": 302.3
+    "ort_wip": 302.3,
+    "sefer_sayisi": 83,
+    "mesafe_km": 57.51
   },
   {
     "arac_sayisi": 7,
@@ -7649,7 +9037,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.83,
     "starv_dk": 787,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 57.92
   },
   {
     "arac_sayisi": 8,
@@ -7660,7 +9050,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.18,
     "starv_dk": 482,
-    "ort_wip": 314.9
+    "ort_wip": 314.9,
+    "sefer_sayisi": 134,
+    "mesafe_km": 57.67
   },
   {
     "arac_sayisi": 1,
@@ -7671,7 +9063,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.88,
     "starv_dk": 7474,
-    "ort_wip": 120.9
+    "ort_wip": 120.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.26
   },
   {
     "arac_sayisi": 2,
@@ -7682,7 +9076,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.41,
     "starv_dk": 5462,
-    "ort_wip": 181.9
+    "ort_wip": 181.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.99
   },
   {
     "arac_sayisi": 3,
@@ -7693,7 +9089,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.46,
     "starv_dk": 3509,
-    "ort_wip": 242.0
+    "ort_wip": 242.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.43
   },
   {
     "arac_sayisi": 4,
@@ -7704,7 +9102,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.87,
     "starv_dk": 2174,
-    "ort_wip": 292.8
+    "ort_wip": 292.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.3
   },
   {
     "arac_sayisi": 5,
@@ -7715,7 +9115,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.01,
     "starv_dk": 1383,
-    "ort_wip": 324.9
+    "ort_wip": 324.9,
+    "sefer_sayisi": 54,
+    "mesafe_km": 55.34
   },
   {
     "arac_sayisi": 6,
@@ -7726,7 +9128,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.54,
     "starv_dk": 869,
-    "ort_wip": 336.6
+    "ort_wip": 336.6,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.5
   },
   {
     "arac_sayisi": 7,
@@ -7737,7 +9141,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.49,
     "starv_dk": 748,
-    "ort_wip": 338.0
+    "ort_wip": 338.0,
+    "sefer_sayisi": 114,
+    "mesafe_km": 54.44
   },
   {
     "arac_sayisi": 8,
@@ -7748,7 +9154,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.1,
     "starv_dk": 472,
-    "ort_wip": 340.9
+    "ort_wip": 340.9,
+    "sefer_sayisi": 133,
+    "mesafe_km": 53.11
   },
   {
     "arac_sayisi": 1,
@@ -7759,7 +9167,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 61.88,
     "starv_dk": 7129,
-    "ort_wip": 141.9
+    "ort_wip": 141.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.16
   },
   {
     "arac_sayisi": 2,
@@ -7770,7 +9180,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.48,
     "starv_dk": 5009,
-    "ort_wip": 213.4
+    "ort_wip": 213.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.79
   },
   {
     "arac_sayisi": 3,
@@ -7781,7 +9193,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.84,
     "starv_dk": 3092,
-    "ort_wip": 283.9
+    "ort_wip": 283.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.16
   },
   {
     "arac_sayisi": 4,
@@ -7792,7 +9206,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.69,
     "starv_dk": 1577,
-    "ort_wip": 343.0
+    "ort_wip": 343.0,
+    "sefer_sayisi": 36,
+    "mesafe_km": 47.83
   },
   {
     "arac_sayisi": 5,
@@ -7803,7 +9219,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.75,
     "starv_dk": 1123,
-    "ort_wip": 366.4
+    "ort_wip": 366.4,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.15
   },
   {
     "arac_sayisi": 6,
@@ -7814,7 +9232,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.16,
     "starv_dk": 710,
-    "ort_wip": 374.7
+    "ort_wip": 374.7,
+    "sefer_sayisi": 91,
+    "mesafe_km": 48.58
   },
   {
     "arac_sayisi": 7,
@@ -7825,7 +9245,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.91,
     "starv_dk": 451,
-    "ort_wip": 377.7
+    "ort_wip": 377.7,
+    "sefer_sayisi": 108,
+    "mesafe_km": 47.73
   },
   {
     "arac_sayisi": 8,
@@ -7836,7 +9258,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.72,
     "starv_dk": 313,
-    "ort_wip": 380.1
+    "ort_wip": 380.1,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.62
   },
   {
     "arac_sayisi": 1,
@@ -7847,7 +9271,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 59.83,
     "starv_dk": 6892,
-    "ort_wip": 154.5
+    "ort_wip": 154.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.99
   },
   {
     "arac_sayisi": 2,
@@ -7858,7 +9284,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.13,
     "starv_dk": 4623,
-    "ort_wip": 233.9
+    "ort_wip": 233.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.32
   },
   {
     "arac_sayisi": 3,
@@ -7869,7 +9297,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 22.92,
     "starv_dk": 2640,
-    "ort_wip": 312.3
+    "ort_wip": 312.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.74
   },
   {
     "arac_sayisi": 4,
@@ -7880,7 +9310,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.29,
     "starv_dk": 1185,
-    "ort_wip": 375.6
+    "ort_wip": 375.6,
+    "sefer_sayisi": 40,
+    "mesafe_km": 46.55
   },
   {
     "arac_sayisi": 5,
@@ -7891,7 +9323,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.66,
     "starv_dk": 883,
-    "ort_wip": 389.0
+    "ort_wip": 389.0,
+    "sefer_sayisi": 72,
+    "mesafe_km": 45.7
   },
   {
     "arac_sayisi": 6,
@@ -7902,7 +9336,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.34,
     "starv_dk": 730,
-    "ort_wip": 392.6
+    "ort_wip": 392.6,
+    "sefer_sayisi": 96,
+    "mesafe_km": 45.74
   },
   {
     "arac_sayisi": 7,
@@ -7913,7 +9349,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.93,
     "starv_dk": 337,
-    "ort_wip": 398.7
+    "ort_wip": 398.7,
+    "sefer_sayisi": 111,
+    "mesafe_km": 45.4
   },
   {
     "arac_sayisi": 8,
@@ -7924,7 +9362,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.02,
     "starv_dk": 233,
-    "ort_wip": 399.1
+    "ort_wip": 399.1,
+    "sefer_sayisi": 117,
+    "mesafe_km": 44.55
   },
   {
     "arac_sayisi": 1,
@@ -7935,7 +9375,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.86,
     "starv_dk": 7472,
-    "ort_wip": 79.7
+    "ort_wip": 79.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.49
   },
   {
     "arac_sayisi": 2,
@@ -7946,7 +9388,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.98,
     "starv_dk": 5527,
-    "ort_wip": 119.9
+    "ort_wip": 119.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.84
   },
   {
     "arac_sayisi": 3,
@@ -7957,7 +9401,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.07,
     "starv_dk": 3694,
-    "ort_wip": 161.4
+    "ort_wip": 161.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.33
   },
   {
     "arac_sayisi": 4,
@@ -7968,7 +9414,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.8,
     "starv_dk": 2166,
-    "ort_wip": 196.6
+    "ort_wip": 196.6,
+    "sefer_sayisi": 31,
+    "mesafe_km": 45.31
   },
   {
     "arac_sayisi": 5,
@@ -7979,7 +9427,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.98,
     "starv_dk": 1150,
-    "ort_wip": 217.8
+    "ort_wip": 217.8,
+    "sefer_sayisi": 63,
+    "mesafe_km": 48.98
   },
   {
     "arac_sayisi": 6,
@@ -7990,7 +9440,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.86,
     "starv_dk": 560,
-    "ort_wip": 225.8
+    "ort_wip": 225.8,
+    "sefer_sayisi": 93,
+    "mesafe_km": 48.96
   },
   {
     "arac_sayisi": 7,
@@ -8001,7 +9453,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.64,
     "starv_dk": 419,
-    "ort_wip": 228.1
+    "ort_wip": 228.1,
+    "sefer_sayisi": 107,
+    "mesafe_km": 48.63
   },
   {
     "arac_sayisi": 8,
@@ -8012,7 +9466,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.42,
     "starv_dk": 279,
-    "ort_wip": 229.3
+    "ort_wip": 229.3,
+    "sefer_sayisi": 114,
+    "mesafe_km": 48.06
   },
   {
     "arac_sayisi": 1,
@@ -8023,7 +9479,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.38,
     "starv_dk": 7416,
-    "ort_wip": 80.2
+    "ort_wip": 80.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.29
   },
   {
     "arac_sayisi": 2,
@@ -8034,7 +9492,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.74,
     "starv_dk": 5730,
-    "ort_wip": 116.8
+    "ort_wip": 116.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.68
   },
   {
     "arac_sayisi": 3,
@@ -8045,7 +9505,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.02,
     "starv_dk": 3804,
-    "ort_wip": 160.1
+    "ort_wip": 160.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.46
   },
   {
     "arac_sayisi": 4,
@@ -8056,7 +9518,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.27,
     "starv_dk": 1990,
-    "ort_wip": 197.9
+    "ort_wip": 197.9,
+    "sefer_sayisi": 31,
+    "mesafe_km": 46.33
   },
   {
     "arac_sayisi": 5,
@@ -8067,7 +9531,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.28,
     "starv_dk": 1069,
-    "ort_wip": 219.2
+    "ort_wip": 219.2,
+    "sefer_sayisi": 68,
+    "mesafe_km": 47.97
   },
   {
     "arac_sayisi": 6,
@@ -8078,7 +9544,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.21,
     "starv_dk": 600,
-    "ort_wip": 225.6
+    "ort_wip": 225.6,
+    "sefer_sayisi": 99,
+    "mesafe_km": 48.91
   },
   {
     "arac_sayisi": 7,
@@ -8089,7 +9557,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.3,
     "starv_dk": 380,
-    "ort_wip": 229.0
+    "ort_wip": 229.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 48.82
   },
   {
     "arac_sayisi": 8,
@@ -8100,7 +9570,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.6,
     "starv_dk": 300,
-    "ort_wip": 230.0
+    "ort_wip": 230.0,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.82
   },
   {
     "arac_sayisi": 1,
@@ -8111,7 +9583,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.56,
     "starv_dk": 7437,
-    "ort_wip": 80.2
+    "ort_wip": 80.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.64
   },
   {
     "arac_sayisi": 2,
@@ -8122,7 +9596,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.32,
     "starv_dk": 5451,
-    "ort_wip": 122.5
+    "ort_wip": 122.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.16
   },
   {
     "arac_sayisi": 3,
@@ -8133,7 +9609,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.29,
     "starv_dk": 3835,
-    "ort_wip": 160.1
+    "ort_wip": 160.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.88
   },
   {
     "arac_sayisi": 4,
@@ -8144,7 +9622,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.45,
     "starv_dk": 2010,
-    "ort_wip": 199.2
+    "ort_wip": 199.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.08
   },
   {
     "arac_sayisi": 5,
@@ -8155,7 +9635,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.85,
     "starv_dk": 1019,
-    "ort_wip": 220.4
+    "ort_wip": 220.4,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.69
   },
   {
     "arac_sayisi": 6,
@@ -8166,7 +9648,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.83,
     "starv_dk": 556,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 100,
+    "mesafe_km": 47.97
   },
   {
     "arac_sayisi": 7,
@@ -8177,7 +9661,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.23,
     "starv_dk": 257,
-    "ort_wip": 230.6
+    "ort_wip": 230.6,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.12
   },
   {
     "arac_sayisi": 8,
@@ -8188,7 +9674,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.59,
     "starv_dk": 183,
-    "ort_wip": 231.0
+    "ort_wip": 231.0,
+    "sefer_sayisi": 124,
+    "mesafe_km": 47.66
   },
   {
     "arac_sayisi": 1,
@@ -8199,7 +9687,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.02,
     "starv_dk": 7490,
-    "ort_wip": 79.5
+    "ort_wip": 79.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.8
   },
   {
     "arac_sayisi": 2,
@@ -8210,7 +9700,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.37,
     "starv_dk": 5572,
-    "ort_wip": 121.5
+    "ort_wip": 121.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.87
   },
   {
     "arac_sayisi": 3,
@@ -8221,7 +9713,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.13,
     "starv_dk": 3701,
-    "ort_wip": 162.2
+    "ort_wip": 162.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.86
   },
   {
     "arac_sayisi": 4,
@@ -8232,7 +9726,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.57,
     "starv_dk": 2024,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 5,
@@ -8243,7 +9739,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.13,
     "starv_dk": 1052,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 67,
+    "mesafe_km": 51.2
   },
   {
     "arac_sayisi": 6,
@@ -8254,7 +9752,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.27,
     "starv_dk": 607,
-    "ort_wip": 225.6
+    "ort_wip": 225.6,
+    "sefer_sayisi": 96,
+    "mesafe_km": 50.99
   },
   {
     "arac_sayisi": 7,
@@ -8265,7 +9765,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.62,
     "starv_dk": 302,
-    "ort_wip": 229.6
+    "ort_wip": 229.6,
+    "sefer_sayisi": 118,
+    "mesafe_km": 49.95
   },
   {
     "arac_sayisi": 8,
@@ -8276,7 +9778,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 1.66,
     "starv_dk": 191,
-    "ort_wip": 230.6
+    "ort_wip": 230.6,
+    "sefer_sayisi": 126,
+    "mesafe_km": 49.38
   },
   {
     "arac_sayisi": 1,
@@ -8287,7 +9791,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.43,
     "starv_dk": 7422,
-    "ort_wip": 80.0
+    "ort_wip": 80.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.25
   },
   {
     "arac_sayisi": 2,
@@ -8298,7 +9804,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.95,
     "starv_dk": 5524,
-    "ort_wip": 120.7
+    "ort_wip": 120.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.88
   },
   {
     "arac_sayisi": 3,
@@ -8309,7 +9817,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.83,
     "starv_dk": 3782,
-    "ort_wip": 160.6
+    "ort_wip": 160.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.9
   },
   {
     "arac_sayisi": 4,
@@ -8320,7 +9830,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.33,
     "starv_dk": 1996,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.15
   },
   {
     "arac_sayisi": 5,
@@ -8331,7 +9843,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.49,
     "starv_dk": 1208,
-    "ort_wip": 218.5
+    "ort_wip": 218.5,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.19
   },
   {
     "arac_sayisi": 6,
@@ -8342,7 +9856,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.52,
     "starv_dk": 636,
-    "ort_wip": 225.9
+    "ort_wip": 225.9,
+    "sefer_sayisi": 97,
+    "mesafe_km": 47.61
   },
   {
     "arac_sayisi": 7,
@@ -8353,7 +9869,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.2,
     "starv_dk": 369,
-    "ort_wip": 229.2
+    "ort_wip": 229.2,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.79
   },
   {
     "arac_sayisi": 8,
@@ -8364,7 +9882,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.5,
     "starv_dk": 288,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 124,
+    "mesafe_km": 48.46
   },
   {
     "arac_sayisi": 1,
@@ -8375,7 +9895,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.9,
     "starv_dk": 7477,
-    "ort_wip": 78.7
+    "ort_wip": 78.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.73
   },
   {
     "arac_sayisi": 2,
@@ -8386,7 +9908,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.68,
     "starv_dk": 5493,
-    "ort_wip": 120.5
+    "ort_wip": 120.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.34
   },
   {
     "arac_sayisi": 3,
@@ -8397,7 +9921,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 32.83,
     "starv_dk": 3782,
-    "ort_wip": 159.0
+    "ort_wip": 159.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.8
   },
   {
     "arac_sayisi": 4,
@@ -8408,7 +9934,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.09,
     "starv_dk": 2084,
-    "ort_wip": 199.0
+    "ort_wip": 199.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.23
   },
   {
     "arac_sayisi": 5,
@@ -8419,7 +9947,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.08,
     "starv_dk": 1046,
-    "ort_wip": 219.9
+    "ort_wip": 219.9,
+    "sefer_sayisi": 65,
+    "mesafe_km": 49.67
   },
   {
     "arac_sayisi": 6,
@@ -8430,7 +9960,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.79,
     "starv_dk": 552,
-    "ort_wip": 227.1
+    "ort_wip": 227.1,
+    "sefer_sayisi": 95,
+    "mesafe_km": 49.45
   },
   {
     "arac_sayisi": 7,
@@ -8441,7 +9973,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.58,
     "starv_dk": 412,
-    "ort_wip": 229.0
+    "ort_wip": 229.0,
+    "sefer_sayisi": 111,
+    "mesafe_km": 49.69
   },
   {
     "arac_sayisi": 8,
@@ -8452,7 +9986,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.26,
     "starv_dk": 260,
-    "ort_wip": 230.4
+    "ort_wip": 230.4,
+    "sefer_sayisi": 121,
+    "mesafe_km": 49.31
   },
   {
     "arac_sayisi": 1,
@@ -8463,7 +9999,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.88,
     "starv_dk": 7820,
-    "ort_wip": 70.2
+    "ort_wip": 70.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.36
   },
   {
     "arac_sayisi": 2,
@@ -8474,7 +10012,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.56,
     "starv_dk": 6055,
-    "ort_wip": 105.9
+    "ort_wip": 105.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.88
   },
   {
     "arac_sayisi": 3,
@@ -8485,7 +10025,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.81,
     "starv_dk": 4471,
-    "ort_wip": 142.3
+    "ort_wip": 142.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.54
   },
   {
     "arac_sayisi": 4,
@@ -8496,7 +10038,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 25.61,
     "starv_dk": 2950,
-    "ort_wip": 176.1
+    "ort_wip": 176.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.82
   },
   {
     "arac_sayisi": 5,
@@ -8507,7 +10051,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.81,
     "starv_dk": 1706,
-    "ort_wip": 206.6
+    "ort_wip": 206.6,
+    "sefer_sayisi": 52,
+    "mesafe_km": 55.23
   },
   {
     "arac_sayisi": 6,
@@ -8518,7 +10064,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.7,
     "starv_dk": 1118,
-    "ort_wip": 217.2
+    "ort_wip": 217.2,
+    "sefer_sayisi": 83,
+    "mesafe_km": 53.83
   },
   {
     "arac_sayisi": 7,
@@ -8529,7 +10077,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.66,
     "starv_dk": 652,
-    "ort_wip": 223.3
+    "ort_wip": 223.3,
+    "sefer_sayisi": 111,
+    "mesafe_km": 53.83
   },
   {
     "arac_sayisi": 8,
@@ -8540,7 +10090,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.27,
     "starv_dk": 492,
-    "ort_wip": 224.6
+    "ort_wip": 224.6,
+    "sefer_sayisi": 125,
+    "mesafe_km": 53.35
   },
   {
     "arac_sayisi": 1,
@@ -8551,7 +10103,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.36,
     "starv_dk": 7875,
-    "ort_wip": 70.2
+    "ort_wip": 70.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.81
   },
   {
     "arac_sayisi": 2,
@@ -8562,7 +10116,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.19,
     "starv_dk": 6012,
-    "ort_wip": 107.4
+    "ort_wip": 107.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.0
   },
   {
     "arac_sayisi": 3,
@@ -8573,7 +10129,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.04,
     "starv_dk": 4382,
-    "ort_wip": 143.3
+    "ort_wip": 143.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.15
   },
   {
     "arac_sayisi": 4,
@@ -8584,7 +10142,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.31,
     "starv_dk": 2685,
-    "ort_wip": 181.0
+    "ort_wip": 181.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.31
   },
   {
     "arac_sayisi": 5,
@@ -8595,7 +10155,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.87,
     "starv_dk": 1713,
-    "ort_wip": 205.7
+    "ort_wip": 205.7,
+    "sefer_sayisi": 54,
+    "mesafe_km": 55.97
   },
   {
     "arac_sayisi": 6,
@@ -8606,7 +10168,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.86,
     "starv_dk": 906,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.85
   },
   {
     "arac_sayisi": 7,
@@ -8617,7 +10181,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.82,
     "starv_dk": 555,
-    "ort_wip": 224.3
+    "ort_wip": 224.3,
+    "sefer_sayisi": 120,
+    "mesafe_km": 53.81
   },
   {
     "arac_sayisi": 8,
@@ -8628,7 +10194,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.88,
     "starv_dk": 447,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 128,
+    "mesafe_km": 53.53
   },
   {
     "arac_sayisi": 1,
@@ -8639,7 +10207,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.06,
     "starv_dk": 7841,
-    "ort_wip": 70.0
+    "ort_wip": 70.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.4
   },
   {
     "arac_sayisi": 2,
@@ -8650,7 +10220,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 52.78,
     "starv_dk": 6080,
-    "ort_wip": 107.3
+    "ort_wip": 107.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.22
   },
   {
     "arac_sayisi": 3,
@@ -8661,7 +10233,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.15,
     "starv_dk": 4395,
-    "ort_wip": 142.9
+    "ort_wip": 142.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.76
   },
   {
     "arac_sayisi": 4,
@@ -8672,7 +10246,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.41,
     "starv_dk": 3043,
-    "ort_wip": 175.6
+    "ort_wip": 175.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.94
   },
   {
     "arac_sayisi": 5,
@@ -8683,7 +10259,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.29,
     "starv_dk": 1531,
-    "ort_wip": 207.9
+    "ort_wip": 207.9,
+    "sefer_sayisi": 52,
+    "mesafe_km": 53.42
   },
   {
     "arac_sayisi": 6,
@@ -8694,7 +10272,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.9,
     "starv_dk": 1025,
-    "ort_wip": 219.1
+    "ort_wip": 219.1,
+    "sefer_sayisi": 92,
+    "mesafe_km": 55.58
   },
   {
     "arac_sayisi": 7,
@@ -8705,7 +10285,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.64,
     "starv_dk": 534,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 117,
+    "mesafe_km": 55.1
   },
   {
     "arac_sayisi": 8,
@@ -8716,7 +10298,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.49,
     "starv_dk": 402,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 132,
+    "mesafe_km": 54.26
   },
   {
     "arac_sayisi": 1,
@@ -8727,7 +10311,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 68.25,
     "starv_dk": 7862,
-    "ort_wip": 69.4
+    "ort_wip": 69.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.31
   },
   {
     "arac_sayisi": 2,
@@ -8738,7 +10324,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 53.13,
     "starv_dk": 6121,
-    "ort_wip": 106.5
+    "ort_wip": 106.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.9
   },
   {
     "arac_sayisi": 3,
@@ -8749,7 +10337,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 39.26,
     "starv_dk": 4523,
-    "ort_wip": 142.6
+    "ort_wip": 142.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.95
   },
   {
     "arac_sayisi": 4,
@@ -8760,7 +10350,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 25.07,
     "starv_dk": 2888,
-    "ort_wip": 179.3
+    "ort_wip": 179.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.67
   },
   {
     "arac_sayisi": 5,
@@ -8771,7 +10363,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.06,
     "starv_dk": 1504,
-    "ort_wip": 208.8
+    "ort_wip": 208.8,
+    "sefer_sayisi": 53,
+    "mesafe_km": 55.39
   },
   {
     "arac_sayisi": 6,
@@ -8782,7 +10376,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.12,
     "starv_dk": 936,
-    "ort_wip": 219.1
+    "ort_wip": 219.1,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.08
   },
   {
     "arac_sayisi": 7,
@@ -8793,7 +10389,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.0,
     "starv_dk": 576,
-    "ort_wip": 224.2
+    "ort_wip": 224.2,
+    "sefer_sayisi": 119,
+    "mesafe_km": 55.08
   },
   {
     "arac_sayisi": 8,
@@ -8804,7 +10402,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.57,
     "starv_dk": 296,
-    "ort_wip": 226.9
+    "ort_wip": 226.9,
+    "sefer_sayisi": 135,
+    "mesafe_km": 53.91
   },
   {
     "arac_sayisi": 1,
@@ -8815,7 +10415,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.54,
     "starv_dk": 7781,
-    "ort_wip": 74.0
+    "ort_wip": 74.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.17
   },
   {
     "arac_sayisi": 2,
@@ -8826,7 +10428,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.8,
     "starv_dk": 5852,
-    "ort_wip": 116.8
+    "ort_wip": 116.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.97
   },
   {
     "arac_sayisi": 3,
@@ -8837,7 +10441,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 37.31,
     "starv_dk": 4298,
-    "ort_wip": 154.2
+    "ort_wip": 154.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.99
   },
   {
     "arac_sayisi": 4,
@@ -8848,7 +10454,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.07,
     "starv_dk": 2658,
-    "ort_wip": 194.3
+    "ort_wip": 194.3,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.44
   },
   {
     "arac_sayisi": 5,
@@ -8859,7 +10467,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.82,
     "starv_dk": 1477,
-    "ort_wip": 221.6
+    "ort_wip": 221.6,
+    "sefer_sayisi": 56,
+    "mesafe_km": 55.02
   },
   {
     "arac_sayisi": 6,
@@ -8870,7 +10480,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.58,
     "starv_dk": 988,
-    "ort_wip": 230.6
+    "ort_wip": 230.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.87
   },
   {
     "arac_sayisi": 7,
@@ -8881,7 +10493,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.49,
     "starv_dk": 517,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.79
   },
   {
     "arac_sayisi": 8,
@@ -8892,7 +10506,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.12,
     "starv_dk": 360,
-    "ort_wip": 237.7
+    "ort_wip": 237.7,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.15
   },
   {
     "arac_sayisi": 1,
@@ -8903,7 +10519,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.52,
     "starv_dk": 7548,
-    "ort_wip": 86.9
+    "ort_wip": 86.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.04
   },
   {
     "arac_sayisi": 2,
@@ -8914,7 +10532,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.97,
     "starv_dk": 5872,
-    "ort_wip": 128.1
+    "ort_wip": 128.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.48
   },
   {
     "arac_sayisi": 3,
@@ -8925,7 +10545,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 36.73,
     "starv_dk": 4231,
-    "ort_wip": 165.9
+    "ort_wip": 165.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.48
   },
   {
     "arac_sayisi": 4,
@@ -8936,7 +10558,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.09,
     "starv_dk": 2429,
-    "ort_wip": 212.5
+    "ort_wip": 212.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.45
   },
   {
     "arac_sayisi": 5,
@@ -8947,7 +10571,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.84,
     "starv_dk": 1364,
-    "ort_wip": 234.6
+    "ort_wip": 234.6,
+    "sefer_sayisi": 56,
+    "mesafe_km": 52.41
   },
   {
     "arac_sayisi": 6,
@@ -8958,7 +10584,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.45,
     "starv_dk": 743,
-    "ort_wip": 245.6
+    "ort_wip": 245.6,
+    "sefer_sayisi": 96,
+    "mesafe_km": 52.56
   },
   {
     "arac_sayisi": 7,
@@ -8969,7 +10597,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.9,
     "starv_dk": 334,
-    "ort_wip": 250.6
+    "ort_wip": 250.6,
+    "sefer_sayisi": 124,
+    "mesafe_km": 51.47
   },
   {
     "arac_sayisi": 8,
@@ -8980,7 +10610,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.14,
     "starv_dk": 247,
-    "ort_wip": 251.6
+    "ort_wip": 251.6,
+    "sefer_sayisi": 129,
+    "mesafe_km": 51.28
   },
   {
     "arac_sayisi": 1,
@@ -8991,7 +10623,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.57,
     "starv_dk": 8245,
-    "ort_wip": 62.6
+    "ort_wip": 62.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.78
   },
   {
     "arac_sayisi": 2,
@@ -9002,7 +10636,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 57.6,
     "starv_dk": 6635,
-    "ort_wip": 95.9
+    "ort_wip": 95.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.41
   },
   {
     "arac_sayisi": 3,
@@ -9013,7 +10649,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.85,
     "starv_dk": 5051,
-    "ort_wip": 129.5
+    "ort_wip": 129.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.55
   },
   {
     "arac_sayisi": 4,
@@ -9024,7 +10662,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.59,
     "starv_dk": 3639,
-    "ort_wip": 162.8
+    "ort_wip": 162.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 51.35
   },
   {
     "arac_sayisi": 5,
@@ -9035,7 +10675,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 19.24,
     "starv_dk": 2217,
-    "ort_wip": 193.4
+    "ort_wip": 193.4,
+    "sefer_sayisi": 42,
+    "mesafe_km": 61.72
   },
   {
     "arac_sayisi": 6,
@@ -9046,7 +10688,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.94,
     "starv_dk": 1376,
-    "ort_wip": 211.8
+    "ort_wip": 211.8,
+    "sefer_sayisi": 76,
+    "mesafe_km": 63.02
   },
   {
     "arac_sayisi": 7,
@@ -9057,7 +10701,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.33,
     "starv_dk": 1075,
-    "ort_wip": 215.9
+    "ort_wip": 215.9,
+    "sefer_sayisi": 107,
+    "mesafe_km": 61.45
   },
   {
     "arac_sayisi": 8,
@@ -9068,7 +10714,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.31,
     "starv_dk": 497,
-    "ort_wip": 225.3
+    "ort_wip": 225.3,
+    "sefer_sayisi": 142,
+    "mesafe_km": 59.84
   },
   {
     "arac_sayisi": 1,
@@ -9079,7 +10727,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 71.65,
     "starv_dk": 8254,
-    "ort_wip": 62.7
+    "ort_wip": 62.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.72
   },
   {
     "arac_sayisi": 2,
@@ -9090,7 +10740,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.49,
     "starv_dk": 6738,
-    "ort_wip": 94.3
+    "ort_wip": 94.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.88
   },
   {
     "arac_sayisi": 3,
@@ -9101,7 +10753,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.9,
     "starv_dk": 5057,
-    "ort_wip": 130.7
+    "ort_wip": 130.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.43
   },
   {
     "arac_sayisi": 4,
@@ -9112,7 +10766,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.6,
     "starv_dk": 3640,
-    "ort_wip": 161.7
+    "ort_wip": 161.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.48
   },
   {
     "arac_sayisi": 5,
@@ -9123,7 +10779,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.9,
     "starv_dk": 2177,
-    "ort_wip": 194.5
+    "ort_wip": 194.5,
+    "sefer_sayisi": 42,
+    "mesafe_km": 59.18
   },
   {
     "arac_sayisi": 6,
@@ -9134,7 +10792,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.3,
     "starv_dk": 1532,
-    "ort_wip": 207.7
+    "ort_wip": 207.7,
+    "sefer_sayisi": 75,
+    "mesafe_km": 60.99
   },
   {
     "arac_sayisi": 7,
@@ -9145,7 +10805,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.27,
     "starv_dk": 1068,
-    "ort_wip": 217.1
+    "ort_wip": 217.1,
+    "sefer_sayisi": 112,
+    "mesafe_km": 61.44
   },
   {
     "arac_sayisi": 8,
@@ -9156,7 +10818,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.16,
     "starv_dk": 479,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 139,
+    "mesafe_km": 60.41
   },
   {
     "arac_sayisi": 1,
@@ -9167,7 +10831,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.11,
     "starv_dk": 8077,
-    "ort_wip": 69.9
+    "ort_wip": 69.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.28
   },
   {
     "arac_sayisi": 2,
@@ -9178,7 +10844,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 56.48,
     "starv_dk": 6506,
-    "ort_wip": 103.7
+    "ort_wip": 103.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.2
   },
   {
     "arac_sayisi": 3,
@@ -9189,7 +10857,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.73,
     "starv_dk": 5153,
-    "ort_wip": 136.4
+    "ort_wip": 136.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.13
   },
   {
     "arac_sayisi": 4,
@@ -9200,7 +10870,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.12,
     "starv_dk": 3355,
-    "ort_wip": 175.3
+    "ort_wip": 175.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.0
   },
   {
     "arac_sayisi": 5,
@@ -9211,7 +10883,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.95,
     "starv_dk": 2068,
-    "ort_wip": 207.0
+    "ort_wip": 207.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 58.15
   },
   {
     "arac_sayisi": 6,
@@ -9222,7 +10896,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.08,
     "starv_dk": 1392,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.14
   },
   {
     "arac_sayisi": 7,
@@ -9233,7 +10909,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.1,
     "starv_dk": 818,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.11
   },
   {
     "arac_sayisi": 8,
@@ -9244,7 +10922,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.22,
     "starv_dk": 371,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.48
   },
   {
     "arac_sayisi": 1,
@@ -9255,7 +10935,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 69.36,
     "starv_dk": 7990,
-    "ort_wip": 78.2
+    "ort_wip": 78.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.5
   },
   {
     "arac_sayisi": 2,
@@ -9266,7 +10948,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.0,
     "starv_dk": 6221,
-    "ort_wip": 118.3
+    "ort_wip": 118.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.96
   },
   {
     "arac_sayisi": 3,
@@ -9277,7 +10961,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 41.56,
     "starv_dk": 4788,
-    "ort_wip": 151.9
+    "ort_wip": 151.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.09
   },
   {
     "arac_sayisi": 4,
@@ -9288,7 +10974,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.89,
     "starv_dk": 3443,
-    "ort_wip": 184.5
+    "ort_wip": 184.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.44
   },
   {
     "arac_sayisi": 5,
@@ -9299,7 +10987,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.22,
     "starv_dk": 1868,
-    "ort_wip": 220.8
+    "ort_wip": 220.8,
+    "sefer_sayisi": 45,
+    "mesafe_km": 59.03
   },
   {
     "arac_sayisi": 6,
@@ -9310,7 +11000,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.68,
     "starv_dk": 1346,
-    "ort_wip": 233.8
+    "ort_wip": 233.8,
+    "sefer_sayisi": 83,
+    "mesafe_km": 58.58
   },
   {
     "arac_sayisi": 7,
@@ -9321,7 +11013,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.35,
     "starv_dk": 731,
-    "ort_wip": 244.1
+    "ort_wip": 244.1,
+    "sefer_sayisi": 113,
+    "mesafe_km": 57.1
   },
   {
     "arac_sayisi": 8,
@@ -9332,7 +11026,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.13,
     "starv_dk": 361,
-    "ort_wip": 248.4
+    "ort_wip": 248.4,
+    "sefer_sayisi": 137,
+    "mesafe_km": 57.69
   },
   {
     "arac_sayisi": 1,
@@ -9343,7 +11039,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.67,
     "starv_dk": 8141,
-    "ort_wip": 75.5
+    "ort_wip": 75.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.8
   },
   {
     "arac_sayisi": 2,
@@ -9354,7 +11052,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.14,
     "starv_dk": 6237,
-    "ort_wip": 123.8
+    "ort_wip": 123.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.04
   },
   {
     "arac_sayisi": 3,
@@ -9365,7 +11065,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.79,
     "starv_dk": 4699,
-    "ort_wip": 161.7
+    "ort_wip": 161.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -9376,7 +11078,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.61,
     "starv_dk": 3066,
-    "ort_wip": 205.4
+    "ort_wip": 205.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.48
   },
   {
     "arac_sayisi": 5,
@@ -9387,7 +11091,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.54,
     "starv_dk": 1790,
-    "ort_wip": 234.9
+    "ort_wip": 234.9,
+    "sefer_sayisi": 47,
+    "mesafe_km": 56.27
   },
   {
     "arac_sayisi": 6,
@@ -9398,7 +11104,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.21,
     "starv_dk": 1176,
-    "ort_wip": 248.9
+    "ort_wip": 248.9,
+    "sefer_sayisi": 88,
+    "mesafe_km": 57.46
   },
   {
     "arac_sayisi": 7,
@@ -9409,7 +11117,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.36,
     "starv_dk": 617,
-    "ort_wip": 256.6
+    "ort_wip": 256.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 56.8
   },
   {
     "arac_sayisi": 8,
@@ -9420,7 +11130,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.65,
     "starv_dk": 420,
-    "ort_wip": 258.3
+    "ort_wip": 258.3,
+    "sefer_sayisi": 131,
+    "mesafe_km": 56.44
   },
   {
     "arac_sayisi": 1,
@@ -9431,7 +11143,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.63,
     "starv_dk": 7791,
-    "ort_wip": 94.5
+    "ort_wip": 94.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.11
   },
   {
     "arac_sayisi": 2,
@@ -9442,7 +11156,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.47,
     "starv_dk": 5929,
-    "ort_wip": 143.4
+    "ort_wip": 143.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.39
   },
   {
     "arac_sayisi": 3,
@@ -9453,7 +11169,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.64,
     "starv_dk": 4106,
-    "ort_wip": 192.5
+    "ort_wip": 192.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.59
   },
   {
     "arac_sayisi": 4,
@@ -9464,7 +11182,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.72,
     "starv_dk": 2732,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 46.42
   },
   {
     "arac_sayisi": 5,
@@ -9475,7 +11195,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.2,
     "starv_dk": 1406,
-    "ort_wip": 266.9
+    "ort_wip": 266.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.35
   },
   {
     "arac_sayisi": 6,
@@ -9486,7 +11208,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.59,
     "starv_dk": 759,
-    "ort_wip": 278.7
+    "ort_wip": 278.7,
+    "sefer_sayisi": 92,
+    "mesafe_km": 52.82
   },
   {
     "arac_sayisi": 7,
@@ -9497,7 +11221,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.47,
     "starv_dk": 515,
-    "ort_wip": 281.6
+    "ort_wip": 281.6,
+    "sefer_sayisi": 114,
+    "mesafe_km": 53.69
   },
   {
     "arac_sayisi": 8,
@@ -9508,7 +11234,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.45,
     "starv_dk": 282,
-    "ort_wip": 283.0
+    "ort_wip": 283.0,
+    "sefer_sayisi": 126,
+    "mesafe_km": 53.02
   },
   {
     "arac_sayisi": 1,
@@ -9519,7 +11247,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 73.09,
     "starv_dk": 8420,
-    "ort_wip": 62.6
+    "ort_wip": 62.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.44
   },
   {
     "arac_sayisi": 2,
@@ -9530,7 +11260,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 60.38,
     "starv_dk": 6956,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.3
   },
   {
     "arac_sayisi": 3,
@@ -9541,7 +11273,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.15,
     "starv_dk": 5547,
-    "ort_wip": 125.5
+    "ort_wip": 125.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.85
   },
   {
     "arac_sayisi": 4,
@@ -9552,7 +11286,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 37.29,
     "starv_dk": 4296,
-    "ort_wip": 153.7
+    "ort_wip": 153.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.88
   },
   {
     "arac_sayisi": 5,
@@ -9563,7 +11299,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 24.88,
     "starv_dk": 2866,
-    "ort_wip": 190.3
+    "ort_wip": 190.3,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.36
   },
   {
     "arac_sayisi": 6,
@@ -9574,7 +11312,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.51,
     "starv_dk": 2017,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 65,
+    "mesafe_km": 69.4
   },
   {
     "arac_sayisi": 7,
@@ -9585,7 +11325,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.65,
     "starv_dk": 1227,
-    "ort_wip": 224.0
+    "ort_wip": 224.0,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.06
   },
   {
     "arac_sayisi": 8,
@@ -9596,7 +11338,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.92,
     "starv_dk": 797,
-    "ort_wip": 230.4
+    "ort_wip": 230.4,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.62
   },
   {
     "arac_sayisi": 1,
@@ -9607,7 +11351,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.5,
     "starv_dk": 8352,
-    "ort_wip": 68.0
+    "ort_wip": 68.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.17
   },
   {
     "arac_sayisi": 2,
@@ -9618,7 +11364,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.28,
     "starv_dk": 6714,
-    "ort_wip": 103.7
+    "ort_wip": 103.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.31
   },
   {
     "arac_sayisi": 3,
@@ -9629,7 +11377,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 44.88,
     "starv_dk": 5170,
-    "ort_wip": 141.7
+    "ort_wip": 141.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.37
   },
   {
     "arac_sayisi": 4,
@@ -9640,7 +11390,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.57,
     "starv_dk": 4098,
-    "ort_wip": 169.1
+    "ort_wip": 169.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.51
   },
   {
     "arac_sayisi": 5,
@@ -9651,7 +11403,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 23.85,
     "starv_dk": 2748,
-    "ort_wip": 200.6
+    "ort_wip": 200.6,
+    "sefer_sayisi": 42,
+    "mesafe_km": 60.16
   },
   {
     "arac_sayisi": 6,
@@ -9662,7 +11416,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.04,
     "starv_dk": 1617,
-    "ort_wip": 227.6
+    "ort_wip": 227.6,
+    "sefer_sayisi": 66,
+    "mesafe_km": 64.25
   },
   {
     "arac_sayisi": 7,
@@ -9673,7 +11429,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.98,
     "starv_dk": 1150,
-    "ort_wip": 233.7
+    "ort_wip": 233.7,
+    "sefer_sayisi": 106,
+    "mesafe_km": 63.11
   },
   {
     "arac_sayisi": 8,
@@ -9684,7 +11442,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.26,
     "starv_dk": 721,
-    "ort_wip": 243.2
+    "ort_wip": 243.2,
+    "sefer_sayisi": 127,
+    "mesafe_km": 63.56
   },
   {
     "arac_sayisi": 1,
@@ -9695,7 +11455,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.31,
     "starv_dk": 8330,
-    "ort_wip": 73.2
+    "ort_wip": 73.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.07
   },
   {
     "arac_sayisi": 2,
@@ -9706,7 +11468,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 57.4,
     "starv_dk": 6613,
-    "ort_wip": 110.7
+    "ort_wip": 110.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.35
   },
   {
     "arac_sayisi": 3,
@@ -9717,7 +11481,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 42.22,
     "starv_dk": 4864,
-    "ort_wip": 153.8
+    "ort_wip": 153.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.65
   },
   {
     "arac_sayisi": 4,
@@ -9728,7 +11494,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.55,
     "starv_dk": 3865,
-    "ort_wip": 180.4
+    "ort_wip": 180.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.7
   },
   {
     "arac_sayisi": 5,
@@ -9739,7 +11507,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.75,
     "starv_dk": 2506,
-    "ort_wip": 217.4
+    "ort_wip": 217.4,
+    "sefer_sayisi": 43,
+    "mesafe_km": 59.78
   },
   {
     "arac_sayisi": 6,
@@ -9750,7 +11520,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 14.05,
     "starv_dk": 1618,
-    "ort_wip": 238.6
+    "ort_wip": 238.6,
+    "sefer_sayisi": 72,
+    "mesafe_km": 64.86
   },
   {
     "arac_sayisi": 7,
@@ -9761,7 +11533,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 9.92,
     "starv_dk": 1143,
-    "ort_wip": 248.3
+    "ort_wip": 248.3,
+    "sefer_sayisi": 107,
+    "mesafe_km": 62.89
   },
   {
     "arac_sayisi": 8,
@@ -9772,7 +11546,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.78,
     "starv_dk": 551,
-    "ort_wip": 256.6
+    "ort_wip": 256.6,
+    "sefer_sayisi": 134,
+    "mesafe_km": 62.16
   },
   {
     "arac_sayisi": 1,
@@ -9783,7 +11559,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 70.16,
     "starv_dk": 8083,
-    "ort_wip": 85.3
+    "ort_wip": 85.3,
+    "sefer_sayisi": 7,
+    "mesafe_km": 11.24
   },
   {
     "arac_sayisi": 2,
@@ -9794,7 +11572,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.26,
     "starv_dk": 6251,
-    "ort_wip": 128.0
+    "ort_wip": 128.0,
+    "sefer_sayisi": 15,
+    "mesafe_km": 23.57
   },
   {
     "arac_sayisi": 3,
@@ -9805,7 +11585,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 42.85,
     "starv_dk": 4936,
-    "ort_wip": 162.6
+    "ort_wip": 162.6,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.5
   },
   {
     "arac_sayisi": 4,
@@ -9816,7 +11598,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 30.98,
     "starv_dk": 3569,
-    "ort_wip": 200.3
+    "ort_wip": 200.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.67
   },
   {
     "arac_sayisi": 5,
@@ -9827,7 +11611,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 19.15,
     "starv_dk": 2206,
-    "ort_wip": 241.9
+    "ort_wip": 241.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 60.42
   },
   {
     "arac_sayisi": 6,
@@ -9838,7 +11624,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.53,
     "starv_dk": 1328,
-    "ort_wip": 267.7
+    "ort_wip": 267.7,
+    "sefer_sayisi": 81,
+    "mesafe_km": 59.77
   },
   {
     "arac_sayisi": 7,
@@ -9849,7 +11637,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.89,
     "starv_dk": 909,
-    "ort_wip": 272.8
+    "ort_wip": 272.8,
+    "sefer_sayisi": 112,
+    "mesafe_km": 58.35
   },
   {
     "arac_sayisi": 8,
@@ -9860,7 +11650,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.31,
     "starv_dk": 496,
-    "ort_wip": 278.6
+    "ort_wip": 278.6,
+    "sefer_sayisi": 129,
+    "mesafe_km": 57.49
   },
   {
     "arac_sayisi": 1,
@@ -9871,7 +11663,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 67.07,
     "starv_dk": 7727,
-    "ort_wip": 101.2
+    "ort_wip": 101.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.46
   },
   {
     "arac_sayisi": 2,
@@ -9882,7 +11676,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 51.8,
     "starv_dk": 5967,
-    "ort_wip": 151.3
+    "ort_wip": 151.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.79
   },
   {
     "arac_sayisi": 3,
@@ -9893,7 +11689,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 38.06,
     "starv_dk": 4385,
-    "ort_wip": 198.3
+    "ort_wip": 198.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.26
   },
   {
     "arac_sayisi": 4,
@@ -9904,7 +11702,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 22.87,
     "starv_dk": 2635,
-    "ort_wip": 260.1
+    "ort_wip": 260.1,
+    "sefer_sayisi": 34,
+    "mesafe_km": 48.45
   },
   {
     "arac_sayisi": 5,
@@ -9915,7 +11715,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.61,
     "starv_dk": 1568,
-    "ort_wip": 297.7
+    "ort_wip": 297.7,
+    "sefer_sayisi": 58,
+    "mesafe_km": 53.4
   },
   {
     "arac_sayisi": 6,
@@ -9926,7 +11728,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.33,
     "starv_dk": 960,
-    "ort_wip": 311.2
+    "ort_wip": 311.2,
+    "sefer_sayisi": 92,
+    "mesafe_km": 50.5
   },
   {
     "arac_sayisi": 7,
@@ -9937,7 +11741,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.35,
     "starv_dk": 501,
-    "ort_wip": 316.7
+    "ort_wip": 316.7,
+    "sefer_sayisi": 117,
+    "mesafe_km": 51.3
   },
   {
     "arac_sayisi": 8,
@@ -9948,7 +11754,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.52,
     "starv_dk": 290,
-    "ort_wip": 319.6
+    "ort_wip": 319.6,
+    "sefer_sayisi": 128,
+    "mesafe_km": 52.23
   },
   {
     "arac_sayisi": 1,
@@ -9959,7 +11767,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.01,
     "starv_dk": 7374,
-    "ort_wip": 127.3
+    "ort_wip": 127.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.35
   },
   {
     "arac_sayisi": 2,
@@ -9970,7 +11780,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 49.64,
     "starv_dk": 5719,
-    "ort_wip": 173.0
+    "ort_wip": 173.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -9981,7 +11793,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 33.0,
     "starv_dk": 3802,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -9992,7 +11806,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 16.92,
     "starv_dk": 1949,
-    "ort_wip": 303.8
+    "ort_wip": 303.8,
+    "sefer_sayisi": 34,
+    "mesafe_km": 46.56
   },
   {
     "arac_sayisi": 5,
@@ -10003,7 +11819,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 11.53,
     "starv_dk": 1328,
-    "ort_wip": 329.4
+    "ort_wip": 329.4,
+    "sefer_sayisi": 64,
+    "mesafe_km": 48.72
   },
   {
     "arac_sayisi": 6,
@@ -10014,7 +11832,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.71,
     "starv_dk": 888,
-    "ort_wip": 339.4
+    "ort_wip": 339.4,
+    "sefer_sayisi": 88,
+    "mesafe_km": 47.2
   },
   {
     "arac_sayisi": 7,
@@ -10025,7 +11845,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.44,
     "starv_dk": 511,
-    "ort_wip": 346.2
+    "ort_wip": 346.2,
+    "sefer_sayisi": 108,
+    "mesafe_km": 47.07
   },
   {
     "arac_sayisi": 8,
@@ -10036,7 +11858,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.83,
     "starv_dk": 326,
-    "ort_wip": 348.2
+    "ort_wip": 348.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 46.9
   },
   {
     "arac_sayisi": 1,
@@ -10047,7 +11871,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 73.56,
     "starv_dk": 8474,
-    "ort_wip": 70.0
+    "ort_wip": 70.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.4
   },
   {
     "arac_sayisi": 2,
@@ -10058,7 +11884,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 60.86,
     "starv_dk": 7011,
-    "ort_wip": 105.8
+    "ort_wip": 105.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.55
   },
   {
     "arac_sayisi": 3,
@@ -10069,7 +11897,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.03,
     "starv_dk": 5533,
-    "ort_wip": 140.2
+    "ort_wip": 140.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.88
   },
   {
     "arac_sayisi": 4,
@@ -10080,7 +11910,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 37.45,
     "starv_dk": 4314,
-    "ort_wip": 171.5
+    "ort_wip": 171.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.06
   },
   {
     "arac_sayisi": 5,
@@ -10091,7 +11923,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.93,
     "starv_dk": 3448,
-    "ort_wip": 191.9
+    "ort_wip": 191.9,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.91
   },
   {
     "arac_sayisi": 6,
@@ -10102,7 +11936,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 18.76,
     "starv_dk": 2161,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 59,
+    "mesafe_km": 70.36
   },
   {
     "arac_sayisi": 7,
@@ -10113,7 +11949,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.62,
     "starv_dk": 1454,
-    "ort_wip": 239.7
+    "ort_wip": 239.7,
+    "sefer_sayisi": 101,
+    "mesafe_km": 69.17
   },
   {
     "arac_sayisi": 8,
@@ -10124,7 +11962,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.97,
     "starv_dk": 1033,
-    "ort_wip": 246.9
+    "ort_wip": 246.9,
+    "sefer_sayisi": 130,
+    "mesafe_km": 66.99
   },
   {
     "arac_sayisi": 1,
@@ -10135,7 +11975,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 72.2,
     "starv_dk": 8318,
-    "ort_wip": 76.8
+    "ort_wip": 76.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.71
   },
   {
     "arac_sayisi": 2,
@@ -10146,7 +11988,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 58.92,
     "starv_dk": 6788,
-    "ort_wip": 117.8
+    "ort_wip": 117.8,
+    "sefer_sayisi": 15,
+    "mesafe_km": 25.11
   },
   {
     "arac_sayisi": 3,
@@ -10157,7 +12001,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 47.66,
     "starv_dk": 5491,
-    "ort_wip": 153.8
+    "ort_wip": 153.8,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.79
   },
   {
     "arac_sayisi": 4,
@@ -10168,7 +12014,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 35.33,
     "starv_dk": 4070,
-    "ort_wip": 192.9
+    "ort_wip": 192.9,
+    "sefer_sayisi": 30,
+    "mesafe_km": 49.4
   },
   {
     "arac_sayisi": 5,
@@ -10179,7 +12027,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 22.47,
     "starv_dk": 2588,
-    "ort_wip": 233.2
+    "ort_wip": 233.2,
+    "sefer_sayisi": 39,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -10190,7 +12040,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.4,
     "starv_dk": 1774,
-    "ort_wip": 254.0
+    "ort_wip": 254.0,
+    "sefer_sayisi": 70,
+    "mesafe_km": 67.92
   },
   {
     "arac_sayisi": 7,
@@ -10201,7 +12053,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.05,
     "starv_dk": 1388,
-    "ort_wip": 263.0
+    "ort_wip": 263.0,
+    "sefer_sayisi": 103,
+    "mesafe_km": 63.25
   },
   {
     "arac_sayisi": 8,
@@ -10212,7 +12066,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.68,
     "starv_dk": 1000,
-    "ort_wip": 269.4
+    "ort_wip": 269.4,
+    "sefer_sayisi": 129,
+    "mesafe_km": 62.32
   },
   {
     "arac_sayisi": 1,
@@ -10223,7 +12079,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 69.01,
     "starv_dk": 7950,
-    "ort_wip": 101.0
+    "ort_wip": 101.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.21
   },
   {
     "arac_sayisi": 2,
@@ -10234,7 +12092,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 54.62,
     "starv_dk": 6292,
-    "ort_wip": 151.4
+    "ort_wip": 151.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.67
   },
   {
     "arac_sayisi": 3,
@@ -10245,7 +12105,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 40.58,
     "starv_dk": 4675,
-    "ort_wip": 198.4
+    "ort_wip": 198.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.35
   },
   {
     "arac_sayisi": 4,
@@ -10256,7 +12118,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 26.92,
     "starv_dk": 3101,
-    "ort_wip": 246.8
+    "ort_wip": 246.8,
+    "sefer_sayisi": 33,
+    "mesafe_km": 48.25
   },
   {
     "arac_sayisi": 5,
@@ -10267,7 +12131,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 15.35,
     "starv_dk": 1768,
-    "ort_wip": 289.5
+    "ort_wip": 289.5,
+    "sefer_sayisi": 45,
+    "mesafe_km": 57.7
   },
   {
     "arac_sayisi": 6,
@@ -10278,7 +12144,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 12.69,
     "starv_dk": 1462,
-    "ort_wip": 299.3
+    "ort_wip": 299.3,
+    "sefer_sayisi": 83,
+    "mesafe_km": 57.25
   },
   {
     "arac_sayisi": 7,
@@ -10289,7 +12157,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.8,
     "starv_dk": 898,
-    "ort_wip": 309.5
+    "ort_wip": 309.5,
+    "sefer_sayisi": 115,
+    "mesafe_km": 57.95
   },
   {
     "arac_sayisi": 8,
@@ -10300,7 +12170,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.24,
     "starv_dk": 489,
-    "ort_wip": 315.0
+    "ort_wip": 315.0,
+    "sefer_sayisi": 134,
+    "mesafe_km": 57.63
   },
   {
     "arac_sayisi": 1,
@@ -10311,7 +12183,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 65.7,
     "starv_dk": 7569,
-    "ort_wip": 120.8
+    "ort_wip": 120.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.15
   },
   {
     "arac_sayisi": 2,
@@ -10322,7 +12196,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 50.99,
     "starv_dk": 5874,
-    "ort_wip": 176.3
+    "ort_wip": 176.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.64
   },
   {
     "arac_sayisi": 3,
@@ -10333,7 +12209,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 37.98,
     "starv_dk": 4375,
-    "ort_wip": 224.9
+    "ort_wip": 224.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.72
   },
   {
     "arac_sayisi": 4,
@@ -10344,7 +12222,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 21.14,
     "starv_dk": 2435,
-    "ort_wip": 288.5
+    "ort_wip": 288.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 46.59
   },
   {
     "arac_sayisi": 5,
@@ -10355,7 +12235,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 13.28,
     "starv_dk": 1530,
-    "ort_wip": 322.1
+    "ort_wip": 322.1,
+    "sefer_sayisi": 54,
+    "mesafe_km": 56.59
   },
   {
     "arac_sayisi": 6,
@@ -10366,7 +12248,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 8.11,
     "starv_dk": 934,
-    "ort_wip": 335.1
+    "ort_wip": 335.1,
+    "sefer_sayisi": 91,
+    "mesafe_km": 55.14
   },
   {
     "arac_sayisi": 7,
@@ -10377,7 +12261,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.94,
     "starv_dk": 799,
-    "ort_wip": 337.6
+    "ort_wip": 337.6,
+    "sefer_sayisi": 114,
+    "mesafe_km": 54.3
   },
   {
     "arac_sayisi": 8,
@@ -10388,7 +12274,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.13,
     "starv_dk": 476,
-    "ort_wip": 340.8
+    "ort_wip": 340.8,
+    "sefer_sayisi": 133,
+    "mesafe_km": 53.11
   },
   {
     "arac_sayisi": 1,
@@ -10399,7 +12287,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 64.65,
     "starv_dk": 7448,
-    "ort_wip": 136.9
+    "ort_wip": 136.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.94
   },
   {
     "arac_sayisi": 2,
@@ -10410,7 +12300,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 48.76,
     "starv_dk": 5617,
-    "ort_wip": 201.0
+    "ort_wip": 201.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.67
   },
   {
     "arac_sayisi": 3,
@@ -10421,7 +12313,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 31.75,
     "starv_dk": 3658,
-    "ort_wip": 267.4
+    "ort_wip": 267.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.12
   },
   {
     "arac_sayisi": 4,
@@ -10432,7 +12326,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 17.59,
     "starv_dk": 2026,
-    "ort_wip": 333.9
+    "ort_wip": 333.9,
+    "sefer_sayisi": 36,
+    "mesafe_km": 46.97
   },
   {
     "arac_sayisi": 5,
@@ -10443,7 +12339,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.5,
     "starv_dk": 1210,
-    "ort_wip": 364.5
+    "ort_wip": 364.5,
+    "sefer_sayisi": 67,
+    "mesafe_km": 50.8
   },
   {
     "arac_sayisi": 6,
@@ -10454,7 +12352,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 6.72,
     "starv_dk": 774,
-    "ort_wip": 373.9
+    "ort_wip": 373.9,
+    "sefer_sayisi": 91,
+    "mesafe_km": 48.29
   },
   {
     "arac_sayisi": 7,
@@ -10465,7 +12365,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 4.38,
     "starv_dk": 505,
-    "ort_wip": 377.4
+    "ort_wip": 377.4,
+    "sefer_sayisi": 108,
+    "mesafe_km": 48.24
   },
   {
     "arac_sayisi": 8,
@@ -10476,7 +12378,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.84,
     "starv_dk": 327,
-    "ort_wip": 379.9
+    "ort_wip": 379.9,
+    "sefer_sayisi": 117,
+    "mesafe_km": 48.87
   },
   {
     "arac_sayisi": 1,
@@ -10487,7 +12391,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 62.07,
     "starv_dk": 7150,
-    "ort_wip": 152.6
+    "ort_wip": 152.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.51
   },
   {
     "arac_sayisi": 2,
@@ -10498,7 +12404,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 43.84,
     "starv_dk": 5050,
-    "ort_wip": 228.1
+    "ort_wip": 228.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -10509,7 +12417,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 29.78,
     "starv_dk": 3431,
-    "ort_wip": 293.0
+    "ort_wip": 293.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.96
   },
   {
     "arac_sayisi": 4,
@@ -10520,7 +12430,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 10.91,
     "starv_dk": 1257,
-    "ort_wip": 371.3
+    "ort_wip": 371.3,
+    "sefer_sayisi": 40,
+    "mesafe_km": 46.67
   },
   {
     "arac_sayisi": 5,
@@ -10531,7 +12443,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 7.66,
     "starv_dk": 883,
-    "ort_wip": 387.7
+    "ort_wip": 387.7,
+    "sefer_sayisi": 72,
+    "mesafe_km": 46.14
   },
   {
     "arac_sayisi": 6,
@@ -10542,7 +12456,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 5.77,
     "starv_dk": 665,
-    "ort_wip": 392.1
+    "ort_wip": 392.1,
+    "sefer_sayisi": 96,
+    "mesafe_km": 46.03
   },
   {
     "arac_sayisi": 7,
@@ -10553,7 +12469,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 3.04,
     "starv_dk": 350,
-    "ort_wip": 398.5
+    "ort_wip": 398.5,
+    "sefer_sayisi": 111,
+    "mesafe_km": 45.31
   },
   {
     "arac_sayisi": 8,
@@ -10564,7 +12482,9 @@ let scenariosData = [
     "n_modu": "Dinamik_N",
     "starv_pct": 2.04,
     "starv_dk": 235,
-    "ort_wip": 399.1
+    "ort_wip": 399.1,
+    "sefer_sayisi": 117,
+    "mesafe_km": 44.82
   },
   {
     "arac_sayisi": 1,
@@ -10575,7 +12495,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.6,
     "starv_dk": 7212,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -10586,7 +12508,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.13,
     "starv_dk": 4969,
-    "ort_wip": 134.7
+    "ort_wip": 134.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -10597,7 +12521,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.57,
     "starv_dk": 2830,
-    "ort_wip": 180.3
+    "ort_wip": 180.3,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.07
   },
   {
     "arac_sayisi": 4,
@@ -10608,7 +12534,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.07,
     "starv_dk": 1391,
-    "ort_wip": 219.8
+    "ort_wip": 219.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.27
   },
   {
     "arac_sayisi": 5,
@@ -10619,7 +12547,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.7
+    "ort_wip": 232.7,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.28
   },
   {
     "arac_sayisi": 6,
@@ -10630,7 +12560,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.88,
     "starv_dk": 447,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 93,
+    "mesafe_km": 46.98
   },
   {
     "arac_sayisi": 7,
@@ -10641,7 +12573,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.83,
     "starv_dk": 326,
-    "ort_wip": 239.8
+    "ort_wip": 239.8,
+    "sefer_sayisi": 107,
+    "mesafe_km": 46.69
   },
   {
     "arac_sayisi": 8,
@@ -10652,7 +12586,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.25,
     "starv_dk": 259,
-    "ort_wip": 240.1
+    "ort_wip": 240.1,
+    "sefer_sayisi": 112,
+    "mesafe_km": 46.15
   },
   {
     "arac_sayisi": 1,
@@ -10663,7 +12599,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.61,
     "starv_dk": 7213,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -10674,7 +12612,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.1,
     "starv_dk": 4965,
-    "ort_wip": 135.1
+    "ort_wip": 135.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.62
   },
   {
     "arac_sayisi": 3,
@@ -10685,7 +12625,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.67,
     "starv_dk": 2842,
-    "ort_wip": 180.5
+    "ort_wip": 180.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.93
   },
   {
     "arac_sayisi": 4,
@@ -10696,7 +12638,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.04,
     "starv_dk": 1387,
-    "ort_wip": 220.3
+    "ort_wip": 220.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.26
   },
   {
     "arac_sayisi": 5,
@@ -10707,7 +12651,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.93,
     "starv_dk": 1029,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 69,
+    "mesafe_km": 49.58
   },
   {
     "arac_sayisi": 6,
@@ -10718,7 +12664,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.09,
     "starv_dk": 471,
-    "ort_wip": 238.5
+    "ort_wip": 238.5,
+    "sefer_sayisi": 97,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 7,
@@ -10729,7 +12677,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.7,
     "starv_dk": 311,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 109,
+    "mesafe_km": 47.27
   },
   {
     "arac_sayisi": 8,
@@ -10740,7 +12690,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.34,
     "starv_dk": 269,
-    "ort_wip": 240.9
+    "ort_wip": 240.9,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.37
   },
   {
     "arac_sayisi": 1,
@@ -10751,7 +12703,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.52,
     "starv_dk": 7202,
-    "ort_wip": 88.5
+    "ort_wip": 88.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.55
   },
   {
     "arac_sayisi": 2,
@@ -10762,7 +12716,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.11,
     "starv_dk": 4966,
-    "ort_wip": 135.3
+    "ort_wip": 135.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.73
   },
   {
     "arac_sayisi": 3,
@@ -10773,7 +12729,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.6,
     "starv_dk": 2834,
-    "ort_wip": 181.0
+    "ort_wip": 181.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.45
   },
   {
     "arac_sayisi": 4,
@@ -10784,7 +12742,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.96,
     "starv_dk": 1378,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.91
   },
   {
     "arac_sayisi": 5,
@@ -10795,7 +12755,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.58,
     "starv_dk": 988,
-    "ort_wip": 232.8
+    "ort_wip": 232.8,
+    "sefer_sayisi": 68,
+    "mesafe_km": 47.02
   },
   {
     "arac_sayisi": 6,
@@ -10806,7 +12768,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.52,
     "starv_dk": 406,
-    "ort_wip": 240.0
+    "ort_wip": 240.0,
+    "sefer_sayisi": 103,
+    "mesafe_km": 46.41
   },
   {
     "arac_sayisi": 7,
@@ -10817,7 +12781,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.01,
     "starv_dk": 231,
-    "ort_wip": 241.8
+    "ort_wip": 241.8,
+    "sefer_sayisi": 116,
+    "mesafe_km": 46.52
   },
   {
     "arac_sayisi": 8,
@@ -10828,7 +12794,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.71,
     "starv_dk": 197,
-    "ort_wip": 242.2
+    "ort_wip": 242.2,
+    "sefer_sayisi": 120,
+    "mesafe_km": 46.28
   },
   {
     "arac_sayisi": 1,
@@ -10839,7 +12807,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.5,
     "starv_dk": 7200,
-    "ort_wip": 88.6
+    "ort_wip": 88.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.41
   },
   {
     "arac_sayisi": 2,
@@ -10850,7 +12820,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.96,
     "starv_dk": 4949,
-    "ort_wip": 135.7
+    "ort_wip": 135.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.43
   },
   {
     "arac_sayisi": 3,
@@ -10861,7 +12833,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.65,
     "starv_dk": 2840,
-    "ort_wip": 181.4
+    "ort_wip": 181.4,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.01
   },
   {
     "arac_sayisi": 4,
@@ -10872,7 +12846,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.28,
     "starv_dk": 1415,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.14
   },
   {
     "arac_sayisi": 5,
@@ -10883,7 +12859,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.21,
     "starv_dk": 946,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 70,
+    "mesafe_km": 49.07
   },
   {
     "arac_sayisi": 6,
@@ -10894,7 +12872,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.71,
     "starv_dk": 427,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 102,
+    "mesafe_km": 48.8
   },
   {
     "arac_sayisi": 7,
@@ -10905,7 +12885,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.02,
     "starv_dk": 233,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 116,
+    "mesafe_km": 48.19
   },
   {
     "arac_sayisi": 8,
@@ -10916,7 +12898,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.41,
     "starv_dk": 163,
-    "ort_wip": 241.4
+    "ort_wip": 241.4,
+    "sefer_sayisi": 123,
+    "mesafe_km": 47.84
   },
   {
     "arac_sayisi": 1,
@@ -10927,7 +12911,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.49,
     "starv_dk": 7199,
-    "ort_wip": 88.7
+    "ort_wip": 88.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.22
   },
   {
     "arac_sayisi": 2,
@@ -10938,7 +12924,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.94,
     "starv_dk": 4947,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.45
   },
   {
     "arac_sayisi": 3,
@@ -10949,7 +12937,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.64,
     "starv_dk": 2839,
-    "ort_wip": 181.7
+    "ort_wip": 181.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.53
   },
   {
     "arac_sayisi": 4,
@@ -10960,7 +12950,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.93,
     "starv_dk": 1259,
-    "ort_wip": 222.0
+    "ort_wip": 222.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.61
   },
   {
     "arac_sayisi": 5,
@@ -10971,7 +12963,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.07,
     "starv_dk": 930,
-    "ort_wip": 232.2
+    "ort_wip": 232.2,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.3
   },
   {
     "arac_sayisi": 6,
@@ -10982,7 +12976,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.49,
     "starv_dk": 517,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 96,
+    "mesafe_km": 47.36
   },
   {
     "arac_sayisi": 7,
@@ -10993,7 +12989,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.86,
     "starv_dk": 330,
-    "ort_wip": 239.3
+    "ort_wip": 239.3,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.99
   },
   {
     "arac_sayisi": 8,
@@ -11004,7 +13002,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.47,
     "starv_dk": 284,
-    "ort_wip": 239.9
+    "ort_wip": 239.9,
+    "sefer_sayisi": 120,
+    "mesafe_km": 47.56
   },
   {
     "arac_sayisi": 1,
@@ -11015,7 +13015,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.5,
     "starv_dk": 7200,
-    "ort_wip": 88.7
+    "ort_wip": 88.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.41
   },
   {
     "arac_sayisi": 2,
@@ -11026,7 +13028,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.94,
     "starv_dk": 4947,
-    "ort_wip": 136.1
+    "ort_wip": 136.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.04
   },
   {
     "arac_sayisi": 3,
@@ -11037,7 +13041,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.26,
     "starv_dk": 2795,
-    "ort_wip": 182.1
+    "ort_wip": 182.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -11048,7 +13054,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.91,
     "starv_dk": 1372,
-    "ort_wip": 222.2
+    "ort_wip": 222.2,
+    "sefer_sayisi": 34,
+    "mesafe_km": 47.96
   },
   {
     "arac_sayisi": 5,
@@ -11059,7 +13067,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.45,
     "starv_dk": 858,
-    "ort_wip": 235.0
+    "ort_wip": 235.0,
+    "sefer_sayisi": 67,
+    "mesafe_km": 49.77
   },
   {
     "arac_sayisi": 6,
@@ -11070,7 +13080,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.45,
     "starv_dk": 513,
-    "ort_wip": 239.1
+    "ort_wip": 239.1,
+    "sefer_sayisi": 94,
+    "mesafe_km": 49.34
   },
   {
     "arac_sayisi": 7,
@@ -11081,7 +13093,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.58,
     "starv_dk": 297,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 110,
+    "mesafe_km": 48.62
   },
   {
     "arac_sayisi": 8,
@@ -11092,7 +13106,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.24,
     "starv_dk": 258,
-    "ort_wip": 241.8
+    "ort_wip": 241.8,
+    "sefer_sayisi": 119,
+    "mesafe_km": 48.26
   },
   {
     "arac_sayisi": 1,
@@ -11103,7 +13119,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.41,
     "starv_dk": 7650,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.15
   },
   {
     "arac_sayisi": 2,
@@ -11114,7 +13132,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.58,
     "starv_dk": 5596,
-    "ort_wip": 121.7
+    "ort_wip": 121.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.67
   },
   {
     "arac_sayisi": 3,
@@ -11125,7 +13145,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.11,
     "starv_dk": 3584,
-    "ort_wip": 162.8
+    "ort_wip": 162.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -11136,7 +13158,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.0,
     "starv_dk": 2074,
-    "ort_wip": 202.0
+    "ort_wip": 202.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.99
   },
   {
     "arac_sayisi": 5,
@@ -11147,7 +13171,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.44,
     "starv_dk": 1433,
-    "ort_wip": 223.9
+    "ort_wip": 223.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.16
   },
   {
     "arac_sayisi": 6,
@@ -11158,7 +13184,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.75,
     "starv_dk": 893,
-    "ort_wip": 232.5
+    "ort_wip": 232.5,
+    "sefer_sayisi": 83,
+    "mesafe_km": 53.68
   },
   {
     "arac_sayisi": 7,
@@ -11169,7 +13197,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.55,
     "starv_dk": 524,
-    "ort_wip": 236.1
+    "ort_wip": 236.1,
+    "sefer_sayisi": 108,
+    "mesafe_km": 51.6
   },
   {
     "arac_sayisi": 8,
@@ -11180,7 +13210,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.56,
     "starv_dk": 410,
-    "ort_wip": 236.9
+    "ort_wip": 236.9,
+    "sefer_sayisi": 121,
+    "mesafe_km": 51.28
   },
   {
     "arac_sayisi": 1,
@@ -11191,7 +13223,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.43,
     "starv_dk": 7653,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.64
   },
   {
     "arac_sayisi": 2,
@@ -11202,7 +13236,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.47,
     "starv_dk": 5584,
-    "ort_wip": 121.9
+    "ort_wip": 121.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -11213,7 +13249,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.29,
     "starv_dk": 3720,
-    "ort_wip": 162.1
+    "ort_wip": 162.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.01
   },
   {
     "arac_sayisi": 4,
@@ -11224,7 +13262,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.48,
     "starv_dk": 2014,
-    "ort_wip": 202.5
+    "ort_wip": 202.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.63
   },
   {
     "arac_sayisi": 5,
@@ -11235,7 +13275,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.35,
     "starv_dk": 1192,
-    "ort_wip": 226.6
+    "ort_wip": 226.6,
+    "sefer_sayisi": 57,
+    "mesafe_km": 54.83
   },
   {
     "arac_sayisi": 6,
@@ -11246,7 +13288,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.95,
     "starv_dk": 916,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 93,
+    "mesafe_km": 52.65
   },
   {
     "arac_sayisi": 7,
@@ -11257,7 +13301,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 118,
+    "mesafe_km": 51.8
   },
   {
     "arac_sayisi": 8,
@@ -11268,7 +13314,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.81,
     "starv_dk": 439,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 125,
+    "mesafe_km": 52.0
   },
   {
     "arac_sayisi": 1,
@@ -11279,7 +13327,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.32,
     "starv_dk": 7640,
-    "ort_wip": 79.2
+    "ort_wip": 79.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.67
   },
   {
     "arac_sayisi": 2,
@@ -11290,7 +13340,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.48,
     "starv_dk": 5585,
-    "ort_wip": 122.1
+    "ort_wip": 122.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.19
   },
   {
     "arac_sayisi": 3,
@@ -11301,7 +13353,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.33,
     "starv_dk": 3724,
-    "ort_wip": 162.5
+    "ort_wip": 162.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.41
   },
   {
     "arac_sayisi": 4,
@@ -11312,7 +13366,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.81,
     "starv_dk": 1936,
-    "ort_wip": 201.4
+    "ort_wip": 201.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.06
   },
   {
     "arac_sayisi": 5,
@@ -11323,7 +13379,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.21,
     "starv_dk": 1291,
-    "ort_wip": 225.5
+    "ort_wip": 225.5,
+    "sefer_sayisi": 57,
+    "mesafe_km": 55.19
   },
   {
     "arac_sayisi": 6,
@@ -11334,7 +13392,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.08,
     "starv_dk": 700,
-    "ort_wip": 234.3
+    "ort_wip": 234.3,
+    "sefer_sayisi": 98,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 7,
@@ -11345,7 +13405,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.31,
     "starv_dk": 496,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 117,
+    "mesafe_km": 53.37
   },
   {
     "arac_sayisi": 8,
@@ -11356,7 +13418,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 239.0
+    "ort_wip": 239.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.19
   },
   {
     "arac_sayisi": 1,
@@ -11367,7 +13431,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.33,
     "starv_dk": 7641,
-    "ort_wip": 79.2
+    "ort_wip": 79.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.81
   },
   {
     "arac_sayisi": 2,
@@ -11378,7 +13444,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.43,
     "starv_dk": 5579,
-    "ort_wip": 122.2
+    "ort_wip": 122.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.03
   },
   {
     "arac_sayisi": 3,
@@ -11389,7 +13457,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.26,
     "starv_dk": 3716,
-    "ort_wip": 162.6
+    "ort_wip": 162.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.49
   },
   {
     "arac_sayisi": 4,
@@ -11400,7 +13470,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.65,
     "starv_dk": 1918,
-    "ort_wip": 201.8
+    "ort_wip": 201.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.23
   },
   {
     "arac_sayisi": 5,
@@ -11411,7 +13483,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.08,
     "starv_dk": 1392,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 56,
+    "mesafe_km": 54.11
   },
   {
     "arac_sayisi": 6,
@@ -11422,7 +13496,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.2,
     "starv_dk": 830,
-    "ort_wip": 233.5
+    "ort_wip": 233.5,
+    "sefer_sayisi": 95,
+    "mesafe_km": 52.21
   },
   {
     "arac_sayisi": 7,
@@ -11433,7 +13509,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.78,
     "starv_dk": 436,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.14
   },
   {
     "arac_sayisi": 8,
@@ -11444,7 +13522,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.33,
     "starv_dk": 268,
-    "ort_wip": 239.1
+    "ort_wip": 239.1,
+    "sefer_sayisi": 133,
+    "mesafe_km": 51.36
   },
   {
     "arac_sayisi": 1,
@@ -11455,7 +13535,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.25
   },
   {
     "arac_sayisi": 2,
@@ -11466,7 +13548,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.36,
     "starv_dk": 5571,
-    "ort_wip": 122.6
+    "ort_wip": 122.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -11477,7 +13561,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.66,
     "starv_dk": 3647,
-    "ort_wip": 163.5
+    "ort_wip": 163.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.31
   },
   {
     "arac_sayisi": 4,
@@ -11488,7 +13574,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.19,
     "starv_dk": 2096,
-    "ort_wip": 201.7
+    "ort_wip": 201.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.14
   },
   {
     "arac_sayisi": 5,
@@ -11499,7 +13587,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.04,
     "starv_dk": 1272,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.52
   },
   {
     "arac_sayisi": 6,
@@ -11510,7 +13600,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.6
+    "ort_wip": 232.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.91
   },
   {
     "arac_sayisi": 7,
@@ -11521,7 +13613,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.5
   },
   {
     "arac_sayisi": 8,
@@ -11532,7 +13626,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.21,
     "starv_dk": 370,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 1,
@@ -11543,7 +13639,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.35,
     "starv_dk": 7643,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.82
   },
   {
     "arac_sayisi": 2,
@@ -11554,7 +13652,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.35,
     "starv_dk": 5570,
-    "ort_wip": 122.7
+    "ort_wip": 122.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.74
   },
   {
     "arac_sayisi": 3,
@@ -11565,7 +13665,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.97,
     "starv_dk": 3568,
-    "ort_wip": 164.0
+    "ort_wip": 164.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.14
   },
   {
     "arac_sayisi": 4,
@@ -11576,7 +13678,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.38,
     "starv_dk": 2117,
-    "ort_wip": 202.5
+    "ort_wip": 202.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.46
   },
   {
     "arac_sayisi": 5,
@@ -11587,7 +13691,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.28,
     "starv_dk": 1415,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 55,
+    "mesafe_km": 55.14
   },
   {
     "arac_sayisi": 6,
@@ -11598,7 +13704,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.84,
     "starv_dk": 903,
-    "ort_wip": 233.8
+    "ort_wip": 233.8,
+    "sefer_sayisi": 91,
+    "mesafe_km": 55.06
   },
   {
     "arac_sayisi": 7,
@@ -11609,7 +13717,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.02,
     "starv_dk": 463,
-    "ort_wip": 237.7
+    "ort_wip": 237.7,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.94
   },
   {
     "arac_sayisi": 8,
@@ -11620,7 +13730,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.8,
     "starv_dk": 323,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.93
   },
   {
     "arac_sayisi": 1,
@@ -11631,7 +13743,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.3
+    "ort_wip": 71.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.91
   },
   {
     "arac_sayisi": 2,
@@ -11642,7 +13756,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.06,
     "starv_dk": 6113,
-    "ort_wip": 110.8
+    "ort_wip": 110.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.86
   },
   {
     "arac_sayisi": 3,
@@ -11653,7 +13769,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.04,
     "starv_dk": 4267,
-    "ort_wip": 148.3
+    "ort_wip": 148.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.6
   },
   {
     "arac_sayisi": 4,
@@ -11664,7 +13782,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.08,
     "starv_dk": 2774,
-    "ort_wip": 182.5
+    "ort_wip": 182.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.45
   },
   {
     "arac_sayisi": 5,
@@ -11675,7 +13795,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.86,
     "starv_dk": 1597,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 57.71
   },
   {
     "arac_sayisi": 6,
@@ -11686,7 +13808,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.03,
     "starv_dk": 1386,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 79,
+    "mesafe_km": 62.17
   },
   {
     "arac_sayisi": 7,
@@ -11697,7 +13821,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.22,
     "starv_dk": 717,
-    "ort_wip": 233.6
+    "ort_wip": 233.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 58.59
   },
   {
     "arac_sayisi": 8,
@@ -11708,7 +13834,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.57,
     "starv_dk": 527,
-    "ort_wip": 236.0
+    "ort_wip": 236.0,
+    "sefer_sayisi": 138,
+    "mesafe_km": 58.03
   },
   {
     "arac_sayisi": 1,
@@ -11719,7 +13847,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.34
   },
   {
     "arac_sayisi": 2,
@@ -11730,7 +13860,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.0
+    "ort_wip": 111.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.28
   },
   {
     "arac_sayisi": 3,
@@ -11741,7 +13873,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.87,
     "starv_dk": 4247,
-    "ort_wip": 148.6
+    "ort_wip": 148.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.02
   },
   {
     "arac_sayisi": 4,
@@ -11752,7 +13886,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.15,
     "starv_dk": 2782,
-    "ort_wip": 183.1
+    "ort_wip": 183.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.03
   },
   {
     "arac_sayisi": 5,
@@ -11763,7 +13899,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.39,
     "starv_dk": 1773,
-    "ort_wip": 212.6
+    "ort_wip": 212.6,
+    "sefer_sayisi": 43,
+    "mesafe_km": 56.78
   },
   {
     "arac_sayisi": 6,
@@ -11774,7 +13912,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.12,
     "starv_dk": 1281,
-    "ort_wip": 223.6
+    "ort_wip": 223.6,
+    "sefer_sayisi": 79,
+    "mesafe_km": 60.17
   },
   {
     "arac_sayisi": 7,
@@ -11785,7 +13925,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.34,
     "starv_dk": 961,
-    "ort_wip": 230.0
+    "ort_wip": 230.0,
+    "sefer_sayisi": 112,
+    "mesafe_km": 59.56
   },
   {
     "arac_sayisi": 8,
@@ -11796,7 +13938,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.61,
     "starv_dk": 416,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 141,
+    "mesafe_km": 58.63
   },
   {
     "arac_sayisi": 1,
@@ -11807,7 +13951,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.88
   },
   {
     "arac_sayisi": 2,
@@ -11818,7 +13964,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.1
+    "ort_wip": 111.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.97
   },
   {
     "arac_sayisi": 3,
@@ -11829,7 +13977,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.5
+    "ort_wip": 148.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -11840,7 +13990,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.3
+    "ort_wip": 182.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -11851,7 +14003,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.98,
     "starv_dk": 1841,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -11862,7 +14016,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.27,
     "starv_dk": 1298,
-    "ort_wip": 224.4
+    "ort_wip": 224.4,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.36
   },
   {
     "arac_sayisi": 7,
@@ -11873,7 +14029,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.65
   },
   {
     "arac_sayisi": 8,
@@ -11884,7 +14042,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.5,
     "starv_dk": 403,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.37
   },
   {
     "arac_sayisi": 1,
@@ -11895,7 +14055,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.51,
     "starv_dk": 8008,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.4
   },
   {
     "arac_sayisi": 2,
@@ -11906,7 +14068,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.99,
     "starv_dk": 6105,
-    "ort_wip": 109.7
+    "ort_wip": 109.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.66
   },
   {
     "arac_sayisi": 3,
@@ -11917,7 +14081,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.7
+    "ort_wip": 148.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.52
   },
   {
     "arac_sayisi": 4,
@@ -11928,7 +14094,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.72,
     "starv_dk": 2732,
-    "ort_wip": 184.2
+    "ort_wip": 184.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.67
   },
   {
     "arac_sayisi": 5,
@@ -11939,7 +14107,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.32,
     "starv_dk": 1535,
-    "ort_wip": 215.6
+    "ort_wip": 215.6,
+    "sefer_sayisi": 41,
+    "mesafe_km": 56.84
   },
   {
     "arac_sayisi": 6,
@@ -11950,7 +14120,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.6,
     "starv_dk": 1336,
-    "ort_wip": 225.5
+    "ort_wip": 225.5,
+    "sefer_sayisi": 80,
+    "mesafe_km": 58.45
   },
   {
     "arac_sayisi": 7,
@@ -11961,7 +14133,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.97,
     "starv_dk": 803,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 108,
+    "mesafe_km": 59.31
   },
   {
     "arac_sayisi": 8,
@@ -11972,7 +14146,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.93,
     "starv_dk": 453,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 137,
+    "mesafe_km": 59.55
   },
   {
     "arac_sayisi": 1,
@@ -11983,7 +14159,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.49,
     "starv_dk": 8005,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.0
   },
   {
     "arac_sayisi": 2,
@@ -11994,7 +14172,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.12,
     "starv_dk": 6119,
-    "ort_wip": 109.9
+    "ort_wip": 109.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.65
   },
   {
     "arac_sayisi": 3,
@@ -12005,7 +14185,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.74,
     "starv_dk": 4233,
-    "ort_wip": 149.5
+    "ort_wip": 149.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.03
   },
   {
     "arac_sayisi": 4,
@@ -12016,7 +14198,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.65,
     "starv_dk": 2609,
-    "ort_wip": 185.0
+    "ort_wip": 185.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 51.06
   },
   {
     "arac_sayisi": 5,
@@ -12027,7 +14211,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.1,
     "starv_dk": 1624,
-    "ort_wip": 214.8
+    "ort_wip": 214.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 59.51
   },
   {
     "arac_sayisi": 6,
@@ -12038,7 +14224,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.48,
     "starv_dk": 1438,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 76,
+    "mesafe_km": 61.64
   },
   {
     "arac_sayisi": 7,
@@ -12049,7 +14237,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.41,
     "starv_dk": 739,
-    "ort_wip": 234.1
+    "ort_wip": 234.1,
+    "sefer_sayisi": 110,
+    "mesafe_km": 58.81
   },
   {
     "arac_sayisi": 8,
@@ -12060,7 +14250,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.23,
     "starv_dk": 487,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 133,
+    "mesafe_km": 60.31
   },
   {
     "arac_sayisi": 1,
@@ -12071,7 +14263,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.54,
     "starv_dk": 8011,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.75
   },
   {
     "arac_sayisi": 2,
@@ -12082,7 +14276,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.04,
     "starv_dk": 6110,
-    "ort_wip": 110.6
+    "ort_wip": 110.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.66
   },
   {
     "arac_sayisi": 3,
@@ -12093,7 +14289,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.53,
     "starv_dk": 4208,
-    "ort_wip": 150.5
+    "ort_wip": 150.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.63
   },
   {
     "arac_sayisi": 4,
@@ -12104,7 +14302,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 21.9,
     "starv_dk": 2523,
-    "ort_wip": 187.4
+    "ort_wip": 187.4,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.1
   },
   {
     "arac_sayisi": 5,
@@ -12115,7 +14315,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.94,
     "starv_dk": 1721,
-    "ort_wip": 215.3
+    "ort_wip": 215.3,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.43
   },
   {
     "arac_sayisi": 6,
@@ -12126,7 +14328,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.7,
     "starv_dk": 1348,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 81,
+    "mesafe_km": 60.37
   },
   {
     "arac_sayisi": 7,
@@ -12137,7 +14341,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.76,
     "starv_dk": 663,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.95
   },
   {
     "arac_sayisi": 8,
@@ -12148,7 +14354,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.4,
     "starv_dk": 392,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 138,
+    "mesafe_km": 59.41
   },
   {
     "arac_sayisi": 1,
@@ -12159,7 +14367,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -12170,7 +14380,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -12181,7 +14393,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -12192,7 +14406,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -12203,7 +14419,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -12214,7 +14432,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -12225,7 +14445,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -12236,7 +14458,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -12247,7 +14471,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.14,
     "starv_dk": 8311,
-    "ort_wip": 65.0
+    "ort_wip": 65.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.77
   },
   {
     "arac_sayisi": 2,
@@ -12258,7 +14484,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.97,
     "starv_dk": 6563,
-    "ort_wip": 100.3
+    "ort_wip": 100.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.13
   },
   {
     "arac_sayisi": 3,
@@ -12269,7 +14497,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.12,
     "starv_dk": 4852,
-    "ort_wip": 136.2
+    "ort_wip": 136.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.52
   },
   {
     "arac_sayisi": 4,
@@ -12280,7 +14510,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.17,
     "starv_dk": 3360,
-    "ort_wip": 169.0
+    "ort_wip": 169.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.34
   },
   {
     "arac_sayisi": 5,
@@ -12291,7 +14523,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.91,
     "starv_dk": 2063,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.27
   },
   {
     "arac_sayisi": 6,
@@ -12302,7 +14536,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.64,
     "starv_dk": 1686,
-    "ort_wip": 217.0
+    "ort_wip": 217.0,
+    "sefer_sayisi": 60,
+    "mesafe_km": 70.54
   },
   {
     "arac_sayisi": 7,
@@ -12313,7 +14549,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.22,
     "starv_dk": 1523,
-    "ort_wip": 220.7
+    "ort_wip": 220.7,
+    "sefer_sayisi": 100,
+    "mesafe_km": 64.84
   },
   {
     "arac_sayisi": 8,
@@ -12324,7 +14562,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.11,
     "starv_dk": 704,
-    "ort_wip": 233.3
+    "ort_wip": 233.3,
+    "sefer_sayisi": 132,
+    "mesafe_km": 66.93
   },
   {
     "arac_sayisi": 1,
@@ -12335,7 +14575,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.16,
     "starv_dk": 8313,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.62
   },
   {
     "arac_sayisi": 2,
@@ -12346,7 +14588,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.94,
     "starv_dk": 6560,
-    "ort_wip": 101.4
+    "ort_wip": 101.4,
+    "sefer_sayisi": 15,
+    "mesafe_km": 25.34
   },
   {
     "arac_sayisi": 3,
@@ -12357,7 +14601,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.72,
     "starv_dk": 4806,
-    "ort_wip": 137.7
+    "ort_wip": 137.7,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.11
   },
   {
     "arac_sayisi": 4,
@@ -12368,7 +14614,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.91,
     "starv_dk": 3215,
-    "ort_wip": 170.8
+    "ort_wip": 170.8,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.44
   },
   {
     "arac_sayisi": 5,
@@ -12379,7 +14627,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.91,
     "starv_dk": 2063,
-    "ort_wip": 200.4
+    "ort_wip": 200.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.78
   },
   {
     "arac_sayisi": 6,
@@ -12390,7 +14640,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.4,
     "starv_dk": 1544,
-    "ort_wip": 218.7
+    "ort_wip": 218.7,
+    "sefer_sayisi": 61,
+    "mesafe_km": 67.32
   },
   {
     "arac_sayisi": 7,
@@ -12401,7 +14653,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.57,
     "starv_dk": 1333,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 99,
+    "mesafe_km": 66.8
   },
   {
     "arac_sayisi": 8,
@@ -12412,7 +14666,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.82,
     "starv_dk": 670,
-    "ort_wip": 234.1
+    "ort_wip": 234.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.73
   },
   {
     "arac_sayisi": 1,
@@ -12423,7 +14679,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.18,
     "starv_dk": 8315,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.57
   },
   {
     "arac_sayisi": 2,
@@ -12434,7 +14692,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.88,
     "starv_dk": 6552,
-    "ort_wip": 101.8
+    "ort_wip": 101.8,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.57
   },
   {
     "arac_sayisi": 3,
@@ -12445,7 +14705,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.07,
     "starv_dk": 4846,
-    "ort_wip": 136.6
+    "ort_wip": 136.6,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.38
   },
   {
     "arac_sayisi": 4,
@@ -12456,7 +14718,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.77,
     "starv_dk": 3199,
-    "ort_wip": 171.8
+    "ort_wip": 171.8,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.7
   },
   {
     "arac_sayisi": 5,
@@ -12467,7 +14731,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.94,
     "starv_dk": 2067,
-    "ort_wip": 200.3
+    "ort_wip": 200.3,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.11
   },
   {
     "arac_sayisi": 6,
@@ -12478,7 +14744,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.34,
     "starv_dk": 1652,
-    "ort_wip": 217.3
+    "ort_wip": 217.3,
+    "sefer_sayisi": 62,
+    "mesafe_km": 69.64
   },
   {
     "arac_sayisi": 7,
@@ -12489,7 +14757,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.68,
     "starv_dk": 1230,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 101,
+    "mesafe_km": 64.83
   },
   {
     "arac_sayisi": 8,
@@ -12500,7 +14770,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.39,
     "starv_dk": 851,
-    "ort_wip": 230.9
+    "ort_wip": 230.9,
+    "sefer_sayisi": 127,
+    "mesafe_km": 65.5
   },
   {
     "arac_sayisi": 1,
@@ -12511,7 +14783,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.16,
     "starv_dk": 8313,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.11
   },
   {
     "arac_sayisi": 2,
@@ -12522,7 +14796,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 57.05,
     "starv_dk": 6572,
-    "ort_wip": 101.3
+    "ort_wip": 101.3,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.35
   },
   {
     "arac_sayisi": 3,
@@ -12533,7 +14809,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.88,
     "starv_dk": 4824,
-    "ort_wip": 136.8
+    "ort_wip": 136.8,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.7
   },
   {
     "arac_sayisi": 4,
@@ -12544,7 +14822,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.54,
     "starv_dk": 3288,
-    "ort_wip": 169.6
+    "ort_wip": 169.6,
+    "sefer_sayisi": 30,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -12555,7 +14835,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.89,
     "starv_dk": 2061,
-    "ort_wip": 201.5
+    "ort_wip": 201.5,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.99
   },
   {
     "arac_sayisi": 6,
@@ -12566,7 +14848,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.51,
     "starv_dk": 1672,
-    "ort_wip": 217.3
+    "ort_wip": 217.3,
+    "sefer_sayisi": 56,
+    "mesafe_km": 66.21
   },
   {
     "arac_sayisi": 7,
@@ -12577,7 +14861,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.36,
     "starv_dk": 1078,
-    "ort_wip": 227.2
+    "ort_wip": 227.2,
+    "sefer_sayisi": 102,
+    "mesafe_km": 66.02
   },
   {
     "arac_sayisi": 8,
@@ -12588,7 +14874,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.75,
     "starv_dk": 778,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.57
   },
   {
     "arac_sayisi": 1,
@@ -12599,7 +14887,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.17,
     "starv_dk": 8314,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.22
   },
   {
     "arac_sayisi": 2,
@@ -12610,7 +14900,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.94,
     "starv_dk": 6559,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -12621,7 +14913,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.96,
     "starv_dk": 4834,
-    "ort_wip": 137.4
+    "ort_wip": 137.4,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.1
   },
   {
     "arac_sayisi": 4,
@@ -12632,7 +14926,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.21,
     "starv_dk": 3250,
-    "ort_wip": 172.2
+    "ort_wip": 172.2,
+    "sefer_sayisi": 29,
+    "mesafe_km": 49.25
   },
   {
     "arac_sayisi": 5,
@@ -12643,7 +14939,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.68,
     "starv_dk": 2037,
-    "ort_wip": 201.2
+    "ort_wip": 201.2,
+    "sefer_sayisi": 38,
+    "mesafe_km": 59.98
   },
   {
     "arac_sayisi": 6,
@@ -12654,7 +14952,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.49,
     "starv_dk": 1784,
-    "ort_wip": 216.8
+    "ort_wip": 216.8,
+    "sefer_sayisi": 59,
+    "mesafe_km": 67.15
   },
   {
     "arac_sayisi": 7,
@@ -12665,7 +14965,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.66,
     "starv_dk": 1228,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 99,
+    "mesafe_km": 65.49
   },
   {
     "arac_sayisi": 8,
@@ -12676,7 +14978,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.01,
     "starv_dk": 807,
-    "ort_wip": 231.4
+    "ort_wip": 231.4,
+    "sefer_sayisi": 130,
+    "mesafe_km": 64.72
   },
   {
     "arac_sayisi": 1,
@@ -12687,7 +14991,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.39,
     "starv_dk": 8570,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -12698,7 +15004,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.3
+    "ort_wip": 93.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.23
   },
   {
     "arac_sayisi": 3,
@@ -12709,7 +15017,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.05,
     "starv_dk": 5305,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.29
   },
   {
     "arac_sayisi": 4,
@@ -12720,7 +15030,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.56,
     "starv_dk": 3751,
-    "ort_wip": 158.1
+    "ort_wip": 158.1,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.91
   },
   {
     "arac_sayisi": 5,
@@ -12731,7 +15043,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.68,
     "starv_dk": 2613,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.75
   },
   {
     "arac_sayisi": 6,
@@ -12742,7 +15056,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.71,
     "starv_dk": 2155,
-    "ort_wip": 206.0
+    "ort_wip": 206.0,
+    "sefer_sayisi": 52,
+    "mesafe_km": 72.27
   },
   {
     "arac_sayisi": 7,
@@ -12753,7 +15069,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.82,
     "starv_dk": 1592,
-    "ort_wip": 216.5
+    "ort_wip": 216.5,
+    "sefer_sayisi": 89,
+    "mesafe_km": 72.56
   },
   {
     "arac_sayisi": 8,
@@ -12764,7 +15082,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.68,
     "starv_dk": 1461,
-    "ort_wip": 219.6
+    "ort_wip": 219.6,
+    "sefer_sayisi": 123,
+    "mesafe_km": 71.86
   },
   {
     "arac_sayisi": 1,
@@ -12775,7 +15095,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.38,
     "starv_dk": 8569,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.36
   },
   {
     "arac_sayisi": 2,
@@ -12786,7 +15108,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.24,
     "starv_dk": 6940,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.47
   },
   {
     "arac_sayisi": 3,
@@ -12797,7 +15121,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.31,
     "starv_dk": 5335,
-    "ort_wip": 125.2
+    "ort_wip": 125.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.99
   },
   {
     "arac_sayisi": 4,
@@ -12808,7 +15134,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.54,
     "starv_dk": 3749,
-    "ort_wip": 158.4
+    "ort_wip": 158.4,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.0
   },
   {
     "arac_sayisi": 5,
@@ -12819,7 +15147,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.61,
     "starv_dk": 2605,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.97
   },
   {
     "arac_sayisi": 6,
@@ -12830,7 +15160,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.68,
     "starv_dk": 1921,
-    "ort_wip": 209.2
+    "ort_wip": 209.2,
+    "sefer_sayisi": 51,
+    "mesafe_km": 70.38
   },
   {
     "arac_sayisi": 7,
@@ -12841,7 +15173,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.88,
     "starv_dk": 1829,
-    "ort_wip": 213.4
+    "ort_wip": 213.4,
+    "sefer_sayisi": 88,
+    "mesafe_km": 73.32
   },
   {
     "arac_sayisi": 8,
@@ -12852,7 +15186,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.51,
     "starv_dk": 1441,
-    "ort_wip": 218.2
+    "ort_wip": 218.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 72.66
   },
   {
     "arac_sayisi": 1,
@@ -12863,7 +15199,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.37,
     "starv_dk": 8567,
-    "ort_wip": 59.8
+    "ort_wip": 59.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.96
   },
   {
     "arac_sayisi": 2,
@@ -12874,7 +15212,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.31,
     "starv_dk": 6948,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.02
   },
   {
     "arac_sayisi": 3,
@@ -12885,7 +15225,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.21,
     "starv_dk": 5323,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.74
   },
   {
     "arac_sayisi": 4,
@@ -12896,7 +15238,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 33.59,
     "starv_dk": 3869,
-    "ort_wip": 156.9
+    "ort_wip": 156.9,
+    "sefer_sayisi": 30,
+    "mesafe_km": 49.26
   },
   {
     "arac_sayisi": 5,
@@ -12907,7 +15251,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.3,
     "starv_dk": 2684,
-    "ort_wip": 185.7
+    "ort_wip": 185.7,
+    "sefer_sayisi": 38,
+    "mesafe_km": 58.91
   },
   {
     "arac_sayisi": 6,
@@ -12918,7 +15264,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.77,
     "starv_dk": 1932,
-    "ort_wip": 208.9
+    "ort_wip": 208.9,
+    "sefer_sayisi": 49,
+    "mesafe_km": 71.74
   },
   {
     "arac_sayisi": 7,
@@ -12929,7 +15277,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.67,
     "starv_dk": 1805,
-    "ort_wip": 212.3
+    "ort_wip": 212.3,
+    "sefer_sayisi": 85,
+    "mesafe_km": 74.91
   },
   {
     "arac_sayisi": 8,
@@ -12940,7 +15290,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.88,
     "starv_dk": 1253,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 116,
+    "mesafe_km": 75.37
   },
   {
     "arac_sayisi": 1,
@@ -12951,7 +15303,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.42,
     "starv_dk": 8573,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.54
   },
   {
     "arac_sayisi": 2,
@@ -12962,7 +15316,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.28,
     "starv_dk": 6944,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.56
   },
   {
     "arac_sayisi": 3,
@@ -12973,7 +15329,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.88,
     "starv_dk": 5401,
-    "ort_wip": 126.3
+    "ort_wip": 126.3,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.85
   },
   {
     "arac_sayisi": 4,
@@ -12984,7 +15342,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.39,
     "starv_dk": 3962,
-    "ort_wip": 157.4
+    "ort_wip": 157.4,
+    "sefer_sayisi": 29,
+    "mesafe_km": 48.36
   },
   {
     "arac_sayisi": 5,
@@ -12995,7 +15355,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.45,
     "starv_dk": 2702,
-    "ort_wip": 185.5
+    "ort_wip": 185.5,
+    "sefer_sayisi": 37,
+    "mesafe_km": 60.78
   },
   {
     "arac_sayisi": 6,
@@ -13006,7 +15368,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.65,
     "starv_dk": 2033,
-    "ort_wip": 206.7
+    "ort_wip": 206.7,
+    "sefer_sayisi": 49,
+    "mesafe_km": 73.05
   },
   {
     "arac_sayisi": 7,
@@ -13017,7 +15381,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.85,
     "starv_dk": 1595,
-    "ort_wip": 215.4
+    "ort_wip": 215.4,
+    "sefer_sayisi": 85,
+    "mesafe_km": 73.72
   },
   {
     "arac_sayisi": 8,
@@ -13028,7 +15394,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.01,
     "starv_dk": 1384,
-    "ort_wip": 219.6
+    "ort_wip": 219.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 74.39
   },
   {
     "arac_sayisi": 1,
@@ -13039,7 +15407,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.37,
     "starv_dk": 8567,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.09
   },
   {
     "arac_sayisi": 2,
@@ -13050,7 +15420,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.79
   },
   {
     "arac_sayisi": 3,
@@ -13061,7 +15433,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.94,
     "starv_dk": 5408,
-    "ort_wip": 126.2
+    "ort_wip": 126.2,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.97
   },
   {
     "arac_sayisi": 4,
@@ -13072,7 +15446,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.15,
     "starv_dk": 3934,
-    "ort_wip": 156.0
+    "ort_wip": 156.0,
+    "sefer_sayisi": 28,
+    "mesafe_km": 46.95
   },
   {
     "arac_sayisi": 5,
@@ -13083,7 +15459,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.49,
     "starv_dk": 2821,
-    "ort_wip": 184.5
+    "ort_wip": 184.5,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.81
   },
   {
     "arac_sayisi": 6,
@@ -13094,7 +15472,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.88,
     "starv_dk": 1945,
-    "ort_wip": 207.2
+    "ort_wip": 207.2,
+    "sefer_sayisi": 48,
+    "mesafe_km": 71.7
   },
   {
     "arac_sayisi": 7,
@@ -13105,7 +15485,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.31,
     "starv_dk": 1764,
-    "ort_wip": 213.2
+    "ort_wip": 213.2,
+    "sefer_sayisi": 81,
+    "mesafe_km": 76.45
   },
   {
     "arac_sayisi": 8,
@@ -13116,7 +15498,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.11,
     "starv_dk": 1280,
-    "ort_wip": 221.8
+    "ort_wip": 221.8,
+    "sefer_sayisi": 114,
+    "mesafe_km": 74.41
   },
   {
     "arac_sayisi": 1,
@@ -13127,7 +15511,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.4,
     "starv_dk": 8571,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.26
   },
   {
     "arac_sayisi": 2,
@@ -13138,7 +15524,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.7
+    "ort_wip": 93.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.76
   },
   {
     "arac_sayisi": 3,
@@ -13149,7 +15537,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.87,
     "starv_dk": 5399,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 21,
+    "mesafe_km": 38.34
   },
   {
     "arac_sayisi": 4,
@@ -13160,7 +15550,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.27,
     "starv_dk": 3948,
-    "ort_wip": 157.6
+    "ort_wip": 157.6,
+    "sefer_sayisi": 28,
+    "mesafe_km": 49.48
   },
   {
     "arac_sayisi": 5,
@@ -13171,7 +15563,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.03,
     "starv_dk": 2768,
-    "ort_wip": 185.4
+    "ort_wip": 185.4,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.95
   },
   {
     "arac_sayisi": 6,
@@ -13182,7 +15576,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.45,
     "starv_dk": 1895,
-    "ort_wip": 209.3
+    "ort_wip": 209.3,
+    "sefer_sayisi": 47,
+    "mesafe_km": 72.99
   },
   {
     "arac_sayisi": 7,
@@ -13193,7 +15589,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.22,
     "starv_dk": 1753,
-    "ort_wip": 215.8
+    "ort_wip": 215.8,
+    "sefer_sayisi": 74,
+    "mesafe_km": 75.54
   },
   {
     "arac_sayisi": 8,
@@ -13204,7 +15602,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.15,
     "starv_dk": 1169,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 109,
+    "mesafe_km": 75.0
   },
   {
     "arac_sayisi": 1,
@@ -13215,7 +15615,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.6,
     "starv_dk": 7212,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -13226,7 +15628,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.13,
     "starv_dk": 4969,
-    "ort_wip": 134.7
+    "ort_wip": 134.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -13237,7 +15641,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.57,
     "starv_dk": 2830,
-    "ort_wip": 180.3
+    "ort_wip": 180.3,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.07
   },
   {
     "arac_sayisi": 4,
@@ -13248,7 +15654,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.07,
     "starv_dk": 1391,
-    "ort_wip": 219.8
+    "ort_wip": 219.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.27
   },
   {
     "arac_sayisi": 5,
@@ -13259,7 +15667,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.7
+    "ort_wip": 232.7,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.28
   },
   {
     "arac_sayisi": 6,
@@ -13270,7 +15680,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.88,
     "starv_dk": 447,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 93,
+    "mesafe_km": 46.98
   },
   {
     "arac_sayisi": 7,
@@ -13281,7 +15693,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.83,
     "starv_dk": 326,
-    "ort_wip": 239.8
+    "ort_wip": 239.8,
+    "sefer_sayisi": 107,
+    "mesafe_km": 46.69
   },
   {
     "arac_sayisi": 8,
@@ -13292,7 +15706,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.25,
     "starv_dk": 259,
-    "ort_wip": 240.1
+    "ort_wip": 240.1,
+    "sefer_sayisi": 112,
+    "mesafe_km": 46.15
   },
   {
     "arac_sayisi": 1,
@@ -13303,7 +15719,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.61,
     "starv_dk": 7213,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -13314,7 +15732,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.1,
     "starv_dk": 4965,
-    "ort_wip": 135.1
+    "ort_wip": 135.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.62
   },
   {
     "arac_sayisi": 3,
@@ -13325,7 +15745,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.67,
     "starv_dk": 2842,
-    "ort_wip": 180.5
+    "ort_wip": 180.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.93
   },
   {
     "arac_sayisi": 4,
@@ -13336,7 +15758,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.04,
     "starv_dk": 1387,
-    "ort_wip": 220.3
+    "ort_wip": 220.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.26
   },
   {
     "arac_sayisi": 5,
@@ -13347,7 +15771,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.93,
     "starv_dk": 1029,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 69,
+    "mesafe_km": 49.58
   },
   {
     "arac_sayisi": 6,
@@ -13358,7 +15784,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.09,
     "starv_dk": 471,
-    "ort_wip": 238.5
+    "ort_wip": 238.5,
+    "sefer_sayisi": 97,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 7,
@@ -13369,7 +15797,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.7,
     "starv_dk": 311,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 109,
+    "mesafe_km": 47.27
   },
   {
     "arac_sayisi": 8,
@@ -13380,7 +15810,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.34,
     "starv_dk": 269,
-    "ort_wip": 240.9
+    "ort_wip": 240.9,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.37
   },
   {
     "arac_sayisi": 1,
@@ -13391,7 +15823,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.52,
     "starv_dk": 7202,
-    "ort_wip": 88.5
+    "ort_wip": 88.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.55
   },
   {
     "arac_sayisi": 2,
@@ -13402,7 +15836,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.11,
     "starv_dk": 4966,
-    "ort_wip": 135.3
+    "ort_wip": 135.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.73
   },
   {
     "arac_sayisi": 3,
@@ -13413,7 +15849,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.6,
     "starv_dk": 2834,
-    "ort_wip": 181.0
+    "ort_wip": 181.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.45
   },
   {
     "arac_sayisi": 4,
@@ -13424,7 +15862,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.96,
     "starv_dk": 1378,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.91
   },
   {
     "arac_sayisi": 5,
@@ -13435,7 +15875,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.58,
     "starv_dk": 988,
-    "ort_wip": 232.8
+    "ort_wip": 232.8,
+    "sefer_sayisi": 68,
+    "mesafe_km": 47.02
   },
   {
     "arac_sayisi": 6,
@@ -13446,7 +15888,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.52,
     "starv_dk": 406,
-    "ort_wip": 240.0
+    "ort_wip": 240.0,
+    "sefer_sayisi": 103,
+    "mesafe_km": 46.41
   },
   {
     "arac_sayisi": 7,
@@ -13457,7 +15901,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.01,
     "starv_dk": 231,
-    "ort_wip": 241.8
+    "ort_wip": 241.8,
+    "sefer_sayisi": 116,
+    "mesafe_km": 46.52
   },
   {
     "arac_sayisi": 8,
@@ -13468,7 +15914,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.71,
     "starv_dk": 197,
-    "ort_wip": 242.2
+    "ort_wip": 242.2,
+    "sefer_sayisi": 120,
+    "mesafe_km": 46.28
   },
   {
     "arac_sayisi": 1,
@@ -13479,7 +15927,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.5,
     "starv_dk": 7200,
-    "ort_wip": 88.6
+    "ort_wip": 88.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.41
   },
   {
     "arac_sayisi": 2,
@@ -13490,7 +15940,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.96,
     "starv_dk": 4949,
-    "ort_wip": 135.7
+    "ort_wip": 135.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.43
   },
   {
     "arac_sayisi": 3,
@@ -13501,7 +15953,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.65,
     "starv_dk": 2840,
-    "ort_wip": 181.4
+    "ort_wip": 181.4,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.01
   },
   {
     "arac_sayisi": 4,
@@ -13512,7 +15966,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.28,
     "starv_dk": 1415,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.14
   },
   {
     "arac_sayisi": 5,
@@ -13523,7 +15979,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.21,
     "starv_dk": 946,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 70,
+    "mesafe_km": 49.07
   },
   {
     "arac_sayisi": 6,
@@ -13534,7 +15992,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.71,
     "starv_dk": 427,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 102,
+    "mesafe_km": 48.8
   },
   {
     "arac_sayisi": 7,
@@ -13545,7 +16005,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.02,
     "starv_dk": 233,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 116,
+    "mesafe_km": 48.19
   },
   {
     "arac_sayisi": 8,
@@ -13556,7 +16018,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.41,
     "starv_dk": 163,
-    "ort_wip": 241.4
+    "ort_wip": 241.4,
+    "sefer_sayisi": 123,
+    "mesafe_km": 47.84
   },
   {
     "arac_sayisi": 1,
@@ -13567,7 +16031,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.49,
     "starv_dk": 7199,
-    "ort_wip": 88.7
+    "ort_wip": 88.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.22
   },
   {
     "arac_sayisi": 2,
@@ -13578,7 +16044,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.94,
     "starv_dk": 4947,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.45
   },
   {
     "arac_sayisi": 3,
@@ -13589,7 +16057,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.64,
     "starv_dk": 2839,
-    "ort_wip": 181.7
+    "ort_wip": 181.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.53
   },
   {
     "arac_sayisi": 4,
@@ -13600,7 +16070,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.93,
     "starv_dk": 1259,
-    "ort_wip": 222.0
+    "ort_wip": 222.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.61
   },
   {
     "arac_sayisi": 5,
@@ -13611,7 +16083,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.07,
     "starv_dk": 930,
-    "ort_wip": 232.2
+    "ort_wip": 232.2,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.3
   },
   {
     "arac_sayisi": 6,
@@ -13622,7 +16096,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.49,
     "starv_dk": 517,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 96,
+    "mesafe_km": 47.36
   },
   {
     "arac_sayisi": 7,
@@ -13633,7 +16109,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.86,
     "starv_dk": 330,
-    "ort_wip": 239.3
+    "ort_wip": 239.3,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.99
   },
   {
     "arac_sayisi": 8,
@@ -13644,7 +16122,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.47,
     "starv_dk": 284,
-    "ort_wip": 239.9
+    "ort_wip": 239.9,
+    "sefer_sayisi": 120,
+    "mesafe_km": 47.56
   },
   {
     "arac_sayisi": 1,
@@ -13655,7 +16135,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.5,
     "starv_dk": 7200,
-    "ort_wip": 88.7
+    "ort_wip": 88.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.41
   },
   {
     "arac_sayisi": 2,
@@ -13666,7 +16148,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.94,
     "starv_dk": 4947,
-    "ort_wip": 136.1
+    "ort_wip": 136.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.04
   },
   {
     "arac_sayisi": 3,
@@ -13677,7 +16161,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.26,
     "starv_dk": 2795,
-    "ort_wip": 182.1
+    "ort_wip": 182.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.46
   },
   {
     "arac_sayisi": 4,
@@ -13688,7 +16174,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.91,
     "starv_dk": 1372,
-    "ort_wip": 222.2
+    "ort_wip": 222.2,
+    "sefer_sayisi": 34,
+    "mesafe_km": 47.96
   },
   {
     "arac_sayisi": 5,
@@ -13699,7 +16187,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.45,
     "starv_dk": 858,
-    "ort_wip": 235.0
+    "ort_wip": 235.0,
+    "sefer_sayisi": 67,
+    "mesafe_km": 49.77
   },
   {
     "arac_sayisi": 6,
@@ -13710,7 +16200,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.45,
     "starv_dk": 513,
-    "ort_wip": 239.1
+    "ort_wip": 239.1,
+    "sefer_sayisi": 94,
+    "mesafe_km": 49.34
   },
   {
     "arac_sayisi": 7,
@@ -13721,7 +16213,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.58,
     "starv_dk": 297,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 110,
+    "mesafe_km": 48.62
   },
   {
     "arac_sayisi": 8,
@@ -13732,7 +16226,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.24,
     "starv_dk": 258,
-    "ort_wip": 241.8
+    "ort_wip": 241.8,
+    "sefer_sayisi": 119,
+    "mesafe_km": 48.26
   },
   {
     "arac_sayisi": 1,
@@ -13743,7 +16239,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.41,
     "starv_dk": 7650,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.15
   },
   {
     "arac_sayisi": 2,
@@ -13754,7 +16252,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.58,
     "starv_dk": 5596,
-    "ort_wip": 121.7
+    "ort_wip": 121.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.67
   },
   {
     "arac_sayisi": 3,
@@ -13765,7 +16265,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.11,
     "starv_dk": 3584,
-    "ort_wip": 162.8
+    "ort_wip": 162.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -13776,7 +16278,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.0,
     "starv_dk": 2074,
-    "ort_wip": 202.0
+    "ort_wip": 202.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.99
   },
   {
     "arac_sayisi": 5,
@@ -13787,7 +16291,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.44,
     "starv_dk": 1433,
-    "ort_wip": 223.9
+    "ort_wip": 223.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.16
   },
   {
     "arac_sayisi": 6,
@@ -13798,7 +16304,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.75,
     "starv_dk": 893,
-    "ort_wip": 232.5
+    "ort_wip": 232.5,
+    "sefer_sayisi": 83,
+    "mesafe_km": 53.68
   },
   {
     "arac_sayisi": 7,
@@ -13809,7 +16317,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.55,
     "starv_dk": 524,
-    "ort_wip": 236.1
+    "ort_wip": 236.1,
+    "sefer_sayisi": 108,
+    "mesafe_km": 51.6
   },
   {
     "arac_sayisi": 8,
@@ -13820,7 +16330,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.56,
     "starv_dk": 410,
-    "ort_wip": 236.9
+    "ort_wip": 236.9,
+    "sefer_sayisi": 121,
+    "mesafe_km": 51.28
   },
   {
     "arac_sayisi": 1,
@@ -13831,7 +16343,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.43,
     "starv_dk": 7653,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.64
   },
   {
     "arac_sayisi": 2,
@@ -13842,7 +16356,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.47,
     "starv_dk": 5584,
-    "ort_wip": 121.9
+    "ort_wip": 121.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -13853,7 +16369,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.29,
     "starv_dk": 3720,
-    "ort_wip": 162.1
+    "ort_wip": 162.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.01
   },
   {
     "arac_sayisi": 4,
@@ -13864,7 +16382,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.48,
     "starv_dk": 2014,
-    "ort_wip": 202.5
+    "ort_wip": 202.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.63
   },
   {
     "arac_sayisi": 5,
@@ -13875,7 +16395,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.35,
     "starv_dk": 1192,
-    "ort_wip": 226.6
+    "ort_wip": 226.6,
+    "sefer_sayisi": 57,
+    "mesafe_km": 54.83
   },
   {
     "arac_sayisi": 6,
@@ -13886,7 +16408,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.95,
     "starv_dk": 916,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 93,
+    "mesafe_km": 52.65
   },
   {
     "arac_sayisi": 7,
@@ -13897,7 +16421,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 118,
+    "mesafe_km": 51.8
   },
   {
     "arac_sayisi": 8,
@@ -13908,7 +16434,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.81,
     "starv_dk": 439,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 125,
+    "mesafe_km": 52.0
   },
   {
     "arac_sayisi": 1,
@@ -13919,7 +16447,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.32,
     "starv_dk": 7640,
-    "ort_wip": 79.2
+    "ort_wip": 79.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.67
   },
   {
     "arac_sayisi": 2,
@@ -13930,7 +16460,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.48,
     "starv_dk": 5585,
-    "ort_wip": 122.1
+    "ort_wip": 122.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.19
   },
   {
     "arac_sayisi": 3,
@@ -13941,7 +16473,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.33,
     "starv_dk": 3724,
-    "ort_wip": 162.5
+    "ort_wip": 162.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.41
   },
   {
     "arac_sayisi": 4,
@@ -13952,7 +16486,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.81,
     "starv_dk": 1936,
-    "ort_wip": 201.4
+    "ort_wip": 201.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.06
   },
   {
     "arac_sayisi": 5,
@@ -13963,7 +16499,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.21,
     "starv_dk": 1291,
-    "ort_wip": 225.5
+    "ort_wip": 225.5,
+    "sefer_sayisi": 57,
+    "mesafe_km": 55.19
   },
   {
     "arac_sayisi": 6,
@@ -13974,7 +16512,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.08,
     "starv_dk": 700,
-    "ort_wip": 234.3
+    "ort_wip": 234.3,
+    "sefer_sayisi": 98,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 7,
@@ -13985,7 +16525,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.31,
     "starv_dk": 496,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 117,
+    "mesafe_km": 53.37
   },
   {
     "arac_sayisi": 8,
@@ -13996,7 +16538,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 239.0
+    "ort_wip": 239.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.19
   },
   {
     "arac_sayisi": 1,
@@ -14007,7 +16551,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.33,
     "starv_dk": 7641,
-    "ort_wip": 79.2
+    "ort_wip": 79.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.81
   },
   {
     "arac_sayisi": 2,
@@ -14018,7 +16564,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.43,
     "starv_dk": 5579,
-    "ort_wip": 122.2
+    "ort_wip": 122.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.03
   },
   {
     "arac_sayisi": 3,
@@ -14029,7 +16577,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.26,
     "starv_dk": 3716,
-    "ort_wip": 162.6
+    "ort_wip": 162.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.49
   },
   {
     "arac_sayisi": 4,
@@ -14040,7 +16590,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.65,
     "starv_dk": 1918,
-    "ort_wip": 201.8
+    "ort_wip": 201.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.23
   },
   {
     "arac_sayisi": 5,
@@ -14051,7 +16603,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.08,
     "starv_dk": 1392,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 56,
+    "mesafe_km": 54.11
   },
   {
     "arac_sayisi": 6,
@@ -14062,7 +16616,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.2,
     "starv_dk": 830,
-    "ort_wip": 233.5
+    "ort_wip": 233.5,
+    "sefer_sayisi": 95,
+    "mesafe_km": 52.21
   },
   {
     "arac_sayisi": 7,
@@ -14073,7 +16629,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.78,
     "starv_dk": 436,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.14
   },
   {
     "arac_sayisi": 8,
@@ -14084,7 +16642,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.33,
     "starv_dk": 268,
-    "ort_wip": 239.1
+    "ort_wip": 239.1,
+    "sefer_sayisi": 133,
+    "mesafe_km": 51.36
   },
   {
     "arac_sayisi": 1,
@@ -14095,7 +16655,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.25
   },
   {
     "arac_sayisi": 2,
@@ -14106,7 +16668,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.36,
     "starv_dk": 5571,
-    "ort_wip": 122.6
+    "ort_wip": 122.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -14117,7 +16681,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.66,
     "starv_dk": 3647,
-    "ort_wip": 163.5
+    "ort_wip": 163.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.31
   },
   {
     "arac_sayisi": 4,
@@ -14128,7 +16694,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.19,
     "starv_dk": 2096,
-    "ort_wip": 201.7
+    "ort_wip": 201.7,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.14
   },
   {
     "arac_sayisi": 5,
@@ -14139,7 +16707,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.04,
     "starv_dk": 1272,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.52
   },
   {
     "arac_sayisi": 6,
@@ -14150,7 +16720,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.6
+    "ort_wip": 232.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.91
   },
   {
     "arac_sayisi": 7,
@@ -14161,7 +16733,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.5
   },
   {
     "arac_sayisi": 8,
@@ -14172,7 +16746,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.21,
     "starv_dk": 370,
-    "ort_wip": 238.1
+    "ort_wip": 238.1,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.06
   },
   {
     "arac_sayisi": 1,
@@ -14183,7 +16759,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.35,
     "starv_dk": 7643,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.82
   },
   {
     "arac_sayisi": 2,
@@ -14194,7 +16772,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.35,
     "starv_dk": 5570,
-    "ort_wip": 122.7
+    "ort_wip": 122.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.74
   },
   {
     "arac_sayisi": 3,
@@ -14205,7 +16785,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.97,
     "starv_dk": 3568,
-    "ort_wip": 164.0
+    "ort_wip": 164.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.14
   },
   {
     "arac_sayisi": 4,
@@ -14216,7 +16798,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.38,
     "starv_dk": 2117,
-    "ort_wip": 202.5
+    "ort_wip": 202.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.46
   },
   {
     "arac_sayisi": 5,
@@ -14227,7 +16811,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.28,
     "starv_dk": 1415,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 55,
+    "mesafe_km": 55.14
   },
   {
     "arac_sayisi": 6,
@@ -14238,7 +16824,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.84,
     "starv_dk": 903,
-    "ort_wip": 233.8
+    "ort_wip": 233.8,
+    "sefer_sayisi": 91,
+    "mesafe_km": 55.06
   },
   {
     "arac_sayisi": 7,
@@ -14249,7 +16837,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.02,
     "starv_dk": 463,
-    "ort_wip": 237.7
+    "ort_wip": 237.7,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.94
   },
   {
     "arac_sayisi": 8,
@@ -14260,7 +16850,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.8,
     "starv_dk": 323,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.93
   },
   {
     "arac_sayisi": 1,
@@ -14271,7 +16863,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.3
+    "ort_wip": 71.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.91
   },
   {
     "arac_sayisi": 2,
@@ -14282,7 +16876,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.06,
     "starv_dk": 6113,
-    "ort_wip": 110.8
+    "ort_wip": 110.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.86
   },
   {
     "arac_sayisi": 3,
@@ -14293,7 +16889,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.04,
     "starv_dk": 4267,
-    "ort_wip": 148.3
+    "ort_wip": 148.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.6
   },
   {
     "arac_sayisi": 4,
@@ -14304,7 +16902,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.08,
     "starv_dk": 2774,
-    "ort_wip": 182.5
+    "ort_wip": 182.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.45
   },
   {
     "arac_sayisi": 5,
@@ -14315,7 +16915,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.86,
     "starv_dk": 1597,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 57.71
   },
   {
     "arac_sayisi": 6,
@@ -14326,7 +16928,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.03,
     "starv_dk": 1386,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 79,
+    "mesafe_km": 62.17
   },
   {
     "arac_sayisi": 7,
@@ -14337,7 +16941,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.22,
     "starv_dk": 717,
-    "ort_wip": 233.6
+    "ort_wip": 233.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 58.59
   },
   {
     "arac_sayisi": 8,
@@ -14348,7 +16954,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.57,
     "starv_dk": 527,
-    "ort_wip": 236.0
+    "ort_wip": 236.0,
+    "sefer_sayisi": 138,
+    "mesafe_km": 58.03
   },
   {
     "arac_sayisi": 1,
@@ -14359,7 +16967,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.34
   },
   {
     "arac_sayisi": 2,
@@ -14370,7 +16980,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.0
+    "ort_wip": 111.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.28
   },
   {
     "arac_sayisi": 3,
@@ -14381,7 +16993,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.87,
     "starv_dk": 4247,
-    "ort_wip": 148.6
+    "ort_wip": 148.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.02
   },
   {
     "arac_sayisi": 4,
@@ -14392,7 +17006,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.15,
     "starv_dk": 2782,
-    "ort_wip": 183.1
+    "ort_wip": 183.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.03
   },
   {
     "arac_sayisi": 5,
@@ -14403,7 +17019,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.39,
     "starv_dk": 1773,
-    "ort_wip": 212.6
+    "ort_wip": 212.6,
+    "sefer_sayisi": 43,
+    "mesafe_km": 56.78
   },
   {
     "arac_sayisi": 6,
@@ -14414,7 +17032,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.12,
     "starv_dk": 1281,
-    "ort_wip": 223.6
+    "ort_wip": 223.6,
+    "sefer_sayisi": 79,
+    "mesafe_km": 60.17
   },
   {
     "arac_sayisi": 7,
@@ -14425,7 +17045,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.34,
     "starv_dk": 961,
-    "ort_wip": 230.0
+    "ort_wip": 230.0,
+    "sefer_sayisi": 112,
+    "mesafe_km": 59.56
   },
   {
     "arac_sayisi": 8,
@@ -14436,7 +17058,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.61,
     "starv_dk": 416,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 141,
+    "mesafe_km": 58.63
   },
   {
     "arac_sayisi": 1,
@@ -14447,7 +17071,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.88
   },
   {
     "arac_sayisi": 2,
@@ -14458,7 +17084,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.1
+    "ort_wip": 111.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.97
   },
   {
     "arac_sayisi": 3,
@@ -14469,7 +17097,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.5
+    "ort_wip": 148.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.45
   },
   {
     "arac_sayisi": 4,
@@ -14480,7 +17110,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.3
+    "ort_wip": 182.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -14491,7 +17123,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.98,
     "starv_dk": 1841,
-    "ort_wip": 211.0
+    "ort_wip": 211.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.21
   },
   {
     "arac_sayisi": 6,
@@ -14502,7 +17136,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.27,
     "starv_dk": 1298,
-    "ort_wip": 224.4
+    "ort_wip": 224.4,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.36
   },
   {
     "arac_sayisi": 7,
@@ -14513,7 +17149,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.65
   },
   {
     "arac_sayisi": 8,
@@ -14524,7 +17162,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.5,
     "starv_dk": 403,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.37
   },
   {
     "arac_sayisi": 1,
@@ -14535,7 +17175,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.51,
     "starv_dk": 8008,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.4
   },
   {
     "arac_sayisi": 2,
@@ -14546,7 +17188,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.99,
     "starv_dk": 6105,
-    "ort_wip": 109.7
+    "ort_wip": 109.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.66
   },
   {
     "arac_sayisi": 3,
@@ -14557,7 +17201,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.7
+    "ort_wip": 148.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.52
   },
   {
     "arac_sayisi": 4,
@@ -14568,7 +17214,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.72,
     "starv_dk": 2732,
-    "ort_wip": 184.2
+    "ort_wip": 184.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.67
   },
   {
     "arac_sayisi": 5,
@@ -14579,7 +17227,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.32,
     "starv_dk": 1535,
-    "ort_wip": 215.6
+    "ort_wip": 215.6,
+    "sefer_sayisi": 41,
+    "mesafe_km": 56.84
   },
   {
     "arac_sayisi": 6,
@@ -14590,7 +17240,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.6,
     "starv_dk": 1336,
-    "ort_wip": 225.5
+    "ort_wip": 225.5,
+    "sefer_sayisi": 80,
+    "mesafe_km": 58.45
   },
   {
     "arac_sayisi": 7,
@@ -14601,7 +17253,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.97,
     "starv_dk": 803,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 108,
+    "mesafe_km": 59.31
   },
   {
     "arac_sayisi": 8,
@@ -14612,7 +17266,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.93,
     "starv_dk": 453,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 137,
+    "mesafe_km": 59.55
   },
   {
     "arac_sayisi": 1,
@@ -14623,7 +17279,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.49,
     "starv_dk": 8005,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.0
   },
   {
     "arac_sayisi": 2,
@@ -14634,7 +17292,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.12,
     "starv_dk": 6119,
-    "ort_wip": 109.9
+    "ort_wip": 109.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.65
   },
   {
     "arac_sayisi": 3,
@@ -14645,7 +17305,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.74,
     "starv_dk": 4233,
-    "ort_wip": 149.5
+    "ort_wip": 149.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.03
   },
   {
     "arac_sayisi": 4,
@@ -14656,7 +17318,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.65,
     "starv_dk": 2609,
-    "ort_wip": 185.0
+    "ort_wip": 185.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 51.06
   },
   {
     "arac_sayisi": 5,
@@ -14667,7 +17331,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.1,
     "starv_dk": 1624,
-    "ort_wip": 214.8
+    "ort_wip": 214.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 59.51
   },
   {
     "arac_sayisi": 6,
@@ -14678,7 +17344,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.48,
     "starv_dk": 1438,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 76,
+    "mesafe_km": 61.64
   },
   {
     "arac_sayisi": 7,
@@ -14689,7 +17357,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.41,
     "starv_dk": 739,
-    "ort_wip": 234.1
+    "ort_wip": 234.1,
+    "sefer_sayisi": 110,
+    "mesafe_km": 58.81
   },
   {
     "arac_sayisi": 8,
@@ -14700,7 +17370,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.23,
     "starv_dk": 487,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 133,
+    "mesafe_km": 60.31
   },
   {
     "arac_sayisi": 1,
@@ -14711,7 +17383,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.54,
     "starv_dk": 8011,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.75
   },
   {
     "arac_sayisi": 2,
@@ -14722,7 +17396,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.04,
     "starv_dk": 6110,
-    "ort_wip": 110.6
+    "ort_wip": 110.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.66
   },
   {
     "arac_sayisi": 3,
@@ -14733,7 +17409,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.53,
     "starv_dk": 4208,
-    "ort_wip": 150.5
+    "ort_wip": 150.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.63
   },
   {
     "arac_sayisi": 4,
@@ -14744,7 +17422,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 21.9,
     "starv_dk": 2523,
-    "ort_wip": 187.4
+    "ort_wip": 187.4,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.1
   },
   {
     "arac_sayisi": 5,
@@ -14755,7 +17435,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.94,
     "starv_dk": 1721,
-    "ort_wip": 215.3
+    "ort_wip": 215.3,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.43
   },
   {
     "arac_sayisi": 6,
@@ -14766,7 +17448,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.7,
     "starv_dk": 1348,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 81,
+    "mesafe_km": 60.37
   },
   {
     "arac_sayisi": 7,
@@ -14777,7 +17461,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.76,
     "starv_dk": 663,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.95
   },
   {
     "arac_sayisi": 8,
@@ -14788,7 +17474,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.4,
     "starv_dk": 392,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 138,
+    "mesafe_km": 59.41
   },
   {
     "arac_sayisi": 1,
@@ -14799,7 +17487,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -14810,7 +17500,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -14821,7 +17513,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -14832,7 +17526,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -14843,7 +17539,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -14854,7 +17552,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -14865,7 +17565,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -14876,7 +17578,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -14887,7 +17591,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.14,
     "starv_dk": 8311,
-    "ort_wip": 65.0
+    "ort_wip": 65.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.77
   },
   {
     "arac_sayisi": 2,
@@ -14898,7 +17604,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.97,
     "starv_dk": 6563,
-    "ort_wip": 100.3
+    "ort_wip": 100.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.13
   },
   {
     "arac_sayisi": 3,
@@ -14909,7 +17617,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.12,
     "starv_dk": 4852,
-    "ort_wip": 136.2
+    "ort_wip": 136.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.52
   },
   {
     "arac_sayisi": 4,
@@ -14920,7 +17630,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.17,
     "starv_dk": 3360,
-    "ort_wip": 169.0
+    "ort_wip": 169.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.34
   },
   {
     "arac_sayisi": 5,
@@ -14931,7 +17643,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.91,
     "starv_dk": 2063,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.27
   },
   {
     "arac_sayisi": 6,
@@ -14942,7 +17656,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.64,
     "starv_dk": 1686,
-    "ort_wip": 217.0
+    "ort_wip": 217.0,
+    "sefer_sayisi": 60,
+    "mesafe_km": 70.54
   },
   {
     "arac_sayisi": 7,
@@ -14953,7 +17669,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.22,
     "starv_dk": 1523,
-    "ort_wip": 220.7
+    "ort_wip": 220.7,
+    "sefer_sayisi": 100,
+    "mesafe_km": 64.84
   },
   {
     "arac_sayisi": 8,
@@ -14964,7 +17682,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.11,
     "starv_dk": 704,
-    "ort_wip": 233.3
+    "ort_wip": 233.3,
+    "sefer_sayisi": 132,
+    "mesafe_km": 66.93
   },
   {
     "arac_sayisi": 1,
@@ -14975,7 +17695,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.16,
     "starv_dk": 8313,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.62
   },
   {
     "arac_sayisi": 2,
@@ -14986,7 +17708,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.94,
     "starv_dk": 6560,
-    "ort_wip": 101.4
+    "ort_wip": 101.4,
+    "sefer_sayisi": 15,
+    "mesafe_km": 25.34
   },
   {
     "arac_sayisi": 3,
@@ -14997,7 +17721,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.72,
     "starv_dk": 4806,
-    "ort_wip": 137.7
+    "ort_wip": 137.7,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.11
   },
   {
     "arac_sayisi": 4,
@@ -15008,7 +17734,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.91,
     "starv_dk": 3215,
-    "ort_wip": 170.8
+    "ort_wip": 170.8,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.44
   },
   {
     "arac_sayisi": 5,
@@ -15019,7 +17747,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.91,
     "starv_dk": 2063,
-    "ort_wip": 200.4
+    "ort_wip": 200.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.78
   },
   {
     "arac_sayisi": 6,
@@ -15030,7 +17760,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.4,
     "starv_dk": 1544,
-    "ort_wip": 218.7
+    "ort_wip": 218.7,
+    "sefer_sayisi": 61,
+    "mesafe_km": 67.32
   },
   {
     "arac_sayisi": 7,
@@ -15041,7 +17773,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.57,
     "starv_dk": 1333,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 99,
+    "mesafe_km": 66.8
   },
   {
     "arac_sayisi": 8,
@@ -15052,7 +17786,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.82,
     "starv_dk": 670,
-    "ort_wip": 234.1
+    "ort_wip": 234.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.73
   },
   {
     "arac_sayisi": 1,
@@ -15063,7 +17799,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.18,
     "starv_dk": 8315,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.57
   },
   {
     "arac_sayisi": 2,
@@ -15074,7 +17812,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.88,
     "starv_dk": 6552,
-    "ort_wip": 101.8
+    "ort_wip": 101.8,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.57
   },
   {
     "arac_sayisi": 3,
@@ -15085,7 +17825,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.07,
     "starv_dk": 4846,
-    "ort_wip": 136.6
+    "ort_wip": 136.6,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.38
   },
   {
     "arac_sayisi": 4,
@@ -15096,7 +17838,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.77,
     "starv_dk": 3199,
-    "ort_wip": 171.8
+    "ort_wip": 171.8,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.7
   },
   {
     "arac_sayisi": 5,
@@ -15107,7 +17851,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.94,
     "starv_dk": 2067,
-    "ort_wip": 200.3
+    "ort_wip": 200.3,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.11
   },
   {
     "arac_sayisi": 6,
@@ -15118,7 +17864,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.34,
     "starv_dk": 1652,
-    "ort_wip": 217.3
+    "ort_wip": 217.3,
+    "sefer_sayisi": 62,
+    "mesafe_km": 69.64
   },
   {
     "arac_sayisi": 7,
@@ -15129,7 +17877,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.68,
     "starv_dk": 1230,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 101,
+    "mesafe_km": 64.83
   },
   {
     "arac_sayisi": 8,
@@ -15140,7 +17890,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.39,
     "starv_dk": 851,
-    "ort_wip": 230.9
+    "ort_wip": 230.9,
+    "sefer_sayisi": 127,
+    "mesafe_km": 65.5
   },
   {
     "arac_sayisi": 1,
@@ -15151,7 +17903,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.16,
     "starv_dk": 8313,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.11
   },
   {
     "arac_sayisi": 2,
@@ -15162,7 +17916,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 57.05,
     "starv_dk": 6572,
-    "ort_wip": 101.3
+    "ort_wip": 101.3,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.35
   },
   {
     "arac_sayisi": 3,
@@ -15173,7 +17929,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.88,
     "starv_dk": 4824,
-    "ort_wip": 136.8
+    "ort_wip": 136.8,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.7
   },
   {
     "arac_sayisi": 4,
@@ -15184,7 +17942,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.54,
     "starv_dk": 3288,
-    "ort_wip": 169.6
+    "ort_wip": 169.6,
+    "sefer_sayisi": 30,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 5,
@@ -15195,7 +17955,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.89,
     "starv_dk": 2061,
-    "ort_wip": 201.5
+    "ort_wip": 201.5,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.99
   },
   {
     "arac_sayisi": 6,
@@ -15206,7 +17968,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.51,
     "starv_dk": 1672,
-    "ort_wip": 217.3
+    "ort_wip": 217.3,
+    "sefer_sayisi": 56,
+    "mesafe_km": 66.21
   },
   {
     "arac_sayisi": 7,
@@ -15217,7 +17981,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.36,
     "starv_dk": 1078,
-    "ort_wip": 227.2
+    "ort_wip": 227.2,
+    "sefer_sayisi": 102,
+    "mesafe_km": 66.02
   },
   {
     "arac_sayisi": 8,
@@ -15228,7 +17994,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.75,
     "starv_dk": 778,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.57
   },
   {
     "arac_sayisi": 1,
@@ -15239,7 +18007,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.17,
     "starv_dk": 8314,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.22
   },
   {
     "arac_sayisi": 2,
@@ -15250,7 +18020,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.94,
     "starv_dk": 6559,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 26.02
   },
   {
     "arac_sayisi": 3,
@@ -15261,7 +18033,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.96,
     "starv_dk": 4834,
-    "ort_wip": 137.4
+    "ort_wip": 137.4,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.1
   },
   {
     "arac_sayisi": 4,
@@ -15272,7 +18046,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.21,
     "starv_dk": 3250,
-    "ort_wip": 172.2
+    "ort_wip": 172.2,
+    "sefer_sayisi": 29,
+    "mesafe_km": 49.25
   },
   {
     "arac_sayisi": 5,
@@ -15283,7 +18059,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.68,
     "starv_dk": 2037,
-    "ort_wip": 201.2
+    "ort_wip": 201.2,
+    "sefer_sayisi": 38,
+    "mesafe_km": 59.98
   },
   {
     "arac_sayisi": 6,
@@ -15294,7 +18072,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.49,
     "starv_dk": 1784,
-    "ort_wip": 216.8
+    "ort_wip": 216.8,
+    "sefer_sayisi": 59,
+    "mesafe_km": 67.15
   },
   {
     "arac_sayisi": 7,
@@ -15305,7 +18085,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.66,
     "starv_dk": 1228,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 99,
+    "mesafe_km": 65.49
   },
   {
     "arac_sayisi": 8,
@@ -15316,7 +18098,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.01,
     "starv_dk": 807,
-    "ort_wip": 231.4
+    "ort_wip": 231.4,
+    "sefer_sayisi": 130,
+    "mesafe_km": 64.72
   },
   {
     "arac_sayisi": 1,
@@ -15327,7 +18111,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.39,
     "starv_dk": 8570,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -15338,7 +18124,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.3
+    "ort_wip": 93.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.23
   },
   {
     "arac_sayisi": 3,
@@ -15349,7 +18137,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.05,
     "starv_dk": 5305,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.29
   },
   {
     "arac_sayisi": 4,
@@ -15360,7 +18150,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.56,
     "starv_dk": 3751,
-    "ort_wip": 158.1
+    "ort_wip": 158.1,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.91
   },
   {
     "arac_sayisi": 5,
@@ -15371,7 +18163,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.68,
     "starv_dk": 2613,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.75
   },
   {
     "arac_sayisi": 6,
@@ -15382,7 +18176,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.71,
     "starv_dk": 2155,
-    "ort_wip": 206.0
+    "ort_wip": 206.0,
+    "sefer_sayisi": 52,
+    "mesafe_km": 72.27
   },
   {
     "arac_sayisi": 7,
@@ -15393,7 +18189,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.82,
     "starv_dk": 1592,
-    "ort_wip": 216.5
+    "ort_wip": 216.5,
+    "sefer_sayisi": 89,
+    "mesafe_km": 72.56
   },
   {
     "arac_sayisi": 8,
@@ -15404,7 +18202,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.68,
     "starv_dk": 1461,
-    "ort_wip": 219.6
+    "ort_wip": 219.6,
+    "sefer_sayisi": 123,
+    "mesafe_km": 71.86
   },
   {
     "arac_sayisi": 1,
@@ -15415,7 +18215,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.38,
     "starv_dk": 8569,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.36
   },
   {
     "arac_sayisi": 2,
@@ -15426,7 +18228,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.24,
     "starv_dk": 6940,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.47
   },
   {
     "arac_sayisi": 3,
@@ -15437,7 +18241,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.31,
     "starv_dk": 5335,
-    "ort_wip": 125.2
+    "ort_wip": 125.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.99
   },
   {
     "arac_sayisi": 4,
@@ -15448,7 +18254,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.54,
     "starv_dk": 3749,
-    "ort_wip": 158.4
+    "ort_wip": 158.4,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.0
   },
   {
     "arac_sayisi": 5,
@@ -15459,7 +18267,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.61,
     "starv_dk": 2605,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.97
   },
   {
     "arac_sayisi": 6,
@@ -15470,7 +18280,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.68,
     "starv_dk": 1921,
-    "ort_wip": 209.2
+    "ort_wip": 209.2,
+    "sefer_sayisi": 51,
+    "mesafe_km": 70.38
   },
   {
     "arac_sayisi": 7,
@@ -15481,7 +18293,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.88,
     "starv_dk": 1829,
-    "ort_wip": 213.4
+    "ort_wip": 213.4,
+    "sefer_sayisi": 88,
+    "mesafe_km": 73.32
   },
   {
     "arac_sayisi": 8,
@@ -15492,7 +18306,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.51,
     "starv_dk": 1441,
-    "ort_wip": 218.2
+    "ort_wip": 218.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 72.66
   },
   {
     "arac_sayisi": 1,
@@ -15503,7 +18319,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.37,
     "starv_dk": 8567,
-    "ort_wip": 59.8
+    "ort_wip": 59.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.96
   },
   {
     "arac_sayisi": 2,
@@ -15514,7 +18332,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.31,
     "starv_dk": 6948,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.02
   },
   {
     "arac_sayisi": 3,
@@ -15525,7 +18345,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.21,
     "starv_dk": 5323,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.74
   },
   {
     "arac_sayisi": 4,
@@ -15536,7 +18358,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 33.59,
     "starv_dk": 3869,
-    "ort_wip": 156.9
+    "ort_wip": 156.9,
+    "sefer_sayisi": 30,
+    "mesafe_km": 49.26
   },
   {
     "arac_sayisi": 5,
@@ -15547,7 +18371,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.3,
     "starv_dk": 2684,
-    "ort_wip": 185.7
+    "ort_wip": 185.7,
+    "sefer_sayisi": 38,
+    "mesafe_km": 58.91
   },
   {
     "arac_sayisi": 6,
@@ -15558,7 +18384,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.77,
     "starv_dk": 1932,
-    "ort_wip": 208.9
+    "ort_wip": 208.9,
+    "sefer_sayisi": 49,
+    "mesafe_km": 71.74
   },
   {
     "arac_sayisi": 7,
@@ -15569,7 +18397,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.67,
     "starv_dk": 1805,
-    "ort_wip": 212.3
+    "ort_wip": 212.3,
+    "sefer_sayisi": 85,
+    "mesafe_km": 74.91
   },
   {
     "arac_sayisi": 8,
@@ -15580,7 +18410,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.88,
     "starv_dk": 1253,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 116,
+    "mesafe_km": 75.37
   },
   {
     "arac_sayisi": 1,
@@ -15591,7 +18423,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.42,
     "starv_dk": 8573,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.54
   },
   {
     "arac_sayisi": 2,
@@ -15602,7 +18436,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.28,
     "starv_dk": 6944,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.56
   },
   {
     "arac_sayisi": 3,
@@ -15613,7 +18449,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.88,
     "starv_dk": 5401,
-    "ort_wip": 126.3
+    "ort_wip": 126.3,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.85
   },
   {
     "arac_sayisi": 4,
@@ -15624,7 +18462,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.39,
     "starv_dk": 3962,
-    "ort_wip": 157.4
+    "ort_wip": 157.4,
+    "sefer_sayisi": 29,
+    "mesafe_km": 48.36
   },
   {
     "arac_sayisi": 5,
@@ -15635,7 +18475,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.45,
     "starv_dk": 2702,
-    "ort_wip": 185.5
+    "ort_wip": 185.5,
+    "sefer_sayisi": 37,
+    "mesafe_km": 60.78
   },
   {
     "arac_sayisi": 6,
@@ -15646,7 +18488,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.65,
     "starv_dk": 2033,
-    "ort_wip": 206.7
+    "ort_wip": 206.7,
+    "sefer_sayisi": 49,
+    "mesafe_km": 73.05
   },
   {
     "arac_sayisi": 7,
@@ -15657,7 +18501,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.85,
     "starv_dk": 1595,
-    "ort_wip": 215.4
+    "ort_wip": 215.4,
+    "sefer_sayisi": 85,
+    "mesafe_km": 73.72
   },
   {
     "arac_sayisi": 8,
@@ -15668,7 +18514,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.01,
     "starv_dk": 1384,
-    "ort_wip": 219.6
+    "ort_wip": 219.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 74.39
   },
   {
     "arac_sayisi": 1,
@@ -15679,7 +18527,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.37,
     "starv_dk": 8567,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.09
   },
   {
     "arac_sayisi": 2,
@@ -15690,7 +18540,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.79
   },
   {
     "arac_sayisi": 3,
@@ -15701,7 +18553,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.94,
     "starv_dk": 5408,
-    "ort_wip": 126.2
+    "ort_wip": 126.2,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.97
   },
   {
     "arac_sayisi": 4,
@@ -15712,7 +18566,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.15,
     "starv_dk": 3934,
-    "ort_wip": 156.0
+    "ort_wip": 156.0,
+    "sefer_sayisi": 28,
+    "mesafe_km": 46.95
   },
   {
     "arac_sayisi": 5,
@@ -15723,7 +18579,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.49,
     "starv_dk": 2821,
-    "ort_wip": 184.5
+    "ort_wip": 184.5,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.81
   },
   {
     "arac_sayisi": 6,
@@ -15734,7 +18592,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.88,
     "starv_dk": 1945,
-    "ort_wip": 207.2
+    "ort_wip": 207.2,
+    "sefer_sayisi": 48,
+    "mesafe_km": 71.7
   },
   {
     "arac_sayisi": 7,
@@ -15745,7 +18605,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.31,
     "starv_dk": 1764,
-    "ort_wip": 213.2
+    "ort_wip": 213.2,
+    "sefer_sayisi": 81,
+    "mesafe_km": 76.45
   },
   {
     "arac_sayisi": 8,
@@ -15756,7 +18618,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.11,
     "starv_dk": 1280,
-    "ort_wip": 221.8
+    "ort_wip": 221.8,
+    "sefer_sayisi": 114,
+    "mesafe_km": 74.41
   },
   {
     "arac_sayisi": 1,
@@ -15767,7 +18631,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.4,
     "starv_dk": 8571,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.26
   },
   {
     "arac_sayisi": 2,
@@ -15778,7 +18644,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.7
+    "ort_wip": 93.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.76
   },
   {
     "arac_sayisi": 3,
@@ -15789,7 +18657,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.87,
     "starv_dk": 5399,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 21,
+    "mesafe_km": 38.34
   },
   {
     "arac_sayisi": 4,
@@ -15800,7 +18670,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.27,
     "starv_dk": 3948,
-    "ort_wip": 157.6
+    "ort_wip": 157.6,
+    "sefer_sayisi": 28,
+    "mesafe_km": 49.48
   },
   {
     "arac_sayisi": 5,
@@ -15811,7 +18683,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.03,
     "starv_dk": 2768,
-    "ort_wip": 185.4
+    "ort_wip": 185.4,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.95
   },
   {
     "arac_sayisi": 6,
@@ -15822,7 +18696,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.45,
     "starv_dk": 1895,
-    "ort_wip": 209.3
+    "ort_wip": 209.3,
+    "sefer_sayisi": 47,
+    "mesafe_km": 72.99
   },
   {
     "arac_sayisi": 7,
@@ -15833,7 +18709,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.22,
     "starv_dk": 1753,
-    "ort_wip": 215.8
+    "ort_wip": 215.8,
+    "sefer_sayisi": 74,
+    "mesafe_km": 75.54
   },
   {
     "arac_sayisi": 8,
@@ -15844,7 +18722,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.15,
     "starv_dk": 1169,
-    "ort_wip": 225.2
+    "ort_wip": 225.2,
+    "sefer_sayisi": 109,
+    "mesafe_km": 75.0
   },
   {
     "arac_sayisi": 1,
@@ -15855,7 +18735,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.6,
     "starv_dk": 7212,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -15866,7 +18748,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.13,
     "starv_dk": 4969,
-    "ort_wip": 134.7
+    "ort_wip": 134.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.36
   },
   {
     "arac_sayisi": 3,
@@ -15877,7 +18761,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.57,
     "starv_dk": 2830,
-    "ort_wip": 180.3
+    "ort_wip": 180.3,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.07
   },
   {
     "arac_sayisi": 4,
@@ -15888,7 +18774,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.07,
     "starv_dk": 1391,
-    "ort_wip": 219.8
+    "ort_wip": 219.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.27
   },
   {
     "arac_sayisi": 5,
@@ -15899,7 +18787,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.09,
     "starv_dk": 932,
-    "ort_wip": 232.7
+    "ort_wip": 232.7,
+    "sefer_sayisi": 68,
+    "mesafe_km": 49.28
   },
   {
     "arac_sayisi": 6,
@@ -15910,7 +18800,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.88,
     "starv_dk": 447,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 93,
+    "mesafe_km": 46.98
   },
   {
     "arac_sayisi": 7,
@@ -15921,7 +18813,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.83,
     "starv_dk": 326,
-    "ort_wip": 239.8
+    "ort_wip": 239.8,
+    "sefer_sayisi": 107,
+    "mesafe_km": 46.69
   },
   {
     "arac_sayisi": 8,
@@ -15932,7 +18826,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.25,
     "starv_dk": 259,
-    "ort_wip": 240.1
+    "ort_wip": 240.1,
+    "sefer_sayisi": 112,
+    "mesafe_km": 46.15
   },
   {
     "arac_sayisi": 1,
@@ -15943,7 +18839,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.61,
     "starv_dk": 7213,
-    "ort_wip": 88.3
+    "ort_wip": 88.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.29
   },
   {
     "arac_sayisi": 2,
@@ -15954,7 +18852,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.1,
     "starv_dk": 4965,
-    "ort_wip": 135.1
+    "ort_wip": 135.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.62
   },
   {
     "arac_sayisi": 3,
@@ -15965,7 +18865,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.67,
     "starv_dk": 2842,
-    "ort_wip": 180.5
+    "ort_wip": 180.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.93
   },
   {
     "arac_sayisi": 4,
@@ -15976,7 +18878,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.04,
     "starv_dk": 1387,
-    "ort_wip": 220.3
+    "ort_wip": 220.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.26
   },
   {
     "arac_sayisi": 5,
@@ -15987,7 +18891,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.93,
     "starv_dk": 1029,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 69,
+    "mesafe_km": 49.58
   },
   {
     "arac_sayisi": 6,
@@ -15998,7 +18904,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.09,
     "starv_dk": 471,
-    "ort_wip": 238.5
+    "ort_wip": 238.5,
+    "sefer_sayisi": 97,
+    "mesafe_km": 47.63
   },
   {
     "arac_sayisi": 7,
@@ -16009,7 +18917,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.7,
     "starv_dk": 311,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 109,
+    "mesafe_km": 47.27
   },
   {
     "arac_sayisi": 8,
@@ -16020,7 +18930,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.34,
     "starv_dk": 269,
-    "ort_wip": 240.9
+    "ort_wip": 240.9,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.37
   },
   {
     "arac_sayisi": 1,
@@ -16031,7 +18943,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.56,
     "starv_dk": 7207,
-    "ort_wip": 88.4
+    "ort_wip": 88.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.99
   },
   {
     "arac_sayisi": 2,
@@ -16042,7 +18956,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.1,
     "starv_dk": 4965,
-    "ort_wip": 135.3
+    "ort_wip": 135.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -16053,7 +18969,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.57,
     "starv_dk": 2831,
-    "ort_wip": 181.1
+    "ort_wip": 181.1,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.64
   },
   {
     "arac_sayisi": 4,
@@ -16064,7 +18982,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.85,
     "starv_dk": 1365,
-    "ort_wip": 220.4
+    "ort_wip": 220.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.06
   },
   {
     "arac_sayisi": 5,
@@ -16075,7 +18995,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.59,
     "starv_dk": 990,
-    "ort_wip": 232.5
+    "ort_wip": 232.5,
+    "sefer_sayisi": 68,
+    "mesafe_km": 46.71
   },
   {
     "arac_sayisi": 6,
@@ -16086,7 +19008,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.53,
     "starv_dk": 407,
-    "ort_wip": 240.0
+    "ort_wip": 240.0,
+    "sefer_sayisi": 103,
+    "mesafe_km": 46.14
   },
   {
     "arac_sayisi": 7,
@@ -16097,7 +19021,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.99,
     "starv_dk": 229,
-    "ort_wip": 241.8
+    "ort_wip": 241.8,
+    "sefer_sayisi": 116,
+    "mesafe_km": 46.36
   },
   {
     "arac_sayisi": 8,
@@ -16108,7 +19034,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.7,
     "starv_dk": 196,
-    "ort_wip": 242.2
+    "ort_wip": 242.2,
+    "sefer_sayisi": 120,
+    "mesafe_km": 46.21
   },
   {
     "arac_sayisi": 1,
@@ -16119,7 +19047,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.5,
     "starv_dk": 7200,
-    "ort_wip": 88.6
+    "ort_wip": 88.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.41
   },
   {
     "arac_sayisi": 2,
@@ -16130,7 +19060,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.96,
     "starv_dk": 4949,
-    "ort_wip": 135.7
+    "ort_wip": 135.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.04
   },
   {
     "arac_sayisi": 3,
@@ -16141,7 +19073,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.6,
     "starv_dk": 2834,
-    "ort_wip": 181.5
+    "ort_wip": 181.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.97
   },
   {
     "arac_sayisi": 4,
@@ -16152,7 +19086,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.4,
     "starv_dk": 1429,
-    "ort_wip": 220.9
+    "ort_wip": 220.9,
+    "sefer_sayisi": 33,
+    "mesafe_km": 46.23
   },
   {
     "arac_sayisi": 5,
@@ -16163,7 +19099,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.25,
     "starv_dk": 950,
-    "ort_wip": 231.4
+    "ort_wip": 231.4,
+    "sefer_sayisi": 70,
+    "mesafe_km": 49.18
   },
   {
     "arac_sayisi": 6,
@@ -16174,7 +19112,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.91,
     "starv_dk": 451,
-    "ort_wip": 239.1
+    "ort_wip": 239.1,
+    "sefer_sayisi": 102,
+    "mesafe_km": 48.96
   },
   {
     "arac_sayisi": 7,
@@ -16185,7 +19125,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.13,
     "starv_dk": 245,
-    "ort_wip": 241.1
+    "ort_wip": 241.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 48.34
   },
   {
     "arac_sayisi": 8,
@@ -16196,7 +19138,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.54,
     "starv_dk": 177,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 123,
+    "mesafe_km": 48.0
   },
   {
     "arac_sayisi": 1,
@@ -16207,7 +19151,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.52,
     "starv_dk": 7202,
-    "ort_wip": 88.6
+    "ort_wip": 88.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.11
   },
   {
     "arac_sayisi": 2,
@@ -16218,7 +19164,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.93,
     "starv_dk": 4946,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.25
   },
   {
     "arac_sayisi": 3,
@@ -16229,7 +19177,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.56,
     "starv_dk": 2829,
-    "ort_wip": 181.7
+    "ort_wip": 181.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.63
   },
   {
     "arac_sayisi": 4,
@@ -16240,7 +19190,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.57,
     "starv_dk": 1218,
-    "ort_wip": 222.4
+    "ort_wip": 222.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 43.91
   },
   {
     "arac_sayisi": 5,
@@ -16251,7 +19203,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.0,
     "starv_dk": 922,
-    "ort_wip": 232.0
+    "ort_wip": 232.0,
+    "sefer_sayisi": 68,
+    "mesafe_km": 48.31
   },
   {
     "arac_sayisi": 6,
@@ -16262,7 +19216,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.61,
     "starv_dk": 531,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 96,
+    "mesafe_km": 46.48
   },
   {
     "arac_sayisi": 7,
@@ -16273,7 +19229,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.8,
     "starv_dk": 323,
-    "ort_wip": 239.5
+    "ort_wip": 239.5,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.21
   },
   {
     "arac_sayisi": 8,
@@ -16284,7 +19242,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.49,
     "starv_dk": 287,
-    "ort_wip": 240.0
+    "ort_wip": 240.0,
+    "sefer_sayisi": 120,
+    "mesafe_km": 46.88
   },
   {
     "arac_sayisi": 1,
@@ -16295,7 +19255,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.53,
     "starv_dk": 7204,
-    "ort_wip": 88.6
+    "ort_wip": 88.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.2
   },
   {
     "arac_sayisi": 2,
@@ -16306,7 +19268,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.93,
     "starv_dk": 4945,
-    "ort_wip": 136.2
+    "ort_wip": 136.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.74
   },
   {
     "arac_sayisi": 3,
@@ -16317,7 +19281,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.21,
     "starv_dk": 2789,
-    "ort_wip": 182.3
+    "ort_wip": 182.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.78
   },
   {
     "arac_sayisi": 4,
@@ -16328,7 +19294,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.9,
     "starv_dk": 1371,
-    "ort_wip": 222.2
+    "ort_wip": 222.2,
+    "sefer_sayisi": 34,
+    "mesafe_km": 47.26
   },
   {
     "arac_sayisi": 5,
@@ -16339,7 +19307,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.6,
     "starv_dk": 875,
-    "ort_wip": 234.2
+    "ort_wip": 234.2,
+    "sefer_sayisi": 67,
+    "mesafe_km": 49.07
   },
   {
     "arac_sayisi": 6,
@@ -16350,7 +19320,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.48,
     "starv_dk": 516,
-    "ort_wip": 238.5
+    "ort_wip": 238.5,
+    "sefer_sayisi": 94,
+    "mesafe_km": 48.64
   },
   {
     "arac_sayisi": 7,
@@ -16361,7 +19333,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.62,
     "starv_dk": 302,
-    "ort_wip": 240.8
+    "ort_wip": 240.8,
+    "sefer_sayisi": 110,
+    "mesafe_km": 48.01
   },
   {
     "arac_sayisi": 8,
@@ -16372,7 +19346,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.27,
     "starv_dk": 262,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 119,
+    "mesafe_km": 47.74
   },
   {
     "arac_sayisi": 1,
@@ -16383,7 +19359,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.41,
     "starv_dk": 7650,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.15
   },
   {
     "arac_sayisi": 2,
@@ -16394,7 +19372,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.58,
     "starv_dk": 5596,
-    "ort_wip": 121.7
+    "ort_wip": 121.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.67
   },
   {
     "arac_sayisi": 3,
@@ -16405,7 +19385,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.11,
     "starv_dk": 3584,
-    "ort_wip": 162.8
+    "ort_wip": 162.8,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.87
   },
   {
     "arac_sayisi": 4,
@@ -16416,7 +19398,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.0,
     "starv_dk": 2074,
-    "ort_wip": 202.0
+    "ort_wip": 202.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.99
   },
   {
     "arac_sayisi": 5,
@@ -16427,7 +19411,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.44,
     "starv_dk": 1433,
-    "ort_wip": 223.9
+    "ort_wip": 223.9,
+    "sefer_sayisi": 55,
+    "mesafe_km": 53.16
   },
   {
     "arac_sayisi": 6,
@@ -16438,7 +19424,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.75,
     "starv_dk": 893,
-    "ort_wip": 232.5
+    "ort_wip": 232.5,
+    "sefer_sayisi": 83,
+    "mesafe_km": 53.68
   },
   {
     "arac_sayisi": 7,
@@ -16449,7 +19437,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.55,
     "starv_dk": 524,
-    "ort_wip": 236.1
+    "ort_wip": 236.1,
+    "sefer_sayisi": 108,
+    "mesafe_km": 51.6
   },
   {
     "arac_sayisi": 8,
@@ -16460,7 +19450,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.56,
     "starv_dk": 410,
-    "ort_wip": 236.9
+    "ort_wip": 236.9,
+    "sefer_sayisi": 121,
+    "mesafe_km": 51.28
   },
   {
     "arac_sayisi": 1,
@@ -16471,7 +19463,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.43,
     "starv_dk": 7653,
-    "ort_wip": 78.9
+    "ort_wip": 78.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.64
   },
   {
     "arac_sayisi": 2,
@@ -16482,7 +19476,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.47,
     "starv_dk": 5584,
-    "ort_wip": 121.9
+    "ort_wip": 121.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.29
   },
   {
     "arac_sayisi": 3,
@@ -16493,7 +19489,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.29,
     "starv_dk": 3720,
-    "ort_wip": 162.1
+    "ort_wip": 162.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.01
   },
   {
     "arac_sayisi": 4,
@@ -16504,7 +19502,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.48,
     "starv_dk": 2014,
-    "ort_wip": 202.5
+    "ort_wip": 202.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.63
   },
   {
     "arac_sayisi": 5,
@@ -16515,7 +19515,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.35,
     "starv_dk": 1192,
-    "ort_wip": 226.6
+    "ort_wip": 226.6,
+    "sefer_sayisi": 57,
+    "mesafe_km": 54.83
   },
   {
     "arac_sayisi": 6,
@@ -16526,7 +19528,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.95,
     "starv_dk": 916,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 93,
+    "mesafe_km": 52.65
   },
   {
     "arac_sayisi": 7,
@@ -16537,7 +19541,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.34,
     "starv_dk": 500,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 118,
+    "mesafe_km": 51.8
   },
   {
     "arac_sayisi": 8,
@@ -16548,7 +19554,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.81,
     "starv_dk": 439,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 125,
+    "mesafe_km": 52.0
   },
   {
     "arac_sayisi": 1,
@@ -16559,7 +19567,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.36,
     "starv_dk": 7645,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.64
   },
   {
     "arac_sayisi": 2,
@@ -16570,7 +19580,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.46,
     "starv_dk": 5583,
-    "ort_wip": 122.2
+    "ort_wip": 122.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.01
   },
   {
     "arac_sayisi": 3,
@@ -16581,7 +19593,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.33,
     "starv_dk": 3724,
-    "ort_wip": 162.6
+    "ort_wip": 162.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.21
   },
   {
     "arac_sayisi": 4,
@@ -16592,7 +19606,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.88,
     "starv_dk": 1944,
-    "ort_wip": 201.5
+    "ort_wip": 201.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.0
   },
   {
     "arac_sayisi": 5,
@@ -16603,7 +19619,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.98,
     "starv_dk": 1265,
-    "ort_wip": 225.5
+    "ort_wip": 225.5,
+    "sefer_sayisi": 57,
+    "mesafe_km": 55.11
   },
   {
     "arac_sayisi": 6,
@@ -16614,7 +19632,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.09,
     "starv_dk": 702,
-    "ort_wip": 234.1
+    "ort_wip": 234.1,
+    "sefer_sayisi": 98,
+    "mesafe_km": 52.63
   },
   {
     "arac_sayisi": 7,
@@ -16625,7 +19645,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.28,
     "starv_dk": 493,
-    "ort_wip": 236.7
+    "ort_wip": 236.7,
+    "sefer_sayisi": 117,
+    "mesafe_km": 52.96
   },
   {
     "arac_sayisi": 8,
@@ -16636,7 +19658,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.6,
     "starv_dk": 299,
-    "ort_wip": 239.0
+    "ort_wip": 239.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.04
   },
   {
     "arac_sayisi": 1,
@@ -16647,7 +19671,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.35,
     "starv_dk": 7643,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.85
   },
   {
     "arac_sayisi": 2,
@@ -16658,7 +19684,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.43,
     "starv_dk": 5579,
-    "ort_wip": 122.2
+    "ort_wip": 122.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.13
   },
   {
     "arac_sayisi": 3,
@@ -16669,7 +19697,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.13,
     "starv_dk": 3701,
-    "ort_wip": 162.6
+    "ort_wip": 162.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.37
   },
   {
     "arac_sayisi": 4,
@@ -16680,7 +19710,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.79,
     "starv_dk": 1934,
-    "ort_wip": 201.7
+    "ort_wip": 201.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.11
   },
   {
     "arac_sayisi": 5,
@@ -16691,7 +19723,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.0,
     "starv_dk": 1382,
-    "ort_wip": 224.6
+    "ort_wip": 224.6,
+    "sefer_sayisi": 56,
+    "mesafe_km": 54.16
   },
   {
     "arac_sayisi": 6,
@@ -16702,7 +19736,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 233.3
+    "ort_wip": 233.3,
+    "sefer_sayisi": 95,
+    "mesafe_km": 52.17
   },
   {
     "arac_sayisi": 7,
@@ -16713,7 +19749,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.57,
     "starv_dk": 411,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.1
   },
   {
     "arac_sayisi": 8,
@@ -16724,7 +19762,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.12,
     "starv_dk": 244,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 133,
+    "mesafe_km": 51.32
   },
   {
     "arac_sayisi": 1,
@@ -16735,7 +19775,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.34,
     "starv_dk": 7642,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.2
   },
   {
     "arac_sayisi": 2,
@@ -16746,7 +19788,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.37,
     "starv_dk": 5572,
-    "ort_wip": 122.5
+    "ort_wip": 122.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.54
   },
   {
     "arac_sayisi": 3,
@@ -16757,7 +19801,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.9,
     "starv_dk": 3675,
-    "ort_wip": 162.7
+    "ort_wip": 162.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.55
   },
   {
     "arac_sayisi": 4,
@@ -16768,7 +19814,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.76,
     "starv_dk": 2046,
-    "ort_wip": 202.1
+    "ort_wip": 202.1,
+    "sefer_sayisi": 33,
+    "mesafe_km": 51.95
   },
   {
     "arac_sayisi": 5,
@@ -16779,7 +19827,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.95,
     "starv_dk": 1262,
-    "ort_wip": 225.3
+    "ort_wip": 225.3,
+    "sefer_sayisi": 56,
+    "mesafe_km": 53.82
   },
   {
     "arac_sayisi": 6,
@@ -16790,7 +19840,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.37,
     "starv_dk": 964,
-    "ort_wip": 232.3
+    "ort_wip": 232.3,
+    "sefer_sayisi": 94,
+    "mesafe_km": 55.19
   },
   {
     "arac_sayisi": 7,
@@ -16801,7 +19853,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.45,
     "starv_dk": 513,
-    "ort_wip": 237.2
+    "ort_wip": 237.2,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.72
   },
   {
     "arac_sayisi": 8,
@@ -16812,7 +19866,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.97,
     "starv_dk": 342,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.27
   },
   {
     "arac_sayisi": 1,
@@ -16823,7 +19879,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 66.35,
     "starv_dk": 7643,
-    "ort_wip": 79.1
+    "ort_wip": 79.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.74
   },
   {
     "arac_sayisi": 2,
@@ -16834,7 +19892,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.39,
     "starv_dk": 5574,
-    "ort_wip": 122.6
+    "ort_wip": 122.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.95
   },
   {
     "arac_sayisi": 3,
@@ -16845,7 +19905,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.07,
     "starv_dk": 3579,
-    "ort_wip": 163.3
+    "ort_wip": 163.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.7
   },
   {
     "arac_sayisi": 4,
@@ -16856,7 +19918,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.39,
     "starv_dk": 2118,
-    "ort_wip": 202.3
+    "ort_wip": 202.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.41
   },
   {
     "arac_sayisi": 5,
@@ -16867,7 +19931,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.03,
     "starv_dk": 1386,
-    "ort_wip": 225.0
+    "ort_wip": 225.0,
+    "sefer_sayisi": 55,
+    "mesafe_km": 55.45
   },
   {
     "arac_sayisi": 6,
@@ -16878,7 +19944,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.8,
     "starv_dk": 899,
-    "ort_wip": 233.5
+    "ort_wip": 233.5,
+    "sefer_sayisi": 91,
+    "mesafe_km": 55.45
   },
   {
     "arac_sayisi": 7,
@@ -16889,7 +19957,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.78,
     "starv_dk": 435,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.98
   },
   {
     "arac_sayisi": 8,
@@ -16900,7 +19970,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.68,
     "starv_dk": 309,
-    "ort_wip": 239.0
+    "ort_wip": 239.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.84
   },
   {
     "arac_sayisi": 1,
@@ -16911,7 +19983,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.3
+    "ort_wip": 71.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.91
   },
   {
     "arac_sayisi": 2,
@@ -16922,7 +19996,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.06,
     "starv_dk": 6113,
-    "ort_wip": 110.8
+    "ort_wip": 110.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.86
   },
   {
     "arac_sayisi": 3,
@@ -16933,7 +20009,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.04,
     "starv_dk": 4267,
-    "ort_wip": 148.3
+    "ort_wip": 148.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.6
   },
   {
     "arac_sayisi": 4,
@@ -16944,7 +20022,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.08,
     "starv_dk": 2774,
-    "ort_wip": 182.5
+    "ort_wip": 182.5,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.45
   },
   {
     "arac_sayisi": 5,
@@ -16955,7 +20035,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.86,
     "starv_dk": 1597,
-    "ort_wip": 213.9
+    "ort_wip": 213.9,
+    "sefer_sayisi": 43,
+    "mesafe_km": 57.71
   },
   {
     "arac_sayisi": 6,
@@ -16966,7 +20048,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.03,
     "starv_dk": 1386,
-    "ort_wip": 222.9
+    "ort_wip": 222.9,
+    "sefer_sayisi": 79,
+    "mesafe_km": 62.17
   },
   {
     "arac_sayisi": 7,
@@ -16977,7 +20061,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.22,
     "starv_dk": 717,
-    "ort_wip": 233.6
+    "ort_wip": 233.6,
+    "sefer_sayisi": 116,
+    "mesafe_km": 58.59
   },
   {
     "arac_sayisi": 8,
@@ -16988,7 +20074,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.57,
     "starv_dk": 527,
-    "ort_wip": 236.0
+    "ort_wip": 236.0,
+    "sefer_sayisi": 138,
+    "mesafe_km": 58.03
   },
   {
     "arac_sayisi": 1,
@@ -16999,7 +20087,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.52,
     "starv_dk": 8009,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.34
   },
   {
     "arac_sayisi": 2,
@@ -17010,7 +20100,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.01,
     "starv_dk": 6107,
-    "ort_wip": 111.0
+    "ort_wip": 111.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.28
   },
   {
     "arac_sayisi": 3,
@@ -17021,7 +20113,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.87,
     "starv_dk": 4247,
-    "ort_wip": 148.6
+    "ort_wip": 148.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.02
   },
   {
     "arac_sayisi": 4,
@@ -17032,7 +20126,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.15,
     "starv_dk": 2782,
-    "ort_wip": 183.1
+    "ort_wip": 183.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.03
   },
   {
     "arac_sayisi": 5,
@@ -17043,7 +20139,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.39,
     "starv_dk": 1773,
-    "ort_wip": 212.6
+    "ort_wip": 212.6,
+    "sefer_sayisi": 43,
+    "mesafe_km": 56.78
   },
   {
     "arac_sayisi": 6,
@@ -17054,7 +20152,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.12,
     "starv_dk": 1281,
-    "ort_wip": 223.6
+    "ort_wip": 223.6,
+    "sefer_sayisi": 79,
+    "mesafe_km": 60.17
   },
   {
     "arac_sayisi": 7,
@@ -17065,7 +20165,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.34,
     "starv_dk": 961,
-    "ort_wip": 230.0
+    "ort_wip": 230.0,
+    "sefer_sayisi": 112,
+    "mesafe_km": 59.56
   },
   {
     "arac_sayisi": 8,
@@ -17076,7 +20178,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.61,
     "starv_dk": 416,
-    "ort_wip": 237.5
+    "ort_wip": 237.5,
+    "sefer_sayisi": 141,
+    "mesafe_km": 58.63
   },
   {
     "arac_sayisi": 1,
@@ -17087,7 +20191,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.5,
     "starv_dk": 8006,
-    "ort_wip": 71.5
+    "ort_wip": 71.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.77
   },
   {
     "arac_sayisi": 2,
@@ -17098,7 +20204,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.03,
     "starv_dk": 6109,
-    "ort_wip": 111.0
+    "ort_wip": 111.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.91
   },
   {
     "arac_sayisi": 3,
@@ -17109,7 +20217,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.94,
     "starv_dk": 4255,
-    "ort_wip": 148.4
+    "ort_wip": 148.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.28
   },
   {
     "arac_sayisi": 4,
@@ -17120,7 +20230,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 182.4
+    "ort_wip": 182.4,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.32
   },
   {
     "arac_sayisi": 5,
@@ -17131,7 +20243,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.93,
     "starv_dk": 1835,
-    "ort_wip": 211.1
+    "ort_wip": 211.1,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.06
   },
   {
     "arac_sayisi": 6,
@@ -17142,7 +20256,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.17,
     "starv_dk": 1287,
-    "ort_wip": 224.5
+    "ort_wip": 224.5,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.31
   },
   {
     "arac_sayisi": 7,
@@ -17153,7 +20269,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.89,
     "starv_dk": 794,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.6
   },
   {
     "arac_sayisi": 8,
@@ -17164,7 +20282,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.41,
     "starv_dk": 393,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.32
   },
   {
     "arac_sayisi": 1,
@@ -17175,7 +20295,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.51,
     "starv_dk": 8008,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.4
   },
   {
     "arac_sayisi": 2,
@@ -17186,7 +20308,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.99,
     "starv_dk": 6105,
-    "ort_wip": 109.7
+    "ort_wip": 109.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.66
   },
   {
     "arac_sayisi": 3,
@@ -17197,7 +20321,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.93,
     "starv_dk": 4254,
-    "ort_wip": 148.7
+    "ort_wip": 148.7,
+    "sefer_sayisi": 24,
+    "mesafe_km": 37.52
   },
   {
     "arac_sayisi": 4,
@@ -17208,7 +20334,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.72,
     "starv_dk": 2732,
-    "ort_wip": 184.2
+    "ort_wip": 184.2,
+    "sefer_sayisi": 33,
+    "mesafe_km": 50.67
   },
   {
     "arac_sayisi": 5,
@@ -17219,7 +20347,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.32,
     "starv_dk": 1535,
-    "ort_wip": 215.6
+    "ort_wip": 215.6,
+    "sefer_sayisi": 41,
+    "mesafe_km": 56.72
   },
   {
     "arac_sayisi": 6,
@@ -17230,7 +20360,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.54,
     "starv_dk": 1329,
-    "ort_wip": 225.7
+    "ort_wip": 225.7,
+    "sefer_sayisi": 80,
+    "mesafe_km": 59.0
   },
   {
     "arac_sayisi": 7,
@@ -17241,7 +20373,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.76,
     "starv_dk": 779,
-    "ort_wip": 233.2
+    "ort_wip": 233.2,
+    "sefer_sayisi": 108,
+    "mesafe_km": 59.37
   },
   {
     "arac_sayisi": 8,
@@ -17252,7 +20386,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.74,
     "starv_dk": 431,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 137,
+    "mesafe_km": 59.61
   },
   {
     "arac_sayisi": 1,
@@ -17263,7 +20399,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.51,
     "starv_dk": 8008,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 14.17
   },
   {
     "arac_sayisi": 2,
@@ -17274,7 +20412,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.11,
     "starv_dk": 6118,
-    "ort_wip": 109.9
+    "ort_wip": 109.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.55
   },
   {
     "arac_sayisi": 3,
@@ -17285,7 +20425,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.74,
     "starv_dk": 4233,
-    "ort_wip": 149.4
+    "ort_wip": 149.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.94
   },
   {
     "arac_sayisi": 4,
@@ -17296,7 +20438,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.67,
     "starv_dk": 2612,
-    "ort_wip": 185.0
+    "ort_wip": 185.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.71
   },
   {
     "arac_sayisi": 5,
@@ -17307,7 +20451,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.87,
     "starv_dk": 1598,
-    "ort_wip": 214.8
+    "ort_wip": 214.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 59.23
   },
   {
     "arac_sayisi": 6,
@@ -17318,7 +20464,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.58,
     "starv_dk": 1449,
-    "ort_wip": 223.1
+    "ort_wip": 223.1,
+    "sefer_sayisi": 76,
+    "mesafe_km": 61.62
   },
   {
     "arac_sayisi": 7,
@@ -17329,7 +20477,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.07,
     "starv_dk": 699,
-    "ort_wip": 234.2
+    "ort_wip": 234.2,
+    "sefer_sayisi": 110,
+    "mesafe_km": 58.8
   },
   {
     "arac_sayisi": 8,
@@ -17340,7 +20490,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.98,
     "starv_dk": 459,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 133,
+    "mesafe_km": 60.3
   },
   {
     "arac_sayisi": 1,
@@ -17351,7 +20503,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.56,
     "starv_dk": 8013,
-    "ort_wip": 71.4
+    "ort_wip": 71.4,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.87
   },
   {
     "arac_sayisi": 2,
@@ -17362,7 +20516,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.09,
     "starv_dk": 6116,
-    "ort_wip": 110.5
+    "ort_wip": 110.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.92
   },
   {
     "arac_sayisi": 3,
@@ -17373,7 +20529,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.51,
     "starv_dk": 4206,
-    "ort_wip": 150.5
+    "ort_wip": 150.5,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.3
   },
   {
     "arac_sayisi": 4,
@@ -17384,7 +20542,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.14,
     "starv_dk": 2550,
-    "ort_wip": 187.0
+    "ort_wip": 187.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.84
   },
   {
     "arac_sayisi": 5,
@@ -17395,7 +20555,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.26,
     "starv_dk": 1758,
-    "ort_wip": 214.8
+    "ort_wip": 214.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.31
   },
   {
     "arac_sayisi": 6,
@@ -17406,7 +20568,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.17,
     "starv_dk": 1287,
-    "ort_wip": 226.4
+    "ort_wip": 226.4,
+    "sefer_sayisi": 81,
+    "mesafe_km": 60.16
   },
   {
     "arac_sayisi": 7,
@@ -17417,7 +20581,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.91,
     "starv_dk": 681,
-    "ort_wip": 236.3
+    "ort_wip": 236.3,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.98
   },
   {
     "arac_sayisi": 8,
@@ -17428,7 +20594,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.27,
     "starv_dk": 377,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 138,
+    "mesafe_km": 59.55
   },
   {
     "arac_sayisi": 1,
@@ -17439,7 +20607,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.2,
     "starv_dk": 8317,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.66
   },
   {
     "arac_sayisi": 2,
@@ -17450,7 +20620,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.92,
     "starv_dk": 6557,
-    "ort_wip": 101.5
+    "ort_wip": 101.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 26.79
   },
   {
     "arac_sayisi": 3,
@@ -17461,7 +20633,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.95,
     "starv_dk": 4833,
-    "ort_wip": 136.0
+    "ort_wip": 136.0,
+    "sefer_sayisi": 24,
+    "mesafe_km": 39.19
   },
   {
     "arac_sayisi": 4,
@@ -17472,7 +20646,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.33,
     "starv_dk": 3264,
-    "ort_wip": 171.0
+    "ort_wip": 171.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.86
   },
   {
     "arac_sayisi": 5,
@@ -17483,7 +20659,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.28,
     "starv_dk": 2106,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 59.49
   },
   {
     "arac_sayisi": 6,
@@ -17494,7 +20672,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.95,
     "starv_dk": 1837,
-    "ort_wip": 214.3
+    "ort_wip": 214.3,
+    "sefer_sayisi": 65,
+    "mesafe_km": 70.11
   },
   {
     "arac_sayisi": 7,
@@ -17505,7 +20685,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.6,
     "starv_dk": 1221,
-    "ort_wip": 225.1
+    "ort_wip": 225.1,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.08
   },
   {
     "arac_sayisi": 8,
@@ -17516,7 +20698,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.48,
     "starv_dk": 747,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.82
   },
   {
     "arac_sayisi": 1,
@@ -17527,7 +20711,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.14,
     "starv_dk": 8311,
-    "ort_wip": 65.0
+    "ort_wip": 65.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.77
   },
   {
     "arac_sayisi": 2,
@@ -17538,7 +20724,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.97,
     "starv_dk": 6563,
-    "ort_wip": 100.3
+    "ort_wip": 100.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 27.13
   },
   {
     "arac_sayisi": 3,
@@ -17549,7 +20737,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.12,
     "starv_dk": 4852,
-    "ort_wip": 136.2
+    "ort_wip": 136.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.52
   },
   {
     "arac_sayisi": 4,
@@ -17560,7 +20750,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.17,
     "starv_dk": 3360,
-    "ort_wip": 169.0
+    "ort_wip": 169.0,
+    "sefer_sayisi": 32,
+    "mesafe_km": 49.34
   },
   {
     "arac_sayisi": 5,
@@ -17571,7 +20763,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.91,
     "starv_dk": 2063,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.27
   },
   {
     "arac_sayisi": 6,
@@ -17582,7 +20776,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.64,
     "starv_dk": 1686,
-    "ort_wip": 217.0
+    "ort_wip": 217.0,
+    "sefer_sayisi": 60,
+    "mesafe_km": 70.54
   },
   {
     "arac_sayisi": 7,
@@ -17593,7 +20789,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.22,
     "starv_dk": 1523,
-    "ort_wip": 220.7
+    "ort_wip": 220.7,
+    "sefer_sayisi": 100,
+    "mesafe_km": 64.84
   },
   {
     "arac_sayisi": 8,
@@ -17604,7 +20802,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.11,
     "starv_dk": 704,
-    "ort_wip": 233.3
+    "ort_wip": 233.3,
+    "sefer_sayisi": 132,
+    "mesafe_km": 66.93
   },
   {
     "arac_sayisi": 1,
@@ -17615,7 +20815,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.17,
     "starv_dk": 8314,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.76
   },
   {
     "arac_sayisi": 2,
@@ -17626,7 +20828,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.96,
     "starv_dk": 6562,
-    "ort_wip": 101.3
+    "ort_wip": 101.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 25.43
   },
   {
     "arac_sayisi": 3,
@@ -17637,7 +20841,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.63,
     "starv_dk": 4796,
-    "ort_wip": 137.8
+    "ort_wip": 137.8,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.26
   },
   {
     "arac_sayisi": 4,
@@ -17648,7 +20854,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.12,
     "starv_dk": 3239,
-    "ort_wip": 170.6
+    "ort_wip": 170.6,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.8
   },
   {
     "arac_sayisi": 5,
@@ -17659,7 +20867,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.48,
     "starv_dk": 2014,
-    "ort_wip": 200.8
+    "ort_wip": 200.8,
+    "sefer_sayisi": 40,
+    "mesafe_km": 58.63
   },
   {
     "arac_sayisi": 6,
@@ -17670,7 +20880,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.45,
     "starv_dk": 1549,
-    "ort_wip": 218.5
+    "ort_wip": 218.5,
+    "sefer_sayisi": 61,
+    "mesafe_km": 67.51
   },
   {
     "arac_sayisi": 7,
@@ -17681,7 +20893,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.63,
     "starv_dk": 1340,
-    "ort_wip": 224.8
+    "ort_wip": 224.8,
+    "sefer_sayisi": 99,
+    "mesafe_km": 66.86
   },
   {
     "arac_sayisi": 8,
@@ -17692,7 +20906,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.76,
     "starv_dk": 664,
-    "ort_wip": 234.3
+    "ort_wip": 234.3,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.69
   },
   {
     "arac_sayisi": 1,
@@ -17703,7 +20919,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.18,
     "starv_dk": 8315,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.68
   },
   {
     "arac_sayisi": 2,
@@ -17714,7 +20932,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.88,
     "starv_dk": 6553,
-    "ort_wip": 101.7
+    "ort_wip": 101.7,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.58
   },
   {
     "arac_sayisi": 3,
@@ -17725,7 +20945,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.07,
     "starv_dk": 4846,
-    "ort_wip": 136.7
+    "ort_wip": 136.7,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.49
   },
   {
     "arac_sayisi": 4,
@@ -17736,7 +20958,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.66,
     "starv_dk": 3186,
-    "ort_wip": 171.9
+    "ort_wip": 171.9,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.81
   },
   {
     "arac_sayisi": 5,
@@ -17747,7 +20971,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.93,
     "starv_dk": 2065,
-    "ort_wip": 200.4
+    "ort_wip": 200.4,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.22
   },
   {
     "arac_sayisi": 6,
@@ -17758,7 +20984,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.4,
     "starv_dk": 1659,
-    "ort_wip": 217.2
+    "ort_wip": 217.2,
+    "sefer_sayisi": 62,
+    "mesafe_km": 69.75
   },
   {
     "arac_sayisi": 7,
@@ -17769,7 +20997,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.72,
     "starv_dk": 1235,
-    "ort_wip": 225.8
+    "ort_wip": 225.8,
+    "sefer_sayisi": 101,
+    "mesafe_km": 64.83
   },
   {
     "arac_sayisi": 8,
@@ -17780,7 +21010,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.39,
     "starv_dk": 851,
-    "ort_wip": 231.0
+    "ort_wip": 231.0,
+    "sefer_sayisi": 127,
+    "mesafe_km": 65.62
   },
   {
     "arac_sayisi": 1,
@@ -17791,7 +21023,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.16,
     "starv_dk": 8313,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.98
   },
   {
     "arac_sayisi": 2,
@@ -17802,7 +21036,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 57.08,
     "starv_dk": 6576,
-    "ort_wip": 101.4
+    "ort_wip": 101.4,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.08
   },
   {
     "arac_sayisi": 3,
@@ -17813,7 +21049,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.88,
     "starv_dk": 4824,
-    "ort_wip": 136.9
+    "ort_wip": 136.9,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.38
   },
   {
     "arac_sayisi": 4,
@@ -17824,7 +21062,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.28,
     "starv_dk": 3258,
-    "ort_wip": 169.6
+    "ort_wip": 169.6,
+    "sefer_sayisi": 30,
+    "mesafe_km": 48.78
   },
   {
     "arac_sayisi": 5,
@@ -17835,7 +21075,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.76,
     "starv_dk": 2046,
-    "ort_wip": 200.9
+    "ort_wip": 200.9,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.82
   },
   {
     "arac_sayisi": 6,
@@ -17846,7 +21088,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.25,
     "starv_dk": 1642,
-    "ort_wip": 217.5
+    "ort_wip": 217.5,
+    "sefer_sayisi": 56,
+    "mesafe_km": 66.12
   },
   {
     "arac_sayisi": 7,
@@ -17857,7 +21101,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.16,
     "starv_dk": 1055,
-    "ort_wip": 227.6
+    "ort_wip": 227.6,
+    "sefer_sayisi": 102,
+    "mesafe_km": 65.77
   },
   {
     "arac_sayisi": 8,
@@ -17868,7 +21114,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.64,
     "starv_dk": 765,
-    "ort_wip": 232.2
+    "ort_wip": 232.2,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.66
   },
   {
     "arac_sayisi": 1,
@@ -17879,7 +21127,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 72.2,
     "starv_dk": 8318,
-    "ort_wip": 65.1
+    "ort_wip": 65.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.89
   },
   {
     "arac_sayisi": 2,
@@ -17890,7 +21140,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.96,
     "starv_dk": 6562,
-    "ort_wip": 101.6
+    "ort_wip": 101.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.7
   },
   {
     "arac_sayisi": 3,
@@ -17901,7 +21153,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.89,
     "starv_dk": 4826,
-    "ort_wip": 137.2
+    "ort_wip": 137.2,
+    "sefer_sayisi": 21,
+    "mesafe_km": 37.6
   },
   {
     "arac_sayisi": 4,
@@ -17912,7 +21166,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.95,
     "starv_dk": 3220,
-    "ort_wip": 172.3
+    "ort_wip": 172.3,
+    "sefer_sayisi": 29,
+    "mesafe_km": 48.57
   },
   {
     "arac_sayisi": 5,
@@ -17923,7 +21179,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.37,
     "starv_dk": 2001,
-    "ort_wip": 201.2
+    "ort_wip": 201.2,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.99
   },
   {
     "arac_sayisi": 6,
@@ -17934,7 +21192,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.72,
     "starv_dk": 1811,
-    "ort_wip": 216.9
+    "ort_wip": 216.9,
+    "sefer_sayisi": 59,
+    "mesafe_km": 68.24
   },
   {
     "arac_sayisi": 7,
@@ -17945,7 +21205,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.08,
     "starv_dk": 1276,
-    "ort_wip": 226.2
+    "ort_wip": 226.2,
+    "sefer_sayisi": 99,
+    "mesafe_km": 66.26
   },
   {
     "arac_sayisi": 8,
@@ -17956,7 +21218,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.99,
     "starv_dk": 805,
-    "ort_wip": 231.3
+    "ort_wip": 231.3,
+    "sefer_sayisi": 130,
+    "mesafe_km": 65.1
   },
   {
     "arac_sayisi": 1,
@@ -17967,7 +21231,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.39,
     "starv_dk": 8570,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.69
   },
   {
     "arac_sayisi": 2,
@@ -17978,7 +21244,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.26,
     "starv_dk": 6942,
-    "ort_wip": 93.3
+    "ort_wip": 93.3,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.23
   },
   {
     "arac_sayisi": 3,
@@ -17989,7 +21257,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.05,
     "starv_dk": 5305,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 23,
+    "mesafe_km": 37.29
   },
   {
     "arac_sayisi": 4,
@@ -18000,7 +21270,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.56,
     "starv_dk": 3751,
-    "ort_wip": 158.1
+    "ort_wip": 158.1,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.91
   },
   {
     "arac_sayisi": 5,
@@ -18011,7 +21283,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.68,
     "starv_dk": 2613,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 60.75
   },
   {
     "arac_sayisi": 6,
@@ -18022,7 +21296,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.71,
     "starv_dk": 2155,
-    "ort_wip": 206.0
+    "ort_wip": 206.0,
+    "sefer_sayisi": 52,
+    "mesafe_km": 72.27
   },
   {
     "arac_sayisi": 7,
@@ -18033,7 +21309,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.82,
     "starv_dk": 1592,
-    "ort_wip": 216.5
+    "ort_wip": 216.5,
+    "sefer_sayisi": 89,
+    "mesafe_km": 72.56
   },
   {
     "arac_sayisi": 8,
@@ -18044,7 +21322,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.68,
     "starv_dk": 1461,
-    "ort_wip": 219.6
+    "ort_wip": 219.6,
+    "sefer_sayisi": 123,
+    "mesafe_km": 71.86
   },
   {
     "arac_sayisi": 1,
@@ -18055,7 +21335,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.38,
     "starv_dk": 8569,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.36
   },
   {
     "arac_sayisi": 2,
@@ -18066,7 +21348,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.24,
     "starv_dk": 6940,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 26.47
   },
   {
     "arac_sayisi": 3,
@@ -18077,7 +21361,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.31,
     "starv_dk": 5335,
-    "ort_wip": 125.2
+    "ort_wip": 125.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.99
   },
   {
     "arac_sayisi": 4,
@@ -18088,7 +21374,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.54,
     "starv_dk": 3749,
-    "ort_wip": 158.4
+    "ort_wip": 158.4,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.0
   },
   {
     "arac_sayisi": 5,
@@ -18099,7 +21387,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.61,
     "starv_dk": 2605,
-    "ort_wip": 187.1
+    "ort_wip": 187.1,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.97
   },
   {
     "arac_sayisi": 6,
@@ -18110,7 +21400,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.68,
     "starv_dk": 1921,
-    "ort_wip": 209.2
+    "ort_wip": 209.2,
+    "sefer_sayisi": 51,
+    "mesafe_km": 70.38
   },
   {
     "arac_sayisi": 7,
@@ -18121,7 +21413,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.88,
     "starv_dk": 1829,
-    "ort_wip": 213.4
+    "ort_wip": 213.4,
+    "sefer_sayisi": 88,
+    "mesafe_km": 73.32
   },
   {
     "arac_sayisi": 8,
@@ -18132,7 +21426,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.51,
     "starv_dk": 1441,
-    "ort_wip": 218.2
+    "ort_wip": 218.2,
+    "sefer_sayisi": 115,
+    "mesafe_km": 72.66
   },
   {
     "arac_sayisi": 1,
@@ -18143,7 +21439,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.37,
     "starv_dk": 8567,
-    "ort_wip": 59.8
+    "ort_wip": 59.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.96
   },
   {
     "arac_sayisi": 2,
@@ -18154,7 +21452,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.3,
     "starv_dk": 6947,
-    "ort_wip": 93.7
+    "ort_wip": 93.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 25.3
   },
   {
     "arac_sayisi": 3,
@@ -18165,7 +21465,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.2,
     "starv_dk": 5322,
-    "ort_wip": 124.7
+    "ort_wip": 124.7,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.9
   },
   {
     "arac_sayisi": 4,
@@ -18176,7 +21478,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 33.71,
     "starv_dk": 3883,
-    "ort_wip": 156.7
+    "ort_wip": 156.7,
+    "sefer_sayisi": 30,
+    "mesafe_km": 49.42
   },
   {
     "arac_sayisi": 5,
@@ -18187,7 +21491,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.06,
     "starv_dk": 2657,
-    "ort_wip": 186.1
+    "ort_wip": 186.1,
+    "sefer_sayisi": 38,
+    "mesafe_km": 59.11
   },
   {
     "arac_sayisi": 6,
@@ -18198,7 +21504,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.82,
     "starv_dk": 1938,
-    "ort_wip": 208.5
+    "ort_wip": 208.5,
+    "sefer_sayisi": 49,
+    "mesafe_km": 71.97
   },
   {
     "arac_sayisi": 7,
@@ -18209,7 +21517,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.58,
     "starv_dk": 1795,
-    "ort_wip": 212.2
+    "ort_wip": 212.2,
+    "sefer_sayisi": 85,
+    "mesafe_km": 74.92
   },
   {
     "arac_sayisi": 8,
@@ -18220,7 +21530,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.1,
     "starv_dk": 1279,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 116,
+    "mesafe_km": 75.64
   },
   {
     "arac_sayisi": 1,
@@ -18231,7 +21543,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.45,
     "starv_dk": 8577,
-    "ort_wip": 59.7
+    "ort_wip": 59.7,
+    "sefer_sayisi": 7,
+    "mesafe_km": 13.47
   },
   {
     "arac_sayisi": 2,
@@ -18242,7 +21556,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.23,
     "starv_dk": 6938,
-    "ort_wip": 93.5
+    "ort_wip": 93.5,
+    "sefer_sayisi": 14,
+    "mesafe_km": 26.07
   },
   {
     "arac_sayisi": 3,
@@ -18253,7 +21569,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.88,
     "starv_dk": 5401,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 21,
+    "mesafe_km": 38.52
   },
   {
     "arac_sayisi": 4,
@@ -18264,7 +21582,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.39,
     "starv_dk": 3962,
-    "ort_wip": 157.2
+    "ort_wip": 157.2,
+    "sefer_sayisi": 29,
+    "mesafe_km": 49.06
   },
   {
     "arac_sayisi": 5,
@@ -18275,7 +21595,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.48,
     "starv_dk": 2705,
-    "ort_wip": 185.7
+    "ort_wip": 185.7,
+    "sefer_sayisi": 37,
+    "mesafe_km": 60.71
   },
   {
     "arac_sayisi": 6,
@@ -18286,7 +21608,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.47,
     "starv_dk": 2012,
-    "ort_wip": 207.0
+    "ort_wip": 207.0,
+    "sefer_sayisi": 49,
+    "mesafe_km": 73.28
   },
   {
     "arac_sayisi": 7,
@@ -18297,7 +21621,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.67,
     "starv_dk": 1575,
-    "ort_wip": 215.8
+    "ort_wip": 215.8,
+    "sefer_sayisi": 85,
+    "mesafe_km": 74.61
   },
   {
     "arac_sayisi": 8,
@@ -18308,7 +21634,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.15,
     "starv_dk": 1400,
-    "ort_wip": 219.4
+    "ort_wip": 219.4,
+    "sefer_sayisi": 116,
+    "mesafe_km": 74.58
   },
   {
     "arac_sayisi": 1,
@@ -18319,7 +21647,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.4,
     "starv_dk": 8571,
-    "ort_wip": 59.8
+    "ort_wip": 59.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.86
   },
   {
     "arac_sayisi": 2,
@@ -18330,7 +21660,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.21,
     "starv_dk": 6936,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.46
   },
   {
     "arac_sayisi": 3,
@@ -18341,7 +21673,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.81,
     "starv_dk": 5392,
-    "ort_wip": 126.0
+    "ort_wip": 126.0,
+    "sefer_sayisi": 21,
+    "mesafe_km": 36.8
   },
   {
     "arac_sayisi": 4,
@@ -18352,7 +21686,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 34.11,
     "starv_dk": 3930,
-    "ort_wip": 155.8
+    "ort_wip": 155.8,
+    "sefer_sayisi": 28,
+    "mesafe_km": 46.02
   },
   {
     "arac_sayisi": 5,
@@ -18363,7 +21699,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.16,
     "starv_dk": 2783,
-    "ort_wip": 185.5
+    "ort_wip": 185.5,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.06
   },
   {
     "arac_sayisi": 6,
@@ -18374,7 +21712,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.68,
     "starv_dk": 1921,
-    "ort_wip": 207.9
+    "ort_wip": 207.9,
+    "sefer_sayisi": 48,
+    "mesafe_km": 70.69
   },
   {
     "arac_sayisi": 7,
@@ -18385,7 +21725,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.78,
     "starv_dk": 1703,
-    "ort_wip": 215.3
+    "ort_wip": 215.3,
+    "sefer_sayisi": 81,
+    "mesafe_km": 75.29
   },
   {
     "arac_sayisi": 8,
@@ -18396,7 +21738,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.47,
     "starv_dk": 1321,
-    "ort_wip": 221.2
+    "ort_wip": 221.2,
+    "sefer_sayisi": 114,
+    "mesafe_km": 73.87
   },
   {
     "arac_sayisi": 1,
@@ -18407,7 +21751,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.38,
     "starv_dk": 8569,
-    "ort_wip": 59.8
+    "ort_wip": 59.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.75
   },
   {
     "arac_sayisi": 2,
@@ -18418,7 +21764,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.23,
     "starv_dk": 6938,
-    "ort_wip": 93.7
+    "ort_wip": 93.7,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.15
   },
   {
     "arac_sayisi": 3,
@@ -18429,7 +21777,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.57,
     "starv_dk": 5365,
-    "ort_wip": 126.1
+    "ort_wip": 126.1,
+    "sefer_sayisi": 21,
+    "mesafe_km": 36.46
   },
   {
     "arac_sayisi": 4,
@@ -18440,7 +21790,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 33.89,
     "starv_dk": 3904,
-    "ort_wip": 157.9
+    "ort_wip": 157.9,
+    "sefer_sayisi": 28,
+    "mesafe_km": 47.81
   },
   {
     "arac_sayisi": 5,
@@ -18451,7 +21803,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.47,
     "starv_dk": 2819,
-    "ort_wip": 185.1
+    "ort_wip": 185.1,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.21
   },
   {
     "arac_sayisi": 6,
@@ -18462,7 +21816,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.3,
     "starv_dk": 1878,
-    "ort_wip": 210.1
+    "ort_wip": 210.1,
+    "sefer_sayisi": 47,
+    "mesafe_km": 72.61
   },
   {
     "arac_sayisi": 7,
@@ -18473,7 +21829,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.5,
     "starv_dk": 1786,
-    "ort_wip": 214.5
+    "ort_wip": 214.5,
+    "sefer_sayisi": 74,
+    "mesafe_km": 74.57
   },
   {
     "arac_sayisi": 8,
@@ -18484,7 +21842,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.21,
     "starv_dk": 1176,
-    "ort_wip": 223.5
+    "ort_wip": 223.5,
+    "sefer_sayisi": 109,
+    "mesafe_km": 74.64
   },
   {
     "arac_sayisi": 1,
@@ -18495,7 +21855,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.78,
     "starv_dk": 7348,
-    "ort_wip": 89.3
+    "ort_wip": 89.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.13
   },
   {
     "arac_sayisi": 2,
@@ -18506,7 +21868,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.29,
     "starv_dk": 5333,
-    "ort_wip": 130.7
+    "ort_wip": 130.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.85
   },
   {
     "arac_sayisi": 3,
@@ -18517,7 +21881,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.82,
     "starv_dk": 3551,
-    "ort_wip": 173.7
+    "ort_wip": 173.7,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.78
   },
   {
     "arac_sayisi": 4,
@@ -18528,7 +21894,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.16,
     "starv_dk": 1862,
-    "ort_wip": 211.7
+    "ort_wip": 211.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 46.46
   },
   {
     "arac_sayisi": 5,
@@ -18539,7 +21907,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.89,
     "starv_dk": 1024,
-    "ort_wip": 230.4
+    "ort_wip": 230.4,
+    "sefer_sayisi": 68,
+    "mesafe_km": 47.82
   },
   {
     "arac_sayisi": 6,
@@ -18550,7 +21920,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.16,
     "starv_dk": 479,
-    "ort_wip": 237.1
+    "ort_wip": 237.1,
+    "sefer_sayisi": 93,
+    "mesafe_km": 46.88
   },
   {
     "arac_sayisi": 7,
@@ -18561,7 +21933,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.92,
     "starv_dk": 336,
-    "ort_wip": 239.2
+    "ort_wip": 239.2,
+    "sefer_sayisi": 107,
+    "mesafe_km": 46.97
   },
   {
     "arac_sayisi": 8,
@@ -18572,7 +21946,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.27,
     "starv_dk": 262,
-    "ort_wip": 239.8
+    "ort_wip": 239.8,
+    "sefer_sayisi": 112,
+    "mesafe_km": 46.39
   },
   {
     "arac_sayisi": 1,
@@ -18583,7 +21959,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 64.0,
     "starv_dk": 7373,
-    "ort_wip": 88.1
+    "ort_wip": 88.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.16
   },
   {
     "arac_sayisi": 2,
@@ -18594,7 +21972,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 47.66,
     "starv_dk": 5491,
-    "ort_wip": 127.7
+    "ort_wip": 127.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.92
   },
   {
     "arac_sayisi": 3,
@@ -18605,7 +21985,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.91,
     "starv_dk": 3676,
-    "ort_wip": 172.6
+    "ort_wip": 172.6,
+    "sefer_sayisi": 23,
+    "mesafe_km": 34.91
   },
   {
     "arac_sayisi": 4,
@@ -18616,7 +21998,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.65,
     "starv_dk": 1918,
-    "ort_wip": 212.1
+    "ort_wip": 212.1,
+    "sefer_sayisi": 32,
+    "mesafe_km": 44.73
   },
   {
     "arac_sayisi": 5,
@@ -18627,7 +22011,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.18,
     "starv_dk": 1057,
-    "ort_wip": 230.2
+    "ort_wip": 230.2,
+    "sefer_sayisi": 69,
+    "mesafe_km": 49.75
   },
   {
     "arac_sayisi": 6,
@@ -18638,7 +22024,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.47,
     "starv_dk": 515,
-    "ort_wip": 237.6
+    "ort_wip": 237.6,
+    "sefer_sayisi": 97,
+    "mesafe_km": 47.97
   },
   {
     "arac_sayisi": 7,
@@ -18649,7 +22037,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.82,
     "starv_dk": 325,
-    "ort_wip": 240.0
+    "ort_wip": 240.0,
+    "sefer_sayisi": 109,
+    "mesafe_km": 47.43
   },
   {
     "arac_sayisi": 8,
@@ -18660,7 +22050,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.25,
     "starv_dk": 259,
-    "ort_wip": 241.0
+    "ort_wip": 241.0,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.32
   },
   {
     "arac_sayisi": 1,
@@ -18671,7 +22063,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 64.32,
     "starv_dk": 7410,
-    "ort_wip": 83.5
+    "ort_wip": 83.5,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.29
   },
   {
     "arac_sayisi": 2,
@@ -18682,7 +22076,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.88,
     "starv_dk": 5400,
-    "ort_wip": 134.2
+    "ort_wip": 134.2,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.98
   },
   {
     "arac_sayisi": 3,
@@ -18693,7 +22089,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.64,
     "starv_dk": 3760,
-    "ort_wip": 171.1
+    "ort_wip": 171.1,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.89
   },
   {
     "arac_sayisi": 4,
@@ -18704,7 +22102,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.69,
     "starv_dk": 1807,
-    "ort_wip": 215.3
+    "ort_wip": 215.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 42.93
   },
   {
     "arac_sayisi": 5,
@@ -18715,7 +22115,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.14,
     "starv_dk": 1053,
-    "ort_wip": 231.4
+    "ort_wip": 231.4,
+    "sefer_sayisi": 68,
+    "mesafe_km": 46.8
   },
   {
     "arac_sayisi": 6,
@@ -18726,7 +22128,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.72,
     "starv_dk": 428,
-    "ort_wip": 239.6
+    "ort_wip": 239.6,
+    "sefer_sayisi": 103,
+    "mesafe_km": 46.66
   },
   {
     "arac_sayisi": 7,
@@ -18737,7 +22141,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.05,
     "starv_dk": 236,
-    "ort_wip": 241.4
+    "ort_wip": 241.4,
+    "sefer_sayisi": 116,
+    "mesafe_km": 46.2
   },
   {
     "arac_sayisi": 8,
@@ -18748,7 +22154,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.6,
     "starv_dk": 184,
-    "ort_wip": 242.2
+    "ort_wip": 242.2,
+    "sefer_sayisi": 120,
+    "mesafe_km": 46.22
   },
   {
     "arac_sayisi": 1,
@@ -18759,7 +22167,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.85,
     "starv_dk": 7356,
-    "ort_wip": 87.4
+    "ort_wip": 87.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.16
   },
   {
     "arac_sayisi": 2,
@@ -18770,7 +22180,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 45.55,
     "starv_dk": 5247,
-    "ort_wip": 137.6
+    "ort_wip": 137.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.1
   },
   {
     "arac_sayisi": 3,
@@ -18781,7 +22193,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 31.17,
     "starv_dk": 3591,
-    "ort_wip": 174.2
+    "ort_wip": 174.2,
+    "sefer_sayisi": 23,
+    "mesafe_km": 35.89
   },
   {
     "arac_sayisi": 4,
@@ -18792,7 +22206,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.25,
     "starv_dk": 2102,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 33,
+    "mesafe_km": 44.51
   },
   {
     "arac_sayisi": 5,
@@ -18803,7 +22219,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.72,
     "starv_dk": 1120,
-    "ort_wip": 229.1
+    "ort_wip": 229.1,
+    "sefer_sayisi": 70,
+    "mesafe_km": 49.35
   },
   {
     "arac_sayisi": 6,
@@ -18814,7 +22232,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.96,
     "starv_dk": 456,
-    "ort_wip": 239.3
+    "ort_wip": 239.3,
+    "sefer_sayisi": 102,
+    "mesafe_km": 49.14
   },
   {
     "arac_sayisi": 7,
@@ -18825,7 +22245,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.15,
     "starv_dk": 248,
-    "ort_wip": 241.1
+    "ort_wip": 241.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 48.49
   },
   {
     "arac_sayisi": 8,
@@ -18836,7 +22258,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 1.65,
     "starv_dk": 190,
-    "ort_wip": 241.2
+    "ort_wip": 241.2,
+    "sefer_sayisi": 123,
+    "mesafe_km": 48.0
   },
   {
     "arac_sayisi": 1,
@@ -18847,7 +22271,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.29,
     "starv_dk": 7291,
-    "ort_wip": 88.1
+    "ort_wip": 88.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.56
   },
   {
     "arac_sayisi": 2,
@@ -18858,7 +22284,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.04,
     "starv_dk": 5304,
-    "ort_wip": 133.7
+    "ort_wip": 133.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.38
   },
   {
     "arac_sayisi": 3,
@@ -18869,7 +22297,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.71,
     "starv_dk": 3538,
-    "ort_wip": 175.3
+    "ort_wip": 175.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.96
   },
   {
     "arac_sayisi": 4,
@@ -18880,7 +22310,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.11,
     "starv_dk": 1856,
-    "ort_wip": 215.2
+    "ort_wip": 215.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 43.34
   },
   {
     "arac_sayisi": 5,
@@ -18891,7 +22323,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 9.05,
     "starv_dk": 1042,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 68,
+    "mesafe_km": 47.47
   },
   {
     "arac_sayisi": 6,
@@ -18902,7 +22336,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.98,
     "starv_dk": 574,
-    "ort_wip": 236.8
+    "ort_wip": 236.8,
+    "sefer_sayisi": 96,
+    "mesafe_km": 46.18
   },
   {
     "arac_sayisi": 7,
@@ -18913,7 +22349,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.79,
     "starv_dk": 321,
-    "ort_wip": 239.4
+    "ort_wip": 239.4,
+    "sefer_sayisi": 115,
+    "mesafe_km": 47.47
   },
   {
     "arac_sayisi": 8,
@@ -18924,7 +22362,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.49,
     "starv_dk": 287,
-    "ort_wip": 239.9
+    "ort_wip": 239.9,
+    "sefer_sayisi": 120,
+    "mesafe_km": 47.02
   },
   {
     "arac_sayisi": 1,
@@ -18935,7 +22375,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.89,
     "starv_dk": 7360,
-    "ort_wip": 86.4
+    "ort_wip": 86.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.18
   },
   {
     "arac_sayisi": 2,
@@ -18946,7 +22388,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.57,
     "starv_dk": 5365,
-    "ort_wip": 129.4
+    "ort_wip": 129.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.07
   },
   {
     "arac_sayisi": 3,
@@ -18957,7 +22401,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 32.06,
     "starv_dk": 3693,
-    "ort_wip": 172.6
+    "ort_wip": 172.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.31
   },
   {
     "arac_sayisi": 4,
@@ -18968,7 +22414,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.89,
     "starv_dk": 2176,
-    "ort_wip": 208.4
+    "ort_wip": 208.4,
+    "sefer_sayisi": 34,
+    "mesafe_km": 46.32
   },
   {
     "arac_sayisi": 5,
@@ -18979,7 +22427,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.33,
     "starv_dk": 960,
-    "ort_wip": 233.2
+    "ort_wip": 233.2,
+    "sefer_sayisi": 67,
+    "mesafe_km": 48.72
   },
   {
     "arac_sayisi": 6,
@@ -18990,7 +22440,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.3,
     "starv_dk": 610,
-    "ort_wip": 237.7
+    "ort_wip": 237.7,
+    "sefer_sayisi": 94,
+    "mesafe_km": 49.0
   },
   {
     "arac_sayisi": 7,
@@ -19001,7 +22453,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.68,
     "starv_dk": 309,
-    "ort_wip": 240.5
+    "ort_wip": 240.5,
+    "sefer_sayisi": 110,
+    "mesafe_km": 47.95
   },
   {
     "arac_sayisi": 8,
@@ -19012,7 +22466,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.17,
     "starv_dk": 250,
-    "ort_wip": 241.3
+    "ort_wip": 241.3,
+    "sefer_sayisi": 119,
+    "mesafe_km": 47.85
   },
   {
     "arac_sayisi": 1,
@@ -19023,7 +22479,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.01,
     "starv_dk": 7720,
-    "ort_wip": 77.0
+    "ort_wip": 77.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.16
   },
   {
     "arac_sayisi": 2,
@@ -19034,7 +22492,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.05,
     "starv_dk": 5996,
-    "ort_wip": 114.7
+    "ort_wip": 114.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.68
   },
   {
     "arac_sayisi": 3,
@@ -19045,7 +22505,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 38.18,
     "starv_dk": 4398,
-    "ort_wip": 150.3
+    "ort_wip": 150.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.55
   },
   {
     "arac_sayisi": 4,
@@ -19056,7 +22518,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.37,
     "starv_dk": 2577,
-    "ort_wip": 189.9
+    "ort_wip": 189.9,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.18
   },
   {
     "arac_sayisi": 5,
@@ -19067,7 +22531,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.44,
     "starv_dk": 1433,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 55,
+    "mesafe_km": 51.82
   },
   {
     "arac_sayisi": 6,
@@ -19078,7 +22544,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.31,
     "starv_dk": 957,
-    "ort_wip": 230.5
+    "ort_wip": 230.5,
+    "sefer_sayisi": 83,
+    "mesafe_km": 52.64
   },
   {
     "arac_sayisi": 7,
@@ -19089,7 +22557,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.08,
     "starv_dk": 585,
-    "ort_wip": 235.1
+    "ort_wip": 235.1,
+    "sefer_sayisi": 108,
+    "mesafe_km": 51.25
   },
   {
     "arac_sayisi": 8,
@@ -19100,7 +22570,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.89,
     "starv_dk": 448,
-    "ort_wip": 236.3
+    "ort_wip": 236.3,
+    "sefer_sayisi": 121,
+    "mesafe_km": 51.09
   },
   {
     "arac_sayisi": 1,
@@ -19111,7 +22583,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.31,
     "starv_dk": 7754,
-    "ort_wip": 77.0
+    "ort_wip": 77.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.93
   },
   {
     "arac_sayisi": 2,
@@ -19122,7 +22596,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.01,
     "starv_dk": 5992,
-    "ort_wip": 112.6
+    "ort_wip": 112.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.1
   },
   {
     "arac_sayisi": 3,
@@ -19133,7 +22609,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.85,
     "starv_dk": 4360,
-    "ort_wip": 148.9
+    "ort_wip": 148.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.81
   },
   {
     "arac_sayisi": 4,
@@ -19144,7 +22622,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 21.28,
     "starv_dk": 2451,
-    "ort_wip": 194.1
+    "ort_wip": 194.1,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.66
   },
   {
     "arac_sayisi": 5,
@@ -19155,7 +22635,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.91,
     "starv_dk": 1372,
-    "ort_wip": 223.5
+    "ort_wip": 223.5,
+    "sefer_sayisi": 57,
+    "mesafe_km": 53.28
   },
   {
     "arac_sayisi": 6,
@@ -19166,7 +22648,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.87,
     "starv_dk": 907,
-    "ort_wip": 231.4
+    "ort_wip": 231.4,
+    "sefer_sayisi": 93,
+    "mesafe_km": 52.61
   },
   {
     "arac_sayisi": 7,
@@ -19177,7 +22661,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.41,
     "starv_dk": 508,
-    "ort_wip": 236.8
+    "ort_wip": 236.8,
+    "sefer_sayisi": 118,
+    "mesafe_km": 51.6
   },
   {
     "arac_sayisi": 8,
@@ -19188,7 +22674,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.95,
     "starv_dk": 455,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 125,
+    "mesafe_km": 51.67
   },
   {
     "arac_sayisi": 1,
@@ -19199,7 +22687,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.65,
     "starv_dk": 7793,
-    "ort_wip": 73.8
+    "ort_wip": 73.8,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.94
   },
   {
     "arac_sayisi": 2,
@@ -19210,7 +22700,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.73,
     "starv_dk": 6075,
-    "ort_wip": 110.3
+    "ort_wip": 110.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.91
   },
   {
     "arac_sayisi": 3,
@@ -19221,7 +22713,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.1,
     "starv_dk": 4274,
-    "ort_wip": 152.6
+    "ort_wip": 152.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.65
   },
   {
     "arac_sayisi": 4,
@@ -19232,7 +22726,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.26,
     "starv_dk": 2795,
-    "ort_wip": 191.2
+    "ort_wip": 191.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 47.22
   },
   {
     "arac_sayisi": 5,
@@ -19243,7 +22739,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.48,
     "starv_dk": 1438,
-    "ort_wip": 220.5
+    "ort_wip": 220.5,
+    "sefer_sayisi": 57,
+    "mesafe_km": 55.05
   },
   {
     "arac_sayisi": 6,
@@ -19254,7 +22752,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.43,
     "starv_dk": 741,
-    "ort_wip": 233.3
+    "ort_wip": 233.3,
+    "sefer_sayisi": 98,
+    "mesafe_km": 52.32
   },
   {
     "arac_sayisi": 7,
@@ -19265,7 +22765,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.87,
     "starv_dk": 561,
-    "ort_wip": 235.6
+    "ort_wip": 235.6,
+    "sefer_sayisi": 117,
+    "mesafe_km": 52.49
   },
   {
     "arac_sayisi": 8,
@@ -19276,7 +22778,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.95,
     "starv_dk": 340,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 131,
+    "mesafe_km": 52.04
   },
   {
     "arac_sayisi": 1,
@@ -19287,7 +22791,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.7,
     "starv_dk": 7799,
-    "ort_wip": 73.0
+    "ort_wip": 73.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.27
   },
   {
     "arac_sayisi": 2,
@@ -19298,7 +22804,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 53.85,
     "starv_dk": 6204,
-    "ort_wip": 108.0
+    "ort_wip": 108.0,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.81
   },
   {
     "arac_sayisi": 3,
@@ -19309,7 +22817,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.81,
     "starv_dk": 4356,
-    "ort_wip": 157.4
+    "ort_wip": 157.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.26
   },
   {
     "arac_sayisi": 4,
@@ -19320,7 +22830,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.98,
     "starv_dk": 2762,
-    "ort_wip": 192.8
+    "ort_wip": 192.8,
+    "sefer_sayisi": 32,
+    "mesafe_km": 45.14
   },
   {
     "arac_sayisi": 5,
@@ -19331,7 +22843,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.28,
     "starv_dk": 1415,
-    "ort_wip": 223.9
+    "ort_wip": 223.9,
+    "sefer_sayisi": 56,
+    "mesafe_km": 54.37
   },
   {
     "arac_sayisi": 6,
@@ -19342,7 +22856,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.0,
     "starv_dk": 806,
-    "ort_wip": 233.4
+    "ort_wip": 233.4,
+    "sefer_sayisi": 95,
+    "mesafe_km": 52.96
   },
   {
     "arac_sayisi": 7,
@@ -19353,7 +22869,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.19,
     "starv_dk": 367,
-    "ort_wip": 238.6
+    "ort_wip": 238.6,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.68
   },
   {
     "arac_sayisi": 8,
@@ -19364,7 +22882,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.11,
     "starv_dk": 243,
-    "ort_wip": 238.8
+    "ort_wip": 238.8,
+    "sefer_sayisi": 133,
+    "mesafe_km": 51.59
   },
   {
     "arac_sayisi": 1,
@@ -19375,7 +22895,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.54,
     "starv_dk": 7781,
-    "ort_wip": 74.0
+    "ort_wip": 74.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.17
   },
   {
     "arac_sayisi": 2,
@@ -19386,7 +22908,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 50.8,
     "starv_dk": 5852,
-    "ort_wip": 116.8
+    "ort_wip": 116.8,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.97
   },
   {
     "arac_sayisi": 3,
@@ -19397,7 +22921,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.31,
     "starv_dk": 4298,
-    "ort_wip": 154.2
+    "ort_wip": 154.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 34.99
   },
   {
     "arac_sayisi": 4,
@@ -19408,7 +22934,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 23.07,
     "starv_dk": 2658,
-    "ort_wip": 194.3
+    "ort_wip": 194.3,
+    "sefer_sayisi": 33,
+    "mesafe_km": 47.44
   },
   {
     "arac_sayisi": 5,
@@ -19419,7 +22947,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.82,
     "starv_dk": 1477,
-    "ort_wip": 221.6
+    "ort_wip": 221.6,
+    "sefer_sayisi": 56,
+    "mesafe_km": 55.02
   },
   {
     "arac_sayisi": 6,
@@ -19430,7 +22960,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.58,
     "starv_dk": 988,
-    "ort_wip": 230.6
+    "ort_wip": 230.6,
+    "sefer_sayisi": 94,
+    "mesafe_km": 54.87
   },
   {
     "arac_sayisi": 7,
@@ -19441,7 +22973,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.49,
     "starv_dk": 517,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 118,
+    "mesafe_km": 52.79
   },
   {
     "arac_sayisi": 8,
@@ -19452,7 +22986,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.12,
     "starv_dk": 360,
-    "ort_wip": 237.7
+    "ort_wip": 237.7,
+    "sefer_sayisi": 130,
+    "mesafe_km": 53.15
   },
   {
     "arac_sayisi": 1,
@@ -19463,7 +22999,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 67.68,
     "starv_dk": 7797,
-    "ort_wip": 75.3
+    "ort_wip": 75.3,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.3
   },
   {
     "arac_sayisi": 2,
@@ -19474,7 +23012,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 50.82,
     "starv_dk": 5855,
-    "ort_wip": 116.3
+    "ort_wip": 116.3,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.36
   },
   {
     "arac_sayisi": 3,
@@ -19485,7 +23025,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 38.64,
     "starv_dk": 4451,
-    "ort_wip": 150.2
+    "ort_wip": 150.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.95
   },
   {
     "arac_sayisi": 4,
@@ -19496,7 +23038,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 22.31,
     "starv_dk": 2570,
-    "ort_wip": 194.6
+    "ort_wip": 194.6,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.34
   },
   {
     "arac_sayisi": 5,
@@ -19507,7 +23051,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 13.98,
     "starv_dk": 1610,
-    "ort_wip": 217.6
+    "ort_wip": 217.6,
+    "sefer_sayisi": 55,
+    "mesafe_km": 54.04
   },
   {
     "arac_sayisi": 6,
@@ -19518,7 +23064,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.99,
     "starv_dk": 920,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 91,
+    "mesafe_km": 54.5
   },
   {
     "arac_sayisi": 7,
@@ -19529,7 +23077,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.76,
     "starv_dk": 433,
-    "ort_wip": 237.4
+    "ort_wip": 237.4,
+    "sefer_sayisi": 121,
+    "mesafe_km": 52.72
   },
   {
     "arac_sayisi": 8,
@@ -19540,7 +23090,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 2.41,
     "starv_dk": 278,
-    "ort_wip": 239.0
+    "ort_wip": 239.0,
+    "sefer_sayisi": 131,
+    "mesafe_km": 53.13
   },
   {
     "arac_sayisi": 1,
@@ -19551,7 +23103,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 69.94,
     "starv_dk": 8057,
-    "ort_wip": 70.2
+    "ort_wip": 70.2,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.34
   },
   {
     "arac_sayisi": 2,
@@ -19562,7 +23116,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.11,
     "starv_dk": 6464,
-    "ort_wip": 105.5
+    "ort_wip": 105.5,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.72
   },
   {
     "arac_sayisi": 3,
@@ -19573,7 +23129,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.52,
     "starv_dk": 5014,
-    "ort_wip": 138.2
+    "ort_wip": 138.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.55
   },
   {
     "arac_sayisi": 4,
@@ -19584,7 +23142,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.92,
     "starv_dk": 3216,
-    "ort_wip": 177.7
+    "ort_wip": 177.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 51.08
   },
   {
     "arac_sayisi": 5,
@@ -19595,7 +23155,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 19.16,
     "starv_dk": 2207,
-    "ort_wip": 204.2
+    "ort_wip": 204.2,
+    "sefer_sayisi": 43,
+    "mesafe_km": 61.29
   },
   {
     "arac_sayisi": 6,
@@ -19606,7 +23168,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.9,
     "starv_dk": 1486,
-    "ort_wip": 220.0
+    "ort_wip": 220.0,
+    "sefer_sayisi": 79,
+    "mesafe_km": 61.76
   },
   {
     "arac_sayisi": 7,
@@ -19617,7 +23181,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.36,
     "starv_dk": 733,
-    "ort_wip": 232.8
+    "ort_wip": 232.8,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.59
   },
   {
     "arac_sayisi": 8,
@@ -19628,7 +23194,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.38,
     "starv_dk": 504,
-    "ort_wip": 235.9
+    "ort_wip": 235.9,
+    "sefer_sayisi": 138,
+    "mesafe_km": 58.26
   },
   {
     "arac_sayisi": 1,
@@ -19639,7 +23207,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 70.37,
     "starv_dk": 8107,
-    "ort_wip": 69.4
+    "ort_wip": 69.4,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.97
   },
   {
     "arac_sayisi": 2,
@@ -19650,7 +23220,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.4,
     "starv_dk": 6497,
-    "ort_wip": 104.4
+    "ort_wip": 104.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.57
   },
   {
     "arac_sayisi": 3,
@@ -19661,7 +23233,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.84,
     "starv_dk": 4820,
-    "ort_wip": 141.9
+    "ort_wip": 141.9,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.99
   },
   {
     "arac_sayisi": 4,
@@ -19672,7 +23246,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.38,
     "starv_dk": 3500,
-    "ort_wip": 172.9
+    "ort_wip": 172.9,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.78
   },
   {
     "arac_sayisi": 5,
@@ -19683,7 +23259,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.65,
     "starv_dk": 2149,
-    "ort_wip": 206.7
+    "ort_wip": 206.7,
+    "sefer_sayisi": 43,
+    "mesafe_km": 59.28
   },
   {
     "arac_sayisi": 6,
@@ -19694,7 +23272,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.8,
     "starv_dk": 1475,
-    "ort_wip": 220.3
+    "ort_wip": 220.3,
+    "sefer_sayisi": 79,
+    "mesafe_km": 62.58
   },
   {
     "arac_sayisi": 7,
@@ -19705,7 +23285,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.31,
     "starv_dk": 957,
-    "ort_wip": 229.7
+    "ort_wip": 229.7,
+    "sefer_sayisi": 112,
+    "mesafe_km": 60.12
   },
   {
     "arac_sayisi": 8,
@@ -19716,7 +23298,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.65,
     "starv_dk": 420,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 141,
+    "mesafe_km": 58.56
   },
   {
     "arac_sayisi": 1,
@@ -19727,7 +23311,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 70.11,
     "starv_dk": 8077,
-    "ort_wip": 69.9
+    "ort_wip": 69.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.28
   },
   {
     "arac_sayisi": 2,
@@ -19738,7 +23324,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 56.48,
     "starv_dk": 6506,
-    "ort_wip": 103.7
+    "ort_wip": 103.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 23.2
   },
   {
     "arac_sayisi": 3,
@@ -19749,7 +23337,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 44.73,
     "starv_dk": 5153,
-    "ort_wip": 136.4
+    "ort_wip": 136.4,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.13
   },
   {
     "arac_sayisi": 4,
@@ -19760,7 +23350,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.12,
     "starv_dk": 3355,
-    "ort_wip": 175.3
+    "ort_wip": 175.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 48.0
   },
   {
     "arac_sayisi": 5,
@@ -19771,7 +23363,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.95,
     "starv_dk": 2068,
-    "ort_wip": 207.0
+    "ort_wip": 207.0,
+    "sefer_sayisi": 42,
+    "mesafe_km": 58.15
   },
   {
     "arac_sayisi": 6,
@@ -19782,7 +23376,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.08,
     "starv_dk": 1392,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.14
   },
   {
     "arac_sayisi": 7,
@@ -19793,7 +23389,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.1,
     "starv_dk": 818,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 116,
+    "mesafe_km": 59.11
   },
   {
     "arac_sayisi": 8,
@@ -19804,7 +23402,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.22,
     "starv_dk": 371,
-    "ort_wip": 237.3
+    "ort_wip": 237.3,
+    "sefer_sayisi": 139,
+    "mesafe_km": 58.48
   },
   {
     "arac_sayisi": 1,
@@ -19815,7 +23415,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 70.95,
     "starv_dk": 8174,
-    "ort_wip": 71.1
+    "ort_wip": 71.1,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.65
   },
   {
     "arac_sayisi": 2,
@@ -19826,7 +23428,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 55.91,
     "starv_dk": 6441,
-    "ort_wip": 105.1
+    "ort_wip": 105.1,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.14
   },
   {
     "arac_sayisi": 3,
@@ -19837,7 +23441,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.72,
     "starv_dk": 5037,
-    "ort_wip": 136.6
+    "ort_wip": 136.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.83
   },
   {
     "arac_sayisi": 4,
@@ -19848,7 +23454,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.27,
     "starv_dk": 3487,
-    "ort_wip": 173.0
+    "ort_wip": 173.0,
+    "sefer_sayisi": 33,
+    "mesafe_km": 49.68
   },
   {
     "arac_sayisi": 5,
@@ -19859,7 +23467,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.65,
     "starv_dk": 2033,
-    "ort_wip": 208.8
+    "ort_wip": 208.8,
+    "sefer_sayisi": 41,
+    "mesafe_km": 57.61
   },
   {
     "arac_sayisi": 6,
@@ -19870,7 +23480,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.95,
     "starv_dk": 1262,
-    "ort_wip": 225.0
+    "ort_wip": 225.0,
+    "sefer_sayisi": 80,
+    "mesafe_km": 60.81
   },
   {
     "arac_sayisi": 7,
@@ -19881,7 +23493,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 8.18,
     "starv_dk": 942,
-    "ort_wip": 231.5
+    "ort_wip": 231.5,
+    "sefer_sayisi": 108,
+    "mesafe_km": 60.36
   },
   {
     "arac_sayisi": 8,
@@ -19892,7 +23506,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.89,
     "starv_dk": 448,
-    "ort_wip": 236.5
+    "ort_wip": 236.5,
+    "sefer_sayisi": 137,
+    "mesafe_km": 60.09
   },
   {
     "arac_sayisi": 1,
@@ -19903,7 +23519,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 70.95,
     "starv_dk": 8174,
-    "ort_wip": 66.7
+    "ort_wip": 66.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.49
   },
   {
     "arac_sayisi": 2,
@@ -19914,7 +23532,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 57.93,
     "starv_dk": 6673,
-    "ort_wip": 98.7
+    "ort_wip": 98.7,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.56
   },
   {
     "arac_sayisi": 3,
@@ -19925,7 +23545,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.48,
     "starv_dk": 5009,
-    "ort_wip": 138.3
+    "ort_wip": 138.3,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.96
   },
   {
     "arac_sayisi": 4,
@@ -19936,7 +23558,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.85,
     "starv_dk": 3439,
-    "ort_wip": 174.3
+    "ort_wip": 174.3,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.94
   },
   {
     "arac_sayisi": 5,
@@ -19947,7 +23571,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 19.25,
     "starv_dk": 2218,
-    "ort_wip": 205.8
+    "ort_wip": 205.8,
+    "sefer_sayisi": 42,
+    "mesafe_km": 57.85
   },
   {
     "arac_sayisi": 6,
@@ -19958,7 +23584,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.96,
     "starv_dk": 1378,
-    "ort_wip": 222.7
+    "ort_wip": 222.7,
+    "sefer_sayisi": 76,
+    "mesafe_km": 61.39
   },
   {
     "arac_sayisi": 7,
@@ -19969,7 +23597,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.58,
     "starv_dk": 758,
-    "ort_wip": 233.0
+    "ort_wip": 233.0,
+    "sefer_sayisi": 110,
+    "mesafe_km": 58.97
   },
   {
     "arac_sayisi": 8,
@@ -19980,7 +23610,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 4.32,
     "starv_dk": 498,
-    "ort_wip": 236.6
+    "ort_wip": 236.6,
+    "sefer_sayisi": 133,
+    "mesafe_km": 60.08
   },
   {
     "arac_sayisi": 1,
@@ -19991,7 +23623,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 70.64,
     "starv_dk": 8138,
-    "ort_wip": 68.1
+    "ort_wip": 68.1,
+    "sefer_sayisi": 7,
+    "mesafe_km": 11.09
   },
   {
     "arac_sayisi": 2,
@@ -20002,7 +23636,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 55.49,
     "starv_dk": 6392,
-    "ort_wip": 105.6
+    "ort_wip": 105.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.73
   },
   {
     "arac_sayisi": 3,
@@ -20013,7 +23649,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 43.36,
     "starv_dk": 4995,
-    "ort_wip": 139.2
+    "ort_wip": 139.2,
+    "sefer_sayisi": 24,
+    "mesafe_km": 38.28
   },
   {
     "arac_sayisi": 4,
@@ -20024,7 +23662,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.07,
     "starv_dk": 3349,
-    "ort_wip": 172.6
+    "ort_wip": 172.6,
+    "sefer_sayisi": 31,
+    "mesafe_km": 51.35
   },
   {
     "arac_sayisi": 5,
@@ -20035,7 +23675,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.81,
     "starv_dk": 2052,
-    "ort_wip": 208.4
+    "ort_wip": 208.4,
+    "sefer_sayisi": 40,
+    "mesafe_km": 62.29
   },
   {
     "arac_sayisi": 6,
@@ -20046,7 +23688,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.76,
     "starv_dk": 1239,
-    "ort_wip": 226.9
+    "ort_wip": 226.9,
+    "sefer_sayisi": 81,
+    "mesafe_km": 61.61
   },
   {
     "arac_sayisi": 7,
@@ -20057,7 +23701,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 5.38,
     "starv_dk": 620,
-    "ort_wip": 236.4
+    "ort_wip": 236.4,
+    "sefer_sayisi": 116,
+    "mesafe_km": 60.24
   },
   {
     "arac_sayisi": 8,
@@ -20068,7 +23714,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 3.24,
     "starv_dk": 373,
-    "ort_wip": 237.9
+    "ort_wip": 237.9,
+    "sefer_sayisi": 138,
+    "mesafe_km": 59.25
   },
   {
     "arac_sayisi": 1,
@@ -20079,7 +23727,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 73.09,
     "starv_dk": 8420,
-    "ort_wip": 62.6
+    "ort_wip": 62.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.44
   },
   {
     "arac_sayisi": 2,
@@ -20090,7 +23740,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.38,
     "starv_dk": 6956,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 16,
+    "mesafe_km": 22.3
   },
   {
     "arac_sayisi": 3,
@@ -20101,7 +23753,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 48.15,
     "starv_dk": 5547,
-    "ort_wip": 125.5
+    "ort_wip": 125.5,
+    "sefer_sayisi": 24,
+    "mesafe_km": 36.85
   },
   {
     "arac_sayisi": 4,
@@ -20112,7 +23766,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 37.29,
     "starv_dk": 4296,
-    "ort_wip": 153.7
+    "ort_wip": 153.7,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.88
   },
   {
     "arac_sayisi": 5,
@@ -20123,7 +23779,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.88,
     "starv_dk": 2866,
-    "ort_wip": 190.3
+    "ort_wip": 190.3,
+    "sefer_sayisi": 40,
+    "mesafe_km": 60.36
   },
   {
     "arac_sayisi": 6,
@@ -20134,7 +23792,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.51,
     "starv_dk": 2017,
-    "ort_wip": 211.5
+    "ort_wip": 211.5,
+    "sefer_sayisi": 65,
+    "mesafe_km": 69.4
   },
   {
     "arac_sayisi": 7,
@@ -20145,7 +23805,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.65,
     "starv_dk": 1227,
-    "ort_wip": 224.0
+    "ort_wip": 224.0,
+    "sefer_sayisi": 104,
+    "mesafe_km": 67.06
   },
   {
     "arac_sayisi": 8,
@@ -20156,7 +23818,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.92,
     "starv_dk": 797,
-    "ort_wip": 230.4
+    "ort_wip": 230.4,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.62
   },
   {
     "arac_sayisi": 1,
@@ -20167,7 +23831,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 73.68,
     "starv_dk": 8488,
-    "ort_wip": 61.0
+    "ort_wip": 61.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 11.72
   },
   {
     "arac_sayisi": 2,
@@ -20178,7 +23844,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 59.32,
     "starv_dk": 6834,
-    "ort_wip": 95.4
+    "ort_wip": 95.4,
+    "sefer_sayisi": 16,
+    "mesafe_km": 24.71
   },
   {
     "arac_sayisi": 3,
@@ -20189,7 +23857,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 45.83,
     "starv_dk": 5280,
-    "ort_wip": 129.6
+    "ort_wip": 129.6,
+    "sefer_sayisi": 24,
+    "mesafe_km": 35.67
   },
   {
     "arac_sayisi": 4,
@@ -20200,7 +23870,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.01,
     "starv_dk": 4148,
-    "ort_wip": 155.9
+    "ort_wip": 155.9,
+    "sefer_sayisi": 32,
+    "mesafe_km": 50.59
   },
   {
     "arac_sayisi": 5,
@@ -20211,7 +23883,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 27.38,
     "starv_dk": 3154,
-    "ort_wip": 185.1
+    "ort_wip": 185.1,
+    "sefer_sayisi": 40,
+    "mesafe_km": 61.1
   },
   {
     "arac_sayisi": 6,
@@ -20222,7 +23896,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.61,
     "starv_dk": 1798,
-    "ort_wip": 213.7
+    "ort_wip": 213.7,
+    "sefer_sayisi": 60,
+    "mesafe_km": 68.67
   },
   {
     "arac_sayisi": 7,
@@ -20233,7 +23909,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.71,
     "starv_dk": 1464,
-    "ort_wip": 219.8
+    "ort_wip": 219.8,
+    "sefer_sayisi": 100,
+    "mesafe_km": 64.18
   },
   {
     "arac_sayisi": 8,
@@ -20244,7 +23922,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.14,
     "starv_dk": 707,
-    "ort_wip": 232.9
+    "ort_wip": 232.9,
+    "sefer_sayisi": 132,
+    "mesafe_km": 65.99
   },
   {
     "arac_sayisi": 1,
@@ -20255,7 +23935,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 73.49,
     "starv_dk": 8466,
-    "ort_wip": 60.8
+    "ort_wip": 60.8,
+    "sefer_sayisi": 7,
+    "mesafe_km": 11.09
   },
   {
     "arac_sayisi": 2,
@@ -20266,7 +23948,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 61.09,
     "starv_dk": 7038,
-    "ort_wip": 92.9
+    "ort_wip": 92.9,
+    "sefer_sayisi": 16,
+    "mesafe_km": 25.07
   },
   {
     "arac_sayisi": 3,
@@ -20277,7 +23961,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.69,
     "starv_dk": 5379,
-    "ort_wip": 127.7
+    "ort_wip": 127.7,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.49
   },
   {
     "arac_sayisi": 4,
@@ -20288,7 +23974,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 35.76,
     "starv_dk": 4119,
-    "ort_wip": 156.0
+    "ort_wip": 156.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 50.8
   },
   {
     "arac_sayisi": 5,
@@ -20299,7 +23987,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 25.85,
     "starv_dk": 2978,
-    "ort_wip": 187.6
+    "ort_wip": 187.6,
+    "sefer_sayisi": 40,
+    "mesafe_km": 61.73
   },
   {
     "arac_sayisi": 6,
@@ -20310,7 +24000,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.97,
     "starv_dk": 1724,
-    "ort_wip": 217.1
+    "ort_wip": 217.1,
+    "sefer_sayisi": 61,
+    "mesafe_km": 68.13
   },
   {
     "arac_sayisi": 7,
@@ -20321,7 +24013,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.73,
     "starv_dk": 1351,
-    "ort_wip": 224.1
+    "ort_wip": 224.1,
+    "sefer_sayisi": 99,
+    "mesafe_km": 65.33
   },
   {
     "arac_sayisi": 8,
@@ -20332,7 +24026,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 6.02,
     "starv_dk": 694,
-    "ort_wip": 233.7
+    "ort_wip": 233.7,
+    "sefer_sayisi": 131,
+    "mesafe_km": 65.47
   },
   {
     "arac_sayisi": 1,
@@ -20343,7 +24039,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 73.5,
     "starv_dk": 8467,
-    "ort_wip": 61.0
+    "ort_wip": 61.0,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.36
   },
   {
     "arac_sayisi": 2,
@@ -20354,7 +24052,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 60.16,
     "starv_dk": 6931,
-    "ort_wip": 93.6
+    "ort_wip": 93.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.26
   },
   {
     "arac_sayisi": 3,
@@ -20365,7 +24065,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.83,
     "starv_dk": 5395,
-    "ort_wip": 125.4
+    "ort_wip": 125.4,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.79
   },
   {
     "arac_sayisi": 4,
@@ -20376,7 +24078,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.78,
     "starv_dk": 4237,
-    "ort_wip": 156.1
+    "ort_wip": 156.1,
+    "sefer_sayisi": 31,
+    "mesafe_km": 52.2
   },
   {
     "arac_sayisi": 5,
@@ -20387,7 +24091,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 25.26,
     "starv_dk": 2910,
-    "ort_wip": 189.4
+    "ort_wip": 189.4,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.47
   },
   {
     "arac_sayisi": 6,
@@ -20398,7 +24104,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 16.45,
     "starv_dk": 1895,
-    "ort_wip": 214.2
+    "ort_wip": 214.2,
+    "sefer_sayisi": 62,
+    "mesafe_km": 70.48
   },
   {
     "arac_sayisi": 7,
@@ -20409,7 +24117,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.75,
     "starv_dk": 1354,
-    "ort_wip": 223.3
+    "ort_wip": 223.3,
+    "sefer_sayisi": 101,
+    "mesafe_km": 65.61
   },
   {
     "arac_sayisi": 8,
@@ -20420,7 +24130,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.68,
     "starv_dk": 885,
-    "ort_wip": 229.4
+    "ort_wip": 229.4,
+    "sefer_sayisi": 127,
+    "mesafe_km": 65.13
   },
   {
     "arac_sayisi": 1,
@@ -20431,7 +24143,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.25,
     "starv_dk": 8554,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 12.78
   },
   {
     "arac_sayisi": 2,
@@ -20442,7 +24156,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 59.64,
     "starv_dk": 6871,
-    "ort_wip": 94.8
+    "ort_wip": 94.8,
+    "sefer_sayisi": 14,
+    "mesafe_km": 24.41
   },
   {
     "arac_sayisi": 3,
@@ -20453,7 +24169,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 47.8,
     "starv_dk": 5506,
-    "ort_wip": 126.7
+    "ort_wip": 126.7,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.1
   },
   {
     "arac_sayisi": 4,
@@ -20464,7 +24182,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 36.15,
     "starv_dk": 4164,
-    "ort_wip": 156.8
+    "ort_wip": 156.8,
+    "sefer_sayisi": 30,
+    "mesafe_km": 50.76
   },
   {
     "arac_sayisi": 5,
@@ -20475,7 +24195,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 25.5,
     "starv_dk": 2938,
-    "ort_wip": 185.7
+    "ort_wip": 185.7,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.01
   },
   {
     "arac_sayisi": 6,
@@ -20486,7 +24208,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.87,
     "starv_dk": 1713,
-    "ort_wip": 218.0
+    "ort_wip": 218.0,
+    "sefer_sayisi": 56,
+    "mesafe_km": 65.67
   },
   {
     "arac_sayisi": 7,
@@ -20497,7 +24221,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.43,
     "starv_dk": 1202,
-    "ort_wip": 225.4
+    "ort_wip": 225.4,
+    "sefer_sayisi": 102,
+    "mesafe_km": 66.62
   },
   {
     "arac_sayisi": 8,
@@ -20508,7 +24234,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.15,
     "starv_dk": 824,
-    "ort_wip": 231.1
+    "ort_wip": 231.1,
+    "sefer_sayisi": 131,
+    "mesafe_km": 66.14
   },
   {
     "arac_sayisi": 1,
@@ -20519,7 +24247,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 74.26,
     "starv_dk": 8555,
-    "ort_wip": 59.9
+    "ort_wip": 59.9,
+    "sefer_sayisi": 7,
+    "mesafe_km": 11.56
   },
   {
     "arac_sayisi": 2,
@@ -20530,7 +24260,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 59.26,
     "starv_dk": 6827,
-    "ort_wip": 96.8
+    "ort_wip": 96.8,
+    "sefer_sayisi": 14,
+    "mesafe_km": 23.54
   },
   {
     "arac_sayisi": 3,
@@ -20541,7 +24273,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 46.89,
     "starv_dk": 5402,
-    "ort_wip": 130.2
+    "ort_wip": 130.2,
+    "sefer_sayisi": 21,
+    "mesafe_km": 35.83
   },
   {
     "arac_sayisi": 4,
@@ -20552,7 +24286,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 33.78,
     "starv_dk": 3891,
-    "ort_wip": 161.8
+    "ort_wip": 161.8,
+    "sefer_sayisi": 29,
+    "mesafe_km": 48.1
   },
   {
     "arac_sayisi": 5,
@@ -20563,7 +24299,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 24.58,
     "starv_dk": 2832,
-    "ort_wip": 187.6
+    "ort_wip": 187.6,
+    "sefer_sayisi": 38,
+    "mesafe_km": 60.94
   },
   {
     "arac_sayisi": 6,
@@ -20574,7 +24312,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.1,
     "starv_dk": 1739,
-    "ort_wip": 216.5
+    "ort_wip": 216.5,
+    "sefer_sayisi": 59,
+    "mesafe_km": 67.96
   },
   {
     "arac_sayisi": 7,
@@ -20585,7 +24325,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.11,
     "starv_dk": 1280,
-    "ort_wip": 226.7
+    "ort_wip": 226.7,
+    "sefer_sayisi": 99,
+    "mesafe_km": 66.41
   },
   {
     "arac_sayisi": 8,
@@ -20596,7 +24338,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 7.08,
     "starv_dk": 816,
-    "ort_wip": 231.5
+    "ort_wip": 231.5,
+    "sefer_sayisi": 130,
+    "mesafe_km": 64.95
   },
   {
     "arac_sayisi": 1,
@@ -20607,7 +24351,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 76.44,
     "starv_dk": 8806,
-    "ort_wip": 55.7
+    "ort_wip": 55.7,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.36
   },
   {
     "arac_sayisi": 2,
@@ -20618,7 +24364,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 62.93,
     "starv_dk": 7249,
-    "ort_wip": 90.1
+    "ort_wip": 90.1,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.81
   },
   {
     "arac_sayisi": 3,
@@ -20629,7 +24377,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 51.27,
     "starv_dk": 5906,
-    "ort_wip": 119.0
+    "ort_wip": 119.0,
+    "sefer_sayisi": 23,
+    "mesafe_km": 38.29
   },
   {
     "arac_sayisi": 4,
@@ -20640,7 +24390,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.84,
     "starv_dk": 4820,
-    "ort_wip": 145.2
+    "ort_wip": 145.2,
+    "sefer_sayisi": 32,
+    "mesafe_km": 51.34
   },
   {
     "arac_sayisi": 5,
@@ -20651,7 +24403,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.44,
     "starv_dk": 3507,
-    "ort_wip": 171.9
+    "ort_wip": 171.9,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.41
   },
   {
     "arac_sayisi": 6,
@@ -20662,7 +24416,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 20.43,
     "starv_dk": 2354,
-    "ort_wip": 199.8
+    "ort_wip": 199.8,
+    "sefer_sayisi": 52,
+    "mesafe_km": 74.0
   },
   {
     "arac_sayisi": 7,
@@ -20673,7 +24429,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.75,
     "starv_dk": 1699,
-    "ort_wip": 214.0
+    "ort_wip": 214.0,
+    "sefer_sayisi": 89,
+    "mesafe_km": 72.58
   },
   {
     "arac_sayisi": 8,
@@ -20684,7 +24442,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.29,
     "starv_dk": 1416,
-    "ort_wip": 220.2
+    "ort_wip": 220.2,
+    "sefer_sayisi": 123,
+    "mesafe_km": 72.55
   },
   {
     "arac_sayisi": 1,
@@ -20695,7 +24455,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 76.91,
     "starv_dk": 8860,
-    "ort_wip": 54.0
+    "ort_wip": 54.0,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.57
   },
   {
     "arac_sayisi": 2,
@@ -20706,7 +24468,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.91,
     "starv_dk": 7363,
-    "ort_wip": 89.1
+    "ort_wip": 89.1,
+    "sefer_sayisi": 15,
+    "mesafe_km": 23.77
   },
   {
     "arac_sayisi": 3,
@@ -20717,7 +24481,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 51.75,
     "starv_dk": 5962,
-    "ort_wip": 118.8
+    "ort_wip": 118.8,
+    "sefer_sayisi": 23,
+    "mesafe_km": 36.45
   },
   {
     "arac_sayisi": 4,
@@ -20728,7 +24494,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.29,
     "starv_dk": 4872,
-    "ort_wip": 144.0
+    "ort_wip": 144.0,
+    "sefer_sayisi": 31,
+    "mesafe_km": 49.0
   },
   {
     "arac_sayisi": 5,
@@ -20739,7 +24507,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 29.64,
     "starv_dk": 3415,
-    "ort_wip": 172.8
+    "ort_wip": 172.8,
+    "sefer_sayisi": 39,
+    "mesafe_km": 62.23
   },
   {
     "arac_sayisi": 6,
@@ -20750,7 +24520,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 18.79,
     "starv_dk": 2165,
-    "ort_wip": 205.9
+    "ort_wip": 205.9,
+    "sefer_sayisi": 51,
+    "mesafe_km": 70.56
   },
   {
     "arac_sayisi": 7,
@@ -20761,7 +24533,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.76,
     "starv_dk": 1700,
-    "ort_wip": 214.8
+    "ort_wip": 214.8,
+    "sefer_sayisi": 88,
+    "mesafe_km": 74.44
   },
   {
     "arac_sayisi": 8,
@@ -20772,7 +24546,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.7,
     "starv_dk": 1463,
-    "ort_wip": 218.7
+    "ort_wip": 218.7,
+    "sefer_sayisi": 115,
+    "mesafe_km": 73.12
   },
   {
     "arac_sayisi": 1,
@@ -20783,7 +24559,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 77.22,
     "starv_dk": 8896,
-    "ort_wip": 52.9
+    "ort_wip": 52.9,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.1
   },
   {
     "arac_sayisi": 2,
@@ -20794,7 +24572,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 64.7,
     "starv_dk": 7454,
-    "ort_wip": 84.6
+    "ort_wip": 84.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 27.3
   },
   {
     "arac_sayisi": 3,
@@ -20805,7 +24585,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.91,
     "starv_dk": 6095,
-    "ort_wip": 116.6
+    "ort_wip": 116.6,
+    "sefer_sayisi": 22,
+    "mesafe_km": 37.61
   },
   {
     "arac_sayisi": 4,
@@ -20816,7 +24598,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 41.43,
     "starv_dk": 4773,
-    "ort_wip": 146.7
+    "ort_wip": 146.7,
+    "sefer_sayisi": 30,
+    "mesafe_km": 49.06
   },
   {
     "arac_sayisi": 5,
@@ -20827,7 +24611,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 30.0,
     "starv_dk": 3456,
-    "ort_wip": 174.7
+    "ort_wip": 174.7,
+    "sefer_sayisi": 38,
+    "mesafe_km": 59.74
   },
   {
     "arac_sayisi": 6,
@@ -20838,7 +24624,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 19.69,
     "starv_dk": 2268,
-    "ort_wip": 203.4
+    "ort_wip": 203.4,
+    "sefer_sayisi": 49,
+    "mesafe_km": 72.21
   },
   {
     "arac_sayisi": 7,
@@ -20849,7 +24637,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.57,
     "starv_dk": 1794,
-    "ort_wip": 214.4
+    "ort_wip": 214.4,
+    "sefer_sayisi": 85,
+    "mesafe_km": 74.41
   },
   {
     "arac_sayisi": 8,
@@ -20860,7 +24650,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 10.93,
     "starv_dk": 1259,
-    "ort_wip": 221.3
+    "ort_wip": 221.3,
+    "sefer_sayisi": 116,
+    "mesafe_km": 75.06
   },
   {
     "arac_sayisi": 1,
@@ -20871,7 +24663,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 77.33,
     "starv_dk": 8908,
-    "ort_wip": 54.6
+    "ort_wip": 54.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 13.37
   },
   {
     "arac_sayisi": 2,
@@ -20882,7 +24676,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.79,
     "starv_dk": 7349,
-    "ort_wip": 88.5
+    "ort_wip": 88.5,
+    "sefer_sayisi": 15,
+    "mesafe_km": 24.31
   },
   {
     "arac_sayisi": 3,
@@ -20893,7 +24689,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 52.54,
     "starv_dk": 6053,
-    "ort_wip": 119.1
+    "ort_wip": 119.1,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.37
   },
   {
     "arac_sayisi": 4,
@@ -20904,7 +24702,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.2,
     "starv_dk": 4862,
-    "ort_wip": 147.0
+    "ort_wip": 147.0,
+    "sefer_sayisi": 29,
+    "mesafe_km": 48.59
   },
   {
     "arac_sayisi": 5,
@@ -20915,7 +24715,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.94,
     "starv_dk": 3334,
-    "ort_wip": 177.3
+    "ort_wip": 177.3,
+    "sefer_sayisi": 37,
+    "mesafe_km": 58.5
   },
   {
     "arac_sayisi": 6,
@@ -20926,7 +24728,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 17.33,
     "starv_dk": 1996,
-    "ort_wip": 207.3
+    "ort_wip": 207.3,
+    "sefer_sayisi": 49,
+    "mesafe_km": 73.86
   },
   {
     "arac_sayisi": 7,
@@ -20937,7 +24741,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.23,
     "starv_dk": 1639,
-    "ort_wip": 215.3
+    "ort_wip": 215.3,
+    "sefer_sayisi": 85,
+    "mesafe_km": 73.95
   },
   {
     "arac_sayisi": 8,
@@ -20948,7 +24754,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 12.02,
     "starv_dk": 1385,
-    "ort_wip": 219.3
+    "ort_wip": 219.3,
+    "sefer_sayisi": 116,
+    "mesafe_km": 73.12
   },
   {
     "arac_sayisi": 1,
@@ -20959,7 +24767,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 77.41,
     "starv_dk": 8918,
-    "ort_wip": 53.6
+    "ort_wip": 53.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.74
   },
   {
     "arac_sayisi": 2,
@@ -20970,7 +24780,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 65.1,
     "starv_dk": 7499,
-    "ort_wip": 83.6
+    "ort_wip": 83.6,
+    "sefer_sayisi": 15,
+    "mesafe_km": 23.23
   },
   {
     "arac_sayisi": 3,
@@ -20981,7 +24793,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 51.9,
     "starv_dk": 5979,
-    "ort_wip": 117.5
+    "ort_wip": 117.5,
+    "sefer_sayisi": 22,
+    "mesafe_km": 36.46
   },
   {
     "arac_sayisi": 4,
@@ -20992,7 +24806,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 42.01,
     "starv_dk": 4839,
-    "ort_wip": 142.6
+    "ort_wip": 142.6,
+    "sefer_sayisi": 29,
+    "mesafe_km": 47.58
   },
   {
     "arac_sayisi": 5,
@@ -21003,7 +24819,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.1,
     "starv_dk": 3237,
-    "ort_wip": 177.9
+    "ort_wip": 177.9,
+    "sefer_sayisi": 36,
+    "mesafe_km": 58.24
   },
   {
     "arac_sayisi": 6,
@@ -21014,7 +24832,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 19.29,
     "starv_dk": 2222,
-    "ort_wip": 204.2
+    "ort_wip": 204.2,
+    "sefer_sayisi": 48,
+    "mesafe_km": 73.68
   },
   {
     "arac_sayisi": 7,
@@ -21025,7 +24845,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 14.62,
     "starv_dk": 1684,
-    "ort_wip": 215.8
+    "ort_wip": 215.8,
+    "sefer_sayisi": 81,
+    "mesafe_km": 76.9
   },
   {
     "arac_sayisi": 8,
@@ -21036,7 +24858,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.56,
     "starv_dk": 1332,
-    "ort_wip": 221.0
+    "ort_wip": 221.0,
+    "sefer_sayisi": 114,
+    "mesafe_km": 74.54
   },
   {
     "arac_sayisi": 1,
@@ -21047,7 +24871,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 77.41,
     "starv_dk": 8918,
-    "ort_wip": 53.6
+    "ort_wip": 53.6,
+    "sefer_sayisi": 8,
+    "mesafe_km": 12.68
   },
   {
     "arac_sayisi": 2,
@@ -21058,7 +24884,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 63.88,
     "starv_dk": 7359,
-    "ort_wip": 88.2
+    "ort_wip": 88.2,
+    "sefer_sayisi": 15,
+    "mesafe_km": 23.33
   },
   {
     "arac_sayisi": 3,
@@ -21069,7 +24897,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 51.92,
     "starv_dk": 5981,
-    "ort_wip": 118.4
+    "ort_wip": 118.4,
+    "sefer_sayisi": 21,
+    "mesafe_km": 34.85
   },
   {
     "arac_sayisi": 4,
@@ -21080,7 +24910,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 40.63,
     "starv_dk": 4681,
-    "ort_wip": 147.0
+    "ort_wip": 147.0,
+    "sefer_sayisi": 29,
+    "mesafe_km": 46.8
   },
   {
     "arac_sayisi": 5,
@@ -21091,7 +24923,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 28.4,
     "starv_dk": 3272,
-    "ort_wip": 180.2
+    "ort_wip": 180.2,
+    "sefer_sayisi": 36,
+    "mesafe_km": 59.35
   },
   {
     "arac_sayisi": 6,
@@ -21102,7 +24936,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 19.75,
     "starv_dk": 2275,
-    "ort_wip": 202.8
+    "ort_wip": 202.8,
+    "sefer_sayisi": 47,
+    "mesafe_km": 73.04
   },
   {
     "arac_sayisi": 7,
@@ -21113,7 +24949,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 15.01,
     "starv_dk": 1729,
-    "ort_wip": 213.8
+    "ort_wip": 213.8,
+    "sefer_sayisi": 74,
+    "mesafe_km": 75.86
   },
   {
     "arac_sayisi": 8,
@@ -21124,7 +24962,9 @@ let scenariosData = [
     "n_modu": "Sabit_N",
     "starv_pct": 11.4,
     "starv_dk": 1313,
-    "ort_wip": 221.9
+    "ort_wip": 221.9,
+    "sefer_sayisi": 109,
+    "mesafe_km": 74.06
   }
 ];
 let chartFleet = null;
@@ -21305,12 +25145,13 @@ function updateDashboard() {
             kpiDolulukVal.textContent = '%' + dolulukEst;
         }
 
-        // KPI 5: Kat Edilen Mesafe
+        // KPI 5: Kat Edilen Gerçek Mesafe (Simüle edilmiş VRPTW rotalarından)
         if (kpiMesafeVal) {
-            const mesafeEst = (48.49 * (params.arac_sayisi / 4.0)).toFixed(2);
-            kpiMesafeVal.textContent = mesafeEst + ' km';
+            const mesafeReal = (currentScenario.mesafe_km !== undefined) ? currentScenario.mesafe_km : (48.49 * (params.arac_sayisi / 4.0));
+            kpiMesafeVal.textContent = mesafeReal + ' km';
         }
     }
+
 
     // Grafikleri Güncelle
     updateCharts(params);

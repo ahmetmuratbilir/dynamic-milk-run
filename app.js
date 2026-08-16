@@ -191,12 +191,13 @@ function updateDashboard() {
             kpiDolulukVal.textContent = '%' + dolulukEst;
         }
 
-        // KPI 5: Kat Edilen Mesafe
+        // KPI 5: Kat Edilen Gerçek Mesafe (Simüle edilmiş VRPTW rotalarından)
         if (kpiMesafeVal) {
-            const mesafeEst = (48.49 * (params.arac_sayisi / 4.0)).toFixed(2);
-            kpiMesafeVal.textContent = mesafeEst + ' km';
+            const mesafeReal = (currentScenario.mesafe_km !== undefined) ? currentScenario.mesafe_km : (48.49 * (params.arac_sayisi / 4.0));
+            kpiMesafeVal.textContent = mesafeReal + ' km';
         }
     }
+
 
     // Grafikleri Güncelle
     updateCharts(params);
