@@ -1,90 +1,76 @@
-﻿# 80dk kalkis takvimi testi - 19.31'i reprodukte etmeye calis
-import sys, math, numpy as np, pandas as pd
-sys.path.append('.')
-from src.data_loader import DataLoader
-from src.hafta8_kanban_karsilastirma import StaticMilkRunSimulator, hesapla_dinamik_wip_ve_starvation
-from src.vrptw_solver import VRPTWSolver
+import json
+import os
 
-loader = DataLoader()
-sim = StaticMilkRunSimulator(loader)
-st = loader.get_stations()
-co = loader.get_consumption()
+def build():
+    with open('data/dashboard_scenarios.json', 'r', encoding='utf-8') as f:
+        scenarios_json = f.read()
 
-# 80dk kalkis takvimi
-kalkis_80 = [80, 160, 240, 320, 400]
+    with open('style.css', 'r', encoding='utf-8') as f:
+        css_content = f.read()
 
-# Orjinal 60dk test
-print("60dk tur:", sim.run_static_simulation(4)['starv_pct_11520'],
-      "WIP:", sim.run_static_simulation(4)['ort_wip_stok'])
+    with open('index.html', 'r', encoding='utf-8') as f:
+        html_template = f.read()
 
-# 80dk takvimle el ile simulasyon
-sim.kalkis_dakikalari = kalkis_80  # Bu ise yaramaz, metod ic degisken
-# Fakat StaticMilkRunSimulator icindeki kalkis_dakikalari degistirerek test edelim
-import types
+    with open('app.js', 'r', encoding='utf-8') as f:
+        js_content = f.read()
 
-def run_80dk(self, arac_sayisi=4):
-    tuketim_pivot = self.consumption_df.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
-    stoklar = {}
-    ist_c = {}
-    ist_n = {}
-    for _, row in self.stations_df.iterrows():
-        sid = row["istasyon_id"]
-        stoklar[sid] = float(row["baslangic_stok_adet"])
-        ist_c[sid] = float(row["kutu_kapasitesi"])
-        ist_n[sid] = int(row["kanban_n"])
-    kalkis_dakikalari = [80, 160, 240, 320, 400]
-    sabit_istasyon_sirasi = [f"S{i}" for i in range(1, 25)]
-    deliveries_by_min = {}
-    toplam_mesafe_m = 0.0
-    toplam_tasinan_kutu = 0
-    tur_kayitlari = []
-    tur_id = 1
-    for t_kalkis in kalkis_dakikalari:
-        istasyon_gruplari = np.array_split(sabit_istasyon_sirasi, arac_sayisi)
-        for v_idx, grup in enumerate(istasyon_gruplari):
-            v_id = f"A{v_idx+1}"
-            curr_node = "0"
-            curr_time = float(t_kalkis)
-            tur_kutu = 0
-            tur_mesafe = 0.0
-            for sid in grup:
-                target_node = sid.replace("S", "")
-                tt = self.get_travel_time(curr_node, target_node)
-                dist = self.get_travel_dist(curr_node, target_node)
-                arr_time = curr_time + tt
-                kutu_sayisi = 1
-                if tur_kutu + kutu_sayisi <= self.Q_arac:
-                    tur_kutu += kutu_sayisi
-                    arr_m = int(math.floor(arr_time))
-                    deliveries_by_min.setdefault(arr_m, []).append((sid, kutu_sayisi * ist_c[sid]))
-                tur_mesafe += dist
-                curr_node = target_node
-                curr_time = arr_time + self.bosaltma_sure
-            ret_tt = self.get_travel_time(curr_node, "0")
-            ret_dist = self.get_travel_dist(curr_node, "0")
-            tur_mesafe += ret_dist
-            toplam_mesafe_m += tur_mesafe
-            toplam_tasinan_kutu += tur_kutu
-            tur_kayitlari.append({"tur_id": f"STAT_T{tur_id:03d}", "arac_id": v_id, "kalkis_dk": t_kalkis})
-            tur_id += 1
-    ist_cap = {row["istasyon_id"]: float(row["kanban_n"] * row["kutu_kapasitesi"]) for _, row in self.stations_df.iterrows()}
-    starvation_events = []
-    wip_stok_kayitlari = []
-    for m in range(480):
-        if m in deliveries_by_min:
-            for sid, miktar in deliveries_by_min[m]:
-                stoklar[sid] = min(ist_cap[sid], stoklar[sid] + miktar)
-        for sid in stoklar:
-            c_val = tuketim_pivot.loc[m, sid] if m in tuketim_pivot.index and sid in tuketim_pivot.columns else 0.0
-            stoklar[sid] -= c_val
-            if stoklar[sid] <= 0:
-                starvation_events.append({"dakika": m, "istasyon_id": sid})
-                stoklar[sid] = 0.0
-        wip_stok_kayitlari.append(sum(stoklar.values()))
-    starv_pct = len(starvation_events)/11520*100
-    wip = round(float(np.mean(wip_stok_kayitlari)),1)
-    return starv_pct, wip
+    # Replace fetch call in app.js with embedded data
+    js_embedded = js_content.replace(
+        'let scenariosData = [];',
+        'let scenariosData = ' + scenarios_json + ';'
+    )
 
-starv_80, wip_80 = run_80dk(sim, 4)
-print("80dk tur (el ile, 1 kutu/ist):", round(starv_80,2), "WIP:", wip_80)
-print("Kanonik beklenti: %19.31 WIP=177")
+    fetch_block = """document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('data/dashboard_scenarios.json');
+        scenariosData = await response.json();
+        console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo.');
+        
+        initEventListeners();
+        initCharts();
+        renderStations();
+        updateDashboard();
+    } catch (err) {
+        console.error('Veri yükleme hatası:', err);
+    }
+});"""
+
+    standalone_init = """document.addEventListener('DOMContentLoaded', () => {
+    console.log('Gömülü Veri Ambarı Yüklendi: ' + scenariosData.length + ' senaryo.');
+    initEventListeners();
+    initCharts();
+    renderStations();
+    updateDashboard();
+});"""
+
+    js_embedded = js_embedded.replace(fetch_block, standalone_init)
+
+    # Save embedded JS separately for node --check validation
+    with open('embedded_script.js', 'w', encoding='utf-8') as f:
+        f.write(js_embedded)
+
+    # Combine into dashboard.html
+    clean_html = html_template.replace('<link rel="stylesheet" href="style.css">', '<style>\n' + css_content + '\n</style>')
+    clean_html = clean_html.replace('<script src="app.js"></script>', '<script>\n' + js_embedded + '\n</script>')
+
+    if 'id="stationsGrid"' not in clean_html:
+        sec5 = """
+                <div class="chart-card glass-card full-width">
+                    <div class="chart-header">
+                        <h3>Bölüm 5 — 24 İstasyon Bazlı Stok ve ROP Durum Takibi</h3>
+                        <span class="chart-subtitle">🟢 Stok > ROP | 🟡 Stok &le; ROP (Sinyal) | 🔴 Kritik Stok | <strong style="color:var(--accent-rose);">S16 En Kırılgan İstasyon</strong></span>
+                    </div>
+                    <div class="stations-grid" id="stationsGrid">
+                    </div>
+                </div>
+        """
+        clean_html = clean_html.replace('<div class="table-card glass-card">', sec5 + '\n<div class="table-card glass-card">')
+
+    with open('dashboard.html', 'w', encoding='utf-8') as f:
+        f.write(clean_html)
+
+    print(f"dashboard.html ve embedded_script.js basariyla uretildi. Boyut: {os.path.getsize('dashboard.html')} bytes")
+
+if __name__ == '__main__':
+    build()
+
