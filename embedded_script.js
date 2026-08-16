@@ -21280,8 +21280,18 @@ function updateDashboard() {
         kpiWipVal.textContent = currentScenario.ort_wip.toFixed(1);
 
         // KPI 3: Statik vs Dinamik Farkı (Dinamik Hesaplama)
-        // 4 Araç Statik Baz: %19.31 | Genel Araç Bazında Statik Haritası
-        const staticBaselineMap = { 1: 69.50, 2: 53.01, 3: 36.93, 4: 19.31, 5: 12.08, 6: 7.50, 7: 4.80, 8: 2.10 };
+        // Gerçek StaticMilkRunSimulator (tur_sikligi_dk = 80 dk Kanonik K58) Çıktıları:
+        // 1: %25.77 | 2: %21.35 | 3: %19.70 | 4: %19.31 | 5: %19.10 | 6: %18.96 | 7: %18.83 | 8: %18.68
+        const staticBaselineMap = {
+            1: 25.77,
+            2: 21.35,
+            3: 19.70,
+            4: 19.31,
+            5: 19.10,
+            6: 18.96,
+            7: 18.83,
+            8: 18.68
+        };
         const staticBase = staticBaselineMap[params.arac_sayisi] || 19.31;
         const diffPuan = (starvPct - staticBase).toFixed(2);
         const diffSign = diffPuan >= 0 ? '+' : '';
