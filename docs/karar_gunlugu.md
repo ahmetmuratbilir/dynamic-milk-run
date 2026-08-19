@@ -536,10 +536,10 @@
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Düşük WIP ile Düşük Duruşun Birlikte Sağlanamaması |
-| **Değer** | WIP seviyesi starvation'ın baskın belirleyicisidir; ancak eşit WIP'te dahi statik sistem lehine gözlenen %5–7 puanlık fark, deterministik çevrim düzenliliğinin reaktif gecikmeye karşı ek avantaj sağladığını göstermektedir. Dinamik sistemin nihai başarı eşiği 4 araç değil, Hafta 6'da bulunan 5–6 araç bandıdır. |
-| **Kaynak** | H9 Sentez ve Pareto Analizi |
-| **Gerekçe** | 4 araç duruşu %53'ten %24'e indiren bir ara iyileşmedir; tam rekabetçilik için 5–6 araç gereklidir. |
-| **Tarih** | 10.08.2026 |
+| **Değer** | WIP seviyesi starvation'ın baskın belirleyicisidir; ancak eşit WIP'te dahi statik sistem lehine gözlenen fark stokastik koşullarda **~3.0–5.0 puana** (deterministik seed=42'de +5.27 puan, 3 tohumlu stokastik ortalamada +3.06 puan) daralmaktadır. Deterministik çevrim düzenliliği reaktif gecikmeye karşı ek avantaj sağlamaktadır. Dinamik sistemin rekabetçilik için hedef filo eşiği 8 araçtır. |
+| **Kaynak** | H9 Sentez ve Pareto Analizi, H10 Seed Sağlamlık Testi |
+| **Gerekçe** | 4 araç duruşu %53'ten %24'e indiren bir ara iyileşmedir; tam rekabetçilik (<%5) için 8 araç gereklidir. |
+| **Tarih** | 10.08.2026 (Revize: 16.08.2026) |
 
 ### K54 — What-If Dayanıklılık (Resilience) Test Parametreleri
 | Özellik | Değer |
@@ -563,10 +563,65 @@
 | **Kaynak** | `src/hafta8_kanban_karsilastirma.py` (K58 düzeltmesi), `src/k58_regresyon_testi.py` |
 | **Tarih** | 15.08.2026 |
 
+---
+
+### K59 — Dashboard Veri Ambarında Sinyal Motoru Entegrasyonu ve Alpha Düzeltmesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | `generate_dashboard_data.py` Betiğinde $\alpha$ ve Talep Şoku Sinyal Üretimi Entegrasyonu |
+| **Tespit** | İlk veri üretiminde `EKanbanSimulator` çağrılmadığı için diskteki sabit `ekanban_signals.csv` okunuyor, Sabit-N ve -%20 talep dallarında $\alpha$'nın etkisi sıfırlanıyordu. |
+| **Düzeltme** | `generate_dashboard_data.py` içine `MockLoader` ve `EKanbanSimulator(m_loader, alpha=alpha)` entegre edildi. 1.920 senaryo 12 CPU çekirdeğiyle baştan üretildi. |
+| **Doğrulama** | Sabit-N'de $\alpha=0.05 \rightarrow 0.30$ aralığında duruş farkı 2.18 puan; Dinamik-N'de 6.88 puan olarak K55 ile bit-bit doğrulandı. |
+| **Kaynak** | `src/generate_dashboard_data.py`, `data/dashboard_scenarios.json` |
+| **Tarih** | 16.08.2026 |
+
+---
+
+### K60 — Statik Sistem Baz Haritası (staticBaselineMap) Gerçek Simülasyona Bağlanması
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Dashboard `kpiFarkVal` Referans Değerlerinin Simülasyon Çıktılarına Bağlanması |
+| **Tespit** | İlk `staticBaselineMap` tablosundaki 1, 2, 3, 5, 6, 7, 8 araç değerlerinin dinamik stres testinden kopyalandığı saptandı. |
+| **Düzeltme** | 1'den 8'e kadar tüm araç sayıları için `StaticMilkRunSimulator(loader).run_static_simulation(arac_sayisi=v, tur_sikligi_dk=80)` çalıştırıldı ve harita güncellendi: `{1: 25.77, 2: 21.35, 3: 19.70, 4: 19.31, 5: 19.10, 6: 18.96, 7: 18.83, 8: 18.68}`. |
+| **Kaynak** | `src/hafta8_kanban_karsilastirma.py`, `app.js`, `dashboard.html` |
+| **Tarih** | 16.08.2026 |
+
+---
+
+### K61 — Veri Ambarına Sefer Sayısı ve Rota Mesafesi Metriklerinin Eklenmesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | 1.920 Senaryoluk JSON ve CSV Veri Ambarında Sefer Sayısı ve Mesafe Alanları |
+| **Düzeltme** | `generate_dashboard_data.py` çıktı sözlüğüne `sefer_sayisi` ve `mesafe_km` kolonları eklendi. -%20 talep koşulunda $N=1$ kuantizasyon tavanı ve erken tetiklenmeden kaynaklanan 31 $\rightarrow$ 33 sefer artışı doğrudan veriye kaydedildi. |
+| **Kaynak** | `src/generate_dashboard_data.py`, `data/dashboard_scenarios.csv` |
+| **Tarih** | 16.08.2026 |
+
+---
+
+### K62 — 24 İstasyon Verisinin Gerçek Parametrelere Bağlanması
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | Dashboard Bölüm 5 İstasyon Takibinin `stations.csv` ile Birebir Eşleştirilmesi |
+| **Düzeltme** | 24 istasyonun gerçek $D_{\text{saat}}, C, N$ parametreleri ve en yüksek tüketimli kırılgan darboğaz istasyonu **S16** ($D=24, C=20, N=2$) JavaScript mimarisine gömüldü. |
+| **Kaynak** | `data/synthetic/stations.csv`, `app.js`, `dashboard.html` |
+| **Tarih** | 16.08.2026 |
+
+---
+
+### K63 — SLACK Sevk Kuralının Matematiksel Olarak Ayrıştırılması
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | EDD ve SLACK Kuralları Arasındaki Matematiksel Özdeşliğin Giderilmesi |
+| **Tespit** | `tw_bitis - t` formülü, karar anında tüm aktif sinyaller için $t$ sabit olduğundan `tw_bitis` (EDD) ile daima özdeş sıralama üretiyordu. |
+| **Düzeltme** | Klasik çizelgeleme teorisine uygun olarak dinamik seyahat ve elleçleme süreli gerçek zaman marjı formülüne geçildi: $\text{Slack}_i(t) = \text{tw\_bitis}_i - (t + T_L + \text{TT}(0, i) + T_U)$. |
+| **Doğrulama** | 30 stokastik replikasyon sonucunda SLACK (%26.497), EDD (%26.503), FIFO (%26.502) ve KRİTİKLİK (%27.828) birbirinden matematiksel ve istatistiksel olarak ayrıştı. |
+| **Kaynak** | `src/vrptw_solver.py`, `src/stokastik_replikasyon.py`, `docs/hafta7_dispatch_analiz_raporu.md` |
+| **Tarih** | 20.08.2026 |
 
 ---
 
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
+
 

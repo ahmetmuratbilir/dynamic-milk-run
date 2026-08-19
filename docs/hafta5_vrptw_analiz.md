@@ -1,8 +1,12 @@
 # Hafta 5 — VRPTW Rotalama ve Gerçek Starvation Analiz Raporu
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
+> 
+> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10 Denetimi):**
+> > Bu rapordaki ilk %52.08'lik duruş değeri ve 182 sinyal taksonomisi, hat başı stok tavanının ($stok \le N \times C$) sınırlandırılmadığı erken dönem simülasyon çıktısıdır. Hafta 10 denetiminde raf-tavanı kısıtı ($stok \le N \times C$) ve tam zaman serisi simülasyonu uygulandığında, 2 araçlık baz duruş oranı **%53.01** (EDD) ve **%56.48** (KRİTİKLİK) olarak revize edilmiştir. K36 kök neden tespiti (kutu kapasitesi değil, zaman ve filo kısıtı) geçerliliğini tam olarak korumaktadır.
 
-**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36 — bkz. `karar_gunlugu.md`
+**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36, K57 — bkz. `karar_gunlugu.md`
+
 
 ---
 

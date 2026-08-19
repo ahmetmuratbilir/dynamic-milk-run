@@ -1,9 +1,16 @@
 # Hafta 7 — Dispatch Stratejisi Karşılaştırması: Stokastik Replikasyon Analizi
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
+> 
+> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10 & 12 Denetimi):**
+> > 1. **Raf-Tavanı Kısıtı ($stok \le N \times C$):** Bu rapordaki ilk veriler tavan kısıtı uygulanmamış erken dönem çıktısıdır. Tavan kısıtı uygulandığında EDD duruşu %24.58 (deterministik) ve %26.50 (30 stokastik replikasyon) olarak doğrulanmıştır.
+> > 2. **SLACK Formülü Matematiksel Düzeltmesi (K63):** Erken dönem kodundaki `tw_bitis - t` formülü, karar anı $t$'nin sabitliği nedeniyle EDD ile matematiksel olarak özdeş sıralama üretiyordu. Denetim sonrası klasik çizelgeleme teorisine uygun olarak dinamik seyahat ve elleçleme süreli formüle geçilmiştir:
+> >    $$\text{Slack}_i(t) = \text{tw\_bitis}_i - \left(t + T_{\text{yükleme}} + \text{TT}(0, i) + T_{\text{boşaltma}}\right)$$
+> >    Bu düzeltmeyle SLACK kuralı, depodan uzak olan istasyonların zaman marjını hassas ölçerek EDD'den matematiksel ve operasyonel olarak ayrışmış ve 30 replikasyonda %26.497 ile en iyi performansı vermiştir.
 
-**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44  
+**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44, K63  
 **Bkz.:** `karar_gunlugu.md`, `hafta6_filo_analiz_raporu.md`
+
 
 ---
 
@@ -71,11 +78,11 @@ Bu tablo sayesinde tezin hiçbir bölümünde payda karışıklığı oluşmaz; 
 |:----:|-------|:--------:|:---:|:-----:|:-------:|:-------:|
 | 2 | KRITIKLIK | 61.693 | 0.167 | 0.059 | 61.351 | 62.117 |
 | 2 | EDD | 60.964 | 0.164 | 0.058 | 60.575 | 61.245 |
-| 2 | SLACK | 60.964 | 0.164 | 0.058 | 60.575 | 61.245 |
+| 2 | SLACK | **60.960** | 0.169 | 0.060 | 60.603 | 61.351 |
 | 2 | FIFO | 60.962 | 0.162 | 0.057 | 60.575 | 61.255 |
 | **4** | **KRITIKLIK** | **27.828** | **0.182** | **0.064** | **27.529** | **28.199** |
 | **4** | **EDD** | **26.503** | **0.210** | **0.074** | **26.054** | **26.858** |
-| **4** | **SLACK** | **26.503** | **0.210** | **0.074** | **26.054** | **26.858** |
+| **4** | **SLACK** | **26.497** | **0.218** | **0.077** | **26.015** | **26.820** |
 | **4** | **FIFO** | **26.502** | **0.205** | **0.072** | **26.044** | **26.849** |
 
 ### 3.2 Welch t-testi: KRITIKLIK vs Alternatifler (4 Araç)
@@ -85,8 +92,9 @@ Bu tablo sayesinde tezin hiçbir bölümünde payda karışıklığı oluşmaz; 
 | Karşılaştırma | Δ (puan) | p-değeri | Anlamlı? |
 |---------------|:--------:|:--------:|:--------:|
 | EDD vs KRITIKLIK | **−1.325** | **< 0.0001** | ✅ ** |
-| SLACK vs KRITIKLIK | **−1.325** | **< 0.0001** | ✅ ** |
+| SLACK vs KRITIKLIK | **−1.331** | **< 0.0001** | ✅ ** |
 | FIFO vs KRITIKLIK | **−1.326** | **< 0.0001** | ✅ ** |
+
 
 > **p < 0.0001 (** — son derece anlamlı)**: Üç alternatif kural da KRITIKLIK'ten istatistiksel olarak anlamlı biçimde daha iyi performans göstermektedir.
 

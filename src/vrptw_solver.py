@@ -105,10 +105,17 @@ class VRPTWSolver:
                 # Earliest Due Date: TW bitişi en yakın önce (Wang 2008, s.48)
                 sorted_batch = active_batch.sort_values(by=["tw_bitis"])
             elif dispatch_kural == "SLACK":
-                # Minimum Slack: tw_bitis - t (aciliyet skoru, Wang 2008, s.52)
+                # Minimum Dynamic Slack: tw_bitis - (t + yukleme + travel_time(0, sid) + bosaltma)
+                # İstasyonun depoya uzaklığı ve boşaltma süresi hesaba katılarak gerçek kalan tampon ölçülür
                 active_batch = active_batch.copy()
-                active_batch["_slack"] = active_batch["tw_bitis"] - t
-                sorted_batch = active_batch.sort_values(by=["_slack"])
+                active_batch["_travel_from_depot"] = active_batch["istasyon_id"].apply(
+                    lambda s: self.get_travel_time("0", str(s).replace("S", "")) * hiz_carpani
+                )
+                active_batch["_slack"] = active_batch["tw_bitis"] - (
+                    t + self.yukleme_sure + active_batch["_travel_from_depot"] + self.bosaltma_sure
+                )
+                sorted_batch = active_batch.sort_values(by=["_slack", "tw_bitis"])
+
             elif dispatch_kural == "FIFO":
                 # FIFO: sinyal oluşma sırası (Herrera-Vidal 2026, s.8)
                 sorted_batch = active_batch.sort_values(by=["tw_baslangic"])

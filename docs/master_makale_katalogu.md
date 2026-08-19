@@ -1014,35 +1014,17 @@ Bu katalog, Dynamic Milk-Run & E-Kanban projesi kapsamında incelenen 11 akademi
 
 ---
 
-## 2. Application of Optimization Techniques in the Dairy Supply Chain: A Systematic Review
+## 2. [❌ ELENDİ] Application of Optimization Techniques in the Dairy Supply Chain: A Systematic Review
 
 * **Dosya Adı:** `logistics-06-00074.txt`
 * **Başlık:** Application of Optimization Techniques in the Dairy Supply Chain: A Systematic Review
 * **Yazarlar:** Mohit Malik, Vijay Kumar Gahlawat, Rahul S Mor, Vijay Dahiya, Mukheshwar Yadav
 * **Yıl:** 2022
 * **Dergi / Kaynak:** Logistics (MDPI), Vol. 6, No. 4, Art. 74
-* **Ana Konu:** Süt tedarik zincirinde (Dairy Supply Chain) kullanılan matematiksel modelleme, yapay zeka (AI) ve makine öğrenmesi (ML) tabanlı optimizasyon tekniklerinin PRISMA yöntemiyle sistematik olarak taranması ve incelenmesi.
-* **Metodoloji:** PRISMA rehberine dayalı Sistematik Literatür Taraması (Systematic Literature Review) ve Betimsel İstatistiksel Analiz (%56 Matematiksel Modelleme, %44 AI/ML).
-
-### Anahtar Parametreler
-
-| Parametre | Makaledeki Değer |
-|---|---|
-| **Hat sayısı** | Belirtilmemiş |
-| **İstasyon / Durak sayısı** | Belirtilmemiş |
-| **Araç sayısı** | Belirtilmemiş |
-| **Araç kapasitesi** | Belirtilmemiş |
-| **LT (Lead Time)** | Belirtilmemiş |
-| **Güvenlik katsayısı ($\alpha$)** | Belirtilmemiş |
-| **Tüketim hızı** | Belirtilmemiş |
-| **Mesafe** | Belirtilmemiş |
-| **Zaman penceresi** | Belirtilmemiş |
-| **Handling süresi** | Belirtilmemiş |
-| **Araç hızı** | Belirtilmemiş |
-
-* **Projemizle İlişkisi:** Tedarik zinciri optimizasyon tekniklerinin (matematiksel modelleme, sezgisel yöntemler, yapay zeka/makine öğrenmesi) sınıflandırılması ve süt/bozulabilir ürün lojistiğinde rotalama/tedarik süreçlerinin literatür çerçevesini sunması bakımından teorik altyapımıza katkı sağlar.
+* **Durum:** ❌ **LİTERATÜRDEN ELENDİ** (Konu uyuşmazlığı: Gerçek süt endüstrisi tedarik zinciri; fabrika içi dinamik milk-run ve E-Kanban lojistiği ile doğrudan ilgisi bulunmamaktadır. Teze veya kaynakçaya dahil edilmeyecektir).
 
 ---
+
 
 ## 3. Discrete Event Simulation as a Predictor for Factory Traffic Management
 
