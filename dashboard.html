@@ -1121,6 +1121,13 @@ input[type="range"] {
                             <div style="font-size:12px; color:var(--text-secondary);">4 Hat · 24 İstasyon · Tek Ekranda Canlı Görünüm (6 Sütun &times; 4 Satır)</div>
                         </div>
 
+                        <!-- 2) AKILLI HIZLI FILTRELEME BUTONLARI -->
+                        <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+                            <button class="btn-action btn-accent" id="btnFilterAll" onclick="filterStations('all')" style="height:28px; font-size:11px; padding:0 10px;">Tümü (24)</button>
+                            <button class="btn-action btn-subtle" id="btnFilterAlert" onclick="filterStations('alert')" style="height:28px; font-size:11px; padding:0 10px;">⚠️ Sadece Kritik & Uyarı</button>
+                            <button class="btn-action btn-subtle" id="btnFilterFragile" onclick="filterStations('fragile')" style="height:28px; font-size:11px; padding:0 10px;">🔴 S16 Kırılgan Odak</button>
+                        </div>
+
                         <div class="legend-bar">
                             <div style="display:flex; align-items:center; gap:6px;">
                                 <span class="status-dot dot-good"></span>
@@ -1183,7 +1190,7 @@ input[type="range"] {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="Bu senaryoyu What-If Simülatöründe incele">
                                     <td><strong>Statik (80 dk Sabit - K58)</strong></td>
                                     <td>4 Araç</td>
                                     <td><span style="color:var(--status-good); font-weight:700;">%19.31</span></td>
@@ -1193,7 +1200,7 @@ input[type="range"] {
                                     <td>54.00 km</td>
                                     <td>Deterministik çevrim düzenliliği (Sinyal gecikmesi yok)</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="Bu senaryoyu What-If Simülatöründe incele">
                                     <td><strong>Dinamik E-Kanban (EDD/SLACK)</strong></td>
                                     <td>4 Araç</td>
                                     <td><span style="color:var(--status-warning); font-weight:700;">%24.58</span></td>
@@ -1224,7 +1231,10 @@ input[type="range"] {
                         </div>
 
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                            <div class="chart-title">1 – 8 Araç Filo Boyutlandırma Matrisi & Geçiş Noktası (Crossover Point)</div>
+                            <div>
+                                <div class="chart-title">1 – 8 Araç Filo Boyutlandırma Matrisi & Geçiş Noktası (Crossover Point)</div>
+                                <div style="font-size:11px; color:var(--text-secondary); margin-top:2px;">💡 Satırlara tıklayarak What-If simülatöründe o senaryoya anında geçebilirsiniz.</div>
+                            </div>
                             <span style="font-size:11px; color:var(--status-good); font-weight:600;">5+ Araçta Dinamik Üstünlük</span>
                         </div>
                         <table class="modern-table">
@@ -1237,10 +1247,11 @@ input[type="range"] {
                                     <th>Fark (Dinamik - Statik)</th>
                                     <th>Üstün Sistem</th>
                                     <th>Hedef (<%5)</th>
+                                    <th style="width:70px; text-align:center;">İncele</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(1)" style="cursor:pointer;" title="1 Araç senaryosunu What-If'te aç">
                                     <td><strong>1 Araç</strong></td>
                                     <td>%25.77</td>
                                     <td>%69.50</td>
@@ -1248,8 +1259,9 @@ input[type="range"] {
                                     <td style="color:var(--status-critical);">+43.73 puan</td>
                                     <td>Statik</td>
                                     <td>Yetersiz</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(2)" style="cursor:pointer;" title="2 Araç senaryosunu What-If'te aç">
                                     <td><strong>2 Araç</strong></td>
                                     <td>%21.35</td>
                                     <td>%53.01</td>
@@ -1257,8 +1269,9 @@ input[type="range"] {
                                     <td style="color:var(--status-critical);">+31.66 puan</td>
                                     <td>Statik</td>
                                     <td>Yetersiz</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(3)" style="cursor:pointer;" title="3 Araç senaryosunu What-If'te aç">
                                     <td><strong>3 Araç</strong></td>
                                     <td>%19.70</td>
                                     <td>%36.93</td>
@@ -1266,8 +1279,9 @@ input[type="range"] {
                                     <td style="color:var(--status-warning);">+17.23 puan</td>
                                     <td>Statik</td>
                                     <td>Yetersiz</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="4 Araç (Baz) senaryosunu What-If'te aç">
                                     <td><strong>4 Araç (Baz)</strong></td>
                                     <td>%19.31</td>
                                     <td>%24.58</td>
@@ -1275,8 +1289,9 @@ input[type="range"] {
                                     <td style="color:var(--status-warning);">+5.27 puan</td>
                                     <td>Statik</td>
                                     <td>Yetersiz</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr style="background:rgba(37, 99, 235, 0.06);">
+                                <tr onclick="navigateToWhatIf(5)" style="cursor:pointer; background:rgba(37, 99, 235, 0.06);" title="5 Araç (Geçiş Eşiği) senaryosunu What-If'te aç">
                                     <td><strong>5 Araç (Geçiş Eşiği ⚡)</strong></td>
                                     <td>%19.10</td>
                                     <td>%15.98</td>
@@ -1284,8 +1299,9 @@ input[type="range"] {
                                     <td style="color:var(--accent-primary); font-weight:700;">-3.12 puan</td>
                                     <td style="color:var(--accent-primary); font-weight:700;">Dinamik Öne Geçti ⚡</td>
                                     <td>Yetersiz</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(6)" style="cursor:pointer;" title="6 Araç senaryosunu What-If'te aç">
                                     <td><strong>6 Araç</strong></td>
                                     <td>%18.96</td>
                                     <td>%11.27</td>
@@ -1293,8 +1309,9 @@ input[type="range"] {
                                     <td style="color:var(--status-good); font-weight:700;">-7.69 puan</td>
                                     <td style="color:var(--status-good);">Dinamik ⚡</td>
                                     <td>Yaklaştı</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr>
+                                <tr onclick="navigateToWhatIf(7)" style="cursor:pointer;" title="7 Araç senaryosunu What-If'te aç">
                                     <td><strong>7 Araç</strong></td>
                                     <td>%18.83</td>
                                     <td>%7.00</td>
@@ -1302,8 +1319,9 @@ input[type="range"] {
                                     <td style="color:var(--status-good); font-weight:700;">-11.83 puan</td>
                                     <td style="color:var(--status-good);">Dinamik ⚡</td>
                                     <td>Yaklaştı</td>
+                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
                                 </tr>
-                                <tr style="background:rgba(5, 150, 105, 0.08);">
+                                <tr onclick="navigateToWhatIf(8)" style="cursor:pointer; background:rgba(5, 150, 105, 0.08);" title="8 Araç (Hedef Eşik) senaryosunu What-If'te aç">
                                     <td><strong>8 Araç (Hedef Eşik 🏆)</strong></td>
                                     <td>%18.68</td>
                                     <td><strong style="color:var(--status-good);">%3.50</strong></td>
@@ -1311,10 +1329,13 @@ input[type="range"] {
                                     <td style="color:var(--status-good); font-weight:700;">-15.18 puan</td>
                                     <td style="color:var(--status-good); font-weight:700;">Dinamik Tam Üstünlük 🏆</td>
                                     <td style="color:var(--status-good); font-weight:700;">HEDEF ULAŞILDI ✅</td>
+                                    <td style="text-align:center; color:var(--status-good); font-weight:700;">Test et ↗</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
 
@@ -26565,7 +26586,20 @@ function initAllCharts() {
         }
     };
 
-    // 1. Filo Duyarlılık Eğrisi (Sekme 1)
+// ===== KÖPRÜ NAVİGASYON (GRAFİK / TABLO -> WHAT-IF) =====
+function navigateToWhatIf(fleetCount) {
+    fleetCount = parseInt(fleetCount, 10);
+    const sliderArac = document.getElementById('sliderArac');
+    const valArac = document.getElementById('valArac');
+    if (sliderArac && valArac && fleetCount >= 1 && fleetCount <= 8) {
+        sliderArac.value = fleetCount;
+        valArac.textContent = fleetCount + (fleetCount === 4 ? ' Araç (Baz)' : ' Araç');
+        updateWhatIfView();
+    }
+    showTab('tab-whatif');
+}
+
+// 1. Filo Duyarlılık Eğrisi (Sekme 1)
     const canvasFleet = document.getElementById('chartFleet');
     if (canvasFleet) {
         const ctxFleet = canvasFleet.getContext('2d');
@@ -26583,7 +26617,8 @@ function initAllCharts() {
                         tension: 0.25,
                         borderWidth: 2.5,
                         pointBackgroundColor: '#2563EB',
-                        pointRadius: 4
+                        pointRadius: 5,
+                        pointHoverRadius: 8
                     },
                     {
                         label: 'Statik Baseline (%19.31 @ 4 Araç)',
@@ -26603,7 +26638,21 @@ function initAllCharts() {
                     }
                 ]
             },
-            options: chartConfigCommon
+            options: {
+                ...chartConfigCommon,
+                onClick: (evt, elements) => {
+                    if (elements && elements.length > 0) {
+                        const idx = elements[0].index;
+                        navigateToWhatIf(idx + 1);
+                    }
+                },
+                onHover: (evt, elements) => {
+                    const target = evt.native ? evt.native.target : (evt.target || evt);
+                    if (target && target.style) {
+                        target.style.cursor = (elements && elements.length > 0) ? 'pointer' : 'default';
+                    }
+                }
+            }
         });
     }
 
@@ -27044,7 +27093,51 @@ function updateStations(params) {
         if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
         if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
     });
+
+    applyStationFilter();
 }
+
+// ===== 2) İSTASYON AKILLI HIZLI FİLTRELEME MANTIĞI =====
+let currentStationFilter = 'all';
+
+function filterStations(filterType) {
+    currentStationFilter = filterType;
+    ['btnFilterAll', 'btnFilterAlert', 'btnFilterFragile'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.className = 'btn-action btn-subtle';
+    });
+    if (filterType === 'all') {
+        const b = document.getElementById('btnFilterAll');
+        if (b) b.className = 'btn-action btn-accent';
+    } else if (filterType === 'alert') {
+        const b = document.getElementById('btnFilterAlert');
+        if (b) b.className = 'btn-action btn-accent';
+    } else if (filterType === 'fragile') {
+        const b = document.getElementById('btnFilterFragile');
+        if (b) b.className = 'btn-action btn-accent';
+    }
+    applyStationFilter();
+}
+
+function applyStationFilter() {
+    activeStationsData.forEach(st => {
+        const sid = st.id;
+        const card = document.getElementById('st-card-' + sid);
+        if (!card) return;
+
+        if (currentStationFilter === 'all') {
+            card.style.display = 'flex';
+        } else if (currentStationFilter === 'fragile') {
+            card.style.display = st.fragile ? 'flex' : 'none';
+        } else if (currentStationFilter === 'alert') {
+            const isWarningOrCrit = card.classList.contains('border-warning') || 
+                                    card.classList.contains('border-critical') || 
+                                    st.fragile;
+            card.style.display = isWarningOrCrit ? 'flex' : 'none';
+        }
+    });
+}
+
 
 // ===== SEKME 5: VERİ GİRİŞİ MANTIĞI =====
 function switchDataSubtab(subtab) {

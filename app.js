@@ -184,7 +184,20 @@ function initAllCharts() {
         }
     };
 
-    // 1. Filo Duyarlılık Eğrisi (Sekme 1)
+// ===== KÖPRÜ NAVİGASYON (GRAFİK / TABLO -> WHAT-IF) =====
+function navigateToWhatIf(fleetCount) {
+    fleetCount = parseInt(fleetCount, 10);
+    const sliderArac = document.getElementById('sliderArac');
+    const valArac = document.getElementById('valArac');
+    if (sliderArac && valArac && fleetCount >= 1 && fleetCount <= 8) {
+        sliderArac.value = fleetCount;
+        valArac.textContent = fleetCount + (fleetCount === 4 ? ' Araç (Baz)' : ' Araç');
+        updateWhatIfView();
+    }
+    showTab('tab-whatif');
+}
+
+// 1. Filo Duyarlılık Eğrisi (Sekme 1)
     const canvasFleet = document.getElementById('chartFleet');
     if (canvasFleet) {
         const ctxFleet = canvasFleet.getContext('2d');
@@ -202,7 +215,8 @@ function initAllCharts() {
                         tension: 0.25,
                         borderWidth: 2.5,
                         pointBackgroundColor: '#2563EB',
-                        pointRadius: 4
+                        pointRadius: 5,
+                        pointHoverRadius: 8
                     },
                     {
                         label: 'Statik Baseline (%19.31 @ 4 Araç)',
@@ -222,7 +236,21 @@ function initAllCharts() {
                     }
                 ]
             },
-            options: chartConfigCommon
+            options: {
+                ...chartConfigCommon,
+                onClick: (evt, elements) => {
+                    if (elements && elements.length > 0) {
+                        const idx = elements[0].index;
+                        navigateToWhatIf(idx + 1);
+                    }
+                },
+                onHover: (evt, elements) => {
+                    const target = evt.native ? evt.native.target : (evt.target || evt);
+                    if (target && target.style) {
+                        target.style.cursor = (elements && elements.length > 0) ? 'pointer' : 'default';
+                    }
+                }
+            }
         });
     }
 
@@ -663,7 +691,51 @@ function updateStations(params) {
         if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
         if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
     });
+
+    applyStationFilter();
 }
+
+// ===== 2) İSTASYON AKILLI HIZLI FİLTRELEME MANTIĞI =====
+let currentStationFilter = 'all';
+
+function filterStations(filterType) {
+    currentStationFilter = filterType;
+    ['btnFilterAll', 'btnFilterAlert', 'btnFilterFragile'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.className = 'btn-action btn-subtle';
+    });
+    if (filterType === 'all') {
+        const b = document.getElementById('btnFilterAll');
+        if (b) b.className = 'btn-action btn-accent';
+    } else if (filterType === 'alert') {
+        const b = document.getElementById('btnFilterAlert');
+        if (b) b.className = 'btn-action btn-accent';
+    } else if (filterType === 'fragile') {
+        const b = document.getElementById('btnFilterFragile');
+        if (b) b.className = 'btn-action btn-accent';
+    }
+    applyStationFilter();
+}
+
+function applyStationFilter() {
+    activeStationsData.forEach(st => {
+        const sid = st.id;
+        const card = document.getElementById('st-card-' + sid);
+        if (!card) return;
+
+        if (currentStationFilter === 'all') {
+            card.style.display = 'flex';
+        } else if (currentStationFilter === 'fragile') {
+            card.style.display = st.fragile ? 'flex' : 'none';
+        } else if (currentStationFilter === 'alert') {
+            const isWarningOrCrit = card.classList.contains('border-warning') || 
+                                    card.classList.contains('border-critical') || 
+                                    st.fragile;
+            card.style.display = isWarningOrCrit ? 'flex' : 'none';
+        }
+    });
+}
+
 
 // ===== SEKME 5: VERİ GİRİŞİ MANTIĞI =====
 function switchDataSubtab(subtab) {
