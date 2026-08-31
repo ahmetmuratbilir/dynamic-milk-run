@@ -12,401 +12,407 @@
 </head>
 <body>
 
-    <div class="app-container">
-        <!-- HEADER -->
-        <header class="main-header">
-            <div class="brand">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <h1>Dinamik Milk-Run & E-Kanban KDS</h1>
-                    <p class="subtitle">VRPTW Olay-Bazlı Karar Destek ve Ne-Olursa-Ne-Olur (What-If) Simülatörü</p>
+    <div class="app-layout">
+        
+        <!-- 64px SOL IKON SIDEBAR NAVIGASYONU -->
+        <aside class="sidebar-nav">
+            <div class="sidebar-logo" title="Dinamik Milk-Run KDS">⚡</div>
+            
+            <nav class="sidebar-menu">
+                <div class="nav-item">
+                    <button class="sidebar-btn active" data-tab="tab-ozet" onclick="showTab('tab-ozet')">📊</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">📊 Özet Ekranı</div>
+                        <div class="nav-tooltip-desc">Sistemin genel sağlık durumunu ve temel KPI'ları 3 saniyede özetler.</div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="sidebar-btn" data-tab="tab-whatif" onclick="showTab('tab-whatif')">🎛️</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">🎛️ What-If Simülatör</div>
+                        <div class="nav-tooltip-desc">Filo, emniyet katsayısı ve talep şoku parametrelerini anlık test edin.</div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="sidebar-btn" data-tab="tab-istasyon" onclick="showTab('tab-istasyon')">🏭</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">🏭 İstasyon Haritası</div>
+                        <div class="nav-tooltip-desc">24 istasyonun stok ve ROP seviyelerini 6x4 ızgarada canlı izleyin.</div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="sidebar-btn" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')">⚖️</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">⚖️ Statik vs Dinamik</div>
+                        <div class="nav-tooltip-desc">80 dk sabit periyodik sefer ile dinamik VRPTW karşılaştırması.</div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="sidebar-btn" data-tab="tab-veri-girisi" onclick="showTab('tab-veri-girisi')">📥</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">📥 Veri Girişi & CSV</div>
+                        <div class="nav-tooltip-desc">Gerçek fabrika verilerini girip önizleyin ve CSV olarak indirin.</div>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- ANA ICERIK ALANI -->
+        <div class="main-wrapper">
+            
+            <!-- UST HEADER -->
+            <header class="top-header">
+                <div class="header-title-area">
+                    <h1>Dinamik Milk-Run & E-Kanban Karar Destek Sistemi</h1>
+                    <p>VRPTW Olay-Bazlı Karar Destek ve Ne-Olursa-Ne-Olur (What-If) Simülatörü</p>
+                </div>
+
+                <div class="info-popover-trigger">
+                    <span>💡 Baseline Notu (Seed=42)</span>
+                    <div class="popover-content">
+                        <strong>Metodolojik Bilgi:</strong> Veri ambarı deterministik baseline (seed=42) üzerinedir. 30 replikasyon stokastik talep koşullarında Statik vs Dinamik duruş farkı ~3.0–5.0 puan bandına daralmaktadır.
+                    </div>
+                </div>
+            </header>
+
+            <!-- SEKME 1: ÖZET (Varsayılan Açık) -->
+            <div id="tab-ozet" class="tab-pane" style="display:block;">
+                <div class="ozet-grid">
+                    
+                    <!-- 2x2 Katmanlı KPI Kartları (Hero Rakamlar Nötr Beyaz) -->
+                    <div class="kpi-2x2-grid">
+                        
+                        <!-- KPI 1: Starvation -->
+                        <div class="kpi-card status-warning" id="kpiCardStarv">
+                            <div class="kpi-header">
+                                <div class="kpi-label-group">
+                                    <span class="status-dot dot-warning" id="dotStarv"></span>
+                                    <span class="kpi-label">Hat Duruş Oranı (Starvation)</span>
+                                </div>
+                                <span style="font-size:11px; color:var(--text-muted);">Eşik: <%5.0</span>
+                            </div>
+                            <div class="kpi-value-hero" id="kpiStarvVal">%24.58</div>
+                            <div class="kpi-subtext" id="kpiStarvDk">2,832 / 11,520 dakika kümülatif duruş</div>
+                        </div>
+
+                        <!-- KPI 2: WIP -->
+                        <div class="kpi-card status-good" id="kpiCardWip">
+                            <div class="kpi-header">
+                                <div class="kpi-label-group">
+                                    <span class="status-dot dot-good" id="dotWip"></span>
+                                    <span class="kpi-label">Ortalama Tampon Stok (WIP)</span>
+                                </div>
+                                <span style="font-size:11px; color:var(--text-muted);">Tavan Korumalı (N&times;C)</span>
+                            </div>
+                            <div class="kpi-value-hero" id="kpiWipVal">182.3</div>
+                            <div class="kpi-subtext">Adet / Hat başı ortalama parça stoku</div>
+                        </div>
+
+                        <!-- KPI 3: Statik vs Dinamik Farkı -->
+                        <div class="kpi-card status-warning" id="kpiCardFark">
+                            <div class="kpi-header">
+                                <div class="kpi-label-group">
+                                    <span class="status-dot dot-warning" id="dotFark"></span>
+                                    <span class="kpi-label">Statik vs Dinamik Farkı</span>
+                                </div>
+                                <span style="font-size:11px; color:var(--text-muted);">4 Araç Baseline (%19.31)</span>
+                            </div>
+                            <div class="kpi-value-hero" id="kpiFarkVal">+5.27 puan</div>
+                            <div class="kpi-subtext">Statik sistem lehine avantaj (Stokastik: +3.06 puan)</div>
+                        </div>
+
+                        <!-- KPI 4: Doluluk -->
+                        <div class="kpi-card status-good" id="kpiCardDoluluk">
+                            <div class="kpi-header">
+                                <div class="kpi-label-group">
+                                    <span class="status-dot dot-good" id="dotDoluluk"></span>
+                                    <span class="kpi-label">Filo Doluluk Oranı</span>
+                                </div>
+                                <span style="font-size:11px; color:var(--text-muted);">Kapasite Q=25 Kutu</span>
+                            </div>
+                            <div class="kpi-value-hero" id="kpiDolulukVal">%78.4</div>
+                            <div class="kpi-subtext">Vardiya içi ortalama kapasite kullanım oranı (48.49 km)</div>
+                        </div>
+                    </div>
+
+                    <!-- Otomatik Dinamik Yorum -->
+                    <div class="comment-card">
+                        <span style="font-size:16px;">💡</span>
+                        <div id="dynamicCommentText">
+                            Mevcut baz senaryoda (4 Araç, &alpha;=0.15, EDD) sistem <strong>%24.58</strong> duruş oranıyla çalışmaktadır — bu, statik sistemin (%19.31) <strong>+5.27 puan</strong> üzerindedir (stokastik ortalamada fark: +3.06 puan). Sistemin <%5 rekabetçilik eşiğine ulaşması için filo büyüklüğünün <strong>8 araca</strong> çıkarılması gerekmektedir.
+                        </div>
+                    </div>
+
+                    <!-- Tek Odaklı Grafik: Filo Duyarlılık Eğrisi -->
+                    <div class="chart-card">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div class="chart-title">Filo Duyarlılık Eğrisi (1 – 8 Araç Tarama)</div>
+                                <div class="chart-subtitle">Baz Parametrelerde (&alpha;=0.15, EDD, Dinamik-N) Araç Sayısının Duruş Üzerindeki Etkisi</div>
+                            </div>
+                            <span style="font-size:11px; color:var(--status-good); background:var(--status-good-dim); padding:4px 8px; border-radius:6px; font-weight:600;">Hedef: <%5.0</span>
+                        </div>
+                        <div style="height: 320px; position:relative;">
+                            <canvas id="chartFleet"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="compact-badge" title="Stokastik talep koşullarında Statik vs Dinamik duruş farkı ~3.0–5.0 puan aralığına daralır.">
-                <span>💡</span> <strong>Deterministik Baseline (Seed=42)</strong> · Stokastik: ~3-5 Puan
+            <!-- SEKME 2: WHAT-IF SİMÜLATÖR -->
+            <div id="tab-whatif" class="tab-pane">
+                <div class="whatif-layout">
+                    
+                    <!-- Sol Taraf: Slider Kontrolleri -->
+                    <aside class="control-sidebar">
+                        <div style="font-size:14px; font-weight:700; color:var(--text-primary); border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+                            🎛️ Senaryo Parametreleri
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>Filo Büyüklüğü</span>
+                                <span class="control-val" id="valArac">4 Araç</span>
+                            </div>
+                            <input type="range" id="sliderArac" min="1" max="8" step="1" value="4">
+                            <div class="range-steps">
+                                <span>1</span><span>2</span><span>3</span><span>4 (Baz)</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>Güvenlik Katsayısı (&alpha;)</span>
+                                <span class="control-val" id="valAlpha">0.15 (%15)</span>
+                            </div>
+                            <input type="range" id="sliderAlpha" min="0.05" max="0.30" step="0.05" value="0.15">
+                            <div class="range-steps">
+                                <span>0.05</span><span>0.15 (Baz)</span><span>0.30</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>Kanban Boyutlandırma (K55)</span>
+                            </div>
+                            <div class="chip-grid">
+                                <label class="chip-btn">
+                                    <input type="radio" id="modDinamik" name="nModu" value="Dinamik_N" checked>
+                                    <span class="chip-label">Dinamik N (Mod B)</span>
+                                </label>
+                                <label class="chip-btn">
+                                    <input type="radio" id="modSabit" name="nModu" value="Sabit_N">
+                                    <span class="chip-label">Sabit N (Mod A)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>Talep Şoku</span>
+                                <span class="control-val" id="valTalep">%0 (Baz)</span>
+                            </div>
+                            <input type="range" id="sliderTalep" min="-20" max="20" step="10" value="0">
+                            <div class="range-steps">
+                                <span>-%20</span><span>-%10</span><span>%0</span><span>+%10</span><span>+%20</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>Dispatch (Sevk Önceliği)</span>
+                            </div>
+                            <div class="chip-grid">
+                                <label class="chip-btn">
+                                    <input type="radio" name="dispatch" value="EDD" checked>
+                                    <span class="chip-label">EDD (Termin)</span>
+                                </label>
+                                <label class="chip-btn">
+                                    <input type="radio" name="dispatch" value="SLACK">
+                                    <span class="chip-label">SLACK (Gevşeklik)</span>
+                                </label>
+                                <label class="chip-btn">
+                                    <input type="radio" name="dispatch" value="FIFO">
+                                    <span class="chip-label">FIFO (İlk Gelen)</span>
+                                </label>
+                                <label class="chip-btn">
+                                    <input type="radio" name="dispatch" value="KRITIKLIK">
+                                    <span class="chip-label">KRİTİKLİK (Stok)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="font-size:11px; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:8px;">
+                            ⚡ 1.920 Senaryo K57 Kanonik Motoru
+                        </div>
+                    </aside>
+
+                    <!-- Sağ Taraf: Anlık Mini KPI'lar ve Grafikler -->
+                    <main style="display:flex; flex-direction:column; gap:16px;">
+                        <div class="whatif-kpi-bar">
+                            <div class="mini-kpi">
+                                <div style="font-size:11px; color:var(--text-secondary);">Anlık Starvation</div>
+                                <div class="mini-kpi-val" id="wiStarvVal">%24.58</div>
+                                <div style="font-size:10px; color:var(--text-muted);" id="wiStarvDk">2,832 / 11,520 dk</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div style="font-size:11px; color:var(--text-secondary);">Ortalama WIP</div>
+                                <div class="mini-kpi-val" id="wiWipVal">182.3</div>
+                                <div style="font-size:10px; color:var(--text-muted);">Adet / Hat başı</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div style="font-size:11px; color:var(--text-secondary);">Statik Fark (Seçili Araç)</div>
+                                <div class="mini-kpi-val" id="wiFarkVal">+5.27 puan</div>
+                                <div style="font-size:10px; color:var(--text-muted);" id="wiFarkSub">K58 80dk simülasyonu</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div style="font-size:11px; color:var(--text-secondary);">Filo Doluluğu</div>
+                                <div class="mini-kpi-val" id="wiDolulukVal">%78.4</div>
+                                <div style="font-size:10px; color:var(--text-muted);">Q=25 Kutu Kapasitesi</div>
+                            </div>
+                        </div>
+
+                        <div class="charts-2col">
+                            <div class="chart-card">
+                                <div class="chart-title">WIP vs Starvation Pareto Trade-off</div>
+                                <div class="chart-subtitle">1.920 Senaryo Noktası (Kırmızı: Seçili Parametreler)</div>
+                                <div style="height: 280px; position:relative;">
+                                    <canvas id="chartPareto"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-title">K55 Güvenlik Katsayısı (&alpha;) Duyarlılığı</div>
+                                <div class="chart-subtitle">Dinamik N (Mod B) vs Sabit N (Mod A) Karşılaştırması</div>
+                                <div style="height: 280px; position:relative;">
+                                    <canvas id="chartAlpha"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
             </div>
-        </header>
 
-        <!-- 5 SEKMELİ NAVİGASYON BARI -->
-        <nav class="tab-nav">
-            <button class="tab-button active" data-tab="tab-ozet" onclick="showTab('tab-ozet')">📊 Özet</button>
-            <button class="tab-button" data-tab="tab-whatif" onclick="showTab('tab-whatif')">🎛️ What-If Simülatör</button>
-            <button class="tab-button" data-tab="tab-istasyon" onclick="showTab('tab-istasyon')">🏭 İstasyon Haritası</button>
-            <button class="tab-button" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')">⚖️ Statik vs Dinamik</button>
-            <button class="tab-button" data-tab="tab-veri-girisi" onclick="showTab('tab-veri-girisi')">📥 Veri Girişi</button>
-        </nav>
-
-        <!-- SEKME 1: ÖZET EKRANI (Varsayılan Açık) -->
-        <div id="tab-ozet" class="tab-content" style="display:block;">
-            <div class="ozet-container">
-                <!-- Üst Bilgi Şeridi -->
-                <div class="ozet-top-bar">
-                    <div class="scenario-pill" id="ozetScenarioPill">
-                        📌 <strong>Baz Parametreler:</strong> 4 Araç · &alpha;=0.15 · EDD · Dinamik-N · Baz Talep (%0)
-                    </div>
-                    <div style="font-size:12px; color:var(--text-muted);">
-                        ⚡ <strong>Doğrulanmış Veri Ambarı:</strong> 1.920 Senaryo K57 Kanonik Motoru
-                    </div>
-                </div>
-
-                <!-- 4 Büyük KPI Kartı (2x2 Izgara) -->
-                <div class="kpi-2x2-grid">
-                    <!-- KPI 1: Starvation -->
-                    <div class="kpi-card-large" id="cardStarv">
-                        <div class="kpi-header">
-                            <span class="kpi-title">Hat Duruş Oranı (Starvation)</span>
-                            <span class="kpi-status-dot dot-yellow" id="dotStarv" title="Durum: %10-%25 Arası (Dikkat)"></span>
-                        </div>
-                        <div class="kpi-value-large" id="kpiStarvVal">%24.58</div>
-                        <div class="kpi-sub-large" id="kpiStarvDk">2,832 / 11,520 dakika duruş</div>
-                    </div>
-
-                    <!-- KPI 2: WIP -->
-                    <div class="kpi-card-large" id="cardWip">
-                        <div class="kpi-header">
-                            <span class="kpi-title">Ortalama Tampon Stok (WIP)</span>
-                            <span class="kpi-status-dot dot-green" id="dotWip" title="Durum: Normal"></span>
-                        </div>
-                        <div class="kpi-value-large" id="kpiWipVal">182.3</div>
-                        <div class="kpi-sub-large">Adet / Hat Başı Ortalama Stok (Tavan Korumalı)</div>
-                    </div>
-
-                    <!-- KPI 3: Statik vs Dinamik Farkı -->
-                    <div class="kpi-card-large" id="cardFark">
-                        <div class="kpi-header">
-                            <span class="kpi-title">Statik vs Dinamik Farkı</span>
-                            <span class="kpi-status-dot dot-yellow" id="dotFark" title="Durum: Statik Lehine Fark"></span>
-                        </div>
-                        <div class="kpi-value-large" id="kpiFarkVal" style="color:var(--accent-amber);">+5.27 puan</div>
-                        <div class="kpi-sub-large">Statik (%19.31) lehine avantaj (Stokastik: +3.06 puan)</div>
-                    </div>
-
-                    <!-- KPI 4: Filo Doluluğu -->
-                    <div class="kpi-card-large" id="cardDoluluk">
-                        <div class="kpi-header">
-                            <span class="kpi-title">Filo Doluluk Oranı</span>
-                            <span class="kpi-status-dot dot-green" id="dotDoluluk" title="Durum: Dengeli Kapasite"></span>
-                        </div>
-                        <div class="kpi-value-large" id="kpiDolulukVal">%78.4</div>
-                        <div class="kpi-sub-large">Kapasite Kullanım Oranı (Q=25 Kutu · Mesafe: 48.49 km)</div>
-                    </div>
-                </div>
-
-                <!-- Otomatik Dinamik Yorum Kutusu -->
-                <div class="dynamic-comment-box" id="dynamicCommentBox">
-                    <span class="comment-icon">💡</span>
-                    <div id="dynamicCommentText">
-                        Mevcut baz ayarlarda (4 Araç, &alpha;=0.15) sistem <strong>%24.58</strong> duruş oranıyla çalışmaktadır — bu, statik sistemin (%19.31) <strong>+5.27 puan</strong> üzerindedir (stokastik ortalama: +3.06 puan). Sistemin <%5 rekabetçilik hedefine ulaşması için filo boyutunun 8 araca çıkarılması önerilmektedir.
-                    </div>
-                </div>
-
-                <!-- 1 Tek Grafik: Filo Duyarlılık Eğrisi -->
-                <div class="chart-card glass-card ozet-chart-card">
-                    <div class="chart-header">
+            <!-- SEKME 3: İSTASYON HARİTASI (6x4 IZGARA) -->
+            <div id="tab-istasyon" class="tab-pane">
+                <div class="stations-section">
+                    
+                    <div class="stations-header-bar">
                         <div>
-                            <h3 style="font-size:16px; font-weight:600;">Filo Duyarlılık Eğrisi (1 – 8 Araç Tarama)</h3>
-                            <span class="chart-subtitle" style="font-size:12px; color:var(--text-muted);">Baz Parametrelerde (&alpha;=0.15, EDD, Dinamik-N) Araç Sayısının Duruş Üzerindeki Etkisi</span>
+                            <div style="font-size:15px; font-weight:700; color:var(--text-primary);">24 İstasyon Gerçek Zamanlı Stok ve ROP Haritası</div>
+                            <div style="font-size:12px; color:var(--text-secondary);">4 Hat · 24 İstasyon · Tek Ekranda Canlı Görünüm (6 Sütun &times; 4 Satır)</div>
                         </div>
-                        <span class="tag green" style="font-size:11px;">Hedef: <%5 Starvation</span>
+
+                        <div class="legend-bar">
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="status-dot dot-good"></span>
+                                <span>Stok > ROP</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="status-dot dot-warning"></span>
+                                <span>Stok &le; ROP</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="status-dot dot-critical"></span>
+                                <span>Kritik (Stok=0)</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="display:inline-block; width:10px; height:2px; background:#FDE047;"></span>
+                                <span>Sarı: ROP Eşiği</span>
+                            </div>
+                            <div style="color:var(--status-critical); font-weight:600;">
+                                <span>⚠️ S16 Kırılgan</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chart-body" style="height: 290px;">
-                        <canvas id="chartFleet"></canvas>
+
+                    <!-- 6x4 IZGARA CONTAINER -->
+                    <div class="stations-grid-6x4" id="stationsGrid">
+                        <!-- JS renderStations() 24 kartı buraya basar -->
+                    </div>
+
+                    <div style="font-size:11px; color:var(--text-muted); text-align:right;">
+                        ℹ️ <em>Not: İstasyon stok seviyeleri görsel temsil amaçlı anlık oransal gösterimdir; kümülatif starvation oranları 1.920 senaryolu simülasyon motoru çıktısıdır.</em>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- SEKME 2: WHAT-IF SİMÜLATÖR -->
-        <div id="tab-whatif" class="tab-content">
-            <div class="dashboard-grid">
-                <!-- Sol Taraf: Sabit Slider Kontrol Paneli -->
-                <aside class="control-panel glass-card" style="position: sticky; top: 70px; height: fit-content;">
-                    <div class="panel-title">
-                        <span class="icon">🎛️</span>
-                        <h2>Senaryo Parametreleri</h2>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-label">
-                            <label for="sliderArac">Filo Büyüklüğü (Araç Sayısı)</label>
-                            <span class="val-display" id="valArac">4 Araç</span>
+            <!-- SEKME 4: STATİK VS DİNAMİK (ZEBRA STRIPED) -->
+            <div id="tab-karsilastirma" class="tab-pane">
+                <div style="display:flex; flex-direction:column; gap:16px;">
+                    
+                    <div class="data-table-card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <div class="chart-title">4 Araç Baz Senaryo Karşılaştırması</div>
+                            <span style="font-size:11px; color:var(--accent-primary);">Deterministik Seed=42 & Stokastik Ortalama</span>
                         </div>
-                        <input type="range" id="sliderArac" min="1" max="8" step="1" value="4">
-                        <div class="range-marks">
-                            <span>1</span><span>2</span><span>3</span><span>4 (Baz)</span><span>5</span><span>6</span><span>7</span><span>8</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-label">
-                            <label for="sliderAlpha">Güvenlik Katsayısı (&alpha; Tamponu)</label>
-                            <span class="val-display" id="valAlpha">0.15 (%15)</span>
-                        </div>
-                        <input type="range" id="sliderAlpha" min="0.05" max="0.30" step="0.05" value="0.15">
-                        <div class="range-marks">
-                            <span>0.05</span><span>0.15 (Baz)</span><span>0.30</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group toggle-group">
-                        <div class="control-label">
-                            <label>Kanban Kart Boyutlandırma Modu (K55)</label>
-                            <span class="info-tag" title="K55 Bulgusu: Dinamik N modunda alpha 3.4 kat daha güçlü etki eder.">ℹ️ K55 Notu</span>
-                        </div>
-                        <div class="toggle-switch">
-                            <input type="radio" id="modDinamik" name="nModu" value="Dinamik_N" checked>
-                            <label for="modDinamik">Dinamik N (Mod B)</label>
-                            
-                            <input type="radio" id="modSabit" name="nModu" value="Sabit_N">
-                            <label for="modSabit">Sabit N (Mod A)</label>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-label">
-                            <label for="sliderTalep">Talep Şoku / Değişimi</label>
-                            <span class="val-display" id="valTalep">%0 (Baz)</span>
-                        </div>
-                        <input type="range" id="sliderTalep" min="-20" max="20" step="10" value="0">
-                        <div class="range-marks">
-                            <span>-%20</span><span>-%10</span><span>%0</span><span>+%10</span><span>+%20</span>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="control-label">
-                            <label>Dispatch (Sevk Önceliği) Kuralı</label>
-                            <span class="info-tag" title="Hafta 7 / K64 Bulgusu: EDD/SLACK/FIFO istatistiksel eşdeğerdir (p=0.913).">ℹ️ K64 Notu</span>
-                        </div>
-                        <div class="radio-grid">
-                            <label class="radio-card">
-                                <input type="radio" name="dispatch" value="EDD" checked>
-                                <span class="radio-btn"><strong>EDD</strong> (Deadline En Yakın)</span>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="dispatch" value="SLACK">
-                                <span class="radio-btn"><strong>SLACK</strong> (Zaman Gevşekliği)</span>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="dispatch" value="FIFO">
-                                <span class="radio-btn"><strong>FIFO</strong> (İlk Gelen İlk)</span>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="dispatch" value="KRITIKLIK">
-                                <span class="radio-btn"><strong>KRİTİKLİK</strong> (En Az Stok)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="scenario-meta" style="font-size:11px; color:var(--text-muted); padding:8px 0; border-top:1px solid var(--border-color);">
-                        ⚡ <strong>Doğrulanmış Veri Ambarı:</strong> 1.920 Senaryo K57 Kanonik Motoru ile anlık filtrelenir.
-                    </div>
-                </aside>
-
-                <!-- Sağ Taraf: Canlı KPI Kartları + Pareto + K55 Grafikleri -->
-                <main class="main-content" style="display: flex; flex-direction: column; gap: 20px;">
-                    <!-- What-If Anlık KPI Şeridi -->
-                    <div class="kpi-grid">
-                        <div class="kpi-card glass-card">
-                            <div class="kpi-header">
-                                <span class="kpi-title">Anlık Starvation (%)</span>
-                                <span class="kpi-icon">🚨</span>
-                            </div>
-                            <div class="kpi-value" id="wiStarvVal">%24.58</div>
-                            <div class="kpi-sub" id="wiStarvDk">2,832 / 11,520 dk</div>
-                            <div class="kpi-target-badge" id="wiTargetBadge">Eşik: <%5 (YETERSİZ 🚨)</div>
-                        </div>
-
-                        <div class="kpi-card glass-card">
-                            <div class="kpi-header">
-                                <span class="kpi-title">Ortalama WIP</span>
-                                <span class="kpi-icon">📦</span>
-                            </div>
-                            <div class="kpi-value" id="wiWipVal">182.3</div>
-                            <div class="kpi-sub">Adet / Hat Başı Stok</div>
-                            <div class="kpi-footer-note">Tavan korumalı</div>
-                        </div>
-
-                        <div class="kpi-card glass-card">
-                            <div class="kpi-header">
-                                <span class="kpi-title">Statik vs Dinamik Farkı</span>
-                                <span class="kpi-icon">⚖️</span>
-                            </div>
-                            <div class="kpi-value highlight-stat" id="wiFarkVal">+5.27 puan</div>
-                            <div class="kpi-sub" id="wiFarkSub">Seçili araç için statik baseline referansı</div>
-                            <div class="kpi-footer-note" id="wiFarkNote">K58 80dk simülasyonu</div>
-                        </div>
-
-                        <div class="kpi-card glass-card">
-                            <div class="kpi-header">
-                                <span class="kpi-title">Filo Doluluğu</span>
-                                <span class="kpi-icon">🚚</span>
-                            </div>
-                            <div class="kpi-value" id="wiDolulukVal">%78.4</div>
-                            <div class="kpi-sub">Kapasite Kullanımı</div>
-                            <div class="kpi-footer-note">Q=25 Kutu</div>
-                        </div>
-                    </div>
-
-                    <!-- 2 Grafik: Pareto Scatter + K55 Alpha Bar -->
-                    <div class="charts-grid">
-                        <div class="chart-card glass-card">
-                            <div class="chart-header">
-                                <h3>WIP vs Starvation Pareto Trade-off</h3>
-                                <span class="chart-subtitle">Stok Miktarı ile Duruş Süresi Arasındaki Gerilim (Kırmızı Nokta: Seçili Senaryo)</span>
-                            </div>
-                            <div class="chart-body" style="height: 320px;">
-                                <canvas id="chartPareto"></canvas>
-                            </div>
-                        </div>
-
-                        <div class="chart-card glass-card">
-                            <div class="chart-header">
-                                <h3>K55 Güvenlik Katsayısı (&alpha;) Duyarlılık Karşılaştırması</h3>
-                                <span class="chart-subtitle">Dinamik N (Mod B) vs Sabit N (Mod A) Karşılaştırması (Seçili Araç İçin)</span>
-                            </div>
-                            <div class="chart-body" style="height: 320px;">
-                                <canvas id="chartAlpha"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-
-        <!-- SEKME 3: İSTASYON HARİTASI (6x4 Kart Izgarası) -->
-        <div id="tab-istasyon" class="tab-content">
-            <div class="stations-container">
-                <!-- Üst Bilgi ve Renk Lejantı -->
-                <div class="stations-header-bar">
-                    <div>
-                        <h3 style="font-size:16px; font-weight:600; color:#ffffff;">24 İstasyon Gerçek Zamanlı Stok ve ROP Haritası</h3>
-                        <span style="font-size:12px; color:var(--text-muted);">4 Hat · 24 İstasyon · Tek Ekranda Canlı Görünüm (6 Sütun &times; 4 Satır)</span>
-                    </div>
-
-                    <div class="stations-legend">
-                        <div class="legend-item">
-                            <span class="kpi-status-dot dot-green" style="width:10px; height:10px;"></span>
-                            <span>Stok > ROP (Yeterli)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="kpi-status-dot dot-yellow" style="width:10px; height:10px;"></span>
-                            <span>Stok &le; ROP (Sinyal)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="kpi-status-dot dot-red" style="width:10px; height:10px;"></span>
-                            <span>Kritik Duruş (Stok=0)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span style="display:inline-block; width:12px; height:2px; background:#fde047;"></span>
-                            <span>Sarı Çizgi: ROP Eşiği</span>
-                        </div>
-                        <div class="legend-item" style="color:#f43f5e; font-weight:600;">
-                            <span>⚠️ S16: En Kırılgan İstasyon</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6x4 İstasyon Kart Izgarası -->
-                <div class="stations-6x4-grid" id="stationsGrid">
-                    <!-- JavaScript renderStations() tarafından 24 kart buraya dinamik oluşturulur -->
-                </div>
-
-                <div style="font-size:11px; color:var(--text-muted); text-align:right; margin-top:4px;">
-                    ℹ️ <em>Not: İstasyon stok seviyeleri anlık oransal temsildir; kümülatif duruş ve WIP hesapları 1.920 senaryolu simülasyon motoru çıktısıdır.</em>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEKME 4: STATİK VS DİNAMİK (Detaylı Karşılaştırma) -->
-        <div id="tab-karsilastirma" class="tab-content">
-            <div style="display:flex; flex-direction:column; gap:20px;">
-                
-                <!-- Başlık ve Metodolojik Not Kartı -->
-                <div class="glass-card" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding:18px 24px;">
-                    <div>
-                        <h3 style="font-size:18px; font-weight:700; color:#ffffff;">Statik Milk-Run vs Dinamik E-Kanban Kapsamlı Karşılaştırma</h3>
-                        <p style="font-size:13px; color:var(--text-muted); margin-top:2px;">K58 80 dk Sabit Sefer Simülasyonu vs VRPTW Dinamik Sevk Modeli Karşılaştırmalı Analizi</p>
-                    </div>
-                    <div class="compact-badge">
-                        <span>⚖️</span> <strong>K53 Trade-off İlkesi:</strong> Stokastik Koşullarda Fark ~3.0–5.0 Puan
-                    </div>
-                </div>
-
-                <!-- Tablo 1: 4 Araç Baz Senaryo Karşılaştırması -->
-                <div class="table-card glass-card">
-                    <div class="table-header">
-                        <h3>4 Araç Baz Senaryo Detaylı Performans Tablosu</h3>
-                        <span class="badge" style="background:rgba(6, 182, 212, 0.15); color:var(--accent-cyan);">Kanonik Model Çıktısı</span>
-                    </div>
-                    <div class="table-wrapper">
-                        <table class="data-table">
+                        <table class="modern-table">
                             <thead>
                                 <tr>
                                     <th>Sistem Politikası</th>
-                                    <th>Filo Büyüklüğü</th>
+                                    <th>Filo</th>
                                     <th>Starvation (%)</th>
-                                    <th>Duruş Süresi</th>
+                                    <th>Duruş (dk)</th>
                                     <th>Ortalama WIP</th>
-                                    <th>Sefer Sayısı</th>
-                                    <th>Toplam Mesafe</th>
-                                    <th>Temel Operasyonel Karakteristik</th>
+                                    <th>Sefer</th>
+                                    <th>Mesafe</th>
+                                    <th>Operasyonel Karakteristik</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Statik (80 dk Sabit Sefer - K58)</strong></td>
+                                    <td><strong>Statik (80 dk Sabit - K58)</strong></td>
                                     <td>4 Araç</td>
-                                    <td><span class="tag green">%19.31</span></td>
+                                    <td><span style="color:var(--status-good); font-weight:700;">%19.31</span></td>
                                     <td>2,225 dk</td>
                                     <td>177.0 adet</td>
                                     <td>36 sefer</td>
                                     <td>54.00 km</td>
-                                    <td>Deterministik çevrim düzenliliği (Reaktif sinyal gecikmesi yok)</td>
+                                    <td>Deterministik çevrim düzenliliği (Sinyal gecikmesi yok)</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Dinamik E-Kanban (EDD / K63 SLACK)</strong></td>
+                                    <td><strong>Dinamik E-Kanban (EDD/SLACK)</strong></td>
                                     <td>4 Araç</td>
-                                    <td><span class="tag orange">%24.58</span></td>
+                                    <td><span style="color:var(--status-warning); font-weight:700;">%24.58</span></td>
                                     <td>2,832 dk</td>
                                     <td>182.3 adet</td>
                                     <td>32 sefer</td>
                                     <td>48.49 km</td>
                                     <td>Talep anında reaktif sevk (%10 daha az mesafe ve sefer)</td>
                                 </tr>
-                                <tr class="diff-row">
+                                <tr style="background:rgba(245, 158, 11, 0.05);">
                                     <td><strong>Fark (Dinamik - Statik)</strong></td>
                                     <td>-</td>
-                                    <td><strong style="color:var(--accent-amber);">+5.27 puan <span style="font-size:11px; font-weight:normal;">(Stokastik: +3.06 puan)</span></strong></td>
+                                    <td style="color:#FDE047; font-weight:700;">+5.27 puan</td>
                                     <td>+607 dk</td>
                                     <td>+5.3 adet</td>
                                     <td>-4 sefer</td>
                                     <td>-5.51 km</td>
-                                    <td>Statik duruşta avantajlı; Dinamik enerji ve sefer sayısında daha tasarruflu</td>
+                                    <td>Statik duruşta avantajlı; Dinamik enerji ve seferde tasarruflu</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
 
-                <!-- Tablo 2: 1-8 Araç Filo Boyutu Boyunca Tam Karşılaştırma Matrisi -->
-                <div class="table-card glass-card">
-                    <div class="table-header">
-                        <h3>1 – 8 Araç Filo Boyutlandırma Matrisi (Statik vs Dinamik Starvation)</h3>
-                        <span class="badge" style="background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald);">Hedef: 8 Araçta <%5 Rekabetçilik</span>
-                    </div>
-                    <div class="table-wrapper">
-                        <table class="data-table">
+                    <div class="data-table-card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <div class="chart-title">1 – 8 Araç Filo Boyutlandırma Matrisi & Geçiş Noktası (Crossover Point)</div>
+                            <span style="font-size:11px; color:var(--status-good); font-weight:600;">5+ Araçta Dinamik Üstünlük</span>
+                        </div>
+                        <table class="modern-table">
                             <thead>
                                 <tr>
                                     <th>Araç Sayısı</th>
                                     <th>Statik Baseline (%)</th>
                                     <th>Dinamik EDD (%)</th>
-                                    <th>Dinamik SLACK (K63) (%)</th>
+                                    <th>Dinamik SLACK (%)</th>
                                     <th>Fark (Dinamik - Statik)</th>
-                                    <th>Üstün Olan Sistem</th>
-                                    <th>Hedef Durumu (<%5)</th>
+                                    <th>Üstün Sistem</th>
+                                    <th>Hedef (<%5)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -415,196 +421,176 @@
                                     <td>%25.77</td>
                                     <td>%69.50</td>
                                     <td>%69.52</td>
-                                    <td style="color:var(--accent-rose);">+43.73 puan</td>
-                                    <td><span class="tag green">Statik</span></td>
-                                    <td><span class="tag orange">Yetersiz</span></td>
+                                    <td style="color:var(--status-critical);">+43.73 puan</td>
+                                    <td>Statik</td>
+                                    <td>Yetersiz</td>
                                 </tr>
                                 <tr>
                                     <td><strong>2 Araç</strong></td>
                                     <td>%21.35</td>
                                     <td>%53.01</td>
                                     <td>%53.03</td>
-                                    <td style="color:var(--accent-rose);">+31.66 puan</td>
-                                    <td><span class="tag green">Statik</span></td>
-                                    <td><span class="tag orange">Yetersiz</span></td>
+                                    <td style="color:var(--status-critical);">+31.66 puan</td>
+                                    <td>Statik</td>
+                                    <td>Yetersiz</td>
                                 </tr>
                                 <tr>
                                     <td><strong>3 Araç</strong></td>
                                     <td>%19.70</td>
                                     <td>%36.93</td>
                                     <td>%36.73</td>
-                                    <td style="color:var(--accent-amber);">+17.23 puan</td>
-                                    <td><span class="tag green">Statik</span></td>
-                                    <td><span class="tag orange">Yetersiz</span></td>
+                                    <td style="color:var(--status-warning);">+17.23 puan</td>
+                                    <td>Statik</td>
+                                    <td>Yetersiz</td>
                                 </tr>
                                 <tr>
                                     <td><strong>4 Araç (Baz)</strong></td>
                                     <td>%19.31</td>
                                     <td>%24.58</td>
                                     <td>%24.66</td>
-                                    <td style="color:var(--accent-amber);">+5.27 puan</td>
-                                    <td><span class="tag green">Statik</span></td>
-                                    <td><span class="tag orange">Yetersiz</span></td>
+                                    <td style="color:var(--status-warning);">+5.27 puan</td>
+                                    <td>Statik</td>
+                                    <td>Yetersiz</td>
                                 </tr>
-                                <tr>
-                                    <td><strong>5 Araç</strong></td>
+                                <tr style="background:rgba(79, 209, 197, 0.06);">
+                                    <td><strong>5 Araç (Geçiş Eşiği ⚡)</strong></td>
                                     <td>%19.10</td>
                                     <td>%15.98</td>
                                     <td>%16.07</td>
-                                    <td style="color:var(--accent-emerald); font-weight:700;">-3.12 puan</td>
-                                    <td><span class="tag green" style="background:rgba(6,182,212,0.2); color:var(--accent-cyan);">Dinamik Öne Geçti ⚡</span></td>
-                                    <td><span class="tag orange">Yetersiz</span></td>
+                                    <td style="color:var(--accent-primary); font-weight:700;">-3.12 puan</td>
+                                    <td style="color:var(--accent-primary); font-weight:700;">Dinamik Öne Geçti ⚡</td>
+                                    <td>Yetersiz</td>
                                 </tr>
                                 <tr>
                                     <td><strong>6 Araç</strong></td>
                                     <td>%18.96</td>
                                     <td>%11.27</td>
                                     <td>%11.11</td>
-                                    <td style="color:var(--accent-emerald); font-weight:700;">-7.69 puan</td>
-                                    <td><span class="tag green" style="background:rgba(6,182,212,0.2); color:var(--accent-cyan);">Dinamik ⚡</span></td>
-                                    <td><span class="tag orange">Yaklaştı</span></td>
+                                    <td style="color:var(--status-good); font-weight:700;">-7.69 puan</td>
+                                    <td style="color:var(--status-good);">Dinamik ⚡</td>
+                                    <td>Yaklaştı</td>
                                 </tr>
                                 <tr>
                                     <td><strong>7 Araç</strong></td>
                                     <td>%18.83</td>
                                     <td>%7.00</td>
                                     <td>%6.89</td>
-                                    <td style="color:var(--accent-emerald); font-weight:700;">-11.83 puan</td>
-                                    <td><span class="tag green" style="background:rgba(6,182,212,0.2); color:var(--accent-cyan);">Dinamik ⚡</span></td>
-                                    <td><span class="tag orange">Yaklaştı</span></td>
+                                    <td style="color:var(--status-good); font-weight:700;">-11.83 puan</td>
+                                    <td style="color:var(--status-good);">Dinamik ⚡</td>
+                                    <td>Yaklaştı</td>
                                 </tr>
                                 <tr style="background:rgba(16, 185, 129, 0.08);">
-                                    <td><strong>8 Araç (Hedef Eşik)</strong></td>
+                                    <td><strong>8 Araç (Hedef Eşik 🏆)</strong></td>
                                     <td>%18.68</td>
-                                    <td><strong style="color:var(--accent-emerald);">%3.50</strong></td>
-                                    <td><strong style="color:var(--accent-emerald);">%3.66</strong></td>
-                                    <td style="color:var(--accent-emerald); font-weight:700;">-15.18 puan</td>
-                                    <td><span class="tag green" style="background:rgba(16,185,129,0.3); color:#6ee7b7;">Dinamik Tam Üstünlük 🏆</span></td>
-                                    <td><span class="tag green">HEDEF ULAŞILDI ✅</span></td>
+                                    <td><strong style="color:var(--status-good);">%3.50</strong></td>
+                                    <td><strong style="color:var(--status-good);">%3.66</strong></td>
+                                    <td style="color:var(--status-good); font-weight:700;">-15.18 puan</td>
+                                    <td style="color:var(--status-good); font-weight:700;">Dinamik Tam Üstünlük 🏆</td>
+                                    <td style="color:var(--status-good); font-weight:700;">HEDEF ULAŞILDI ✅</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
-        </div>
 
-
-        <!-- SEKME 5: VERİ GİRİŞİ (Gerçek Fabrika Verisi Entegrasyonu) -->
-        <div id="tab-veri-girisi" class="tab-content">
-            <div class="data-entry-container">
-                
-                <!-- Üst Araç Çubuğu ve Aksiyon Butonları -->
-                <div class="data-entry-toolbar">
-                    <div class="subtab-buttons">
-                        <button class="subtab-btn active" id="btnSubtabStations" onclick="switchDataSubtab('stations')">🏭 1. İstasyon Parametreleri (24 İstasyon)</button>
-                        <button class="subtab-btn" id="btnSubtabConsumption" onclick="switchDataSubtab('consumption')">📊 2. Tüketim Örneklemi Girişi</button>
-                    </div>
-
-                    <div class="action-btn-group">
-                        <button class="action-btn btn-secondary" onclick="loadSyntheticDataToForm()" title="Sentetik baz verileri forma doldur">📥 Sentetik Yükle</button>
-                        <button class="action-btn btn-primary" onclick="previewRealData()" title="Değerlerle ROP hesaplayıp İstasyon Haritasında önizle">🔬 Hesapla ve Önizle</button>
-                        <button class="action-btn btn-success" onclick="saveFormToLocalStorage()" title="Tarayıcı hafızasında sakla">💾 Kaydet</button>
-                        <button class="action-btn btn-danger" onclick="clearFormStorage()" title="Verileri temizle">🧹 Sıfırla</button>
-                        <button class="action-btn btn-warning" onclick="exportStationsCSV()" title="data/real/stations.csv formatında indir">📥 stations.csv İndir</button>
-                        <button class="action-btn btn-warning" onclick="exportConsumptionCSV()" title="data/real/consumption.csv formatında indir">📥 consumption.csv İndir</button>
-                    </div>
-                </div>
-
-                <!-- Bilgilendirme ve Durum Şeridi -->
-                <div class="preview-mode-banner" id="previewModeBanner">
-                    <span>🔬 <strong>ÖNİZLEME MODU AKTİF:</strong> Girdiğiniz gerçek fabrika parametreleri İstasyon Haritasına (Sekme 3) yansıtıldı.</span>
-                    <button class="action-btn btn-secondary" onclick="resetToSyntheticData()" style="padding:4px 10px; font-size:11px;">Sentetik Veriye Dön</button>
-                </div>
-
-                <!-- ALT-BÖLÜM A: 24 İSTASYON PARAMETRE TABLO FORMU -->
-                <div id="subtabContentStations" class="table-card glass-card">
-                    <div class="table-header">
-                        <div>
-                            <h3>24 İstasyon Parametre Düzenleme Tablosu</h3>
-                            <span style="font-size:12px; color:var(--text-muted);">Tüketim (D), Kutu Kapasitesi (C), Kanban Kartı (N) ve Başlangıç Stok Değerlerini Giriniz</span>
-                        </div>
-                        <span class="badge" style="background:rgba(6, 182, 212, 0.15); color:var(--accent-cyan);">Düzenlenebilir Hücreler</span>
-                    </div>
+            <!-- SEKME 5: VERİ GİRİŞİ -->
+            <div id="tab-veri-girisi" class="tab-pane">
+                <div style="display:flex; flex-direction:column; gap:16px;">
                     
-                    <div class="editable-table-wrapper">
-                        <table class="data-table editable-table" id="tableStationsInput">
-                            <thead>
-                                <tr>
-                                    <th>İstasyon ID</th>
-                                    <th>Hat</th>
-                                    <th>Ort. Tüketim (D, adet/saat)</th>
-                                    <th>Std Sapma (saat)</th>
-                                    <th>Kutu Kapasitesi (C)</th>
-                                    <th>Kanban Kartı (N)</th>
-                                    <th>Başlangıç Kutu</th>
-                                    <th>Hesaplanan ROP (adet)</th>
-                                    <th>Maks Kapasite (N&times;C)</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbodyStationsInput">
-                                <!-- JavaScript renderDataEntryTable() tarafından doldurulur -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 18px;">
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn-action btn-accent" id="btnSubtabStations" onclick="switchDataSubtab('stations')">🏭 24 İstasyon Tablosu</button>
+                            <button class="btn-action btn-subtle" id="btnSubtabConsumption" onclick="switchDataSubtab('consumption')">📊 Tüketim Örneklemi</button>
+                        </div>
 
-                <!-- ALT-BÖLÜM B: TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI -->
-                <div id="subtabContentConsumption" class="table-card glass-card" style="display:none;">
-                    <div class="table-header">
-                        <div>
-                            <h3>Tüketim Örneklemi Girişi ve İstatistiki Hesaplayıcı</h3>
-                            <span style="font-size:12px; color:var(--text-muted);">İstasyon seçip dakika bazlı tüketim noktaları ekleyin; ortalama saatlik tüketim (D) ve standart sapma otomatik hesaplanıp 1. Bölüme aktarılsın.</span>
+                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                            <button class="btn-action btn-subtle" onclick="loadSyntheticDataToForm()">📥 Sentetik Yükle</button>
+                            <button class="btn-action btn-accent" onclick="previewRealData()">🔬 Hesapla ve Önizle</button>
+                            <button class="btn-action btn-subtle" onclick="saveFormToLocalStorage()">💾 Kaydet</button>
+                            <button class="btn-action btn-subtle" onclick="clearFormStorage()">🧹 Sıfırla</button>
+                            <button class="btn-action btn-warning" onclick="exportStationsCSV()">📥 stations.csv</button>
+                            <button class="btn-action btn-warning" onclick="exportConsumptionCSV()">📥 consumption.csv</button>
                         </div>
                     </div>
 
-                    <div style="display:flex; flex-direction:column; gap:16px; padding:16px 0;">
-                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                            <label style="font-size:13px; font-weight:600; color:#e2e8f0;">Hedef İstasyon Seçiniz:</label>
-                            <select id="selectSampleStation" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:6px 12px; color:#ffffff;">
-                                <!-- S1..S24 JS tarafından doldurulur -->
-                            </select>
-                            <button class="action-btn btn-secondary" onclick="addSampleRow()">➕ Örneklem Satırı Ekle</button>
-                            <button class="action-btn btn-primary" onclick="calculateSampleStats()">⚡ İstatistikleri Hesapla & Tabloya Aktar</button>
-                        </div>
+                    <div id="previewModeBanner" style="display:none; background:rgba(79,209,197,0.08); border:1px solid var(--accent-primary); border-radius:10px; padding:10px 16px; font-size:13px; color:var(--text-primary); justify-content:space-between; align-items:center;">
+                        <span>🔬 <strong>ÖNİZLEME MODU AKTİF:</strong> Girdiğiniz gerçek fabrika parametreleri İstasyon Haritasına (Sekme 3) yansıtıldı.</span>
+                        <button class="btn-action btn-subtle" onclick="resetToSyntheticData()" style="height:28px; padding:0 10px; font-size:11px;">Sentetik Veriye Dön</button>
+                    </div>
 
-                        <div class="editable-table-wrapper" style="max-height:300px;">
-                            <table class="data-table editable-table" id="tableSampleInput">
+                    <!-- ALT-BÖLÜM A: 24 İSTASYON TABLOSU -->
+                    <div id="subtabContentStations" class="data-table-card">
+                        <div style="margin-bottom:12px;">
+                            <div class="chart-title">24 İstasyon Parametre Düzenleme Tablosu</div>
+                            <div class="chart-subtitle">Tüketim (D), Kutu Kapasitesi (C), Kanban Kartı (N) ve Başlangıç Stok Değerlerini Giriniz</div>
+                        </div>
+                        <div style="max-height:480px; overflow-y:auto;">
+                            <table class="modern-table">
                                 <thead>
                                     <tr>
-                                        <th style="width:80px;">Sıra</th>
+                                        <th>İstasyon</th>
+                                        <th>Hat</th>
+                                        <th>Ort. Tüketim (adet/saat)</th>
+                                        <th>Std Sapma</th>
+                                        <th>Kutu Kapasitesi (C)</th>
+                                        <th>Kanban Kartı (N)</th>
+                                        <th>Başlangıç Kutu</th>
+                                        <th>Hesaplanan ROP</th>
+                                        <th>Maks Tavan (N&times;C)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodyStationsInput">
+                                    <!-- JS tarafından doldurulur -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ALT-BÖLÜM B: TÜKETİM ÖRNEKLEMİ -->
+                    <div id="subtabContentConsumption" class="data-table-card" style="display:none;">
+                        <div style="margin-bottom:12px;">
+                            <div class="chart-title">Tüketim Örneklemi Girişi ve İstatistiki Hesaplayıcı</div>
+                            <div class="chart-subtitle">Dakika bazlı tüketim noktaları ekleyin; ortalama saatlik tüketim (D) ve standart sapma otomatik hesaplanıp 1. Bölüme aktarılsın.</div>
+                        </div>
+
+                        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+                            <label style="font-size:13px; font-weight:600;">Hedef İstasyon:</label>
+                            <select id="selectSampleStation" style="background:#0D1120; border:1px solid var(--border-subtle); border-radius:6px; padding:6px 12px; color:var(--text-primary); font-size:12px;">
+                            </select>
+                            <button class="btn-action btn-subtle" onclick="addSampleRow()">➕ Satır Ekle</button>
+                            <button class="btn-action btn-accent" onclick="calculateSampleStats()">⚡ İstatistikleri Hesapla & Aktar</button>
+                        </div>
+
+                        <div style="max-height:280px; overflow-y:auto; margin-bottom:12px;">
+                            <table class="modern-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:60px;">Sıra</th>
                                         <th>Zaman (Dakika)</th>
                                         <th>Tüketim (Adet)</th>
-                                        <th style="width:100px;">İşlem</th>
+                                        <th style="width:80px;">İşlem</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbodySampleInput">
-                                    <!-- Dinamik örneklem satırları -->
                                 </tbody>
                             </table>
                         </div>
 
-                        <div id="sampleStatsResult" style="display:none; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:12px 16px; color:#6ee7b7; font-size:13px;">
-                            <!-- Hesaplama sonuç özeti -->
+                        <div id="sampleStatsResult" style="display:none; background:rgba(16,185,129,0.08); border:1px solid var(--status-good); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--status-good);">
                         </div>
                     </div>
+
                 </div>
-
             </div>
+
+            <!-- FOOTER -->
+            <footer style="margin-top:auto; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); text-align:center; display:flex; justify-content:space-between;">
+                <span>Dinamik Milk-Run & E-Kanban KDS — 2026</span>
+                <span>K01–K64 Karar Günlüğü | K57 Kanonik Motor | K63 Dinamik SLACK</span>
+            </footer>
+
         </div>
-
-
-        <!-- FOOTER -->
-        <footer class="main-footer">
-            <p>Dinamik Milk-Run & E-Kanban Karar Destek Sistemi — Tezsiz / Tezli Akademik Çalışma Modeli (2026)</p>
-            <p class="footer-links">
-                <span>Karar Günlüğü: K01–K64</span> | 
-                <span>Kanonik Motor: K57</span> | 
-                <span>Tavan Kısıtı: stok &le; N&times;C</span> |
-                <span>Dinamik SLACK: K63</span>
-            </p>
-        </footer>
     </div>
 
     <script src="app.js"></script>

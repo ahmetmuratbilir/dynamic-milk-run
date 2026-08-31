@@ -1,13 +1,8 @@
 /**
- * app.js - Dinamik Milk-Run & E-Kanban Karar Destek Dashboard Mantığı
- * ==================================================================
+ * app.js - Dinamik Milk-Run & E-Kanban Karar Destek Dashboard Mantığı (2026 Refactor)
+ * =================================================================================
  * 1.920 Senaryoluk Çevrimdışı Veri Ambarını (data/dashboard_scenarios.json) Okur
- * 5 Sekmeli Mimari:
- *   Sekme 1: Özet Ekranı (4 KPI, dinamik yorum, filo duyarlılık eğrisi)
- *   Sekme 2: What-If Simülatör (Slider kontrolleri, anlık KPI'lar, Pareto, K55 Alpha)
- *   Sekme 3: İstasyon Haritası (6x4 Kompakt Kart Izgarası, mini progress bar, ROP işareti)
- *   Sekme 4: Statik vs Dinamik Karşılaştırma (Detaylı metrik tablosu & 1-8 araç matrisi)
- *   Sekme 5: Veri Girişi & Gerçek Veri (Form, canlı ROP önizleme, localStorage & CSV dışa aktarma)
+ * 64px Sol Sidebar Navigasyonu + 5 Sekmeli Mimari
  */
 
 // ===== GLOBAL DEĞİŞKENLER VE GRAFİK NESNELERİ =====
@@ -62,16 +57,18 @@ const BASE_STATIONS_DATA = [
 let activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
 let isPreviewMode = false;
 
-// ===== HAZIR TEST EDİLMİŞ SEKME GEÇİŞ MEKANİZMASI =====
+// ===== SIDEBAR SEKME GEÇİŞ MEKANİZMASI =====
 function showTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(el => {
+    document.querySelectorAll('.tab-pane').forEach(el => {
         el.style.display = 'none';
     });
-    document.querySelectorAll('.tab-button').forEach(el => {
+    document.querySelectorAll('.sidebar-btn').forEach(el => {
         el.classList.remove('active');
     });
+    
     const target = document.getElementById(tabId);
     if (target) target.style.display = 'block';
+    
     const btn = document.querySelector('[data-tab="' + tabId + '"]');
     if (btn) btn.classList.add('active');
 
@@ -154,22 +151,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         initDefaultSampleRows();
         updateOzetView();
         updateWhatIfView();
+
+        // Hash tab destegi
+        if (window.location.hash) {
+            const hashTab = window.location.hash.replace('#', '');
+            if (document.getElementById(hashTab)) {
+                showTab(hashTab);
+            }
+        }
     } catch (err) {
         console.error('Veri yükleme hatası:', err);
     }
 });
 
-// ===== GRAFİK BAŞLATMA (ÖZET + WHAT-IF) =====
+// ===== GRAFİK BAŞLATMA =====
 function initAllCharts() {
     const chartConfigCommon = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { labels: { color: '#94a3b8', font: { family: 'Outfit' } } }
+            legend: { labels: { color: '#8B93B0', font: { family: 'Outfit', size: 11 } } }
         },
         scales: {
-            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+            x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0', font: { size: 11 } } },
+            y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0', font: { size: 11 } } }
         }
     };
 
@@ -183,30 +188,30 @@ function initAllCharts() {
                 labels: ['1 Araç', '2 Araç', '3 Araç', '4 Araç (Baz)', '5 Araç', '6 Araç', '7 Araç', '8 Araç'],
                 datasets: [
                     {
-                        label: 'Tavanlı Dinamik Sistem (Starvation %)',
+                        label: 'Dinamik E-Kanban (Starvation %)',
                         data: [],
-                        borderColor: '#06b6d4',
-                        backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                        borderColor: '#4FD1C5',
+                        backgroundColor: 'rgba(79, 209, 197, 0.10)',
                         fill: true,
-                        tension: 0.3,
-                        borderWidth: 3,
-                        pointBackgroundColor: '#06b6d4',
+                        tension: 0.25,
+                        borderWidth: 2.5,
+                        pointBackgroundColor: '#4FD1C5',
                         pointRadius: 4
                     },
                     {
-                        label: 'Statik Milk-Run Baseline (%19.31 @ 4 Araç)',
+                        label: 'Statik Baseline (%19.31 @ 4 Araç)',
                         data: [25.77, 21.35, 19.70, 19.31, 19.10, 18.96, 18.83, 18.68],
-                        borderColor: '#f59e0b',
+                        borderColor: '#F59E0B',
                         borderDash: [4, 4],
-                        borderWidth: 2,
+                        borderWidth: 1.8,
                         pointRadius: 0
                     },
                     {
                         label: 'Rekabetçilik Eşiği (<%5)',
                         data: [5, 5, 5, 5, 5, 5, 5, 5],
-                        borderColor: '#10b981',
+                        borderColor: '#10B981',
                         borderDash: [6, 6],
-                        borderWidth: 2,
+                        borderWidth: 1.5,
                         pointRadius: 0
                     }
                 ]
@@ -231,25 +236,27 @@ function initAllCharts() {
             data: {
                 datasets: [
                     {
-                        label: 'Tüm 1.920 Senaryo Noktası',
+                        label: 'Tüm Senaryolar',
                         data: bgScatterData,
-                        backgroundColor: 'rgba(148, 163, 184, 0.25)',
-                        pointRadius: 3
+                        backgroundColor: 'rgba(139, 147, 176, 0.25)',
+                        pointRadius: 2.5
                     },
                     {
                         label: 'Seçili Senaryo',
                         data: [],
-                        backgroundColor: '#f43f5e',
-                        pointRadius: 9,
-                        pointHoverRadius: 12
+                        backgroundColor: '#F43F5E',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2,
+                        pointRadius: 8,
+                        pointHoverRadius: 10
                     }
                 ]
             },
             options: {
                 ...chartConfigCommon,
                 scales: {
-                    x: { title: { display: true, text: 'Ortalama WIP Stok (adet)', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-                    y: { title: { display: true, text: 'Starvation (%)', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+                    x: { title: { display: true, text: 'Ortalama WIP Stok (adet)', color: '#8B93B0', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0' } },
+                    y: { title: { display: true, text: 'Starvation (%)', color: '#8B93B0', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0' } }
                 }
             }
         });
@@ -262,17 +269,19 @@ function initAllCharts() {
         window.chartInstances.alpha = new Chart(ctxAlpha, {
             type: 'bar',
             data: {
-                labels: ['alpha=0.05', 'alpha=0.10', 'alpha=0.15', 'alpha=0.20', 'alpha=0.25', 'alpha=0.30'],
+                labels: ['α=0.05', 'α=0.10', 'α=0.15', 'α=0.20', 'α=0.25', 'α=0.30'],
                 datasets: [
                     {
-                        label: 'Dinamik N (Mod B - 3.4 Kat Güçlü Etki)',
+                        label: 'Dinamik N (Mod B)',
                         data: [],
-                        backgroundColor: '#10b981'
+                        backgroundColor: '#10B981',
+                        borderRadius: 4
                     },
                     {
-                        label: 'Sabit N (Mod A - Zayıf Etki)',
+                        label: 'Sabit N (Mod A)',
                         data: [],
-                        backgroundColor: '#3b82f6'
+                        backgroundColor: '#3B82F6',
+                        borderRadius: 4
                     }
                 ]
             },
@@ -362,50 +371,49 @@ function updateOzetView() {
     const elStarv = document.getElementById('kpiStarvVal');
     const elStarvDk = document.getElementById('kpiStarvDk');
     const dotStarv = document.getElementById('dotStarv');
-    if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2);
-    if (elStarvDk) elStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dakika duruş';
+    const cardStarv = document.getElementById('kpiCardStarv');
 
-    if (dotStarv) {
-        dotStarv.className = 'kpi-status-dot ' + (starvPct < 10 ? 'dot-green' : (starvPct <= 25 ? 'dot-yellow' : 'dot-red'));
+    if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2);
+    if (elStarvDk) elStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dakika kümülatif duruş';
+
+    if (dotStarv && cardStarv) {
+        if (starvPct < 10) {
+            dotStarv.className = 'status-dot dot-good';
+            cardStarv.className = 'kpi-card status-good';
+        } else if (starvPct <= 25) {
+            dotStarv.className = 'status-dot dot-warning';
+            cardStarv.className = 'kpi-card status-warning';
+        } else {
+            dotStarv.className = 'status-dot dot-critical';
+            cardStarv.className = 'kpi-card status-critical';
+        }
     }
 
     // KPI 2: WIP
     const elWip = document.getElementById('kpiWipVal');
-    const dotWip = document.getElementById('dotWip');
     if (elWip) elWip.textContent = ortWip.toFixed(1);
-    if (dotWip) {
-        dotWip.className = 'kpi-status-dot ' + (ortWip <= 200 ? 'dot-green' : (ortWip <= 250 ? 'dot-yellow' : 'dot-red'));
-    }
 
-    // KPI 3: Statik vs Dinamik Farkı (4 Araç İçin Doğru Statik Baseline: %19.31)
+    // KPI 3: Statik vs Dinamik Farkı
     const staticBase = STATIC_BASELINE_MAP[4] || 19.31;
     const diffPuan = (starvPct - staticBase).toFixed(2);
     const elFark = document.getElementById('kpiFarkVal');
-    const dotFark = document.getElementById('dotFark');
     if (elFark) elFark.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
-    if (dotFark) {
-        dotFark.className = 'kpi-status-dot ' + (diffPuan <= 0 ? 'dot-green' : (diffPuan <= 5 ? 'dot-yellow' : 'dot-red'));
-    }
 
     // KPI 4: Doluluk
     const elDoluluk = document.getElementById('kpiDolulukVal');
-    const dotDoluluk = document.getElementById('dotDoluluk');
     const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
     if (elDoluluk) elDoluluk.textContent = '%' + dolulukEst;
-    if (dotDoluluk) {
-        dotDoluluk.className = 'kpi-status-dot ' + (dolulukEst >= 60 && dolulukEst <= 90 ? 'dot-green' : 'dot-yellow');
-    }
 
-    // Otomatik Dinamik Yorum Metni
+    // Otomatik Dinamik Yorum
     const commentEl = document.getElementById('dynamicCommentText');
     if (commentEl) {
         commentEl.innerHTML = 
-            'Mevcut baz senaryoda (4 Araç, &alpha;=0.15, EDD) sistem <strong>%' + starvPct.toFixed(2) + '</strong> duruş oranıyla çalışmaktadır — ' +
-            'bu, statik sistemin (%' + staticBase.toFixed(2) + ') <strong>+' + diffPuan + ' puan</strong> üzerindedir (30 replikasyon stokastik ortalamasında fark: +3.06 puandır). ' +
+            'Mevcut baz senaryoda (4 Araç, α=0.15, EDD) sistem <strong>%' + starvPct.toFixed(2) + '</strong> duruş oranıyla çalışmaktadır — ' +
+            'bu, statik sistemin (%' + staticBase.toFixed(2) + ') <strong>+' + diffPuan + ' puan</strong> üzerindedir (stokastik ortalamada fark: +3.06 puan). ' +
             'Sistemin <%5.0 rekabetçilik eşiğine ulaşması için filo büyüklüğünün <strong>8 araca</strong> çıkarılması gerekmektedir.';
     }
 
-    // Filo Duyarlılık Eğrisini Çiz (1-8 Araç)
+    // Filo Duyarlılık Eğrisini Çiz
     if (window.chartInstances.fleet) {
         const fleetData = [];
         for (let v = 1; v <= 8; v++) {
@@ -429,7 +437,6 @@ function updateWhatIfView() {
 
     const params = getWhatIfParameters();
 
-    // Seçili senaryoyu filtrele
     const curScenario = scenariosData.find(s => 
         s.arac_sayisi === params.arac_sayisi &&
         Math.abs(s.alpha - params.alpha) < 0.01 &&
@@ -444,63 +451,38 @@ function updateWhatIfView() {
     const ortWip = curScenario.ort_wip;
     const starvDk = curScenario.starv_dk;
 
-    // What-If KPI 1: Starvation
     const wiStarvVal = document.getElementById('wiStarvVal');
     const wiStarvDk = document.getElementById('wiStarvDk');
-    const wiTargetBadge = document.getElementById('wiTargetBadge');
     if (wiStarvVal) wiStarvVal.textContent = '%' + starvPct.toFixed(2);
     if (wiStarvDk) wiStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dk';
 
-    if (wiTargetBadge) {
-        if (starvPct < 5.0) {
-            wiTargetBadge.textContent = 'Eşik: <%5 (HEDEF ULAŞILDI ✅)';
-            wiTargetBadge.style.background = 'rgba(16, 185, 129, 0.2)';
-            wiTargetBadge.style.color = '#6ee7b7';
-            wiTargetBadge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-        } else {
-            wiTargetBadge.textContent = 'Eşik: <%5 (YETERSİZ 🚨)';
-            wiTargetBadge.style.background = 'rgba(244, 63, 94, 0.2)';
-            wiTargetBadge.style.color = '#fecdd3';
-            wiTargetBadge.style.borderColor = 'rgba(244, 63, 94, 0.4)';
-        }
-    }
-
-    // What-If KPI 2: WIP
     const wiWipVal = document.getElementById('wiWipVal');
     if (wiWipVal) wiWipVal.textContent = ortWip.toFixed(1);
 
-    // What-If KPI 3: Statik vs Dinamik Farkı (DOĞRU STATIC_BASELINE_MAP KULLANIMI)
     const staticBase = STATIC_BASELINE_MAP[params.arac_sayisi] || 19.31;
     const diffPuan = (starvPct - staticBase).toFixed(2);
     const wiFarkVal = document.getElementById('wiFarkVal');
     const wiFarkSub = document.getElementById('wiFarkSub');
-    const wiFarkNote = document.getElementById('wiFarkNote');
 
     if (wiFarkVal) {
         wiFarkVal.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
-        wiFarkVal.style.color = diffPuan <= 0 ? '#10b981' : (diffPuan <= 5 ? '#f59e0b' : '#f43f5e');
+        wiFarkVal.style.color = diffPuan <= 0 ? '#10B981' : (diffPuan <= 5 ? '#F59E0B' : '#F43F5E');
     }
     if (wiFarkSub) {
-        wiFarkSub.textContent = params.arac_sayisi + ' araç için statik referans: %' + staticBase.toFixed(2);
-    }
-    if (wiFarkNote) {
-        wiFarkNote.textContent = diffPuan <= 0 ? 'Dinamik sistem daha başarılı' : 'Statik sistem avantajlı';
+        wiFarkSub.textContent = params.arac_sayisi + ' araç statik ref: %' + staticBase.toFixed(2);
     }
 
-    // What-If KPI 4: Doluluk
     const wiDolulukVal = document.getElementById('wiDolulukVal');
     if (wiDolulukVal) {
         const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
         wiDolulukVal.textContent = '%' + dolulukEst;
     }
 
-    // Pareto Scatter Güncelleme (Kırmızı Seçili Nokta)
     if (window.chartInstances.pareto) {
         window.chartInstances.pareto.data.datasets[1].data = [{ x: ortWip, y: starvPct }];
         window.chartInstances.pareto.update();
     }
 
-    // K55 Alpha Duyarlılığı Güncelleme (Seçili Araç Sayısı ve Parametreler İçin)
     if (window.chartInstances.alpha) {
         const alphaDinamik = [];
         const alphaSabit = [];
@@ -531,7 +513,6 @@ function updateWhatIfView() {
         window.chartInstances.alpha.update();
     }
 
-    // İstasyon haritasını da güncel parametrelerle güncelle
     updateStations(params);
 }
 
@@ -546,24 +527,23 @@ function renderStations() {
         const isFragile = !!st.fragile;
         
         const card = document.createElement('div');
-        card.className = 'station-card' + (isFragile ? ' card-fragile' : '');
+        card.className = 'st-card' + (isFragile ? ' is-fragile' : '');
         card.id = 'st-card-' + sid;
-        card.title = sid + ' (' + st.hat + '): Tüketim=' + st.d_saat + ' kutu/saat, Kutu Kapasitesi C=' + st.c + ', Başlangıç N=' + st.n;
         
         card.innerHTML = 
-            '<div class="station-card-header">' +
-                '<span class="station-card-title">' + sid + 
-                    (isFragile ? ' <span class="fragile-badge-icon" title="En Kırılgan İstasyon">⚠️</span>' : '') + 
+            '<div class="st-card-top">' +
+                '<span class="st-card-id">' + sid + 
+                    (isFragile ? ' <span style="color:#F43F5E; font-size:12px;" title="Kırılgan İstasyon">⚠️</span>' : '') + 
                 '</span>' +
-                '<span class="station-card-hat">' + st.hat + '</span>' +
+                '<span class="st-card-hat">' + st.hat + '</span>' +
             '</div>' +
-            '<div class="station-mini-bar-wrapper">' +
-                '<div class="station-mini-bar-fill fill-green" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
-                '<div class="station-rop-marker" id="st-rop-mark-' + sid + '" style="left: 45%;" title="ROP Eşiği"></div>' +
+            '<div class="st-bar-wrap">' +
+                '<div class="st-bar-fill fill-good" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
+                '<div class="st-rop-line" id="st-rop-mark-' + sid + '" style="left: 45%;"></div>' +
             '</div>' +
-            '<div class="station-card-metrics">' +
-                '<span id="st-val-' + sid + '" style="font-weight:600; color:#e2e8f0;">Stok: ' + (st.n * st.c) + '</span>' +
-                '<span id="st-rop-' + sid + '" style="color:#fde047;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
+            '<div class="st-card-bottom">' +
+                '<span id="st-val-' + sid + '" style="font-weight:600; color:#E5E9F5;">Stok: ' + (st.n * st.c) + '</span>' +
+                '<span id="st-rop-' + sid + '" style="color:#FDE047;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
             '</div>';
         
         grid.appendChild(card);
@@ -592,7 +572,6 @@ function updateStations(params) {
         }
         const cap = nKart * st.c;
 
-        // Anlık simüle edilen stok seviyesi
         let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
         if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.4));
         if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.2));
@@ -603,22 +582,22 @@ function updateStations(params) {
         if (bar) {
             bar.style.width = pct + '%';
             if (currentStok <= 0) {
-                bar.className = 'station-mini-bar-fill fill-red';
+                bar.className = 'st-bar-fill fill-critical';
             } else if (currentStok <= ropAdet) {
-                bar.className = 'station-mini-bar-fill fill-yellow';
+                bar.className = 'st-bar-fill fill-warning';
             } else {
-                bar.className = 'station-mini-bar-fill fill-green';
+                bar.className = 'st-bar-fill fill-good';
             }
         }
 
         if (card) {
-            card.classList.remove('card-status-green', 'card-status-yellow', 'card-status-red');
+            card.classList.remove('border-good', 'border-warning', 'border-critical');
             if (currentStok <= 0) {
-                card.classList.add('card-status-red');
+                card.classList.add('border-critical');
             } else if (currentStok <= ropAdet) {
-                card.classList.add('card-status-yellow');
+                card.classList.add('border-warning');
             } else {
-                card.classList.add('card-status-green');
+                card.classList.add('border-good');
             }
         }
 
@@ -631,9 +610,7 @@ function updateStations(params) {
     });
 }
 
-// ===== SEKME 5: VERİ GİRİŞİ MANTIĞI VE FONKSİYONLARI =====
-
-// Alt-Sekme Değişimi (İstasyonlar vs Tüketim Örneklemi)
+// ===== SEKME 5: VERİ GİRİŞİ MANTIĞI =====
 function switchDataSubtab(subtab) {
     const btnSt = document.getElementById('btnSubtabStations');
     const btnCo = document.getElementById('btnSubtabConsumption');
@@ -641,19 +618,18 @@ function switchDataSubtab(subtab) {
     const cntCo = document.getElementById('subtabContentConsumption');
 
     if (subtab === 'stations') {
-        if (btnSt) btnSt.className = 'subtab-btn active';
-        if (btnCo) btnCo.className = 'subtab-btn';
+        if (btnSt) btnSt.className = 'btn-action btn-accent';
+        if (btnCo) btnCo.className = 'btn-action btn-subtle';
         if (cntSt) cntSt.style.display = 'block';
         if (cntCo) cntCo.style.display = 'none';
     } else {
-        if (btnSt) btnSt.className = 'subtab-btn';
-        if (btnCo) btnCo.className = 'subtab-btn active';
+        if (btnSt) btnSt.className = 'btn-action btn-subtle';
+        if (btnCo) btnCo.className = 'btn-action btn-accent';
         if (cntSt) cntSt.style.display = 'none';
         if (cntCo) cntCo.style.display = 'block';
     }
 }
 
-// 24 İstasyon Tablosunu Doldur
 function renderDataEntryTable() {
     const tbody = document.getElementById('tbodyStationsInput');
     if (!tbody) return;
@@ -667,15 +643,15 @@ function renderDataEntryTable() {
         const tr = document.createElement('tr');
         tr.id = 'row-input-' + sid;
         tr.innerHTML = 
-            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#f43f5e;">⚠️</span>' : '') + '</td>' +
-            '<td><span class="tag" style="background:rgba(255,255,255,0.05); color:#cbd5e1;">' + st.hat + '</span></td>' +
-            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)"></td>' +
-            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)"></td>' +
-            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)"></td>' +
-            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)"></td>' +
-            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)"></td>' +
-            '<td id="calc-rop-' + sid + '" style="font-weight:600; color:#fde047;">' + ropCalc + ' adet</td>' +
-            '<td id="calc-cap-' + sid + '" style="color:#a5f3fc;">' + maxCap + ' adet</td>';
+            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#F43F5E;">⚠️</span>' : '') + '</td>' +
+            '<td><span style="background:#090C16; padding:2px 6px; border-radius:4px; font-size:11px; color:#8B93B0;">' + st.hat + '</span></td>' +
+            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
+            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
+            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
+            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
+            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
+            '<td id="calc-rop-' + sid + '" style="font-weight:600; color:#FDE047;">' + ropCalc + ' adet</td>' +
+            '<td id="calc-cap-' + sid + '" style="color:#4FD1C5;">' + maxCap + ' adet</td>';
         
         tbody.appendChild(tr);
     });
@@ -695,7 +671,6 @@ function onStationFieldChange(idx, field, val) {
     if (elCap) elCap.textContent = maxCap + ' adet';
 }
 
-// Sentetik Verileri Forma Doldur
 function loadSyntheticDataToForm() {
     activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
     renderDataEntryTable();
@@ -703,7 +678,6 @@ function loadSyntheticDataToForm() {
     alert('Sentetik fabrika baz verileri (24 İstasyon) tabloya başarıyla yüklendi.');
 }
 
-// Tarayıcı Hafızasına (localStorage) Kaydet
 function saveFormToLocalStorage() {
     const success = saveRealDataToStorage(activeStationsData);
     if (success) {
@@ -713,7 +687,6 @@ function saveFormToLocalStorage() {
     }
 }
 
-// Hafızayı Sıfırla
 function clearFormStorage() {
     if (confirm('Tarayıcıda saklanan gerçek veri silinip sentetik değerlere dönülsün mü?')) {
         clearRealDataStorage();
@@ -721,7 +694,6 @@ function clearFormStorage() {
     }
 }
 
-// Gerçek Veriyi Hesapla ve Önizle
 function previewRealData() {
     isPreviewMode = true;
     const banner = document.getElementById('previewModeBanner');
@@ -732,7 +704,6 @@ function previewRealData() {
     showTab('tab-istasyon');
 }
 
-// Sentetik Veriye Geri Dön
 function resetToSyntheticData() {
     isPreviewMode = false;
     const banner = document.getElementById('previewModeBanner');
@@ -743,8 +714,6 @@ function resetToSyntheticData() {
 }
 
 // ===== CSV DIŞA AKTARMA (data/real/ ŞABLONLARIYLA HARFİYEN BİREBİR) =====
-
-// 1. stations.csv Dışa Aktarma
 function exportStationsCSV() {
     const headers = [
         'istasyon_id',
@@ -789,12 +758,10 @@ function exportStationsCSV() {
     exportArrayToCSV(rows, headers, 'stations.csv');
 }
 
-// 2. consumption.csv Dışa Aktarma
 function exportConsumptionCSV() {
     const headers = ['dakika', 'istasyon_id', 'tuketim_adet'];
     const rows = [];
 
-    // Örneklem tablosundan satırları topla, eğer boşsa aktif istasyonlardan örnek 480 dakikalık zaman serisi üret
     const sampleTableRows = document.querySelectorAll('#tbodySampleInput tr');
     if (sampleTableRows.length > 0) {
         const selStation = document.getElementById('selectSampleStation') ? document.getElementById('selectSampleStation').value : 'S1';
@@ -811,7 +778,6 @@ function exportConsumptionCSV() {
         });
     }
 
-    // Eğer kullanıcı örneklem tablosuna satır girmemişse tüm istasyonlar için 1..10 dk başlangıç serisi ver
     if (rows.length === 0) {
         for (let t = 1; t <= 15; t++) {
             activeStationsData.forEach(st => {
@@ -828,8 +794,6 @@ function exportConsumptionCSV() {
 
     exportArrayToCSV(rows, headers, 'consumption.csv');
 }
-
-// ===== TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI FONKSİYONLARI =====
 
 function initSampleStationSelect() {
     const sel = document.getElementById('selectSampleStation');
@@ -848,7 +812,6 @@ function initDefaultSampleRows() {
     if (!tbody) return;
     tbody.innerHTML = '';
     
-    // Varsayılan 5 örnek satır
     const defaults = [
         { min: 5, qty: 2 },
         { min: 10, qty: 1 },
@@ -867,9 +830,9 @@ function addSampleRow(minVal, qtyVal) {
     const tr = document.createElement('tr');
     tr.innerHTML = 
         '<td>' + rowIdx + '</td>' +
-        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '"></td>' +
-        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '"></td>' +
-        '<td><button class="action-btn btn-danger" style="padding:2px 8px; font-size:11px;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
+        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
+        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
+        '<td><button class="btn-action btn-subtle" style="height:26px; padding:0 8px; font-size:11px; color:#F43F5E;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
     
     tbody.appendChild(tr);
 }
@@ -891,7 +854,6 @@ function calculateSampleStats() {
     const sum = values.reduce((a, b) => a + b, 0);
     const meanPerSample = sum / n;
     
-    // Ortalama dakika aralığı
     const minInputs = document.querySelectorAll('.sample-min');
     let totalDk = 30;
     if (minInputs.length >= 2) {
@@ -900,10 +862,8 @@ function calculateSampleStats() {
         totalDk = Math.max(5, lastMin - firstMin);
     }
     
-    // Saatlik tüketim hızı D hesabı: (Toplam Adet / Toplam Dakika) * 60
     const dSaatCalc = Math.max(1, Math.round((sum / totalDk) * 60));
     
-    // Standart sapma hesabı
     let stdCalc = 1.0;
     if (n > 1) {
         const variance = values.reduce((acc, val) => acc + Math.pow(val - meanPerSample, 2), 0) / (n - 1);
@@ -923,7 +883,7 @@ function calculateSampleStats() {
             resBox.style.display = 'block';
             resBox.innerHTML = 
                 '✅ <strong>Hesaplama Başarılı:</strong> ' + selStation + ' için ' + n + ' örneklem noktasından ortalama saatlik tüketim <strong>D = ' + dSaatCalc + ' adet/saat</strong> ' +
-                've standart sapma <strong>&sigma; = ' + stdCalc + ' adet/saat</strong> hesaplanarak 1. Bölümdeki tabloya aktarıldı.';
+                've standart sapma <strong>σ = ' + stdCalc + ' adet/saat</strong> hesaplanarak 1. Bölümdeki tabloya aktarıldı.';
         }
     }
 }
