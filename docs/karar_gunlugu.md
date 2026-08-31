@@ -620,8 +620,20 @@
 
 ---
 
+### K64 — K63 Sonrası 1920 Senaryoluk Veri Ambarının Yeniden Üretilmesi
+| Özellik | Değer |
+|---------|-------|
+| **Konu** | `dashboard_scenarios.csv/json` Dosyalarının K63 Dinamik SLACK Formülüyle Baştan Üretilmesi |
+| **Tetikleyici** | Veri ambarı K63 düzeltmesinden (20 Ağustos 2026) 4 gün önce (16 Ağustos 2026) üretilmişti; tüm SLACK satırları eski `tw_bitis - t` (EDD ile özdeş) formülüyle hesaplanmıştı. |
+| **Uygulanan Düzeltme** | `src/generate_dashboard_data.py`, K63 sonrası güncel `vrptw_solver.py` ile 12 CPU çekirdeğinde çalıştırıldı; 1920 senaryo 4.23 dakikada yeniden üretildi. |
+| **Kanıt** | `EDD == SLACK` senaryo grubu 480'den **23'e** düştü (%95.2 ayrışma). Kanonik (Araç=4, α=0.15, Baz, Dinamik-N): EDD=%24.58, SLACK=%24.66. |
+| **Mekanizma** | 479 dispatch anından 466'sında (%97.3) sıralama değişti; ancak `Q_arac=25 kutu` kapasitesi altında tüm aktif sinyaller sığdığından gerçek sinyal seçimi 0 anda değişti. 0.08 puanlık fark rota sırası ve TW zamanlama mikro değişikliklerinden kaynaklanıyor. |
+| **node --check** | `embedded_script.js` → Exit Code 0. |
+| **Kaynak** | `data/dashboard_scenarios.csv`, `data/dashboard_scenarios.json`, `dashboard.html`, commit `a0da6ac` |
+| **Tarih** | 31.08.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*
-
-
