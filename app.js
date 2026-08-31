@@ -159,6 +159,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showTab(hashTab);
             }
         }
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash) {
+                const h = window.location.hash.replace('#', '');
+                if (document.getElementById(h)) showTab(h);
+            }
+        });
     } catch (err) {
         console.error('Veri yükleme hatası:', err);
     }
@@ -170,11 +176,11 @@ function initAllCharts() {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { labels: { color: '#8B93B0', font: { family: 'Outfit', size: 11 } } }
+            legend: { labels: { color: '#475569', font: { family: 'Outfit', size: 11, weight: '500' } } }
         },
         scales: {
-            x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0', font: { size: 11 } } },
-            y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0', font: { size: 11 } } }
+            x: { grid: { color: 'rgba(0, 0, 0, 0.05)' }, ticks: { color: '#64748B', font: { size: 11 } } },
+            y: { grid: { color: 'rgba(0, 0, 0, 0.05)' }, ticks: { color: '#64748B', font: { size: 11 } } }
         }
     };
 
@@ -190,18 +196,18 @@ function initAllCharts() {
                     {
                         label: 'Dinamik E-Kanban (Starvation %)',
                         data: [],
-                        borderColor: '#4FD1C5',
-                        backgroundColor: 'rgba(79, 209, 197, 0.10)',
+                        borderColor: '#2563EB',
+                        backgroundColor: 'rgba(37, 99, 235, 0.08)',
                         fill: true,
                         tension: 0.25,
                         borderWidth: 2.5,
-                        pointBackgroundColor: '#4FD1C5',
+                        pointBackgroundColor: '#2563EB',
                         pointRadius: 4
                     },
                     {
                         label: 'Statik Baseline (%19.31 @ 4 Araç)',
                         data: [25.77, 21.35, 19.70, 19.31, 19.10, 18.96, 18.83, 18.68],
-                        borderColor: '#F59E0B',
+                        borderColor: '#D97706',
                         borderDash: [4, 4],
                         borderWidth: 1.8,
                         pointRadius: 0
@@ -209,7 +215,7 @@ function initAllCharts() {
                     {
                         label: 'Rekabetçilik Eşiği (<%5)',
                         data: [5, 5, 5, 5, 5, 5, 5, 5],
-                        borderColor: '#10B981',
+                        borderColor: '#059669',
                         borderDash: [6, 6],
                         borderWidth: 1.5,
                         pointRadius: 0
@@ -238,13 +244,13 @@ function initAllCharts() {
                     {
                         label: 'Tüm Senaryolar',
                         data: bgScatterData,
-                        backgroundColor: 'rgba(139, 147, 176, 0.25)',
-                        pointRadius: 2.5
+                        backgroundColor: 'rgba(148, 163, 184, 0.5)',
+                        pointRadius: 3
                     },
                     {
                         label: 'Seçili Senaryo',
                         data: [],
-                        backgroundColor: '#F43F5E',
+                        backgroundColor: '#E11D48',
                         borderColor: '#FFFFFF',
                         borderWidth: 2,
                         pointRadius: 8,
@@ -255,8 +261,8 @@ function initAllCharts() {
             options: {
                 ...chartConfigCommon,
                 scales: {
-                    x: { title: { display: true, text: 'Ortalama WIP Stok (adet)', color: '#8B93B0', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0' } },
-                    y: { title: { display: true, text: 'Starvation (%)', color: '#8B93B0', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#8B93B0' } }
+                    x: { title: { display: true, text: 'Ortalama WIP Stok (adet)', color: '#475569', font: { size: 11, weight: '600' } }, grid: { color: 'rgba(0, 0, 0, 0.05)' }, ticks: { color: '#64748B' } },
+                    y: { title: { display: true, text: 'Starvation (%)', color: '#475569', font: { size: 11, weight: '600' } }, grid: { color: 'rgba(0, 0, 0, 0.05)' }, ticks: { color: '#64748B' } }
                 }
             }
         });
@@ -274,7 +280,7 @@ function initAllCharts() {
                     {
                         label: 'Dinamik N (Mod B)',
                         data: [],
-                        backgroundColor: '#10B981',
+                        backgroundColor: '#059669',
                         borderRadius: 4
                     },
                     {
@@ -542,8 +548,8 @@ function renderStations() {
                 '<div class="st-rop-line" id="st-rop-mark-' + sid + '" style="left: 45%;"></div>' +
             '</div>' +
             '<div class="st-card-bottom">' +
-                '<span id="st-val-' + sid + '" style="font-weight:600; color:#E5E9F5;">Stok: ' + (st.n * st.c) + '</span>' +
-                '<span id="st-rop-' + sid + '" style="color:#FDE047;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
+                '<span id="st-val-' + sid + '" style="font-weight:600; color:#0F172A;">Stok: ' + (st.n * st.c) + '</span>' +
+                '<span id="st-rop-' + sid + '" style="font-weight:600; color:#D97706;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
             '</div>';
         
         grid.appendChild(card);
@@ -643,15 +649,15 @@ function renderDataEntryTable() {
         const tr = document.createElement('tr');
         tr.id = 'row-input-' + sid;
         tr.innerHTML = 
-            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#F43F5E;">⚠️</span>' : '') + '</td>' +
-            '<td><span style="background:#090C16; padding:2px 6px; border-radius:4px; font-size:11px; color:#8B93B0;">' + st.hat + '</span></td>' +
-            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
-            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
-            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
-            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
-            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:70px; text-align:center;"></td>' +
-            '<td id="calc-rop-' + sid + '" style="font-weight:600; color:#FDE047;">' + ropCalc + ' adet</td>' +
-            '<td id="calc-cap-' + sid + '" style="color:#4FD1C5;">' + maxCap + ' adet</td>';
+            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#E11D48;">⚠️</span>' : '') + '</td>' +
+            '<td><span style="background:#F1F5F9; padding:2px 6px; border-radius:4px; font-size:11px; color:#475569; font-weight:600;">' + st.hat + '</span></td>' +
+            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:80px; text-align:center; font-weight:500;"></td>' +
+            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:70px; text-align:center; font-weight:500;"></td>' +
+            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:70px; text-align:center; font-weight:500;"></td>' +
+            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:70px; text-align:center; font-weight:500;"></td>' +
+            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:70px; text-align:center; font-weight:500;"></td>' +
+            '<td id="calc-rop-' + sid + '" style="font-weight:700; color:#D97706;">' + ropCalc + ' adet</td>' +
+            '<td id="calc-cap-' + sid + '" style="font-weight:700; color:#2563EB;">' + maxCap + ' adet</td>';
         
         tbody.appendChild(tr);
     });
@@ -830,9 +836,9 @@ function addSampleRow(minVal, qtyVal) {
     const tr = document.createElement('tr');
     tr.innerHTML = 
         '<td>' + rowIdx + '</td>' +
-        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
-        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '" style="background:#090C16; border:1px solid #232A45; border-radius:6px; padding:4px 8px; color:#FFFFFF; width:80px; text-align:center;"></td>' +
-        '<td><button class="btn-action btn-subtle" style="height:26px; padding:0 8px; font-size:11px; color:#F43F5E;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
+        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:80px; text-align:center; font-weight:500;"></td>' +
+        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '" style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:4px 8px; color:#0F172A; width:80px; text-align:center; font-weight:500;"></td>' +
+        '<td><button class="btn-action btn-subtle" style="height:26px; padding:0 8px; font-size:11px; color:#E11D48;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
     
     tbody.appendChild(tr);
 }

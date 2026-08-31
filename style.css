@@ -1,34 +1,34 @@
 /* ==========================================================================
-   DINAMIK MILK-RUN & E-KANBAN KARAR DESTEK SISTEMI — 2026 TASARIM SISTEMI
-   Tasarim Ilkeleri: Linear / Vercel / Supabase Minimalist Dark System
-   Renk Disiplini: 1 Ana Zemin, 1 Kart Yuzeyi, 1 Vurgu, 3 Semantik Durum Rengi
+   DINAMIK MILK-RUN & E-KANBAN KARAR DESTEK SISTEMI — 2026 LIGHT THEME
+   Tasarim Ilkeleri: Modern, Ferah, Uyumlu, Yuksek Kontrastli Acik Tema
+   Renk Disiplini: Slate-50 Zemin, Saf Beyaz Kartlar, Indigo Vurgu, Net Semantik Durumlar
    Bosluk Sistemi: 8pt Taban Izgarasi (8px, 16px, 24px, 32px, 48px)
    ========================================================================== */
 
 :root {
-    /* Temel Renk Paleti (Kesin 5 Renk Kurali) */
-    --bg-main: #0B0E1A;          /* Neredeyse siyah, lacivert tonlu ana zemin */
-    --bg-card: #131829;          /* Kart yuzeyleri */
-    --bg-card-hover: #182035;    /* Kart hover durumu */
-    --border-subtle: #232A45;     /* Soluk ayrac cizgileri */
-    --border-focus: #4FD1C5;      /* Odaklanma kenarligi */
+    /* Temel Renk Paleti (Açık, Ferah ve Uyumlu) */
+    --bg-main: #F8FAFC;          /* Slate 50 — Yumusak, goz yormayan acik zemin */
+    --bg-card: #FFFFFF;          /* Saf beyaz kart yuzeyleri */
+    --bg-card-hover: #F1F5F9;    /* Slate 100 — Kart hover durumu */
+    --border-subtle: #E2E8F0;     /* Slate 200 — Ince, zarif ayrac cizgileri */
+    --border-focus: #2563EB;      /* Blue 600 — Odaklanma kenarligi */
     
     /* Tipografi Renkleri */
-    --text-primary: #E5E9F5;     /* Beyaza yakin net metin */
-    --text-secondary: #8B93B0;   /* Etiketler, aciklamalar, soluk metin */
-    --text-muted: #5A6282;       /* Cok soluk yardimci metin */
+    --text-primary: #0F172A;     /* Slate 900 — Net, keskin, koyu metin */
+    --text-secondary: #475569;   /* Slate 600 — Etiketler, aciklamalar */
+    --text-muted: #94A3B8;       /* Slate 400 — Yardimci soluk metin */
     
     /* TEK VURGU RENGI (Aksiyonlar, Aktif Sekme, Linkler) */
-    --accent-primary: #4FD1C5;   /* Turkuaz */
-    --accent-primary-dim: rgba(79, 209, 197, 0.12);
+    --accent-primary: #2563EB;   /* Royal Blue 600 */
+    --accent-primary-dim: rgba(37, 99, 235, 0.08);
     
     /* SEMANTIK DURUM RENKLERI (SADECE Gercek Durum Bildirimi Icin) */
-    --status-good: #10B981;      /* 🟢 Iyi / Hedef Ulasildi */
-    --status-good-dim: rgba(16, 185, 129, 0.12);
-    --status-warning: #F59E0B;   /* 🟡 Dikkat */
-    --status-warning-dim: rgba(245, 158, 11, 0.12);
-    --status-critical: #F43F5E;  /* 🔴 Kritik / Alarm */
-    --status-critical-dim: rgba(244, 63, 94, 0.12);
+    --status-good: #059669;      /* 🟢 Emerald 600 — Iyi / Hedef Ulasildi */
+    --status-good-dim: rgba(5, 150, 105, 0.08);
+    --status-warning: #D97706;   /* 🟡 Amber 600 — Dikkat */
+    --status-warning-dim: rgba(217, 119, 6, 0.08);
+    --status-critical: #E11D48;  /* 🔴 Rose 600 — Kritik / Alarm */
+    --status-critical-dim: rgba(225, 29, 72, 0.08);
 }
 
 /* ===== SIFIRLAMA VE TEMEL AYARLAR ===== */
@@ -58,7 +58,7 @@ body {
 /* ===== 64px SOL IKON SIDEBAR NAVIGASYONU ===== */
 .sidebar-nav {
     width: 64px;
-    background-color: #070913;
+    background-color: #FFFFFF;
     border-right: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
@@ -69,20 +69,21 @@ body {
     height: 100vh;
     z-index: 1000;
     flex-shrink: 0;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.02);
 }
 
 .sidebar-logo {
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
+    font-size: 22px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--accent-primary-dim);
     color: var(--accent-primary);
-    border-radius: 12px;
+    border-radius: 10px;
     margin-bottom: 24px;
-    border: 1px solid rgba(79, 209, 197, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .sidebar-menu {
@@ -101,8 +102,8 @@ body {
 }
 
 .sidebar-btn {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border-radius: 10px;
     background: transparent;
     border: none;
@@ -117,7 +118,7 @@ body {
 }
 
 .sidebar-btn:hover {
-    background: var(--bg-card);
+    background: var(--bg-main);
     color: var(--text-primary);
 }
 
@@ -129,7 +130,7 @@ body {
 .sidebar-btn.active::before {
     content: '';
     position: absolute;
-    left: -8px;
+    left: -9px;
     top: 10px;
     bottom: 10px;
     width: 3px;
@@ -143,8 +144,8 @@ body {
     left: 68px;
     top: 50%;
     transform: translateY(-50%);
-    background: #171E36;
-    border: 1px solid var(--border-subtle);
+    background: #0F172A;
+    border: 1px solid #1E293B;
     border-radius: 8px;
     padding: 8px 12px;
     width: 220px;
@@ -152,7 +153,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.15s ease, transform 0.15s ease;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
     z-index: 2000;
 }
 
@@ -165,13 +166,13 @@ body {
 .nav-tooltip-title {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #F8FAFC;
     margin-bottom: 2px;
 }
 
 .nav-tooltip-desc {
     font-size: 11px;
-    color: var(--text-secondary);
+    color: #94A3B8;
     line-height: 1.35;
 }
 
@@ -209,19 +210,20 @@ body {
     color: var(--text-secondary);
 }
 
-/* KUCULTULMUS METHODOLOGY TOOLTIP IKONU */
+/* METHODOLOGY TOOLTIP IKONU */
 .info-popover-trigger {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(245, 158, 11, 0.08);
-    border: 1px solid rgba(245, 158, 11, 0.25);
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 12px;
-    color: #FDE047;
+    color: #92400E;
     cursor: help;
     position: relative;
+    font-weight: 500;
 }
 
 .info-popover-trigger:hover .popover-content {
@@ -234,14 +236,14 @@ body {
     right: 0;
     top: calc(100% + 8px);
     width: 320px;
-    background: #171E36;
-    border: 1px solid var(--border-subtle);
+    background: #0F172A;
+    border: 1px solid #1E293B;
     border-radius: 8px;
     padding: 12px 14px;
     font-size: 11px;
-    color: var(--text-secondary);
+    color: #E2E8F0;
     line-height: 1.45;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     opacity: 0;
     visibility: hidden;
     transition: all 0.15s ease;
@@ -254,6 +256,7 @@ body {
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 /* ===== SEKME 1: OZET EKRANI DÜZENİ ===== */
@@ -296,17 +299,18 @@ body {
     justify-content: space-between;
     min-height: 135px;
     position: relative;
-    transition: border-color 0.15s ease;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .kpi-card.status-good {
-    border-left: 3px solid var(--status-good);
+    border-left: 4px solid var(--status-good);
 }
 .kpi-card.status-warning {
-    border-left: 3px solid var(--status-warning);
+    border-left: 4px solid var(--status-warning);
 }
 .kpi-card.status-critical {
-    border-left: 3px solid var(--status-critical);
+    border-left: 4px solid var(--status-critical);
 }
 
 .kpi-header {
@@ -340,11 +344,11 @@ body {
 
 .kpi-label {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
 }
 
-/* ANA HERO RAKAM (NET BEYAZ, ASLA TURUNCU/KIRMIZI DEGIL) */
+/* ANA HERO RAKAM (NET KOYU SLATE) */
 .kpi-value-hero {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 38px;
@@ -364,15 +368,16 @@ body {
 
 /* DINAMIK YORUM KUTUSU */
 .comment-card {
-    background: rgba(79, 209, 197, 0.04);
-    border: 1px solid rgba(79, 209, 197, 0.2);
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
     border-radius: 12px;
     padding: 14px 18px;
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 13px;
-    color: #D1F2EE;
+    color: #1E40AF;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.05);
 }
 
 /* ===== SEKME 2: WHAT-IF SIMULATORU ===== */
@@ -399,6 +404,7 @@ body {
     position: sticky;
     top: 24px;
     height: fit-content;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .control-group {
@@ -412,7 +418,8 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-secondary);
 }
 
 .control-val {
@@ -426,7 +433,7 @@ input[type="range"] {
     accent-color: var(--accent-primary);
     cursor: pointer;
     height: 6px;
-    background: #1F2847;
+    background: #E2E8F0;
     border-radius: 3px;
 }
 
@@ -454,7 +461,7 @@ input[type="range"] {
     justify-content: center;
     min-height: 38px;
     padding: 6px 10px;
-    background: #0D1120;
+    background: #F8FAFC;
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
     font-size: 12px;
@@ -466,9 +473,10 @@ input[type="range"] {
 }
 
 .chip-btn input:checked + .chip-label {
-    background: var(--accent-primary-dim);
+    background: #EFF6FF;
     border-color: var(--accent-primary);
     color: var(--accent-primary);
+    font-weight: 700;
 }
 
 /* WHAT-IF KPI BAR */
@@ -489,6 +497,7 @@ input[type="range"] {
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
     padding: 12px 14px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .mini-kpi-val {
@@ -521,11 +530,12 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .chart-title {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
@@ -534,7 +544,7 @@ input[type="range"] {
     color: var(--text-secondary);
 }
 
-/* ===== SEKME 3: 6x4 ISTASYON HARITASI IZGARASI (KESINLIKLE GRID) ===== */
+/* ===== SEKME 3: 6x4 ISTASYON HARITASI IZGARASI ===== */
 .stations-section {
     display: flex;
     flex-direction: column;
@@ -551,6 +561,7 @@ input[type="range"] {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .legend-bar {
@@ -582,7 +593,7 @@ input[type="range"] {
 }
 
 .st-card {
-    background: #11162A !important;
+    background: #FFFFFF !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: 10px !important;
     padding: 10px 12px !important;
@@ -591,28 +602,30 @@ input[type="range"] {
     justify-content: space-between !important;
     min-height: 98px !important;
     position: relative !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
     transition: all 0.15s ease !important;
 }
 
 .st-card:hover {
     border-color: var(--accent-primary) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1) !important;
 }
 
 .st-card.border-good {
-    border-left: 3px solid var(--status-good) !important;
+    border-left: 4px solid var(--status-good) !important;
 }
 .st-card.border-warning {
-    border-left: 3px solid var(--status-warning) !important;
+    border-left: 4px solid var(--status-warning) !important;
 }
 .st-card.border-critical {
-    border-left: 3px solid var(--status-critical) !important;
+    border-left: 4px solid var(--status-critical) !important;
 }
 
 .st-card.is-fragile {
-    border: 1px solid rgba(244, 63, 94, 0.7) !important;
-    border-left: 3px solid var(--status-critical) !important;
+    border: 1px solid rgba(225, 29, 72, 0.5) !important;
+    border-left: 4px solid var(--status-critical) !important;
+    background: #FFF1F2 !important;
 }
 
 .st-card-top {
@@ -630,15 +643,16 @@ input[type="range"] {
 
 .st-card-hat {
     font-size: 10px;
+    font-weight: 600;
     color: var(--text-secondary);
-    background: #090C16;
+    background: #F1F5F9;
     padding: 2px 6px;
     border-radius: 4px;
 }
 
 .st-bar-wrap {
     position: relative;
-    background: #0A0D1A;
+    background: #E2E8F0;
     height: 6px;
     border-radius: 3px;
     margin: 8px 0;
@@ -660,7 +674,8 @@ input[type="range"] {
     top: -3px;
     bottom: -3px;
     width: 2px;
-    background: #FDE047;
+    background: #B45309;
+    box-shadow: 0 0 2px #B45309;
     z-index: 2;
 }
 
@@ -668,6 +683,7 @@ input[type="range"] {
     display: flex;
     justify-content: space-between;
     font-size: 11px;
+    font-weight: 500;
     color: var(--text-secondary);
 }
 
@@ -678,6 +694,7 @@ input[type="range"] {
     border-radius: 12px;
     padding: 16px 20px;
     overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .modern-table {
@@ -692,21 +709,21 @@ input[type="range"] {
     font-weight: 600;
     padding: 12px 14px;
     border-bottom: 1px solid var(--border-subtle);
-    background: #0B0F1E;
+    background: #F8FAFC;
 }
 
 .modern-table td {
     padding: 12px 14px;
-    border-bottom: 1px solid rgba(35, 42, 69, 0.4);
+    border-bottom: 1px solid var(--border-subtle);
     color: var(--text-primary);
 }
 
 .modern-table tbody tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.015);
+    background: #F8FAFC;
 }
 
 .modern-table tbody tr:hover {
-    background: rgba(79, 209, 197, 0.03);
+    background: #EFF6FF;
 }
 
 /* ACTION BUTTONS (TUTARLI 38px YUKSEKLIK) */
@@ -726,26 +743,27 @@ input[type="range"] {
 
 .btn-action.btn-accent {
     background: var(--accent-primary);
-    color: #0B0E1A;
+    color: #FFFFFF;
 }
 .btn-action.btn-accent:hover {
-    background: #6FE3D8;
+    background: #1D4ED8;
 }
 
 .btn-action.btn-subtle {
-    background: #171E36;
+    background: #FFFFFF;
     border-color: var(--border-subtle);
-    color: var(--text-primary);
+    color: var(--text-secondary);
 }
 .btn-action.btn-subtle:hover {
-    background: #202947;
+    background: #F1F5F9;
+    color: var(--text-primary);
 }
 
 .btn-action.btn-warning {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: rgba(245, 158, 11, 0.3);
-    color: #FDE047;
+    background: #FEF3C7;
+    border-color: #FDE68A;
+    color: #92400E;
 }
 .btn-action.btn-warning:hover {
-    background: rgba(245, 158, 11, 0.25);
+    background: #FDE68A;
 }
