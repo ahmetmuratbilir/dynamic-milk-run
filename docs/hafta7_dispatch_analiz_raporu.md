@@ -2,13 +2,16 @@
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
 > 
-> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10 & 12 Denetimi):**
+> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10, 12 & 13 Denetimi):**
 > > 1. **Raf-Tavanı Kısıtı ($stok \le N \times C$):** Bu rapordaki ilk veriler tavan kısıtı uygulanmamış erken dönem çıktısıdır. Tavan kısıtı uygulandığında EDD duruşu %24.58 (deterministik) ve %26.50 (30 stokastik replikasyon) olarak doğrulanmıştır.
-> > 2. **SLACK Formülü Matematiksel Düzeltmesi (K63):** Erken dönem kodundaki `tw_bitis - t` formülü, karar anı $t$'nin sabitliği nedeniyle EDD ile matematiksel olarak özdeş sıralama üretiyordu. Denetim sonrası klasik çizelgeleme teorisine uygun olarak dinamik seyahat ve elleçleme süreli formüle geçilmiştir:
-> >    $$\text{Slack}_i(t) = \text{tw\_bitis}_i - \left(t + T_{\text{yükleme}} + \text{TT}(0, i) + T_{\text{boşaltma}}\right)$$
-> >    Bu düzeltmeyle SLACK kuralı, depodan uzak olan istasyonların zaman marjını hassas ölçerek EDD'den matematiksel ve operasyonel olarak ayrışmış ve 30 replikasyonda %26.497 ile en iyi performansı vermiştir.
+> > 2. **SLACK Formülü Matematiksel Düzeltmesi (K63, 20.08.2026):** Erken dönem kodundaki `tw_bitis - t` formülü EDD ile özdeş sıralama üretiyordu. Dinamik seyahat ve elleçleme süreli formüle geçildi: $\text{Slack}_i(t) = \text{tw\_bitis}_i - (t + T_L + \text{TT}(0,i) + T_U)$. Bu düzeltme Hafta 5-7'nin doğal parçası değildi; 20 Ağustos 2026 tarihli bir denetim düzeltmesidir.
+> > 3. **"SLACK Üstündür" İddiasının İstatistiksel Düzeltmesi (K64, 31.08.2026):** K63 formülüyle 30 stokastik replikasyon yeniden çalıştırıldı ve EDD vs SLACK doğrudan Welch t-testi uygulandı:
+> >    - **4 Araç:** EDD=%26.503, SLACK=%26.497, delta=−0.006 puan, **p=0.913 → ANLAMLI DEĞİL**
+> >    - **2 Araç:** EDD=%60.964, SLACK=%60.960, delta=−0.004 puan, **p=0.935 → ANLAMLI DEĞİL**
+> >    
+> >    **Düzeltilmiş Bulgu:** EDD, SLACK ve FIFO arasında istatistiksel olarak anlamlı bir fark bulunamadı. Bu üç kural birbirine eşdeğerdir ve herhangi biri seçilebilir. KRİTİKLİK ise her ikisinden de anlamlı biçimde daha kötüdür (p<0.0001, Δ≈+1.33 puan).
 
-**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44, K63  
+**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44, K63, K64  
 **Bkz.:** `karar_gunlugu.md`, `hafta6_filo_analiz_raporu.md`
 
 
@@ -142,8 +145,8 @@ H6'da analitik model (Körösi 2026) 4 araç önerirken simülasyon %19.46 starv
 
 ## 5. Sonuç ve Sonraki Adım
 
-- **Dispatch kuralı istatistiksel olarak anlamlı etkiye sahiptir** (p<0.0001): EDD/SLACK/FIFO, KRITIKLIK'ten ~1.3 puan daha iyi starvation sağlamaktadır.
+- **Dispatch kuralı istatistiksel olarak anlamlı etkiye sahiptir** (p<0.0001): EDD/SLACK/FIFO, KRİTİKLİK'ten ~1.3 puan daha iyi starvation sağlamaktadır.
 - Ancak **etki büyüklüğü nispeten küçüktür** (~1.3 puan); filo artırımının marjinal etkisinin (14–17 puan) yaklaşık 1/12'si kadardır.
-- Mevcut sinyal altyapısında (`lt_dk=45 dk` sabit) EDD, SLACK ve FIFO **pratik olarak özdeş** performans sergilemektedir.
-- KRITIKLIK'in (K26) yerini EDD veya SLACK alabilir — bu değişikliğin projede uygulanması için K45 kararı gereklidir.
+- **EDD, SLACK ve FIFO birbirine istatistiksel olarak eşdeğerdir** (K64 Welch t-testi: p=0.913). "SLACK en iyi kuraldır" iddiası istatistiksel kanıt taşımamaktadır — bu üç kural arasında herhangi biri seçilebilir.
+- KRİTİKLİK'in (K26) yerini EDD veya SLACK alabilir — bu değişikliğin projede uygulanması için K45 kararı gereklidir.
 - **Sonraki adım (Hafta 8):** Gerçek veri entegrasyonu (`config.json → "real"`) ve parametrelerin gerçek veriyle yeniden kalibrasyonu; gerçek `lt_dk` dağılımıyla EDD vs SLACK farkının gözlemlenmesi.

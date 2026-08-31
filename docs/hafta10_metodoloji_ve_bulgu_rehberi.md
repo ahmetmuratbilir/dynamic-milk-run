@@ -226,14 +226,19 @@ ERRATA (HAFTA 10 DÜZELTMESİ — TAVANLI KARŞILAŞTIRMA):
   KRİTİKLİK en kritik istasyona önce gidiyor → orada stok dolup tavana çarpıyor →
   diğer istasyonlara geç kalıyor. EDD'de tavan etkisi daha eşit dağılıyor (+1.74 puan).
 
-TEMEL ÇIKARIM:
-  Dispatch kuralları birbirinden çok az farklılaşıyor çünkü 2 araçla sistem
-  zaten kapasitesinde — hangi kuralı kullanırsanız kullanın araçlar yetişemiyor.
+TEMEL ÇIKARIM (K64 istatistiksel düzeltmesiyle güncellenmiştir, 31.08.2026):
+  EDD, SLACK ve FIFO birbirine istatistiksel olarak eşdeğerdir — Welch t-testi
+  (30 replikasyon, K63 formülüyle): p=0.913 (4 araç), p=0.935 (2 araç).
+  "SLACK en iyi kuraldır" iddiası istatistiksel kanıt taşımamaktadır.
+  Doğru ifade: EDD, SLACK ve FIFO arasında anlamlı bir fark bulunamadı; bu
+  üç kural birbirine eşdeğerdir ve herhangi biri seçilebilir. KRİTİKLİK ise
+  her üçünden de istatistiksel olarak anlamlı biçimde daha kötüdür (p<0.0001,
+  Δ≈+1.33 puan).
   EDD Hafta 8-10'da baz kural olarak seçildi çünkü:
   (1) Literatürde en yaygın kullanılan
   (2) Zaman penceresini doğrudan dikkate alıyor
-  (3) SLACK ile neredeyse özdeş performans
-  (4) Tavan kısıtı altında KRİTİKLİK'e göre 3.47 puan daha iyi
+  (3) SLACK ve FIFO ile istatistiksel olarak özdeş (p>0.9)
+  (4) Tavan kısıtı altında KRİTİKLİK'e göre ~3.47 puan daha iyi
 
 ### HAFTA 8: Statik vs Dinamik Kapsamlı Karşılaştırma
 

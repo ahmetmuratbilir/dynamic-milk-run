@@ -620,17 +620,21 @@
 
 ---
 
-### K64 — K63 Sonrası 1920 Senaryoluk Veri Ambarının Yeniden Üretilmesi
+### K64 — K63 Sonrası 1920 Senaryoluk Veri Ambarının Yeniden Üretilmesi + EDD/SLACK/FIFO İstatistiksel Eşdeğerlik Testi
 | Özellik | Değer |
 |---------|-------|
-| **Konu** | `dashboard_scenarios.csv/json` Dosyalarının K63 Dinamik SLACK Formülüyle Baştan Üretilmesi |
-| **Tetikleyici** | Veri ambarı K63 düzeltmesinden (20 Ağustos 2026) 4 gün önce (16 Ağustos 2026) üretilmişti; tüm SLACK satırları eski `tw_bitis - t` (EDD ile özdeş) formülüyle hesaplanmıştı. |
-| **Uygulanan Düzeltme** | `src/generate_dashboard_data.py`, K63 sonrası güncel `vrptw_solver.py` ile 12 CPU çekirdeğinde çalıştırıldı; 1920 senaryo 4.23 dakikada yeniden üretildi. |
-| **Kanıt** | `EDD == SLACK` senaryo grubu 480'den **23'e** düştü (%95.2 ayrışma). Kanonik (Araç=4, α=0.15, Baz, Dinamik-N): EDD=%24.58, SLACK=%24.66. |
-| **Mekanizma** | 479 dispatch anından 466'sında (%97.3) sıralama değişti; ancak `Q_arac=25 kutu` kapasitesi altında tüm aktif sinyaller sığdığından gerçek sinyal seçimi 0 anda değişti. 0.08 puanlık fark rota sırası ve TW zamanlama mikro değişikliklerinden kaynaklanıyor. |
+| **Konu** | `dashboard_scenarios.csv/json` K63 Formülüyle Yeniden Üretimi ve "SLACK Üstündür" İddiasının İstatistiksel Sınanması |
+| **Tetikleyici** | Veri ambarı K63 düzeltmesinden (20.08.2026) 4 gün önce (16.08.2026) üretilmişti; tüm SLACK satırları eski `tw_bitis - t` formülüyle hesaplanmıştı. Ayrıca K46'daki "SLACK en iyi kuraldır" istatistiksel iddiası eski bozuk formüle dayanıyordu ve K63 sonrası yeniden doğrulanmamıştı. |
+| **Uygulanan Düzeltme 1** | `src/generate_dashboard_data.py`, K63 sonrası güncel `vrptw_solver.py` ile 12 CPU çekirdeğinde çalıştırıldı; 1920 senaryo 4.23 dakikada yeniden üretildi. `EDD == SLACK` senaryo grubu 480'den **23'e** düştü (%95.2 ayrışma). |
+| **Uygulanan Düzeltme 2** | K63 formülüyle 30 stokastik replikasyon çalıştırıldı; EDD vs SLACK doğrudan Welch t-testi uygulandı. |
+| **İstatistiksel Sonuç** | **4 Araç:** EDD=%26.503, SLACK=%26.497, delta=−0.006 puan, **t=0.11, p=0.913** → ANLAMLI DEĞİL. **2 Araç:** EDD=%60.964, SLACK=%60.960, delta=−0.004 puan, **t=0.08, p=0.935** → ANLAMLI DEĞİL. |
+| **Düzeltilmiş Bulgu** | "SLACK en iyi sevk kuralıdır" iddiası istatistiksel kanıt taşımamaktadır. **Doğru ifade:** EDD, SLACK ve FIFO arasında istatistiksel olarak anlamlı bir fark bulunamadı; bu üç kural birbirine eşdeğerdir. KRİTİKLİK her üçünden de anlamlı biçimde daha kötüdür (p<0.0001, Δ≈+1.33 puan). |
+| **Mekanizma** | 479 dispatch anından 466'sında (%97.3) sıralama değişti; ancak `Q_arac=25 kutu` kapasitesi altında gerçek sinyal seçimi 0 anda değişti. 0.08 puanlık fark rota sırası ve TW zamanlama mikro değişikliklerinden kaynaklanıyor. |
+| **Güncellenen Dosyalar** | `docs/hafta7_dispatch_analiz_raporu.md` (ERRATA + Sonuç), `docs/hafta10_metodoloji_ve_bulgu_rehberi.md` (TEMEL ÇIKARIM), `data/dashboard_scenarios.csv/json`, `dashboard.html` |
 | **node --check** | `embedded_script.js` → Exit Code 0. |
-| **Kaynak** | `data/dashboard_scenarios.csv`, `data/dashboard_scenarios.json`, `dashboard.html`, commit `a0da6ac` |
+| **Commit** | `a0da6ac` (veri), `6e96129` (K64 ilk), bu commit (K64 istatistiksel güncelleme) |
 | **Tarih** | 31.08.2026 |
+
 
 ---
 
