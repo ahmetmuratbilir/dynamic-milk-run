@@ -117,12 +117,161 @@
             </div>
         </div>
 
-        <!-- SEKME 2: WHAT-IF SİMÜLATÖR (Adım 2 Placeholder) -->
+        <!-- SEKME 2: WHAT-IF SİMÜLATÖR -->
         <div id="tab-whatif" class="tab-content">
-            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
-                <div style="font-size: 36px; margin-bottom: 12px;">🎛️</div>
-                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">What-If Simülatör</h3>
-                <p>Bu sekme Adım 2'de slider kontrolleri, Pareto scatter ve K55 grafikleriyle donatılacaktır.</p>
+            <div class="dashboard-grid">
+                <!-- Sol Taraf: Sabit Slider Kontrol Paneli -->
+                <aside class="control-panel glass-card" style="position: sticky; top: 70px; height: fit-content;">
+                    <div class="panel-title">
+                        <span class="icon">🎛️</span>
+                        <h2>Senaryo Parametreleri</h2>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="sliderArac">Filo Büyüklüğü (Araç Sayısı)</label>
+                            <span class="val-display" id="valArac">4 Araç</span>
+                        </div>
+                        <input type="range" id="sliderArac" min="1" max="8" step="1" value="4">
+                        <div class="range-marks">
+                            <span>1</span><span>2</span><span>3</span><span>4 (Baz)</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="sliderAlpha">Güvenlik Katsayısı (&alpha; Tamponu)</label>
+                            <span class="val-display" id="valAlpha">0.15 (%15)</span>
+                        </div>
+                        <input type="range" id="sliderAlpha" min="0.05" max="0.30" step="0.05" value="0.15">
+                        <div class="range-marks">
+                            <span>0.05</span><span>0.15 (Baz)</span><span>0.30</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group toggle-group">
+                        <div class="control-label">
+                            <label>Kanban Kart Boyutlandırma Modu (K55)</label>
+                            <span class="info-tag" title="K55 Bulgusu: Dinamik N modunda alpha 3.4 kat daha güçlü etki eder.">ℹ️ K55 Notu</span>
+                        </div>
+                        <div class="toggle-switch">
+                            <input type="radio" id="modDinamik" name="nModu" value="Dinamik_N" checked>
+                            <label for="modDinamik">Dinamik N (Mod B)</label>
+                            
+                            <input type="radio" id="modSabit" name="nModu" value="Sabit_N">
+                            <label for="modSabit">Sabit N (Mod A)</label>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="sliderTalep">Talep Şoku / Değişimi</label>
+                            <span class="val-display" id="valTalep">%0 (Baz)</span>
+                        </div>
+                        <input type="range" id="sliderTalep" min="-20" max="20" step="10" value="0">
+                        <div class="range-marks">
+                            <span>-%20</span><span>-%10</span><span>%0</span><span>+%10</span><span>+%20</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label>Dispatch (Sevk Önceliği) Kuralı</label>
+                            <span class="info-tag" title="Hafta 7 / K64 Bulgusu: EDD/SLACK/FIFO istatistiksel eşdeğerdir (p=0.913).">ℹ️ K64 Notu</span>
+                        </div>
+                        <div class="radio-grid">
+                            <label class="radio-card">
+                                <input type="radio" name="dispatch" value="EDD" checked>
+                                <span class="radio-btn"><strong>EDD</strong> (Deadline En Yakın)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="dispatch" value="SLACK">
+                                <span class="radio-btn"><strong>SLACK</strong> (Zaman Gevşekliği)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="dispatch" value="FIFO">
+                                <span class="radio-btn"><strong>FIFO</strong> (İlk Gelen İlk)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="dispatch" value="KRITIKLIK">
+                                <span class="radio-btn"><strong>KRİTİKLİK</strong> (En Az Stok)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="scenario-meta" style="font-size:11px; color:var(--text-muted); padding:8px 0; border-top:1px solid var(--border-color);">
+                        ⚡ <strong>Doğrulanmış Veri Ambarı:</strong> 1.920 Senaryo K57 Kanonik Motoru ile anlık filtrelenir.
+                    </div>
+                </aside>
+
+                <!-- Sağ Taraf: Canlı KPI Kartları + Pareto + K55 Grafikleri -->
+                <main class="main-content" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- What-If Anlık KPI Şeridi -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card glass-card">
+                            <div class="kpi-header">
+                                <span class="kpi-title">Anlık Starvation (%)</span>
+                                <span class="kpi-icon">🚨</span>
+                            </div>
+                            <div class="kpi-value" id="wiStarvVal">%24.58</div>
+                            <div class="kpi-sub" id="wiStarvDk">2,832 / 11,520 dk</div>
+                            <div class="kpi-target-badge" id="wiTargetBadge">Eşik: <%5 (YETERSİZ 🚨)</div>
+                        </div>
+
+                        <div class="kpi-card glass-card">
+                            <div class="kpi-header">
+                                <span class="kpi-title">Ortalama WIP</span>
+                                <span class="kpi-icon">📦</span>
+                            </div>
+                            <div class="kpi-value" id="wiWipVal">182.3</div>
+                            <div class="kpi-sub">Adet / Hat Başı Stok</div>
+                            <div class="kpi-footer-note">Tavan korumalı</div>
+                        </div>
+
+                        <div class="kpi-card glass-card">
+                            <div class="kpi-header">
+                                <span class="kpi-title">Statik vs Dinamik Farkı</span>
+                                <span class="kpi-icon">⚖️</span>
+                            </div>
+                            <div class="kpi-value highlight-stat" id="wiFarkVal">+5.27 puan</div>
+                            <div class="kpi-sub" id="wiFarkSub">Seçili araç için statik baseline referansı</div>
+                            <div class="kpi-footer-note" id="wiFarkNote">K58 80dk simülasyonu</div>
+                        </div>
+
+                        <div class="kpi-card glass-card">
+                            <div class="kpi-header">
+                                <span class="kpi-title">Filo Doluluğu</span>
+                                <span class="kpi-icon">🚚</span>
+                            </div>
+                            <div class="kpi-value" id="wiDolulukVal">%78.4</div>
+                            <div class="kpi-sub">Kapasite Kullanımı</div>
+                            <div class="kpi-footer-note">Q=25 Kutu</div>
+                        </div>
+                    </div>
+
+                    <!-- 2 Grafik: Pareto Scatter + K55 Alpha Bar -->
+                    <div class="charts-grid">
+                        <div class="chart-card glass-card">
+                            <div class="chart-header">
+                                <h3>WIP vs Starvation Pareto Trade-off</h3>
+                                <span class="chart-subtitle">Stok Miktarı ile Duruş Süresi Arasındaki Gerilim (Kırmızı Nokta: Seçili Senaryo)</span>
+                            </div>
+                            <div class="chart-body" style="height: 320px;">
+                                <canvas id="chartPareto"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card glass-card">
+                            <div class="chart-header">
+                                <h3>K55 Güvenlik Katsayısı (&alpha;) Duyarlılık Karşılaştırması</h3>
+                                <span class="chart-subtitle">Dinamik N (Mod B) vs Sabit N (Mod A) Karşılaştırması (Seçili Araç İçin)</span>
+                            </div>
+                            <div class="chart-body" style="height: 320px;">
+                                <canvas id="chartAlpha"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
         </div>
 
