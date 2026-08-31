@@ -26,10 +26,8 @@ def build():
         scenariosData = await response.json();
         console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo.');
         
-        initEventListeners();
-        initCharts();
-        renderStations();
-        updateDashboard();
+        initOzetCharts();
+        updateOzetView();
     } catch (err) {
         console.error('Veri yükleme hatası:', err);
     }
@@ -37,10 +35,8 @@ def build():
 
     standalone_init = """document.addEventListener('DOMContentLoaded', () => {
     console.log('Gömülü Veri Ambarı Yüklendi: ' + scenariosData.length + ' senaryo.');
-    initEventListeners();
-    initCharts();
-    renderStations();
-    updateDashboard();
+    initOzetCharts();
+    updateOzetView();
 });"""
 
     js_embedded = js_embedded.replace(fetch_block, standalone_init)
@@ -53,19 +49,6 @@ def build():
     clean_html = html_template.replace('<link rel="stylesheet" href="style.css">', '<style>\n' + css_content + '\n</style>')
     clean_html = clean_html.replace('<script src="app.js"></script>', '<script>\n' + js_embedded + '\n</script>')
 
-    if 'id="stationsGrid"' not in clean_html:
-        sec5 = """
-                <div class="chart-card glass-card full-width">
-                    <div class="chart-header">
-                        <h3>Bölüm 5 — 24 İstasyon Bazlı Stok ve ROP Durum Takibi</h3>
-                        <span class="chart-subtitle">🟢 Stok > ROP | 🟡 Stok &le; ROP (Sinyal) | 🔴 Kritik Stok | <strong style="color:var(--accent-rose);">S16 En Kırılgan İstasyon</strong></span>
-                    </div>
-                    <div class="stations-grid" id="stationsGrid">
-                    </div>
-                </div>
-        """
-        clean_html = clean_html.replace('<div class="table-card glass-card">', sec5 + '\n<div class="table-card glass-card">')
-
     with open('dashboard.html', 'w', encoding='utf-8') as f:
         f.write(clean_html)
 
@@ -73,4 +56,3 @@ def build():
 
 if __name__ == '__main__':
     build()
-

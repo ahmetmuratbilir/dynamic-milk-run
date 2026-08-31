@@ -13,6 +13,7 @@
 <body>
 
     <div class="app-container">
+        <!-- HEADER -->
         <header class="main-header">
             <div class="brand">
                 <div class="logo-icon">⚡</div>
@@ -22,248 +23,144 @@
                 </div>
             </div>
 
-            <div class="methodology-badge" id="methodologyBadge">
-                <div class="badge-header">
-                    <span class="badge-icon">💡</span>
-                    <strong>METODOLOJİK BİLGİ NOTU (SEED=42 BASELINE)</strong>
-                </div>
-                <div class="badge-body">
-                    Dashboard verileri deterministik baseline (<code>seed=42</code>) üzerinedir. 
-                    Stokastik talep koşullarında Statik vs Dinamik duruş farkı 
-                    <strong>~3.0 – 5.0 puan</strong> aralığına daralır (bkz. <em>Tez Metodoloji Bölüm 7</em>).
-                </div>
+            <div class="compact-badge" title="Stokastik talep koşullarında Statik vs Dinamik duruş farkı ~3.0–5.0 puan aralığına daralır.">
+                <span>💡</span> <strong>Deterministik Baseline (Seed=42)</strong> · Stokastik: ~3-5 Puan
             </div>
         </header>
 
-        <div class="dashboard-grid">
-            
-            <aside class="control-panel glass-card">
-                <div class="panel-title">
-                    <span class="icon">🎛️</span>
-                    <h2>What-If Senaryo Parametreleri</h2>
-                </div>
+        <!-- 5 SEKMELİ NAVİGASYON BARI -->
+        <nav class="tab-nav">
+            <button class="tab-button active" data-tab="tab-ozet" onclick="showTab('tab-ozet')">📊 Özet</button>
+            <button class="tab-button" data-tab="tab-whatif" onclick="showTab('tab-whatif')">🎛️ What-If Simülatör</button>
+            <button class="tab-button" data-tab="tab-istasyon" onclick="showTab('tab-istasyon')">🏭 İstasyon Haritası</button>
+            <button class="tab-button" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')">⚖️ Statik vs Dinamik</button>
+            <button class="tab-button" data-tab="tab-veri-girisi" onclick="showTab('tab-veri-girisi')">📥 Veri Girişi</button>
+        </nav>
 
-                <div class="control-group">
-                    <div class="control-label">
-                        <label for="sliderArac">Filo Büyüklüğü (Araç Sayısı)</label>
-                        <span class="val-display" id="valArac">4 Araç</span>
+        <!-- SEKME 1: ÖZET EKRANI (Varsayılan Açık) -->
+        <div id="tab-ozet" class="tab-content" style="display:block;">
+            <div class="ozet-container">
+                <!-- Üst Bilgi Şeridi -->
+                <div class="ozet-top-bar">
+                    <div class="scenario-pill" id="ozetScenarioPill">
+                        📌 <strong>Baz Parametreler:</strong> 4 Araç · &alpha;=0.15 · EDD · Dinamik-N · Baz Talep (%0)
                     </div>
-                    <input type="range" id="sliderArac" min="1" max="8" step="1" value="4">
-                    <div class="range-marks">
-                        <span>1</span><span>2</span><span>3</span><span>4 (Baz)</span><span>5</span><span>6</span><span>7</span><span>8</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="control-label">
-                        <label for="sliderAlpha">Güvenlik Katsayısı (&alpha; Tamponu)</label>
-                        <span class="val-display" id="valAlpha">0.15 (%15)</span>
-                    </div>
-                    <input type="range" id="sliderAlpha" min="0.05" max="0.30" step="0.05" value="0.15">
-                    <div class="range-marks">
-                        <span>0.05</span><span>0.15 (Baz)</span><span>0.30</span>
+                    <div style="font-size:12px; color:var(--text-muted);">
+                        ⚡ <strong>Doğrulanmış Veri Ambarı:</strong> 1.920 Senaryo K57 Kanonik Motoru
                     </div>
                 </div>
 
-                <div class="control-group toggle-group">
-                    <div class="control-label">
-                        <label>Kanban Kart Boyutlandırma Modu (K55)</label>
-                        <span class="info-tag" title="K55 Bulgusu: Dinamik N modunda alpha 3.4 kat daha güçlü etki eder.">ℹ️ K55 Notu</span>
-                    </div>
-                    <div class="toggle-switch">
-                        <input type="radio" id="modDinamik" name="nModu" value="Dinamik_N" checked>
-                        <label for="modDinamik">Dinamik N (Mod B)</label>
-                        
-                        <input type="radio" id="modSabit" name="nModu" value="Sabit_N">
-                        <label for="modSabit">Sabit N (Mod A)</label>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="control-label">
-                        <label for="sliderTalep">Talep Şoku / Değişimi</label>
-                        <span class="val-display" id="valTalep">%0 (Baz)</span>
-                    </div>
-                    <input type="range" id="sliderTalep" min="-20" max="20" step="10" value="0">
-                    <div class="range-marks">
-                        <span>-%20</span><span>-%10</span><span>%0</span><span>+%10</span><span>+%20</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <div class="control-label">
-                        <label>Dispatch (Sevk Önceliği) Kuralı</label>
-                        <span class="info-tag" title="Hafta 7 Bulgusu: Filo kısıtlıyken dispatch kuralının etkisi sınırlıdır (<1.5 puan).">ℹ️ H7 Notu</span>
-                    </div>
-                    <div class="radio-grid">
-                        <label class="radio-card">
-                            <input type="radio" name="dispatch" value="EDD" checked>
-                            <span class="radio-btn"><strong>EDD</strong> (Deadline En Yakın)</span>
-                        </label>
-                        <label class="radio-card">
-                            <input type="radio" name="dispatch" value="SLACK">
-                            <span class="radio-btn"><strong>SLACK</strong> (Zaman Gevşekliği)</span>
-                        </label>
-                        <label class="radio-card">
-                            <input type="radio" name="dispatch" value="FIFO">
-                            <span class="radio-btn"><strong>FIFO</strong> (İlk Gelen İlk)</span>
-                        </label>
-                        <label class="radio-card">
-                            <input type="radio" name="dispatch" value="KRITIKLIK">
-                            <span class="radio-btn"><strong>KRİTİKLİK</strong> (En Az Stok)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="scenario-meta">
-                    <p>⚡ <strong>Doğrulanmış Veri Ambarı:</strong> 1.920 Senaryo K57 Kanonik Motoru ile hesaplanmıştır.</p>
-                </div>
-            </aside>
-
-            <main class="main-content">
-                
-                <div class="kpi-grid">
-                    <div class="kpi-card glass-card" id="kpiStarvCard">
+                <!-- 4 Büyük KPI Kartı (2x2 Izgara) -->
+                <div class="kpi-2x2-grid">
+                    <!-- KPI 1: Starvation -->
+                    <div class="kpi-card-large" id="cardStarv">
                         <div class="kpi-header">
                             <span class="kpi-title">Hat Duruş Oranı (Starvation)</span>
-                            <span class="kpi-icon">🚨</span>
+                            <span class="kpi-status-dot dot-yellow" id="dotStarv" title="Durum: %10-%25 Arası (Dikkat)"></span>
                         </div>
-                        <div class="kpi-value" id="kpiStarvVal">%24.58</div>
-                        <div class="kpi-sub" id="kpiStarvDk">2,832 / 11,520 dakika duruş</div>
-                        <div class="kpi-target-badge" id="kpiTargetBadge">Eşik: <%5 (Hedef Altında)</div>
+                        <div class="kpi-value-large" id="kpiStarvVal">%24.58</div>
+                        <div class="kpi-sub-large" id="kpiStarvDk">2,832 / 11,520 dakika duruş</div>
                     </div>
 
-                    <div class="kpi-card glass-card">
+                    <!-- KPI 2: WIP -->
+                    <div class="kpi-card-large" id="cardWip">
                         <div class="kpi-header">
                             <span class="kpi-title">Ortalama Tampon Stok (WIP)</span>
-                            <span class="kpi-icon">📦</span>
+                            <span class="kpi-status-dot dot-green" id="dotWip" title="Durum: Normal"></span>
                         </div>
-                        <div class="kpi-value" id="kpiWipVal">182.3</div>
-                        <div class="kpi-sub">Adet / Hat Başı Ortalama Stok</div>
-                        <div class="kpi-footer-note">Stok tavanı (N×C) korumalı</div>
+                        <div class="kpi-value-large" id="kpiWipVal">182.3</div>
+                        <div class="kpi-sub-large">Adet / Hat Başı Ortalama Stok (Tavan Korumalı)</div>
                     </div>
 
-                    <div class="kpi-card glass-card">
+                    <!-- KPI 3: Statik vs Dinamik Farkı -->
+                    <div class="kpi-card-large" id="cardFark">
                         <div class="kpi-header">
                             <span class="kpi-title">Statik vs Dinamik Farkı</span>
-                            <span class="kpi-icon">⚖️</span>
+                            <span class="kpi-status-dot dot-yellow" id="dotFark" title="Durum: Statik Lehine Fark"></span>
                         </div>
-                        <div class="kpi-value highlight-stat" id="kpiFarkVal">+5.27 puan</div>
-                        <div class="kpi-sub">Statik sistem duruşu daha düşük</div>
-                        <div class="kpi-footer-note">Stokastik ortalama: +3.06 puan (~3-5 puan)</div>
+                        <div class="kpi-value-large" id="kpiFarkVal" style="color:var(--accent-amber);">+5.27 puan</div>
+                        <div class="kpi-sub-large">Statik (%19.31) lehine avantaj (Stokastik: +3.06 puan)</div>
                     </div>
 
-                    <div class="kpi-card glass-card">
+                    <!-- KPI 4: Filo Doluluğu -->
+                    <div class="kpi-card-large" id="cardDoluluk">
                         <div class="kpi-header">
                             <span class="kpi-title">Filo Doluluk Oranı</span>
-                            <span class="kpi-icon">🚚</span>
+                            <span class="kpi-status-dot dot-green" id="dotDoluluk" title="Durum: Dengeli Kapasite"></span>
                         </div>
-                        <div class="kpi-value" id="kpiDolulukVal">%78.4</div>
-                        <div class="kpi-sub">Kapasite Kullanım Oranı (Q=25)</div>
-                        <div class="kpi-footer-note">Stokastik ortalama: +3.06 puan (~3-5 puan)</div>
-                    </div>
-
-                    <div class="kpi-card glass-card">
-                        <div class="kpi-header">
-                            <span class="kpi-title">Kat Edilen Toplam Mesafe</span>
-                            <span class="kpi-icon">🗺️</span>
-                        </div>
-                        <div class="kpi-value" id="kpiMesafeVal">48.49 km</div>
-                        <div class="kpi-sub">Vardiya İçi Toplam Rota Mesafesi</div>
-                        <div class="kpi-footer-note">24 istasyon döngüsü</div>
+                        <div class="kpi-value-large" id="kpiDolulukVal">%78.4</div>
+                        <div class="kpi-sub-large">Kapasite Kullanım Oranı (Q=25 Kutu · Mesafe: 48.49 km)</div>
                     </div>
                 </div>
 
-                <div class="charts-grid">
-                    
-                    <div class="chart-card glass-card">
-                        <div class="chart-header">
-                            <h3>Filo Duyarlılık Eğrisi (1 – 8 Araç Tarama)</h3>
-                            <span class="chart-subtitle">Seçili α ve Talep Şokunda Duruş Değişimi</span>
-                        </div>
-                        <div class="chart-body">
-                            <canvas id="chartFleet"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-card glass-card">
-                        <div class="chart-header">
-                            <h3>WIP vs Starvation Pareto Trade-off</h3>
-                            <span class="chart-subtitle">Stok Miktarı ile Duruş Süresi Arasındaki Gerilim</span>
-                        </div>
-                        <div class="chart-body">
-                            <canvas id="chartPareto"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-card glass-card full-width">
-                        <div class="chart-header">
-                            <h3>K55 Güvenlik Katsayısı (&alpha;) Duyarlılık Karşılaştırması</h3>
-                            <span class="chart-subtitle">Dinamik N (Mod B) vs Sabit N (Mod A) Karşılaştırması</span>
-                        </div>
-                        <div class="chart-body">
-                            <canvas id="chartAlpha"></canvas>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="table-card glass-card">
-                    <div class="table-header">
-                        <h3>Karşılaştırma Özeti (4 Araç Baz Senaryo)</h3>
-                        <span class="badge">EDD + Tavanlı Modellere Göre</span>
-                    </div>
-                    <div class="table-wrapper">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Sistem Politikası</th>
-                                    <th>Filo Büyüklüğü</th>
-                                    <th>Starvation (%)</th>
-                                    <th>Starvation (dk)</th>
-                                    <th>Ortalama WIP (adet)</th>
-                                    <th>Sistem Performansı</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Statik (80 dk Sabit Sefer)</strong></td>
-                                    <td>4 Araç</td>
-                                    <td><span class="tag green">%19.31</span></td>
-                                    <td>2,225 dk</td>
-                                    <td>177.0 adet</td>
-                                    <td>Deterministik avantaj (Reaktif gecikme yok)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Dinamik E-Kanban (EDD)</strong></td>
-                                    <td>4 Araç</td>
-                                    <td><span class="tag orange">%24.58</span></td>
-                                    <td>2,832 dk</td>
-                                    <td>182.3 adet</td>
-                                    <td>Sinyal reaksiyon gecikmesi mevcut</td>
-                                </tr>
-                                <tr class="diff-row">
-                                    <td><strong>Fark (Dinamik - Statik)</strong></td>
-                                    <td>-</td>
-                                    <td><strong>+5.27 puan <span style="font-size:11px; font-weight:normal; color:#fde047;">(deterministik seed; stokastik ortalama: +3.06 puan)</span></strong></td>
-                                    <td>+607 dk</td>
-                                    <td>+5.3 adet</td>
-                                    <td>Statik sistem %21.4 daha az duruş üretti (stokastikte ~3-5 puan)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <!-- Otomatik Dinamik Yorum Kutusu -->
+                <div class="dynamic-comment-box" id="dynamicCommentBox">
+                    <span class="comment-icon">💡</span>
+                    <div id="dynamicCommentText">
+                        Mevcut baz ayarlarda (4 Araç, &alpha;=0.15) sistem <strong>%24.58</strong> duruş oranıyla çalışmaktadır — bu, statik sistemin (%19.31) <strong>+5.27 puan</strong> üzerindedir (stokastik ortalama: +3.06 puan). Sistemin <%5 rekabetçilik hedefine ulaşması için filo boyutunun 8 araca çıkarılması önerilmektedir.
                     </div>
                 </div>
 
-            </main>
+                <!-- 1 Tek Grafik: Filo Duyarlılık Eğrisi -->
+                <div class="chart-card glass-card ozet-chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3 style="font-size:16px; font-weight:600;">Filo Duyarlılık Eğrisi (1 – 8 Araç Tarama)</h3>
+                            <span class="chart-subtitle" style="font-size:12px; color:var(--text-muted);">Baz Parametrelerde (&alpha;=0.15, EDD, Dinamik-N) Araç Sayısının Duruş Üzerindeki Etkisi</span>
+                        </div>
+                        <span class="tag green" style="font-size:11px;">Hedef: <%5 Starvation</span>
+                    </div>
+                    <div class="chart-body" style="height: 290px;">
+                        <canvas id="chartFleet"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- SEKME 2: WHAT-IF SİMÜLATÖR (Adım 2 Placeholder) -->
+        <div id="tab-whatif" class="tab-content">
+            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
+                <div style="font-size: 36px; margin-bottom: 12px;">🎛️</div>
+                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">What-If Simülatör</h3>
+                <p>Bu sekme Adım 2'de slider kontrolleri, Pareto scatter ve K55 grafikleriyle donatılacaktır.</p>
+            </div>
+        </div>
+
+        <!-- SEKME 3: İSTASYON HARİTASI (Adım 3 Placeholder) -->
+        <div id="tab-istasyon" class="tab-content">
+            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
+                <div style="font-size: 36px; margin-bottom: 12px;">🏭</div>
+                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">İstasyon Haritası</h3>
+                <p>Bu sekme Adım 3'te 6x4 kompakt kart ızgarası (24 istasyon mini bar görünümü) ile donatılacaktır.</p>
+            </div>
+        </div>
+
+        <!-- SEKME 4: STATİK VS DİNAMİK (Adım 4 Placeholder) -->
+        <div id="tab-karsilastirma" class="tab-content">
+            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
+                <div style="font-size: 36px; margin-bottom: 12px;">⚖️</div>
+                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">Statik vs Dinamik Karşılaştırma</h3>
+                <p>Bu sekme Adım 4'te detaylı metrik karşılaştırma tablosu ile donatılacaktır.</p>
+            </div>
+        </div>
+
+        <!-- SEKME 5: VERİ GİRİŞİ (Adım 5 Placeholder) -->
+        <div id="tab-veri-girisi" class="tab-content">
+            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
+                <div style="font-size: 36px; margin-bottom: 12px;">📥</div>
+                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">Veri Girişi & Gerçek Veri Entegrasyonu</h3>
+                <p>Bu sekme Adım 5'te interaktif form, canlı ROP önizleme, localStorage ve CSV aktarımı ile donatılacaktır.</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
         <footer class="main-footer">
             <p>Dinamik Milk-Run & E-Kanban Karar Destek Sistemi — Tezsiz / Tezli Akademik Çalışma Modeli (2026)</p>
             <p class="footer-links">
-                <span>Karar Günlüğü: K01–K58</span> | 
+                <span>Karar Günlüğü: K01–K64</span> | 
                 <span>Kanonik Motor: K57</span> | 
-                <span>Tavan Kısıtı: stok &le; N&times;C</span>
+                <span>Tavan Kısıtı: stok &le; N&times;C</span> |
+                <span>Dinamik SLACK: K63</span>
             </p>
         </footer>
     </div>

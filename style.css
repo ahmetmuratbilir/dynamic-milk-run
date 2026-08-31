@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg-dark: #090d16;
     --bg-card: rgba(18, 26, 44, 0.75);
     --border-color: rgba(255, 255, 255, 0.08);
@@ -443,9 +443,189 @@ input[type="range"] {
     border-top: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 6px;
 }
 
-.footer-links span {
-    color: var(--accent-cyan);
+/* ===== SEKME NAVİGASYONU ===== */
+.tab-nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    gap: 6px;
+    background: #12172b;
+    padding: 8px 12px;
+    z-index: 100;
+    border-bottom: 1px solid #2a3150;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 8px;
+}
+
+.tab-button {
+    padding: 10px 18px;
+    background: transparent;
+    border: none;
+    color: #9aa3c0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab-button:hover {
+    background: #1c2340;
+    color: #ffffff;
+}
+
+.tab-button.active {
+    background: #232a4d;
+    color: #4fd1c5;
+    border-bottom: 2px solid #4fd1c5;
+}
+
+.tab-content {
+    display: none;
+    padding: 12px 0;
+    min-height: calc(100vh - 140px);
+}
+
+/* ===== SEKME 1: ÖZET DÜZENİ ===== */
+.ozet-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ozet-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.scenario-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.compact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #fde047;
+}
+
+/* 2x2 KPI GRID */
+.kpi-2x2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.kpi-card-large {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+}
+
+.kpi-card-large .kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kpi-card-large .kpi-title {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.kpi-status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.kpi-status-dot.dot-green {
+    background-color: #10b981;
+    color: #10b981;
+}
+
+.kpi-status-dot.dot-yellow {
+    background-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.kpi-status-dot.dot-red {
+    background-color: #f43f5e;
+    color: #f43f5e;
+}
+
+.kpi-value-large {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 8px 0;
+}
+
+.kpi-sub-large {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* OTOMATİK DİNAMİK YORUM KUTUSU */
+.dynamic-comment-box {
+    background: rgba(6, 182, 212, 0.06);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #e2e8f0;
+}
+
+.dynamic-comment-box .comment-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ÖZET GRAFİK KARTI */
+.ozet-chart-card {
+    height: 380px;
+}
+
+@media (max-width: 900px) {
+    .kpi-2x2-grid {
+        grid-template-columns: 1fr;
+    }
 }

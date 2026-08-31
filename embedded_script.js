@@ -2,9 +2,10 @@
  * app.js - Dinamik Milk-Run & E-Kanban Karar Destek Dashboard Mantığı
  * ==================================================================
  * 1.920 Senaryoluk Çevrimdışı Veri Ambarını (data/dashboard_scenarios.json) Okur
- * Slider & Toggle Değişikliklerine 0 ms Gecikmeyle Tepki Verir
+ * 5 Sekmeli Mimari (Özet, What-If, İstasyon Haritası, Karşılaştırma, Veri Girişi)
  */
 
+// ===== GLOBAL DEĞİŞKENLER VE GRAFİK NESNELERİ =====
 let scenariosData = [
   {
     "arac_sayisi": 1,
@@ -24967,9 +24968,11 @@ let scenariosData = [
     "mesafe_km": 74.06
   }
 ];
-let chartFleet = null;
-let chartPareto = null;
-let chartAlpha = null;
+window.chartInstances = {
+    fleet: null,
+    pareto: null,
+    alpha: null
+};
 
 // Gerçek Fabrika İstasyon Verileri (stations.csv)
 const STATIONS_DATA = [
@@ -24999,167 +25002,86 @@ const STATIONS_DATA = [
     { id: 'S24', hat: 'Hat-4', d_saat: 21, c: 20, n: 1 }
 ];
 
-// DOM Elementleri
-const sliderArac = document.getElementById('sliderArac');
-const valArac = document.getElementById('valArac');
+// ===== HAZIR TEST EDİLMİŞ SEKME GEÇİŞ MEKANİZMASI =====
+function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => {
+        el.style.display = 'none';
+    });
+    document.querySelectorAll('.tab-button').forEach(el => {
+        el.classList.remove('active');
+    });
+    const target = document.getElementById(tabId);
+    if (target) target.style.display = 'block';
+    const btn = document.querySelector('[data-tab="' + tabId + '"]');
+    if (btn) btn.classList.add('active');
 
-const sliderAlpha = document.getElementById('sliderAlpha');
-const valAlpha = document.getElementById('valAlpha');
+    Object.values(window.chartInstances || {}).forEach(chart => {
+        if (chart && typeof chart.resize === 'function') chart.resize();
+    });
+}
 
-const sliderTalep = document.getElementById('sliderTalep');
-const valTalep = document.getElementById('valTalep');
-const selectDispatch = document.getElementById('selectDispatch');
+// ===== localStorage YARDIMCI FONKSİYONLARI =====
+const STORAGE_KEY = 'dashboard_gercek_veri_v1';
 
-const kpiStarvVal = document.getElementById('kpiStarvVal');
-const kpiStarvDk = document.getElementById('kpiStarvDk');
-const kpiTargetBadge = document.getElementById('kpiTargetBadge');
+function saveRealDataToStorage(data) {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        return true;
+    } catch (e) {
+        console.error('Kaydetme hatasi:', e);
+        return false;
+    }
+}
 
-const kpiWipVal = document.getElementById('kpiWipVal');
-const kpiFarkVal = document.getElementById('kpiFarkVal');
-const kpiDolulukVal = document.getElementById('kpiDolulukVal');
-const kpiMesafeVal = document.getElementById('kpiMesafeVal');
-const nearestNotice = document.getElementById('nearestNotice');
+function loadRealDataFromStorage() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+        console.error('Yukleme hatasi:', e);
+        return null;
+    }
+}
 
-// Uygulama Başlatma
+function clearRealDataStorage() {
+    localStorage.removeItem(STORAGE_KEY);
+}
+
+// ===== CSV DIŞA AKTARMA (GENEL AMAÇLI) =====
+function exportArrayToCSV(rows, headers, filename) {
+    const headerLine = headers.join(',');
+    const dataLines = rows.map(row =>
+        headers.map(h => {
+            const val = row[h] !== undefined ? row[h] : '';
+            const s = String(val);
+            return s.includes(',') ? '"' + s + '"' : s;
+        }).join(',')
+    );
+    const csvContent = [headerLine, ...dataLines].join('\r\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// ===== UYGULAMA BAŞLATMA =====
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Gömülü Veri Ambarı Yüklendi: ' + scenariosData.length + ' senaryo.');
-    initEventListeners();
-    initCharts();
-    renderStations();
-    updateDashboard();
+    initOzetCharts();
+    updateOzetView();
 });
 
-// Event Listener'lar
-function initEventListeners() {
-    sliderArac.addEventListener('input', (e) => {
-        valArac.textContent = e.target.value + ' Araç';
-        updateDashboard();
-    });
+// ===== SEKME 1 (ÖZET) GRAFİK BAŞLATMA =====
+function initOzetCharts() {
+    const canvasFleet = document.getElementById('chartFleet');
+    if (!canvasFleet) return;
 
-    sliderAlpha.addEventListener('input', (e) => {
-        const val = parseFloat(e.target.value);
-        valAlpha.textContent = val.toFixed(2) + ' (%' + Math.round(val * 100) + ')';
-        updateDashboard();
-    });
-
-    sliderTalep.addEventListener('input', (e) => {
-        const val = parseInt(e.target.value);
-        valTalep.textContent = (val === 0 ? '%0 (Baz)' : (val > 0 ? '+' : '') + val + '%');
-        updateDashboard();
-    });
-
-    if (selectDispatch) {
-        selectDispatch.addEventListener('change', updateDashboard);
-    }
-
-    document.querySelectorAll('input[name="nModu"]').forEach(el => {
-        el.addEventListener('change', updateDashboard);
-    });
-
-    document.querySelectorAll('input[name="dispatch"]').forEach(el => {
-        el.addEventListener('change', updateDashboard);
-    });
-}
-
-// Seçili Parametrelere Göre Veri Getir
-function getSelectedParameters() {
-    const checkedRadio = document.querySelector('input[name="nModu"]:checked');
-    const checkedDisp = document.querySelector('input[name="dispatch"]:checked');
-    const dispVal = selectDispatch ? selectDispatch.value : (checkedDisp ? checkedDisp.value : 'EDD');
-
-    return {
-        arac_sayisi: parseInt(sliderArac.value),
-        alpha: parseFloat(sliderAlpha.value),
-        talep_sok_pct: parseInt(sliderTalep.value),
-        dispatch_kural: dispVal,
-        n_modu: checkedRadio ? checkedRadio.value : 'Dinamik_N'
-    };
-}
-
-// Dashboard Güncelleme Ana Fonksiyonu
-function updateDashboard() {
-    if (!scenariosData || scenariosData.length === 0) return;
-
-    const params = getSelectedParameters();
-    
-    // Seçili senaryoyu filtrele
-    let currentScenario = scenariosData.find(s => 
-        s.arac_sayisi === params.arac_sayisi &&
-        Math.abs(s.alpha - params.alpha) < 0.01 &&
-        s.talep_sok_pct === params.talep_sok_pct &&
-        s.dispatch_kural === params.dispatch_kural &&
-        s.n_modu === params.n_modu
-    );
-
-    if (!currentScenario) {
-        if (nearestNotice) nearestNotice.style.display = 'block';
-        currentScenario = scenariosData[0];
-    } else {
-        if (nearestNotice) nearestNotice.style.display = 'none';
-    }
-
-    if (currentScenario) {
-        // KPI 1: Starvation
-        const starvPct = currentScenario.starv_pct;
-        kpiStarvVal.textContent = '%' + starvPct.toFixed(2);
-        kpiStarvDk.textContent = currentScenario.starv_dk.toLocaleString() + ' / 11,520 dakika duruş';
-
-        if (starvPct < 5.0) {
-            kpiTargetBadge.textContent = 'Eşik: <%5 (HEDEF ULAŞILDI ✅)';
-            kpiTargetBadge.style.background = 'rgba(16, 185, 129, 0.2)';
-            kpiTargetBadge.style.color = '#6ee7b7';
-            kpiTargetBadge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-        } else {
-            kpiTargetBadge.textContent = 'Eşik: <%5 (YETERSİZ 🚨)';
-            kpiTargetBadge.style.background = 'rgba(244, 63, 94, 0.2)';
-            kpiTargetBadge.style.color = '#fecdd3';
-            kpiTargetBadge.style.borderColor = 'rgba(244, 63, 94, 0.4)';
-        }
-
-        // KPI 2: WIP
-        kpiWipVal.textContent = currentScenario.ort_wip.toFixed(1);
-
-        // KPI 3: Statik vs Dinamik Farkı (Dinamik Hesaplama)
-        // Gerçek StaticMilkRunSimulator (tur_sikligi_dk = 80 dk Kanonik K58) Çıktıları:
-        // 1: %25.77 | 2: %21.35 | 3: %19.70 | 4: %19.31 | 5: %19.10 | 6: %18.96 | 7: %18.83 | 8: %18.68
-        const staticBaselineMap = {
-            1: 25.77,
-            2: 21.35,
-            3: 19.70,
-            4: 19.31,
-            5: 19.10,
-            6: 18.96,
-            7: 18.83,
-            8: 18.68
-        };
-        const staticBase = staticBaselineMap[params.arac_sayisi] || 19.31;
-        const diffPuan = (starvPct - staticBase).toFixed(2);
-        const diffSign = diffPuan >= 0 ? '+' : '';
-        if (kpiFarkVal) {
-            kpiFarkVal.textContent = diffSign + diffPuan + ' puan';
-        }
-
-        // KPI 4: Filo Doluluğu
-        if (kpiDolulukVal) {
-            const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
-            kpiDolulukVal.textContent = '%' + dolulukEst;
-        }
-
-        // KPI 5: Kat Edilen Gerçek Mesafe (Simüle edilmiş VRPTW rotalarından)
-        if (kpiMesafeVal) {
-            const mesafeReal = (currentScenario.mesafe_km !== undefined) ? currentScenario.mesafe_km : (48.49 * (params.arac_sayisi / 4.0));
-            kpiMesafeVal.textContent = mesafeReal + ' km';
-        }
-    }
-
-
-    // Grafikleri Güncelle
-    updateCharts(params);
-    updateStations(params);
-}
-
-// Chart.js Grafikleri Başlatma
-function initCharts() {
+    const ctxFleet = canvasFleet.getContext('2d');
     const chartConfigCommon = {
         responsive: true,
         maintainAspectRatio: false,
@@ -25172,12 +25094,10 @@ function initCharts() {
         }
     };
 
-    // Chart 1: Filo Duyarlılık Eğrisi
-    const ctxFleet = document.getElementById('chartFleet').getContext('2d');
-    chartFleet = new Chart(ctxFleet, {
+    window.chartInstances.fleet = new Chart(ctxFleet, {
         type: 'line',
         data: {
-            labels: ['1 Araç', '2 Araç', '3 Araç', '4 Araç', '5 Araç', '6 Araç', '7 Araç', '8 Araç'],
+            labels: ['1 Araç', '2 Araç', '3 Araç', '4 Araç (Baz)', '5 Araç', '6 Araç', '7 Araç', '8 Araç'],
             datasets: [
                 {
                     label: 'Tavanlı Dinamik Sistem (Starvation %)',
@@ -25186,12 +25106,22 @@ function initCharts() {
                     backgroundColor: 'rgba(6, 182, 212, 0.15)',
                     fill: true,
                     tension: 0.3,
-                    borderWidth: 3
+                    borderWidth: 3,
+                    pointBackgroundColor: '#06b6d4',
+                    pointRadius: 4
+                },
+                {
+                    label: 'Statik Milk-Run Baseline (%19.31 @ 4 Araç)',
+                    data: [25.77, 21.35, 19.70, 19.31, 19.10, 18.96, 18.83, 18.68],
+                    borderColor: '#f59e0b',
+                    borderDash: [4, 4],
+                    borderWidth: 2,
+                    pointRadius: 0
                 },
                 {
                     label: 'Rekabetçilik Eşiği (<%5)',
                     data: [5, 5, 5, 5, 5, 5, 5, 5],
-                    borderColor: '#f43f5e',
+                    borderColor: '#10b981',
                     borderDash: [6, 6],
                     borderWidth: 2,
                     pointRadius: 0
@@ -25200,198 +25130,88 @@ function initCharts() {
         },
         options: chartConfigCommon
     });
-
-    // Chart 2: Pareto Trade-off
-    const ctxPareto = document.getElementById('chartPareto').getContext('2d');
-    const bgScatterData = [];
-    if (scenariosData && scenariosData.length > 0) {
-        for (let i = 0; i < scenariosData.length; i += 4) {
-            bgScatterData.push({ x: scenariosData[i].ort_wip, y: scenariosData[i].starv_pct });
-        }
-    }
-
-    chartPareto = new Chart(ctxPareto, {
-        type: 'scatter',
-        data: {
-            datasets: [
-                {
-                    label: 'Tüm 1.920 Senaryo Noktası',
-                    data: bgScatterData,
-                    backgroundColor: 'rgba(148, 163, 184, 0.25)',
-                    pointRadius: 3
-                },
-                {
-                    label: 'Seçili Senaryo',
-                    data: [],
-                    backgroundColor: '#f43f5e',
-                    pointRadius: 9,
-                    pointHoverRadius: 12
-                }
-            ]
-        },
-        options: {
-            ...chartConfigCommon,
-            scales: {
-                x: { title: { display: true, text: 'Ortalama WIP Stok (adet)', color: '#94a3b8' } },
-                y: { title: { display: true, text: 'Starvation (%)', color: '#94a3b8' } }
-            }
-        }
-    });
-
-    // Chart 3: Alpha Duyarlılığı Mod A vs Mod B
-    const ctxAlpha = document.getElementById('chartAlpha').getContext('2d');
-    chartAlpha = new Chart(ctxAlpha, {
-        type: 'bar',
-        data: {
-            labels: ['alpha=0.05', 'alpha=0.10', 'alpha=0.15', 'alpha=0.20', 'alpha=0.25', 'alpha=0.30'],
-            datasets: [
-                {
-                    label: 'Dinamik N (Mod B - 3.4 Kat Güçlü Etki)',
-                    data: [],
-                    backgroundColor: '#10b981'
-                },
-                {
-                    label: 'Sabit N (Mod A - Zayıf Etki)',
-                    data: [],
-                    backgroundColor: '#3b82f6'
-                }
-            ]
-        },
-        options: chartConfigCommon
-    });
 }
 
-// Grafikleri Güncelleme
-function updateCharts(params) {
+// ===== SEKME 1 (ÖZET) GÖRÜNÜMÜNÜ GÜNCELLEME =====
+function updateOzetView() {
     if (!scenariosData || scenariosData.length === 0) return;
 
-    // 1. Filo Duyarlılık Eğrisi Verileri (1-8 Araç)
-    const fleetData = [];
-    for (let v = 1; v <= 8; v++) {
-        const item = scenariosData.find(s => 
-            s.arac_sayisi === v &&
-            Math.abs(s.alpha - params.alpha) < 0.01 &&
-            s.talep_sok_pct === params.talep_sok_pct &&
-            s.dispatch_kural === params.dispatch_kural &&
-            s.n_modu === params.n_modu
-        );
-        fleetData.push(item ? item.starv_pct : null);
-    }
-    chartFleet.data.datasets[0].data = fleetData;
-    chartFleet.update();
+    // Baz Senaryo: Araç=4, alpha=0.15, talep=0, EDD, Dinamik_N
+    const bazScenario = scenariosData.find(s => 
+        s.arac_sayisi === 4 &&
+        Math.abs(s.alpha - 0.15) < 0.01 &&
+        s.talep_sok_pct === 0 &&
+        s.dispatch_kural === 'EDD' &&
+        s.n_modu === 'Dinamik_N'
+    ) || scenariosData[0];
 
-    // 2. Pareto Scatter (Seçili Nokta)
-    const selItem = scenariosData.find(s => 
-        s.arac_sayisi === params.arac_sayisi &&
-        Math.abs(s.alpha - params.alpha) < 0.01 &&
-        s.talep_sok_pct === params.talep_sok_pct &&
-        s.dispatch_kural === params.dispatch_kural &&
-        s.n_modu === params.n_modu
-    );
-    if (selItem && chartPareto) {
-        chartPareto.data.datasets[1].data = [{ x: selItem.ort_wip, y: selItem.starv_pct }];
-        chartPareto.update();
+    if (!bazScenario) return;
+
+    const starvPct = bazScenario.starv_pct;
+    const ortWip = bazScenario.ort_wip;
+    const starvDk = bazScenario.starv_dk;
+
+    // KPI 1: Starvation
+    const elStarv = document.getElementById('kpiStarvVal');
+    const elStarvDk = document.getElementById('kpiStarvDk');
+    const dotStarv = document.getElementById('dotStarv');
+    if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2);
+    if (elStarvDk) elStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dakika duruş';
+
+    if (dotStarv) {
+        dotStarv.className = 'kpi-status-dot ' + (starvPct < 10 ? 'dot-green' : (starvPct <= 25 ? 'dot-yellow' : 'dot-red'));
     }
 
-    // 3. Alpha Mod A vs Mod B Verileri (Seçili Araç için)
-    const alphaDinamik = [];
-    const alphaSabit = [];
-    const alphas = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30];
+    // KPI 2: WIP
+    const elWip = document.getElementById('kpiWipVal');
+    const dotWip = document.getElementById('dotWip');
+    if (elWip) elWip.textContent = ortWip.toFixed(1);
+    if (dotWip) {
+        dotWip.className = 'kpi-status-dot ' + (ortWip <= 200 ? 'dot-green' : (ortWip <= 250 ? 'dot-yellow' : 'dot-red'));
+    }
 
-    alphas.forEach(a => {
-        const itemD = scenariosData.find(s => 
-            s.arac_sayisi === params.arac_sayisi &&
-            Math.abs(s.alpha - a) < 0.01 &&
-            s.talep_sok_pct === params.talep_sok_pct &&
-            s.dispatch_kural === params.dispatch_kural &&
-            s.n_modu === 'Dinamik_N'
-        );
-        const itemS = scenariosData.find(s => 
-            s.arac_sayisi === params.arac_sayisi &&
-            Math.abs(s.alpha - a) < 0.01 &&
-            s.talep_sok_pct === params.talep_sok_pct &&
-            s.dispatch_kural === params.dispatch_kural &&
-            s.n_modu === 'Sabit_N'
-        );
+    // KPI 3: Statik vs Dinamik Farkı
+    const staticBase = 19.31; // 4 Araç K58 statik baseline
+    const diffPuan = (starvPct - staticBase).toFixed(2);
+    const elFark = document.getElementById('kpiFarkVal');
+    const dotFark = document.getElementById('dotFark');
+    if (elFark) elFark.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
+    if (dotFark) {
+        dotFark.className = 'kpi-status-dot ' + (diffPuan <= 0 ? 'dot-green' : (diffPuan <= 5 ? 'dot-yellow' : 'dot-red'));
+    }
 
-        alphaDinamik.push(itemD ? itemD.starv_pct : 0);
-        alphaSabit.push(itemS ? itemS.starv_pct : 0);
-    });
+    // KPI 4: Doluluk
+    const elDoluluk = document.getElementById('kpiDolulukVal');
+    const dotDoluluk = document.getElementById('dotDoluluk');
+    const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
+    if (elDoluluk) elDoluluk.textContent = '%' + dolulukEst;
+    if (dotDoluluk) {
+        dotDoluluk.className = 'kpi-status-dot ' + (dolulukEst >= 60 && dolulukEst <= 90 ? 'dot-green' : 'dot-yellow');
+    }
 
-    chartAlpha.data.datasets[0].data = alphaDinamik;
-    chartAlpha.data.datasets[1].data = alphaSabit;
-    chartAlpha.update();
-}
+    // Otomatik Dinamik Yorum Metni
+    const commentEl = document.getElementById('dynamicCommentText');
+    if (commentEl) {
+        commentEl.innerHTML = 
+            'Mevcut baz senaryoda (4 Araç, &alpha;=0.15, EDD) sistem <strong>%' + starvPct.toFixed(2) + '</strong> duruş oranıyla çalışmaktadır — ' +
+            'bu, statik sistemin (%' + staticBase.toFixed(2) + ') <strong>+' + diffPuan + ' puan</strong> üzerindedir (30 replikasyon stokastik ortalamasında fark: +3.06 puandır). ' +
+            'Sistemin <%5.0 rekabetçilik eşiğine ulaşması için filo büyüklüğünün <strong>8 araca</strong> çıkarılması gerekmektedir.';
+    }
 
-// BÖLÜM 5 — İSTASYON BAZLI STOK TAKİBİ GÖRSELLEŞTİRME (Gerçek Veri Destekli)
-function renderStations() {
-    const grid = document.getElementById('stationsGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    STATIONS_DATA.forEach(st => {
-        const sid = st.id;
-        const isFragile = !!st.fragile;
-        
-        const box = document.createElement('div');
-        box.className = 'station-box' + (isFragile ? ' fragile' : '');
-        box.id = 'st-box-' + sid;
-        
-        box.innerHTML = 
-            '<div class="station-header">' +
-                '<span>' + sid + ' (' + st.hat + ')</span>' +
-                (isFragile ? '<span class="fragile-badge">S16 Kırılgan</span>' : '') +
-            '</div>' +
-            '<div class="progress-bar-bg">' +
-                '<div class="progress-bar-fill status-green" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
-            '</div>' +
-            '<div class="station-metrics">' +
-                '<span id="st-val-' + sid + '">Stok: ' + (st.n * st.c) + '</span>' +
-                '<span id="st-rop-' + sid + '">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
-            '</div>';
-        grid.appendChild(box);
-    });
-}
-
-function updateStations(params) {
-    const LT_dk = 45.0;
-    const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
-
-    STATIONS_DATA.forEach(st => {
-        const sid = st.id;
-        const bar = document.getElementById('st-bar-' + sid);
-        const valTxt = document.getElementById('st-val-' + sid);
-        const ropTxt = document.getElementById('st-rop-' + sid);
-
-        const d_dk = (st.d_saat / 60.0) * talepCarpan;
-        const ropAdet = Math.ceil(d_dk * LT_dk * (1.0 + params.alpha));
-        
-        let nKart = st.n;
-        if (params.n_modu === 'Dinamik_N') {
-            nKart = Math.max(1, Math.ceil(ropAdet / st.c));
+    // Filo Duyarlılık Eğrisini Çiz (1-8 Araç)
+    if (window.chartInstances.fleet) {
+        const fleetData = [];
+        for (let v = 1; v <= 8; v++) {
+            const item = scenariosData.find(s => 
+                s.arac_sayisi === v &&
+                Math.abs(s.alpha - 0.15) < 0.01 &&
+                s.talep_sok_pct === 0 &&
+                s.dispatch_kural === 'EDD' &&
+                s.n_modu === 'Dinamik_N'
+            );
+            fleetData.push(item ? item.starv_pct : null);
         }
-        const cap = nKart * st.c;
-
-        // Anlık simüle edilen stok seviyesi
-        let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
-        if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.4));
-        if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.2));
-
-        const pct = Math.min(100, Math.max(0, (currentStok / cap) * 100));
-
-        if (bar) {
-            bar.style.width = pct + '%';
-            if (currentStok <= 0) {
-                bar.className = 'progress-bar-fill status-red';
-            } else if (currentStok <= ropAdet) {
-                bar.className = 'progress-bar-fill status-yellow';
-            } else {
-                bar.className = 'progress-bar-fill status-green';
-            }
-        }
-
-        if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
-        if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
-    });
+        window.chartInstances.fleet.data.datasets[0].data = fleetData;
+        window.chartInstances.fleet.update();
+    }
 }
-
