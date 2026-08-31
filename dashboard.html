@@ -641,6 +641,171 @@ input[type="range"] {
     }
 }
 
+/* ===== SEKME 3: 6x4 İSTASYON IZGARASI ===== */
+.stations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stations-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+}
+
+.stations-legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.stations-6x4-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 1280px) {
+    .stations-6x4-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .stations-6x4-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.station-card {
+    background: rgba(18, 26, 44, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 105px;
+    position: relative;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.station-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.station-card.card-status-green {
+    border-left: 4px solid #10b981;
+}
+
+.station-card.card-status-yellow {
+    border-left: 4px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.station-card.card-status-red {
+    border-left: 4px solid #f43f5e;
+    background: rgba(244, 63, 94, 0.08);
+}
+
+.station-card.card-fragile {
+    border: 1px solid rgba(244, 63, 94, 0.6);
+    border-left: 4px solid #f43f5e;
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.2);
+}
+
+.station-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.station-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.station-card-hat {
+    font-size: 10px;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.fragile-badge-icon {
+    font-size: 12px;
+    color: #f43f5e;
+    margin-left: 4px;
+}
+
+/* MINI PROGRESS BAR WITH ROP MARKER */
+.station-mini-bar-wrapper {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    height: 8px;
+    border-radius: 4px;
+    overflow: visible;
+    margin: 6px 0;
+}
+
+.station-mini-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.station-mini-bar-fill.fill-green {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.station-mini-bar-fill.fill-yellow {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.station-mini-bar-fill.fill-red {
+    background: linear-gradient(90deg, #f43f5e, #fb7185);
+}
+
+.station-rop-marker {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    width: 2px;
+    background: #fde047;
+    box-shadow: 0 0 4px #fde047;
+    z-index: 2;
+}
+
+.station-card-metrics {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
 </style>
 </head>
 <body>
@@ -908,14 +1073,46 @@ input[type="range"] {
             </div>
         </div>
 
-        <!-- SEKME 3: İSTASYON HARİTASI (Adım 3 Placeholder) -->
+        <!-- SEKME 3: İSTASYON HARİTASI (6x4 Kart Izgarası) -->
         <div id="tab-istasyon" class="tab-content">
-            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
-                <div style="font-size: 36px; margin-bottom: 12px;">🏭</div>
-                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">İstasyon Haritası</h3>
-                <p>Bu sekme Adım 3'te 6x4 kompakt kart ızgarası (24 istasyon mini bar görünümü) ile donatılacaktır.</p>
+            <div class="stations-container">
+                <!-- Üst Bilgi ve Renk Lejantı -->
+                <div class="stations-header-bar">
+                    <div>
+                        <h3 style="font-size:16px; font-weight:600; color:#ffffff;">24 İstasyon Gerçek Zamanlı Stok ve ROP Haritası</h3>
+                        <span style="font-size:12px; color:var(--text-muted);">4 Hat · 24 İstasyon · Tek Ekranda Canlı Görünüm (6 Sütun &times; 4 Satır)</span>
+                    </div>
+
+                    <div class="stations-legend">
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-green" style="width:10px; height:10px;"></span>
+                            <span>Stok > ROP (Yeterli)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-yellow" style="width:10px; height:10px;"></span>
+                            <span>Stok &le; ROP (Sinyal)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-red" style="width:10px; height:10px;"></span>
+                            <span>Kritik Duruş (Stok=0)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span style="display:inline-block; width:12px; height:2px; background:#fde047;"></span>
+                            <span>Sarı Çizgi: ROP Eşiği</span>
+                        </div>
+                        <div class="legend-item" style="color:#f43f5e; font-weight:600;">
+                            <span>⚠️ S16: En Kırılgan İstasyon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6x4 İstasyon Kart Izgarası -->
+                <div class="stations-6x4-grid" id="stationsGrid">
+                    <!-- JavaScript renderStations() tarafından 24 kart buraya dinamik oluşturulur -->
+                </div>
             </div>
         </div>
+
 
         <!-- SEKME 4: STATİK VS DİNAMİK (Adım 4 Placeholder) -->
         <div id="tab-karsilastirma" class="tab-content">
@@ -955,7 +1152,7 @@ input[type="range"] {
  * 5 Sekmeli Mimari:
  *   Sekme 1: Özet Ekranı (4 KPI, dinamik yorum, filo duyarlılık eğrisi)
  *   Sekme 2: What-If Simülatör (Slider kontrolleri, anlık KPI'lar, Pareto, K55 Alpha)
- *   Sekme 3: İstasyon Haritası (Adım 3'te gelecek)
+ *   Sekme 3: İstasyon Haritası (6x4 Kompakt Kart Izgarası, mini progress bar, ROP işareti)
  *   Sekme 4: Statik vs Dinamik Karşılaştırma (Adım 4'te gelecek)
  *   Sekme 5: Veri Girişi & Gerçek Veri (Adım 5'te gelecek)
  */
@@ -25982,6 +26179,10 @@ function showTab(tabId) {
     const btn = document.querySelector('[data-tab="' + tabId + '"]');
     if (btn) btn.classList.add('active');
 
+    if (tabId === 'tab-istasyon') {
+        updateStations();
+    }
+
     Object.values(window.chartInstances || {}).forEach(chart => {
         if (chart && typeof chart.resize === 'function') chart.resize();
     });
@@ -26045,6 +26246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         initAllCharts();
         initWhatIfListeners();
+        renderStations();
         updateOzetView();
         updateWhatIfView();
     } catch (err) {
@@ -26423,6 +26625,105 @@ function updateWhatIfView() {
         window.chartInstances.alpha.data.datasets[1].data = alphaSabit;
         window.chartInstances.alpha.update();
     }
+
+    // İstasyon haritasını da güncel parametrelerle güncelle
+    updateStations(params);
+}
+
+// ===== SEKME 3 (İSTASYON HARİTASI) 6x4 KART IZGARASI RENDER =====
+function renderStations() {
+    const grid = document.getElementById('stationsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
+        const isFragile = !!st.fragile;
+        
+        const card = document.createElement('div');
+        card.className = 'station-card' + (isFragile ? ' card-fragile' : '');
+        card.id = 'st-card-' + sid;
+        card.title = sid + ' (' + st.hat + '): Tüketim=' + st.d_saat + ' kutu/saat, Kutu Kapasitesi C=' + st.c + ', Başlangıç N=' + st.n;
+        
+        card.innerHTML = 
+            '<div class="station-card-header">' +
+                '<span class="station-card-title">' + sid + 
+                    (isFragile ? ' <span class="fragile-badge-icon" title="En Kırılgan İstasyon">⚠️</span>' : '') + 
+                '</span>' +
+                '<span class="station-card-hat">' + st.hat + '</span>' +
+            '</div>' +
+            '<div class="station-mini-bar-wrapper">' +
+                '<div class="station-mini-bar-fill fill-green" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
+                '<div class="station-rop-marker" id="st-rop-mark-' + sid + '" style="left: 45%;" title="ROP Eşiği"></div>' +
+            '</div>' +
+            '<div class="station-card-metrics">' +
+                '<span id="st-val-' + sid + '" style="font-weight:600; color:#e2e8f0;">Stok: ' + (st.n * st.c) + '</span>' +
+                '<span id="st-rop-' + sid + '" style="color:#fde047;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
+            '</div>';
+        
+        grid.appendChild(card);
+    });
+}
+
+function updateStations(params) {
+    if (!params) params = getWhatIfParameters();
+    const LT_dk = 45.0;
+    const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
+
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
+        const card = document.getElementById('st-card-' + sid);
+        const bar = document.getElementById('st-bar-' + sid);
+        const ropMark = document.getElementById('st-rop-mark-' + sid);
+        const valTxt = document.getElementById('st-val-' + sid);
+        const ropTxt = document.getElementById('st-rop-' + sid);
+
+        const d_dk = (st.d_saat / 60.0) * talepCarpan;
+        const ropAdet = Math.ceil(d_dk * LT_dk * (1.0 + params.alpha));
+        
+        let nKart = st.n;
+        if (params.n_modu === 'Dinamik_N') {
+            nKart = Math.max(1, Math.ceil(ropAdet / st.c));
+        }
+        const cap = nKart * st.c;
+
+        // Anlık simüle edilen stok seviyesi
+        let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
+        if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.4));
+        if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.2));
+
+        const pct = Math.min(100, Math.max(0, (currentStok / cap) * 100));
+        const ropPct = Math.min(100, Math.max(0, (ropAdet / cap) * 100));
+
+        if (bar) {
+            bar.style.width = pct + '%';
+            if (currentStok <= 0) {
+                bar.className = 'station-mini-bar-fill fill-red';
+            } else if (currentStok <= ropAdet) {
+                bar.className = 'station-mini-bar-fill fill-yellow';
+            } else {
+                bar.className = 'station-mini-bar-fill fill-green';
+            }
+        }
+
+        if (card) {
+            card.classList.remove('card-status-green', 'card-status-yellow', 'card-status-red');
+            if (currentStok <= 0) {
+                card.classList.add('card-status-red');
+            } else if (currentStok <= ropAdet) {
+                card.classList.add('card-status-yellow');
+            } else {
+                card.classList.add('card-status-green');
+            }
+        }
+
+        if (ropMark) {
+            ropMark.style.left = ropPct + '%';
+        }
+
+        if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
+        if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
+    });
 }
 
 </script>

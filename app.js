@@ -5,7 +5,7 @@
  * 5 Sekmeli Mimari:
  *   Sekme 1: Özet Ekranı (4 KPI, dinamik yorum, filo duyarlılık eğrisi)
  *   Sekme 2: What-If Simülatör (Slider kontrolleri, anlık KPI'lar, Pareto, K55 Alpha)
- *   Sekme 3: İstasyon Haritası (Adım 3'te gelecek)
+ *   Sekme 3: İstasyon Haritası (6x4 Kompakt Kart Izgarası, mini progress bar, ROP işareti)
  *   Sekme 4: Statik vs Dinamik Karşılaştırma (Adım 4'te gelecek)
  *   Sekme 5: Veri Girişi & Gerçek Veri (Adım 5'te gelecek)
  */
@@ -71,6 +71,10 @@ function showTab(tabId) {
     const btn = document.querySelector('[data-tab="' + tabId + '"]');
     if (btn) btn.classList.add('active');
 
+    if (tabId === 'tab-istasyon') {
+        updateStations();
+    }
+
     Object.values(window.chartInstances || {}).forEach(chart => {
         if (chart && typeof chart.resize === 'function') chart.resize();
     });
@@ -134,6 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         initAllCharts();
         initWhatIfListeners();
+        renderStations();
         updateOzetView();
         updateWhatIfView();
     } catch (err) {
@@ -512,4 +517,103 @@ function updateWhatIfView() {
         window.chartInstances.alpha.data.datasets[1].data = alphaSabit;
         window.chartInstances.alpha.update();
     }
+
+    // İstasyon haritasını da güncel parametrelerle güncelle
+    updateStations(params);
+}
+
+// ===== SEKME 3 (İSTASYON HARİTASI) 6x4 KART IZGARASI RENDER =====
+function renderStations() {
+    const grid = document.getElementById('stationsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
+        const isFragile = !!st.fragile;
+        
+        const card = document.createElement('div');
+        card.className = 'station-card' + (isFragile ? ' card-fragile' : '');
+        card.id = 'st-card-' + sid;
+        card.title = sid + ' (' + st.hat + '): Tüketim=' + st.d_saat + ' kutu/saat, Kutu Kapasitesi C=' + st.c + ', Başlangıç N=' + st.n;
+        
+        card.innerHTML = 
+            '<div class="station-card-header">' +
+                '<span class="station-card-title">' + sid + 
+                    (isFragile ? ' <span class="fragile-badge-icon" title="En Kırılgan İstasyon">⚠️</span>' : '') + 
+                '</span>' +
+                '<span class="station-card-hat">' + st.hat + '</span>' +
+            '</div>' +
+            '<div class="station-mini-bar-wrapper">' +
+                '<div class="station-mini-bar-fill fill-green" id="st-bar-' + sid + '" style="width: 70%;"></div>' +
+                '<div class="station-rop-marker" id="st-rop-mark-' + sid + '" style="left: 45%;" title="ROP Eşiği"></div>' +
+            '</div>' +
+            '<div class="station-card-metrics">' +
+                '<span id="st-val-' + sid + '" style="font-weight:600; color:#e2e8f0;">Stok: ' + (st.n * st.c) + '</span>' +
+                '<span id="st-rop-' + sid + '" style="color:#fde047;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
+            '</div>';
+        
+        grid.appendChild(card);
+    });
+}
+
+function updateStations(params) {
+    if (!params) params = getWhatIfParameters();
+    const LT_dk = 45.0;
+    const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
+
+    STATIONS_DATA.forEach(st => {
+        const sid = st.id;
+        const card = document.getElementById('st-card-' + sid);
+        const bar = document.getElementById('st-bar-' + sid);
+        const ropMark = document.getElementById('st-rop-mark-' + sid);
+        const valTxt = document.getElementById('st-val-' + sid);
+        const ropTxt = document.getElementById('st-rop-' + sid);
+
+        const d_dk = (st.d_saat / 60.0) * talepCarpan;
+        const ropAdet = Math.ceil(d_dk * LT_dk * (1.0 + params.alpha));
+        
+        let nKart = st.n;
+        if (params.n_modu === 'Dinamik_N') {
+            nKart = Math.max(1, Math.ceil(ropAdet / st.c));
+        }
+        const cap = nKart * st.c;
+
+        // Anlık simüle edilen stok seviyesi
+        let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
+        if (params.arac_sayisi < 3) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.4));
+        if (params.talep_sok_pct > 0) currentStok = Math.max(0, currentStok - Math.round(st.c * 0.2));
+
+        const pct = Math.min(100, Math.max(0, (currentStok / cap) * 100));
+        const ropPct = Math.min(100, Math.max(0, (ropAdet / cap) * 100));
+
+        if (bar) {
+            bar.style.width = pct + '%';
+            if (currentStok <= 0) {
+                bar.className = 'station-mini-bar-fill fill-red';
+            } else if (currentStok <= ropAdet) {
+                bar.className = 'station-mini-bar-fill fill-yellow';
+            } else {
+                bar.className = 'station-mini-bar-fill fill-green';
+            }
+        }
+
+        if (card) {
+            card.classList.remove('card-status-green', 'card-status-yellow', 'card-status-red');
+            if (currentStok <= 0) {
+                card.classList.add('card-status-red');
+            } else if (currentStok <= ropAdet) {
+                card.classList.add('card-status-yellow');
+            } else {
+                card.classList.add('card-status-green');
+            }
+        }
+
+        if (ropMark) {
+            ropMark.style.left = ropPct + '%';
+        }
+
+        if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
+        if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
+    });
 }

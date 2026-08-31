@@ -275,14 +275,46 @@
             </div>
         </div>
 
-        <!-- SEKME 3: İSTASYON HARİTASI (Adım 3 Placeholder) -->
+        <!-- SEKME 3: İSTASYON HARİTASI (6x4 Kart Izgarası) -->
         <div id="tab-istasyon" class="tab-content">
-            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
-                <div style="font-size: 36px; margin-bottom: 12px;">🏭</div>
-                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">İstasyon Haritası</h3>
-                <p>Bu sekme Adım 3'te 6x4 kompakt kart ızgarası (24 istasyon mini bar görünümü) ile donatılacaktır.</p>
+            <div class="stations-container">
+                <!-- Üst Bilgi ve Renk Lejantı -->
+                <div class="stations-header-bar">
+                    <div>
+                        <h3 style="font-size:16px; font-weight:600; color:#ffffff;">24 İstasyon Gerçek Zamanlı Stok ve ROP Haritası</h3>
+                        <span style="font-size:12px; color:var(--text-muted);">4 Hat · 24 İstasyon · Tek Ekranda Canlı Görünüm (6 Sütun &times; 4 Satır)</span>
+                    </div>
+
+                    <div class="stations-legend">
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-green" style="width:10px; height:10px;"></span>
+                            <span>Stok > ROP (Yeterli)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-yellow" style="width:10px; height:10px;"></span>
+                            <span>Stok &le; ROP (Sinyal)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="kpi-status-dot dot-red" style="width:10px; height:10px;"></span>
+                            <span>Kritik Duruş (Stok=0)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span style="display:inline-block; width:12px; height:2px; background:#fde047;"></span>
+                            <span>Sarı Çizgi: ROP Eşiği</span>
+                        </div>
+                        <div class="legend-item" style="color:#f43f5e; font-weight:600;">
+                            <span>⚠️ S16: En Kırılgan İstasyon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6x4 İstasyon Kart Izgarası -->
+                <div class="stations-6x4-grid" id="stationsGrid">
+                    <!-- JavaScript renderStations() tarafından 24 kart buraya dinamik oluşturulur -->
+                </div>
             </div>
         </div>
+
 
         <!-- SEKME 4: STATİK VS DİNAMİK (Adım 4 Placeholder) -->
         <div id="tab-karsilastirma" class="tab-content">
