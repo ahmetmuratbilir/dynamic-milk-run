@@ -806,6 +806,160 @@ input[type="range"] {
     color: var(--text-muted);
 }
 
+/* ===== SEKME 5: VERİ GİRİŞİ STİLLERİ ===== */
+.data-entry-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.data-entry-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+}
+
+.subtab-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.subtab-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.subtab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.subtab-btn.active {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: var(--accent-cyan);
+    color: #a5f3fc;
+}
+
+.action-btn-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+
+.action-btn.btn-primary {
+    background: var(--accent-cyan);
+    color: #090d16;
+}
+.action-btn.btn-primary:hover {
+    background: #22d3ee;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+.action-btn.btn-success {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+.action-btn.btn-success:hover {
+    background: rgba(16, 185, 129, 0.3);
+}
+
+.action-btn.btn-warning {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #fde047;
+}
+.action-btn.btn-warning:hover {
+    background: rgba(245, 158, 11, 0.3);
+}
+
+.action-btn.btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+.action-btn.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.action-btn.btn-danger {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.3);
+    color: #fecdd3;
+}
+.action-btn.btn-danger:hover {
+    background: rgba(244, 63, 94, 0.25);
+}
+
+/* EDITABLE DATA TABLE */
+.editable-table-wrapper {
+    max-height: 480px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.editable-table input[type="number"], .editable-table input[type="text"], .editable-table select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 6px 8px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    width: 100%;
+    max-width: 110px;
+    text-align: center;
+    transition: border-color 0.15s;
+}
+
+.editable-table input:focus, .editable-table select:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 6px rgba(6, 182, 212, 0.3);
+}
+
+/* PREVIEW BANNER */
+.preview-mode-banner {
+    display: none;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
+    border: 1px solid var(--accent-cyan);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #a5f3fc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
 </style>
 </head>
 <body>
@@ -1289,14 +1443,109 @@ input[type="range"] {
         </div>
 
 
-        <!-- SEKME 5: VERİ GİRİŞİ (Adım 5 Placeholder) -->
+        <!-- SEKME 5: VERİ GİRİŞİ (Gerçek Fabrika Verisi Entegrasyonu) -->
         <div id="tab-veri-girisi" class="tab-content">
-            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
-                <div style="font-size: 36px; margin-bottom: 12px;">📥</div>
-                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">Veri Girişi & Gerçek Veri Entegrasyonu</h3>
-                <p>Bu sekme Adım 5'te interaktif form, canlı ROP önizleme, localStorage ve CSV aktarımı ile donatılacaktır.</p>
+            <div class="data-entry-container">
+                
+                <!-- Üst Araç Çubuğu ve Aksiyon Butonları -->
+                <div class="data-entry-toolbar">
+                    <div class="subtab-buttons">
+                        <button class="subtab-btn active" id="btnSubtabStations" onclick="switchDataSubtab('stations')">🏭 1. İstasyon Parametreleri (24 İstasyon)</button>
+                        <button class="subtab-btn" id="btnSubtabConsumption" onclick="switchDataSubtab('consumption')">📊 2. Tüketim Örneklemi Girişi</button>
+                    </div>
+
+                    <div class="action-btn-group">
+                        <button class="action-btn btn-secondary" onclick="loadSyntheticDataToForm()" title="Sentetik baz verileri forma doldur">📥 Sentetik Yükle</button>
+                        <button class="action-btn btn-primary" onclick="previewRealData()" title="Değerlerle ROP hesaplayıp İstasyon Haritasında önizle">🔬 Hesapla ve Önizle</button>
+                        <button class="action-btn btn-success" onclick="saveFormToLocalStorage()" title="Tarayıcı hafızasında sakla">💾 Kaydet</button>
+                        <button class="action-btn btn-danger" onclick="clearFormStorage()" title="Verileri temizle">🧹 Sıfırla</button>
+                        <button class="action-btn btn-warning" onclick="exportStationsCSV()" title="data/real/stations.csv formatında indir">📥 stations.csv İndir</button>
+                        <button class="action-btn btn-warning" onclick="exportConsumptionCSV()" title="data/real/consumption.csv formatında indir">📥 consumption.csv İndir</button>
+                    </div>
+                </div>
+
+                <!-- Bilgilendirme ve Durum Şeridi -->
+                <div class="preview-mode-banner" id="previewModeBanner">
+                    <span>🔬 <strong>ÖNİZLEME MODU AKTİF:</strong> Girdiğiniz gerçek fabrika parametreleri İstasyon Haritasına (Sekme 3) yansıtıldı.</span>
+                    <button class="action-btn btn-secondary" onclick="resetToSyntheticData()" style="padding:4px 10px; font-size:11px;">Sentetik Veriye Dön</button>
+                </div>
+
+                <!-- ALT-BÖLÜM A: 24 İSTASYON PARAMETRE TABLO FORMU -->
+                <div id="subtabContentStations" class="table-card glass-card">
+                    <div class="table-header">
+                        <div>
+                            <h3>24 İstasyon Parametre Düzenleme Tablosu</h3>
+                            <span style="font-size:12px; color:var(--text-muted);">Tüketim (D), Kutu Kapasitesi (C), Kanban Kartı (N) ve Başlangıç Stok Değerlerini Giriniz</span>
+                        </div>
+                        <span class="badge" style="background:rgba(6, 182, 212, 0.15); color:var(--accent-cyan);">Düzenlenebilir Hücreler</span>
+                    </div>
+                    
+                    <div class="editable-table-wrapper">
+                        <table class="data-table editable-table" id="tableStationsInput">
+                            <thead>
+                                <tr>
+                                    <th>İstasyon ID</th>
+                                    <th>Hat</th>
+                                    <th>Ort. Tüketim (D, adet/saat)</th>
+                                    <th>Std Sapma (saat)</th>
+                                    <th>Kutu Kapasitesi (C)</th>
+                                    <th>Kanban Kartı (N)</th>
+                                    <th>Başlangıç Kutu</th>
+                                    <th>Hesaplanan ROP (adet)</th>
+                                    <th>Maks Kapasite (N&times;C)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyStationsInput">
+                                <!-- JavaScript renderDataEntryTable() tarafından doldurulur -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ALT-BÖLÜM B: TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI -->
+                <div id="subtabContentConsumption" class="table-card glass-card" style="display:none;">
+                    <div class="table-header">
+                        <div>
+                            <h3>Tüketim Örneklemi Girişi ve İstatistiki Hesaplayıcı</h3>
+                            <span style="font-size:12px; color:var(--text-muted);">İstasyon seçip dakika bazlı tüketim noktaları ekleyin; ortalama saatlik tüketim (D) ve standart sapma otomatik hesaplanıp 1. Bölüme aktarılsın.</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:16px; padding:16px 0;">
+                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                            <label style="font-size:13px; font-weight:600; color:#e2e8f0;">Hedef İstasyon Seçiniz:</label>
+                            <select id="selectSampleStation" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:6px 12px; color:#ffffff;">
+                                <!-- S1..S24 JS tarafından doldurulur -->
+                            </select>
+                            <button class="action-btn btn-secondary" onclick="addSampleRow()">➕ Örneklem Satırı Ekle</button>
+                            <button class="action-btn btn-primary" onclick="calculateSampleStats()">⚡ İstatistikleri Hesapla & Tabloya Aktar</button>
+                        </div>
+
+                        <div class="editable-table-wrapper" style="max-height:300px;">
+                            <table class="data-table editable-table" id="tableSampleInput">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80px;">Sıra</th>
+                                        <th>Zaman (Dakika)</th>
+                                        <th>Tüketim (Adet)</th>
+                                        <th style="width:100px;">İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodySampleInput">
+                                    <!-- Dinamik örneklem satırları -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="sampleStatsResult" style="display:none; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:12px 16px; color:#6ee7b7; font-size:13px;">
+                            <!-- Hesaplama sonuç özeti -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
 
         <!-- FOOTER -->
         <footer class="main-footer">
@@ -1319,8 +1568,8 @@ input[type="range"] {
  *   Sekme 1: Özet Ekranı (4 KPI, dinamik yorum, filo duyarlılık eğrisi)
  *   Sekme 2: What-If Simülatör (Slider kontrolleri, anlık KPI'lar, Pareto, K55 Alpha)
  *   Sekme 3: İstasyon Haritası (6x4 Kompakt Kart Izgarası, mini progress bar, ROP işareti)
- *   Sekme 4: Statik vs Dinamik Karşılaştırma (Adım 4'te gelecek)
- *   Sekme 5: Veri Girişi & Gerçek Veri (Adım 5'te gelecek)
+ *   Sekme 4: Statik vs Dinamik Karşılaştırma (Detaylı metrik tablosu & 1-8 araç matrisi)
+ *   Sekme 5: Veri Girişi & Gerçek Veri (Form, canlı ROP önizleme, localStorage & CSV dışa aktarma)
  */
 
 // ===== GLOBAL DEĞİŞKENLER VE GRAFİK NESNELERİ =====
@@ -26304,33 +26553,37 @@ const STATIC_BASELINE_MAP = {
     8: 18.68
 };
 
-// Gerçek Fabrika İstasyon Verileri (stations.csv)
-const STATIONS_DATA = [
-    { id: 'S1', hat: 'Hat-1', d_saat: 22, c: 20, n: 1 },
-    { id: 'S2', hat: 'Hat-1', d_saat: 18, c: 20, n: 1 },
-    { id: 'S3', hat: 'Hat-1', d_saat: 15, c: 15, n: 1 },
-    { id: 'S4', hat: 'Hat-1', d_saat: 20, c: 20, n: 1 },
-    { id: 'S5', hat: 'Hat-1', d_saat: 12, c: 15, n: 1 },
-    { id: 'S6', hat: 'Hat-1', d_saat: 17, c: 20, n: 1 },
-    { id: 'S7', hat: 'Hat-2', d_saat: 21, c: 20, n: 1 },
-    { id: 'S8', hat: 'Hat-2', d_saat: 13, c: 15, n: 1 },
-    { id: 'S9', hat: 'Hat-2', d_saat: 19, c: 20, n: 1 },
-    { id: 'S10', hat: 'Hat-2', d_saat: 11, c: 15, n: 1 },
-    { id: 'S11', hat: 'Hat-2', d_saat: 16, c: 20, n: 1 },
-    { id: 'S12', hat: 'Hat-2', d_saat: 14, c: 15, n: 1 },
-    { id: 'S13', hat: 'Hat-3', d_saat: 23, c: 20, n: 1 },
-    { id: 'S14', hat: 'Hat-3', d_saat: 18, c: 20, n: 1 },
-    { id: 'S15', hat: 'Hat-3', d_saat: 15, c: 15, n: 1 },
-    { id: 'S16', hat: 'Hat-3', d_saat: 24, c: 20, n: 2, fragile: true },
-    { id: 'S17', hat: 'Hat-3', d_saat: 17, c: 20, n: 1 },
-    { id: 'S18', hat: 'Hat-3', d_saat: 14, c: 15, n: 1 },
-    { id: 'S19', hat: 'Hat-4', d_saat: 20, c: 20, n: 1 },
-    { id: 'S20', hat: 'Hat-4', d_saat: 16, c: 20, n: 1 },
-    { id: 'S21', hat: 'Hat-4', d_saat: 13, c: 15, n: 1 },
-    { id: 'S22', hat: 'Hat-4', d_saat: 18, c: 20, n: 1 },
-    { id: 'S23', hat: 'Hat-4', d_saat: 12, c: 15, n: 1 },
-    { id: 'S24', hat: 'Hat-4', d_saat: 21, c: 20, n: 1 }
+// Sentetik Baz İstasyon Verileri (stations.csv)
+const BASE_STATIONS_DATA = [
+    { id: 'S1', hat: 'Hat-1', d_saat: 22, std_saat: 5.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S2', hat: 'Hat-1', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S3', hat: 'Hat-1', d_saat: 15, std_saat: 3.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S4', hat: 'Hat-1', d_saat: 20, std_saat: 5.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S5', hat: 'Hat-1', d_saat: 12, std_saat: 3.0, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S6', hat: 'Hat-1', d_saat: 17, std_saat: 4.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S7', hat: 'Hat-2', d_saat: 21, std_saat: 5.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S8', hat: 'Hat-2', d_saat: 13, std_saat: 3.2, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S9', hat: 'Hat-2', d_saat: 19, std_saat: 4.8, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S10', hat: 'Hat-2', d_saat: 11, std_saat: 2.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S11', hat: 'Hat-2', d_saat: 16, std_saat: 4.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S12', hat: 'Hat-2', d_saat: 14, std_saat: 3.5, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S13', hat: 'Hat-3', d_saat: 23, std_saat: 5.8, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S14', hat: 'Hat-3', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S15', hat: 'Hat-3', d_saat: 15, std_saat: 3.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S16', hat: 'Hat-3', d_saat: 24, std_saat: 6.0, c: 20, n: 2, baslangic_kutu: 2, fragile: true },
+    { id: 'S17', hat: 'Hat-3', d_saat: 17, std_saat: 4.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S18', hat: 'Hat-3', d_saat: 14, std_saat: 3.5, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S19', hat: 'Hat-4', d_saat: 20, std_saat: 5.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S20', hat: 'Hat-4', d_saat: 16, std_saat: 4.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S21', hat: 'Hat-4', d_saat: 13, std_saat: 3.2, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S22', hat: 'Hat-4', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S23', hat: 'Hat-4', d_saat: 12, std_saat: 3.0, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S24', hat: 'Hat-4', d_saat: 21, std_saat: 5.2, c: 20, n: 1, baslangic_kutu: 1 }
 ];
+
+// Aktif İstasyon Veri Listesi (Düzenlenebilir)
+let activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
+let isPreviewMode = false;
 
 // ===== HAZIR TEST EDİLMİŞ SEKME GEÇİŞ MEKANİZMASI =====
 function showTab(tabId) {
@@ -26410,9 +26663,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         scenariosData = await response.json();
         console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo.');
         
+        // localStorage'dan kayıtlı veri varsa yükle
+        const savedData = loadRealDataFromStorage();
+        if (savedData && Array.isArray(savedData) && savedData.length === 24) {
+            activeStationsData = savedData;
+        }
+
         initAllCharts();
         initWhatIfListeners();
         renderStations();
+        renderDataEntryTable();
+        initSampleStationSelect();
+        initDefaultSampleRows();
         updateOzetView();
         updateWhatIfView();
     } catch (err) {
@@ -26802,7 +27064,7 @@ function renderStations() {
     if (!grid) return;
     grid.innerHTML = '';
 
-    STATIONS_DATA.forEach(st => {
+    activeStationsData.forEach(st => {
         const sid = st.id;
         const isFragile = !!st.fragile;
         
@@ -26836,7 +27098,7 @@ function updateStations(params) {
     const LT_dk = 45.0;
     const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
 
-    STATIONS_DATA.forEach(st => {
+    activeStationsData.forEach(st => {
         const sid = st.id;
         const card = document.getElementById('st-card-' + sid);
         const bar = document.getElementById('st-bar-' + sid);
@@ -26890,6 +27152,303 @@ function updateStations(params) {
         if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
         if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
     });
+}
+
+// ===== SEKME 5: VERİ GİRİŞİ MANTIĞI VE FONKSİYONLARI =====
+
+// Alt-Sekme Değişimi (İstasyonlar vs Tüketim Örneklemi)
+function switchDataSubtab(subtab) {
+    const btnSt = document.getElementById('btnSubtabStations');
+    const btnCo = document.getElementById('btnSubtabConsumption');
+    const cntSt = document.getElementById('subtabContentStations');
+    const cntCo = document.getElementById('subtabContentConsumption');
+
+    if (subtab === 'stations') {
+        if (btnSt) btnSt.className = 'subtab-btn active';
+        if (btnCo) btnCo.className = 'subtab-btn';
+        if (cntSt) cntSt.style.display = 'block';
+        if (cntCo) cntCo.style.display = 'none';
+    } else {
+        if (btnSt) btnSt.className = 'subtab-btn';
+        if (btnCo) btnCo.className = 'subtab-btn active';
+        if (cntSt) cntSt.style.display = 'none';
+        if (cntCo) cntCo.style.display = 'block';
+    }
+}
+
+// 24 İstasyon Tablosunu Doldur
+function renderDataEntryTable() {
+    const tbody = document.getElementById('tbodyStationsInput');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    activeStationsData.forEach((st, idx) => {
+        const sid = st.id;
+        const ropCalc = Math.ceil((st.d_saat / 60.0) * 45.0 * 1.15);
+        const maxCap = st.n * st.c;
+
+        const tr = document.createElement('tr');
+        tr.id = 'row-input-' + sid;
+        tr.innerHTML = 
+            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#f43f5e;">⚠️</span>' : '') + '</td>' +
+            '<td><span class="tag" style="background:rgba(255,255,255,0.05); color:#cbd5e1;">' + st.hat + '</span></td>' +
+            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)"></td>' +
+            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)"></td>' +
+            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)"></td>' +
+            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)"></td>' +
+            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)"></td>' +
+            '<td id="calc-rop-' + sid + '" style="font-weight:600; color:#fde047;">' + ropCalc + ' adet</td>' +
+            '<td id="calc-cap-' + sid + '" style="color:#a5f3fc;">' + maxCap + ' adet</td>';
+        
+        tbody.appendChild(tr);
+    });
+}
+
+function onStationFieldChange(idx, field, val) {
+    const num = parseFloat(val) || 0;
+    activeStationsData[idx][field] = num;
+
+    const st = activeStationsData[idx];
+    const ropCalc = Math.ceil((st.d_saat / 60.0) * 45.0 * 1.15);
+    const maxCap = st.n * st.c;
+
+    const elRop = document.getElementById('calc-rop-' + st.id);
+    const elCap = document.getElementById('calc-cap-' + st.id);
+    if (elRop) elRop.textContent = ropCalc + ' adet';
+    if (elCap) elCap.textContent = maxCap + ' adet';
+}
+
+// Sentetik Verileri Forma Doldur
+function loadSyntheticDataToForm() {
+    activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
+    renderDataEntryTable();
+    resetToSyntheticData();
+    alert('Sentetik fabrika baz verileri (24 İstasyon) tabloya başarıyla yüklendi.');
+}
+
+// Tarayıcı Hafızasına (localStorage) Kaydet
+function saveFormToLocalStorage() {
+    const success = saveRealDataToStorage(activeStationsData);
+    if (success) {
+        alert('Girdiğiniz 24 istasyon verisi tarayıcı hafızasına (localStorage) başarıyla kaydedildi.');
+    } else {
+        alert('Kaydetme sırasında bir hata oluştu.');
+    }
+}
+
+// Hafızayı Sıfırla
+function clearFormStorage() {
+    if (confirm('Tarayıcıda saklanan gerçek veri silinip sentetik değerlere dönülsün mü?')) {
+        clearRealDataStorage();
+        loadSyntheticDataToForm();
+    }
+}
+
+// Gerçek Veriyi Hesapla ve Önizle
+function previewRealData() {
+    isPreviewMode = true;
+    const banner = document.getElementById('previewModeBanner');
+    if (banner) banner.style.display = 'flex';
+
+    renderStations();
+    updateStations();
+    showTab('tab-istasyon');
+}
+
+// Sentetik Veriye Geri Dön
+function resetToSyntheticData() {
+    isPreviewMode = false;
+    const banner = document.getElementById('previewModeBanner');
+    if (banner) banner.style.display = 'none';
+
+    renderStations();
+    updateStations();
+}
+
+// ===== CSV DIŞA AKTARMA (data/real/ ŞABLONLARIYLA HARFİYEN BİREBİR) =====
+
+// 1. stations.csv Dışa Aktarma
+function exportStationsCSV() {
+    const headers = [
+        'istasyon_id',
+        'hat',
+        'sira_no',
+        'ort_tuketim_saat',
+        'std_tuketim_saat',
+        'ort_tuketim_dk',
+        'kutu_kapasitesi',
+        'kanban_n',
+        'baslangic_kutu',
+        'baslangic_stok_adet',
+        'reorder_point_kutu'
+    ];
+
+    const rows = activeStationsData.map((st, idx) => {
+        const d_saat = Number(st.d_saat);
+        const std_saat = Number(st.std_saat || (d_saat * 0.25).toFixed(2));
+        const d_dk = Number((d_saat / 60.0).toFixed(4));
+        const c = Number(st.c);
+        const n = Number(st.n);
+        const basl_kutu = Number(st.baslangic_kutu || n);
+        const basl_adet = basl_kutu * c;
+        const rop_adet = Math.ceil(d_dk * 45.0 * 1.15);
+        const rop_kutu = Math.max(1, Math.ceil(rop_adet / c));
+
+        return {
+            istasyon_id: st.id,
+            hat: st.hat,
+            sira_no: idx + 1,
+            ort_tuketim_saat: d_saat,
+            std_tuketim_saat: std_saat,
+            ort_tuketim_dk: d_dk,
+            kutu_kapasitesi: c,
+            kanban_n: n,
+            baslangic_kutu: basl_kutu,
+            baslangic_stok_adet: basl_adet,
+            reorder_point_kutu: rop_kutu
+        };
+    });
+
+    exportArrayToCSV(rows, headers, 'stations.csv');
+}
+
+// 2. consumption.csv Dışa Aktarma
+function exportConsumptionCSV() {
+    const headers = ['dakika', 'istasyon_id', 'tuketim_adet'];
+    const rows = [];
+
+    // Örneklem tablosundan satırları topla, eğer boşsa aktif istasyonlardan örnek 480 dakikalık zaman serisi üret
+    const sampleTableRows = document.querySelectorAll('#tbodySampleInput tr');
+    if (sampleTableRows.length > 0) {
+        const selStation = document.getElementById('selectSampleStation') ? document.getElementById('selectSampleStation').value : 'S1';
+        sampleTableRows.forEach(tr => {
+            const minInput = tr.querySelector('.sample-min');
+            const qtyInput = tr.querySelector('.sample-qty');
+            if (minInput && qtyInput) {
+                rows.push({
+                    dakika: parseInt(minInput.value) || 1,
+                    istasyon_id: selStation,
+                    tuketim_adet: parseInt(qtyInput.value) || 0
+                });
+            }
+        });
+    }
+
+    // Eğer kullanıcı örneklem tablosuna satır girmemişse tüm istasyonlar için 1..10 dk başlangıç serisi ver
+    if (rows.length === 0) {
+        for (let t = 1; t <= 15; t++) {
+            activeStationsData.forEach(st => {
+                const lambda = st.d_saat / 60.0;
+                const qty = Math.max(0, Math.round(lambda + (Math.sin(t + parseInt(st.id.replace('S',''))) * 0.3)));
+                rows.push({
+                    dakika: t,
+                    istasyon_id: st.id,
+                    tuketim_adet: qty
+                });
+            });
+        }
+    }
+
+    exportArrayToCSV(rows, headers, 'consumption.csv');
+}
+
+// ===== TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI FONKSİYONLARI =====
+
+function initSampleStationSelect() {
+    const sel = document.getElementById('selectSampleStation');
+    if (!sel) return;
+    sel.innerHTML = '';
+    activeStationsData.forEach(st => {
+        const opt = document.createElement('option');
+        opt.value = st.id;
+        opt.textContent = st.id + ' (' + st.hat + ' - Mevcut D: ' + st.d_saat + ' adet/saat)';
+        sel.appendChild(opt);
+    });
+}
+
+function initDefaultSampleRows() {
+    const tbody = document.getElementById('tbodySampleInput');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    
+    // Varsayılan 5 örnek satır
+    const defaults = [
+        { min: 5, qty: 2 },
+        { min: 10, qty: 1 },
+        { min: 15, qty: 3 },
+        { min: 20, qty: 2 },
+        { min: 25, qty: 1 }
+    ];
+    defaults.forEach(d => addSampleRow(d.min, d.qty));
+}
+
+function addSampleRow(minVal, qtyVal) {
+    const tbody = document.getElementById('tbodySampleInput');
+    if (!tbody) return;
+
+    const rowIdx = tbody.children.length + 1;
+    const tr = document.createElement('tr');
+    tr.innerHTML = 
+        '<td>' + rowIdx + '</td>' +
+        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '"></td>' +
+        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '"></td>' +
+        '<td><button class="action-btn btn-danger" style="padding:2px 8px; font-size:11px;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
+    
+    tbody.appendChild(tr);
+}
+
+function calculateSampleStats() {
+    const rows = document.querySelectorAll('#tbodySampleInput tr');
+    if (rows.length === 0) {
+        alert('Lütfen en az 1 örneklem satırı ekleyin.');
+        return;
+    }
+
+    const values = [];
+    rows.forEach(tr => {
+        const input = tr.querySelector('.sample-qty');
+        if (input) values.push(parseFloat(input.value) || 0);
+    });
+
+    const n = values.length;
+    const sum = values.reduce((a, b) => a + b, 0);
+    const meanPerSample = sum / n;
+    
+    // Ortalama dakika aralığı
+    const minInputs = document.querySelectorAll('.sample-min');
+    let totalDk = 30;
+    if (minInputs.length >= 2) {
+        const lastMin = parseFloat(minInputs[minInputs.length - 1].value) || 30;
+        const firstMin = parseFloat(minInputs[0].value) || 0;
+        totalDk = Math.max(5, lastMin - firstMin);
+    }
+    
+    // Saatlik tüketim hızı D hesabı: (Toplam Adet / Toplam Dakika) * 60
+    const dSaatCalc = Math.max(1, Math.round((sum / totalDk) * 60));
+    
+    // Standart sapma hesabı
+    let stdCalc = 1.0;
+    if (n > 1) {
+        const variance = values.reduce((acc, val) => acc + Math.pow(val - meanPerSample, 2), 0) / (n - 1);
+        stdCalc = parseFloat((Math.sqrt(variance) * (60 / (totalDk / n))).toFixed(1));
+    }
+
+    const selStation = document.getElementById('selectSampleStation').value;
+    const stIdx = activeStationsData.findIndex(s => s.id === selStation);
+
+    if (stIdx !== -1) {
+        activeStationsData[stIdx].d_saat = dSaatCalc;
+        activeStationsData[stIdx].std_saat = stdCalc;
+        renderDataEntryTable();
+
+        const resBox = document.getElementById('sampleStatsResult');
+        if (resBox) {
+            resBox.style.display = 'block';
+            resBox.innerHTML = 
+                '✅ <strong>Hesaplama Başarılı:</strong> ' + selStation + ' için ' + n + ' örneklem noktasından ortalama saatlik tüketim <strong>D = ' + dSaatCalc + ' adet/saat</strong> ' +
+                've standart sapma <strong>&sigma; = ' + stdCalc + ' adet/saat</strong> hesaplanarak 1. Bölümdeki tabloya aktarıldı.';
+        }
+    }
 }
 
 </script>

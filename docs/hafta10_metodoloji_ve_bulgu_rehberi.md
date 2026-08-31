@@ -262,11 +262,20 @@ HAFTA 8 TEMEL SONUÇLAR (EDD, tavanlı, kanonik motor):
   Dinamik (4 araç, EDD):  %24.58 starvation, WIP=182  ← BAZ DEĞER
   → 4 araçta da statik daha iyi
 
-NEDEN DİNAMİK SİSTEM İYİ ÇIKMIYOR:
+NEDEN DİNAMİK SİSTEM İYİ ÇIKMIYOR (KÜÇÜK FİLOLARDA) VE GEÇİŞ NOKTASI BULGUSU:
   - Reaktif gecikme: sinyal geliyor, araç hazırlanıyor, yola çıkıyor
-    → stok bu sürede tükeniyor ve starvation oluşuyor
+    → stok bu sürede tükeniyor ve starvation oluşuyor (2-4 araçta statik avantajı)
   - Statik sistemde araç zaten belirlenen saatte yola çıkıyor
     → İstasyon stoklanmadan önce araç orada
+
+  ⭐ TEZ VE MAKALE İÇİN EN GÜÇLÜ ANLATI — GEÇİŞ NOKTASI (CROSSOVER POINT):
+  Filo boyutu 1-8 araç boyunca tarandığında çok net bir geçiş eşiği ortaya çıkmaktadır:
+  - 1-4 Araç: Statik sistem kazanıyor (Reaktif gecikme kısıtlı filoda dinamik sistemi cezalandırıyor).
+  - 5 Araç Eşiği (Geçiş Noktası ⚡): Dinamik sistem ilk kez statiği geçiyor (Statik %19.10 vs Dinamik %15.98, fark: -3.12 puan).
+  - 8 Araç (Hedef Eşik 🏆): Dinamik sistem statiğe ezici üstünlük kuruyor (Statik %18.68 vs Dinamik %3.50, fark: -15.18 puan) ve <%5 rekabetçilik hedefine ulaşıyor.
+  
+  Savunma/Makale Ana Cümlesi:
+  "Dinamik E-Kanban sistemi küçük filolarda (1-4 araç) reaktif gecikme nedeniyle statik sisteme göre dezavantajlı başlasa da, filo büyüklüğü arttıkça üstünlüğü katlanarak artmaktadır — 5 araç eşiğinden sonra dinamik sistem sürekli ve belirgin biçimde daha iyi performans sergilemektedir."
 
 ### HAFTA 9: WIP-Starvation Trade-off ve Pareto Analizi
 

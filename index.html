@@ -491,14 +491,109 @@
         </div>
 
 
-        <!-- SEKME 5: VERİ GİRİŞİ (Adım 5 Placeholder) -->
+        <!-- SEKME 5: VERİ GİRİŞİ (Gerçek Fabrika Verisi Entegrasyonu) -->
         <div id="tab-veri-girisi" class="tab-content">
-            <div class="glass-card" style="padding: 48px; text-align: center; color: var(--text-muted);">
-                <div style="font-size: 36px; margin-bottom: 12px;">📥</div>
-                <h3 style="font-size: 18px; color: #ffffff; margin-bottom: 8px;">Veri Girişi & Gerçek Veri Entegrasyonu</h3>
-                <p>Bu sekme Adım 5'te interaktif form, canlı ROP önizleme, localStorage ve CSV aktarımı ile donatılacaktır.</p>
+            <div class="data-entry-container">
+                
+                <!-- Üst Araç Çubuğu ve Aksiyon Butonları -->
+                <div class="data-entry-toolbar">
+                    <div class="subtab-buttons">
+                        <button class="subtab-btn active" id="btnSubtabStations" onclick="switchDataSubtab('stations')">🏭 1. İstasyon Parametreleri (24 İstasyon)</button>
+                        <button class="subtab-btn" id="btnSubtabConsumption" onclick="switchDataSubtab('consumption')">📊 2. Tüketim Örneklemi Girişi</button>
+                    </div>
+
+                    <div class="action-btn-group">
+                        <button class="action-btn btn-secondary" onclick="loadSyntheticDataToForm()" title="Sentetik baz verileri forma doldur">📥 Sentetik Yükle</button>
+                        <button class="action-btn btn-primary" onclick="previewRealData()" title="Değerlerle ROP hesaplayıp İstasyon Haritasında önizle">🔬 Hesapla ve Önizle</button>
+                        <button class="action-btn btn-success" onclick="saveFormToLocalStorage()" title="Tarayıcı hafızasında sakla">💾 Kaydet</button>
+                        <button class="action-btn btn-danger" onclick="clearFormStorage()" title="Verileri temizle">🧹 Sıfırla</button>
+                        <button class="action-btn btn-warning" onclick="exportStationsCSV()" title="data/real/stations.csv formatında indir">📥 stations.csv İndir</button>
+                        <button class="action-btn btn-warning" onclick="exportConsumptionCSV()" title="data/real/consumption.csv formatında indir">📥 consumption.csv İndir</button>
+                    </div>
+                </div>
+
+                <!-- Bilgilendirme ve Durum Şeridi -->
+                <div class="preview-mode-banner" id="previewModeBanner">
+                    <span>🔬 <strong>ÖNİZLEME MODU AKTİF:</strong> Girdiğiniz gerçek fabrika parametreleri İstasyon Haritasına (Sekme 3) yansıtıldı.</span>
+                    <button class="action-btn btn-secondary" onclick="resetToSyntheticData()" style="padding:4px 10px; font-size:11px;">Sentetik Veriye Dön</button>
+                </div>
+
+                <!-- ALT-BÖLÜM A: 24 İSTASYON PARAMETRE TABLO FORMU -->
+                <div id="subtabContentStations" class="table-card glass-card">
+                    <div class="table-header">
+                        <div>
+                            <h3>24 İstasyon Parametre Düzenleme Tablosu</h3>
+                            <span style="font-size:12px; color:var(--text-muted);">Tüketim (D), Kutu Kapasitesi (C), Kanban Kartı (N) ve Başlangıç Stok Değerlerini Giriniz</span>
+                        </div>
+                        <span class="badge" style="background:rgba(6, 182, 212, 0.15); color:var(--accent-cyan);">Düzenlenebilir Hücreler</span>
+                    </div>
+                    
+                    <div class="editable-table-wrapper">
+                        <table class="data-table editable-table" id="tableStationsInput">
+                            <thead>
+                                <tr>
+                                    <th>İstasyon ID</th>
+                                    <th>Hat</th>
+                                    <th>Ort. Tüketim (D, adet/saat)</th>
+                                    <th>Std Sapma (saat)</th>
+                                    <th>Kutu Kapasitesi (C)</th>
+                                    <th>Kanban Kartı (N)</th>
+                                    <th>Başlangıç Kutu</th>
+                                    <th>Hesaplanan ROP (adet)</th>
+                                    <th>Maks Kapasite (N&times;C)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyStationsInput">
+                                <!-- JavaScript renderDataEntryTable() tarafından doldurulur -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ALT-BÖLÜM B: TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI -->
+                <div id="subtabContentConsumption" class="table-card glass-card" style="display:none;">
+                    <div class="table-header">
+                        <div>
+                            <h3>Tüketim Örneklemi Girişi ve İstatistiki Hesaplayıcı</h3>
+                            <span style="font-size:12px; color:var(--text-muted);">İstasyon seçip dakika bazlı tüketim noktaları ekleyin; ortalama saatlik tüketim (D) ve standart sapma otomatik hesaplanıp 1. Bölüme aktarılsın.</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:16px; padding:16px 0;">
+                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                            <label style="font-size:13px; font-weight:600; color:#e2e8f0;">Hedef İstasyon Seçiniz:</label>
+                            <select id="selectSampleStation" style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:6px 12px; color:#ffffff;">
+                                <!-- S1..S24 JS tarafından doldurulur -->
+                            </select>
+                            <button class="action-btn btn-secondary" onclick="addSampleRow()">➕ Örneklem Satırı Ekle</button>
+                            <button class="action-btn btn-primary" onclick="calculateSampleStats()">⚡ İstatistikleri Hesapla & Tabloya Aktar</button>
+                        </div>
+
+                        <div class="editable-table-wrapper" style="max-height:300px;">
+                            <table class="data-table editable-table" id="tableSampleInput">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80px;">Sıra</th>
+                                        <th>Zaman (Dakika)</th>
+                                        <th>Tüketim (Adet)</th>
+                                        <th style="width:100px;">İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodySampleInput">
+                                    <!-- Dinamik örneklem satırları -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="sampleStatsResult" style="display:none; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:12px 16px; color:#6ee7b7; font-size:13px;">
+                            <!-- Hesaplama sonuç özeti -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
 
         <!-- FOOTER -->
         <footer class="main-footer">

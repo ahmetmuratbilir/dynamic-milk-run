@@ -6,8 +6,8 @@
  *   Sekme 1: Özet Ekranı (4 KPI, dinamik yorum, filo duyarlılık eğrisi)
  *   Sekme 2: What-If Simülatör (Slider kontrolleri, anlık KPI'lar, Pareto, K55 Alpha)
  *   Sekme 3: İstasyon Haritası (6x4 Kompakt Kart Izgarası, mini progress bar, ROP işareti)
- *   Sekme 4: Statik vs Dinamik Karşılaştırma (Adım 4'te gelecek)
- *   Sekme 5: Veri Girişi & Gerçek Veri (Adım 5'te gelecek)
+ *   Sekme 4: Statik vs Dinamik Karşılaştırma (Detaylı metrik tablosu & 1-8 araç matrisi)
+ *   Sekme 5: Veri Girişi & Gerçek Veri (Form, canlı ROP önizleme, localStorage & CSV dışa aktarma)
  */
 
 // ===== GLOBAL DEĞİŞKENLER VE GRAFİK NESNELERİ =====
@@ -30,33 +30,37 @@ const STATIC_BASELINE_MAP = {
     8: 18.68
 };
 
-// Gerçek Fabrika İstasyon Verileri (stations.csv)
-const STATIONS_DATA = [
-    { id: 'S1', hat: 'Hat-1', d_saat: 22, c: 20, n: 1 },
-    { id: 'S2', hat: 'Hat-1', d_saat: 18, c: 20, n: 1 },
-    { id: 'S3', hat: 'Hat-1', d_saat: 15, c: 15, n: 1 },
-    { id: 'S4', hat: 'Hat-1', d_saat: 20, c: 20, n: 1 },
-    { id: 'S5', hat: 'Hat-1', d_saat: 12, c: 15, n: 1 },
-    { id: 'S6', hat: 'Hat-1', d_saat: 17, c: 20, n: 1 },
-    { id: 'S7', hat: 'Hat-2', d_saat: 21, c: 20, n: 1 },
-    { id: 'S8', hat: 'Hat-2', d_saat: 13, c: 15, n: 1 },
-    { id: 'S9', hat: 'Hat-2', d_saat: 19, c: 20, n: 1 },
-    { id: 'S10', hat: 'Hat-2', d_saat: 11, c: 15, n: 1 },
-    { id: 'S11', hat: 'Hat-2', d_saat: 16, c: 20, n: 1 },
-    { id: 'S12', hat: 'Hat-2', d_saat: 14, c: 15, n: 1 },
-    { id: 'S13', hat: 'Hat-3', d_saat: 23, c: 20, n: 1 },
-    { id: 'S14', hat: 'Hat-3', d_saat: 18, c: 20, n: 1 },
-    { id: 'S15', hat: 'Hat-3', d_saat: 15, c: 15, n: 1 },
-    { id: 'S16', hat: 'Hat-3', d_saat: 24, c: 20, n: 2, fragile: true },
-    { id: 'S17', hat: 'Hat-3', d_saat: 17, c: 20, n: 1 },
-    { id: 'S18', hat: 'Hat-3', d_saat: 14, c: 15, n: 1 },
-    { id: 'S19', hat: 'Hat-4', d_saat: 20, c: 20, n: 1 },
-    { id: 'S20', hat: 'Hat-4', d_saat: 16, c: 20, n: 1 },
-    { id: 'S21', hat: 'Hat-4', d_saat: 13, c: 15, n: 1 },
-    { id: 'S22', hat: 'Hat-4', d_saat: 18, c: 20, n: 1 },
-    { id: 'S23', hat: 'Hat-4', d_saat: 12, c: 15, n: 1 },
-    { id: 'S24', hat: 'Hat-4', d_saat: 21, c: 20, n: 1 }
+// Sentetik Baz İstasyon Verileri (stations.csv)
+const BASE_STATIONS_DATA = [
+    { id: 'S1', hat: 'Hat-1', d_saat: 22, std_saat: 5.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S2', hat: 'Hat-1', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S3', hat: 'Hat-1', d_saat: 15, std_saat: 3.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S4', hat: 'Hat-1', d_saat: 20, std_saat: 5.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S5', hat: 'Hat-1', d_saat: 12, std_saat: 3.0, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S6', hat: 'Hat-1', d_saat: 17, std_saat: 4.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S7', hat: 'Hat-2', d_saat: 21, std_saat: 5.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S8', hat: 'Hat-2', d_saat: 13, std_saat: 3.2, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S9', hat: 'Hat-2', d_saat: 19, std_saat: 4.8, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S10', hat: 'Hat-2', d_saat: 11, std_saat: 2.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S11', hat: 'Hat-2', d_saat: 16, std_saat: 4.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S12', hat: 'Hat-2', d_saat: 14, std_saat: 3.5, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S13', hat: 'Hat-3', d_saat: 23, std_saat: 5.8, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S14', hat: 'Hat-3', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S15', hat: 'Hat-3', d_saat: 15, std_saat: 3.8, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S16', hat: 'Hat-3', d_saat: 24, std_saat: 6.0, c: 20, n: 2, baslangic_kutu: 2, fragile: true },
+    { id: 'S17', hat: 'Hat-3', d_saat: 17, std_saat: 4.2, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S18', hat: 'Hat-3', d_saat: 14, std_saat: 3.5, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S19', hat: 'Hat-4', d_saat: 20, std_saat: 5.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S20', hat: 'Hat-4', d_saat: 16, std_saat: 4.0, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S21', hat: 'Hat-4', d_saat: 13, std_saat: 3.2, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S22', hat: 'Hat-4', d_saat: 18, std_saat: 4.5, c: 20, n: 1, baslangic_kutu: 1 },
+    { id: 'S23', hat: 'Hat-4', d_saat: 12, std_saat: 3.0, c: 15, n: 1, baslangic_kutu: 1 },
+    { id: 'S24', hat: 'Hat-4', d_saat: 21, std_saat: 5.2, c: 20, n: 1, baslangic_kutu: 1 }
 ];
+
+// Aktif İstasyon Veri Listesi (Düzenlenebilir)
+let activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
+let isPreviewMode = false;
 
 // ===== HAZIR TEST EDİLMİŞ SEKME GEÇİŞ MEKANİZMASI =====
 function showTab(tabId) {
@@ -136,9 +140,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         scenariosData = await response.json();
         console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo.');
         
+        // localStorage'dan kayıtlı veri varsa yükle
+        const savedData = loadRealDataFromStorage();
+        if (savedData && Array.isArray(savedData) && savedData.length === 24) {
+            activeStationsData = savedData;
+        }
+
         initAllCharts();
         initWhatIfListeners();
         renderStations();
+        renderDataEntryTable();
+        initSampleStationSelect();
+        initDefaultSampleRows();
         updateOzetView();
         updateWhatIfView();
     } catch (err) {
@@ -528,7 +541,7 @@ function renderStations() {
     if (!grid) return;
     grid.innerHTML = '';
 
-    STATIONS_DATA.forEach(st => {
+    activeStationsData.forEach(st => {
         const sid = st.id;
         const isFragile = !!st.fragile;
         
@@ -562,7 +575,7 @@ function updateStations(params) {
     const LT_dk = 45.0;
     const talepCarpan = 1.0 + (params.talep_sok_pct / 100.0);
 
-    STATIONS_DATA.forEach(st => {
+    activeStationsData.forEach(st => {
         const sid = st.id;
         const card = document.getElementById('st-card-' + sid);
         const bar = document.getElementById('st-bar-' + sid);
@@ -616,4 +629,301 @@ function updateStations(params) {
         if (valTxt) valTxt.textContent = 'Stok: ' + currentStok + ' / ' + cap;
         if (ropTxt) ropTxt.textContent = 'ROP: ' + ropAdet;
     });
+}
+
+// ===== SEKME 5: VERİ GİRİŞİ MANTIĞI VE FONKSİYONLARI =====
+
+// Alt-Sekme Değişimi (İstasyonlar vs Tüketim Örneklemi)
+function switchDataSubtab(subtab) {
+    const btnSt = document.getElementById('btnSubtabStations');
+    const btnCo = document.getElementById('btnSubtabConsumption');
+    const cntSt = document.getElementById('subtabContentStations');
+    const cntCo = document.getElementById('subtabContentConsumption');
+
+    if (subtab === 'stations') {
+        if (btnSt) btnSt.className = 'subtab-btn active';
+        if (btnCo) btnCo.className = 'subtab-btn';
+        if (cntSt) cntSt.style.display = 'block';
+        if (cntCo) cntCo.style.display = 'none';
+    } else {
+        if (btnSt) btnSt.className = 'subtab-btn';
+        if (btnCo) btnCo.className = 'subtab-btn active';
+        if (cntSt) cntSt.style.display = 'none';
+        if (cntCo) cntCo.style.display = 'block';
+    }
+}
+
+// 24 İstasyon Tablosunu Doldur
+function renderDataEntryTable() {
+    const tbody = document.getElementById('tbodyStationsInput');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    activeStationsData.forEach((st, idx) => {
+        const sid = st.id;
+        const ropCalc = Math.ceil((st.d_saat / 60.0) * 45.0 * 1.15);
+        const maxCap = st.n * st.c;
+
+        const tr = document.createElement('tr');
+        tr.id = 'row-input-' + sid;
+        tr.innerHTML = 
+            '<td><strong>' + sid + '</strong>' + (st.fragile ? ' <span style="color:#f43f5e;">⚠️</span>' : '') + '</td>' +
+            '<td><span class="tag" style="background:rgba(255,255,255,0.05); color:#cbd5e1;">' + st.hat + '</span></td>' +
+            '<td><input type="number" min="1" max="200" step="1" value="' + st.d_saat + '" onchange="onStationFieldChange(' + idx + ', \'d_saat\', this.value)"></td>' +
+            '<td><input type="number" min="0" max="50" step="0.1" value="' + (st.std_saat || (st.d_saat * 0.25).toFixed(1)) + '" onchange="onStationFieldChange(' + idx + ', \'std_saat\', this.value)"></td>' +
+            '<td><input type="number" min="1" max="100" step="1" value="' + st.c + '" onchange="onStationFieldChange(' + idx + ', \'c\', this.value)"></td>' +
+            '<td><input type="number" min="1" max="20" step="1" value="' + st.n + '" onchange="onStationFieldChange(' + idx + ', \'n\', this.value)"></td>' +
+            '<td><input type="number" min="0" max="20" step="1" value="' + (st.baslangic_kutu || st.n) + '" onchange="onStationFieldChange(' + idx + ', \'baslangic_kutu\', this.value)"></td>' +
+            '<td id="calc-rop-' + sid + '" style="font-weight:600; color:#fde047;">' + ropCalc + ' adet</td>' +
+            '<td id="calc-cap-' + sid + '" style="color:#a5f3fc;">' + maxCap + ' adet</td>';
+        
+        tbody.appendChild(tr);
+    });
+}
+
+function onStationFieldChange(idx, field, val) {
+    const num = parseFloat(val) || 0;
+    activeStationsData[idx][field] = num;
+
+    const st = activeStationsData[idx];
+    const ropCalc = Math.ceil((st.d_saat / 60.0) * 45.0 * 1.15);
+    const maxCap = st.n * st.c;
+
+    const elRop = document.getElementById('calc-rop-' + st.id);
+    const elCap = document.getElementById('calc-cap-' + st.id);
+    if (elRop) elRop.textContent = ropCalc + ' adet';
+    if (elCap) elCap.textContent = maxCap + ' adet';
+}
+
+// Sentetik Verileri Forma Doldur
+function loadSyntheticDataToForm() {
+    activeStationsData = JSON.parse(JSON.stringify(BASE_STATIONS_DATA));
+    renderDataEntryTable();
+    resetToSyntheticData();
+    alert('Sentetik fabrika baz verileri (24 İstasyon) tabloya başarıyla yüklendi.');
+}
+
+// Tarayıcı Hafızasına (localStorage) Kaydet
+function saveFormToLocalStorage() {
+    const success = saveRealDataToStorage(activeStationsData);
+    if (success) {
+        alert('Girdiğiniz 24 istasyon verisi tarayıcı hafızasına (localStorage) başarıyla kaydedildi.');
+    } else {
+        alert('Kaydetme sırasında bir hata oluştu.');
+    }
+}
+
+// Hafızayı Sıfırla
+function clearFormStorage() {
+    if (confirm('Tarayıcıda saklanan gerçek veri silinip sentetik değerlere dönülsün mü?')) {
+        clearRealDataStorage();
+        loadSyntheticDataToForm();
+    }
+}
+
+// Gerçek Veriyi Hesapla ve Önizle
+function previewRealData() {
+    isPreviewMode = true;
+    const banner = document.getElementById('previewModeBanner');
+    if (banner) banner.style.display = 'flex';
+
+    renderStations();
+    updateStations();
+    showTab('tab-istasyon');
+}
+
+// Sentetik Veriye Geri Dön
+function resetToSyntheticData() {
+    isPreviewMode = false;
+    const banner = document.getElementById('previewModeBanner');
+    if (banner) banner.style.display = 'none';
+
+    renderStations();
+    updateStations();
+}
+
+// ===== CSV DIŞA AKTARMA (data/real/ ŞABLONLARIYLA HARFİYEN BİREBİR) =====
+
+// 1. stations.csv Dışa Aktarma
+function exportStationsCSV() {
+    const headers = [
+        'istasyon_id',
+        'hat',
+        'sira_no',
+        'ort_tuketim_saat',
+        'std_tuketim_saat',
+        'ort_tuketim_dk',
+        'kutu_kapasitesi',
+        'kanban_n',
+        'baslangic_kutu',
+        'baslangic_stok_adet',
+        'reorder_point_kutu'
+    ];
+
+    const rows = activeStationsData.map((st, idx) => {
+        const d_saat = Number(st.d_saat);
+        const std_saat = Number(st.std_saat || (d_saat * 0.25).toFixed(2));
+        const d_dk = Number((d_saat / 60.0).toFixed(4));
+        const c = Number(st.c);
+        const n = Number(st.n);
+        const basl_kutu = Number(st.baslangic_kutu || n);
+        const basl_adet = basl_kutu * c;
+        const rop_adet = Math.ceil(d_dk * 45.0 * 1.15);
+        const rop_kutu = Math.max(1, Math.ceil(rop_adet / c));
+
+        return {
+            istasyon_id: st.id,
+            hat: st.hat,
+            sira_no: idx + 1,
+            ort_tuketim_saat: d_saat,
+            std_tuketim_saat: std_saat,
+            ort_tuketim_dk: d_dk,
+            kutu_kapasitesi: c,
+            kanban_n: n,
+            baslangic_kutu: basl_kutu,
+            baslangic_stok_adet: basl_adet,
+            reorder_point_kutu: rop_kutu
+        };
+    });
+
+    exportArrayToCSV(rows, headers, 'stations.csv');
+}
+
+// 2. consumption.csv Dışa Aktarma
+function exportConsumptionCSV() {
+    const headers = ['dakika', 'istasyon_id', 'tuketim_adet'];
+    const rows = [];
+
+    // Örneklem tablosundan satırları topla, eğer boşsa aktif istasyonlardan örnek 480 dakikalık zaman serisi üret
+    const sampleTableRows = document.querySelectorAll('#tbodySampleInput tr');
+    if (sampleTableRows.length > 0) {
+        const selStation = document.getElementById('selectSampleStation') ? document.getElementById('selectSampleStation').value : 'S1';
+        sampleTableRows.forEach(tr => {
+            const minInput = tr.querySelector('.sample-min');
+            const qtyInput = tr.querySelector('.sample-qty');
+            if (minInput && qtyInput) {
+                rows.push({
+                    dakika: parseInt(minInput.value) || 1,
+                    istasyon_id: selStation,
+                    tuketim_adet: parseInt(qtyInput.value) || 0
+                });
+            }
+        });
+    }
+
+    // Eğer kullanıcı örneklem tablosuna satır girmemişse tüm istasyonlar için 1..10 dk başlangıç serisi ver
+    if (rows.length === 0) {
+        for (let t = 1; t <= 15; t++) {
+            activeStationsData.forEach(st => {
+                const lambda = st.d_saat / 60.0;
+                const qty = Math.max(0, Math.round(lambda + (Math.sin(t + parseInt(st.id.replace('S',''))) * 0.3)));
+                rows.push({
+                    dakika: t,
+                    istasyon_id: st.id,
+                    tuketim_adet: qty
+                });
+            });
+        }
+    }
+
+    exportArrayToCSV(rows, headers, 'consumption.csv');
+}
+
+// ===== TÜKETİM ÖRNEKLEMİ GİRİŞ ARACI FONKSİYONLARI =====
+
+function initSampleStationSelect() {
+    const sel = document.getElementById('selectSampleStation');
+    if (!sel) return;
+    sel.innerHTML = '';
+    activeStationsData.forEach(st => {
+        const opt = document.createElement('option');
+        opt.value = st.id;
+        opt.textContent = st.id + ' (' + st.hat + ' - Mevcut D: ' + st.d_saat + ' adet/saat)';
+        sel.appendChild(opt);
+    });
+}
+
+function initDefaultSampleRows() {
+    const tbody = document.getElementById('tbodySampleInput');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    
+    // Varsayılan 5 örnek satır
+    const defaults = [
+        { min: 5, qty: 2 },
+        { min: 10, qty: 1 },
+        { min: 15, qty: 3 },
+        { min: 20, qty: 2 },
+        { min: 25, qty: 1 }
+    ];
+    defaults.forEach(d => addSampleRow(d.min, d.qty));
+}
+
+function addSampleRow(minVal, qtyVal) {
+    const tbody = document.getElementById('tbodySampleInput');
+    if (!tbody) return;
+
+    const rowIdx = tbody.children.length + 1;
+    const tr = document.createElement('tr');
+    tr.innerHTML = 
+        '<td>' + rowIdx + '</td>' +
+        '<td><input type="number" class="sample-min" min="1" max="480" value="' + (minVal !== undefined ? minVal : rowIdx * 5) + '"></td>' +
+        '<td><input type="number" class="sample-qty" min="0" max="50" value="' + (qtyVal !== undefined ? qtyVal : 2) + '"></td>' +
+        '<td><button class="action-btn btn-danger" style="padding:2px 8px; font-size:11px;" onclick="this.closest(\'tr\').remove()">Sil</button></td>';
+    
+    tbody.appendChild(tr);
+}
+
+function calculateSampleStats() {
+    const rows = document.querySelectorAll('#tbodySampleInput tr');
+    if (rows.length === 0) {
+        alert('Lütfen en az 1 örneklem satırı ekleyin.');
+        return;
+    }
+
+    const values = [];
+    rows.forEach(tr => {
+        const input = tr.querySelector('.sample-qty');
+        if (input) values.push(parseFloat(input.value) || 0);
+    });
+
+    const n = values.length;
+    const sum = values.reduce((a, b) => a + b, 0);
+    const meanPerSample = sum / n;
+    
+    // Ortalama dakika aralığı
+    const minInputs = document.querySelectorAll('.sample-min');
+    let totalDk = 30;
+    if (minInputs.length >= 2) {
+        const lastMin = parseFloat(minInputs[minInputs.length - 1].value) || 30;
+        const firstMin = parseFloat(minInputs[0].value) || 0;
+        totalDk = Math.max(5, lastMin - firstMin);
+    }
+    
+    // Saatlik tüketim hızı D hesabı: (Toplam Adet / Toplam Dakika) * 60
+    const dSaatCalc = Math.max(1, Math.round((sum / totalDk) * 60));
+    
+    // Standart sapma hesabı
+    let stdCalc = 1.0;
+    if (n > 1) {
+        const variance = values.reduce((acc, val) => acc + Math.pow(val - meanPerSample, 2), 0) / (n - 1);
+        stdCalc = parseFloat((Math.sqrt(variance) * (60 / (totalDk / n))).toFixed(1));
+    }
+
+    const selStation = document.getElementById('selectSampleStation').value;
+    const stIdx = activeStationsData.findIndex(s => s.id === selStation);
+
+    if (stIdx !== -1) {
+        activeStationsData[stIdx].d_saat = dSaatCalc;
+        activeStationsData[stIdx].std_saat = stdCalc;
+        renderDataEntryTable();
+
+        const resBox = document.getElementById('sampleStatsResult');
+        if (resBox) {
+            resBox.style.display = 'block';
+            resBox.innerHTML = 
+                '✅ <strong>Hesaplama Başarılı:</strong> ' + selStation + ' için ' + n + ' örneklem noktasından ortalama saatlik tüketim <strong>D = ' + dSaatCalc + ' adet/saat</strong> ' +
+                've standart sapma <strong>&sigma; = ' + stdCalc + ' adet/saat</strong> hesaplanarak 1. Bölümdeki tabloya aktarıldı.';
+        }
+    }
 }
