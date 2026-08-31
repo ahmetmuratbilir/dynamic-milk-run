@@ -2,10 +2,12 @@
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
 > 
-> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10 Denetimi):**
-> > Bu rapordaki ilk %52.08'lik duruş değeri ve 182 sinyal taksonomisi, hat başı stok tavanının ($stok \le N \times C$) sınırlandırılmadığı erken dönem simülasyon çıktısıdır. Hafta 10 denetiminde raf-tavanı kısıtı ($stok \le N \times C$) ve tam zaman serisi simülasyonu uygulandığında, 2 araçlık baz duruş oranı **%53.01** (EDD) ve **%56.48** (KRİTİKLİK) olarak revize edilmiştir. K36 kök neden tespiti (kutu kapasitesi değil, zaman ve filo kısıtı) geçerliliğini tam olarak korumaktadır.
+> > 📝 **ERRATA & METODOLOJİK DÜZELTME NOTU (Hafta 10 & 13 Denetimi):**
+> > 1. **Raf-Tavanı Kısıtı:** Bu rapordaki ilk %52.08'lik duruş değeri ve 182 sinyal taksonomisi, hat başı stok tavanının ($stok \le N \times C$) sınırlandırılmadığı erken dönem simülasyon çıktısıdır. Hafta 10 denetiminde raf-tavanı kısıtı uygulandığında 2 araçlık baz duruş oranı **%53.01** (EDD) ve **%56.48** (KRİTİKLİK) olarak revize edilmiştir. K36 kök neden tespiti geçerliliğini tam olarak korumaktadır.
+> > 2. **SLACK Formülü Düzeltmesi (K63, 20.08.2026):** Bu raporda ve Hafta 7'de uygulanan `tw_bitis - t` SLACK formülü EDD ile matematiksel olarak özdeş sıralama üretiyordu. Dinamik formüle geçilmiştir: $\text{Slack}_i(t) = \text{tw\_bitis}_i - (t + T_L + \text{TT}(0,i) + T_U)$. Bu düzeltme Hafta 5'in değil, 20 Ağustos 2026 denetiminin ürünüdür.
+> > 3. **"SLACK Üstündür" İddiasının Düzeltmesi (K64, 31.08.2026):** K63 formülüyle yapılan 30 stokastik replikasyonda EDD vs SLACK Welch t-testi: **p=0.913 → anlamlı değil.** EDD, SLACK ve FIFO birbirine istatistiksel olarak eşdeğerdir; "SLACK en iyi kuraldır" iddiası doğrulanmamıştır.
 
-**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36, K57 — bkz. `karar_gunlugu.md`
+**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36, K57, K63, K64 — bkz. `karar_gunlugu.md`
 
 
 ---
