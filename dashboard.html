@@ -698,6 +698,41 @@ input[type="range"] {
     color: var(--text-secondary);
 }
 
+/* ISTASYON BILGI BALONU POPUP (KATMAN 2) */
+.st-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.st-card-popup {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    background: #0F172A;
+    color: #F8FAFC;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.45;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
+    z-index: 2500;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    text-align: left;
+}
+
+.st-card:hover .st-card-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
 /* ===== SEKME 4 & 5: TABLOLAR (ZEBRA STRIPED) ===== */
 .data-table-card {
     background: var(--bg-card);
@@ -1047,6 +1082,14 @@ input[type="range"] {
                             </div>
                         </div>
 
+                        <!-- 1) WHAT-IF DINAMIK YORUM CUMLESI (KATMAN 2) -->
+                        <div class="comment-card" id="whatifCommentBox" style="margin-top:0;">
+                            <span style="font-size:16px;">💡</span>
+                            <div id="whatifCommentText">
+                                <!-- JS getYorumCumlesi tarafından dinamik doldurulur -->
+                            </div>
+                        </div>
+
                         <div class="charts-2col">
                             <div class="chart-card">
                                 <div class="chart-title">WIP vs Starvation Pareto Trade-off</div>
@@ -1099,6 +1142,11 @@ input[type="range"] {
                                 <span>⚠️ S16 Kırılgan</span>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- 3) ISTASYON HARITASI SADE DILLI LEJANT -->
+                    <div style="background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:9px 14px; font-size:12px; color:#1E40AF; font-weight:500;">
+                        🟢 Yeşil istasyonlar güvende · 🟠 Turuncu istasyonlar yakında sipariş sinyali verecek · 🔴 Kırmızı (S16) fabrikanın en kritik noktası — önceliğiniz burası olsun.
                     </div>
 
                     <!-- 6x4 IZGARA CONTAINER -->
@@ -1158,7 +1206,7 @@ input[type="range"] {
                                 <tr style="background:rgba(245, 158, 11, 0.05);">
                                     <td><strong>Fark (Dinamik - Statik)</strong></td>
                                     <td>-</td>
-                                    <td style="color:#FDE047; font-weight:700;">+5.27 puan</td>
+                                    <td style="color:#D97706; font-weight:700;">+5.27 puan</td>
                                     <td>+607 dk</td>
                                     <td>+5.3 adet</td>
                                     <td>-4 sefer</td>
@@ -1170,6 +1218,11 @@ input[type="range"] {
                     </div>
 
                     <div class="data-table-card">
+                        <!-- 4) STATIK VS DINAMIK BASLIK YORUMU -->
+                        <div style="background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:10px 14px; font-size:12px; color:#1E40AF; font-weight:500; margin-bottom:12px;">
+                            📌 <strong>Özet:</strong> 4 araca kadar statik sistem (sabit turlar) daha az duruşa neden olur; 5 araçtan itibaren dinamik E-Kanban sistemi sürekli olarak daha iyi performans gösterir ve 8 araçta rekabetçilik hedefine (%5) ulaşır.
+                        </div>
+
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                             <div class="chart-title">1 – 8 Araç Filo Boyutlandırma Matrisi & Geçiş Noktası (Crossover Point)</div>
                             <span style="font-size:11px; color:var(--status-good); font-weight:600;">5+ Araçta Dinamik Üstünlük</span>
@@ -1223,7 +1276,7 @@ input[type="range"] {
                                     <td>Statik</td>
                                     <td>Yetersiz</td>
                                 </tr>
-                                <tr style="background:rgba(79, 209, 197, 0.06);">
+                                <tr style="background:rgba(37, 99, 235, 0.06);">
                                     <td><strong>5 Araç (Geçiş Eşiği ⚡)</strong></td>
                                     <td>%19.10</td>
                                     <td>%15.98</td>
@@ -1250,7 +1303,7 @@ input[type="range"] {
                                     <td style="color:var(--status-good);">Dinamik ⚡</td>
                                     <td>Yaklaştı</td>
                                 </tr>
-                                <tr style="background:rgba(16, 185, 129, 0.08);">
+                                <tr style="background:rgba(5, 150, 105, 0.08);">
                                     <td><strong>8 Araç (Hedef Eşik 🏆)</strong></td>
                                     <td>%18.68</td>
                                     <td><strong style="color:var(--status-good);">%3.50</strong></td>
@@ -1285,12 +1338,12 @@ input[type="range"] {
                         </div>
                     </div>
 
-                    <div id="previewModeBanner" style="display:none; background:rgba(79,209,197,0.08); border:1px solid var(--accent-primary); border-radius:10px; padding:10px 16px; font-size:13px; color:var(--text-primary); justify-content:space-between; align-items:center;">
+                    <div id="previewModeBanner" style="display:none; background:rgba(37,99,235,0.08); border:1px solid var(--accent-primary); border-radius:10px; padding:10px 16px; font-size:13px; color:var(--text-primary); justify-content:space-between; align-items:center;">
                         <span>🔬 <strong>ÖNİZLEME MODU AKTİF:</strong> Girdiğiniz gerçek fabrika parametreleri İstasyon Haritasına (Sekme 3) yansıtıldı.</span>
                         <button class="btn-action btn-subtle" onclick="resetToSyntheticData()" style="height:28px; padding:0 10px; font-size:11px;">Sentetik Veriye Dön</button>
                     </div>
 
-                    <!-- ALT-BÖLÜM A: 24 İSTASYON TABLOSU -->
+                    <!-- ALT-BÖLÜM A: 24 İSTASYON TABLOSU (5: SÜTUN TOOLTIPLERI) -->
                     <div id="subtabContentStations" class="data-table-card">
                         <div style="margin-bottom:12px;">
                             <div class="chart-title">24 İstasyon Parametre Düzenleme Tablosu</div>
@@ -1302,11 +1355,11 @@ input[type="range"] {
                                     <tr>
                                         <th>İstasyon</th>
                                         <th>Hat</th>
-                                        <th>Ort. Tüketim (adet/saat)</th>
-                                        <th>Std Sapma</th>
-                                        <th>Kutu Kapasitesi (C)</th>
-                                        <th>Kanban Kartı (N)</th>
-                                        <th>Başlangıç Kutu</th>
+                                        <th>Ort. Tüketim (adet/saat) <span title="Bu istasyonun saatte tükettiği ortalama parça sayısı" style="cursor:help; color:#2563EB; font-size:11px;">ⓘ</span></th>
+                                        <th>Std Sapma <span title="Tüketimin ne kadar dalgalandığını gösterir — büyükse talep daha değişkendir" style="cursor:help; color:#2563EB; font-size:11px;">ⓘ</span></th>
+                                        <th>Kutu Kapasitesi (C) <span title="Bir standart kutunun kaç parça aldığı" style="cursor:help; color:#2563EB; font-size:11px;">ⓘ</span></th>
+                                        <th>Kanban Kartı (N) <span title="Şu an dolaşımdaki kart/kutu sayısı" style="cursor:help; color:#2563EB; font-size:11px;">ⓘ</span></th>
+                                        <th>Başlangıç Kutu <span title="Ölçüme başlarken sahada bulunan dolu kutu sayısı" style="cursor:help; color:#2563EB; font-size:11px;">ⓘ</span></th>
                                         <th>Hesaplanan ROP</th>
                                         <th>Maks Tavan (N&times;C)</th>
                                     </tr>
@@ -26765,6 +26818,47 @@ function updateOzetView() {
     }
 }
 
+// 1) WHAT-IF DINAMIK YORUM CUMLESI FONKSIYONU (HAZIR METIN SABLONU)
+function getYorumCumlesi(starvPct, staticBase) {
+    let anaYorum = '';
+    if (starvPct < 5) {
+        anaYorum = '🎯 Hedefe ulaşıldı — bu senaryoda sistem rekabetçi eşiğin (%5) altında çalışıyor.';
+    } else if (starvPct < 15) {
+        anaYorum = '🟡 Sistem hedefe yaklaşıyor ama henüz ulaşmadı. Filo büyüklüğünü artırmak veya α değerini yükseltmek durumu iyileştirebilir.';
+    } else if (starvPct < 30) {
+        anaYorum = '🟠 Sistem hedefin belirgin şekilde üzerinde. Filo büyüklüğü, bu senaryodaki en etkili müdahale noktasıdır (bkz. Filo Duyarlılık Eğrisi).';
+    } else {
+        anaYorum = '🔴 Kritik seviye — mevcut ayarlarda sistem ciddi tedarik riski taşıyor.';
+    }
+
+    let karsilastirma = '';
+    if (starvPct > staticBase) {
+        karsilastirma = ' Bu senaryoda statik sistem (%' + staticBase.toFixed(2) + ') hâlâ daha avantajlı.';
+    } else {
+        karsilastirma = ' Bu senaryoda dinamik sistem, statik sistemi (%' + staticBase.toFixed(2) + ') geride bırakmış durumda ⚡.';
+    }
+
+    return anaYorum + karsilastirma;
+}
+
+// 2) ISTASYON POPUP METNI FONKSIYONU (HAZIR METIN SABLONU)
+function getIstasyonPopupMetni(st) {
+    const fabrikaOrtalamasi = 17.5; // 24 istasyonun ortalama D değeri (yaklaşık)
+    const sapmaYuzde = Math.round(((st.d_saat - fabrikaOrtalamasi) / fabrikaOrtalamasi) * 100);
+    const yonIfadesi = sapmaYuzde >= 0 ? 'üzerinde' : 'altında';
+
+    let metin = st.id + ' (' + st.hat + '): Saatlik tüketim ' + st.d_saat +
+        ' adet — fabrika ortalamasının %' + Math.abs(sapmaYuzde) + ' ' + yonIfadesi + '. ' +
+        'Kutu kapasitesi ' + st.c + ', ' + st.n + ' Kanban kartıyla toplam ' + (st.n * st.c) +
+        ' adetlik tampon stok kapasitesine sahip.';
+
+    if (st.fragile) {
+        metin += ' ⚠️ Bu, fabrikadaki en kırılgan istasyondur — yüksek tüketime rağmen ' +
+                  'sınırlı tampon kapasitesi, onu izlemeye en çok ihtiyaç duyulan nokta yapar.';
+    }
+    return metin;
+}
+
 // ===== SEKME 2 (WHAT-IF) GÖRÜNÜMÜNÜ GÜNCELLEME =====
 function updateWhatIfView() {
     if (!scenariosData || scenariosData.length === 0) return;
@@ -26800,10 +26894,16 @@ function updateWhatIfView() {
 
     if (wiFarkVal) {
         wiFarkVal.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
-        wiFarkVal.style.color = diffPuan <= 0 ? '#10B981' : (diffPuan <= 5 ? '#F59E0B' : '#F43F5E');
+        wiFarkVal.style.color = diffPuan <= 0 ? '#059669' : (diffPuan <= 5 ? '#D97706' : '#E11D48');
     }
     if (wiFarkSub) {
         wiFarkSub.textContent = params.arac_sayisi + ' araç statik ref: %' + staticBase.toFixed(2);
+    }
+
+    // 1) What-If Yorum Cümlesini Güncelle
+    const wiCommentEl = document.getElementById('whatifCommentText');
+    if (wiCommentEl) {
+        wiCommentEl.textContent = getYorumCumlesi(starvPct, staticBase);
     }
 
     const wiDolulukVal = document.getElementById('wiDolulukVal');
@@ -26859,6 +26959,7 @@ function renderStations() {
     activeStationsData.forEach(st => {
         const sid = st.id;
         const isFragile = !!st.fragile;
+        const popupText = getIstasyonPopupMetni(st);
         
         const card = document.createElement('div');
         card.className = 'st-card' + (isFragile ? ' is-fragile' : '');
@@ -26867,7 +26968,7 @@ function renderStations() {
         card.innerHTML = 
             '<div class="st-card-top">' +
                 '<span class="st-card-id">' + sid + 
-                    (isFragile ? ' <span style="color:#F43F5E; font-size:12px;" title="Kırılgan İstasyon">⚠️</span>' : '') + 
+                    (isFragile ? ' <span style="color:#E11D48; font-size:12px;" title="Kırılgan İstasyon">⚠️</span>' : '') + 
                 '</span>' +
                 '<span class="st-card-hat">' + st.hat + '</span>' +
             '</div>' +
@@ -26878,7 +26979,8 @@ function renderStations() {
             '<div class="st-card-bottom">' +
                 '<span id="st-val-' + sid + '" style="font-weight:600; color:#0F172A;">Stok: ' + (st.n * st.c) + '</span>' +
                 '<span id="st-rop-' + sid + '" style="font-weight:600; color:#D97706;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
-            '</div>';
+            '</div>' +
+            '<div class="st-card-popup" id="st-popup-' + sid + '">' + popupText + '</div>';
         
         grid.appendChild(card);
     });

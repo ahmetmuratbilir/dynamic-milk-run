@@ -25398,6 +25398,47 @@ function updateOzetView() {
     }
 }
 
+// 1) WHAT-IF DINAMIK YORUM CUMLESI FONKSIYONU (HAZIR METIN SABLONU)
+function getYorumCumlesi(starvPct, staticBase) {
+    let anaYorum = '';
+    if (starvPct < 5) {
+        anaYorum = '🎯 Hedefe ulaşıldı — bu senaryoda sistem rekabetçi eşiğin (%5) altında çalışıyor.';
+    } else if (starvPct < 15) {
+        anaYorum = '🟡 Sistem hedefe yaklaşıyor ama henüz ulaşmadı. Filo büyüklüğünü artırmak veya α değerini yükseltmek durumu iyileştirebilir.';
+    } else if (starvPct < 30) {
+        anaYorum = '🟠 Sistem hedefin belirgin şekilde üzerinde. Filo büyüklüğü, bu senaryodaki en etkili müdahale noktasıdır (bkz. Filo Duyarlılık Eğrisi).';
+    } else {
+        anaYorum = '🔴 Kritik seviye — mevcut ayarlarda sistem ciddi tedarik riski taşıyor.';
+    }
+
+    let karsilastirma = '';
+    if (starvPct > staticBase) {
+        karsilastirma = ' Bu senaryoda statik sistem (%' + staticBase.toFixed(2) + ') hâlâ daha avantajlı.';
+    } else {
+        karsilastirma = ' Bu senaryoda dinamik sistem, statik sistemi (%' + staticBase.toFixed(2) + ') geride bırakmış durumda ⚡.';
+    }
+
+    return anaYorum + karsilastirma;
+}
+
+// 2) ISTASYON POPUP METNI FONKSIYONU (HAZIR METIN SABLONU)
+function getIstasyonPopupMetni(st) {
+    const fabrikaOrtalamasi = 17.5; // 24 istasyonun ortalama D değeri (yaklaşık)
+    const sapmaYuzde = Math.round(((st.d_saat - fabrikaOrtalamasi) / fabrikaOrtalamasi) * 100);
+    const yonIfadesi = sapmaYuzde >= 0 ? 'üzerinde' : 'altında';
+
+    let metin = st.id + ' (' + st.hat + '): Saatlik tüketim ' + st.d_saat +
+        ' adet — fabrika ortalamasının %' + Math.abs(sapmaYuzde) + ' ' + yonIfadesi + '. ' +
+        'Kutu kapasitesi ' + st.c + ', ' + st.n + ' Kanban kartıyla toplam ' + (st.n * st.c) +
+        ' adetlik tampon stok kapasitesine sahip.';
+
+    if (st.fragile) {
+        metin += ' ⚠️ Bu, fabrikadaki en kırılgan istasyondur — yüksek tüketime rağmen ' +
+                  'sınırlı tampon kapasitesi, onu izlemeye en çok ihtiyaç duyulan nokta yapar.';
+    }
+    return metin;
+}
+
 // ===== SEKME 2 (WHAT-IF) GÖRÜNÜMÜNÜ GÜNCELLEME =====
 function updateWhatIfView() {
     if (!scenariosData || scenariosData.length === 0) return;
@@ -25433,10 +25474,16 @@ function updateWhatIfView() {
 
     if (wiFarkVal) {
         wiFarkVal.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
-        wiFarkVal.style.color = diffPuan <= 0 ? '#10B981' : (diffPuan <= 5 ? '#F59E0B' : '#F43F5E');
+        wiFarkVal.style.color = diffPuan <= 0 ? '#059669' : (diffPuan <= 5 ? '#D97706' : '#E11D48');
     }
     if (wiFarkSub) {
         wiFarkSub.textContent = params.arac_sayisi + ' araç statik ref: %' + staticBase.toFixed(2);
+    }
+
+    // 1) What-If Yorum Cümlesini Güncelle
+    const wiCommentEl = document.getElementById('whatifCommentText');
+    if (wiCommentEl) {
+        wiCommentEl.textContent = getYorumCumlesi(starvPct, staticBase);
     }
 
     const wiDolulukVal = document.getElementById('wiDolulukVal');
@@ -25492,6 +25539,7 @@ function renderStations() {
     activeStationsData.forEach(st => {
         const sid = st.id;
         const isFragile = !!st.fragile;
+        const popupText = getIstasyonPopupMetni(st);
         
         const card = document.createElement('div');
         card.className = 'st-card' + (isFragile ? ' is-fragile' : '');
@@ -25500,7 +25548,7 @@ function renderStations() {
         card.innerHTML = 
             '<div class="st-card-top">' +
                 '<span class="st-card-id">' + sid + 
-                    (isFragile ? ' <span style="color:#F43F5E; font-size:12px;" title="Kırılgan İstasyon">⚠️</span>' : '') + 
+                    (isFragile ? ' <span style="color:#E11D48; font-size:12px;" title="Kırılgan İstasyon">⚠️</span>' : '') + 
                 '</span>' +
                 '<span class="st-card-hat">' + st.hat + '</span>' +
             '</div>' +
@@ -25511,7 +25559,8 @@ function renderStations() {
             '<div class="st-card-bottom">' +
                 '<span id="st-val-' + sid + '" style="font-weight:600; color:#0F172A;">Stok: ' + (st.n * st.c) + '</span>' +
                 '<span id="st-rop-' + sid + '" style="font-weight:600; color:#D97706;">ROP: ' + Math.ceil((st.d_saat/60)*45*1.15) + '</span>' +
-            '</div>';
+            '</div>' +
+            '<div class="st-card-popup" id="st-popup-' + sid + '">' + popupText + '</div>';
         
         grid.appendChild(card);
     });

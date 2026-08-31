@@ -687,6 +687,41 @@ input[type="range"] {
     color: var(--text-secondary);
 }
 
+/* ISTASYON BILGI BALONU POPUP (KATMAN 2) */
+.st-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.st-card-popup {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    background: #0F172A;
+    color: #F8FAFC;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.45;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
+    z-index: 2500;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    text-align: left;
+}
+
+.st-card:hover .st-card-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
 /* ===== SEKME 4 & 5: TABLOLAR (ZEBRA STRIPED) ===== */
 .data-table-card {
     background: var(--bg-card);
