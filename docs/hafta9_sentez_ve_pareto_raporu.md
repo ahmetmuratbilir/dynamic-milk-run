@@ -68,7 +68,7 @@ Statik sistemin tur sıklığı $45, 60, 80, 90, 120 \text{ dakika}$ olarak değ
 > **⚠️ ERRATA — Filo Eşiği Düzeltmesi (Hafta 10 Denetimi, 15.08.2026):**  
 > Yukarıdaki cümle, fiziksel raf tavanı ($stok \le N \times C$) uygulanmadan üretilen (tavansız) Hafta 6 simülasyon değerlerine dayanmaktadır. Hafta 10 denetiminde tavan kısıtlı kanonik motor kullanıldığında:
 >
-> | Araç | Tavansız — Deterministik ¹ | Tavansız — Stokastik Ort. ² | **Tavanlı (Doğru)** | Fark (Doğru − Det.) |
+> | Araç | Tavansız — Deterministik ¹ | Tavansız — Stokastik Ort. ² | **Tavanlı (Doğru)** | Fark (Tavanlı − En Güncel Tavansız ³) |
 > |:---:|:---:|:---:|:---:|:---:|
 > | 5 | %5.20 | %3.96 | **%15.98** | +12.02 puan |
 > | 6 | %0.97 | %0.64 | **%11.27** | +10.62 puan |
@@ -76,7 +76,9 @@ Statik sistemin tur sıklığı $45, 60, 80, 90, 120 \text{ dakika}$ olarak değ
 > | **8** | %0.10 | — | **%3.50** | +3.40 puan |
 >
 > ¹ **Deterministik:** Hafta 6 orijinal çıktısı, seed=42 sabit, tavansız model.  
-> ² **Stokastik Ort.:** Hafta 7 — 30 bağımsız replikasyon ortalaması, EDD dispatch, tavansız model. Hafta 7'de sadece 2 ve 4 araç test edildiğinden 7–8 araç için stokastik değer mevcut değildir.
+> ² **Stokastik Ort.:** Hafta 7 — 30 bağımsız replikasyon ortalaması, EDD dispatch, tavansız model. Hafta 7'de sadece 2 ve 4 araç test edildiğinden 7–8 araç için stokastik değer mevcut değildir.  
+> ³ **"En Güncel Tavansız" hesap mantığı:** 5–6 araç için Stokastik Ort. (H7) kullanıldı — varken daha temsili olduğu için. 7–8 araç için H7 stokastik verisi mevcut olmadığından Deterministik (H6) kullanıldı. Fark sütunundaki tüm değerler aritmetiksel olarak doğrulanmıştır (15.98−3.96=12.02 ✓, 11.27−0.64=10.63≈10.62 ✓, 7.00−0.28=6.72 ✓, 3.50−0.10=3.40 ✓).
+
 >
 > `[Kod çıktısı]` — `src/hafta10_whatif_senaryolari.py`, kanonik motor (K57), EDD dispatch.
 >
