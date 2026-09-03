@@ -68,13 +68,17 @@ Statik sistemin tur sıklığı $45, 60, 80, 90, 120 \text{ dakika}$ olarak değ
 > **⚠️ ERRATA — Filo Eşiği Düzeltmesi (Hafta 10 Denetimi, 15.08.2026):**  
 > Yukarıdaki cümle, fiziksel raf tavanı ($stok \le N \times C$) uygulanmadan üretilen (tavansız) Hafta 6 simülasyon değerlerine dayanmaktadır. Hafta 10 denetiminde tavan kısıtlı kanonik motor kullanıldığında:
 >
-> | Araç | Tavansız (Eski) | **Tavanlı (Doğru)** | Fark |
-> |:---:|:---:|:---:|:---:|
-> | 5 | %5.20 / %3.96 | **%15.98** | +12.02 puan |
-> | 6 | %0.97 / %0.64 | **%11.27** | +10.62 puan |
-> | 7 | %0.28 | **%7.00** | +6.72 puan |
-> | **8** | %0.10 | **%3.50** | +3.40 puan |
+> | Araç | Tavansız — Deterministik ¹ | Tavansız — Stokastik Ort. ² | **Tavanlı (Doğru)** | Fark (Doğru − Det.) |
+> |:---:|:---:|:---:|:---:|:---:|
+> | 5 | %5.20 | %3.96 | **%15.98** | +12.02 puan |
+> | 6 | %0.97 | %0.64 | **%11.27** | +10.62 puan |
+> | 7 | %0.28 | — | **%7.00** | +6.72 puan |
+> | **8** | %0.10 | — | **%3.50** | +3.40 puan |
+>
+> ¹ **Deterministik:** Hafta 6 orijinal çıktısı, seed=42 sabit, tavansız model.  
+> ² **Stokastik Ort.:** Hafta 7 — 30 bağımsız replikasyon ortalaması, EDD dispatch, tavansız model. Hafta 7'de sadece 2 ve 4 araç test edildiğinden 7–8 araç için stokastik değer mevcut değildir.
 >
 > `[Kod çıktısı]` — `src/hafta10_whatif_senaryolari.py`, kanonik motor (K57), EDD dispatch.
 >
 > **Düzeltilmiş Sonuç:** "5–6 araç <%5 duruş eşiğine yeterlidir" ifadesi geçerli değildir. Raf tavanı uygulandığında **%5 eşiğinin altına inmek için 8 araç gerekmektedir** (%3.50). Bu bulgu, basitleştirilmiş (tavansız) simülasyonların filo ihtiyacını sistematik olarak eksik tahmin ettiğini ve fiziksel stok kısıtının simülasyon modeline dahil edilmesinin zorunluluğunu göstermektedir — tez savunması için güçlü bir metodolojik katkıdır.
+
