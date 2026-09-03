@@ -214,8 +214,8 @@
 
 ### K25 — ROP Hesap Yöntemi: Oransal Tampon
 - **Değer:** $ROP_{adet} = D_{dk} \times LT \times (1 + \alpha)$
-- **Kaynak:** Kullanıcı onayı (30.07.2026) — "Makale destekliyse onaylıyorum"
-- **Literatür referansı:** Klenk et al. (2012) satır 1199-1200 → *"A safety buffer time of 30% to handle deviations in the mean number of bins per tour"* — oransal tampon yöntemi; 32 makalenin hiçbiri z×σ×√LT formülü kullanmamış.
+- **Kaynak:** Kullanıcı onayı (30.07.2026) — Mühendislik tasarım kararı
+- **Literatür notu (ERRATA — 03.09.2026):** Klenk et al. (2012) satır 1199-1200'deki *"A safety buffer time of 30% to handle deviations in the mean number of bins per tour"* ifadesi **tur süresi tamponuna** atıfta bulunmaktadır — ROP formülünü ($D \times LT \times (1+\alpha)$) doğrudan desteklememektedir. Bu formül, oransal tampon mantığından ilham alınarak tasarlanmış **bir mühendislik kararıdır**; literatürde birebir eşdeğeri bulunmamaktadır. Makalede "mühendislik kararı / tasarım tercihi" olarak etiketlenmelidir, literatür destekli formül olarak değil.
 - **Reddedilen alternatif:** İstatistiksel ROP = D×LT + z×σ×√LT → literatürel destek yok, bu projede kullanılmıyor.
 - **N ile farkı:**
   - N = ⌈ROP_adet / C⌉ → kaç KUTU tutulacağı (tasarım kararı, integer)
@@ -228,14 +228,13 @@
 
 ### K26 — Öncelik Kuralı: Karma (Kritiklik + FIFO)
 - **Değer:** Aynı anda birden fazla sinyal gelince → **önce stoğu en kritik olan** (stok/ROP oranı en düşük), eşitlikte **FIFO**
-- **Kaynak:** Kullanıcı onayı (30.07.2026) — "Makale destekliyse onaylıyorum"
-- **Literatür referansı:**
-  - Facchini et al. (2022) satır 416-417 → *"materials' priority, frequency of delivery"* — karma önceliklendirme
-  - Simić et al. (2020) satır 301 → *"according to the priority of the parts needed"* — kritiklik bazlı
+- **Kaynak:** Kullanıcı onayı (30.07.2026) — Mühendislik tasarım kararı
+- **Literatür notu (ERRATA — 03.09.2026):** Facchini et al. (2022) satır 416-417'deki *"materials' priority, frequency of delivery"* ve Simić et al. (2020) satır 301'deki *"according to the priority of the parts needed"* ifadeleri **genel öncelik kavramını** desteklemektedir; ancak "Kritiklik (stok/ROP) + FIFO" şeklindeki spesifik karma kuralımızı birebir tanımlamamaktadır. Bu kural **bizim mühendislik tasarımımızdır** — literatür genel konsepte zayıf/dolaylı destek sağlamaktadır. Makalede "literatürden ilham alınan özgün tasarım kararı" olarak sunulmalıdır.
 - **Reddedilen alternatifler:**
   - A (Sadece Kritiklik): Savunmada "neden hep aynı istasyon önce çıkıyor?" sorusu gelebilir
   - B (Sadece FIFO): Kritik istasyon sırada beklerken hat durabilir
 - **Dosya:** `src/ekanban_signal.py` (Hafta 4'te kullanılacak)
+
 
 ### K27 — Zaman Penceresi: Dinamik Hesap
 - **Değer:** $TW_{bitis} = \min(t_{starvation} - 5, \quad t_{sinyal} + 60)$

@@ -42,8 +42,8 @@
 
 | Karar | Değer | Makale Desteği |
 |-------|-------|----------------|
-| **K25 — ROP Formülü** | $ROP = D_{dk} \times LT \times (1+\alpha)$ | Klenk (2012) satır 1199–1200 |
-| **K26 — Öncelik Kuralı** | Karma: Kritiklik + FIFO | Facchini (2022) satır 416-417, Simić (2020) satır 301 |
+| **K25 — ROP Formülü** | $ROP = D_{dk} \times LT \times (1+\alpha)$ | ⚠️ ERRATA (03.09.2026): Klenk (2012) tur süresi tamponuna atıfta bulunuyor, ROP formülünü doğrudan desteklemiyor. **Mühendislik tasarım kararı** olarak yeniden etiketlendi. |
+| **K26 — Öncelik Kuralı** | Karma: Kritiklik + FIFO | ⚠️ ERRATA (03.09.2026): Facchini (2022) ve Simić (2020) genel öncelik kavramını destekliyor; "Kritiklik+FIFO" spesifik kuralı **bizim özgün tasarımımız**. Literatür dolaylı destek sağlıyor. |
 
 ### 5. N ile ROP Arasındaki Fark Netleştirildi
 
