@@ -51,7 +51,7 @@
 ## VRPTW (Zaman Pencereli Araç Rotalama)
 
 [12] [ ] M. M. Solomon and J. Desrosiers, "Time Window Constrained Routing and Scheduling
-     Problems," *Transportation Science,* vol. 22, no. 1, pp. 1–11, 1988.
+     Problems," *Transportation Science,* vol. 22, no. 1, pp. 1–13, 1988.
 
 [13] [ ] O. Bräysy and M. Gendreau, "Vehicle Routing Problem with Time Windows, Part I:
      Route Construction and Local Search Algorithms," *Transportation Science,*
