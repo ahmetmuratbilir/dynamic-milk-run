@@ -52,7 +52,7 @@ Her replikasyonda tüketim profili `N(μ/60, 0.20×μ/60)` dağılımından fark
 | **KRITIKLIK** | `kritiklik_skoru` ↑ (ROP/stok oranı) | K26 — mevcut baseline |
 | **EDD** | `tw_bitis` ↑ (küçükten büyüğe) | **Wang et al. (2008)**, Satır 48–56 & Satır 754–762: *"the customer that satisfies the time window constraint is inserted in turn..."* |
 | **SLACK** | `tw_bitis − t` ↑ (aciliyet skoru) | **Wang et al. (2008)**, Satır 355–358: Zaman penceresi önceliğine göre hizmet hiyerarşisi |
-| **FIFO** | `tw_baslangic` ↑ (sinyal oluşma sırası) | **Herrera-Vidal et al. (2026)**, Satır 8–10: Kuyruk baseline disiplini |
+| **FIFO** | `tw_baslangic` ↑ (sinyal oluşma sırası) | ⚠️ ERRATA (03.09.2026): Herrera-Vidal (2026) Satır 8–10 dergi/editör künyesidir, kuyruk disipliniyle ilgisi yoktur. **Mühendislik tasarım kararı** — FIFO kuralı (`tw_baslangic` sırasına göre) bu projede özgün bir baseline olarak tasarlanmıştır. |
 
 ### 2.4 İkili Payda Standardizasyonu: Deterministik (H5-H6) vs Stokastik (H7) (K47)
 
@@ -88,9 +88,9 @@ Bu tablo sayesinde tezin hiçbir bölümünde payda karışıklığı oluşmaz; 
 | **4** | **SLACK** | **26.497** | **0.218** | **0.077** | **26.015** | **26.820** |
 | **4** | **FIFO** | **26.502** | **0.205** | **0.072** | **26.044** | **26.849** |
 
-### 3.2 Welch t-testi: KRITIKLIK vs Alternatifler (4 Araç)
+### 3.2 t-testi: KRITIKLIK vs Alternatifler (4 Araç)
 
-**Kaynak:** Herrera-Vidal (2026) s.10 — %95 güven aralığı ve Welch t-testi (eşit varyans varsayımı yok)
+**Kaynak notu (ERRATA — 03.09.2026):** Herrera-Vidal (2026) s.10'da kullanılan "Welch's method" ısınma süresini (warm-up period) belirlemek için kullanılmıştır — istatistiksel anlamlılık testi değildir. İki farklı teknik: (1) Welch'in grafiksel yöntemi = ısınma süresi tahmini; (2) Welch t-testi = eşit olmayan varyans varsayımlı anlamlılık testi. Makalede kullanılan gerçek anlamlılık testi **iki örnekli t-testi (two-sample t-test)**'tir. Aşağıdaki sonuçlar bu yöntemle elde edilmiştir.
 
 | Karşılaştırma | Δ (puan) | p-değeri | Anlamlı? |
 |---------------|:--------:|:--------:|:--------:|

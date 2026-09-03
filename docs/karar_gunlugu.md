@@ -419,9 +419,9 @@
 | Özellik | Değer |
 |---------|-------|
 | **Konu** | Hafta 7'de Test Edilen Sinyal Önceliklendirme Kuralları |
-| **Değer** | 4 kural: KRITIKLIK (baseline, K26), EDD (Wang 2008 L53-56, L754-762), SLACK (Wang 2008 L355-358), FIFO (Herrera-Vidal 2026 L8-10) |
+| **Değer** | 4 kural: KRITIKLIK (baseline, K26), EDD (Wang 2008 L53-56, L754-762), SLACK (Wang 2008 L355-358), FIFO (**mühendislik tasarım kararı** — ⚠️ ERRATA 03.09.2026: Herrera-Vidal 2026 L8-10 atfı yanlıştı, o satırlar dergi/editör künyesidir) |
 | **Kaynak** | **Wang et al. (2008)**, IEEE m-VRPTW:<br>• *Satır 48–56:* "...due to the limited number of vehicles... the primary objective of the vehicle routing is no longer the shortest distance or minimum cost, but the greatest number of the customers serviced..."<br>• *Satır 355–358 (Amaç Hiyerarşisi):* "The first objective function is the most number of customers that are serviced, the second objective is the lowest total distance, and the third objective is the least number of vehicles required."<br>• *Satır 754–762 (TW Kısıtı ile Rotalama):* "...the customer that satisfies the time window constraint... is inserted in turn by the greedy algorithm until the time window constraint or capacity constraint is not satisfied..." |
-| **Gerekçe** | KRITIKLIK stok tabanlı, EDD/SLACK zaman tabanlı aciliyeti kullanır. FIFO en sade baseline. Wang (2008) araç kısıtlı sistemlerde zaman penceresi önceliğinin hizmet oranını maksimize ettiğini doğrular. |
+| **Gerekçe** | KRITIKLIK stok tabanlı, EDD/SLACK zaman tabanlı aciliyeti kullanır. FIFO en sade baseline (özgün tasarım). Wang (2008) araç kısıtlı sistemlerde zaman penceresi önceliğinin hizmet oranını maksimize ettiğini doğrular. |
 | **Tarih** | 08.08.2026 |
 
 ### K45 — Önerilen Dispatch Kuralı Değişikliği: EDD (veya SLACK)
@@ -429,7 +429,8 @@
 |---------|-------|
 | **Konu** | Mevcut K26 (KRITIKLIK) Kuralının Güncellenmesi |
 | **Değer** | K26 (KRITIKLIK) → **EDD** (Earliest Due Date: `tw_bitis` ↑) veya SLACK ile değiştirilmesi önerilmektedir |
-| **Kaynak** | H7 Deneysel Sonuç: EDD mean=%26.503, KRITIKLIK mean=%27.828; Welch t-testi p<0.0001 (**) |
+| **Kaynak** | H7 Deneysel Sonuç: EDD mean=%26.503, KRITIKLIK mean=%27.828; iki örnekli t-testi (two-sample t-test) p<0.0001 (**) ⚠️ ERRATA 03.09.2026: "Welch t-testi" ifadesi düzeltildi — Herrera-Vidal (2026)'de kullanılan "Welch's method" ısınma süresi tahmini içindir, istatistiksel anlamlılık testi değil. |
+
 | **Gerekçe** | EDD/SLACK/FIFO, KRITIKLIK'ten ortalama 1.325 puan daha düşük starvation sağlamıştır (p<0.0001). Mevcut lt_dk=45 dk sabit yapısında EDD≈SLACK≈FIFO pratik olarak özdeştir; EDD teorik olarak daha sağlam (Wang 2008 L754-762). Gerçek veriye geçişte (lt_dk değerleri farklılaşırsa) EDD vs SLACK farkı yeniden değerlendirilmelidir. |
 | **Tarih** | 08.08.2026 |
 
