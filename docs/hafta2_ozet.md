@@ -52,9 +52,11 @@
 
 ## Kontrol Soruları (Hafta Kapanışı için)
 
-- [ ] **Kontrol 1:** Üretilen sentetik tüketim ve stok verilerinin istatistiksel dağılımı inceledin mi? Beklentilerine uygun mu?
-- [ ] **Kontrol 2:** `DataLoader` katmanı ve `config.json` mimarisini onaylıyor musun? (Gerçek veri entegrasyonu için hazır).
+- [x] **Kontrol 1:** Üretilen sentetik tüketim ve stok verilerinin istatistiksel dağılımı inceledin mi? Beklentilerine uygun mu?
+  *(İncelendi ve onaylandı ✅ — tüm hat toplamları ve Kanban formülü doğrulandı)*
+- [x] **Kontrol 2:** `DataLoader` katmanı ve `config.json` mimarisini onaylıyor musun? (Gerçek veri entegrasyonu için hazır).
+  *(Onaylandı ✅ — synthetic/real geçiş mimarisi kabul edildi)*
 
 ---
 
-*Hazırlayan: AI | Hafta 2 | Durum: Kontrol onayı bekleniyor*
+*Hazırlayan: AI | Hafta 2 | Durum: ✅ KAPATILDI — Kullanıcı onayı alındı (29.07.2026)*

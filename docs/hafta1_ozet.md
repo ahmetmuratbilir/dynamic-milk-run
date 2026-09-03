@@ -48,11 +48,11 @@
 
 ## Kontrol Soruları (Hafta Kapanışı için)
 
-- [ ] **Kontrol 1:** Sisteme dahil edilecek hat ve depo yapısı netleşti mi?
-  *(Sentetik senaryo onaylandığında ✅)*
-- [ ] **Kontrol 2:** Güncel E-Kanban ve Milk-run optimizasyon modelleri incelendi mi?
-  *(Literatür özeti okundu ve okuma sırası belirlendi mi?)*
+- [x] **Kontrol 1:** Sisteme dahil edilecek hat ve depo yapısı netleşti mi?
+  *(Sentetik senaryo onaylandı ✅ — 4 hat, 24 istasyon, sentetik veri kararı alındı)*
+- [x] **Kontrol 2:** Güncel E-Kanban ve Milk-run optimizasyon modelleri incelendi mi?
+  *(Literatür özeti okundu, 15 kaynak belirlendi, okuma sırası oluşturuldu ✅)*
 
 ---
 
-*Hazırlayan: AI | Hafta 1 | Durum: Kontrol onayı bekleniyor*
+*Hazırlayan: AI | Hafta 1 | Durum: ✅ KAPATILDI — Kullanıcı onayı alındı (29.07.2026)*
