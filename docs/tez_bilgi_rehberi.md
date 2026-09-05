@@ -1,7 +1,8 @@
 # DİNAMİK MİLK-RUN VE E-KANBAN KARAR DESTEK SİSTEMİ
-## TEZ BİLGİ VE AKADEMİK METODOLOJİ MASTER REHBERİ (HAFTA 1 – 5)
+## TEZ BİLGİ VE AKADEMİK METODOLOJİ MASTER REHBERİ (HAFTA 1 – 13)
 
-> **Bu Dokümanın Amacı:** Bu dosya, projenin başından sonuna kadar (Hafta 1 – 17) elde edilen tüm teorik, mühendislik, matematik ve yazılımsal çıktılardan tezin Giriş, Literatür, Metodoloji ve Bulgular bölümlerinin doğrudan yazılabilmesini sağlayan **yaşayan akademik master dokümandır**.
+> **Bu Dokümanın Amacı:** Bu dosya, projenin başından sonuna kadar (Hafta 1–13) elde edilen tüm teorik, mühendislik, matematik ve yazılımsal çıktılardan tezin Giriş, Literatür, Metodoloji ve Bulgular bölümlerinin doğrudan yazılabilmesini sağlayan **yaşayan akademik master dokümandır**.  
+> **Son güncelleme:** Eylül 2026 — Hafta 6-13 bulguları IMRaD formatında eklendi; gerçekleşmemiş planlar kaldırıldı.
 
 ---
 
@@ -134,12 +135,12 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 | **K04** | Araç Kapasitesi | $Q_{arac} = 25$ kutu | Operasyonel sentetik varsayım | Mühendislik Varsayımı (Menanno $Q_{min}=45$) | H1 |
 | **K05** | Vardiya Süresi | 480 dakika (8 saat) | Standart tek vardiya ufku | Endüstri Standardı | H1 |
 | **K06** | Kanban Formülü | $N = \lceil (D \cdot LT \cdot (1+\alpha))/C_{kutu} \rceil$ | Standart Kanban boyutlandırma | Elloumi (2025) / Simić (2020) | H3 |
-| **K07** | Lead Time | $LT = 45$ dakika | Tedarik döngü süresi | Klenk et al. (2012) s.12 | H3 |
-| **K08** | Tampon Oranı | $\alpha = 0.15$ (%15) | Güvenlik stoku payı | Klenk et al. (2012) s.12 | H3 |
+| **K07** | Lead Time | $LT = 45$ dakika | Tedarik döngü süresi | Klenk et al. (2012) s.12 — tur süresi referansı, LT için yakın kaynak | H3 |
+| **K08** | Tampon Oranı | $\alpha = 0.15$ (%15) | Güvenlik stoku payı | Klenk et al. (2012) s.12 — %30 tampon kullanmış; bizim %15 daha temkinli, aynı mantık | H3 |
 | **K16** | TW Üst Sınır | Max +60 dakika | Zaman penceresi genişliği | Mühendislik Varsayımı | H4 |
 | **K17** | Max Tur Süresi | 90 dakika / tur | Tur başı süre limiti | Mühendislik Varsayımı | H5 |
-| **K25** | ROP Formülü | $ROP = D_{dk} \cdot LT \cdot (1+\alpha)$ | Oransal tamponlu eşik | Klenk et al. (2012) s.12 | H4 |
-| **K26** | Sinyal Önceliği | Karma (Kritiklik + FIFO) | Starvation önleme | Facchini (2022) s.2, Simić (2020) s.5 | H4 |
+| **K25** | ROP Formülü | $ROP = D_{dk} \cdot LT \cdot (1+\alpha)$ | Oransal tamponlu eşik | **Mühendislik Tasarım Kararı** ⚠️ ERRATA: Klenk (2012) tur süresi tamponuna atıfta bulunur, ROP formülünü doğrudan desteklemez | H4 |
+| **K26** | Sinyal Önceliği | Karma (Kritiklik + FIFO) | Starvation önleme | **Mühendislik Tasarım Kararı** ⚠️ ERRATA: Facchini/Simić genel öncelik kavramını destekler; Kritiklik+FIFO spesifik kuralı özgün tasarım | H4 |
 | **K27** | Dinamik TW | $TW_{bitis} = \min(t_{starv}-5, t+60)$ | S16 pencere daralması düzeltmesi | Mühendislik Varsayımı | H4 |
 | **K28** | Sinyal Güncelleme | Yeni sinyal üretme, kritikliği güncelle | Tekrarlayan sinyal engelleme | Mühendislik Varsayımı | H4 |
 | **K29** | Otomatik Yenileme | Sinyal + 45 dk (Geçici) | VRPTW öncesi teorik varsayım | Geçici Varsayım | H4 |
@@ -191,30 +192,63 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 
 ---
 
-### HAFTA 6 (GELECEK PLAN): Araç Sayısı ve Duyarlılık Analizi
-- **Amaç (Objective):** 2 araçlı sistemdeki %52.08 starvation oranını düşürmek için araç sayısını (2 vs 3 vs 4) ve tur parametrelerini analitik ve simülasyon temelli duyarlılık analizine tabi tutmak.
-- **Akademik Formül & Yöntem (Körösi & Duchoň, 2026 - Nature):**
-  - **Analitik Filo İhtiyacı Formülü:**
-    $$WL = w \times TC = \left(\sum F_{ij}\right) \times \left( T_L + \frac{L_d}{v_c} + T_U + \frac{L_e}{v_c} \right)$$
-    $$AT = 60 \times A \times F_t \times E_w$$
-    $$AN = \frac{WL}{AT} \implies AN_{final} = \lceil AN \rceil$$
-  - Burada $F_t$ (trafik kısıtı) ve $E_w$ (operatör verimliliği) parametreleri duyarlılık değişkeni olarak kullanılacaktır.
-- **Beklenen Katkı:** 2 araç yetersizliğinin sadece deneysel değil, Nature (2026) analitik filo formülüyle teorik ispatı sağlanacaktır.
+### HAFTA 6: Filo Büyüklüğü Duyarlılık ve Analitik Karşılaştırma
+- **Amaç (Objective):** %52.08 starvation oranını düşürmek için araç sayısını (2–8) analitik ve simülasyon temelli olarak test etmek.
+- **Yöntem (Methodology):** Körösi & Duchoň (2026) analitik filo formülü ($AN = WL/AT$) ile kendi simülasyon sonuçları karşılaştırıldı. 2'den 8'e kadar her araç sayısı için simülasyon çalıştırıldı. ⚠️ Bu haftanın verileri fiziksel raf tavanı kısıtı uygulanmadan üretildi (Hafta 10 ERRATA'sına bakınız).
+- **Bulgular (Findings):** Analitik model 4 araç önerirken simülasyon 4 araçta %19.46 starvation gösterdi — formülün deterministik alt sınır niteliğinde olduğu kanıtlandı. Araç sayısı arttıkça starvation düzenli azaldı (%52→%36→%19→%5.20→%0.97, tavansız).
+- **Tartışma (Discussion):** Darboğaz kutu kapasitesi değil, zaman ve filo büyüklüğü kısıtıdır (K36). Analitik formül gerçek stokastik sistemi yetersiz tahmin etmektedir.
+- **⚠️ ERRATA (Hafta 10):** Raf tavanı ($stok \le N \times C$) uygulandığında 5 araç %15.98, 6 araç %11.27 çıkmaktadır — "%5 eşiğine 5-6 araç yeterli" bulgusu geçersizdir. Düzeltilmiş veriler `hafta6_filo_analiz_raporu.md` Bölüm 3.2'dedir.
 
-### HAFTA 7–8 (GELECEK PLAN): SimPy Simülasyonu ve Darboğaz Giderimi
-- **Amaç (Objective):** VRPTW motorunu Python SimPy ortamına tam entegre etmek, ısınma (warm-up) ve replikasyon standartlarını oturtmak.
-- **Akademik Referanslar:**
-  - **Herrera-Vidal et al. (2026):** SimPy simülasyonlarında 50 replikasyon ve 30 dk Welch warm-up analizi (Bizim K32: 45 dk ısınma kararımızın doğrulaması).
-  - **Wang (2008):** Filo kısıtlı m-VRPTW amaç fonksiyonu: $\min [ -\sum \text{Müşteri}, \sum \text{Mesafe}, \sum \text{Araç} ]$.
+### HAFTA 7: Dispatch Kuralları Karşılaştırması — Stokastik Replikasyon
+- **Amaç (Objective):** EDD, SLACK, FIFO ve KRİTİKLİK dispatch kurallarının 30 stokastik replikasyonla istatistiksel karşılaştırması (K44).
+- **Yöntem (Methodology):** 30 bağımsız replikasyon (farklı seed), 45 dk ısınma, 435 dk etkin analiz penceresi (K42, K43). Kural sıralama kriterleri: EDD=`tw_bitis↑`, SLACK=`tw_bitis−t↑`, FIFO=`tw_baslangic↑`, KRİTİKLİK=`kritiklik_skoru↑`. Wang et al. (2008) kaynaklandırıldı. İki örnekli t-testi (two-sample t-test) uygulandı.
+- **Bulgular (Findings):**
+  - 4 araç, EDD: %26.503 ± 0.074, KRİTİKLİK: %27.828 ± 0.064
+  - EDD/SLACK/FIFO vs KRİTİKLİK: Δ≈−1.33 puan, **p<0.0001** ✅ anlamlı
+  - EDD vs SLACK: Δ=−0.006 puan, **p=0.913** → istatistiksel olarak eşdeğer
+  - FIFO kaynak: Mühendislik tasarım kararı (K44 ERRATA: Herrera-Vidal L8-10 atfı yanlıştı)
+- **Tartışma (Discussion):** KRİTİKLİK kuralı diğer üçünden anlamlı biçimde daha kötüdür. EDD, SLACK, FIFO herhangi biri seçilebilir; EDD teorik olarak daha sağlam (Wang 2008).
 
-### HAFTA 9–10 (GELECEK PLAN): Sabit Kanban vs Dinamik E-Kanban Karşılaştırma Deneyleri
-- **Amaç (Objective):** Geleneksel Sabit Kanban ROP modeli ile bizim Dinamik E-Kanban modelimizi kıyaslamak.
-- **Akademik Referanslar & Formüller:**
-  - **Sabit Kanban Referans Formülü (Efrilianda et al., 2018):**
-    $$ROP_{sabit} = L_j \times \left( \frac{\sum D_t}{t} \right) + \left[ \sum B_t - (1 - SL) \sum D_t \right]$$
-  - **Dinamik E-Kanban Formülü (Demiray Kırmızı et al., 2024 & Bizim K25):**
-    $$SS = k \cdot \sigma_d \cdot \sqrt{Lt} + DOH_{ABC-XYZ} \cdot d_{daily}$$
+### HAFTA 8: Statik vs Dinamik Karşılaştırma — WIP-Starvation Trade-off
+- **Amaç (Objective):** Sabit turlu statik Milk-Run sistemi ile dinamik E-Kanban sistemini eşit WIP koşulunda karşılaştırmak.
+- **Yöntem (Methodology):** StaticMilkRunSimulator (80 dk tur sıklığı, kanonik seed=42) ile EkanbanSimulator karşılaştırıldı. 1–8 araç için her iki sistem ayrı ayrı simüle edildi.
+- **Bulgular (Findings):**
+
+  | Araç | Statik (%) | Dinamik (%) | Fark (puan) | Üstün |
+  |:---:|:---:|:---:|:---:|:---:|
+  | 1 | 25.77 | — | — | — |
+  | 4 | 19.31 | 24.58 | −5.27 | **Statik** |
+  | 5 | 19.10 | 15.98 | +3.12 | **Dinamik ⚡** |
+  | 8 | 18.68 | 3.50 | +15.18 | **Dinamik** |
+
+- **Tartışma (Discussion):** 1-4 araçta statik sistem daha iyi (dinamiğin sinyal-reaksiyon gecikmesi dezavantaj). **5 araçtan itibaren dinamik sistem üstün** — bu geçiş noktası tezin en güçlü bulgusu. 8 araçta dinamik sistemi %5 hedefinin altına (%3.50) getirirken statik %18.68'de kalıyor. WIP-Starvation trade-off: Statik daha fazla stok tutarak düşük starvation sağlar; dinamik daha az stokla daha iyi performans elde eder (5+ araç).
+- **Sevim & Aykut Karşılaştırması:** 3 araçlı senaryo (%36.11 starvation) Sevim & Aykut (2023) çalışmasıyla kıyaslanabilir niteliktedir.
+
+### HAFTA 9: Sentez ve Pareto Analizi
+- **Amaç (Objective):** WIP-Starvation trade-off'unu Pareto perspektifinden değerlendirmek, filo eşiğini belirlemek.
+- **Bulgular (Findings):** Deterministik simülasyonla WIP ve starvation arasında tutarlı bir azalan getiri ilişkisi gözlemlendi. ⚠️ Bu haftanın filo eşiği bulguları tavansız modele dayanıyordu; Hafta 10 ERRATA'sıyla güncellendi.
+
+### HAFTA 10: Kapsamlı Denetim ve Kanonik Motor
+- **Amaç (Objective):** Önceki 9 haftanın tüm hesaplarını yeniden doğrulamak; fiziksel raf tavanı kısıtını uygulamak.
+- **Yöntem (Methodology):** Raf tavanı ($stok \le N \times C$) kanonik motora eklendi (K57). 1920 senaryo (8 araç × 8 dispatch × 30 rep) yeniden üretildi. K63 dinamik SLACK formülü düzeltildi. K64: EDD vs SLACK istatistiksel test.
+- **Bulgular (Findings):** Tavan kısıtı uygulandığında filo ihtiyacı sistematik olarak artmakta, önceki "5-6 araç yeterli" bulgusu geçersizleşmektedir. **%5 starvation eşiğine inmek için 8 araç gerekmektedir (%3.50)**. Kademeli filo azaltma (4→3→2→1) stres testi yapılarak ani filo kaybının etkisi incelendi.
+
+### HAFTA 11–12: Dashboard — Karar Destek Arayüzü
+- **Amaç (Objective):** Tüm simülasyon bulgularını interaktif bir web arayüzüne taşımak.
+- **Bulgular (Findings):** 5 sekmeli dashboard tamamlandı: (1) KPI Özet, (2) What-If Simülatörü (araç slider + dinamik yorum), (3) İstasyon Haritası 6×4, (4) Statik vs Dinamik karşılaştırma tablosu, (5) Veri Girişi formu. 1920 senaryoluk veri gömülü olarak çalışıyor. `node --check` ile syntax doğrulandı.
+
+### HAFTA 13: Saha Validasyonu
+- **Amaç (Objective):** Gerçek fabrika verisiyle sistemin doğrulanması.
+- **Durum:** Devam etmekte — `data/config.json → "real"` değişikliğiyle gerçek ERP verisi entegre edilecek.
 
 ---
 
-*Bu rehber her yeni haftada elde edilen bulgu, kod ve kararlarla güncellenecektir.*
+> [!NOTE]
+> **Gerçekleşmemiş Planlar (Gelecek Çalışma):**  
+> - Python SimPy tam entegrasyonu (düşünüldü, uygulanmadı — mevcut ayrık olay simülatörü yeterli bulundu)  
+> - Efrilianda et al. (2018) ve Demiray Kırmızı et al. (2024) formüllerinin doğrudan karşılaştırması (literatür taramasında incelendi, sistemimize entegre edilmedi — gelecek çalışma önerisi olarak bırakıldı)
+
+---
+
+*Bu rehber Eylül 2026 itibarıyla Hafta 13'e kadar güncellenmiştir.*
+
