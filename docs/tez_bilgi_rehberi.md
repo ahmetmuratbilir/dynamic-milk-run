@@ -1,8 +1,30 @@
 # DİNAMİK MİLK-RUN VE E-KANBAN KARAR DESTEK SİSTEMİ
 ## TEZ BİLGİ VE AKADEMİK METODOLOJİ MASTER REHBERİ (HAFTA 1 – 13)
 
-> **Bu Dokümanın Amacı:** Bu dosya, projenin başından sonuna kadar (Hafta 1–13) elde edilen tüm teorik, mühendislik, matematik ve yazılımsal çıktılardan tezin Giriş, Literatür, Metodoloji ve Bulgular bölümlerinin doğrudan yazılabilmesini sağlayan **yaşayan akademik master dokümandır**.  
-> **Son güncelleme:** Eylül 2026 — Hafta 6-13 bulguları IMRaD formatında eklendi; gerçekleşmemiş planlar kaldırıldı.
+> **Bu Dokümanın Amacı:** Bu dosya, projenin başından sonuna kadar (Hafta 1–14) elde edilen tüm teorik, mühendislik, matematik ve yazılımsal çıktılardan tezin Giriş, Literatür, Metodoloji ve Bulgular bölümlerinin doğrudan yazılabilmesini sağlayan **yaşayan akademik master dokümandır**.  
+> **Son güncelleme:** 30.09.2026 — Hafta 14 literatür denetimi ve v2 motoru revizyonu eklendi.
+
+> [!IMPORTANT]
+> ## ⚠️ HAFTA 14 REVİZYONU — ÖNCE BUNU OKUYUN (30.09.2026)
+>
+> Masaüstündeki `dinamik milk run` klasöründeki 41 özgün çalışma tek tek incelenerek
+> projenin 27 parametre/kararı kaynaklarıyla karşılaştırılmıştır. **Tezin iki temel sonucu
+> revize edilmiştir.** Aşağıdaki bölümlerde H1–H13 metni **tarihsel kayıt olarak
+> korunmuştur**; güncel sonuçlar için bu kutuya ve
+> `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md` dosyasına bakılmalıdır.
+>
+> | Konu | H1–H13 (v1) | Hafta 14 (v2) |
+> |---|---|---|
+> | Eşit WIP'te üstünlük | Statik 3–5 puan üstün (K53) | **Koşullu:** doyma altında statik hafif önde; sonuç **eşitleme kuralına bağlıdır** (K97): politika-tutarlı boyutlandırmada duruş farkı 1 puanın altında, üstünlük stokta (P3 %0,18 / 413 WIP ↔ P2 T=60 %0,49 / 673 WIP); eşit WIP'te dinamik **10,9 puan** önde |
+> | %5 eşiği için filo | 8 araç (H10 ERRATA) | **Baz talepte 2, +%50 şokta 3 araç** |
+> | Sevk kuralı | KRİTİKLİK anlamlı kötü, EDD öner (K45) | **Dört kural eşdeğer** (ANOVA p=0,9997 / 0,3415) |
+> | Isınma süresi | 45 dk (varsayım) | **90 dk** (Welch ile ölçüldü, K78) |
+> | Raf boyutlandırma | $N=\lceil ROP/C\rceil$ → 23/24 istasyonda $N=1$ | **$N = 1 + \lceil ROP/C\rceil$** (VDI 5586 "+1 değişim pozisyonu") |
+> | Rotalama | "NN + 2-opt" (2-opt **kodda yoktu**) | Gerçek 2-opt; Solomon'da doğrulandı |
+>
+> **Üç yapısal sorunun ölçülen etkisi:** eksik raf boyutlandırma **−3,88 puan**,
+> hizmet süresi asimetrisi (statik 3 dk / dinamik 8 dk per durak) **−10,34 puan**,
+> açık döngü sinyal üretimi **%24,58 → %6,85**.
 
 ---
 
@@ -16,12 +38,105 @@
 
 ## 2. RESEARCH GAP (Literatürdeki Eksiklik ve Katkımız)
 
-- **Literatürdeki Eksiklik:**
-  1. Çoğu çalışma Kanban boyutlandırmasını ve sinyal mimarisini **sabit tüketim ve teorik Lead Time ($LT$)** varsayımlarıyla ele almaktadır.
-  2. E-Kanban sinyal üretimi ile araçların fiziksel zaman pencereli rotalamasını (**VRPTW**) entegre eden dinamik ve çevrimiçi (online) simülasyon modelleri kısıtlıdır.
-- **Bu Tezin Özgün Katkısı (Novelty):**
-  1. Tüketim dalgalanmalarına duyarlı oransal tamponlu Dinamik Kanban ve Karma Önceliklendirmeli E-Kanban Sinyal Mimarisi geliştirilmiştir.
-  2. Teorik sinyal modellerinin araç kısıtları (VRPTW) altına sokulduğunda saklı kalan hat durmalarını nasıl görünür kıldığını kanıtlayan bütünleşik bir Karar Destek Sistemi (KDS) sunulmaktadır.
+> ⚠️ **26.10.2026'da tümüyle yeniden yazıldı.** Önceki metin *"E-Kanban sinyal üretimi ile
+> VRPTW'yi entegre eden modeller kısıtlıdır"* diyordu. Yapılan genişletilmiş tarama bu
+> iddianın **savunulamaz** olduğunu göstermiştir: Menanno vd. (2023), Vojdani & Drechsler
+> (2022), Sevim & Görkemli Aykut (2026) ve Alnahhal vd. (2016) bu entegrasyonu zaten
+> yapmıştır. Tam gerekçe, kanıt tablosu ve hakem yanıtları:
+> **`docs/literatur_boslugu_analizi.md`**
+
+### 2.1 Literatürdeki eksiklik: iki kol birleşmemiştir
+
+Fabrika içi milk-run yazını bu konuda **iki ayrı kolda** gelişmiştir:
+
+- **Kol A (boyutlandırma/planlama):** Gereken hat yanı tamponun ikmal politikasına bağlı
+  olduğunu gösterir. Urru vd. (2018) s.407, *aynı veriyle* dört farklı yeniden sipariş
+  yöntemi için planlamayı tekrarlamış ve tampon ihtiyacının 18'den 19/20/23'e çıktığını
+  bulmuştur. Droste & Deuse (2011) s.607–608 gereken stokun çevrim süresiyle orantılı
+  olduğunu; Schmidt vd. (2016) s.3 ve VDI 5586 Blatt 2 (2022) ise
+  $q = 1 + \lceil n_{LT}\rceil$ formülünü verir. **Ancak bu kol politikaları performans
+  açısından karşılaştırmaz.**
+- **Kol B (politika karşılaştırma/simülasyon):** Politikaları duruş ve stok açısından
+  karşılaştırır. Vojdani & Drechsler (2022) s.5 iki sistemi *"identisches Layout und
+  identische Taktzeiten"* ve **aynı iki kutulu Kanban** ile karşılaştırır. Chee vd. (2012)
+  s.392 push ve Kanban'a aynı {2,4,6} aralığını uygular. Alnahhal & Noche (2015) s.117
+  Kanban sayısını *"fill rate ≥ %99"* ölçütüyle seçer. **Ancak bu kol tamponu politikanın
+  kendi çevrim süresinden formülle türetmez.**
+
+**Boşluk:** Tamponun politikaya bağlı olduğunu gösteren kol ile politikaları karşılaştıran
+kol birleştirilmemiştir; bu birleşmemenin karşılaştırma sonuçlarını ne ölçüde etkilediği
+ölçülmemiştir.
+
+### 2.2 Bu tezin özgün katkısı (revize)
+
+1. **Politika-tutarlı boyutlandırma ilkesi.** Her besleme politikasının hat yanı tamponu
+   kendi çevrim süresinden türetilir. Bu yapılmadığında karşılaştırma sonucunun **yönünün**
+   değiştiği gösterilmiştir: politika-tutarsız boyutlandırma ve asimetrik hizmet süreleri
+   altında statik sistem üstün görünmektedir. Bağımsız bir çalışmanın karşılaştırma
+   tasarımı (Vojdani & Drechsler 2022, ortak iki kutulu tampon) uygulandığında dijital
+   sistem şokta **9,03 puan** önde görünürken, politika-tutarlı boyutlandırmada fark
+   kapanır (K93); bu kayma Toyota parametre bandının 12 hücresinin tamamında sıralamayı
+   değiştirir (K95). Düzeltme sonrası yeterli filoda politikalar arasındaki duruş farkı
+   1 puanın altındadır; dinamik sistemin üstünlüğü stoktadır (K96). Dört eşitleme kuralı
+   (eşit kart, politika-tutarlı, eşit hizmet düzeyi, eşit WIP) yan yana konduğunda
+   kazanan kurala göre değişir (K97, Şekil 7).
+2. **Modelleme kararlarının ayrıştırılmış etkisi.** Tampon boyutlandırma (−3,88 puan),
+   hizmet süresi simetrisi (−10,34 puan), kapalı döngü sinyal üretimi (%24,58 → %6,85) ve
+   metrik mesafe (−0,86 puan) katkıları tek tek ölçülmüştür. Bu etkiler, politikalar
+   arasındaki gerçek farktan (≈1 puan) **büyüktür**.
+3. **Tüketim hızından türetilen dinamik zaman penceresi** (K27/K30): teslim son tarihi
+   istasyonun anlık stoku ve tüketim hızından hesaplanır; pencere istasyonun kırılganlığına
+   göre kendiliğinden daralır. *(Taranan literatürde rastlanmamıştır — ihtiyatlı yazılmalı.)*
+4. **Koşullu ve dürüst raporlama:** üstünlük filo doygunluğuna bağlıdır; sevk kuralları
+   arasında anlamlı fark bulunamamıştır (ANOVA p=0,9997 / 0,3415).
+
+> **⚠️ İddia edilmeyecekler:** "E-Kanban + VRPTW entegrasyonu", "Kanban ↔ starvation
+> ilişkisi", "filo ↔ stok ödünleşimi", "Pareto cephesi", "VDI +1 kuralı" ve
+> **"$N = \lceil D\cdot LT(1+\alpha)/C\rceil$ formülü"** özgün katkı **değildir**;
+> sırasıyla Menanno (2023), Ciemnoczolowski & Bozer (2013), Bocewicz vd. (2019),
+> Zhou & Wen (2024), Urru vd. (2018) ve **Sugimori vd. (1977 — Toyota formülü, K88)**
+> tarafından kapatılmıştır.
+
+### 2.3 Boşluğun literatürce ilan edilmiş hâli (K89)
+
+Kundu, Rossini & Portioli-Staudacher (2019) s.423, Monden (2011)'e dayanarak iki
+politika ailesini tanımlar — *fixed quantity, variable time* = **reorder point**
+(bu tezde **P3**) ve *fixed time, variable quantity* = **periodic review** (**P2**) —
+ve şunu yazar:
+
+> *"This research utilizes the fixed time, variable quantity solution and **does not
+> investigate the differences with the other policy. This could however be the subject
+> of future research.**"*
+
+Bu alıntı **makalenin giriş bölümünde doğrudan kullanılmalıdır**: tezin doldurduğu
+boşluk, literatürün kendisi tarafından açıkça ilan edilmiştir.
+
+⚠️ Aynı sayfadaki karşı kanıt da dürüstçe aktarılmalıdır: *"The comparison of different
+feeding policies has been relatively well covered"*. Dolayısıyla **"politika
+karşılaştırması yapılmamıştır" denemez**; iddia yalnızca *boyutlandırmanın politikaya
+göre türetilmesi ve etkisinin ölçülmesi* ile sınırlıdır.
+
+### 2.4 ⚠️ Katkı gücünün dürüst değerlendirmesi (K91)
+
+| Hedef | Yeterlilik |
+|---|---|
+| Lisans / YL tasarım çalışması | ✅ Fazlasıyla yeterli |
+| **TR Dizin** (End. Müh. Dergisi, JTOM) | ⚠️ **Sınırda** — tek engel gerçek veri yokluğu |
+| SCI-E | ❌ Katkı artımsaldır |
+
+Katkı **metodolojiktir**, teknik değildir: yeni algoritma, yeni mimari veya yeni
+ödünleşim keşfi yoktur. Güçlendirme yol haritası (etki sırasına göre):
+
+1. 🔴 **Gerçek veri** — tek vardiya bile yeter; `config.json → "real"`. S1'i kapatır.
+2. 🟠 **İddiayı küçült, kanıtı büyüt** — "entegre KDS geliştirdik" yerine
+   *"boyutlandırma tutarsızlığı, politikalar arasındaki gerçek farktan büyük bir
+   yanlılık üretir"* (10,34 vs ≈1 puan).
+3. 🟠 **Katkıyı kendi modelinin dışına taşı** — Vojdani & Drechsler (2022) s.5'teki
+   kurgu (aynı iki kutulu Kanban, farklı çevrim süreleri) v2'de yeniden kurulursa
+   katkı genellenebilirlik kazanır. ≈ yarım saatlik iş; duyarlılık analizi olarak
+   sunulmalı, çürütme olarak değil.
+
+Ayrıntı: `docs/literatur_boslugu_analizi.md` Bölüm 10.
 
 ---
 
@@ -134,7 +249,7 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 | **K03** | Araç Sayısı | 2 milk-run aracı ($A_1, A_2$) | Operasyonel sentetik varsayım | Mühendislik Varsayımı | H1 |
 | **K04** | Araç Kapasitesi | $Q_{arac} = 25$ kutu | Operasyonel sentetik varsayım | Mühendislik Varsayımı (Menanno $Q_{min}=45$) | H1 |
 | **K05** | Vardiya Süresi | 480 dakika (8 saat) | Standart tek vardiya ufku | Endüstri Standardı | H1 |
-| **K06** | Kanban Formülü | $N = \lceil (D \cdot LT \cdot (1+\alpha))/C_{kutu} \rceil$ | Standart Kanban boyutlandırma | Elloumi (2025) / Simić (2020) | H3 |
+| **K06** | Kanban Formülü | $N = \lceil (D \cdot LT \cdot (1+\alpha))/C_{kutu} \rceil$ | Standart Kanban boyutlandırma | Toyota formülü: Sugimori vd. (1977), aktaran Kundu vd. (2019) s.422 (K88) | H3 |
 | **K07** | Lead Time | $LT = 45$ dakika | Tedarik döngü süresi | Klenk et al. (2012) s.12 — tur süresi referansı, LT için yakın kaynak | H3 |
 | **K08** | Tampon Oranı | $\alpha = 0.15$ (%15) | Güvenlik stoku payı | Klenk et al. (2012) s.12 — %30 tampon kullanmış; bizim %15 daha temkinli, aynı mantık | H3 |
 | **K16** | TW Üst Sınır | Max +60 dakika | Zaman penceresi genişliği | Mühendislik Varsayımı | H4 |
@@ -243,12 +358,48 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 
 ---
 
-> [!NOTE]
-> **Gerçekleşmemiş Planlar (Gelecek Çalışma):**  
-> - Python SimPy tam entegrasyonu (düşünüldü, uygulanmadı — mevcut ayrık olay simülatörü yeterli bulundu)  
-> - Efrilianda et al. (2018) ve Demiray Kırmızı et al. (2024) formüllerinin doğrudan karşılaştırması (literatür taramasında incelendi, sistemimize entegre edilmedi — gelecek çalışma önerisi olarak bırakıldı)
+### HAFTA 14: Literatür Denetimi, v2 Motoru ve Doğrulama
+- **Amaç (Objective):** Kaynak klasöründeki 41 özgün çalışmayla projenin tüm parametre ve
+  kararlarını karşılaştırmak; tespit edilen yapısal sorunları gidermek; rotalama sezgiselini
+  bağımsız bir kıyaslama setinde doğrulamak.
+- **Yöntem (Methodology):** 45 PDF tarandı (9'u tam metin). 27 parametre/karar denetlendi.
+  Düzeltmeler v1'i bozmadan `src/v2_entegre_simulasyon.py`'de toplandı (K65–K82).
+  Doğrulama: Solomon VRPTW (OR-Tools referansı), tur-içi tam numaralama, Welch ısınma
+  analizi, $2^5$ faktöriyel tasarım + ANOVA/Tukey.
+- **Bulgular (Findings):**
+  - Denetim: 7 doğrulandı, **8 atıf hatalı**, 6 literatürden sapma, 5 kaynaksız karar,
+    **1 aktarım hatası** (K75: stokastik üreticide S10/S23 talepleri, toplam %9 fazla).
+  - Düzeltmelerin ayrıştırılması: hizmet süresi asimetrisi **−10,34 puan**,
+    kapalı döngü **%24,58 → %6,85**, raf boyutlandırma **−3,88 puan**, durak sınırı **+5,76**.
+  - Faktöriyel ana etkiler (duruş): talep **+10,22** > filo **−9,55** > raf **−3,88** >
+    α −1,35 (p=0,15) > sevk +0,93 (p=0,32). Doluluğa en güçlü etki: **sevk +20,19 puan**.
+  - Solomon: en yakın komşu OR-Tools'tan **%102,7** daha uzun; fabrika içi tur-içi sapma
+    yalnızca **%0,62** (turlar 2–8 duraklı olduğu için Solomon açığı bu bağlama taşınmaz).
+  - Isınma süresi **90 dk** (45 dk'da WIP kararlı değerin %54 üzerindedir).
+- **Tartışma (Discussion):** v1'deki yüksek duruş oranları (%24–53) ve yüksek filo ihtiyacı
+  (8 araç), politika farkından değil **model kurma sorunlarından** kaynaklanmaktadır.
+  Literatüre uygun boyutlandırmayla üç politika da baz talepte 2 araçla %5 eşiğinin
+  altındadır; politikalar ancak **talep şoku altında ayrışır** (K81).
+- **Sonraki Adım:** Mesafe matrisinin koordinatlardan üretilmesi (S10), çok vardiyalı
+  koşular (S2), gerçek ERP verisi.
 
 ---
 
-*Bu rehber Eylül 2026 itibarıyla Hafta 13'e kadar güncellenmiştir.*
+> [!NOTE]
+> **Gerçekleşmemiş Planlar (Gelecek Çalışma):**  
+> - Python SimPy tam entegrasyonu (düşünüldü, uygulanmadı). ⚠️ **Terminoloji notu (H14):**
+>   mevcut simülatör **1 dakikalık sabit zaman adımlı** (fixed-increment) bir modeldir;
+>   metinde "ayrık olay simülasyonu" yerine bu terim kullanılmalıdır. SimPy'ye geçilecekse
+>   klasördeki üç kaynak yöntem şablonu sunar: Pop vd. (2025), Dagkakis vd. (2015 — ManPy),
+>   Ramirez Echavarria (2025 — 40 günlük veriyle doğrulanmış model).
+> - Efrilianda et al. (2018) ve Demiray Kırmızı et al. (2024) formüllerinin doğrudan
+>   karşılaştırması. ⚠️ **H14 düzeltmesi:** Demiray Kırmızı vd. **s.9 Tablo 3**'te
+>   $SS = k\sigma_d\sqrt{L_t}$ formülü açıkça verilmektedir; K18'in "makalelerimizde bu
+>   formül yok" ifadesi yanlıştır. İstatistiksel ROP'un kullanılmaması bir **tercihtir**
+>   ve sınırlılık (S9) olarak yazılmalıdır.
+
+---
+
+*Bu rehber 30.09.2026 itibarıyla Hafta 14'e kadar güncellenmiştir.*
+*Güncel sonuçlar için: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`*
 

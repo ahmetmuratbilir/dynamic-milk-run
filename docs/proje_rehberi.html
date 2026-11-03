@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Milk-Run Proje Rehberi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Düzen: solda yapışkan içindekiler, sağda bölüm bölüm rehber; telefonda tek sütun */
+:root {
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --ink: #15202b;
+  --ink-2: #435160;
+  --muted: #6a7784;
+  --line: #dbe1e6;
+  --accent: #0e6a73;
+  --accent-soft: #e0eff0;
+  --crit: #b3322a;  --crit-soft: #fbe8e6;
+  --warn: #946000;  --warn-soft: #fbf0da;
+  --ok: #2c7740;    --ok-soft: #e4f2e7;
+  --hist: #6a5a96;  --hist-soft: #eeebf6;
+  --f-display: "Literata", Georgia, "Times New Roman", serif;
+  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161b; --surface: #192027; --ink: #e5eaee; --ink-2: #b3bdc7; --muted: #8894a0;
+  --line: #2b343d; --accent: #5bc0c8; --accent-soft: #15333a;
+  --crit: #f08a80; --crit-soft: #3a1f1d; --warn: #e3b35c; --warn-soft: #352a14;
+  --ok: #7bc98a; --ok-soft: #1a3121; --hist: #b6a8e6; --hist-soft: #272238; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11161b; --surface: #192027; --ink: #e5eaee; --ink-2: #b3bdc7; --muted: #8894a0;
+  --line: #2b343d; --accent: #5bc0c8; --accent-soft: #15333a;
+  --crit: #f08a80; --crit-soft: #3a1f1d; --warn: #e3b35c; --warn-soft: #352a14;
+  --ok: #7bc98a; --ok-soft: #1a3121; --hist: #b6a8e6; --hist-soft: #272238; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.6 var(--f-body); }
+.sayfa { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 36px 80px; }
+nav.icindekiler { position: sticky; top: 24px; align-self: start; display: grid; gap: 4px; font-size: 13.5px; }
+nav.icindekiler .baslik { font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+nav.icindekiler a { color: var(--ink-2); text-decoration: none; padding: 6px 10px; border-radius: 6px; border-left: 2px solid transparent; }
+nav.icindekiler a:hover { background: var(--surface); color: var(--ink); border-left-color: var(--accent); }
+nav.icindekiler a span { font-family: var(--f-mono); color: var(--muted); font-size: 12px; margin-right: 6px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+main { display: grid; gap: 56px; min-width: 0; }
+section { display: grid; gap: 18px; min-width: 0; scroll-margin-top: 20px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(28px, 4vw, 38px); font-weight: 650; }
+h2 { font-size: 25px; font-weight: 650; }
+h3 { font-size: 17px; font-weight: 650; }
+p { margin: 0; max-width: 72ch; }
+.kas { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.giris { font-size: 16.5px; color: var(--ink-2); }
+.muted { color: var(--muted); }
+code { font-family: var(--f-mono); font-size: .85em; background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+strong { font-weight: 650; }
+
+.durum { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.durum div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 2px; }
+.durum b { font: 500 24px/1.2 var(--f-mono); font-variant-numeric: tabular-nums; }
+.durum span { font-size: 13px; color: var(--muted); }
+.durum .o b { color: var(--ok); } .durum .w b { color: var(--warn); } .durum .c b { color: var(--crit); }
+
+.kart { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; min-width: 0; }
+.liste { display: grid; gap: 10px; }
+.madde { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+.madde.c { border-left-color: var(--crit); } .madde.w { border-left-color: var(--warn); } .madde.o { border-left-color: var(--ok); } .madde.a { border-left-color: var(--accent); }
+.ust { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.madde p, .madde li { color: var(--ink-2); font-size: 14.5px; }
+.madde ul { margin: 0; padding-left: 20px; display: grid; gap: 3px; }
+.pill { font: 500 10.5px/1 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.c { background: var(--crit-soft); color: var(--crit); } .pill.w { background: var(--warn-soft); color: var(--warn); }
+.pill.o { background: var(--ok-soft); color: var(--ok); } .pill.a { background: var(--accent-soft); color: var(--accent); }
+.pill.h { background: var(--hist-soft); color: var(--hist); }
+.dosya { font: 400 12.5px/1.5 var(--f-mono); color: var(--muted); overflow-wrap: anywhere; }
+.cevap { background: var(--bg); border-radius: 6px; padding: 10px 12px; font-size: 14.5px; color: var(--ink); }
+.cevap strong { color: var(--accent); }
+
+details.soru { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0; }
+details.soru > summary { cursor: pointer; padding: 14px 18px; font-weight: 600; display: flex; gap: 12px; align-items: baseline; list-style: none; }
+details.soru > summary::-webkit-details-marker { display: none; }
+details.soru > summary::before { content: "+"; font: 500 16px/1 var(--f-mono); color: var(--accent); width: 12px; flex: none; }
+details.soru[open] > summary::before { content: "−"; }
+details.soru .govde { padding: 0 18px 16px 42px; display: grid; gap: 10px; font-size: 14.5px; color: var(--ink-2); }
+details.soru .govde ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.no { font: 500 12px/1 var(--f-mono); color: var(--muted); flex: none; }
+
+.tablo { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font: 500 11px/1.3 var(--f-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+tbody tr:last-child td { border-bottom: 0; }
+td.sira { font-family: var(--f-mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.ad { font-family: var(--f-mono); font-size: 12.5px; overflow-wrap: anywhere; min-width: 200px; }
+.faz td { background: var(--bg); font-weight: 650; color: var(--ink); font-size: 13px; }
+
+.ekran { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; min-width: 0; }
+.ekran-bas { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; padding: 14px 18px; border-bottom: 1px solid var(--line); background: var(--bg); }
+.ekran-bas .ikon { font-size: 18px; }
+.ekran-govde { padding: 14px 18px 16px; display: grid; gap: 10px; font-size: 14.5px; color: var(--ink-2); }
+.ekran-govde dl { margin: 0; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 6px 14px; }
+.ekran-govde dt { font-weight: 600; color: var(--ink); }
+.ekran-govde dd { margin: 0; }
+.uyari { font-size: 13.5px; color: var(--warn); background: var(--warn-soft); border-radius: 6px; padding: 8px 10px; }
+
+footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 880px) {
+  .sayfa { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  nav.icindekiler { position: static; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .ekran-govde dl { grid-template-columns: minmax(0, 1fr); }
+  .ekran-govde dt { margin-top: 6px; }
+  details.soru .govde { padding-left: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="sayfa">
+
+<nav class="icindekiler" aria-label="İçindekiler">
+  <div class="baslik">İçindekiler</div>
+  <a href="#durum"><span>1</span>Genel durum</a>
+  <a href="#eksikler"><span>2</span>Eksikler</a>
+  <a href="#sorular"><span>3</span>Makale için kritik sorular</a>
+  <a href="#belgeler"><span>4</span>Belgeler ve okuma sırası</a>
+  <a href="#yazim"><span>5</span>Hangi bölüm hangi belgeden</a>
+  <a href="#sekiller"><span>6</span>Şekiller ve betikler</a>
+  <a href="#ekranlar"><span>7</span>Dashboard ekranları</a>
+</nav>
+
+<main>
+
+<header style="display:grid; gap:12px;">
+  <span class="kas">Proje rehberi · 3 Kasım 2026 · Karar günlüğü K01–K102</span>
+  <h1>Dinamik Milk-Run ve E-Kanban: Proje Rehberi</h1>
+  <p class="giris">Projenin şu anki durumu, makaleye geçmeden kapatılması gerekenler, hakemin soracağı sorular ve cevapları, belgelerin hangi sırayla okunacağı ve karar destek arayüzündeki her ekranın ne yaptığı.</p>
+</header>
+
+<!-- 1 -->
+<section id="durum" aria-labelledby="h-durum">
+  <span class="kas">1 · Genel durum</span>
+  <h2 id="h-durum">Proje nerede?</h2>
+  <p>Model, deneyler ve arayüz tamamlandı. Makalenin ana bulgusu farklı koşullarda sınandı ve tuttu. <strong>Makale metni henüz yazılmadı.</strong> Bundan sonraki işlerin çoğu yazım ve dış kaynak tarafında.</p>
+  <div class="durum">
+    <div class="o"><b>102</b><span>karar, kaynağıyla birlikte kayıtlı (K01–K102)</span></div>
+    <div class="o"><b>8</b><span>makale figürü hazır (Şekil 1–8)</span></div>
+    <div class="o"><b>52/52</b><span>sağlamlık koşulunda ana bulgunun yönü aynı (K95, K99, K100)</span></div>
+    <div class="w"><b>72</b><span>dosya diskte, git'e işlenmemiş</span></div>
+    <div class="c"><b>0</b><span>sayfa makale metni (IMRaD taslağı yok)</span></div>
+    <div class="c"><b>3</b><span>zorunlu kaynak henüz edinilmedi</span></div>
+  </div>
+  <div class="kart">
+    <h3>Ana bulgu, tek cümle</h3>
+    <p>Fabrika içi besleme politikaları karşılaştırılırken hangi politikanın kazandığı, karşılaştırmanın nasıl adil kılındığına bağlıdır. Aynı iki sistem, yazında kullanılan dört eşitleme kuralına göre üç farklı kazanan verir (K97). Bu etki Toyota formülünün parametre bandında, üç vardiyalık ufukta ve gerçekleşebilir bir mesafe ağında da sürer.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="eksikler" aria-labelledby="h-eksik">
+  <span class="kas">2 · Eksikler</span>
+  <h2 id="h-eksik">Neler eksik, hangi sırayla kapatılmalı?</h2>
+  <p>Bu inceleme sırasında bulunan ve hemen düzeltilen dört hata en altta ayrıca listelendi. Kalanlar önem sırasına göre:</p>
+
+  <div class="liste">
+    <div class="madde c">
+      <div class="ust"><h3>E1 · Makale metni yok</h3><span class="pill c">Kritik</span></div>
+      <p>Analizler bitti ama Giriş, Yöntem, Bulgular, Tartışma ve Sonuç bölümleri yazılmadı. Hazır parçalar var: giriş paragrafı, katkı maddeleri ve hakem cevapları <code>literatur_boslugu_analizi.md</code> Bölüm 5–6'da. Hangi belgenin makalenin hangi bölümüne gittiği bu rehberin <a href="#yazim" style="color:var(--accent)">5. bölümünde</a>.</p>
+    </div>
+    <div class="madde c">
+      <div class="ust"><h3>E2 · Üç zorunlu kaynak edinilmedi</h3><span class="pill c">Kritik</span></div>
+      <ul>
+        <li><strong>Alnahhal, Ramadan &amp; Noche (2016):</strong> ana karşılaştırmanın en yakın öncülü. Tamponu nasıl boyutlandırdıkları bilinmiyor; hakem ilk bunu soracak.</li>
+        <li><strong>Ciemnoczolowski &amp; Bozer (2013):</strong> kanban sayısı ile duruş ilişkisinin kurucusu.</li>
+        <li><strong>Sugimori vd. (1977):</strong> kullandığımız Kanban formülünün asıl kaynağı. Şu an Kundu vd. (2019) üzerinden aktarıyoruz.</li>
+      </ul>
+      <p>Üçü de kapalı erişim; üniversite kütüphanesinden veya kütüphaneler arası ödünç yoluyla istenebilir. Kontrol: <code>python -X utf8 -m src.kaynak_arsivi_denetimi</code></p>
+    </div>
+    <div class="madde c">
+      <div class="ust"><h3>E3 · Değişiklikler git'e işlenmemiş</h3><span class="pill c">Kritik</span></div>
+      <p>Hafta 14'ten bu yana yapılan her şey (72 dosya, yeni betikler, belgeler, şekiller) yalnızca diskte. Bilgisayar arızasında hepsi kaybolur. İstersen konulara göre ayrı commit'ler hazırlayabilirim.</p>
+    </div>
+    <div class="madde w">
+      <div class="ust"><h3>E4 · Nihai koşu ayarı kararı bekliyor</h3><span class="pill w">Önemli · senin kararın</span></div>
+      <p>İki iyileştirme bulundu ama varsayılan olarak açılmadı, çünkü mutlak sayıların hepsini değiştirir:</p>
+      <ul>
+        <li><strong>Isınma sonrası göstergeler (K99):</strong> Şu anki duruş ve WIP değerleri ilk 90 dakikayı da içeriyor. Duruş ortalama 1,15 puan düşük, WIP %5–37 yüksek görünüyor. Göreli sonuçlar değişmiyor.</li>
+        <li><strong>Koordinat tabanlı mesafe ağı (K100):</strong> Mevcut mesafe matrisi gerçekleşemeyecek bir yerleşim tarif ediyor ve yolu 2,5–3,5 kat şişiriyor.</li>
+      </ul>
+      <p>Önerim: makale tabloları ikisi açık olarak üretilsin. Karar verilirse dashboard verisi yeniden üretilmeli (yaklaşık 8 dakika).</p>
+    </div>
+    <div class="madde w">
+      <div class="ust"><h3>E5 · Katkı maddeleri ve başlık eski</h3><span class="pill w">Önemli</span></div>
+      <p><code>literatur_boslugu_analizi.md</code> Bölüm 5'teki dört katkı maddesi K97 öncesinden kalma. Birinci madde "dört adalet kuralının karşılaştırılması" olarak yeniden yazılmalı. Başlık önerisi de bu bulguya göre güncellenmeli (Soru 10).</p>
+    </div>
+    <div class="madde w">
+      <div class="ust"><h3>E6 · Özet belgeler son bulguları içermiyor</h3><span class="pill w">Önemli</span></div>
+      <ul>
+        <li><code>tez_bilgi_rehberi.md</code>: K95–K97 var, K98–K101 yok.</li>
+        <li><code>README.md</code>: K01–K82'ye kadar; yeni betikler ve dashboard sekmeleri anlatılmıyor.</li>
+      </ul>
+    </div>
+    <div class="madde w">
+      <div class="ust"><h3>E7 · Kaynakçada doğrulanacak alanlar</h3><span class="pill w">Önemli</span></div>
+      <p><code>hafta1_referans_listesi.md</code> içinde "doğrulanmalı" notlu alanlar: Simić cilt/sayı, Droste &amp; Deuse sayfa aralığı, Vojdani DOI, Urru sayı numarası, VDI 5586 yılı, OR-Tools sürümü, Montgomery baskısı. Chee vd. (2012) ve Faccio vd. (2013a/b) künyeleri tam metinden alınmalı.</p>
+    </div>
+    <div class="madde w">
+      <div class="ust"><h3>E8 · Tüm analizler hiç baştan sona koşulmadı</h3><span class="pill w">Önemli</span></div>
+      <p><code>src/tum_analizleri_calistir.py</code> bu oturumda eklenen adımlarla birlikte uçtan uca çalıştırılmadı; her betik tek tek çalıştı. Makale tablolarını üretmeden önce bir kez tam koşu yapılmalı (yaklaşık 20–30 dakika).</p>
+    </div>
+    <div class="madde a">
+      <div class="ust"><h3>E9 · Gerçek fabrika verisi</h3><span class="pill a">En yüksek etki · dış bağımlı</span></div>
+      <p>Tek vardiyalık gerçek tüketim verisi bile hakemin "sentetik veri" itirazını büyük ölçüde kapatır. Altyapı hazır: <code>data/config.json</code> içindeki <code>"real"</code> ayarı ve <code>data/real/*.csv</code> şablonları. Dashboard'daki Veri Girişi ekranı da bu verinin girilmesi için yapıldı.</p>
+    </div>
+    <div class="madde a">
+      <div class="ust"><h3>E10 · Yöntemsel sınırlar (sınırlılıklar bölümüne)</h3><span class="pill a">Yazılmalı</span></div>
+      <ul>
+        <li>K97'de kart sayısı tüm istasyonlara aynı miktarda artırıldı; istasyon bazında en iyi değer aranmadı.</li>
+        <li>Eşit hizmet kuralında hizmet düzeyi, zaman bazlı duruş ≤ %1 ile temsil edildi (Alnahhal'ın adet bazlı %99 doluluk oranı yerine).</li>
+        <li>Talep şoku koşu boyunca sabit bir düzey kayması; ani bir adım değil.</li>
+        <li>Tek fabrika düzeni, 24 istasyon; hatlar arası mesafe bir mühendislik varsayımı (K100).</li>
+        <li>OR-Tools referansı kanıtlanmış bir alt sınır değil (K101).</li>
+      </ul>
+    </div>
+    <div class="madde o">
+      <div class="ust"><h3>Bu inceleme sırasında bulunup düzeltilenler</h3><span class="pill o">Düzeltildi</span></div>
+      <ul>
+        <li><strong>Yeni sekmelerde talep seçenekleri yanlıştı:</strong> −20, −10, 0, +20, +50 yazıyordu; veride +10 var, +50 yok. "+%50" seçilince tablo boş kalıyordu. Artık −20, −10, 0, +10, +20.</li>
+        <li><strong>İstasyon ekranında kart formülü yanlıştı:</strong> "Politika-tutarlı (VDI)" seçiliyken eski V1 formülü hesaplanıyordu. Artık motorla aynı formül kullanılıyor.</li>
+        <li><strong><code>hafta10_metodoloji_ve_bulgu_rehberi.md</code></strong> başlığında "tez yazımı için hazır kaynak" yazıyordu, ama v1 sonuçlarını uyarısız taşıyordu. Başına "tarihsel belge, sayı alıntılamayın" uyarısı eklendi.</li>
+        <li><strong>Dashboard yeniden üretildi</strong> ve iki gömülü kod bloğu da sözdizimi kontrolünden geçti.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="sorular" aria-labelledby="h-soru">
+  <span class="kas">3 · Makale için kritik sorular</span>
+  <h2 id="h-soru">Hakem ve danışman ne soracak, cevabımız ne?</h2>
+  <p>Her sorunun altında kısa cevap ve dayanağı var. Sorulara tıklayarak açabilirsin; hepsi varsayılan olarak açık.</p>
+
+  <details class="soru" open><summary><span class="no">S1</span>Araştırma sorusu tam olarak ne?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Fabrika içi milk-run'da periyodik (sabit takt) ve olay tabanlı (e-Kanban, yeniden sipariş noktası) besleme politikaları karşılaştırılırken, hat yanı tamponun nasıl eşitlendiği karşılaştırmanın sonucunu ne ölçüde belirler?</div>
+      <p>Alt sorular: (a) Tampon her politikanın kendi çevrim süresinden türetilmezse sonuç ne kadar kayar? (b) Bu kayma Toyota bandında, uzun ufukta ve gerçekçi ağda sürer mi? (c) Hangi eşitleme kuralı hangi kazananı verir?</p>
+      <p class="dosya">literatur_boslugu_analizi.md §1, §4.1.4 · karar_gunlugu.md K93, K97</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S2</span>Literatürde hangi boşluğu kapatıyoruz?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Yazın iki koldan ilerlemiş. Tamponun politikaya bağlı olduğunu gösteren çalışmalar (Urru 2018, Droste &amp; Deuse 2011, Bocewicz 2019, Kundu 2019) politikaları karşılaştırmıyor. Politikaları karşılaştıranlar (Vojdani &amp; Drechsler 2022, Chee 2012, Alnahhal &amp; Noche 2015) tamponu politikanın çevrim süresinden türetmiyor. Kundu vd. (2019) s.423 iki politika ailesinin karşılaştırılmasını açıkça "gelecek çalışma" olarak bırakıyor.</div>
+      <p><strong>Dikkat:</strong> Aynı sayfada "politika karşılaştırması iyi çalışılmış" da deniyor. Bu yüzden iddia "kimse karşılaştırmamış" olmamalı; "tampon politikadan türetilmemiş ve bu seçimin sonuca etkisi ölçülmemiş" olmalı.</p>
+      <p class="dosya">literatur_boslugu_analizi.md §4.1.1–4.1.5</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S3</span>Katkımız tam olarak ne? Yeni bir şey icat ettik mi?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Yeni algoritma veya sistem mimarisi yok. Katkı yöntemsel: politika karşılaştırmalarında kullanılan dört eşitleme kuralını (eşit kart, politika-tutarlı formül, eşit hizmet düzeyi, eşit WIP) aynı sistemde yan yana koyup kazananın kurala göre değiştiğini gösteriyoruz. Buradan bir ilke çıkıyor: karşılaştırma çalışmaları eşitleme kuralını açıkça belirtmeli ve sonucu duruş–WIP düzleminde (Pareto) vermeli.</div>
+      <ul>
+        <li><strong>Ana katkı:</strong> dört adalet kuralı (K97).</li>
+        <li><strong>Destekleyen:</strong> bağımsız bir çalışmanın (Vojdani 2022) karşılaştırma tasarımının sonucu nasıl etkilediği (K93).</li>
+        <li><strong>İkincil:</strong> modelleme kararlarının etkisinin adım adım ayrıştırılması.</li>
+        <li><strong>İkincil:</strong> stok ve tüketim hızından türetilen zaman penceresi (ihtiyatlı yazılmalı: "taranan yazında rastlanmamıştır").</li>
+      </ul>
+      <p>Yapılmaması gereken iddialar: "e-Kanban ile VRPTW'yi ilk kez birleştirdik" ve "entegre karar destek sistemi geliştirdik". İkisini de dokuz çalışma çürütüyor.</p>
+      <p class="dosya">karar_gunlugu.md K97 · literatur_boslugu_analizi.md §2, §10</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S4</span>Ana sayısal bulgular neler?</summary>
+    <div class="govde">
+      <div class="tablo"><table>
+        <thead><tr><th>Bulgu</th><th>Sayı</th><th>Karar</th></tr></thead>
+        <tbody>
+          <tr><td>Ortak iki kutulu tampon (Vojdani tasarımı), talep şoku</td><td>dijital 9,03 puan önde</td><td>K93</td></tr>
+          <tr><td>Aynı koşul, politika-tutarlı tampon</td><td>fark kapanır (+0,04)</td><td>K93</td></tr>
+          <tr><td>Dört kural, Toyota kutuları, şok</td><td>A, D → dijital · B → geleneksel (+12,07) · C → eşit</td><td>K97</td></tr>
+          <tr><td>Eşit WIP'te (kural D), mevcut kutular</td><td>dijital 10,9 puan önde (şokta 15,2)</td><td>K97</td></tr>
+          <tr><td>Politika-tutarlı tamponda yeterli filo</td><td>duruş farkı &lt; 1 puan; dijital %37–41 daha az WIP</td><td>K96, K99</td></tr>
+          <tr><td>Kaymanın pozitif olduğu koşullar</td><td>30/30 · 16/16 · 6/6</td><td>K95, K99, K100</td></tr>
+          <tr><td>Uyarlanan ROP, Toyota kutuları, şok</td><td>17,6 → 13,5 ama eğri boyunca (kart eklemekle aynı)</td><td>K98</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S5</span>Neden simülasyon, neden analitik model değil?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Schmidt vd. (2016) s.1: milk-run tasarımı "sıradan bir optimizasyon problemi olarak bir çözücüye verilemez". Faccio vd. (2013b): "yalnızca analitik yaklaşım güvenilir sonuç vermeyebilir". Ayrıca karşılaştırdığımız şey stokastik talep altında kapalı döngü davranış; analitik formül bunu yakalamıyor.</div>
+      <p class="dosya">literatur_boslugu_analizi.md §3 · karar_gunlugu.md K88</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S6</span>Model doğru mu? Nasıl doğruladınız?</summary>
+    <div class="govde">
+      <ul>
+        <li><strong>Isınma:</strong> Welch grafik yöntemi, 90 dakika (K78). Katı ölçütle 246 dakika; bu da K99'da 1440 dakikalık koşularla sınandı.</li>
+        <li><strong>Replikasyon:</strong> 9 replikasyonda güven aralığı ≤ 0,05 puan.</li>
+        <li><strong>Tur içi rotalama:</strong> tam numaralamaya göre ortalama %0,62 sapma (400 örnek).</li>
+        <li><strong>Rotalama genel:</strong> Solomon kıyaslamasında OR-Tools'tan %101,8 geride. Ancak fabrika senaryosunda (K101) sezgisel gecikmeyi öne alıyor; tam bilgili referans %60–70 daha kısa yol buluyor, ama daha fazla gecikmeyle (normal talepte 1,3–2,8 kat, şokta 94–121 geciken teslim).</li>
+        <li><strong>Ayrıştırma:</strong> v1'den v2'ye her düzeltmenin etkisi tek tek ölçüldü.</li>
+      </ul>
+      <p class="dosya">hafta14_literatur_denetimi_ve_revizyon_raporu.md · karar_gunlugu.md K78, K99, K101 · Dashboard → Doğrulama</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S7</span>Sonuçlar sağlam mı, yoksa parametrelere mi bağlı?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Sağlam. Kayma (politika-tutarlı ile ortak tampon arasındaki fark) her testte pozitif: Toyota parametre bandında 30/30 (K95), iki ufuk ve iki gösterge türünde 16/16 (K99), koordinat tabanlı ağda 6/6 (K100). Toyota bandında etki küçülmüyor, büyüyor.</div>
+      <p><strong>Açık söylenmesi gereken ince ayar:</strong> Mevcut kutu boyunda sıralama her zaman tersine dönmüyor, fark %90–95 küçülüyor. Toyota kutularında ise sıralama her koşulda değişiyor.</p>
+      <p class="dosya">karar_gunlugu.md K95, K99, K100 · Şekil 6</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S8</span>"Sentetik veri kullanmışsınız" itirazına cevap?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Kabul ediyoruz ve sınırlılık olarak yazıyoruz. Ancak katkı yöntemsel: eşitleme kuralının sonucu değiştirdiği gerçeği verinin gerçek olup olmamasından bağımsız gösterilebilir. Parametreler literatür bandında: Kanban formülü Toyota (Sugimori 1977), durak aralığı Urru (2018), karşılaştırma tasarımı Vojdani (2022), hizmet hedefi Alnahhal &amp; Noche (2015). Toyota bandı dışındaki parametrelerin sonucu değiştirmediği de gösterildi (K95).</div>
+      <p>En güçlü cevap yine de gerçek veri olur (E9).</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S9</span>"Bu zaten Alnahhal vd. (2016)'da var" itirazına cevap?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Yön olarak tutarlıyız: orada da üstünlük koşullara bağlı. Farklar: (a) onlarda rota sabit, bizde olay tabanlı; (b) onlar üstünlüğü bilgi akışı hızına bağlıyor, biz eşitleme kuralına; (c) biz dört kuralı yan yana ölçüyoruz.</div>
+      <p><strong>Risk:</strong> Bu makaleyi tam metin olarak okumadık (E2). Tamponu nasıl eşitledikleri bilinmeden bu cevap eksik kalır.</p>
+      <p class="dosya">literatur_boslugu_analizi.md §5 (Tartışma), §6</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S10</span>Hangi dergi, hangi başlık?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Dergi:</strong> TR Dizin hedefi için Endüstri Mühendisliği Dergisi (TMMOB) veya Journal of Turkish Operations Management. Yöntemsel katkı olduğu için Yöntem bölümü ağırlıklı yazılmalı.</div>
+      <p><strong>Başlık önerisi (K97 sonrası):</strong> "Fabrika İçi Milk-Run Besleme Politikalarının Karşılaştırılmasında Eşitleme Kurallarının Etkisi: Bir Simülasyon Çalışması". Eski öneri A da kullanılabilir ama ana katkıyı (dört kural) dışarıda bırakıyor.</p>
+      <p><strong>Gerçekçi değerlendirme:</strong> TR Dizin için sınırda, asıl engel gerçek veri yokluğu. SCI-E için yeterli değil (katkı artımsal).</p>
+      <p class="dosya">literatur_boslugu_analizi.md §8, §9, §10.3</p>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S11</span>Sınırlılıklar neler?</summary>
+    <div class="govde">
+      <ul>
+        <li>Sentetik veri, tek fabrika düzeni (S1, S5).</li>
+        <li>Rotalama sezgiseli genel kıyaslamada zayıf; fabrika senaryosunda gecikmeyi önceliklendiriyor (S8, K101).</li>
+        <li>Göstergeler ısınma dönemini içeriyor; göreli sonuçlar etkilenmiyor (K99).</li>
+        <li>K97'de istasyon bazında optimum aranmadı; eşit hizmet kuralı zaman bazlı.</li>
+        <li>Uyarlanan ROP yalnızca dijital sisteme verildi (K98).</li>
+        <li>Talep şoku sabit düzey kayması.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="soru" open><summary><span class="no">S12</span>Sevk kuralları arasında fark yoksa bu bir eksiklik mi?</summary>
+    <div class="govde">
+      <div class="cevap"><strong>Cevap:</strong> Hayır, bilgilendirici bir olumsuz bulgu. ANOVA ve Tukey HSD ile dört sevk kuralı arasında fark yok (p = 0,9997 ve 0,3415). Bu, sevk kuralı seçiminin boyutlandırma kararları yanında önemsiz kaldığını gösteriyor ve v1'deki "KRİTİKLİK kötüdür" bulgumuzu düzeltiyor.</div>
+      <p class="dosya">karar_gunlugu.md K82</p>
+    </div>
+  </details>
+</section>
+
+<!-- 4 -->
+<section id="belgeler" aria-labelledby="h-belge">
+  <span class="kas">4 · Belgeler</span>
+  <h2 id="h-belge">Hangi belge ne, hangi sırayla okunmalı?</h2>
+  <p>Tüm belgeler <code>docs/</code> klasöründe. Sıra numarası önerilen okuma sırası. <strong>Tarihsel</strong> etiketli belgeler v1 motoruna ait; süreci anlamak için okunur ama oradan sayı alıntılanmaz.</p>
+  <div class="tablo"><table>
+    <thead><tr><th>Sıra</th><th>Belge</th><th>Ne anlatıyor</th><th>Durum</th></tr></thead>
+    <tbody>
+      <tr class="faz"><td colspan="4">A · Başlangıç: şu anki durum</td></tr>
+      <tr><td class="sira">01</td><td class="ad">DEVAM_NOTU.md</td><td>Son durum, biten işler, açık kararlar, hızlı komutlar</td><td><span class="pill o">Güncel</span></td></tr>
+      <tr><td class="sira">02</td><td class="ad">../README.md</td><td>Projeye giriş, sistem tablosu, kurulum ve çalıştırma</td><td><span class="pill w">K82'de kalmış</span></td></tr>
+
+      <tr class="faz"><td colspan="4">B · Konumlandırma: makalenin omurgası</td></tr>
+      <tr><td class="sira">03</td><td class="ad">literatur_boslugu_analizi.md</td><td>Kapatılan boşluk, kurulamayacak iddialar, katkılar, hazır makale cümleleri, hakem itirazları ve cevapları, başlık önerisi</td><td><span class="pill o">Güncel</span> <span class="muted">§5 katkı maddeleri eski</span></td></tr>
+      <tr><td class="sira">04</td><td class="ad">akademik_degerlendirme_ve_yol_haritasi.md</td><td>Akademik değer değerlendirmesi, H1–H6 güçlendirme planı, dashboard planı (D1–D9)</td><td><span class="pill o">Planın tamamı uygulandı</span></td></tr>
+      <tr><td class="sira">05</td><td class="ad">hafta14_literatur_denetimi_ve_revizyon_raporu.md</td><td>v1'den v2'ye model revizyonu, düzeltilen hatalar ve ayrıştırma, doğrulama, faktöriyel deney</td><td><span class="pill o">Güncel</span> <span class="muted">§6.2'de errata notu var</span></td></tr>
+
+      <tr class="faz"><td colspan="4">C · Karar kaydı ve tez yazımı</td></tr>
+      <tr><td class="sira">06</td><td class="ad">karar_gunlugu.md</td><td>K01–K102: her parametrenin ve her kararın kaynağı ve gerekçesi. K93–K102 bu son haftaların bulguları</td><td><span class="pill o">Güncel</span></td></tr>
+      <tr><td class="sira">07</td><td class="ad">tez_bilgi_rehberi.md</td><td>Tez yazımı için toplu bilgi: amaç, yöntem, bulgular, katkılar</td><td><span class="pill w">K98–K101 eksik</span></td></tr>
+
+      <tr class="faz"><td colspan="4">D · Literatür ve kaynaklar</td></tr>
+      <tr><td class="sira">08</td><td class="ad">hafta1_referans_listesi.md</td><td>IEEE biçiminde kaynakça [1]–[38], edinilecek kaynaklar</td><td><span class="pill w">"Doğrulanmalı" alanlar var</span></td></tr>
+      <tr><td class="sira">09</td><td class="ad">master_makale_katalogu.md</td><td>Arşivdeki tüm makalelerin künye, yöntem ve parametre özetleri</td><td><span class="pill a">Başvuru</span></td></tr>
+      <tr><td class="sira">10</td><td class="ad">makale_katalogu_grup1…4.md</td><td>Master kataloğun gruplara bölünmüş ilk hâlleri</td><td><span class="pill a">Başvuru</span></td></tr>
+      <tr><td class="sira">11</td><td class="ad">hafta1_literatur_ozeti.md</td><td>İlk literatür taraması özeti</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">12</td><td class="ad">hafta1_makale_parametreleri.md, …_ek.md</td><td>Makalelerden çıkarılan sayısal parametreler</td><td><span class="pill a">Başvuru</span></td></tr>
+      <tr><td class="sira">13</td><td class="ad">yeni_makale_capraz_analiz.md, yeni_makale_somut_veriler.md</td><td>Sonradan eklenen makalelerin K01–K36 kararlarıyla karşılaştırılması</td><td><span class="pill h">Tarihsel</span></td></tr>
+
+      <tr class="faz"><td colspan="4">E · Parametreler</td></tr>
+      <tr><td class="sira">14</td><td class="ad">referans_veri.md</td><td>Onaylı parametre listesi</td><td><span class="pill a">Başvuru</span></td></tr>
+      <tr><td class="sira">15</td><td class="ad">proje_parametreleri.md</td><td>Parametre şablonu</td><td><span class="pill h">Tarihsel</span></td></tr>
+
+      <tr class="faz"><td colspan="4">F · Haftalık süreç raporları (v1 motoru)</td></tr>
+      <tr><td class="sira">16</td><td class="ad">hafta1_ozet.md … hafta3_ozet.md</td><td>İlk üç haftanın kısa özetleri</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">17</td><td class="ad">hafta2_veri_analiz_raporu.md</td><td>Tüketim ve stok verisi analizi</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">18</td><td class="ad">hafta3_kanban_analiz.md</td><td>Kanban hesabı ve duyarlılık</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">19</td><td class="ad">hafta4_ekanban_analiz.md</td><td>E-Kanban sinyal simülasyonu</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">20</td><td class="ad">hafta5_vrptw_analiz.md</td><td>VRPTW rotalama ve duruş</td><td><span class="pill h">Tarihsel · uyarılı</span></td></tr>
+      <tr><td class="sira">21</td><td class="ad">hafta6_filo_analiz_raporu.md</td><td>Filo duyarlılığı</td><td><span class="pill h">Tarihsel · uyarılı</span></td></tr>
+      <tr><td class="sira">22</td><td class="ad">hafta7_dispatch_analiz_raporu.md</td><td>Sevk kuralları karşılaştırması</td><td><span class="pill h">Tarihsel · uyarılı</span></td></tr>
+      <tr><td class="sira">23</td><td class="ad">hafta8_kanban_karsilastirma_raporu.md</td><td>Sabit ve dinamik Kanban, değişken tedarik süresi</td><td><span class="pill h">Tarihsel · güncellenmiş özet</span></td></tr>
+      <tr><td class="sira">24</td><td class="ad">hafta9_sentez_ve_pareto_raporu.md</td><td>İlk sentez ve Pareto analizi</td><td><span class="pill h">Tarihsel · uyarılı</span></td></tr>
+      <tr><td class="sira">25</td><td class="ad">hafta10_denetim_ve_errata_notlari.md</td><td>Hafta 10 denetimi ve düzeltmeler</td><td><span class="pill h">Tarihsel</span></td></tr>
+      <tr><td class="sira">26</td><td class="ad">hafta10_metodoloji_ve_bulgu_rehberi.md</td><td>v1 dönemi tez rehberi</td><td><span class="pill h">Tarihsel · uyarı eklendi</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">Ayrıca: denetim raporu ve düzeltme önerileri, <a href="https://claude.ai/artifact/MC78BkVvUUvG6bn8hbcTKj" style="color:var(--accent)">Milk-Run Tez Denetimi</a>.</p>
+</section>
+
+<!-- 5 -->
+<section id="yazim" aria-labelledby="h-yazim">
+  <span class="kas">5 · Yazım haritası</span>
+  <h2 id="h-yazim">Makalenin her bölümü hangi belgeden yazılır?</h2>
+  <div class="tablo"><table>
+    <thead><tr><th>Bölüm</th><th>Kaynak belgeler</th><th>Kullanılacak şekil/tablo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Giriş</strong></td><td>literatur_boslugu_analizi.md §1, §4.1.1–4.1.5, §5 (giriş paragrafı); Kundu 2019 s.423 alıntısı</td><td>Literatür karşılaştırma matrisi (denetim raporundaki tablo)</td></tr>
+      <tr><td><strong>Katkılar</strong></td><td>literatur_boslugu_analizi.md §5 katkı maddeleri; K97 ile yeniden yazılmalı (E5)</td><td>—</td></tr>
+      <tr><td><strong>Yöntem: sistem</strong></td><td>README sistem tablosu; karar_gunlugu K01–K17, K65–K72; hafta14 raporu §2–3</td><td>Fabrika ve politika tablosu</td></tr>
+      <tr><td><strong>Yöntem: politikalar ve boyutlandırma</strong></td><td>karar_gunlugu K65, K73, K88 (Toyota formülü), K93</td><td>Kanban formülleri</td></tr>
+      <tr><td><strong>Yöntem: adalet kuralları</strong></td><td>karar_gunlugu K97; src/v2_adalet_kurallari.py başındaki açıklama</td><td>Kural tanım tablosu</td></tr>
+      <tr><td><strong>Yöntem: doğrulama</strong></td><td>hafta14 §5; K78 (ısınma), K99, K101; Solomon ve tur içi sonuçları</td><td>Şekil 4</td></tr>
+      <tr><td><strong>Bulgular 1: tasarım etkisi</strong></td><td>K93</td><td>Şekil 5</td></tr>
+      <tr><td><strong>Bulgular 2: dört kural (ana)</strong></td><td>K97</td><td>Şekil 7 (Toyota sürümü ana figür), kural/kazanan tablosu</td></tr>
+      <tr><td><strong>Bulgular 3: sağlamlık</strong></td><td>K95, K99, K100</td><td>Şekil 6, sağlamlık özet tablosu</td></tr>
+      <tr><td><strong>Bulgular 4: Pareto ve politikalar</strong></td><td>K96; hafta14 §6</td><td>Şekil 1, Şekil 2</td></tr>
+      <tr><td><strong>Tartışma</strong></td><td>literatur_boslugu_analizi.md §5 (Alnahhal ile ilişkilendirme), §6 hakem cevapları; K98 (uyarlanan ROP), K100 (Vojdani ile tutarlılık)</td><td>Şekil 8</td></tr>
+      <tr><td><strong>Sınırlılıklar</strong></td><td>Bu rehberin S11'i; hafta14 sınırlılık tablosu (S1–S10)</td><td>—</td></tr>
+      <tr><td><strong>Sonuç</strong></td><td>literatur_boslugu_analizi.md §5 "Sonuç — ana cümle" (K97 ile güncellenmeli)</td><td>—</td></tr>
+      <tr><td><strong>Ek</strong></td><td>Ayrıştırma (hafta14 §4.1)</td><td>Şekil 3</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 6 -->
+<section id="sekiller" aria-labelledby="h-sekil">
+  <span class="kas">6 · Şekiller ve betikler</span>
+  <h2 id="h-sekil">Şekiller</h2>
+  <p>Hepsi <code>docs/figurler/</code> içinde, 200 dpi PNG. Numaralar şimdilik üretim sırası; makalede yeniden numaralandırılmalı.</p>
+  <div class="tablo"><table>
+    <thead><tr><th>Dosya</th><th>Ne gösteriyor</th><th>Karar</th><th>Makaledeki yeri</th></tr></thead>
+    <tbody>
+      <tr><td class="ad">sekil1_pareto_wip_durus.png</td><td>Tüm politikaların WIP × duruş Pareto cephesi</td><td>hafta14</td><td>Bulgular 4</td></tr>
+      <tr><td class="ad">sekil2_filo_sinir_egrisi.png</td><td>Filo büyüklüğüne göre duruş eğrisi</td><td>hafta14</td><td>Bulgular 4</td></tr>
+      <tr><td class="ad">sekil3_duzeltme_ayristirma.png</td><td>v1 → v2 düzeltmelerinin adım adım etkisi</td><td>K66–K72</td><td>Ek</td></tr>
+      <tr><td class="ad">sekil4_welch_isinma.png</td><td>Welch ısınma eğrisi</td><td>K78</td><td>Yöntem: doğrulama</td></tr>
+      <tr><td class="ad">sekil5_boyutlandirma_duyarliligi.png</td><td>Ortak tampon ile politika-tutarlı tampon; şokta sıralama değişimi</td><td>K93</td><td>Bulgular 1</td></tr>
+      <tr><td class="ad">sekil6_toyota_bandi_sagligi.png</td><td>Kaymanın α ve kutu boyuna göre değişimi</td><td>K95</td><td>Bulgular 3</td></tr>
+      <tr><td class="ad">sekil7_adalet_kurallari_toyota.png</td><td>Dört kural, Toyota kutuları: kazanan kurala göre değişir</td><td>K97</td><td><strong>Ana figür</strong></td></tr>
+      <tr><td class="ad">sekil7_adalet_kurallari.png</td><td>Dört kural, mevcut kutular</td><td>K97</td><td>Bulgular 2 veya ek</td></tr>
+      <tr><td class="ad">sekil8_uyarlanan_rop.png</td><td>Uyarlanan ROP: iyileşme stok mu bilgi mi</td><td>K98</td><td>Tartışma</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Analiz betikleri</h2>
+  <p>Hepsi <code>src/</code> içinde ve <code>python -X utf8 -m src.&lt;ad&gt;</code> ile çalışır. Tamamı: <code>python -X utf8 -m src.tum_analizleri_calistir</code>. <code>hafta*</code> ile başlayan eski betikler v1 dönemine ait; makale için kullanılmaz.</p>
+  <div class="tablo"><table>
+    <thead><tr><th>Betik</th><th>Ne yapıyor</th><th>Karar</th><th>Çıktı</th></tr></thead>
+    <tbody>
+      <tr><td class="ad">v2_entegre_simulasyon</td><td>Simülasyon motoru: üç politika, Kanban boyutlandırma, sinyal, rotalama</td><td>K65–K77</td><td>—</td></tr>
+      <tr><td class="ad">v2_dogrulama_ve_kalibrasyon</td><td>Tur içi optimallik, Welch ısınma, replikasyon, ayrıştırma</td><td>K78</td><td>v2_d1…d45_*.csv, Şekil 3–4</td></tr>
+      <tr><td class="ad">v2_pareto_ve_figurler</td><td>Politika ızgarası ve Pareto</td><td>—</td><td>v2_politika_izgara.csv, Şekil 1–2</td></tr>
+      <tr><td class="ad">v2_deney_tasarimi</td><td>2⁵ faktöriyel deney, ANOVA, Tukey</td><td>K82</td><td>v2_e1_*, v2_e2_*.csv</td></tr>
+      <tr><td class="ad">v2_vaka_ve_kpi</td><td>Vaka çalışması, KPI uyumu</td><td>K83</td><td>v2_vaka_calismasi.csv</td></tr>
+      <tr><td class="ad">v2_boyutlandirma_duyarliligi</td><td>Vojdani tasarımı ile politika-tutarlı tampon</td><td>K93</td><td>Şekil 5</td></tr>
+      <tr><td class="ad">v2_toyota_bandi_duyarliligi</td><td>Toyota α ve kutu bandında sağlamlık</td><td>K95</td><td>Şekil 6</td></tr>
+      <tr><td class="ad">v2_adalet_kurallari</td><td>Dört adalet kuralı (<code>--kutu toyota</code> ile Toyota kutuları)</td><td>K97</td><td>Şekil 7</td></tr>
+      <tr><td class="ad">v2_uyarlanan_rop</td><td>Uyarlanan ROP ve eğri kazancı</td><td>K98</td><td>Şekil 8</td></tr>
+      <tr><td class="ad">v2_cok_vardiya</td><td>480/1440 dakika ve ısınma dahil/hariç</td><td>K99</td><td>v2_cok_vardiya_*.csv</td></tr>
+      <tr><td class="ad">v2_koordinat_agi</td><td>Koordinat tabanlı mesafe ağı</td><td>K100</td><td>v2_koordinat_agi_*.csv</td></tr>
+      <tr><td class="ad">v2_ortools_referansi</td><td>Çevrimdışı tam bilgi rotalama referansı</td><td>K101</td><td>v2_ortools_referansi_*.csv</td></tr>
+      <tr><td class="ad">solomon_dogrulama</td><td>Solomon kıyaslaması (OR-Tools gerekir)</td><td>K76</td><td>solomon_dogrulama_sonuclari.csv</td></tr>
+      <tr><td class="ad">generate_dashboard_data_v2</td><td>Dashboard veri ambarı (yaklaşık 8 dk)</td><td>K94, K102</td><td>data/dashboard_scenarios_v2.json</td></tr>
+      <tr><td class="ad">../make_standalone.py</td><td>Tek dosya dashboard.html üretir</td><td>K94</td><td>dashboard.html</td></tr>
+      <tr><td class="ad">kaynak_arsivi_denetimi</td><td>Kaynak arşivini denetler, eksik kaynakları listeler</td><td>K87</td><td>konsol çıktısı</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 7 -->
+<section id="ekranlar" aria-labelledby="h-ekran">
+  <span class="kas">7 · Dashboard</span>
+  <h2 id="h-ekran">Karar destek arayüzü: ekran ekran</h2>
+  <p>Açmak için <code>dashboard.html</code> dosyasına çift tıkla; sunucu gerekmez. Ekranlar soldaki dar menüden seçilir. Bütün sayılar v2 motorunun ürettiği veri ambarından gelir: 1920 dinamik senaryo ve 640 statik referans, her biri 3 replikasyon ortalaması ± %95 güven aralığı. Sağ üstteki "Veri Notu" ve alt bilgideki damga, motoru ve üretim tarihini gösterir.</p>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">📊</span><h3>Özet</h3><span class="pill a">Açılış ekranı</span></div>
+    <div class="ekran-govde">
+      <p>Baz senaryonun (4 araç, α = 0,15, EDD sevk, baz talep, politika-tutarlı boyutlandırma) tek bakışta özeti.</p>
+      <dl>
+        <dt>Dört gösterge kartı</dt><dd>Hat duruş oranı (± güven aralığı), ortalama hat yanı stok (WIP), dinamik ile statik referans arasındaki duruş farkı (statik referans: P2, 60 dk takt), araç doluluk oranı. Renkli nokta durumu gösterir.</dd>
+        <dt>Filo duyarlılık eğrisi</dt><dd>1–8 araç için dinamik sistemin duruşu, statik referans çizgisi ve %5 hedef çizgisi. Bir noktaya tıklamak o filo büyüklüğüyle What-If ekranını açar.</dd>
+        <dt>Otomatik yorum</dt><dd>Veriden üretilen cümle: duruş, statik referansla fark, %5 hedefine inen en küçük filo.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">🎛️</span><h3>What-If simülatörü</h3><span class="pill a">Senaryo keşfi</span></div>
+    <div class="ekran-govde">
+      <p>Parametreleri değiştirip önceden hesaplanmış 1920 senaryo arasında anında gezinme. Simülasyon yeniden koşulmaz; seçilen kombinasyonun sonucu ambardan okunur.</p>
+      <dl>
+        <dt>Kontroller</dt><dd>Filo (1–8 araç), güvenlik katsayısı α (0,05–0,30), talep şoku (−%20 … +%20), Kanban boyutlandırma (politika-tutarlı VDI veya eski V1), sevk kuralı (EDD, SLACK, FIFO, KRİTİKLİK).</dd>
+        <dt>Mini göstergeler</dt><dd>Duruş (± güven aralığı), WIP, statik referansla fark, doluluk.</dd>
+        <dt>Pareto grafiği</dt><dd>Tüm senaryolar gri nokta, seçili senaryo vurgulu.</dd>
+        <dt>α duyarlılığı</dt><dd>Seçili koşulda α'ya göre VDI ve V1 boyutlandırmanın duruşu.</dd>
+      </dl>
+      <p class="uyari">Sevk kuralları arasında istatistiksel fark yok (K82); bu kontrol farklı sonuç göstermeyebilir. α'nın etkisi de anlamlı değil.</p>
+    </div>
+  </div>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">🏭</span><h3>İstasyon görünümü</h3><span class="pill w">Temsili</span></div>
+    <div class="ekran-govde">
+      <p>24 istasyonun her biri için kart sayısı, yeniden sipariş noktası (ROP) ve stok çubuğu. What-If ayarlarına göre güncellenir.</p>
+      <dl>
+        <dt>Filtreler</dt><dd>Tümü, yalnızca kritik ve uyarı durumundakiler, S16 (en yüksek tüketimli, kırılgan istasyon).</dd>
+        <dt>Kart ve ROP</dt><dd>Motorla aynı formülle hesaplanır: ROP = D × LT × (1 + α); VDI'da N = 1 + ⌈ROP/C⌉, V1'de N = ⌈ROP/C⌉.</dd>
+      </dl>
+      <p class="uyari">Stok çubuklarının doluluğu simülasyondan gelmez; seçili parametrelere göre basit bir kuralla temsili olarak çizilir. Sunumda "anlık stok" diye gösterilmemeli.</p>
+    </div>
+  </div>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">⚖️</span><h3>Politikalar ve ana katkı</h3><span class="pill o">Makalenin argümanı</span></div>
+    <div class="ekran-govde">
+      <p>Makalenin ana argümanını gösteren dört panel.</p>
+      <dl>
+        <dt>Politika karşılaştırması</dt><dd>Seçilen filo, talep ve boyutlandırma için P1 (sabit takt, sabit miktar), P2 (sabit takt, Kanban miktarı) ve P3 (olay tabanlı e-Kanban). Her politika kendi kart sayısıyla; duruş ± güven aralığı, WIP, kart, sefer, mesafe, doluluk. En iyiye 0,5 puan içinde olanlar yeşil.</dd>
+        <dt>Dört adalet kuralı</dt><dd>Kutu boyu (Toyota veya mevcut) ve talep seçilir. Grafikte iki sistemin kart sayısı taramasıyla elde edilen duruş–WIP eğrileri ve dört kuralın düştüğü noktalar (aynı noktaya düşenler "B=D" gibi tek etiketle). Tabloda her kuralın ölçütü, kazananı, duruş ve WIP farkı, Pareto yorumu.</dd>
+        <dt>Pareto cephesi</dt><dd>Seçilen talep düzeyinde tüm senaryolar; P3 (VDI, V1), P1 ve P2 açılıp kapatılabilir. Siyah basamak çizgisi görünür noktaların cephesi. Bir noktaya tıklamak ayarlarını ve sonuçlarını alttaki satıra yazar.</dd>
+        <dt>Ayrıştırma</dt><dd>v1'den v2'ye her modelleme düzeltmesinin duruşa etkisi. Adımlar açılıp kapatılabilir; seçili adımların toplam etkisi yazılır.</dd>
+      </dl>
+      <p class="uyari">Ayrıştırma adımları sırayla ölçüldüğü için seçili adımların toplamı yaklaşık bir göstergedir.</p>
+    </div>
+  </div>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">🔬</span><h3>Doğrulama ve karşılaştırıcı</h3><span class="pill o">Savunma için</span></div>
+    <div class="ekran-govde">
+      <p>"Modeliniz doğru mu, sonuçlarınız sağlam mı?" sorularının hazır cevabı.</p>
+      <dl>
+        <dt>Sağlamlık testleri</dt><dd>K95, K99, K100 ve K101: kaç koşulda denendi, kaymanın kaçında pozitif çıktığı, aralığı ve sıralamanın kaçında değiştiği.</dd>
+        <dt>Isınma (Welch)</dt><dd>Üç başlangıç ayarında WIP hareketli ortalaması; 90 dakikalık ısınma çizgisi ve katı ölçütle kararlı duruma giriş noktaları.</dd>
+        <dt>Replikasyon</dt><dd>60 replikasyonda kümülatif ortalama ve güven aralığı genişliğinin 0,05 puan eşiğine inişi.</dd>
+        <dt>Senaryo karşılaştırıcı</dt><dd>İki P3 konfigürasyonu yan yana seçilir; yedi göstergede A, B ve fark. Duruş farkı güven aralığı içindeyse "anlamlı değil" yazar.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="ekran">
+    <div class="ekran-bas"><span class="ikon" aria-hidden="true">📥</span><h3>Veri girişi</h3><span class="pill a">Gerçek veriye hazırlık</span></div>
+    <div class="ekran-govde">
+      <p>Gerçek fabrika verisinin girilmesi ve simülasyona aktarılacak dosyaların hazırlanması için.</p>
+      <dl>
+        <dt>24 istasyon tablosu</dt><dd>Her istasyonun saatlik tüketim ortalaması ve standart sapması, kutu kapasitesi ve diğer parametreleri düzenlenir. "Sentetik Yükle" mevcut veriyi getirir, "Kaydet" tarayıcıya kaydeder, "Sıfırla" temizler.</dd>
+        <dt>Hesapla ve Önizle</dt><dd>Girilen değerlerle İstasyon görünümünü açar; kart sayısı ve ROP yeni verilerle hesaplanır.</dd>
+        <dt>Tüketim örneklemi</dt><dd>Bir istasyon için dakika ve adet gözlemleri girilir; ortalama ve standart sapma hesaplanıp tabloya aktarılır.</dd>
+        <dt>CSV dışa aktarma</dt><dd><code>stations.csv</code> ve <code>consumption.csv</code> simülasyonun beklediği biçimde indirilir; <code>data/real/</code> klasörüne konup <code>config.json</code> içinde <code>"real"</code> seçilince analizler gerçek veriyle koşar.</dd>
+      </dl>
+      <p class="uyari">Tarayıcıya kaydetme yalnızca o bilgisayar ve tarayıcıda kalır. Simülasyon sonuçlarını değiştirmek için CSV'leri indirip analizleri yeniden koşmak gerekir.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Kaynaklar: <code>docs/</code> klasöründeki belgeler, <code>karar_gunlugu.md</code> K01–K102, <code>data/dashboard_scenarios_v2.json</code>, <code>index.html</code> ve <code>app.js</code>. Tüm sayısal sonuçlar sentetik veriyle elde edilmiştir.</footer>
+</main>
+</div>
+</body>
+</html>

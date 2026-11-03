@@ -638,6 +638,408 @@
 
 ---
 
+## HAFTA 14 KARARLARI — LİTERATÜR DENETİMİ VE v2 MOTORU (30.09.2026)
+
+> **Bağlam:** Masaüstündeki `dinamik milk run` klasöründeki 45 PDF (41 özgün çalışma)
+> tek tek incelenerek projenin 27 parametre ve kararı kaynaklarıyla karşılaştırıldı.
+> Sonuç: 7 doğrulandı, 8 atıf hatalı, 6 literatürden sapan model kararı, 5 kaynaksız
+> mühendislik kararı, 1 aktarım hatası. Ayrıntı: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`.
+>
+> **v1 motoru korunmuştur.** H4–H13 raporlarındaki tüm sayılar v1 ile üretilmiştir ve
+> değiştirilmemiştir. Düzeltmeler `src/v2_entegre_simulasyon.py` altında toplanmıştır.
+
+### D-GRUBU — ÖNCEKİ KARARLARDA ATIF DÜZELTMELERİ (30.09.2026)
+
+| Karar | Önceki atıf | Denetim bulgusu | Düzeltilmiş dayanak |
+|---|---|---|---|
+| **K06** | Elloumi (2025), Simić (2020) | Elloumi s.613 **eşik tabanlı uyarlanabilir Kanban (AKS)** anlatır, $N=\lceil D\cdot LT(1+\alpha)/C\rceil$ formülünü vermez. Simić s.10 kart sayılarını tablo olarak verir, formül türetmez. | VDI 5586 tampon formülü **Urru vd. (2018) s.406, Denk. 1–4**: $q_{A,H} = 1 + \lceil k \cdot n_{UL,A,H}\rceil$. Projedeki biçim bu formülün ROP tabanlı uyarlamasıdır → **mühendislik uyarlaması** olarak etiketlenmeli. |
+| **K09** | Pekarcikova (2021) s.7 → "min 10, max 50 adet" | Pekarcikova **2021 s.140**'taki 10/50/15 değerleri `KanbanBuffer` **tampon stok sınırları ve çekme seviyesidir**; kutu (konteyner) kapasitesi değildir. | C=15/20 için doğrudan literatür dayanağı **yoktur** → **mühendislik varsayımı** (KLT standardı gerekçesi korunur). |
+| **K18** | "Makalelerimizde hiçbiri $z\sigma\sqrt{LT}$ formülünü kullanmamış" | **Yanlış.** Demiray Kırmızı vd. (2024), *Systems* 12:260, **s.9, Tablo 3**: $SS = k \cdot \sigma_d \cdot \sqrt{L_t}$ (service-level approach) açıkça verilmiştir. | İstatistiksel ROP **literatürde mevcuttur**; projede kullanılmaması bir **tercihtir**, kaynak yokluğu değil. Sınırlılık olarak yazılmalı. |
+| **K24** | Jarupathirun (2009): "LT 190 → 255 dk (%34 artış)" | **Yön ters.** Jarupathirun vd. Tablo 1–2: geleneksel Kanban **255 dk** → e-Kanban **190 dk**, yani **%25 kısalma**. Bu bir LT *uzaması* senaryosu değildir. | LT uzaması senaryosu **mühendislik varsayımı**dır. Jarupathirun, e-Kanban'ın LT'yi kısalttığına dair **destekleyici** kanıt olarak kullanılmalıdır. |
+| **K34** | Facchini (2022) s.4 → "NN + 2-opt" | Facchini'de **2-opt geçmez**; s.1124'te ark maliyeti ve TW kontrolü anlatılır. Ayrıca **v1 kodunda 2-opt hiç uygulanmamıştır**. | 2-Opt / Or-Opt tanımı: **Gendreau & Tarantilis (2010), CIRRELT-2010-04, Bölüm 1.1**. v1 için doğru ad: **yalnızca en yakın komşu**. v2'de 2-opt gerçekten uygulanmıştır (K72). |
+| **K44** | Wang (2008) "s.48–56", EDD/SLACK dayanağı | Wang vd. (2008) makalesi **s.128**'de başlar; "s.48/s.52" sayfaları **mevcut değildir**. Makalede **EDD ve SLACK geçmez**; alıntılanan pasajlar amaç hiyerarşisi (s.130) ve açgözlü ekleme kuralıdır. | EDD/SLACK **mühendislik tasarım kararı**dır. İhtiyaç zamanına göre sıralama için gerçek dayanak: **Vojdani & Drechsler (2022) s.5** ("Aufträge nach ihren Bedarfszeitpunkten sortiert"). |
+| **K44 (FIFO errata)** | 03.09.2026 errata: "FIFO mühendislik kararı, Herrera-Vidal atfı yanlıştı" | Errata **fazla ileri gitmiştir**. Herrera-Vidal vd. (2026) **s.8**: *"queues FIFO buffers controlling entity flow"* — geçerli bir kaynak mevcuttur. | FIFO için **Herrera-Vidal vd. (2026) s.8** geçerli dayanaktır. |
+| **S6 (sınırlılık)** | "Vojdani & Drechsler (2022) PDF'ten doğrulanamadı" | **Doğrulandı.** s.6: *"werden die Aufträge im Stundentakt abgearbeitet … auf einer festen Route"* (saatlik takt, sabit rota). Ayrıca s.6: dijital sistem **%27 daha az sefer**, **%29,39 daha az yol**, **%38,5 daha az sürüş süresi**. | **S6 sınırlılığı kapatılmıştır.** K20/K50'nin dayanağı geçerlidir. |
+
+### K65 — Raf Boyutlandırma: VDI 5586 "+1 Değişim Pozisyonu"
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de 24 istasyonun 23'ünde $N=1$; ROP raf kapasitesine neredeyse eşit (S1: ROP=18,97 / raf=20). Teslimattan hemen sonra yeni sinyal çıkıyor, teslim edilen miktarın büyük kısmı raf tavanında kırpılıyor. |
+| **Literatür** | Urru vd. (2018) s.406: $q_{A,H} = 1 + \lceil k\cdot n_{UL}\rceil$ — boş/dolu kutu değişimi için **+1 pozisyon zorunludur**; bilgi akışı dikkate alınmazsa tampon **eksik boyutlandırılır**. İki kutu prensibi: Klenk vd. (2012) s.11; Vojdani & Drechsler (2022) s.5 ("Zwei-Behälter-Kanban"); Droste & Deuse (2011) s.607 ("two-bin-exchange"). Sevim & Görkemli Aykut (2026) s.66: sipariş miktarı $M_j = L_j - A_j$. |
+| **Karar** | v2'de `kanban_modu="VDI"`: P3 için $N = 1 + \lceil ROP/C\rceil$; P1/P2 için $N = 1 + \lceil D\cdot T(1+\alpha)/C\rceil$ (her politika kendi çevrim süresiyle boyutlandırılır — Droste & Deuse s.607–608, Şekil 4). |
+| **Ölçülen etki** | Faktöriyel tasarımda ana etki **−3,88 puan duruş** (p=2,2e−05), **+148 adet WIP** (d=+1,68). |
+| **Dosya** | `src/v2_entegre_simulasyon.py: kanban_boyutlandir()` |
+
+### K66 — Tek Hizmet Süresi Modeli (Politikalar Arası Simetri)
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de üç çözücü farklı hizmet süreleri kullanıyordu: dinamik 2 dk yükleme + **8 dk/durak**; statik simülatör ve değişken-LT çözücüsü yükleme yok + **3 dk/durak**. Aynı fiziksel sistemi temsil eden politikalar farklı sürelerle karşılaştırılmıştı. |
+| **Karar** | Tüm politikalar tek parametre setinden beslenir: tur başına yükleme 2 dk (K14), durak başına 3 dk (K15), isteğe bağlı kutu başına ek süre (Urru s.408: 30 sn/kutu). |
+| **Ölçülen etki** | Ayrıştırma testinde **tek başına −10,34 puan** — v1'deki en büyük tek etken. Hafta 8'deki "duruşun düşmesi yalnızca tampon genişlemesindendir" yorumu **bu nedenle eksiktir**. |
+| **Dosya** | `src/v2_entegre_simulasyon.py`, `V2Parametre.durak_servis_dk` |
+
+### K67 — "Tur Başına En Fazla 5 Durak" Kuralının Kaldırılması
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | `vrptw_solver.py:131` ve `variable_lt_solver.py:234`'te belgelenmemiş `len(selected_signals) >= 5` sınırı vardı. Çoğu istasyon 1 kutu istediğinden tur başına yük ~5 kutuda kalıyor, 25 kutuluk araçta doluluk yapısal olarak %20'nin altına kilitleniyordu. **K36'nın "darboğaz kapasite değil zaman" teşhisi büyük ölçüde bu kuraldan doğmuştur.** |
+| **Literatür** | Simić s.8 ve Urru s.408'deki "5 durak" **sistemdeki toplam istasyon sayısıdır**, tur başına sınır değildir. Klenk s.12: tur başına 20–50 kutu (≈10–25 durak). Karşılaştırma doluluk değerleri: Urru s.408 rota kapasite kullanımı 0,85–0,89; Sevim s.67 %69–81; Simić s.12 beş römorkun 3,51'i dolu. |
+| **Karar** | Sınır kaldırıldı (`max_durak=None`); bağlayıcı kısıtlar araç kapasitesi (25 kutu) ve tur süresidir. Parametre olarak korunmuştur (v1 reprodüksiyonu için `max_durak=5`). |
+| **Ölçülen etki** | Tek başına **+5,76 puan** (8 dk/durak hizmet süresiyle birlikte); K66 ile birlikte doluluk %19 → %40. |
+
+### K68 — Konsolidasyonlu Sevk: En Geç Kalkış Kuralı
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de araç boşalır boşalmaz kalkıyordu; tur sayısı şişiyor, doluluk düşüyordu (4 araçta 131 tur, %5 doluluk). |
+| **Literatür** | Vojdani & Drechsler (2022) s.5–6: *"Der Routenzug fährt ab, bevor einer der geladenen Aufträge zu spät am Bedarfsort eintrifft"* → sonuç: **%27 daha az sefer**. Sevim & Görkemli Aykut (2026) s.66: kapasite dolunca **veya** bir istasyon gecikme riskine girince kalkış. Menanno vd. (2023) s.13–14: $Q_{min}$ eşiği, "yarı boş tur" engellenir. |
+| **Karar** | Araç, yüklü siparişlerden biri son teslim anını kaçıracak duruma gelmeden hemen önce kalkar; kapasite dolarsa hemen kalkar. Son teslim anı: $\min(TW_{bitis},\ t_{starv}^{canlı} - 5)$. |
+| **Ölçülen etki** | 4 araçta tur 91 → 27, doluluk %17 → %40; faktöriyel tasarımda **doluluk üzerinde en güçlü ana etki (+20,19 puan, d=1,80)**. Duruş üzerindeki etkisi anlamsız (p=0,317) — yani konsolidasyon **hizmet düzeyini bozmadan** taşıma verimliliğini artırır. |
+
+### K69 — Kapalı Döngü Entegrasyon
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de sinyaller "stok her zaman LT=45 dk sonra yenilenir" varsayımıyla (K29, "geçici") **önceden** üretilip `ekanban_signals.csv`'ye yazılıyor, rotalama bu hazır listeyi okuyordu. Araç geciktiğinde sonraki sinyalin zamanı değişmiyordu. Stokastik replikasyonlarda sinyaller hep seed=42 verisinden geliyordu. |
+| **Literatür** | Facchini vd. (2022) s.1126: optimizasyon *"stand-alone"* değil, istasyon ihtiyacı–stok–araç durumu ile **uçtan uca** ele alınmalıdır. Sevim & Görkemli Aykut (2026) s.66: istasyon ajanı **gerçek stok** seviyesinden sinyal üretir. |
+| **Karar** | Sinyal üretimi, teslim ve tüketim tek olay döngüsünde; sinyaller her dakika **gerçek stoktan** üretilir. K29 geçici varsayımı **kapatılmıştır**. |
+| **Ölçülen etki** | v1 ayarlarıyla bile duruş %24,58 → **%6,85**; v1↔v2 farkının en büyük tek kaynağı budur. |
+
+### K70 — Talep Modeli: Saatlik Rejim
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de tüketim her dakika **bağımsız** $N(\mu/60,\ \sigma/60)$ çekiliyordu. Bu kurguda $L$ dakikalık toplam talebin değişkenlik katsayısı $0{,}20/\sqrt{L}$'ye iner; $LT=45$ dk için ≈**%3**. Onaylanan CV=0,20 (K10) fiilen $\sqrt{60}$ kat küçülmüş, sistem neredeyse deterministik davranmıştır (replikasyon GA'ları ±0,07 puan). |
+| **Karar** | `SAATLIK_REJIM`: saatlik tüketim $N(\mu,\sigma_{saat})$ çekilir, saat içinde sabit hızda tüketilir → saatlik CV = 0,20 korunur. Alternatifler: `POISSON` (Alnahhal & Noche 2015 s.112), `NORMAL_DK_V1` (v1 davranışı), `CSV`. |
+| **Dosya** | `src/v2_entegre_simulasyon.py: V2Veri.talep_uret()` |
+
+### K71 — Metrik Mesafe Matrisi (Floyd–Warshall Kapanışı)
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | `distances.csv` üçgen eşitsizliğini ihlal ediyordu: S1→S6 = 900 m iken S1→Depo→S6 = 180 m. Böyle bir matris hiçbir Öklid yerleşiminde gerçekleşemez; en yakın komşu rotalarını ve mesafe KPI'larını bozar. |
+| **Ölçüm** | Floyd–Warshall kapanışı **286 yönlü düğüm çiftini** kısaltmaktadır. |
+| **Karar** | v2 varsayılanı `mesafe_modu="METRIK"`. Kalıcı çözüm (gelecek çalışma): mesafeleri koordinatlardan dikdörtgensel ölçüyle üretmek (Sevim & Görkemli Aykut 2026 s.67) ve istasyon aralığını literatür bandına (25–53 m) çekmek. |
+| **Ölçülen etki** | Tek başına **−0,86 puan**. |
+
+### K72 — Esnek Zaman Penceresi, Tur Süresi Kısıtı ve 2-opt
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | (a) K35 "kesin (hard) TW" diyordu ama kod geç teslimatı kabul edip kaydediyordu — fiilen **esnek** pencere. (b) 90 dk tur süresi kısıtı okunuyor ama **hiç kontrol edilmiyordu**. (c) 2-opt belgelerde vardı, kodda yoktu. |
+| **Literatür** | Esnek pencere + gecikme cezası (VRP-RTW): Fitrie vd. (2025) s.1835; Zidanne vd. (2025) s.14. Tur süresi kısıtı: Facchini vd. (2022) s.1124, Denk. 7. 2-Opt: Gendreau & Tarantilis (2010) Bölüm 1.1. |
+| **Karar** | Model **VRP-RTW** olarak yeniden tanımlandı (maliyet = süre + ceza×gecikme); tur süresi kısıtı sevk seçiminde uygulanıyor; 2-opt gerçekten kodlandı. |
+| **Doğrulama** | Tur-içi optimallik testi (400 rastgele durak kümesi, tam numaralamaya karşı): NN **%1,68**, NN+2opt **%0,62** sapma; 2-opt turların %46,5'inde optimali buluyor. |
+
+### K73 — Üç Politikalı Karşılaştırma Seti
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de statik referans, talepten bağımsız olarak her istasyona her turda 1 kutu bırakan tek bir modeldi ve rafı tur aralığından bağımsız sabitti. Droste & Deuse (2011) s.607–608 ve VDI formülü, gereken rafın **tur aralığıyla orantılı** büyüdüğünü gösterir; bu nedenle 80–120 dk'lık statik senaryolar eksik boyutlandırılmıştı. |
+| **Karar** | P1 (sabit takt, sabit miktar — Klenk s.6), P2 (sabit takt, Kanban miktarı / 1:1 boş kutu değişimi — Simić s.10–11, Vojdani s.6), P3 (olay tabanlı dinamik — Facchini s.1123). **Her politika kendi formülüyle boyutlandırılır.** |
+| **Dosya** | `src/v2_pareto_ve_figurler.py` |
+
+### K74 — Koşu-İçi Dinamik Kanban (Uyarlanabilir Kanban)
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | Literatürde *adaptive Kanban*, kart sayısının **işletme sırasında** stok/bekleyen sipariş eşiklerine göre değiştiği sistemdir (Elloumi vd. 2025 s.613, Tardif & Maaseidvaag'a atıfla). Projede $N$ yalnızca **senaryolar arasında** değişiyordu (K55 Mod B). |
+| **Karar** | v2'ye `dinamik_n=True` eklendi: her 30 dk'da (K11) son 60 dk'lık gerçekleşen tüketimden $D$ tahmin edilip $N$ ve ROP güncellenir. Kullanılmadığında model **"senaryo bazlı parametrik Kanban"** olarak adlandırılmalıdır. |
+
+### K75 — Stokastik Tüketim Üreticisindeki Aktarım Hatası ✅ DÜZELTİLDİ
+| Özellik | Değer |
+|---------|-------|
+| **Tespit** | `src/stokastik_replikasyon.py`'deki `ISTASYON_TUKETIM_MU` sözlüğü elle yazılmış ve `stations.csv` ile uyuşmuyordu: **S10: 18 (doğrusu 11)**, **S23: 18 (doğrusu 12)**. Toplam talep 446 adet/sa (doğrusu 409) → **%9 fazla**. |
+| **Etkilenen sonuçlar** | Hafta 7'nin 30 replikasyonlu dispatch karşılaştırması ve Hafta 10 seed sağlamlık testi (“stokastikte fark 2,92–3,13 puana daralıyor” yorumu dâhil) bu hatalı talep altında üretilmiştir. |
+| **Düzeltme** | Üretici artık `stations.csv`'den okur (tek doğruluk kaynağı). Eski sözlük `ISTASYON_TUKETIM_MU_HATALI_H7` adıyla ve `hatali_h7_degerleri=True` bayrağıyla yalnızca reprodüksiyon amaçlı korunmuştur. |
+| **Tarih** | 30.09.2026 |
+
+### K76 — Solomon VRPTW Kıyaslama Doğrulaması
+| Özellik | Değer |
+|---------|-------|
+| **Yöntem** | 6 örnek (C101, C201, R101, R201, RC101, RC201) × 2 boyut (25, 50 müşteri). SINTEF'in BKS tabloları sayfada JavaScript ile yüklendiğinden programatik alınamadı; değerleri elle aktarma riski nedeniyle **Balikos vd. (2025) s.435–437 yaklaşımı** izlendi: OR-Tools referans çözücüdür (anılan çalışma OR-Tools'un Solomon'da BKS'ye ortalama %10'dan yakın olduğunu raporlar). Sapma: $e_d = 100(v_c - v_k)/v_k$. |
+| **Sonuç** | Projedeki en yakın komşu sezgiseli OR-Tools'a göre **ortalama %102,7** (medyan %89,5; en kötü %198,5) daha uzun rotalar üretmektedir. **2-opt kazancı yalnızca %0,50**'dir. |
+| **Yorum** | 2-Opt tur-**içi** bir komşuluk yapısıdır; Solomon'daki açık esas olarak tur-**arası** atamadan doğar. Fabrika içi problemde turlar 2–8 duraklıdır ve tur-içi sıralama tam numaralamaya göre yalnızca **%0,62** sapar (K72 doğrulaması). Dolayısıyla Solomon'daki açık bu bağlama doğrudan taşınmaz; ancak **tur-arası atama (hangi siparişin hangi turda olacağı) sevk kuralıyla belirlenir ve optimize edilmemektedir** — sınırlılık olarak yazılmalıdır. |
+| **Dosya** | `src/solomon_dogrulama.py`, `data/synthetic/solomon_dogrulama_sonuclari.csv` |
+
+### K77 — Başlangıç Stoku Seçeneği
+| Özellik | Değer |
+|---------|-------|
+| **Değer** | `baslangic_stok`: `"DOLU"` ($N\times C$, v1 davranışı), `"ROP"`, `"ORAN"`. |
+| **Gerekçe** | Dolu raflarla başlamak uzun bir geçici rejim yaratır (K78). ROP seviyesinden başlamak geçici rejimi kısaltır ama ilk 45 dk'da yapay starvation üretir (2,56 istasyon/dk). Baz koşu için **DOLU** korunmuştur. |
+
+### K78 — Isınma Süresi: 45 dk → 90 dk (Welch Yöntemiyle Ölçüldü)
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | K32/K43'te 45 dk **varsayılmış**, Herrera-Vidal'ın atıf yapılan Welch grafik yöntemi **hiç uygulanmamıştı**. |
+| **Ölçüm** | 20 replikasyon, ±15 dk hareketli ortalama. Kararlı WIP ≈ 367 adet. **t=45 dk'da WIP hâlâ kararlı değerin %54–56 üzerindedir**; %1 bandına ancak **t≈90 dk**'da girer. Katı ölçütle (60 dk boyunca kesintisiz ±%2 bandı) kalıcı giriş 246 dk'dır. |
+| **Karar** | v2 varsayılanı `isinma_dk=90`. |
+| **Sonuç** | 480 dk'lık tek vardiyada analiz penceresi 435 dk değil **390 dk**'dır; katı ölçüt alınırsa yarıdan azdır. **S2 sınırlılığı (tek vardiya) düşünülenden ciddidir** ve raporlanan tüm oranlar geçici rejim etkisi taşır. 1440 dk'lık (3 vardiya) koşularda kararlı değer doğrulanmıştır. |
+
+### K79 — Statik Referansın Tek Nokta Yerine Sınır Eğrisi Olarak Kurulması
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | "5 araçtan itibaren dinamik üstün" iddiası (H8) statik referans olarak **80 dk turun** seçilmesine bağlıydı. Statik sistem **60 dk turla 4 araçta %3,04** duruş veriyordu — 8 araçlı dinamik sistemden (%3,50) bile iyi. |
+| **Karar** | Tur aralığı 30–120 dk bandında taranır; karşılaştırma tek nokta yerine **sınır eğrisi** üzerinden yapılır (252 konfigürasyon × 8 replikasyon). |
+
+### K80 — Pareto Cephesi
+| Özellik | Değer |
+|---------|-------|
+| **Amaçlar** | Ortalama hat yanı WIP ↓, duruş oranı ↓, toplam mesafe ↓. |
+| **Analitik temel** | Stok çevrim süresiyle orantılıdır (Droste & Deuse 2011 s.607–608, Şekil 4); tampon rota frekansıyla ters orantılıdır (Urru vd. 2018 s.406); tur sayısı–stok ödünleşimi (Alnahhal & Noche 2015 s.118). Yöntem örneği: Zhou & Wen (2024) NSGA-II ile Kanban sayısı + kutu kapasitesi ortak optimizasyonu. |
+| **Yöntem** | Bu ölçekte metasezgisel gerekmez: tam ızgara taranır, baskın olmayan çözümler süzülür. Şekil 1'de iki amaçlı (WIP × duruş) politika-içi cephe; CSV'de üç amaçlı genel cephe. |
+| **Bulgu** | **P3 cephesi hem en solda hem en altta**: aynı duruş oranı belirgin biçimde daha az WIP ile sağlanır. |
+
+### K81 — Politikalar Ancak Talep Şoku Altında Ayrışır
+| Özellik | Değer |
+|---------|-------|
+| **Bulgu** | Literatüre uygun boyutlandırma (K65) uygulandığında baz talepte **üç politika da 2 araçla %5 eşiğinin çok altındadır** (P1 %0,04 / P2 %0,15 / P3 %0,01). Politikalar ancak **+%50 talep şoku** altında ayrışır (P1 3 araç %0,42 / P2 2 araç %4,85 / P3 3 araç %0,49). |
+| **Sonuç** | v1'deki yüksek duruş oranları (%24–53) esas olarak **eksik raf boyutlandırma + hizmet süresi asimetrisi + açık döngü** kaynaklıdır, politika farkından değil. |
+
+### K82 — Deney Tasarımı: Faktöriyel + ANOVA + Tukey HSD
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | v1'de dört sevk kuralı **ikili t-testleriyle** karşılaştırılmıştı (K45/K64); çoklu karşılaştırma düzeltmesi yoktu. |
+| **Yöntem** | $2^5$ tam faktöriyel (filo, α, sevk, talep, raf) × 10 replikasyon = 320 koşu (Sevim & Görkemli Aykut 2026 s.67 deseni); sevk kuralları için tek yönlü ANOVA + Tukey HSD (Herrera-Vidal vd. 2026 s.9–10). |
+| **Ana etkiler (duruş)** | Talep düzeyi **+10,22** (p<0,001) > Filo **−9,55** (p<0,001) > Raf boyutlandırma **−3,88** (p<0,001) > α **−1,35** (p=0,15, anlamsız) > Sevk politikası **+0,93** (p=0,32, anlamsız). En güçlü etkileşim: **Filo × Talep = −6,79 puan**. |
+| **Doluluk** | Sevk politikası **+20,19 puan** (d=1,80) — en güçlü ana etki. |
+| **⚠️ K45/K64 REVİZYONU** | v2'de sevk kuralları arasında **hiçbir anlamlı fark yoktur**: yeterli filoda F=0,003, **p=0,9997**; kısıtlı filo + şokta F=1,152, **p=0,3415**. Tukey HSD'de hiçbir ikili fark eşiği aşmamaktadır. **K45'in "KRİTİKLİK anlamlı biçimde kötüdür, EDD'ye geçilmeli" tavsiyesi v2'de desteklenmemektedir.** Muhtemel neden: v1'de kritiklik skoru sinyal anında hesaplanıp donuyordu; v2'de canlı stok/ROP kullanılmaktadır. Ayrıca v1'deki 5 durak sınırı ve hatalı talep verisi (K75) etkilidir. |
+| **Replikasyon ölçütü** | Bağıl ölçüt (yarı-genişlik ≤ ortalamanın %2'si) ortalama sıfıra yakınken **tanım gereği sağlanamaz** (n=60'ta bile %12,2). Bu koşulda **mutlak ölçüt** kullanılmalıdır: ±0,05 puan için **n=9** yeterlidir. |
+
+### K83 — Vaka Çalışması: Literatürden Türetilmiş Otomotiv Yan Sanayi Senaryosu
+| Özellik | Değer |
+|---------|-------|
+| **Gerekçe** | TR Dizin dergileri, özellikle Endüstri Mühendisliği Dergisi, gerçek veya gerçekçi vaka içeren çalışmalara öncelik vermektedir. Gerçek fabrika verisi henüz bulunmadığından **literatürden türetilmiş** ve açıkça bu şekilde etiketlenmiş bir vaka kurgulanmıştır. |
+| **Ölçek referansları** | Facchini vd. (2022) s.1125: otomotiv kaynak atölyesi, 3 vagonlu 4 çekici, ~400 sefer/vardiya, 25 dk üzeri "geç"; Menanno vd. (2023) s.13–14: 11 hatlı pompa montajı, $Q_{min}$ 35–55; Sevim & Görkemli Aykut (2026) s.67: 10 istasyon, ROP 25–50. |
+| **Tasarım** | 4 hat / 24 istasyon / 3 araç / 480 dk; üç politika × üç senaryo (normal, +%50 talep şoku, araç arızası 3→2) × 12 replikasyon. |
+| **Bulgu** | P3, normal vardiyada aynı hizmet düzeyini **%50,5 daha az WIP** ile sağlar; talep şokunda duruşta **9,77 puan** öndedir. Bedeli mesafede +%15…+%68 artıştır (Alnahhal & Noche 2015 s.118'deki ödünleşimin beklenen yönü). |
+| **Dosya** | `src/v2_vaka_ve_kpi.py`, `data/synthetic/v2_vaka_calismasi.csv` |
+
+### K84 — Dinamiklik Derecesi (Degree of Dynamism)
+| Özellik | Değer |
+|---------|-------|
+| **Tanım** | Larsen, Madsen & Solomon (2008), *Recent Developments in Dynamic Vehicle Routing Systems*, **Bölüm 3.1**: $dod = n_{imm}/n_{tot}$. |
+| **Ölçüm** | P3'te vardiya başına ≈161 ikmal isteğinin tamamı vardiya içinde gerçek stok tükenmesiyle doğar → **dod = 1,00 (tam dinamik)**. P1/P2 takvim tabanlıdır → dod = 0. |
+| **Kullanım** | Problem sınıfının biçimsel gerekçesi: statik VRPTW çözücüleri doğrudan uygulanamaz. Tez Metodoloji bölümünde problem tanımına eklenmelidir. |
+| **Sınırlılık** | dod = 1 uç değeri, `production_plan.csv`'nin talep modeline bağlanmamasından kaynaklanır; bağlanırsa kısmen önceden bilinen istekler doğar ve dod < 1 olur. |
+
+### K85 — Literatür KPI Uyumu
+| Özellik | Değer |
+|---------|-------|
+| **Ölçütler** | Sevim & Görkemli Aykut (2026) s.67, **Denk. 5–9**: ortalama doluluk oranı, tur başına ortalama mesafe, ortalama tur sayısı, istasyon başına ortalama bekleme süresi. Starvation tanımı: Menanno vd. (2023) s.16 (Korytkowski & Karkoszka 2016'ya atıfla). |
+| **Bulgu** | Konsolidasyonun ödünleşimi: ikmal süresi 5,5 → 29,6 dk uzarken doluluk %5,7 → %33,7'ye çıkar, tur sayısı 113,7 → 18,8'e iner. 29,6 dk, Facchini'nin ≤25 dk hedefine yakın ve Klenk'in e-Kanban ikmal bandının (102–113 dk) çok altındadır. |
+| **⚠️ Kıyaslama uyarısı** | Doluluk oranları literatürle **doğrudan kıyaslanamaz**: bu çalışmada istasyon başına 1–3 kutu taşınırken Urru s.408'de rota kapasite kullanımı 0,85–0,89, Sevim'de %69–81'dir. Fark talep yoğunluğu ve kutu büyüklüğü tasarımından gelir. |
+
+---
+
+## HAFTA 15 — LİTERATÜR BOŞLUĞU KARARLARI (26.10.2026)
+
+### K86 — Özgün Katkı İddiasının Yeniden Tanımlanması
+| Özellik | Değer |
+|---------|-------|
+| **Tetikleyici** | Kaynak klasörünün dışına çıkan genişletilmiş tarama (Ekim 2026). |
+| **Tespit** | Tezin *"E-Kanban + VRPTW + stok simülasyonunu bütünleşik ele alan çalışma yok"* iddiası **savunulamazdır**. Bu iddiayı çürüten dokuz çalışma belirlenmiştir: Alnahhal, Ramadan & Noche (2016); Ciemnoczolowski & Bozer (2013); Bocewicz vd. (2019); Zhou & Wen (2024); Menanno vd. (2023); Vojdani & Drechsler (2022); Kundu vd. (2019); Urru vd. (2018) + Schmidt vd. (2016) + VDI 5586 Blatt 2 (2022); Elloumi vd. (2025). |
+| **En büyük tehdit** | **Alnahhal, Ramadan & Noche (2016)**, *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*: push / Kanban / e-Kanban / AEK'yi envanter + starvation ölçütleriyle karşılaştırıp **koşullu sonuç** bulmuştur — bizim ana bulgumuzun doğrudan öncülüdür. Makalede mutlaka alıntılanmalı ve farkımız açıklanmalıdır. |
+| **Yeni boşluk tanımı** | Yazın iki kolda gelişmiş ve **birleşmemiştir**: (A) tamponun ikmal politikasına bağlı olduğunu gösteren boyutlandırma kolu (Urru s.407: aynı veriyle yöntem değişince tampon 18 → 19/20/23; Droste & Deuse s.607–608; Schmidt s.3), politikaları performans açısından karşılaştırmaz. (B) Politikaları karşılaştıran simülasyon kolu (Vojdani s.5 *"identisches Layout"* + aynı iki kutulu Kanban; Chee vd. s.392 her iki politikaya aynı {2,4,6}; Alnahhal & Noche s.117 *"fill rate ≥ %99"*), tamponu politikanın çevrim süresinden formülle türetmez. |
+| **Revize katkı** | 1) Politika-tutarlı boyutlandırma ilkesi ve ihmalinin sonucun **yönünü** değiştirmesi; 2) modelleme kararlarının ayrıştırılmış etkisi (10+ puan, politika farkından büyük); 3) tüketim hızından türetilen dinamik TW (ihtiyatlı); 4) koşullu/dürüst raporlama. |
+| **Dürüstlük kaydı** | Kol B'de iki çalışma adil karşılaştırma kaygısı taşır (Alnahhal hizmet düzeyini eşitler; Chee parametre tarar ve push lehine "mükemmel push" senaryosu kurar, s.393). Bu nedenle iddia *"kimse düşünmemiş"* değil, **"formülle türetme yapılmamış ve etkisi ölçülmemiştir"** biçiminde yazılmalıdır. |
+| **Dosya** | `docs/literatur_boslugu_analizi.md` (kanıt tabloları, hakem yanıtları, makaleye hazır cümleler) |
+
+### K87 — Kaynak Arşivi Denetimi: Zip Dosyaları ve Eksik Kaynaklar
+| Özellik | Değer |
+|---------|-------|
+| **Denetim** | Masaüstü `dinamik milk run` klasöründeki üç zip ile çıkarılmış klasörler karşılaştırıldı. |
+| **Bulgu 1** | `dy makale2.zip` (14 PDF) ve `dynamic makaleleri.zip` (22 PDF) içerikleri çıkarılmış klasörlerle **özdeştir**; yeni makale yoktur. |
+| **Bulgu 2** | `dy makale3.zip` **boştur** (0 girdi); `dynamic makaleleri/Yeni Sıkıştırılmış Klasör.zip` de boştur (22 bayt). |
+| **Bulgu 3** | Zip'te olup çıkarılmamış üç dosya: `1-s2.0-S2405896318307894-main (1).pdf` ve `IJSIMM19-2_513 (1).pdf` (ikisi de **kopya**), `logistics-06-00074.pdf` (Malik vd. 2022, süt tedarik zinciri — f8c4f73 commit'inde zaten kapsam dışı bırakılmıştı). **Yeni içerik yoktur.** |
+| **Bulgu 4 — düzeltildi** | `LOGISTIQUA_2020_paper_166.pdf` (Tissir, El Fezazi & Cherrafi 2020) masaüstü arşivinde olmasına rağmen **projede yoktu ve metne çıkarılmamıştı**. 26.10.2026'da `docs/papers/zip3_yeni/dy makale 3/` altına kopyalandı ve `docs/papers/extracted_text/` içine çıkarıldı (5 sayfa). Giriş/motivasyon bölümünde Endüstri 4.0 – Yalın ilişkisi için kullanılabilir (Tablo 1: e-Kanban). |
+| **Sonuç** | Kaynak arşivi artık **senkrondur** (masaüstündeki 45 özgün PDF'in tamamı projede ve metne çıkarılmış durumda); eksiklik zip'lerde değil, **hiç edinilmemiş kaynaklardadır**. |
+| **Tekrarlanabilirlik** | `python -X utf8 -m src.kaynak_arsivi_denetimi` — zip/kopya/senkron/metin denetimini ve eksik kaynak listesini yeniden üretir. |
+| **Edinilmesi gereken** | 🔴 Alnahhal, Ramadan & Noche (2016) doi:10.1007/978-3-319-23512-7_70 · 🔴 Ciemnoczolowski & Bozer (2013) doi:10.1080/00207543.2012.656331 · 🟠 Bocewicz vd. (2019) doi:10.24425/mper.2019.129597 (açık erişim) · 🟠 Schmidt vd. (2016) IMHRC (açık erişim) · 🟡 VDI 5586 Blatt 2 (2022) · 🟡 Kundu vd. (2019) IJIEC 10:421–442 |
+| **Tarih** | 26.10.2026 |
+
+### K88 — K06 Kanban Formülünün GERÇEK Kaynağı Bulundu: Toyota Formülü ✅
+| Özellik | Değer |
+|---------|-------|
+| **Geçmiş** | K06 formülü $N = \lceil D \cdot LT(1+\alpha)/C \rceil$ için önce Elloumi (2025) / Simić (2020) gösterilmiş, 30.09.2026 denetiminde bu atıfların **hatalı** olduğu belirlenmiş ve formül *"mühendislik uyarlaması"* olarak etiketlenmişti. |
+| **Bulgu (26.10.2026)** | **Kundu, Rossini & Portioli-Staudacher (2019), IJIEC 10:422–423**, formülün kaynağını vermektedir: **Toyota formülü — Sugimori, Kusunoki, Cho & Uchikawa (1977)**: $$y = \frac{D\,(T_w + T_p)(1+\alpha)}{a}$$ burada $y$ = kanban sayısı, $D$ = birim zamanda talep, $T_w$ = bir kanbanın bekleme süresi, $T_p$ = işlem süresi, $a$ = konteyner kapasitesi, $\alpha$ = güvenlik katsayısı. |
+| **Eşleşme** | Bizim $LT = T_w + T_p$, $C = a$ alırsak formül **birebir aynıdır**. K06 artık "mühendislik uyarlaması" değil, **Toyota formülünün fabrika içi milk-run bağlamına uygulanmasıdır**. |
+| **⚠️ α uyarısı** | Aynı sayfada: *"$\alpha$ = safety factor. It is policy variable (**although < 10%**)"*. Projede **α = 0,15 (%15)** kullanılmaktadır — Toyota formülünün önerdiği bandın **üzerindedir**. K08 bu bilgiyle güncellenmeli; tezde ya gerekçelendirilmeli ya da α ≤ 0,10 ile duyarlılık verilmelidir. Faktöriyel tasarımda α'nın ana etkisi zaten anlamsızdı (p=0,145), dolayısıyla bulgular bundan etkilenmez. |
+| **Ek sınır** | Kundu s.423: konteyner kapasitesi $a$ *"not more than 10% of daily demand"* olmalıdır. Projede S1 için $C=20$, günlük talep $22 \times 8 = 176$ → %11,4 — sınırın hemen üzerinde. Belgelenmeli. **⚠️ Düzeltme (K95, 27.10.2026): yalnızca S1 değil, 24 istasyonun 24'ü sınırı aşar (%10,4–%17,0, ort. %13,6).** |
+| **Ek bulgu** | Faccio vd. (2013a), Toyota formülünün tek başına *"unable to bring about substantial results without an integrated approach"* olduğunu göstermiştir — bütünleşik yaklaşımımızı destekler. Faccio vd. (2013b): *"use of an analytical approach alone may be unable to obtain reliable results"* — simülasyon tercihimizi destekler. |
+| **Eylem** | K06'nın kaynağı **Sugimori vd. (1977)** olarak güncellenmeli; Kundu (2019) ikincil kaynak olarak gösterilmelidir. |
+| **Tarih** | 26.10.2026 |
+
+### K89 — Boşluğun Literatür Tarafından İlan Edilmesi (Kundu 2019)
+| Özellik | Değer |
+|---------|-------|
+| **Bulgu** | Kundu vd. (2019) s.423, Monden (2011)'e dayanarak iki politika ailesini tanımlar: *fixed quantity, variable time* = **reorder point** (bizim **P3**) ve *fixed time, variable quantity* = **periodic review** (bizim **P2**). Hemen ardından: *"This research utilizes the fixed time, variable quantity solution and **does not investigate the differences with the other policy. This could however be the subject of future research.**"* |
+| **Önem** | Bu, tez/makalenin boşluk iddiasının **literatür tarafından açıkça ilan edilmiş** biçimidir. Giriş bölümünde doğrudan alıntılanmalıdır. |
+| **⚠️ Karşı kanıt (dürüstlük)** | Aynı sayfada: *"The comparison of different feeding policies has been relatively well covered"* (Limère 2012; Golz 2012; Sali 2015; Faccio 2014; Caputo & Pelagagge 2011). Dolayısıyla **"politika karşılaştırması yapılmamıştır" denemez**; iddiamız yalnızca *boyutlandırmanın politikaya göre türetilmesi ve etkisinin ölçülmesi* ile sınırlıdır. |
+| **Tarih** | 26.10.2026 |
+
+### K90 — Açık Erişim Kaynak Edinimi (K87 takibi)
+| Özellik | Değer |
+|---------|-------|
+| **Yöntem** | OpenAlex, Unpaywall, Semantic Scholar ve Crossref API'leri ile DOI tabanlı açık erişim taraması. |
+| **Edinilen (2/7)** | ✅ **Bocewicz vd. (2019)** — PAN Journals, *diamond OA* → `docs/papers/ek_kaynaklar/E3_…pdf` (13 sayfa, okundu). ✅ **Kundu vd. (2019)** — Growing Science, *diamond OA* → `E6_…pdf` (22 sayfa, okundu). Her ikisinin metni `docs/papers/extracted_text/` altındadır. |
+| **Edinilemeyen (5/7)** | ❌ **Alnahhal, Ramadan & Noche (2016)** — OpenAlex/Unpaywall/S2: `is_oa=false`, hiçbir meşru açık kopya yok (Springer, kapalı). ❌ **Ciemnoczolowski & Bozer (2013)** — aynı şekilde kapalı (T&F); S2'de özet bile yok. ❌ **Korytkowski & Karkoszka (2016)** — Springer *hybrid OA* olarak işaretli ancak indirme bot korumasına takılıyor; **kurumsal erişimle alınmalıdır**. ❌ **VDI 5586 Blatt 2 (2022)** — ücretli standart. ❌ **Schmidt vd. (2016)** — MHI'den açık erişimdir ve bu denetimde okunmuştur; PDF arşive kopyalanmamıştır. |
+| **Not** | Erişim engellerini aşmaya yönelik hiçbir girişimde bulunulmamıştır. Kalan 5 kaynak **kütüphane/kurumsal erişimle** edinilmelidir. |
+| **Denetim** | `python -X utf8 -m src.kaynak_arsivi_denetimi` eksik listesini günceller. |
+| **Tarih** | 26.10.2026 |
+
+### K91 — Katkı Gücünün Dürüst Değerlendirmesi ve Güçlendirme Yol Haritası
+| Özellik | Değer |
+|---------|-------|
+| **Soru** | "Çalışma literatürde bir açık kapatıyor mu, yenilik getiriyor mu?" |
+| **Yargı** | **Evet — ancak tek bir açık, ve bu açık "yeni yöntem geliştirme" türünden değil, "mevcut yöntemler yanlış karşılaştırılıyor" türündendir.** Teknik/kavramsal yenilik **yoktur**; metodolojik yenilik vardır. |
+| **Kapatılan açık** | Kundu vd. (2019) s.423'ün açıkça gelecek çalışma ilan ettiği **reorder point (P3) ↔ periodic review (P2)** karşılaştırması; üzerine **politika-tutarlı boyutlandırma** ilkesi ve ihmalinin sonucun *yönünü* değiştirdiğinin ölçülmesi. |
+| **Kapatılmayan** | E-Kanban+VRPTW entegrasyonu, Kanban↔starvation, filo↔stok ödünleşimi, Pareto, Kanban boyutu↔sayısı, Toyota formülü, VDI +1, uyarlanabilir Kanban — hepsi literatürde mevcuttur (bkz. K86, `literatur_boslugu_analizi.md` Bölüm 2). |
+| **Hedefe göre yeterlilik** | Lisans/YL tasarım çalışması: ✅ fazlasıyla yeterli. **TR Dizin (End. Müh. Dergisi, JTOM): ⚠️ sınırda** — tek engel **gerçek veri yokluğu**; anılan dergi vaka çalışmasına öncelik vermektedir. SCI-E: ❌ katkı artımsaldır. |
+| **Yol 1 (🔴 en yüksek etki)** | **Gerçek veri.** Tek vardiyalık gerçek tüketim verisi bile yeterlidir; altyapı hazırdır (`config.json → "real"`, `data/real/*.csv`). S1 sınırlılığını kapatır ve makaleyi TR Dizin eşiğinin üzerine taşır. |
+| **Yol 2 (🟠)** | **İddiayı küçült, kanıtı büyüt.** "Entegre KDS geliştirdik" terk edilmeli; yerine: *"boyutlandırma tutarsızlığı, politikalar arasındaki gerçek farktan büyük bir yanlılık üretir"*. Destekleyen sayılar: hizmet süresi asimetrisi 10,34 puan · açık döngü %24,58→%6,85 · raf boyutlandırma 3,88 puan **vs politika farkı ≈1 puan**. |
+| **Yol 3 (🟠)** | **Katkıyı kendi modelinin dışına taşı.** Şu an düzeltilen hata kendi v1 modelimizdedir; hakem *"kendi hatasını düzeltmek katkı mı?"* diyebilir. Vojdani & Drechsler (2022) s.5 iki sistemi *"identisches Layout und identische Taktzeiten"* + **aynı iki kutulu Kanban** ile karşılaştırmaktadır — eleştirdiğimiz kurgu bağımsız bir çalışmada mevcuttur. Bu kurgu v2'de yeniden kurulursa katkı genellenebilirlik kazanır. İş yükü ≈ yarım saat (P1/P2 kurulu; 15 istasyon / saatlik takt / iki kutu girilmeli). ⚠️ Vojdani'yi **çürütmek** olarak değil, **duyarlılık analizi** olarak sunulmalıdır; onun bulgusu (%27 az sefer, %29,39 az yol) taşıma verimliliği üzerinedir ve bu düzeltmeden etkilenmez. |
+| **Özet** | Gücü: kendi sonucunu çürütecek kadar dürüst olmak ve bunu sayısallaştırmak — yazında nadirdir. Zayıflığı: sentetik veri (Yol 1 giderir) ve katkının "negatif" karakteri (Yol 3 giderir). |
+| **Dosya** | `docs/literatur_boslugu_analizi.md` Bölüm 10 |
+| **Tarih** | 26.10.2026 |
+
+### K92 — Dashboard v1 Verisiyle Çalışıyor: Geçici Uyarı Bandı ✅ KAPANDI (K94, 27.10.2026)
+| Özellik | Değer |
+|---------|-------|
+| **Tespit (26.10.2026)** | Arayüzün veri ambarı (`data/dashboard_scenarios.csv/json`, 1920 senaryo) tamamen **v1 motorundan** üretilmiştir ve v2 düzeltmelerinden sonra **geçersizdir**. |
+| **Sapma örnekleri** | 4 araç / α=0,15 / EDD / baz talep → arayüz **%24,58**, v2 **%0,18** (konsolidasyonlu) veya **%0,00** (anında) — **24,4 puan fark**. "%5 eşiği için 8 araç" → v2'de **2–3 araç**. Sevk kuralları farklı görünüyor → v2'de **istatistiksel olarak eşdeğer** (p=0,9997). |
+| **Risk** | Arayüz tez savunmasında veya sunumda gösterilirse **yanlış bilgi verir**. |
+| **Uygulanan geçici önlem** | `index.html` ve `dashboard.html` dosyalarına kapatılabilir **uyarı bandı** eklendi (`#v1-uyari-bandi`); stiller `style.css` ve gömülü `<style>` bloğuna işlendi. Gömülü JS `node --check` ile doğrulandı. |
+| **Kalıcı çözüm** | Kademe 1 / D1: `src/generate_dashboard_data.py` v2 motoruna bağlanıp veri ambarı yeniden üretilmeli; ardından uyarı bandı **kaldırılmalıdır**. |
+| **⚠️ Ek bulgu — `make_standalone.py` BOZUK** | Betikteki JavaScript template literal'larının **backtick karakterleri kaybolmuştur** (`const sid = S;` → olmalıydı `` `S${i}` ``; `bar.style.width = ${pct}%;` → `` `${pct}%` ``). Çalıştırılırsa `dashboard.html` sözdizimi hatasıyla üretilir ve arayüz açılmaz. Betiğe **koruma eklendi**: çalıştırıldığında açıklama yazıp durur. Mevcut `dashboard.html` daha önce sağlam üretilmiş sürümdür, korunmuştur. D1 kapsamında betik **yeniden yazılacaktır**. |
+| **Dosya** | `docs/akademik_degerlendirme_ve_yol_haritasi.md` Bölüm B |
+| **Tarih** | 26.10.2026 |
+
+### K93 — Boyutlandırma Tasarımının Politika Karşılaştırmasına Etkisi ✅ (H2 tamamlandı)
+| Özellik | Değer |
+|---------|-------|
+| **Amaç** | Ana katkıyı **kendi v1 modelimizin dışına taşımak**. Şimdiye kadar politika-tutarsız boyutlandırmanın etkisi yalnızca kendi v1 motorumuzda gösterilmişti; hakem *"kendi hatanızı düzeltmek katkı mı?"* diyebilirdi. |
+| **Ele alınan tasarım** | **Vojdani & Drechsler (2022) s.5**: *"Die beiden Systeme weisen ein **identisches Layout und identische Taktzeiten** an den Arbeitsstationen auf"* + *"Die Versorgung der Stationen wird über ein **Zwei-Behälter-Kanban-System** gewährleistet"* → çevrim süreleri farklı (saatlik ↔ ihtiyaca göre), **tampon aynı**. |
+| **⚠️ Çerçeveleme** | **Çürütme değil, duyarlılık analizi.** Vojdani'nin modeli yeniden üretilmemiştir (makalede sayısal parametre tablosu yoktur); yeniden üretilen şey **karşılaştırma tasarımıdır**, bu çalışmanın kendi 24 istasyonlu sistemi üzerinde. |
+| **Yöntem** | Kurgu A — tüm politikalar $N=2$ (yeni `kanban_modu="IKI_KUTU"`); Kurgu B — her politika kendi formülüyle (VDI/K65). 3 araç, 12 replikasyon, saatlik rejim talebi. |
+| **🎯 BULGU** | **Baz talep:** A'da dijital 2,33 puan önde → B'de fark 0,14 puana iner (**kayma 2,19 puan**). **Talep şoku +%50:** A'da dijital **9,03 puan** önde → B'de geleneksel 0,04 puan önde (**kayma 9,07 puan — SIRALAMA DEĞİŞİR**). |
+| **Mekanizma** | Kurgu A'da her iki sistem de **48 kart** alır. Kurgu B'de geleneksel sistem **63 karta** çıkar (60 dk çevrim daha büyük tampon gerektirir), dijital **49**'da kalır. Geleneksel sistem hak ettiği tamponu alınca performans farkı kapanır. |
+| **✅ Vojdani'nin bulgusu doğrulandı** | Dijital sistem her iki kurguda da **daha az sefer** yapar (−%10 … −%11; Vojdani %−27). **WIP avantajı yalnızca Kurgu B'de görünür hale gelir: −%37 … −%38.** Yani Vojdani'nin taşıma verimliliği bulgusu bu düzeltmeden **etkilenmez**; etkilenen şey duruş karşılaştırmasıdır. |
+| **⚠️ Fark** | Mesafede bizim dijital sistemimiz **daha fazla** yol yapar (+%13 … +%69), Vojdani ise −%29,39 raporlar. Nedeni sistem farkıdır (24 istasyon/4 hat ↔ 15 istasyon/3 bölge; bizde bölge atlama yok). Bu fark dürüstçe belirtilmelidir. |
+| **Akademik değer** | Katkı artık kendi modelimizin dışına çıkmıştır: **bağımsız bir çalışmada kullanılan karşılaştırma tasarımının** sonucu nasıl etkilediği gösterilmiştir. |
+| **Dosya** | `src/v2_boyutlandirma_duyarliligi.py` · `data/synthetic/v2_boyutlandirma_duyarliligi.csv` · `docs/figurler/sekil5_boyutlandirma_duyarliligi.png` |
+| **Tarih** | 26.10.2026 |
+
+### K94 — Dashboard v2 Veri Ambarına Geçti (Kademe 1 / D1) ✅
+| Özellik | Değer |
+|---------|-------|
+| **Veri** | `src/generate_dashboard_data_v2.py` → `data/dashboard_scenarios_v2.json/.csv`: 1920 P3 senaryosu (8 araç × 6 α × 5 talep × 2 n_modu × 4 sevk) + 640 statik baz (P1/P2 × T∈{30,60,90,120}), 3 replikasyon, ort. ± %95 GA. |
+| **n_modu eşlemesi** | `Dinamik_N` → VDI (politika-tutarlı, K65); `Sabit_N` → V1. Arayüz etiketleri buna göre değiştirildi: **"Politika-tutarlı (VDI)" / "Eski boyutlandırma (V1)"** — tezin ana katkısı arayüzden doğrudan görülebilir. |
+| **Statik referans** | Sabit `STATIC_BASELINE_MAP` (v1, 80 dk) yerine yüklemede `statik_baz`'dan türetilir: **P2, T=60 dk, baz talep, VDI** (K93'teki geleneksel sistemle aynı). |
+| **Arayüz** | Duruş KPI'larında `± starv_ci95`; altbilgide sürüm damgası (motor, replikasyon, üretim tarihi; ipucunda K82 notu). Uyarı bandı (`#v1-uyari-bandi`) kaldırıldı. |
+| **Standalone** | `make_standalone.py` yeniden yazıldı: JSON `window.DASHBOARD_DATA_V2` olarak ayrı `<script>`'te gömülür, app.js'te metin değiştirme yapılmaz (backtick kaybı tekrarlanamaz). `dashboard.html` 844 KB; iki gömülü blok `node --check` geçti. |
+| **Doğrulama** | Headless tarayıcı: 4 araç / α=0,15 / EDD / baz → **%0,37 ± 0,12** (v1 arayüzü %24,58 gösteriyordu). |
+| **Orkestratör** | `tum_analizleri_calistir` 7 adım; 6/7 veri ambarını üretip `dashboard.html`'i yeniden kurar. |
+| **Tarih** | 27.10.2026 |
+
+### K95 — K93 Bulgusunun Toyota Formülü Bandında Sağlamlığı (H6) ✅
+| Özellik | Değer |
+|---------|-------|
+| **Gerekçe** | K88: Toyota formülünün kaynağı (Sugimori vd. 1977, aktaran Kundu vd. 2019 s.422–423) iki sınır verir — α < %10 ve kutu kapasitesi ≤ günlük talebin %10'u. Proje ikisinin de dışında: α = 0,15; C/günlük talep **%10,4–%17,0 (24/24 istasyon sınır dışı)**. Hakem sorusu: *K93'teki sıralama değişimi bant dışı parametrelerin yan ürünü mü?* |
+| **Tasarım** | K93 deneyi (kurgu A ortak iki kutulu tampon ↔ B politika-tutarlı; geleneksel P2 T=60 ↔ dijital P3 konsolidasyon; 3 araç) şu ızgarada tekrarlandı: α ∈ {0; 0,05; 0,10; 0,15; 0,20} × C ∈ {mevcut; Toyota C_i = ⌊0,10·8·D_i⌋ (8…19 adet), Q sabit 25 kutu; Toyota C, Q hacim-eşdeğer 34 kutu} × talep {baz, +%50} × 12 replikasyon (1440 koşu, 1,4 dk). |
+| **🎯 Bulgu 1 — sağlam** | **Kayma (fark_B − fark_A) 30/30 hücrede pozitif**: politika-tutarlı boyutlandırma her koşulda geleneksel sistemin görünen dezavantajını azaltır. Mevcut C'de kayma α ile artar (baz +1,33…+2,45; şok +3,98…+10,97). |
+| **🎯 Bulgu 2 — bantta daha güçlü** | Toyota bandı içinde (α ≤ 0,10, Toyota C) kayma **baz +10,24…+10,49, şok +15,81…+18,07** puan; **sıralama 12/12 bant hücresinde değişir**. K93 etkisi bant dışı parametrelerin yan ürünü değildir; tersine, bant dışı parametreler etkiyi **küçük gösteriyordu**. |
+| **⚠️ Bulgu 3 — trade-off, bedava kazanç değil** | Toyota C / kurgu B / şokta iki sistem de **72 kart** alır (eşit tampon), ama geleneksel %5,5, dijital %17,2 duruş verir. Geleneksel bunu rafı her saat tepeye doldurarak, **%67 daha fazla WIP** (405 ↔ 242) taşıyarak elde eder. Doğru okuma: küçük kutularda ROP tetiklemeli dijital sistem şoka karşı daha kırılgandır (ROP tasarım talebiyle sabit; K74 dinamik ROP bu deneyde kapalı). Bu, duruş–WIP Pareto'sunda farklı bir noktadır, mutlak üstünlük değildir. |
+| **Q** | Q sabit ve Q hacim-eşdeğer **duruşta özdeş**: araç doluluğu hiçbir hücrede %57'yi aşmaz, konsolidasyon son tarihe göre kalkar → Q bağlayıcı değildir. |
+| **Tezde kullanım** | α = 0,15 ve C tercihi için: "Sonuçlar Toyota bandında yön değiştirmez, etki büyür" (Şekil 6). K82'deki anlamsız α ana etkisi yalnızca P3/VDI içindir; boyutlandırma tasarımıyla etkileşimde α belirgindir (mevcut C, şok: +3,98 → +10,97). |
+| **Sınır** | Tek ağ, tek filo (3 araç), 8 saatlik vardiya; dijital sistemde ROP talep şokuna uyarlanmıyor. |
+| **Dosya** | `src/v2_toyota_bandi_duyarliligi.py` · `data/synthetic/v2_toyota_bandi_{ham,ozet}.csv` · `docs/figurler/sekil6_toyota_bandi_sagligi.png` |
+| **Tarih** | 27.10.2026 |
+
+### K96 — Ara Denetim: "13,6 Puan" Errata'sı, Formül Atfı ve Kaynakça ✅
+| Özellik | Değer |
+|---------|-------|
+| **Bulgu 1 — çelişki** | Belgelerde hem "yeterli filoda dinamik 13,6 puan önde" hem "politikalar arası gerçek fark ≈1 puan" yazıyordu. 13,6'nın kaynağı Hafta 14 rapor 6.2 tablosu (P3 %0,21 ↔ P1 T=60 %13,78, WIP≈404). Güncel `v2_politika_izgara.csv`'de P1 T=60, 3 araç **%0,09 / 834 WIP**; tablodaki değer güncel ızgarada yeniden üretilemedi (V1 boyutlandırmayla da: %5,79 / 232 WIP). **⚠️ Düzeltme (K97):** eşit WIP karşılaştırması statik sistemin kartları azaltılarak kurulabilir; K97 D kuralında dijital baz talepte **10,88**, şokta **15,15 puan** öndedir. Yani 13,6'nın büyüklüğü eşit WIP kuralı altında makuldür; hata, bunun kurala bağlı olduğunun belirtilmemesidir. |
+| **Doğru ifade** | Politika-tutarlı boyutlandırmada (K97 kural B) yeterli filoda tüm politikalar %0–0,6 duruştadır; P3 konsolidasyon %0,18'i **413 WIP**, P2 T=45 %0,55'i 467, P2 T=60 %0,49'u 673 WIP ile sağlar. **Dinamik üstünlük duruşta değil stoktadır.** |
+| **Düzeltilen yerler** | `tez_bilgi_rehberi.md` (özet tablo, katkı 1) · `literatur_boslugu_analizi.md` 4.1.5 (K93/K95'e dayandırıldı) ve Bölüm 7 (Bocewicz/Kundu edinildi, Sugimori eklendi) · `hafta8_kanban_karsilastirma_raporu.md` · `hafta14_…raporu.md` (özet + 6.2'ye errata kutusu; tablo tarihsel kayıt olarak korundu) |
+| **Bulgu 2 — formül atfı** | `tez_bilgi_rehberi.md` K06 satırı hâlâ Elloumi/Simić gösteriyordu → **Sugimori vd. (1977), aktaran Kundu vd. (2019)** (K88). |
+| **Bulgu 3 — kaynakça** | [1]–[11] künyeleri katalogdan dolduruldu ve okundu işaretlendi; [15] yanlış yazar ("M. W. P. Solomon") ve arşivde olmayan esere işaret ediyordu → arşivdeki Larsen, Madsen & Solomon (2008) ile değiştirildi; metinde alıntılanıp listede olmayan [24]–[31] ve yöntem kaynakları [32]–[38] (Solomon 1987, Croes 1958, OR-Tools, Welch 1983, Law 2015, Montgomery, Floyd 1962) eklendi. "Doğrulanmalı" notlu alanlar tam metinden kontrol edilmeli. |
+| **Rapor** | Denetim artifact'ı: https://claude.ai/artifact/MC78BkVvUUvG6bn8hbcTKj |
+| **Tarih** | 27.10.2026 |
+
+### K97 — Politika Karşılaştırmasında Dört Adalet Kuralı (Y1 + Y2) ✅
+| Özellik | Değer |
+|---------|-------|
+| **Amaç** | Ana katkıyı "hata düzeltme"den **başkalarının kullanabileceği bir karşılaştırma çerçevesine** taşımak. Yazında politikalar dört farklı biçimde eşitlenir; hiçbir çalışma bunları yan yana koymaz. |
+| **Kurallar** | **A** eşit kart (Vojdani & Drechsler 2022 s.5) · **B** politika-tutarlı formül (Urru vd. 2018; VDI 5586; K65) · **C** eşit hizmet düzeyi — hedef duruşu (≤ %1, "fill rate ≥ %99" vekili) sağlayan en küçük tampon, sonra WIP karşılaştırılır (Alnahhal & Noche 2015 s.117) · **D** eşit WIP — dijitalin B WIP'inde, geleneksel eğride ara değerleme (K53, K95) |
+| **Yöntem** | Geleneksel (P2, T=60) ve dijital (P3, konsolidasyon); 3 araç; her sistem için $N_i = \max(1, N_i^{VDI}+k)$, $k=-3…+6$ → duruş–WIP eğrisi; 12 replikasyon. Kurallar aynı iki eğri üzerinde dört noktadır. Motor: `V2Parametre.n_ozel` (eski davranış birebir korunur, doğrulandı). |
+| **🎯 Mevcut kutular** | Duruş kazananı: A dijital (−2,33 / şok −9,03), **B eşit**, C dijital (WIP −%59 / −%10), D dijital (**−10,88 / −15,15**). Y2 Pareto: A, B, D'de dijital baskın; C'de takas. Tek ölçütlü fark kurala göre **−15,15 … +0,04 puan** arasında değişir. |
+| **🎯 Toyota kutuları (K95)** | A dijital, **B geleneksel** (baz +0,13 — sınırda, GA ±0,13; şok **+12,07**), C dijital (baz) / eşit (şok), D dijital. **Kazanan kurala göre değişir: şokta 3 farklı sonuç.** Pareto da kurala göre "dijital baskın", "takas" ve "geleneksel baskın" arasında değişir. |
+| **Yorum** | "Hangi politika daha iyi?" sorusunun cevabı, karşılaştırmanın nasıl adil kılındığına bağlıdır. Bir karşılaştırma çalışması kullandığı eşitleme kuralını açıkça belirtmeli ve mümkünse sonuçları duruş–WIP düzleminde (Pareto) vermelidir. Bu, makalenin önerilen **metodolojik ilkesidir**. |
+| **Sınır** | Tüm istasyonlara aynı $k$ (istasyon bazında optimum aranmadı); C'de hizmet düzeyi zaman bazlı duruşla temsil edildi; tek ağ, 3 araç. |
+| **Dosya** | `src/v2_adalet_kurallari.py` (`--kutu toyota`) · `data/synthetic/v2_adalet_{egriler,kurallar,kazanan}[_toyota].csv` · `docs/figurler/sekil7_adalet_kurallari[_toyota].png` |
+| **Tarih** | 27.10.2026 |
+
+### K98 — Uyarlanan ROP: Dijital Sistemin Şok Kırılganlığı Gerçek mi? (Y4) ✅
+| Özellik | Değer |
+|---------|-------|
+| **Soru** | K95/K97'de Toyota kutularında ve şokta dijital sistem (P3) %17,6, geleneksel (P2 T=60) %5,5 duruş veriyordu. P3'ün ROP'u tasarım talebiyle sabitti. ROP gerçekleşen talebe uyarlanırsa (K74; Elloumi vd. 2025 uyarlanabilir Kanban) fark kapanır mı? |
+| **Tasarım** | Dijital sabit · yalnız ROP uyarlanan (N sabit) · N+ROP uyarlanan (K74 tam) · geleneksel; mevcut ve Toyota kutuları × baz/şok; 3 araç, 12 replikasyon. Ayırt edici ölçüt **eğri kazancı**: uyarlanan noktanın, K97 dijital kart taraması eğrisine göre aynı WIP'teki duruş farkı (kazanç > GA → aynı stokla gerçek iyileşme). |
+| **🎯 Toyota · şok** | Uyarlama duruşu 17,62 → **13,50** (yalnız ROP) / 14,02 (N+ROP) indirir, ama eğri kazancı +0,46 / +0,07 (GA içinde) → **eğri boyunca kayma, yani kart eklemekle eşdeğer.** Geleneksel hâlâ **+7,96 puan** önde. **Kırılganlık model kısıtı değil, küçük kutularda gerçek bir politika özelliğidir.** |
+| **🎯 Eğriler kesişir** | Toyota · şokta iki sistemin duruş–WIP eğrileri ≈350 WIP'te kesişir: altında dijital, üstünde geleneksel daha düşük duruş verir (geleneksel nokta dijital eğrisinin 1,99 puan altında). Hangi politikanın iyi olduğu **stok bütçesine** bağlıdır — K97 Pareto ilkesinin doğrudan örneği. |
+| **🎯 Mevcut · şok** | N+ROP uyarlama sınırda gerçek iyileşme verir (kazanç +1,02, GA ±0,82): duruş 4,50 → 2,11; dijital geleneksele göre **−2,34 puan** ve **−%17 WIP** → iki ölçütte de önde. |
+| **Baz talep** | Uyarlama hafif zararlı (mevcut 0,17 → 0,35; Toyota 0,32 → 0,62): 60 dk'lık pencereden D tahmini gürültülüdür ve ROP'u dalgalandırır. Uyarlama yalnızca gerçek düzey değişiminde fayda sağlar. |
+| **Tezde kullanım** | "e-Kanban'ın bilgi avantajı" iddiası koşulludur: talep düzeyi değiştiğinde ve kutular büyük olduğunda gerçek iyileşme sağlar; küçük kutularda ek stoktan farksızdır. Uyarlanabilir Kanban'ın değeri (Elloumi vd. 2025) bu çalışmada kutu boyuna bağlı bulunmuştur. |
+| **Sınır** | Uyarlama yalnız dijitale verildi (geleneksel de periyodik yeniden boyutlandırılabilir); şok koşu boyunca sabit düzey kaymasıdır (ani adım değil); pencere 60 dk / periyot 30 dk sabit. |
+| **Dosya** | `src/v2_uyarlanan_rop.py` · `data/synthetic/v2_uyarlanan_rop.csv` · `docs/figurler/sekil8_uyarlanan_rop.png` |
+| **Tarih** | 27.10.2026 |
+
+### K99 — Kararlı Durum ve Çok Vardiyalı Ufukta Sağlamlık (H4) ✅ · ⚠️ Gösterge Kararı
+| Özellik | Değer |
+|---------|-------|
+| **Tespit** | Motorun `starv_pct` ve `ort_wip` göstergeleri **ısınma dönemini içerir** (duruş / (T·n); WIP tüm dakikaların ortalaması). K78 ısınmayı 90 dk ölçmüş, ancak K93–K98 göstergeleri bu dönemi dışlamamıştır. Motor `starv_pct_isinma_sonrasi`'nı zaten hesaplıyordu, kullanılmamıştı. |
+| **Tasarım** | K93 karşılaştırması (A ↔ B, geleneksel ↔ dijital, 3 araç, 12 rep) × ufuk {480, 1440 dk} × gösterge {tüm koşu, ısınma sonrası} × kutu {mevcut, Toyota} × talep {baz, +%50}. |
+| **Isınma yanlılığı** | 480 dk'da duruş **0,04–3,87 puan düşük** (ort. 1,15), WIP **%5–37 yüksek** görünür (en büyük: Toyota · şok · dijital B, 243 ↔ 177). 1440 dk'da yanlılık ≈ üçte birine iner (duruş ort. 0,40, WIP ≤ %12,8). |
+| **🎯 Sağlamlık** | **Kayma 16/16 birleşimde pozitif** ve ufuk/kararlı durumla büyür (mevcut şok +9,07 → +10,57; Toyota şok +17,25 → +19,01). Toyota kutularında **sıralama 8/8 birleşimde değişir**. Göreli WIP farkları korunur veya güçlenir (mevcut B −%39 → −%41; Toyota şok B −%40 → −%53). |
+| **⚠️ İnce ayar** | Mevcut kutularda uzun ufukta kural B'de dijital küçük ama anlamlı farkla öndedir (baz −0,25 ± 0,10; şok kararlı durumda −0,50 ± 0,46). Mevcut kutular için doğru ifade "sıralama değişir" değil, **"fark %90–95 küçülür"**dür (−2,92 → −0,25; −11,07 → −0,50). Toyota kutularında ise sıralama her koşulda değişir. |
+| **Karar** | (1) K93–K98'in **göreli** sonuçları geçerlidir, yeniden üretilmesi gerekmez. (2) Tez/makale tablolarında **mutlak** duruş ve WIP değerleri **ısınma sonrası** göstergeyle verilmeli; bu yapılmadıysa tablo başlığında "tüm koşu (ısınma dahil)" yazılmalıdır. (3) Motorun varsayılan göstergesi geriye uyumluluk için değiştirilmedi; ileride değiştirilirse dashboard ambarı yeniden üretilmelidir. |
+| **Dosya** | `src/v2_cok_vardiya.py` · `data/synthetic/v2_cok_vardiya_{ham,ozet}.csv` |
+| **Tarih** | 27.10.2026 |
+
+### K100 — Koordinat Tabanlı Mesafe Ağı (H3) ✅ · Vojdani Çelişkisi Çözüldü
+| Özellik | Değer |
+|---------|-------|
+| **Sorun** | `distances.csv` hiçbir yerleşimden türetilmemiştir, 286 yönlü çiftte üçgen eşitsizliğini ihlal eder (K71: Floyd–Warshall geçici çözüm; S5, S10). |
+| **Yerleşim** | Depo (0,0); 4 paralel hat × 6 istasyon; **dikdörtgensel ölçü** (Sevim & Görkemli Aykut 2026, Denk. 3). Durak aralığı **s = 124/6 ≈ 20,7 m** — Urru vd. (2018) s.406: *"5 stops ... equally distributed along the route. The route is 124 meters long"*. Hat aralığı w = 2·s **mühendislik varsayımıdır** (kaynak yok). İki ölçek: KOMPAKT (Urru ölçeği, depo ort. 114 m) ve GENIS (depo ort. mevcut matrise eşit, 160 m). Üçgen ihlali: 0. |
+| **⚠️ Kaynak düzeltmesi** | Yol haritasındaki "istasyon aralığı literatür bandı 25–53 m" ifadesinin hiçbir belgede kaynağı yoktur; kullanılmamalıdır. Kaynaklı değer Urru (2018)'den ≈20,7 m'dir. |
+| **⚠️ Veri notu** | `stations.csv`'de `sira_no` global numaralıdır (1–24), hat içi sıra değildir; betik hat içi sırayı türetir. |
+| **🎯 Sağlamlık** | K93 kayması gerçekleşebilir ağda da pozitiftir: baz +1,77 / +1,88, şok +7,79 / +7,97 (mevcut matris: +2,19 / +9,07). Kural B'de dijital küçük ama anlamlı farkla öndedir (baz −0,11 ± 0,10; şok −0,93 ± 0,38) → K99 ile aynı: mevcut kutularda **fark %90 küçülür**, sıralama değişmez. WIP avantajı aynıdır (−%36…−%40). |
+| **🎯 Vojdani çelişkisi çözüldü** | Mevcut matriste dijital sistem baz talepte geleneksele göre **+%13 yol** yapıyordu (Vojdani & Drechsler 2022: **−%29,39**). Koordinat ağında: **−%21…−%23 sefer, −%6…−%8 yol** → yön Vojdani ile aynıdır. Önceki çelişki metrik olmayan matrisin yan ürünüdür. Şokta dijital daha fazla sefer/yol yapar (+%20…+%37); Vojdani şok koşmamıştır. |
+| **Mutlak mesafe** | Mevcut matris vardiya başına yolu ≈2,5–3,5 kat büyük gösterir (geleneksel 34,9 km ↔ 10,1–14,3 km). Mesafe KPI'ları mutlak olarak raporlanacaksa koordinat ağı kullanılmalıdır. |
+| **Karar** | Motor varsayılanı değiştirilmedi (tüm önceki sonuçlar ve dashboard ambarı mevcut matrise dayanır). **Öneri:** tezin nihai koşuları koordinat ağıyla (KOMPAKT) yapılmalı; o noktada dashboard ambarı yeniden üretilmelidir. `literatur_boslugu_analizi.md` 10.4'teki "mesafede bizim dijital sistemimiz daha fazla yol yapar" dürüstlük notu bu bulguyla güncellenmelidir. |
+| **Dosya** | `src/v2_koordinat_agi.py` · `data/synthetic/v2_koordinat_agi_{ham,ozet}.csv` |
+| **Tarih** | 27.10.2026 |
+
+### K102 — Dashboard Kademe 2: Ana Katkı Panelleri ve Kalan v1 Kalıntıları ✅
+| Özellik | Değer |
+|---------|-------|
+| **⚠️ K94 sonrası kalan v1 kalıntıları** | K94 veri ambarını bağlamıştı, ancak HTML/JS'e gömülü sabit v1 değerleri kalmıştı: "Statik vs Dinamik" sekmesinin tüm tabloları (%19,31 / %24,58 / 36 sefer / 54 km), filo grafiğinin statik çizgisi `[25.77 … 18.68]`, yükleme yer tutucuları (%24,58, "2,832 dk", "+5,27 puan"), başlık notu ("seed=42 … fark 3–5 puan"), otomatik yorum ("fark +3,06 puan", "%5 eşiği için 8 araç"), `STATIC_BASELINE_MAP` v1 yedeği. Hepsi kaldırıldı veya veriye bağlandı. |
+| **⚠️ Uydurma gösterge** | Doluluk KPI'ı veriden değil `100 − duruş × 0,8` formülünden hesaplanıyordu (≈%99 gösteriyordu). Artık senaryonun gerçek `doluluk_pct` değeri gösterilir (baz: %32,7). |
+| **⚠️ Geçersiz JSON** | `dashboard_scenarios_v2.json` ablation satırlarında `NaN` içeriyordu; standalone'da (JS sabiti) sorun çıkmıyor, ancak `index.html` sunucudan açılınca `response.json()` hata verirdi. Üreticiye `_nan_temizle` + `allow_nan=False` eklendi; mevcut ambar yerinde düzeltildi. |
+| **Yeni sekme** | "⚖️ Politikalar & Ana Katkı" (eski "Statik vs Dinamik" yerine): **D4** P1/P2/P3 tablosu — filo/talep/boyutlandırma seçilir, her politika kendi kart sayısıyla ve ± %95 GA ile gösterilir · **K97** dört adalet kuralı — kutu boyu ve talep seçilir, duruş–WIP eğrileri ve kural noktaları (aynı noktalar "B=D" biçiminde) + kazanan/Pareto tablosu · **D6** etkileşimli Pareto — politika filtreleri, görünür noktaların cephesi, tıklanan noktanın ayrıntısı · **D5** ayrıştırma — adımlar açılıp kapatılır, seçili adımların toplam etkisi yazılır (yaklaşık olduğu belirtilir). |
+| **Otomatik yorum** | Veriden üretilir: duruş ± GA, statik referansla fark (< 0,5 puan ise "pratikte aynı"), %5 eşiğine inen en küçük filo (veride 2 araç), K96/K97 cümlesi. What-If yorumu artık "α'yı yükseltin" önermez (K82). |
+| **Veri** | Ambara `adalet` bölümü eklendi (`adalet_ozeti()`: mevcut + Toyota kutuları, eğriler/kurallar/kazananlar). |
+| **Doğrulama** | `node --check` (app.js + standalone'daki 2 gömülü blok) geçti; headless tarayıcıda tüm paneller veriyle doldu (P1/P2/P3 9 satır, K97 4 satır, ayrıştırma %6,85 → %0,09). |
+| **Tarih** | 27.10.2026 |
+
+### K101 — Rotalama Sezgiseli: Çevrimdışı Tam Bilgi Referansı (H5) ✅
+| Özellik | Değer |
+|---------|-------|
+| **Soru** | Solomon'da sezgisel OR-Tools'tan %101,8 geridedir (S8), ama Solomon statik 100 müşterili bir problemdir. Fabrika senaryosunda rotalama ne kadar iyi? |
+| **Yöntem** | Bir P3 koşusundaki tüm siparişler (istasyon, sinyal zamanı, son teslim, kutu) kaydedilip OR-Tools (GLS, 15 sn) ile çevrimdışı VRPTW olarak çözüldü. Gevşetmeler: siparişler önceden bilinir; filo eşzamanlılığı yok (sınırsız sanal araç); depodan erken çıkış serbest. Motorla aynı: 90 dk tur süresi sınırı (K72), yumuşak son teslim (gecikme cezası 10 dk-eşdeğeri), Q=25, 3 dk durak servisi. 2 ağ × 2 talep × 2 sevk × 2 tohum. Motorda `_siparisler` kaydı eklendi (geriye uyumlu). |
+| **⚠️ Tasarım düzeltmeleri** | (1) Tur süresi sınırı olmadan sanal bir araç bir istasyonda saatlerce bekleyip ardışık siparişleri sıfır mesafeyle topluyordu (11,0 km, anlamsız sınır) → K72 sınırı eklendi. (2) GLS sezgiseldir ve süre sınırında yakınsamaz (10 sn 30,9 km → 30 sn 24,0 km); sonuç **kanıtlanmış alt sınır değildir** → "çevrimdışı tam bilgi referansı" olarak adlandırıldı. |
+| **🎯 Baz talep · konsolidasyon** | Sezgisel referanstan **%62–69 fazla yol** yapar, ancak **daha az gecikme** verir (mevcut ağ 3,0 ↔ 8,5; koordinat ağı 1,5 ↔ 2,0 gecikmeli teslim). |
+| **🎯 Talep şoku** | Referans mesafeyi düşürmek için **94–121 teslimi geciktirir**; sezgisel 0–4,5. Bu koşulda iki çözüm karşılaştırılabilir değildir. Koordinat ağında konsolidasyonlu sezgisel hem **daha kısa yol** (−%17) hem sıfır gecikme verir. |
+| **ANINDA sevk** | Açık büyüktür (+%39 … +%346): tasarım gereği her sinyalde araç kalkar (114–126 tur). Konsolidasyonun taşıma verimliliği katkısı (K82: doluluk +20 puan) bu tabloyla tutarlıdır. |
+| **Yorum** | Sezgisel zamanında teslimi önceliklendirir; tam bilgiyle bile mesafe kazancı yalnızca baz talepte ve gecikme pahasına ≈%60–70 düzeyindedir. Solomon'daki %101,8'lik açık fabrika senaryosuna doğrudan taşınamaz. **S8 sınırlılığı daralır ama kapanmaz:** çevrimiçi optimum bilinmemektedir. |
+| **Sınır** | 2 tohum, 15 sn; mesafe–gecikme takası ceza ağırlığına bağlıdır; referans gevşetilmiş problemdir. |
+| **Dosya** | `src/v2_ortools_referansi.py` · `data/synthetic/v2_ortools_referansi_{ham,ozet}.csv` |
+| **Tarih** | 27.10.2026 |
+
+---
+
 *Bu dosya her yeni kararla güncellenir.*
 *Kaynak gösterilemeyen hiçbir değer projeye dahil edilmez.*
 *⚠️ Tüm analizler SENTETİK veriyle yapılmaktadır. Gerçek veri için config.json → "real".*

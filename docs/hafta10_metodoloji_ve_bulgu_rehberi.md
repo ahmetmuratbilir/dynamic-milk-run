@@ -2,6 +2,14 @@
 # Ne yaptık, neden yaptık, ne bulduk — tez yazımı için hazır kaynak
 # Tarih: 15.08.2026 | Proje: Dinamik Milk-Run & E-Kanban Karar Destek Sistemi
 
+> ⚠️ **TARİHSEL BELGE — v1 MOTORU (03.11.2026 notu).** Bu rehberdeki sayısal bulgular
+> Hafta 14 revizyonundan **önceki** v1 motoruna aittir ve güncel değildir: "statik sistem
+> eşit WIP'te üstün", "KRİTİKLİK kuralı anlamlı kötü", "%5 eşiği için 8 araç" gibi
+> sonuçlar v2'de **desteklenmemektedir** (K82, K96, K97). Tez yazımında bu belgeden
+> sayı alıntılanmamalı; güncel kaynaklar: `hafta14_literatur_denetimi_ve_revizyon_raporu.md`,
+> `literatur_boslugu_analizi.md`, `karar_gunlugu.md` (K93–K102). Yöntem anlatımı
+> (araştırma sorusu, sistem tanımı) bağlam olarak okunabilir.
+
 ---
 
 ## BÖLÜM 1: ARAŞTIRMANIN AMACI VE TASARIMI
