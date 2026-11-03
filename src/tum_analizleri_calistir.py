@@ -12,7 +12,7 @@ Sıra
   4. Vaka çalışması, dinamik Kanban, dinamiklik derecesi ve KPI uyumu
   5. Boyutlandırma tasarımı duyarlılığı (K93)
   6. Toyota bandı sağlamlığı (K95)
-  7. Dört adalet kuralı (K97, mevcut + Toyota kutuları) uyarlanan ROP (K98), çok vardiya (K99), koordinat ağı (K100)
+  7. Dört adalet kuralı (K97, mevcut + Toyota kutuları) uyarlanan ROP (K98), çok vardiya (K99), koordinat ağı (K100), makale tabloları (K105)
   8. Dashboard v2 veri ambarı + dashboard.html (K94)
   9. Solomon VRPTW doğrulaması        (ortools + vrplib gerekir; yoksa atlanır)
 
@@ -90,8 +90,10 @@ def main():
          "src.v2_koordinat_agi", ["--rep", rep_deney]),
         ("solomon", "7/9 · Rotalama: OR-Tools çevrimdışı referansı (K101)",
          "src.v2_ortools_referansi", ["--sure", "5" if args.hizli else "15", "--rep", "2"]),
-        ("dashboard", "8/9 · Dashboard v2 veri ambarı (K94)",
-         "src.generate_dashboard_data_v2", ["--rep", rep_dash]),
+        ("adalet", "7/9 · Makale tabloları, nihai ayar (K105)",
+         "src.v2_makale_tablolari", ["--rep", rep_deney]),
+        ("dashboard", "8/9 · Dashboard v2 veri ambarı, nihai ayar (K94, K105)",
+         "src.generate_dashboard_data_v2", ["--rep", rep_dash, "--nihai"]),
         ("solomon", "9/9 · Solomon VRPTW doğrulaması",
          "src.solomon_dogrulama", ["--sure", sure_solomon]),
     ]

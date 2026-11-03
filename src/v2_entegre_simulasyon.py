@@ -99,7 +99,7 @@ class V2Parametre:
     gecikme_ceza: float = 10.0           # 2-opt maliyetinde dk gecikme başına ağırlık
 
     # Ağ ve talep (K10, K70, K71)
-    mesafe_modu: str = "METRIK"          # "HAM" | "METRIK"
+    mesafe_modu: str = "METRIK"          # "HAM" | "METRIK" | "KOORDINAT" (K100, K105)
     talep_modeli: str = "SAATLIK_REJIM"  # "CSV" | "NORMAL_DK_V1" | "SAATLIK_REJIM" | "POISSON"
     talep_carpani: float = 1.0           # talep şoku (tasarım D'si değişmez)
     hiz_carpani: float = 1.0             # >1: süreler uzar
@@ -121,6 +121,33 @@ class V2Parametre:
 # ─────────────────────────────────────────────────────────────
 # Veri hazırlığı (bir kez okunur, tüm koşularda paylaşılır)
 # ─────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────
+# Koordinat tabanlı mesafe ağı (K100, K105)
+# ─────────────────────────────────────────────────────────────
+# Durak aralığı: Urru, Bonini & Echelmeyer (2018) s.406 — "5 stops ... equally distributed
+# along the route. The route is 124 meters long" (5 durak + depo dönüşü = 6 eşit parça).
+# Hat aralığı w = 2·s mühendislik varsayımıdır (kaynak yok).
+KOORDINAT_DURAK_ARALIGI_M = 124.0 / 6
+KOORDINAT_HAT_ARALIGI_KAT = 2.0
+
+
+def koordinat_mesafe(st: pd.DataFrame, n_node: int, s: float = KOORDINAT_DURAK_ARALIGI_M,
+                     w: Optional[float] = None) -> np.ndarray:
+    """Depo (0,0); hatlar paralel, istasyonlar hat içinde s aralıklı; dikdörtgensel ölçü
+    (Sevim & Görkemli Aykut 2026, Denk. 3). Düğüm 0 = depo, düğüm k = S_k.
+    stations.csv'deki sira_no global numaralıdır; hat içi sıra ondan türetilir."""
+    w = KOORDINAT_HAT_ARALIGI_KAT * s if w is None else w
+    hatlar = sorted(st["hat"].unique())
+    orta = (len(hatlar) - 1) / 2
+    hat_ici = st.groupby("hat")["sira_no"].rank(method="first").astype(int)
+    xy = np.zeros((n_node, 2))
+    for (_, r), j in zip(st.iterrows(), hat_ici):
+        k = int(str(r["istasyon_id"]).replace("S", ""))
+        xy[k] = (s * j, w * (hatlar.index(r["hat"]) - orta))
+    return (np.abs(xy[:, None, 0] - xy[None, :, 0]) +
+            np.abs(xy[:, None, 1] - xy[None, :, 1]))
+
+
 class V2Veri:
     def __init__(self, loader: Optional[DataLoader] = None):
         self.loader = loader or DataLoader()
@@ -144,6 +171,7 @@ class V2Veri:
             ham[int(f), int(t)] = float(m)
         self.mesafe_ham = ham
         self.mesafe_metrik, self.metrik_duzeltilen_cift = self._floyd_warshall(ham)
+        self.mesafe_koordinat = koordinat_mesafe(st, n_node)
 
         cons = self.loader.get_consumption()
         piv = cons.pivot(index="dakika", columns="istasyon_id", values="tuketim_adet")
@@ -292,7 +320,8 @@ def simule_et(p: V2Parametre, veri: Optional[V2Veri] = None) -> dict:
     C = veri.C
     tuk = veri.talep_uret(p)
 
-    mesafe = veri.mesafe_metrik if p.mesafe_modu == "METRIK" else veri.mesafe_ham
+    mesafe = {"METRIK": veri.mesafe_metrik, "KOORDINAT": veri.mesafe_koordinat}.get(
+        p.mesafe_modu, veri.mesafe_ham)
     sure = mesafe / veri.hiz_m_dk * p.hiz_carpani
     rota = _Rota(sure, p)
 
@@ -529,6 +558,8 @@ def _ozet(p, veri, starv, starv_is, turlar, siparis_kaydi, sip, acik, N, cap, n_
         "starv_pct": 100.0 * toplam_starv / (T * n),
         "starv_pct_isinma_sonrasi": 100.0 * starv_is / ((T - p.isinma_dk) * n),
         "ort_wip": float(np.mean(wip_seri)) if wip_seri else None,
+        # K99: ısınma dönemi hariç WIP (tez tablolarında kullanılır)
+        "ort_wip_isinma_sonrasi": float(np.mean(wip_seri[p.isinma_dk:])) if len(wip_seri) > p.isinma_dk else None,
         "toplam_mesafe_km": float(tur_df["mesafe_m"].sum() / 1000.0) if tur_sayisi else 0.0,
         "tur_sayisi": tur_sayisi,
         "ort_kutu_tur": toplam_kutu / tur_sayisi if tur_sayisi else 0.0,

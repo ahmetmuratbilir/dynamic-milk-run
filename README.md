@@ -39,7 +39,10 @@ Yorumları: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`.
 | Vardiya / ısınma | 480 dk / **90 dk** | K05, **K78** |
 | Kanban | $N = 1 + \lceil D \cdot LT (1+\alpha) / C \rceil$ | **K65** |
 
-Her parametrenin kaynağı ve gerekçesi: **`docs/karar_gunlugu.md`** (K01–K82).
+Her parametrenin kaynağı ve gerekçesi: **`docs/karar_gunlugu.md`** (K01–K105).
+
+**Makale tabloları (nihai ayar: koordinat ağı, 1440 dk, ısınma sonrası):** `docs/makale_tablolari.md` — üretim: `python -X utf8 -m src.v2_makale_tablolari` (≈4 dk, K105).
+**Proje rehberi (eksikler, kritik sorular, belge sırası, ekranlar):** `docs/proje_rehberi.html`.
 
 ### Politikalar
 
@@ -84,6 +87,15 @@ src/
   v2_dogrulama_ve_kalibrasyon.py  Tur-içi optimallik, Welch ısınma, replikasyon, ayrıştırma
   v2_pareto_ve_figurler.py        Politika ızgarası, Pareto cephesi, makale figürleri
   v2_deney_tasarimi.py            2^5 faktöriyel, ANOVA, Tukey HSD
+  v2_boyutlandirma_duyarliligi.py Vojdani tasarımı ↔ politika-tutarlı tampon (K93)
+  v2_toyota_bandi_duyarliligi.py  Toyota α ve kutu bandında sağlamlık (K95)
+  v2_adalet_kurallari.py          Dört eşitleme kuralı (K97; --kutu toyota)
+  v2_uyarlanan_rop.py             Uyarlanan ROP (K98)
+  v2_cok_vardiya.py               480/1440 dk, ısınma dahil/hariç (K99)
+  v2_koordinat_agi.py             Koordinat tabanlı mesafe ağı (K100)
+  v2_ortools_referansi.py         Çevrimdışı tam bilgi rotalama referansı (K101)
+  v2_makale_tablolari.py          Nihai ayarla makale tabloları (K105)
+  generate_dashboard_data_v2.py   Dashboard veri ambarı (K94, K102)
   solomon_dogrulama.py            Solomon VRPTW kıyaslaması (OR-Tools referanslı)
   tum_analizleri_calistir.py      Hepsini sırayla çalıştırır
   kaynak_arsivi_denetimi.py       Kaynak arşivi bütünlük denetimi (zip/kopya/eksik)
@@ -95,13 +107,17 @@ data/
   synthetic/                      Üretilmiş veri ve tüm analiz çıktıları
   real/                           Gerçek veri şablonu (boş; yalnızca başlık satırları)
 docs/
-  karar_gunlugu.md                K01–K82: her kararın kaynağı ve gerekçesi
+  karar_gunlugu.md                K01–K105: her kararın kaynağı ve gerekçesi
+  makale_tablolari.md             ← makaleye girecek tablolar (K105)
+  literatur_boslugu_analizi.md    Boşluk, katkılar, hazır cümleler, hakem cevapları
+  proje_rehberi.html              Eksikler, kritik sorular, belge sırası, ekran rehberi
   hafta14_literatur_denetimi_ve_revizyon_raporu.md    ← güncel sonuçlar
   tez_bilgi_rehberi.md            Akademik master doküman (IMRaD)
   hafta1..10_*.md                 Haftalık raporlar (errata notlarıyla)
   figurler/                       Makale figürleri (200 dpi PNG)
   papers/                         Literatür kataloğu ve çıkarılmış metinler
-dashboard.html, app.js, style.css Karar destek arayüzü (1920 senaryo gömülü)
+dashboard.html, app.js, style.css Karar destek arayüzü: Özet, What-If, İstasyon,
+                                  Politikalar & Ana Katkı, Doğrulama, Veri Girişi
 ```
 
 > ⚠️ **Telif uyarısı.** `docs/papers/zip*/` altındaki makale PDF'leri telif hakkı
@@ -128,6 +144,10 @@ değişiklik gerekmez — tüm okuma `src/data_loader.py` üzerinden yapılır.
 | Replikasyon yeterliliği | Mutlak ölçütle (±0,05 puan) **n = 9** |
 | Sevk kuralları (ANOVA + Tukey) | Dört kural **eşdeğer** (p = 0,9997 / 0,3415) |
 
-**Bilinen sınırlılıklar:** sentetik veri; tek vardiya (ısınma sonrası etkin pencere
-390 dk); tur-arası atama optimize edilmiyor; mesafe matrisi koordinatlardan
-üretilmiyor (Floyd–Warshall geçici çözümü). Tam liste: revizyon raporu Bölüm 9.
+| Sağlamlık (K95, K99, K100) | Boyutlandırma kayması 52/52 koşulda pozitif |
+| Rotalama, fabrika senaryosu (K101) | Çevrimdışı tam bilgi referansı daha kısa yol, daha çok gecikme |
+
+**Bilinen sınırlılıklar:** sentetik veri; tek fabrika düzeni ve hatlar arası mesafe
+varsayımı (K100); tur-arası atama optimize edilmiyor (K101); motor varsayılanları
+ısınma dahil gösterge ve eski mesafe matrisiyle çalışır — makale sayıları nihai ayarla
+üretilir (K99, K105). Tam liste: `docs/proje_rehberi.html` S11.

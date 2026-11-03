@@ -1,7 +1,18 @@
-# DEVAM NOTU — 27.10.2026
+# DEVAM NOTU — 03.11.2026
 
 > Oturum kota nedeniyle durduruldu. Bu dosya kaldığımız yeri ve sıradaki adımı tutar.
 > Devam ederken önce bunu okuyun.
+
+---
+
+## ✅ TEMEL HAZIR (03.11.2026) — sıradaki iş: makale metni
+
+- **Makale sayıları:** yalnızca `docs/makale_tablolari.md` (nihai ayar: koordinat ağı, 1440 dk, ısınma sonrası — K105). Üretim: `python -X utf8 -m src.v2_makale_tablolari` (≈4 dk)
+- **Ana bulgu (nihai):** dört eşitleme kuralı farkı −17,3 … +2,0 puan arasında değiştirir; Toyota kutularında B → geleneksel, A/C/D → dijital. ⚠️ Önceki "üç farklı kazanan" ifadesi nihai ayarda tutmadı.
+- **Hazır metin parçaları:** `literatur_boslugu_analizi.md` §5 (giriş, katkılar, tartışma, sonuç) ve §8 (başlık: Öneri C)
+- **Kaynaklar:** 8/9 okundu (K103, K104); yalnızca Alnahhal 2016 eksik — yazarın tezi: duepublico2.uni-due.de/receive/duepublico_mods_00039133
+- **Rehber:** `docs/proje_rehberi.html` (eksikler, kritik sorular, belge sırası, ekranlar)
+- **Dashboard:** nihai ayarla üretildi (`generate_dashboard_data_v2 --nihai`, ≈25 dk)
 
 ---
 
@@ -129,4 +140,4 @@ python -X utf8 -m src.kaynak_arsivi_denetimi
 
 **Ana belgeler:** `literatur_boslugu_analizi.md` (boşluk + hakem yanıtları) ·
 `akademik_degerlendirme_ve_yol_haritasi.md` (yol haritası) ·
-`karar_gunlugu.md` (K01–K102) · `hafta14_literatur_denetimi_ve_revizyon_raporu.md`
+`karar_gunlugu.md` (K01–K105) · `hafta14_literatur_denetimi_ve_revizyon_raporu.md`

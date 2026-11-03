@@ -125,6 +125,13 @@ function exportArrayToCSV(rows, headers, filename) {
 }
 
 // ===== v2 YARDIMCILARI (K94) =====
+// Duruş dakikasının paydası: 24 istasyon × gösterilen pencere (ufuk, ısınma sonrası ise ısınma hariç)
+function _durusPaydasi() {
+    const m = dashboardMeta || {};
+    const ufuk = m.ufuk_dk || 480;
+    const pencere = (m.gosterge || '').startsWith('ısınma sonrası') ? ufuk - (m.isinma_dk || 90) : ufuk;
+    return 24 * pencere;
+}
 function ciMetni(s) {
     return (s && s.starv_ci95 != null) ? ' ±' + s.starv_ci95.toFixed(2) : '';
 }
@@ -132,7 +139,8 @@ function ciMetni(s) {
 function renderSurumDamgasi() {
     const el = document.getElementById('surumDamgasi');
     if (!el || !dashboardMeta) return;
-    el.textContent = 'Motor: ' + dashboardMeta.motor + ' · ' + dashboardMeta.replikasyon +
+    el.textContent = 'Motor: ' + dashboardMeta.motor + ' · ' + (dashboardMeta.ayar || '') + ' · ' +
+        (dashboardMeta.ufuk_dk || 480) + ' dk · ' + dashboardMeta.replikasyon +
         ' replikasyon · üretim ' + dashboardMeta.uretim_tarihi + ' · değerler ort. ± %95 GA';
     el.title = dashboardMeta.not || '';
 }
@@ -430,7 +438,7 @@ function updateOzetView() {
     const cardStarv = document.getElementById('kpiCardStarv');
 
     if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2) + ciMetni(bazScenario);
-    if (elStarvDk) elStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dakika kümülatif duruş';
+    if (elStarvDk) elStarvDk.textContent = Math.round(starvDk).toLocaleString('tr-TR') + ' / ' + _durusPaydasi().toLocaleString('tr-TR') + ' istasyon-dakika duruş';
 
     if (dotStarv && cardStarv) {
         if (starvPct < 10) {
@@ -571,7 +579,7 @@ function updateWhatIfView() {
     const wiStarvVal = document.getElementById('wiStarvVal');
     const wiStarvDk = document.getElementById('wiStarvDk');
     if (wiStarvVal) wiStarvVal.textContent = '%' + starvPct.toFixed(2) + ciMetni(curScenario);
-    if (wiStarvDk) wiStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dk';
+    if (wiStarvDk) wiStarvDk.textContent = Math.round(starvDk).toLocaleString('tr-TR') + ' / ' + _durusPaydasi().toLocaleString('tr-TR') + ' ist.-dk';
 
     const wiWipVal = document.getElementById('wiWipVal');
     if (wiWipVal) wiWipVal.textContent = ortWip.toFixed(1);

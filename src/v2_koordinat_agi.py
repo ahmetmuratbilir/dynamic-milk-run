@@ -52,38 +52,20 @@ try:
 except Exception:
     pass
 
-from src.v2_entegre_simulasyon import V2Parametre, V2Veri
+from src.v2_entegre_simulasyon import (V2Parametre, V2Veri, KOORDINAT_DURAK_ARALIGI_M,
+                                      KOORDINAT_HAT_ARALIGI_KAT)
 from src.v2_boyutlandirma_duyarliligi import GELENEKSEL, DIJITAL, KURGULAR, _ort
 
-DURAK_ARALIGI = 124.0 / 6     # m — Urru vd. (2018) s.406
-HAT_ARALIGI_KAT = 2.0         # w = 2·s — mühendislik varsayımı
+# Yerleşim parametreleri motorda: KOORDINAT_DURAK_ARALIGI_M (Urru 2018), KOORDINAT_HAT_ARALIGI_KAT
+DURAK_ARALIGI = KOORDINAT_DURAK_ARALIGI_M
+HAT_ARALIGI_KAT = KOORDINAT_HAT_ARALIGI_KAT
 TALEPLER = [("Baz talep", 1.0), ("Talep şoku +%50", 1.5)]
 SISTEMLER = [("Geleneksel", GELENEKSEL), ("Dijital", DIJITAL)]
 
 
-def koordinatlar(veri: V2Veri, s: float, w: float) -> np.ndarray:
-    """Düğüm 0 = depo, düğüm k = S_k. Döner: [n_node × 2] koordinat."""
-    st = veri.loader.get_stations()
-    hatlar = sorted(st["hat"].unique())
-    n_node = veri.mesafe_ham.shape[0]
-    xy = np.zeros((n_node, 2))
-    orta = (len(hatlar) - 1) / 2
-    # sira_no global numaralıdır (1–24); hat içi sıra, hat içindeki sıralamadan türetilir
-    hat_ici = st.groupby("hat")["sira_no"].rank(method="first").astype(int)
-    for (_, r), j in zip(st.iterrows(), hat_ici):
-        k = int(str(r["istasyon_id"]).replace("S", ""))
-        h = hatlar.index(r["hat"])
-        xy[k] = (s * j, w * (h - orta))
-    return xy
-
-
-def dikdortgensel(xy: np.ndarray) -> np.ndarray:
-    return np.abs(xy[:, None, 0] - xy[None, :, 0]) + np.abs(xy[:, None, 1] - xy[None, :, 1])
-
-
 def aglar(temel: V2Veri) -> dict:
-    s, w = DURAK_ARALIGI, HAT_ARALIGI_KAT * DURAK_ARALIGI
-    m_kompakt = dikdortgensel(koordinatlar(temel, s, w))
+    # Yerleşim motorda tanımlıdır (koordinat_mesafe, K105); burada yalnızca ölçeklenir
+    m_kompakt = temel.mesafe_koordinat
     olcek = temel.mesafe_metrik[0, 1:].mean() / m_kompakt[0, 1:].mean()
     out = {"MEVCUT_METRIK": temel}
     for ad, m in (("KOMPAKT", m_kompakt), ("GENIS", m_kompakt * olcek)):

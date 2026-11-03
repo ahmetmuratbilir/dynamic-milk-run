@@ -171,17 +171,6 @@ def sekil7(tum_e, tum_k, yol):
                     zorder=2, label=f"{sistem} · kart taraması" if i == 0 else None)
             ax.scatter(s["ort_wip"], s["starv_pct"], s=12, color=RENK[sistem], alpha=0.55, zorder=2)
         k = tum_k[tum_k["talep"] == talep]
-        etiket = {}                      # aynı noktaya düşen kurallar tek etiket: "B=D"
-        for _, r in k.iterrows():
-            ax.scatter(r["ort_wip"], r["starv_pct"], marker=isaret[r["kural"]], s=70,
-                       facecolor=RENK[r["sistem"]], edgecolor=INK, lw=0.8, zorder=4)
-            anahtar = (r["sistem"], round(r["ort_wip"]), round(r["starv_pct"], 2))
-            etiket.setdefault(anahtar, []).append(r["kural"])
-        for (sistem, w, y), ad in etiket.items():
-            # geleneksel etiketleri sağ üste, dijital sol alta: çakışmayı önler
-            ofs = (7, 6) if sistem == "Geleneksel" else (-8 - 7 * len(ad), -14)
-            ax.annotate("=".join(ad), (w, y), xytext=ofs, textcoords="offset points",
-                        fontsize=9, color=RENK[sistem], fontweight="bold")
         ax.axhline(HEDEF_DURUS, color=MUTED, lw=0.8, ls=":", zorder=1)
         # ilgi bölgesi: kural noktalarının çevresi (uzun kuyruk eğrinin şeklini ezmesin)
         x_ust = 1.35 * k["ort_wip"].max()
@@ -189,6 +178,23 @@ def sekil7(tum_e, tum_k, yol):
         y_ust = 1.15 * max(k["starv_pct"].max(), gorunur.max(), 2 * HEDEF_DURUS)
         ax.set_xlim(0, x_ust)
         ax.set_ylim(-0.03 * y_ust, y_ust)
+        # yakın düşen kural noktaları tek etikette birleşir ("B=D"); tolerans eksen ölçeğinin %3'ü
+        for sistem in ("Geleneksel", "Dijital"):
+            gruplar = []
+            for _, r in k[k["sistem"] == sistem].iterrows():
+                ax.scatter(r["ort_wip"], r["starv_pct"], marker=isaret[r["kural"]], s=70,
+                           facecolor=RENK[sistem], edgecolor=INK, lw=0.8, zorder=4)
+                for g in gruplar:
+                    if abs(g["x"] - r["ort_wip"]) < 0.03 * x_ust and abs(g["y"] - r["starv_pct"]) < 0.03 * y_ust:
+                        g["ad"].append(r["kural"])
+                        break
+                else:
+                    gruplar.append({"x": r["ort_wip"], "y": r["starv_pct"], "ad": [r["kural"]]})
+            for g in gruplar:
+                # geleneksel etiketleri sağ üste, dijital sol alta: çakışmayı önler
+                ofs = (7, 6) if sistem == "Geleneksel" else (-8 - 7 * len(g["ad"]), -14)
+                ax.annotate("=".join(g["ad"]), (g["x"], g["y"]), xytext=ofs, textcoords="offset points",
+                            fontsize=9, color=RENK[sistem], fontweight="bold")
     for kural, m in isaret.items():
         axlar[1].scatter([], [], marker=m, s=55, facecolor="none", edgecolor=INK, label=KURAL_AD[kural])
     axlar[0].legend(frameon=False, fontsize=8.5, labelcolor=INK2, loc="upper right")

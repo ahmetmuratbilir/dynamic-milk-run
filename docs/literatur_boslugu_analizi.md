@@ -161,12 +161,15 @@ formülünün önerdiği parametre bandının **12 hücresinin tamamında sıral
 değiştirmektedir** (K95). Yeterli filoda politikalar arasındaki duruş farkı 1 puanın
 altında kalır; dinamik sistemin üstünlüğü duruşta değil **stoktadır** (K96).
 
-**Katkının genelleştirilmesi (K97).** Yazında kullanılan dört eşitleme kuralı — eşit kart
-(Vojdani & Drechsler 2022), politika-tutarlı formül (Urru vd. 2018; VDI 5586), eşit hizmet
-düzeyi (Alnahhal & Noche 2015) ve eşit WIP — aynı sistemde uygulandığında, Toyota kutu
-boyunda talep şokunda üç farklı kazanan ortaya çıkmaktadır (A, D → dijital; B →
-geleneksel, +12,07 puan; C → eşit). Önerilen ilke: karşılaştırma çalışmaları eşitleme
-kuralını açıkça belirtmeli ve sonuçlarını duruş–WIP düzleminde (Pareto) raporlamalıdır.
+**Katkının genelleştirilmesi (K97, nihai ayar K105).** Yazında kullanılan dört eşitleme
+kuralı — eşit kart (Vojdani & Drechsler 2022), politika-tutarlı formül (Urru vd. 2018; VDI
+5586), eşit hizmet düzeyi (Alnahhal & Noche 2015) ve eşit WIP — aynı sistemde
+uygulandığında: (a) dijital ile geleneksel arasındaki duruş farkı kurala göre **−17,3 ile
++2,0 puan** arasında değişmektedir; (b) Toyota kutu boyunda politika-tutarlı kural
+geleneksel sistemi, diğer üç kural dijital sistemi kazandırmaktadır; (c) duruş–WIP
+düzlemindeki Pareto yargısı kurala göre "baskın" ile "takas" arasında değişmektedir.
+Önerilen ilke: karşılaştırma çalışmaları eşitleme kuralını açıkça belirtmeli ve
+sonuçlarını duruş–WIP düzleminde (Pareto) raporlamalıdır.
 
 **Neden güçlü.** Olumlu bir metodolojik ilke önerir ("politika-tutarlı boyutlandırma"),
 yalnızca hata düzeltmez. Kendi önceki sonucumuz üzerinde gösterildiği için etik olarak
@@ -215,55 +218,74 @@ sunulmamalıdır.
 
 ### Giriş — literatür boşluğu paragrafı
 
-> Fabrika içi milk-run yazınında statik (takvim tabanlı) ve dinamik (tüketim tetiklemeli)
-> malzeme besleme politikaları sıkça karşılaştırılmıştır. Alnahhal vd. (2016) push,
-> geleneksel Kanban ve e-Kanban'ı envanter maliyeti ve hat duruşu ölçütleriyle
-> karşılaştırmış ve sonucun koşullara bağlı olduğunu göstermiştir. Menanno vd. (2023) ve
-> Vojdani & Drechsler (2022) e-Kanban ile dinamik rotalamayı bütünleştirmiş,
-> Zhou & Wen (2024) Kanban sayısı ile kutu kapasitesini birlikte optimize etmiştir.
-> Buna karşılık, bu karşılaştırmalarda **hat yanı tamponun hangi politikanın çevrim
-> süresine göre boyutlandırıldığı** çoğunlukla belirtilmemektedir. Oysa Droste & Deuse
-> (2011) gereken stokun çevrim süresiyle orantılı olduğunu; Urru vd. (2018) ise VDI 5586
-> tampon formülündeki $k$ katsayısının yeniden sipariş yöntemine göre değiştiğini
-> göstermektedir. Dolayısıyla politikalar farklı çevrim süreleriyle çalışırken tek bir
-> tampon boyutunun tümüne uygulanması, karşılaştırmayı sistematik olarak yanlı hale
-> getirebilir. Bu çalışma, söz konusu yanlılığın karşılaştırma sonucunun **yönünü**
-> değiştirebildiğini aynı sistem üzerinde sayısal olarak göstermektedir.
+> Yalın üretimde fabrika içi malzeme besleme iki politika ailesiyle yürütülür: sabit
+> zamanlı, değişken miktarlı periyodik sevk (milk run) ve sabit miktarlı, değişken
+> zamanlı çağrı sistemi (Bozer & Ciemnoczolowski 2013; Kundu vd. 2019). Bu iki aile
+> sıkça karşılaştırılmıştır: Alnahhal vd. (2016) push, geleneksel Kanban ve e-Kanban'ı
+> envanter maliyeti ve hat duruşu ölçütleriyle karşılaştırmış ve sonucun koşullara bağlı
+> olduğunu göstermiştir; Menanno vd. (2023) ve Vojdani & Drechsler (2022) e-Kanban ile
+> dinamik rotalamayı bütünleştirmiştir. Öte yandan boyutlandırma yazını, hat yanı
+> tamponun politikanın çevrim süresine bağlı olduğunu göstermektedir: gereken stok
+> çevrim süresiyle orantılıdır (Droste & Deuse 2011), VDI 5586 tampon katsayısı yeniden
+> sipariş yöntemine göre değişir (Urru vd. 2018) ve gereken kanban sayısının alt sınırı
+> çevrimde tüketilen kutu sayısıyla büyür (Ciemnoczolowski & Bozer 2013). Ciemnoczolowski
+> & Bozer (2013) ayrıca duruşu çevrim süresinden çok kanban sayısının belirlediğini
+> bulmuştur. Buna karşılık politika karşılaştırmalarında tamponun nasıl eşitlendiği
+> çoğunlukla açıkça tartışılmamaktadır: Vojdani & Drechsler (2022) iki sisteme aynı iki
+> kutulu tamponu verir, Alnahhal & Noche (2015) tamponu eşit hizmet düzeyine göre seçer.
+> Kundu vd. (2019) iki politika ailesinin karşılaştırılmasını açıkça gelecek çalışma
+> olarak bırakmıştır. Bu çalışma, yazındaki dört eşitleme kuralını aynı sistemde yan yana
+> koyarak karşılaştırma sonucunun bu seçime ne ölçüde bağlı olduğunu göstermektedir.
 
 ### Giriş — katkı maddeleri
 
 > Bu çalışmanın katkıları şunlardır:
-> 1. Malzeme besleme politikalarının karşılaştırılmasında **politika-tutarlı
->    boyutlandırma** ilkesi tanımlanmakta; her politikanın hat yanı tamponunun kendi
->    çevrim süresine göre boyutlandırılması gerektiği gösterilmektedir.
-> 2. Modelleme kararlarının (tampon boyutlandırma, hizmet süresi simetrisi, sinyal
->    üretiminin kapalı döngü olması, mesafe matrisinin metrik olması) sonuç üzerindeki
->    etkileri **tek tek ayrıştırılarak** ölçülmekte; bu etkilerin politikalar arasındaki
->    gerçek farktan büyük olabildiği ortaya konmaktadır.
-> 3. E-Kanban sinyalinin zaman penceresi, istasyonun anlık stoku ve tüketim hızından
->    türetilerek VRPTW'ye bağlanmakta; böylece pencere istasyonun kırılganlığına göre
->    kendiliğinden daralmaktadır.
-> 4. Üç besleme politikası, her biri kendi formülüyle boyutlandırılmış olarak, tam
->    faktöriyel deney tasarımı ve Pareto analizi ile karşılaştırılmaktadır.
+> 1. Malzeme besleme politikalarının karşılaştırılmasında kullanılan **dört eşitleme
+>    kuralı** (eşit kart, politika-tutarlı formül, eşit hizmet düzeyi, eşit WIP) aynı
+>    sistemde karşılaştırılmakta; kuralın farkın büyüklüğünü yaklaşık 20 puanlık bir
+>    aralıkta, küçük kutu boyunda ise kazananı değiştirdiği gösterilmektedir. Buradan,
+>    karşılaştırma çalışmalarının eşitleme kuralını açıkça belirtmesi ve sonuçları
+>    duruş–WIP düzleminde raporlaması gerektiği ilkesi çıkarılmaktadır.
+> 2. Bağımsız bir çalışmanın karşılaştırma tasarımı (Vojdani & Drechsler 2022, ortak iki
+>    kutulu tampon) uygulandığında dijital sistemin 2,4–16,0 puan önde göründüğü, her
+>    politika kendi çevrim süresine göre boyutlandırıldığında bu farkın %80–100 küçüldüğü
+>    ya da tersine döndüğü gösterilmekte; bulgu Toyota formülü parametre bandında, üç
+>    vardiyalık ufukta ve gerçekleşebilir bir mesafe ağında sınanmaktadır (52 koşul).
+> 3. Modelleme kararlarının (tampon boyutlandırma, hizmet süresi simetrisi, kapalı döngü
+>    sinyal üretimi, metrik mesafe) sonuç üzerindeki etkileri **tek tek ayrıştırılarak**
+>    ölçülmekte; bu etkilerin politikalar arasındaki farktan büyük olabildiği
+>    gösterilmektedir.
+> 4. E-Kanban sinyalinin zaman penceresi istasyonun anlık stokundan ve tüketim hızından
+>    türetilerek rotalamaya bağlanmaktadır (taranan yazında bu biçimde rastlanmamıştır).
 
 ### Tartışma — Alnahhal vd. (2016) ile ilişkilendirme (ZORUNLU)
 
-> Bulgularımızın yönü Alnahhal vd. (2016) ile tutarlıdır: her iki çalışmada da üstünlük
-> koşullara bağlıdır ve araç kapasitesi kıt olduğunda daha öngörülebilir olan politika
-> öne çıkmaktadır. Ancak iki çalışma farklı mekanizmaları işaret etmektedir. Alnahhal vd.
-> üstünlüğü **bilgi akışının hızına** (RFID ile ayarlanmış e-Kanban) bağlarken, bu
-> çalışmada belirleyici etkenin **tamponun politikaya göre boyutlandırılması** olduğu
-> bulunmuştur: boyutlandırma politika-tutarlı hale getirildiğinde, önceki modelde
-> gözlenen statik üstünlüğü yeterli filoda tersine dönmektedir. Ayrıca Alnahhal vd.
+> ⚠️ Alnahhal vd. (2016) tam metnine erişilememiştir; aşağıdaki paragraf yalnızca
+> çalışmanın özetine dayanır. Yazarın doktora tezi (Duisburg-Essen) edinilirse
+> eşitleme yöntemi kontrol edilip paragraf güncellenmelidir.
+
+> Bulgularımız Alnahhal vd. (2016) ile aynı yöndedir: her iki çalışmada da politikalar
+> arasındaki üstünlük koşullara bağlıdır. İki çalışma farklı mekanizmalara işaret
+> etmektedir: Alnahhal vd. üstünlüğü bilgi akışının hızına (RFID ile ayarlanmış
+> e-Kanban) ve araç kapasitesine bağlarken, bu çalışma karşılaştırmanın nasıl adil
+> kılındığının sonucu tek başına değiştirebildiğini göstermektedir. Ayrıca Alnahhal vd.
 > sabit rota varsayarken, bu çalışmada rota olay tabanlı olarak yeniden kurulmaktadır.
+
+### Tartışma — Sugimori vd. (1977) ve uyarlanan ROP
+
+> Uyarlanan ROP, küçük kutularda dijital sistemin şok altındaki duruşunu azaltmış, ancak
+> bunu duruş–WIP eğrisi boyunca, yani kart eklemekle eşdeğer biçimde yapmıştır (K98).
+> Bu, Sugimori vd. (1977, s.562)'nin ilkesiyle tutarlıdır: kanban sayısı talep
+> değişse de sabit tutulur ve talep artışına tedarik süresi kısaltılarak yanıt verilir.
 
 ### Sonuç — ana cümle
 
-> Bu çalışmanın temel bulgusu, fabrika içi malzeme besleme politikalarının
-> karşılaştırılmasında **modelleme kararlarının politika seçiminden daha belirleyici
-> olabildiğidir**: tampon boyutlandırma ve hizmet süresi varsayımlarındaki tutarsızlıklar
-> duruş oranını 10 puanın üzerinde değiştirirken, politikalar arasındaki gerçek fark
-> yeterli filoda 1 puanın altında kalmaktadır.
+> Bu çalışmanın temel bulgusu, fabrika içi besleme politikalarının karşılaştırılmasında
+> **sonucun, karşılaştırmanın nasıl adil kılındığına bağlı olduğudur**: aynı iki sistem
+> arasındaki duruş farkı, yazında kullanılan dört eşitleme kuralına göre −17 ile +2 puan
+> arasında değişmekte, küçük kutu boyunda kazanan tersine dönmektedir. Her politika kendi
+> çevrim süresine göre boyutlandırıldığında dijital sistem yeterli filoda geleneksel
+> sisteme göre 0,2–1,9 puan daha az duruş ve %37–41 daha az stokla çalışmaktadır.
 
 ---
 
@@ -280,22 +302,22 @@ sunulmamalıdır.
 
 ---
 
-## 7. ⚠️ Kaynak Klasöründeki Eksikler
+## 7. Kaynak Durumu (03.11.2026)
 
-Aşağıdaki çalışmalar konunun **merkezinde** ve klasörde **yok**. Makale göndermeden önce
-mutlaka edinilip okunmalıdır; hakemin bunları bilmemesi olası değildir.
+Konunun merkezindeki kaynakların durumu. Ayrıntılı notlar: `master_makale_katalogu.md` EK
+bölümü; denetim: `python -X utf8 -m src.kaynak_arsivi_denetimi`.
 
-| Öncelik | Çalışma | Neden kritik |
+| Durum | Çalışma | Ne kattı |
 |---|---|---|
-| 🔴 1 | **Alnahhal, Ramadan & Noche (2016)**, *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*, Dynamics in Logistics, Springer, doi:10.1007/978-3-319-23512-7_70 | Bizim ana karşılaştırmamızın doğrudan öncülü |
-| 🔴 2 | **Ciemnoczolowski & Bozer (2013)**, IJPR 51(2):568–581, doi:10.1080/00207543.2012.656331 | Kanban sayısı ↔ starvation; Kanban alt sınırı türetiyor |
-| ✅ 3 | **Bocewicz vd. (2019)**, MPER 10(3):41–53, doi:10.24425/mper.2019.129597 | **Edinildi ve okundu** (4.1.2) |
-| 🟠 4 | **Schmidt, Meinhardt & Schulze (2016)**, *New design guidelines for in-plant milk-run systems*, IMHRC | VDI tampon formülünün ikinci bağımsız kaynağı (açık erişim) |
-| 🟡 5 | **VDI 5586 Blatt 2 (2022)** | Urru 2018'de taslaktı; **2022'de resmî standart** oldu — güncellenmeli |
-| ✅ 6 | **Kundu, Rossini & Portioli-Staudacher (2019)**, IJIEC 10:421–442 | **Edinildi ve okundu** (4.1.2–4.1.3) |
-| 🔴 7 | **Sugimori, Kusunoki, Cho & Uchikawa (1977)**, IJPR 15(6):553–564 | Kanban formülünün asıl kaynağı (K88) |
-
-Not (27.10.2026): 3 ve 6 edinildi; 4 okundu ancak PDF arşivlenmedi. Güncel durum: `python -X utf8 -m src.kaynak_arsivi_denetimi`.
+| 🔴 **Edinilemedi** | **Alnahhal, Ramadan & Noche (2016)**, *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*, Dynamics in Logistics, Springer, doi:10.1007/978-3-319-23512-7_70 | Ana karşılaştırmanın en yakın öncülü. Yalnızca özetten atıf yapılır; yazarın açık erişimli doktora tezi (Duisburg-Essen, DuEPublico) aynı çalışmayı içerir |
+| ✅ Okundu | **Ciemnoczolowski & Bozer (2013) Part 2**, IJPR 51(2):568–581 | Kanban alt sınırı çevrim süresiyle büyür (s.570); duruşu çevrim süresinden çok kanban sayısı belirler (s.568) — K104 |
+| ✅ Okundu | **Bozer & Ciemnoczolowski (2013) Part 1**, IJPR 51(2):555–567 | P2/P3 sınıflandırmasının ikinci dayanağı (s.555) — K103 |
+| ✅ Okundu | **Bocewicz vd. (2019)**, MPER 10(3):41–53 | Filo ↔ tampon ilkesi (s.45) — 4.1.2 |
+| ✅ Okundu | **Schmidt, Meinhardt & Schulze (2016)**, IMHRC | VDI tampon formülü (s.3–4), simülasyon gerekçesi (s.1) — K104 |
+| ✅ Okundu | **Kundu, Rossini & Portioli-Staudacher (2019)**, IJIEC 10:421–442 | Boşluk ilanı (s.423) — 4.1.3 |
+| ✅ Okundu | **Sugimori, Kusunoki, Cho & Uchikawa (1977)**, IJPR 15(6):553–564 | Kanban formülü (s.561), kart sayısı sabit ilkesi (s.562) — K103 |
+| ✅ Okundu | **Korytkowski & Karkoszka (2016)**, IJAMT 82:827–837 | Duruş tanımı (s.834), periyodik beslemenin dayanıklılığı |
+| 🟡 Gerekmez | **VDI 5586 Blatt 2 (2022-07)** | Ücretli standart; yılı doğrulandı, Urru ve Schmidt üzerinden atıf |
 
 ---
 
@@ -309,6 +331,7 @@ vurgusu öne çıkarılmalıdır.
 | Mevcut | Dinamik Milk-Run Rota ve E-Kanban Karar Destek Sistemi |
 | **Öneri A** | **Fabrika İçi Milk-Run Politikalarının Karşılaştırılmasında Politika-Tutarlı Tampon Boyutlandırmanın Etkisi: Bir Simülasyon Çalışması** |
 | **Öneri B** | **Statik ve Dinamik Milk-Run Besleme Politikalarının Adil Karşılaştırılması: Boyutlandırma Varsayımlarının Sonuçlar Üzerindeki Etkisi** |
+| **✅ Öneri C (K105 sonrası, önerilen)** | **Fabrika İçi Milk-Run Besleme Politikalarının Karşılaştırılmasında Eşitleme Kurallarının Etkisi: Bir Simülasyon Çalışması** |
 
 ---
 

@@ -966,7 +966,7 @@
 | **Kurallar** | **A** eşit kart (Vojdani & Drechsler 2022 s.5) · **B** politika-tutarlı formül (Urru vd. 2018; VDI 5586; K65) · **C** eşit hizmet düzeyi — hedef duruşu (≤ %1, "fill rate ≥ %99" vekili) sağlayan en küçük tampon, sonra WIP karşılaştırılır (Alnahhal & Noche 2015 s.117) · **D** eşit WIP — dijitalin B WIP'inde, geleneksel eğride ara değerleme (K53, K95) |
 | **Yöntem** | Geleneksel (P2, T=60) ve dijital (P3, konsolidasyon); 3 araç; her sistem için $N_i = \max(1, N_i^{VDI}+k)$, $k=-3…+6$ → duruş–WIP eğrisi; 12 replikasyon. Kurallar aynı iki eğri üzerinde dört noktadır. Motor: `V2Parametre.n_ozel` (eski davranış birebir korunur, doğrulandı). |
 | **🎯 Mevcut kutular** | Duruş kazananı: A dijital (−2,33 / şok −9,03), **B eşit**, C dijital (WIP −%59 / −%10), D dijital (**−10,88 / −15,15**). Y2 Pareto: A, B, D'de dijital baskın; C'de takas. Tek ölçütlü fark kurala göre **−15,15 … +0,04 puan** arasında değişir. |
-| **🎯 Toyota kutuları (K95)** | A dijital, **B geleneksel** (baz +0,13 — sınırda, GA ±0,13; şok **+12,07**), C dijital (baz) / eşit (şok), D dijital. **Kazanan kurala göre değişir: şokta 3 farklı sonuç.** Pareto da kurala göre "dijital baskın", "takas" ve "geleneksel baskın" arasında değişir. |
+| **🎯 Toyota kutuları (K95)** | ⚠️ *Nihai ayarda revize edildi, bkz. K105.* A dijital, **B geleneksel** (baz +0,13 — sınırda, GA ±0,13; şok **+12,07**), C dijital (baz) / eşit (şok), D dijital. **Kazanan kurala göre değişir: şokta 3 farklı sonuç.** Pareto da kurala göre "dijital baskın", "takas" ve "geleneksel baskın" arasında değişir. |
 | **Yorum** | "Hangi politika daha iyi?" sorusunun cevabı, karşılaştırmanın nasıl adil kılındığına bağlıdır. Bir karşılaştırma çalışması kullandığı eşitleme kuralını açıkça belirtmeli ve mümkünse sonuçları duruş–WIP düzleminde (Pareto) vermelidir. Bu, makalenin önerilen **metodolojik ilkesidir**. |
 | **Sınır** | Tüm istasyonlara aynı $k$ (istasyon bazında optimum aranmadı); C'de hizmet düzeyi zaman bazlı duruşla temsil edildi; tek ağ, 3 araç. |
 | **Dosya** | `src/v2_adalet_kurallari.py` (`--kutu toyota`) · `data/synthetic/v2_adalet_{egriler,kurallar,kazanan}[_toyota].csv` · `docs/figurler/sekil7_adalet_kurallari[_toyota].png` |
@@ -1059,6 +1059,18 @@
 | **Schmidt vd. (2016)** | İki alıntı tam metinden doğrulandı: s.1 *"not feasible to formulate the design task as an ordinary optimization problem which can be handled by a solver without any further interaction"*; tampon formülü $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ — cümle s.3'te başlar, formül **s.4**'tedir → atıflar "s.3–4" olarak düzeltildi. |
 | **Kalan** | Yalnızca **Alnahhal, Ramadan & Noche (2016)** 🔴 (RFID ile ayarlanmış e-Kanban, AEK). VDI 5586 Blatt 2 ücretlidir; yılı doğrulandığı için edinilmesi gerekmez. |
 | **Dosya** | `docs/papers/ek_kaynaklar/E10_…pdf`, `E4_…pdf` (yerel, git dışı) · `literatur_boslugu_analizi.md` §4.1.1 |
+| **Tarih** | 03.11.2026 |
+
+### K105 — Nihai Ayar ve Makale Tabloları ✅ · ⚠️ K97 Başlık Bulgusu Revize Edildi
+| Özellik | Değer |
+|---------|-------|
+| **Karar** | Makale tabloları **nihai ayarla** üretilir: koordinat tabanlı mesafe ağı (`mesafe_modu="KOORDINAT"`, K100), **1440 dk** (3 vardiya), duruş ve WIP **ısınma sonrası** (K99). Motor varsayılanları değiştirilmedi; motora `KOORDINAT` seçeneği ve `ort_wip_isinma_sonrasi` göstergesi eklendi (eski sonuçlar birebir korunur, doğrulandı). Yerleşim tek kaynakta: `koordinat_mesafe()` (K100 betiği bunu kullanır). |
+| **Betik** | `src/v2_makale_tablolari.py` → `docs/makale_tablolari.md` (makaleye kopyalanacak tablolar, Türkçe ondalık) · `data/synthetic/makale_tablo{1,2,3}_*.csv` · `docs/figurler/sekil7_adalet_kurallari_nihai{,_toyota}.png` (ana figür: Toyota) |
+| **Tablo 1 — politikalar** | Baz: P3 konsolidasyon **%0,11 / 379 WIP**; P2 T=60 %0,30 / 648; P2 T=30 %0,02 / 501 (141 sefer); P3 anında %0,00 / 545 (388 sefer, 98 km). Şok: P3 konsolidasyon **%2,78 / 331**; P2 T=60 %4,64 / 524; P2 T=30 %0,99 / 409; P1 T ≥ 60 dk çöker (%24–59). |
+| **Tablo 2 — K93 nihai** | Kayma her hücrede pozitif: mevcut kutular baz **+2,23**, şok **+8,96**; Toyota kutular baz **+11,37**, şok **+17,93**. Vojdani tasarımı (A) dijitali 2,4–16,0 puan önde gösterir; politika-tutarlı (B): mevcut kutularda fark −0,20 / −1,86'ya küçülür (dijital hâlâ önde), **Toyota kutularında yön döner** (+0,11 / +1,97, geleneksel önde). |
+| **Tablo 3 — K97 nihai** | **Toyota kutuları:** baz ve şokta **B → geleneksel**, A/C/D → dijital (her talepte 2 farklı kazanan). **Mevcut kutular:** dört kuralda da dijital; duruş farkı kurala göre **−0,03 … −17,34 puan**. Pareto yargısı kurala göre "dijital baskın" ↔ "takas" arasında değişir. |
+| **⚠️ Revizyon** | K97'deki *"Toyota kutularında şokta üç farklı kazanan"* ifadesi nihai ayarda **tutmaz** (C kuralı "eşit" yerine dijitale döner; B'de geleneksel üstünlüğü +12,07 → +1,97 puana iner). Nedeni: koordinat ağında mesafeler kısa (depo ort. 114 m ↔ 160 m), dijital sistem daha hızlı teslim eder ve küçük kutulardaki kırılganlığı azalır. **Doğru ifade:** eşitleme kuralı (a) farkın büyüklüğünü yaklaşık 20 puanlık bir aralıkta, (b) Toyota kutularında kazananı, (c) Pareto yargısını değiştirir. |
+| **Etkilenen önceki sayılar** | K93, K95, K97, K98 mutlak değerleri motor varsayılanıyla üretilmiştir; **göreli sonuçları** (kaymanın yönü, B kuralının geleneksel lehine olduğu bölge) nihai ayarda korunur. Makaleye yalnızca `makale_tablolari.md` sayıları girmelidir. |
 | **Tarih** | 03.11.2026 |
 
 ---

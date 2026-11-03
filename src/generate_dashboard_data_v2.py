@@ -75,16 +75,26 @@ DISPATCH = ["EDD", "SLACK", "FIFO", "KRITIKLIK"]
 TUR_ARALIKLARI = [30, 60, 90, 120]
 
 
+# --nihai (K105): makale tablolarıyla aynı ayar — koordinat ağı, 1440 dk, ısınma sonrası gösterge
+AYAR = {}
+GOSTERGE = {}
+NIHAI_AYAR = dict(mesafe_modu="KOORDINAT", sim_sure=1440)
+NIHAI_GOSTERGE = {"starv_pct": "starv_pct_isinma_sonrasi", "ort_wip": "ort_wip_isinma_sonrasi"}
+
+
 def _ort(veri, p, rep, seed0):
-    tek = [calistir(replace(p, seed=seed0 + r), veri) for r in range(rep)]
+    tek = [calistir(replace(p, seed=seed0 + r, **AYAR), veri) for r in range(rep)]
     out = {}
     for k in ("starv_pct", "ort_wip", "toplam_mesafe_km", "tur_sayisi",
               "doluluk_pct", "toplam_kart", "arac_kullanim_pct", "ort_tur_sure_dk"):
-        v = [t[k] for t in tek]
+        v = [t[GOSTERGE.get(k, k)] for t in tek]
         out[k] = float(np.mean(v))
-    sv = [t["starv_pct"] for t in tek]
+    sv = [t[GOSTERGE.get("starv_pct", "starv_pct")] for t in tek]
     out["starv_ci95"] = (1.96 * float(np.std(sv, ddof=1)) / np.sqrt(rep)) if rep > 1 else 0.0
-    out["starv_dk"] = float(np.mean([t["starv_dk"] for t in tek]))
+    # duruş dakikası, gösterilen yüzdeyle aynı pencereden (istasyon-dakika)
+    T = AYAR.get("sim_sure", 480)
+    pencere = (T - p.isinma_dk) if GOSTERGE else T
+    out["starv_dk"] = out["starv_pct"] / 100.0 * pencere * veri.n
     return out
 
 
@@ -236,13 +246,23 @@ def saglamlik_ozeti() -> list:
     return out
 
 
-def adalet_ozeti() -> dict:
-    """K97 dört adalet kuralı: eğriler, kural noktaları ve kazananlar (mevcut + Toyota kutuları)."""
+def adalet_ozeti(nihai: bool = False) -> dict:
+    """K97 dört adalet kuralı: eğriler, kural noktaları ve kazananlar (mevcut + Toyota kutuları).
+    nihai=True: K105 makale tablolarından (makale_tablo3_*.csv) okunur."""
     out = {}
+    if nihai:
+        E = _csv_oku("makale_tablo3_adalet_egriler.csv") or []
+        K = _csv_oku("makale_tablo3_adalet.csv") or []
+        Z = _csv_oku("makale_tablo3_adalet_kazanan.csv") or []
     for ek, kutu in (("", "mevcut"), ("_toyota", "toyota")):
-        e = _csv_oku(f"v2_adalet_egriler{ek}.csv")
-        k = _csv_oku(f"v2_adalet_kurallar{ek}.csv")
-        z = _csv_oku(f"v2_adalet_kazanan{ek}.csv")
+        if nihai:
+            e = [r for r in E if r["kutu"] == kutu]
+            k = [r for r in K if r["kutu"] == kutu]
+            z = [r for r in Z if r["kutu"] == kutu]
+        else:
+            e = _csv_oku(f"v2_adalet_egriler{ek}.csv")
+            k = _csv_oku(f"v2_adalet_kurallar{ek}.csv")
+            z = _csv_oku(f"v2_adalet_kazanan{ek}.csv")
         if not (e and k and z):
             continue
         alan = ("talep", "sistem", "k", "starv_pct", "starv_pct_ci95", "ort_wip", "toplam_kart")
@@ -269,7 +289,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rep", type=int, default=3,
                     help="konfigürasyon başına replikasyon (varsayılan 3)")
+    ap.add_argument("--nihai", action="store_true",
+                    help="makale tablolarıyla aynı ayar: koordinat ağı, 1440 dk, ısınma sonrası (K105)")
     args = ap.parse_args()
+    if args.nihai:
+        AYAR.update(NIHAI_AYAR)
+        GOSTERGE.update(NIHAI_GOSTERGE)
 
     veri = V2Veri()
     print("=" * 78)
@@ -288,8 +313,12 @@ def main():
             "uretim_tarihi": time.strftime("%Y-%m-%d"),
             "replikasyon": args.rep,
             "isinma_dk": 90,
+            "ufuk_dk": AYAR.get("sim_sure", 480),
+            "gosterge": "ısınma sonrası (K99)" if GOSTERGE else "tüm koşu, ısınma dahil",
+            "ayar": "nihai (K105)" if args.nihai else "motor varsayılanı",
             "talep_modeli": "SAATLIK_REJIM (CV=0.20 saatlik düzeyde)",
-            "mesafe_modu": "METRIK (Floyd-Warshall kapanışı, K71)",
+            "mesafe_modu": ("KOORDINAT (Urru 2018 durak aralığı, K100)" if args.nihai
+                            else "METRIK (Floyd-Warshall kapanışı, K71)"),
             "n_modu_anlami": {
                 "Dinamik_N": "VDI — politika-tutarlı boyutlandırma: N = 1 + ⌈ROP/C⌉ (K65)",
                 "Sabit_N": "V1 — eski boyutlandırma: N = ⌈ROP/C⌉",
@@ -307,7 +336,7 @@ def main():
         "kpi_uyumu": _csv_oku("v2_kpi_uyumu.csv") or [],
         "vaka": _csv_oku("v2_vaka_calismasi.csv") or [],
         "dogrulama": dogrulama_ozeti(),
-        "adalet": adalet_ozeti(),
+        "adalet": adalet_ozeti(nihai=args.nihai),
         "saglamlik": saglamlik_ozeti(),
     }
     ambar = _nan_temizle(ambar)

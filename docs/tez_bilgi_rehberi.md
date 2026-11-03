@@ -1,8 +1,9 @@
 # DİNAMİK MİLK-RUN VE E-KANBAN KARAR DESTEK SİSTEMİ
-## TEZ BİLGİ VE AKADEMİK METODOLOJİ MASTER REHBERİ (HAFTA 1 – 13)
+## TEZ BİLGİ VE AKADEMİK METODOLOJİ MASTER REHBERİ (HAFTA 1 – 15)
 
 > **Bu Dokümanın Amacı:** Bu dosya, projenin başından sonuna kadar (Hafta 1–14) elde edilen tüm teorik, mühendislik, matematik ve yazılımsal çıktılardan tezin Giriş, Literatür, Metodoloji ve Bulgular bölümlerinin doğrudan yazılabilmesini sağlayan **yaşayan akademik master dokümandır**.  
-> **Son güncelleme:** 30.09.2026 — Hafta 14 literatür denetimi ve v2 motoru revizyonu eklendi.
+> **Son güncelleme:** 03.11.2026 — Hafta 15: dört adalet kuralı, sağlamlık testleri, nihai makale tabloları (K93–K105).
+> **Makale sayıları yalnızca `docs/makale_tablolari.md`'den alınmalıdır (K105).**
 
 > [!IMPORTANT]
 > ## ⚠️ HAFTA 14 REVİZYONU — ÖNCE BUNU OKUYUN (30.09.2026)
@@ -141,6 +142,15 @@ Ayrıntı: `docs/literatur_boslugu_analizi.md` Bölüm 10.
 ---
 
 ## 3. RESEARCH QUESTIONS (Araştırma Soruları)
+
+> **Güncel araştırma soruları (Hafta 15, makale için):**
+> - **AS1:** Periyodik (sabit takt) ve olay tabanlı (e-Kanban) besleme politikaları karşılaştırılırken hat yanı tamponun nasıl eşitlendiği, karşılaştırmanın sonucunu ne ölçüde belirler?
+> - **AS2:** Yazında kullanılan dört eşitleme kuralı (eşit kart, politika-tutarlı formül, eşit hizmet düzeyi, eşit WIP) aynı sistemde hangi kazananları verir?
+> - **AS3:** Bu etki Toyota formülünün parametre bandında, üç vardiyalık ufukta ve gerçekleşebilir bir mesafe ağında sürer mi?
+> - **AS4:** Her politika kendi çevrim süresine göre boyutlandırıldığında politikalar duruş ve stokta nasıl ayrışır?
+>
+> Aşağıdaki RQ1–RQ4 v1 dönemine aittir ve tarihsel kayıt olarak korunmuştur.
+
 
 - **RQ1 (Kanban Boyutlandırma):** Stok tüketim hızının dalgalandığı montaj hatlarında, oransal tamponlu ($\alpha$) Dinamik Kanban modeli ($N = \lceil D \cdot LT \cdot (1+\alpha) / C_{kutu} \rceil$) hat başı emniyetini nasıl etkiler?
 - **RQ2 (Sinyal Mimarisi):** E-Kanban sistemlerinde eş zamanlı sinyallerin önceliklendirilmesinde Karma Kural (Kritiklik Skoru + FIFO) starvation riskini minimize etmede ne kadar etkilidir?
@@ -383,6 +393,36 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 - **Sonraki Adım:** Mesafe matrisinin koordinatlardan üretilmesi (S10), çok vardiyalı
   koşular (S2), gerçek ERP verisi.
 
+### HAFTA 15: Katkının Genelleştirilmesi, Sağlamlık ve Nihai Tablolar
+- **Amaç (Objective):** Ana katkıyı kendi v1 modelimizin dışına taşımak, yazındaki
+  eşitleme kurallarını karşılaştırmak, bulguyu farklı koşullarda sınamak ve makale
+  tablolarını nihai ayarla üretmek.
+- **Yöntem (Methodology):** Vojdani & Drechsler (2022) karşılaştırma tasarımının yeniden
+  kurulması (K93); Toyota bandı α × kutu boyu ızgarası (K95); dört eşitleme kuralı ve
+  kart taraması ile duruş–WIP eğrileri (K97); uyarlanan ROP (K98); 480/1440 dk ve ısınma
+  dahil/hariç göstergeler (K99); koordinat tabanlı mesafe ağı (K100); OR-Tools çevrimdışı
+  referansı (K101); nihai ayarla makale tabloları (K105).
+- **Bulgular (Findings, nihai ayar — K105):**
+  - Vojdani tasarımı (ortak iki kutulu tampon) dijital sistemi **2,4–16,0 puan** önde
+    gösterir; politika-tutarlı boyutlandırmada fark %80–100 küçülür, Toyota kutularında
+    yön döner. Kayma 52/52 sağlamlık koşulunda pozitiftir (K95, K99, K100).
+  - Dört eşitleme kuralı farkı **−17,3 ile +2,0 puan** arasında değiştirir; Toyota
+    kutularında politika-tutarlı kural geleneksel sistemi, diğer üç kural dijital sistemi
+    kazandırır; Pareto yargısı kurala göre değişir.
+  - Politika-tutarlı tamponda P3 konsolidasyon, P2 (T=60 dk)'ye göre baz talepte 0,19,
+    şokta 1,86 puan daha az duruş ve %37–41 daha az stokla çalışır.
+  - Uyarlanan ROP küçük kutularda kart eklemekle eşdeğerdir (K98) — Sugimori vd. (1977,
+    s.562)'nin "kanban sayısı sabit tutulur" ilkesiyle tutarlı.
+  - Isınma dahil göstergeler duruşu ort. 1,15 puan düşük, WIP'i %5–37 yüksek gösterir (K99);
+    mevcut mesafe matrisi yolu 2,5–3,5 kat şişirir ve Vojdani ile görünen çelişkinin
+    kaynağıdır (K100).
+- **Kaynaklar (K103, K104):** Sugimori (1977), Bozer & Ciemnoczolowski (2013) Part 1–2,
+  Schmidt vd. (2016), Korytkowski & Karkoszka (2016) edinildi ve okundu; Kanban formülü
+  asıl kaynağından doğrulandı. Alnahhal vd. (2016) edinilemedi.
+- **Tartışma (Discussion):** Katkı yöntemseldir: karşılaştırma çalışmaları eşitleme kuralını
+  açıkça belirtmeli ve sonuçlarını duruş–WIP düzleminde raporlamalıdır.
+- **Sonraki Adım:** Makale metni; gerçek veri (H1).
+
 ---
 
 > [!NOTE]
@@ -400,6 +440,6 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 
 ---
 
-*Bu rehber 30.09.2026 itibarıyla Hafta 14'e kadar güncellenmiştir.*
+*Bu rehber 03.11.2026 itibarıyla Hafta 15'e kadar güncellenmiştir (K01–K105).*
 *Güncel sonuçlar için: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`*
 
