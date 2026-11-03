@@ -1294,3 +1294,139 @@ Bu katalog, Dynamic Milk-Run & E-Kanban projesi kapsamında incelenen 11 akademi
 
 * **Projemizle İlişkisi:** Elektronik Kanban (E-Kanban) sinyal mimarisi, barkod/QR kod tabanlı gerçek zamanlı sipariş tetikleme ve Plant Simulation ile çekme (pull) kontrol döngülerinin simülasyonu projemizin E-Kanban ve Sinyal Mimarisi modüllerine katkı sağlar.
 
+
+---
+
+# EK — KATALOG DIŞI KRİTİK KAYNAKLAR (26.10.2026 · güncelleme 03.11.2026)
+
+> **Durum (03.11.2026):** Dokuz kaynaktan **yedisi edinildi ve tam metinden okundu**
+> (E2, E3, E4, E6, E7, E8, E9). **E1 (Alnahhal vd. 2016)** kapalı erişimlidir ve
+> edinilemedi; yazarın açık erişimli doktora tezi aynı çalışmayı içerir (aşağıda).
+> **E5 (VDI 5586)** ücretli standarttır; yılı doğrulanmıştır, edinilmesi gerekmez.
+>
+> PDF'ler `docs/papers/ek_kaynaklar/`, metinler `docs/papers/extracted_text/E*_…txt`
+> içindedir (yerel; telif nedeniyle git dışı). Kararlar: K87, K88, K103, K104.
+
+## E1 — Alnahhal, Ramadan & Noche (2016) 🔴 EDİNİLEMEDİ
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System |
+| **Kaynak** | Kotzab, Pannek & Thoben (ed.), *Dynamics in Logistics* (LDIC 2014, Bremen), Lecture Notes in Logistics, Springer, 2016, ss. 703–712 · doi:10.1007/978-3-319-23512-7_70 |
+| **Yöntem** | Analitik denklemler + simülasyon |
+| **Karşılaştırılan** | Push · geleneksel Kanban · e-Kanban · önerilen *adjusted e-Kanban* (AEK, RFID tabanlı) |
+| **Ölçütler** | Envanter maliyeti + hat duruşu (starvation) |
+| **Bulgu (özetten)** | Tüketim değişkenliği düşükken push etkili; yeterli tren kapasitesinde geleneksel Kanban etkili; e-Kanban daha düşük envanter; ciddi kapasite kıtlığında AEK en iyi |
+| **⚠️ Neden kritik** | Ana karşılaştırmamızın en yakın öncülü. **Tamponu nasıl eşitledikleri bilinmiyor** (literatür boşluğu analizi §4.1.1'de "BİLİNMİYOR"). |
+| **Bizden farkı (özetten)** | Rotalar sabittir (bizde olay tabanlı); üstünlüğü bilgi akışı hızına bağlar (biz eşitleme kuralına); dört eşitleme kuralını karşılaştırmaz |
+| **Erişim yolu** | Yazarın doktora tezi aynı çalışmayı içerir: *Efficient Material Flow in Mixed Model Assembly Lines*, Universität Duisburg-Essen (Gutachter: B. Noche) — açık erişim, DuEPublico: `duepublico2.uni-due.de/receive/duepublico_mods_00039133` (tarayıcıdan indirilmeli; otomatik indirme engelli) |
+| **Edinilemezse** | Makalede yalnızca özetteki bulgularla atıf yapılır; tampon eşitleme yöntemi hakkında iddiada bulunulmaz. |
+
+## E2 — Ciemnoczolowski & Bozer (2013) Part 2 ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Performance evaluation of small-batch container delivery systems used in lean manufacturing — Part 2: Number of Kanban and workstation starvation |
+| **Kaynak** | Int. J. of Production Research 51(2):568–581 · doi:10.1080/00207543.2012.656331 |
+| **Dosya** | `ek_kaynaklar/E10_Ciemnoczolowski2013_part2_kanban_starvation.pdf` (15 sayfa) |
+| **Yöntem** | Analitik yaklaşımlar + simülasyon doğrulaması; tek çekicili, "coupled" milk-run |
+| **🔑 Ana bulgu (özet, s.568)** | *"in a stable MR system, the number of Kanban and the physical capacity of the tugger have a bigger impact on workstation starvation than the prescribed cycle time"* → duruşu çevrim süresinden çok **tampon** belirler; boyutlandırma bulgumuzla aynı yön |
+| **🔑 Kanban alt sınırı (s.570, Denk. 2–3)** | $k_i^{LB} = \lceil 2r_i - 1/(2n_i) \rceil$; pratik alt sınır $\lceil 2r_i \rceil$. $r_i$: bir çevrimde tüketilen kutu → gereken kart **çevrim süresiyle büyür** (politika-tutarlı boyutlandırmanın üçüncü bağımsız dayanağı) |
+| **⚠️ Model farkı** | "Coupled" rota: bir turda toplanan kart **sonraki turda** teslim edilir → katsayı 2. Bizim P2'de açık **aynı turda** kapatılır (1:1 değişim, K50) → VDI formülümüz daha küçük tampon verir. Yöntemde yazılmalı. |
+| **Sonuç (s.580)** | Araç kapasitesi artınca duruş sıfıra iner (sabit tüketim varsayımıyla): *"increased vehicle capacity can be used to reduce WS starvation in lieu of increasing the number of Kanban"*. Bizde araç kapasitesi bağlayıcı değildir (doluluk ≤ %57) → bu kanal gözlenemez (sınırlılık). |
+| **Gelecek çalışma önerisi** | *"quantify the relative contributions of the number of Kanban and the tugger capacity to starvation"* — ayrıştırma analizimizle kısmen örtüşür |
+
+## E9 — Bozer & Ciemnoczolowski (2013) Part 1 ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Performance evaluation of small-batch container delivery systems used in lean manufacturing — Part 1: System stability and distribution of container starts |
+| **Kaynak** | Int. J. of Production Research 51(2):555–567 · doi:10.1080/00207543.2012.656330 · ⚠️ yazar sırası Part 2'den farklı |
+| **Dosya** | `ek_kaynaklar/E9_Ciemnoczolowski2013_part1_stability.pdf` (14 sayfa) |
+| **🔑 Politika sınıflandırması (s.555)** | Yalın üretimde iki besleme yöntemi: *"fixed-time, unfixed quantity deliveries"* (milk run → bizim **P2**) ve *"fixed-quantity, unfixed-time deliveries"* (call system → bizim **P3**); Smalley (2004) ve Marchwinski vd. (2008)'e atıfla → P2/P3 ayrımının Kundu (2019)/Monden (2011) dışındaki **ikinci bağımsız dayanağı** |
+| **İçerik** | Çekici fiziksel kapasitesi ve sürücü zaman kullanımına göre kararlılık koşulları; tur başına konteyner talebinin dağılımı. Kanban sayısı *"sufficient kanban are available"* varsayımıyla dışarıda bırakılır (Part 2'nin konusu). |
+
+## E3 — Bocewicz, Bożejko, Wójcik & Banaszak (2019) ✅ EDİNİLDİ VE OKUNDU (26.10.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Milk-run routing and scheduling subject to a trade-off between vehicle fleet size and storage capacity |
+| **Kaynak** | Management and Production Engineering Review 10(3):41–53 · doi:10.24425/mper.2019.129597 |
+| **Dosya** | `docs/papers/ek_kaynaklar/E3_Bocewicz2019_fleet_storage_tradeoff.pdf` (13 sayfa) · metin: `extracted_text/E3_…txt` |
+| **Yöntem** | Bildirimsel (declarative) kısıt programlama modeli — simülasyon **değil** |
+| **Problem** | Periyodik dağıtım politikası: kime, ne kadar, hangi filoyla, hangi rotada. Karar değişkenleri: $TT$ (teslim periyodu/zaman penceresi), $d$ (parti büyüklüğü), $S_B$ (depolama kapasitesi), $K$ (filo) |
+| **🔑 Ana ilke (s.45)** | *"if fewer trains are used, then delivery periods $T_P$ become longer, making it necessary to increase buffer capacity $S_B$. And conversely, a reduction of the admissible capacity of the buffers $S_B$ necessitates the use of a larger number of tugger trains $K$."* |
+| **Bulgu** | $(K, S_B)$ ödünleşim noktaları parti büyüklüğü $d$'ye bağlıdır; **takt süresi ile parti büyüklüğü ilişkisi doğrusal değildir** (s.41). Örnek: $d=6$ için $K=2$ ve $S_B=360$ parça-seti. |
+| **⚠️ Kapattığı iddia** | **Filo ↔ stok ödünleşimi ve trade-off noktası analizi özgün katkı olarak sunulamaz.** |
+| **Bizim lehimize** | Tek politika içindedir (periyodik, sabit rota, sabit takt); **politikalar arası karşılaştırma yoktur**, duruş ölçülmez. Zaman penceresi sistem genelinde periyodiktir ($TT$), istasyon-özgü değil. → **Kol A'dadır.** |
+| **Projemizle ilişki** | K80 (Pareto) ve K65 (politika-tutarlı boyutlandırma) kararlarının en güçlü matematiksel dayanağı. Giriş bölümünde alıntılanmalıdır. |
+
+## E4 — Schmidt, Meinhardt & Schulze (2016) ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | New design guidelines for in-plant milk-run systems |
+| **Kaynak** | 14th IMHRC Proceedings (Karlsruhe, 2016), Paper 25 · TU Dresden, Chair for Logistics Engineering · açık erişim (Georgia Southern Digital Commons) |
+| **Dosya** | `ek_kaynaklar/E4_Schmidt2016_design_guidelines.pdf` (8 sayfa) |
+| **Doğrulanan formül** | s.3–4: *"Each stop should provide further space for empty carriers. So, the required buffer space per article and stop is $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$"* (cümle s.3'te başlar, formül s.4'tedir) — **K65'in (VDI +1) ikinci bağımsız kaynağı** |
+| **Yöntemsel destek** | s.1 (özet): *"It is, however, not feasible to formulate the design task as an ordinary optimization problem which can be handled by a solver without any further interaction."* → simülasyon tabanlı yaklaşımımızı meşrulaştırır |
+| **Ek bilgi** | VDI 5586'nın 2016 taslağını tartışır; Daimler'in `DelCa` planlama aracı ve RoutMan (Logsol) |
+
+## E5 — VDI 5586 Blatt 2 (2022) 🟡 EDİNİLMESİ GEREKMEZ
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Routenzugsysteme — Planung und Dimensionierung / In-plant milk-run systems — Planning and dimensioning |
+| **Durum** | ✅ Yıl doğrulandı: **Ausgabe 2022-07**; 2016-04 taslağının yerini almıştır (vdi.de, dinmedia.de). Ücretli standart. |
+| **Atıf** | Urru vd. (2018) ve Schmidt vd. (2016) üzerinden; tez metninde "VDI 5586 Blatt 2 (2022)" künyesi verilir |
+
+## E6 — Kundu, Rossini & Portioli-Staudacher (2019) ✅ EDİNİLDİ VE OKUNDU (26.10.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | A study of a kanban based assembly line feeding system through integration of simulation and particle swarm optimization |
+| **Kaynak** | Int. J. of Industrial Engineering Computations 10:421–442 · doi:10.5267/j.ijiec.2018.12.001 |
+| **Dosya** | `docs/papers/ek_kaynaklar/E6_Kundu2019_kanban_DES_PSO.pdf` (22 sayfa) · metin: `extracted_text/E6_…txt` |
+| **Yöntem** | Ayrık olay simülasyonu + parçacık sürü optimizasyonu (PSO); gerçek bir firmada uygulanmış |
+| **🔑 Toyota formülü (s.422–423)** | Sugimori vd. (1977) aktarımı; asıl kaynak artık arşivde (E8) |
+| **🎯 BOŞLUK İLANI (s.423)** | Monden (2011)'e dayanarak: *fixed quantity, variable time* = **reorder point** (bizim P3), *fixed time, variable quantity* = **periodic review** (bizim P2). Ardından: *"This research utilizes the fixed time, variable quantity solution and **does not investigate the differences with the other policy. This could however be the subject of future research.**"* → **Tez boşluğumuzun literatürdeki doğrudan ilanı.** |
+| **Boyutlandırma itirafı (s.422)** | *"The dimensioning of this kind of refilling system, **albeit often carried out without adopting a specific technique**…"* |
+| **⚠️ Karşı kanıt (s.423)** | *"The comparison of different feeding policies has been relatively well covered"* (Limère 2012; Golz 2012; Sali 2015; Faccio 2014; Caputo & Pelagagge 2011). → "Politika karşılaştırması yapılmamıştır" **denemez**. |
+| **⚠️ Kapattığı iddia** | *"trade-off between kanban size and number of kanban"*ı kendi özgün katkısı ilan eder → kanban boyutlandırma ödünleşimi bizim katkımız değildir. |
+| **Destekleyici** | Faccio vd. (2013a): Toyota formülü tek başına *"unable to bring about substantial results without an integrated approach"*. Faccio vd. (2013b): *"use of an analytical approach alone may be unable to obtain reliable results"* → simülasyon tercihimizi destekler. |
+
+## E7 — Korytkowski & Karkoszka (2016) ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances |
+| **Kaynak** | Int. J. of Advanced Manufacturing Technology 82(5–8):827–837 · doi:10.1007/s00170-015-7442-2 · açık erişim (CC BY 4.0) |
+| **Dosya** | `ek_kaynaklar/E7_Korytkowski2016_milkrun_disturbances.pdf` (11 sayfa) |
+| **Yöntem** | Ayrık olay simülasyonu; 10 istasyonlu dengeli montaj hattı; üç kutulu besleme; faktöriyel deney (6 kontrol parametresi) |
+| **🔑 Duruş tanımı (s.834, §5.3)** | *"Workstation starvation (WS) occurs when a worker has to stop work due to a lack of materials in the bins. This parameter is calculated as the ratio of time when the necessary parts were unavailable on the workstations to the total available working time"*, $LP = \sum_i t_u / \sum_i t_a$ → bizim `starv_pct` tanımıyla **birebir aynı**; Yöntem'de bu kaynağa atıf yapılmalı |
+| **Bulgular** | Takt varlığı hattı etkilemez; tampon kapasitesi arttıkça WIP artar; *"Lengthening the cycle duration leads to lower milk runner utilization … but at the cost of higher line-side inventory levels"* (s.835) → çevrim süresi ↔ tampon bağı |
+| **Dayanıklılık** | *"the milk-run system is a very stable supply of parts to the production line"*: bir tam çevrim gecikmesi her iki çevrimde bir olsa bile çıktı en fazla %15 düşer → periyodik beslemenin şoka direnci (K95'te geleneksel sistemin Toyota kutularındaki direncini yorumlamada kullanılabilir) |
+
+## E8 — Sugimori, Kusunoki, Cho & Uchikawa (1977) ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
+
+| Alan | Bilgi |
+|------|-------|
+| **Başlık** | Toyota production system and Kanban system: Materialization of just-in-time and respect-for-human system |
+| **Kaynak** | Int. J. of Production Research 15(6):553–564 · doi:10.1080/00207547708943149 |
+| **Dosya** | `ek_kaynaklar/E8_Sugimori1977_toyota_kanban.pdf` (13 sayfa) |
+| **🔑 Formül (s.561)** | $y = D(T_w + T_p)(1+\alpha)/a$; *"a = Container capacity (not more than 10% of daily requirement)"*, *"α = Policy variable (not over 10%)"* → K06'nın **asıl kaynağı**, birebir doğrulandı |
+| **Kart sayısı sabit (s.562)** | *"Value of y is rather fixed despite variation of D. Therefore, when D increases, it is required to reduce the value of (Tp + Tw), that is, a lead time."* → Toyota talep artışına kart değil tedarik süresiyle yanıt verir; K98 (uyarlanan ROP) Tartışma'sında kullanılmalı |
+| **α'nın anlamı (s.562)** | *"Incapable shops might have to cope with the situation by means of increasing α … the top managers consider the value of α as an indicator of shop capability in improvement."* → α = 0,15 seçiminin gerekçesi |
+
+---
+
+### Ek katalog dışı kaynaklar (ikinci öncelik)
+
+| Çalışma | Neden ilgili |
+|---|---|
+| **Faccio (2014)** — milk-run Kanban ↔ kitting karşılaştırması | Besleme politikası karşılaştırma yöntemi |
+| **Limère vd. (2012)** — kitting ↔ line stocking maliyet modeli | İki kutulu Kanban ile doğrudan karşılaştırma içerir |
+| **Alnahhal (Dr.-Ing. tezi)** — *Efficient Material Flow in Mixed Model Assembly Lines*, Duisburg-Essen | E1'in açık erişimli yerine geçeni |
+| **TUM-fml projeleri** — *Dynamic in-plant milkrun control for volatile transport demand*, *Milk-Run 4.0* | Dinamik milk-run kontrolünde güncel proje serisi |
+
+> **Tam gerekçe, kanıt tabloları ve hakem yanıtları:** `docs/literatur_boslugu_analizi.md`

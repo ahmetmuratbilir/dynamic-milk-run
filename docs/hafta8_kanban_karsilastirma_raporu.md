@@ -2,6 +2,35 @@
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
 
+> [!IMPORTANT]
+> ## ⚠️ ERRATA — Hafta 14 Literatür Denetimi (30.09.2026)
+>
+> Bu raporun karşılaştırma tasarımında **üç yapısal sorun** tespit edilmiştir. Aşağıdaki
+> sayılar v1 motorunun çıktısıdır ve **değiştirilmemiştir**; ancak yorumları revize
+> edilmiştir. Ayrıntı: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`.
+>
+> **1. Hizmet süresi asimetrisi (K66).** Senaryo A (statik) durak başına **3 dk**,
+> Senaryo B (dinamik) durak başına **8 dk** (5 dk handling + 3 dk boşaltma) + tur başına
+> 2 dk yükleme ile simüle edilmiştir. Aynı fiziksel sistemi temsil eden iki politika
+> **farklı hizmet süreleriyle** karşılaştırılmıştır. Süreler eşitlendiğinde dinamik
+> sistemin duruş oranı **10,34 puan** düşmektedir — bu, v1'deki en büyük tek etkendir.
+>
+> **2. Bölüm 4.2'deki "tampon genişlemesi" yorumu eksiktir.** Tablo 2'de duruşun
+> 7–13 dakikaya inmesi yalnızca $N=1 \rightarrow 2$ tampon genişlemesine bağlanmıştır.
+> Ancak `variable_lt_solver.py` de durak başına **3 dk** kullanır (Tablo 1'deki dinamik
+> senaryo 8 dk kullanırken). İki etki ayrıştırılmamıştır.
+>
+> **3. Raf eksik boyutlandırılmıştır (K65).** 24 istasyonun 23'ünde $N=1$'dir; VDI 5586'nın
+> boş/dolu kutu değişimi için zorunlu kıldığı "+1 pozisyon" (Urru vd. 2018 s.406) ve iki
+> kutu prensibi (Klenk s.11; Vojdani s.5; Droste & Deuse s.607) uygulanmamıştır.
+> Düzeltildiğinde duruş **3,88 puan** düşmektedir (p<0,001).
+>
+> **Revize edilmiş sonuç.** Literatüre uygun boyutlandırma ve simetrik hizmet süreleriyle
+> karşılaştırma **koşulludur**: araç yetersizken statik hafif önde; yeterli filoda
+> duruş farkı politika-tutarlı boyutlandırmada 1 puanın altındadır ve dinamik sistemin
+> üstünlüğü **stoktadır**; eşit WIP'te ise dinamik 10,9 puan öndedir (K96, K97). Bölüm 5'teki "en az 4 araç" önerisi
+> v2'de **2–3 araca** inmektedir.
+
 **Uygulanan Kararlar:** K03, K04, K05, K06, K10, K12, K14, K15, K17, K25, K44, K45, K47, K48–K51  
 **Bkz.:** `docs/karar_gunlugu.md`
 

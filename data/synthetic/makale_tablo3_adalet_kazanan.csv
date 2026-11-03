@@ -1,0 +1,17 @@
+﻿kutu,talep,kural,fark_durus,ga,wip_fark_pct,olcut,kazanan,pareto,not
+mevcut,Baz talep,A,-2.4241255144032925,0.21627483264459724,1.0892160727171696,duruş,Dijital,Dijital baskın,
+mevcut,Baz talep,B,-0.19624485596707825,0.07529380554966568,-41.47494523827378,duruş,Dijital,Dijital baskın,
+mevcut,Baz talep,C,-0.026748971193415683,0.07531298041919207,-56.22036541250568,WIP (hizmet eşit),Dijital,Dijital baskın,k=+0; k=-3
+mevcut,Baz talep,D,-12.134226876480838,0.19408957522498957,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme
+mevcut,Talep şoku +%50,A,-10.82253086419753,0.38306141625656576,0.9717880035192916,duruş,Dijital,Dijital baskın,
+mevcut,Talep şoku +%50,B,-1.8582818930041145,0.23836451958397542,-36.83701626844762,duruş,Dijital,Dijital baskın,
+mevcut,Talep şoku +%50,C,0.7716049382716048,0.0565361451539127,-40.16949140221442,WIP (hizmet eşit),Dijital,baskınlık yok (takas),k=+1; k=+1
+mevcut,Talep şoku +%50,D,-17.341846997791908,0.32376921294976824,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme
+toyota,Baz talep,A,-11.266460905349795,0.40871409944182646,34.62133516236931,duruş,Dijital,baskınlık yok (takas),
+toyota,Baz talep,B,0.10519547325102879,0.044741468857724696,-35.677815139326505,duruş,Geleneksel,baskınlık yok (takas),
+toyota,Baz talep,C,0.12165637860082307,0.058214247211944035,-35.586759394072,WIP (hizmet eşit),Dijital,baskınlık yok (takas),k=+0; k=-1
+toyota,Baz talep,D,-7.685511847526812,0.2895274001984816,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme
+toyota,Talep şoku +%50,A,-15.960133744855966,0.6039824281503309,13.626761105294172,duruş,Dijital,baskınlık yok (takas),
+toyota,Talep şoku +%50,B,1.9747942386831268,0.6083860278299192,-35.63778605021643,duruş,Geleneksel,baskınlık yok (takas),
+toyota,Talep şoku +%50,C,0.3978909465020578,0.046414203994056644,-11.176878365421118,WIP (hizmet eşit),Dijital,baskınlık yok (takas),k=+1; k=+2
+toyota,Talep şoku +%50,D,-12.760269312899656,0.6240536374089005,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme

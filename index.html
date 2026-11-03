@@ -46,8 +46,16 @@
                 <div class="nav-item">
                     <button class="sidebar-btn" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')">⚖️</button>
                     <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">⚖️ Statik vs Dinamik</div>
-                        <div class="nav-tooltip-desc">80 dk sabit periyodik sefer ile dinamik VRPTW karşılaştırması.</div>
+                        <div class="nav-tooltip-title">⚖️ Politikalar & Ana Katkı</div>
+                        <div class="nav-tooltip-desc">P1/P2/P3 karşılaştırması, dört adalet kuralı (K97), Pareto cephesi ve ayrıştırma.</div>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="sidebar-btn" data-tab="tab-dogrulama" onclick="showTab('tab-dogrulama')">🔬</button>
+                    <div class="nav-tooltip">
+                        <div class="nav-tooltip-title">🔬 Doğrulama & Karşılaştırıcı</div>
+                        <div class="nav-tooltip-desc">Isınma, replikasyon, rotalama doğrulaması, sağlamlık testleri ve iki senaryoyu yan yana karşılaştırma.</div>
                     </div>
                 </div>
 
@@ -72,10 +80,9 @@
                 </div>
 
                 <div class="info-popover-trigger">
-                    <span>💡 Baseline Notu (Seed=42)</span>
+                    <span>💡 Veri Notu</span>
                     <div class="popover-content">
-                        <strong>Metodolojik Bilgi:</strong> Veri ambarı deterministik baseline (seed=42) üzerinedir. 30 replikasyon stokastik talep koşullarında Statik vs Dinamik duruş farkı ~3.0–5.0 puan bandına daralmaktadır.
-                    </div>
+                        <strong>Veri:</strong> v2 motoru, konfigürasyon başına 3 replikasyonun ortalaması ± %95 güven aralığı. Göstergeler ısınma dönemini (90 dk) içerir (K99). Statik referans: P2, T=60 dk, politika-tutarlı boyutlandırma. Sevk kuralları arasında istatistiksel fark yoktur (K82).</div>
                 </div>
             </header>
 
@@ -95,8 +102,8 @@
                                 </div>
                                 <span style="font-size:11px; color:var(--text-muted);">Eşik: <%5.0</span>
                             </div>
-                            <div class="kpi-value-hero" id="kpiStarvVal">%24.58</div>
-                            <div class="kpi-subtext" id="kpiStarvDk">2,832 / 11,520 dakika kümülatif duruş</div>
+                            <div class="kpi-value-hero" id="kpiStarvVal">—</div>
+                            <div class="kpi-subtext" id="kpiStarvDk">Veri yükleniyor…</div>
                         </div>
 
                         <!-- KPI 2: WIP -->
@@ -119,10 +126,10 @@
                                     <span class="status-dot dot-warning" id="dotFark"></span>
                                     <span class="kpi-label">Statik vs Dinamik Farkı</span>
                                 </div>
-                                <span style="font-size:11px; color:var(--text-muted);">4 Araç Baseline (%19.31)</span>
+                                <span style="font-size:11px; color:var(--text-muted);">Statik ref.: P2, T=60 dk</span>
                             </div>
-                            <div class="kpi-value-hero" id="kpiFarkVal">+5.27 puan</div>
-                            <div class="kpi-subtext">Statik sistem lehine avantaj (Stokastik: +3.06 puan)</div>
+                            <div class="kpi-value-hero" id="kpiFarkVal">—</div>
+                            <div class="kpi-subtext">Dinamik − statik duruş farkı (aynı filo)</div>
                         </div>
 
                         <!-- KPI 4: Doluluk -->
@@ -143,7 +150,7 @@
                     <div class="comment-card">
                         <span style="font-size:16px;">💡</span>
                         <div id="dynamicCommentText">
-                            Mevcut baz senaryoda (4 Araç, &alpha;=0.15, EDD) sistem <strong>%24.58</strong> duruş oranıyla çalışmaktadır — bu, statik sistemin (%19.31) <strong>+5.27 puan</strong> üzerindedir (stokastik ortalamada fark: +3.06 puan). Sistemin <%5 rekabetçilik eşiğine ulaşması için filo büyüklüğünün <strong>8 araca</strong> çıkarılması gerekmektedir.
+                            Veri yükleniyor…
                         </div>
                     </div>
 
@@ -197,16 +204,16 @@
 
                         <div class="control-group">
                             <div class="control-header">
-                                <span>Kanban Boyutlandırma (K55)</span>
+                                <span>Kanban Boyutlandırma (K65)</span>
                             </div>
                             <div class="chip-grid">
                                 <label class="chip-btn">
                                     <input type="radio" id="modDinamik" name="nModu" value="Dinamik_N" checked>
-                                    <span class="chip-label">Dinamik N (Mod B)</span>
+                                    <span class="chip-label" title="N = 1 + ⌈ROP/C⌉ — politikaya göre tutarlı tampon (K65)">Politika-tutarlı (VDI)</span>
                                 </label>
                                 <label class="chip-btn">
                                     <input type="radio" id="modSabit" name="nModu" value="Sabit_N">
-                                    <span class="chip-label">Sabit N (Mod A)</span>
+                                    <span class="chip-label" title="N = ⌈ROP/C⌉ — v1 boyutlandırması">Eski boyutlandırma (V1)</span>
                                 </label>
                             </div>
                         </div>
@@ -247,7 +254,7 @@
                         </div>
 
                         <div style="font-size:11px; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:8px;">
-                            ⚡ 1.920 Senaryo K57 Kanonik Motoru
+                            ⚡ 1.920 Senaryo · v2 Motoru
                         </div>
                     </aside>
 
@@ -256,18 +263,18 @@
                         <div class="whatif-kpi-bar">
                             <div class="mini-kpi">
                                 <div style="font-size:11px; color:var(--text-secondary);">Anlık Starvation</div>
-                                <div class="mini-kpi-val" id="wiStarvVal">%24.58</div>
-                                <div style="font-size:10px; color:var(--text-muted);" id="wiStarvDk">2,832 / 11,520 dk</div>
+                                <div class="mini-kpi-val" id="wiStarvVal">—</div>
+                                <div style="font-size:10px; color:var(--text-muted);" id="wiStarvDk">—</div>
                             </div>
                             <div class="mini-kpi">
                                 <div style="font-size:11px; color:var(--text-secondary);">Ortalama WIP</div>
-                                <div class="mini-kpi-val" id="wiWipVal">182.3</div>
+                                <div class="mini-kpi-val" id="wiWipVal">—</div>
                                 <div style="font-size:10px; color:var(--text-muted);">Adet / Hat başı</div>
                             </div>
                             <div class="mini-kpi">
                                 <div style="font-size:11px; color:var(--text-secondary);">Statik Fark (Seçili Araç)</div>
-                                <div class="mini-kpi-val" id="wiFarkVal">+5.27 puan</div>
-                                <div style="font-size:10px; color:var(--text-muted);" id="wiFarkSub">K58 80dk simülasyonu</div>
+                                <div class="mini-kpi-val" id="wiFarkVal">—</div>
+                                <div style="font-size:10px; color:var(--text-muted);" id="wiFarkSub">Statik ref.: P2, T=60 dk (VDI)</div>
                             </div>
                             <div class="mini-kpi">
                                 <div style="font-size:11px; color:var(--text-secondary);">Filo Doluluğu</div>
@@ -364,174 +371,153 @@
             <!-- SEKME 4: STATİK VS DİNAMİK (ZEBRA STRIPED) -->
             <div id="tab-karsilastirma" class="tab-pane">
                 <div style="display:flex; flex-direction:column; gap:16px;">
-                    
+
+                    <!-- D4 · Politika karşılaştırması: her politika kendi kart sayısıyla -->
                     <div class="data-table-card">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                            <div class="chart-title">4 Araç Baz Senaryo Karşılaştırması</div>
-                            <span style="font-size:11px; color:var(--accent-primary);">Deterministik Seed=42 & Stokastik Ortalama</span>
+                        <div class="katki-baslik">
+                            <div class="chart-title">Politika Karşılaştırması · P1 / P2 / P3</div>
+                            <span class="katki-etiket">Her politika kendi kart sayısıyla (K65)</span>
                         </div>
-                        <table class="modern-table">
-                            <thead>
-                                <tr>
-                                    <th>Sistem Politikası</th>
-                                    <th>Filo</th>
-                                    <th>Starvation (%)</th>
-                                    <th>Duruş (dk)</th>
-                                    <th>Ortalama WIP</th>
-                                    <th>Sefer</th>
-                                    <th>Mesafe</th>
-                                    <th>Operasyonel Karakteristik</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="Bu senaryoyu What-If Simülatöründe incele">
-                                    <td><strong>Statik (80 dk Sabit - K58)</strong></td>
-                                    <td>4 Araç</td>
-                                    <td><span style="color:var(--status-good); font-weight:700;">%19.31</span></td>
-                                    <td>2,225 dk</td>
-                                    <td>177.0 adet</td>
-                                    <td>36 sefer</td>
-                                    <td>54.00 km</td>
-                                    <td>Deterministik çevrim düzenliliği (Sinyal gecikmesi yok)</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="Bu senaryoyu What-If Simülatöründe incele">
-                                    <td><strong>Dinamik E-Kanban (EDD/SLACK)</strong></td>
-                                    <td>4 Araç</td>
-                                    <td><span style="color:var(--status-warning); font-weight:700;">%24.58</span></td>
-                                    <td>2,832 dk</td>
-                                    <td>182.3 adet</td>
-                                    <td>32 sefer</td>
-                                    <td>48.49 km</td>
-                                    <td>Talep anında reaktif sevk (%10 daha az mesafe ve sefer)</td>
-                                </tr>
-                                <tr style="background:rgba(245, 158, 11, 0.05);">
-                                    <td><strong>Fark (Dinamik - Statik)</strong></td>
-                                    <td>-</td>
-                                    <td style="color:#D97706; font-weight:700;">+5.27 puan</td>
-                                    <td>+607 dk</td>
-                                    <td>+5.3 adet</td>
-                                    <td>-4 sefer</td>
-                                    <td>-5.51 km</td>
-                                    <td>Statik duruşta avantajlı; Dinamik enerji ve seferde tasarruflu</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="katki-kontrol">
+                            <label for="polArac">Filo</label>
+                            <select id="polArac"></select>
+                            <label for="polTalep">Talep</label>
+                            <select id="polTalep"></select>
+                            <label for="polNModu">Boyutlandırma</label>
+                            <select id="polNModu">
+                                <option value="Dinamik_N">Politika-tutarlı (VDI)</option>
+                                <option value="Sabit_N">Eski boyutlandırma (V1)</option>
+                            </select>
+                        </div>
+                        <div class="katki-tablo-kap">
+                            <table class="modern-table">
+                                <thead><tr><th>Politika</th><th>Takt</th><th>Duruş % (± %95 GA)</th><th>Ort. WIP</th><th>Kart</th><th>Sefer</th><th>Mesafe (km)</th><th>Doluluk %</th></tr></thead>
+                                <tbody id="polTablo"></tbody>
+                            </table>
+                        </div>
+                        <p class="katki-not" id="polNot"></p>
                     </div>
 
+                    <!-- K97 · Dört adalet kuralı -->
                     <div class="data-table-card">
-                        <!-- 4) STATIK VS DINAMIK BASLIK YORUMU -->
-                        <div style="background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:10px 14px; font-size:12px; color:#1E40AF; font-weight:500; margin-bottom:12px;">
-                            📌 <strong>Özet:</strong> 4 araca kadar statik sistem (sabit turlar) daha az duruşa neden olur; 5 araçtan itibaren dinamik E-Kanban sistemi sürekli olarak daha iyi performans gösterir ve 8 araçta rekabetçilik hedefine (%5) ulaşır.
+                        <div class="katki-baslik">
+                            <div class="chart-title">Dört Adalet Kuralı · kazanan, karşılaştırmanın nasıl eşitlendiğine bağlı</div>
+                            <span class="katki-etiket">K97 · ana katkı</span>
                         </div>
-
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                            <div>
-                                <div class="chart-title">1 – 8 Araç Filo Boyutlandırma Matrisi & Geçiş Noktası (Crossover Point)</div>
-                                <div style="font-size:11px; color:var(--text-secondary); margin-top:2px;">💡 Satırlara tıklayarak What-If simülatöründe o senaryoya anında geçebilirsiniz.</div>
+                        <div class="katki-kontrol">
+                            <label for="adaletKutu">Kutu boyu</label>
+                            <select id="adaletKutu">
+                                <option value="toyota">Toyota (C ≤ günlük talebin %10'u)</option>
+                                <option value="mevcut">Mevcut</option>
+                            </select>
+                            <label for="adaletTalep">Talep</label>
+                            <select id="adaletTalep">
+                                <option value="Talep şoku +%50">Talep şoku +%50</option>
+                                <option value="Baz talep">Baz talep</option>
+                            </select>
+                        </div>
+                        <div class="katki-ikili">
+                            <div class="katki-grafik"><canvas id="chartAdalet"></canvas></div>
+                            <div class="katki-tablo-kap">
+                                <table class="modern-table">
+                                    <thead><tr><th>Kural</th><th>Ölçüt</th><th>Kazanan</th><th>Δ duruş</th><th>Δ WIP</th><th>Pareto</th></tr></thead>
+                                    <tbody id="adaletTablo"></tbody>
+                                </table>
                             </div>
-                            <span style="font-size:11px; color:var(--status-good); font-weight:600;">5+ Araçta Dinamik Üstünlük</span>
                         </div>
-                        <table class="modern-table">
-                            <thead>
-                                <tr>
-                                    <th>Araç Sayısı</th>
-                                    <th>Statik Baseline (%)</th>
-                                    <th>Dinamik EDD (%)</th>
-                                    <th>Dinamik SLACK (%)</th>
-                                    <th>Fark (Dinamik - Statik)</th>
-                                    <th>Üstün Sistem</th>
-                                    <th>Hedef (<%5)</th>
-                                    <th style="width:70px; text-align:center;">İncele</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr onclick="navigateToWhatIf(1)" style="cursor:pointer;" title="1 Araç senaryosunu What-If'te aç">
-                                    <td><strong>1 Araç</strong></td>
-                                    <td>%25.77</td>
-                                    <td>%69.50</td>
-                                    <td>%69.52</td>
-                                    <td style="color:var(--status-critical);">+43.73 puan</td>
-                                    <td>Statik</td>
-                                    <td>Yetersiz</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(2)" style="cursor:pointer;" title="2 Araç senaryosunu What-If'te aç">
-                                    <td><strong>2 Araç</strong></td>
-                                    <td>%21.35</td>
-                                    <td>%53.01</td>
-                                    <td>%53.03</td>
-                                    <td style="color:var(--status-critical);">+31.66 puan</td>
-                                    <td>Statik</td>
-                                    <td>Yetersiz</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(3)" style="cursor:pointer;" title="3 Araç senaryosunu What-If'te aç">
-                                    <td><strong>3 Araç</strong></td>
-                                    <td>%19.70</td>
-                                    <td>%36.93</td>
-                                    <td>%36.73</td>
-                                    <td style="color:var(--status-warning);">+17.23 puan</td>
-                                    <td>Statik</td>
-                                    <td>Yetersiz</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(4)" style="cursor:pointer;" title="4 Araç (Baz) senaryosunu What-If'te aç">
-                                    <td><strong>4 Araç (Baz)</strong></td>
-                                    <td>%19.31</td>
-                                    <td>%24.58</td>
-                                    <td>%24.66</td>
-                                    <td style="color:var(--status-warning);">+5.27 puan</td>
-                                    <td>Statik</td>
-                                    <td>Yetersiz</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(5)" style="cursor:pointer; background:rgba(37, 99, 235, 0.06);" title="5 Araç (Geçiş Eşiği) senaryosunu What-If'te aç">
-                                    <td><strong>5 Araç (Geçiş Eşiği ⚡)</strong></td>
-                                    <td>%19.10</td>
-                                    <td>%15.98</td>
-                                    <td>%16.07</td>
-                                    <td style="color:var(--accent-primary); font-weight:700;">-3.12 puan</td>
-                                    <td style="color:var(--accent-primary); font-weight:700;">Dinamik Öne Geçti ⚡</td>
-                                    <td>Yetersiz</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(6)" style="cursor:pointer;" title="6 Araç senaryosunu What-If'te aç">
-                                    <td><strong>6 Araç</strong></td>
-                                    <td>%18.96</td>
-                                    <td>%11.27</td>
-                                    <td>%11.11</td>
-                                    <td style="color:var(--status-good); font-weight:700;">-7.69 puan</td>
-                                    <td style="color:var(--status-good);">Dinamik ⚡</td>
-                                    <td>Yaklaştı</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(7)" style="cursor:pointer;" title="7 Araç senaryosunu What-If'te aç">
-                                    <td><strong>7 Araç</strong></td>
-                                    <td>%18.83</td>
-                                    <td>%7.00</td>
-                                    <td>%6.89</td>
-                                    <td style="color:var(--status-good); font-weight:700;">-11.83 puan</td>
-                                    <td style="color:var(--status-good);">Dinamik ⚡</td>
-                                    <td>Yaklaştı</td>
-                                    <td style="text-align:center; color:var(--accent-primary); font-weight:600;">Test et ↗</td>
-                                </tr>
-                                <tr onclick="navigateToWhatIf(8)" style="cursor:pointer; background:rgba(5, 150, 105, 0.08);" title="8 Araç (Hedef Eşik) senaryosunu What-If'te aç">
-                                    <td><strong>8 Araç (Hedef Eşik 🏆)</strong></td>
-                                    <td>%18.68</td>
-                                    <td><strong style="color:var(--status-good);">%3.50</strong></td>
-                                    <td><strong style="color:var(--status-good);">%3.66</strong></td>
-                                    <td style="color:var(--status-good); font-weight:700;">-15.18 puan</td>
-                                    <td style="color:var(--status-good); font-weight:700;">Dinamik Tam Üstünlük 🏆</td>
-                                    <td style="color:var(--status-good); font-weight:700;">HEDEF ULAŞILDI ✅</td>
-                                    <td style="text-align:center; color:var(--status-good); font-weight:700;">Test et ↗</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <p class="katki-not">Eğriler: geleneksel (P2, T=60 dk) ve dijital (P3, konsolidasyon) için kart sayısı taraması, N<sub>i</sub> = max(1, N<sub>i</sub><sup>VDI</sup> + k). A eşit kart (Vojdani &amp; Drechsler 2022) · B politika-tutarlı (Urru vd. 2018; VDI 5586) · C eşit hizmet düzeyi, duruş ≤ %1 (Alnahhal &amp; Noche 2015) · D eşit WIP. 3 araç, 12 replikasyon.</p>
                     </div>
+
+                    <!-- D6 · Etkileşimli Pareto -->
+                    <div class="data-table-card">
+                        <div class="katki-baslik">
+                            <div class="chart-title">Pareto Cephesi · WIP × duruş</div>
+                            <span class="katki-etiket">Bir noktaya tıklayın</span>
+                        </div>
+                        <div class="katki-kontrol">
+                            <label for="parTalep">Talep</label>
+                            <select id="parTalep"></select>
+                            <label class="katki-onay"><input type="checkbox" id="parP3VDI" checked> P3 · VDI</label>
+                            <label class="katki-onay"><input type="checkbox" id="parP3V1"> P3 · V1</label>
+                            <label class="katki-onay"><input type="checkbox" id="parP1" checked> P1</label>
+                            <label class="katki-onay"><input type="checkbox" id="parP2" checked> P2</label>
+                        </div>
+                        <div class="katki-grafik katki-grafik-genis"><canvas id="chartParetoTum"></canvas></div>
+                        <p class="katki-not" id="parDetay">Ayrıntı için grafikte bir noktaya tıklayın.</p>
+                    </div>
+
+                    <!-- D5 · Ayrıştırma -->
+                    <div class="data-table-card">
+                        <div class="katki-baslik">
+                            <div class="chart-title">Ayrıştırma · v1 → v2 modelleme kararlarının duruşa etkisi</div>
+                            <span class="katki-etiket">Adımları açıp kapatın</span>
+                        </div>
+                        <div class="katki-ikili">
+                            <div class="katki-grafik"><canvas id="chartAblation"></canvas></div>
+                            <div>
+                                <div id="ablationListe" class="ablation-liste"></div>
+                                <p class="katki-not" id="ablationToplam"></p>
+                            </div>
+                        </div>
+                        <p class="katki-not">Adımlar sırayla, kümülatif olarak uygulanmıştır; her çubuk o adımın bir öncekine göre duruş değişimidir. Seçili adımların toplamı yaklaşık bir göstergedir, çünkü etkiler bağımsız ölçülmemiştir. Kaynak: <code>data/synthetic/v2_d45_ayristirma.csv</code>.</p>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- SEKME 5: VERİ GİRİŞİ -->
+            <div id="tab-dogrulama" class="tab-pane">
+                <div style="display:flex; flex-direction:column; gap:16px;">
+
+                    <!-- D7 · Sağlamlık özeti -->
+                    <div class="data-table-card">
+                        <div class="katki-baslik">
+                            <div class="chart-title">Sağlamlık Testleri · ana bulgu farklı koşullarda tutuyor mu?</div>
+                            <span class="katki-etiket">K95–K101</span>
+                        </div>
+                        <div class="katki-tablo-kap">
+                            <table class="modern-table">
+                                <thead><tr><th>Karar</th><th>Test</th><th>Koşul</th><th>Kayma &gt; 0</th><th>Kayma aralığı (puan)</th><th>Sıralama değişimi</th><th>Not</th></tr></thead>
+                                <tbody id="saglamlikTablo"></tbody>
+                            </table>
+                        </div>
+                        <p class="katki-not">Kayma = politika-tutarlı boyutlandırmada dijital−geleneksel duruş farkı eksi ortak tamponlu (Vojdani tasarımı) fark. Pozitif kayma: boyutlandırma tasarımı karşılaştırmayı geleneksel sistem lehine düzeltir.</p>
+                    </div>
+
+                    <!-- D7 · Isınma ve replikasyon -->
+                    <div class="data-table-card">
+                        <div class="katki-baslik">
+                            <div class="chart-title">Isınma Süresi (Welch) ve Replikasyon Yeterliliği</div>
+                            <span class="katki-etiket" id="dogrulamaOzet"></span>
+                        </div>
+                        <div class="katki-ikili">
+                            <div class="katki-grafik"><canvas id="chartWelch"></canvas></div>
+                            <div class="katki-grafik"><canvas id="chartReplikasyon"></canvas></div>
+                        </div>
+                        <p class="katki-not" id="dogrulamaNot"></p>
+                    </div>
+
+                    <!-- D8 · Senaryo karşılaştırıcı -->
+                    <div class="data-table-card">
+                        <div class="katki-baslik">
+                            <div class="chart-title">Senaryo Karşılaştırıcı · iki P3 konfigürasyonu yan yana</div>
+                            <span class="katki-etiket">Fark: B − A</span>
+                        </div>
+                        <div class="karsilastirici">
+                            <div class="katki-kontrol" id="karsA"></div>
+                            <div class="katki-kontrol" id="karsB"></div>
+                        </div>
+                        <div class="katki-tablo-kap">
+                            <table class="modern-table">
+                                <thead><tr><th>Gösterge</th><th>Senaryo A</th><th>Senaryo B</th><th>Fark (B − A)</th></tr></thead>
+                                <tbody id="karsTablo"></tbody>
+                            </table>
+                        </div>
+                        <p class="katki-not">Duruş farkı, iki tarafın %95 güven aralıklarının birleşik yarı genişliğinden küçükse "anlamlı değil" olarak işaretlenir.</p>
+                    </div>
+
+                </div>
+            </div>
+
             <div id="tab-veri-girisi" class="tab-pane">
                 <div style="display:flex; flex-direction:column; gap:16px;">
                     
@@ -624,7 +610,7 @@
             <!-- FOOTER -->
             <footer style="margin-top:auto; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); text-align:center; display:flex; justify-content:space-between;">
                 <span>Dinamik Milk-Run & E-Kanban KDS — 2026</span>
-                <span>K01–K64 Karar Günlüğü | K57 Kanonik Motor | K63 Dinamik SLACK</span>
+                <span id="surumDamgasi">K01–K94 Karar Günlüğü | v2 Motor</span>
             </footer>
 
         </div>

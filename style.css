@@ -802,3 +802,107 @@ input[type="range"] {
 .btn-action.btn-warning:hover {
     background: #FDE68A;
 }
+
+
+/* ============================================================
+   KADEME 2 · ANA KATKI PANELLERİ (D4, D5, D6, K97)
+   ============================================================ */
+.katki-baslik {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px 12px;
+    margin-bottom: 12px;
+}
+.katki-etiket {
+    font-size: 11px;
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+.katki-kontrol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+.katki-kontrol select {
+    font: inherit;
+    padding: 5px 8px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+.katki-kontrol select:focus-visible,
+.katki-onay input:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+.katki-onay {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+.katki-tablo-kap {
+    overflow-x: auto;
+    min-width: 0;
+}
+.katki-ikili {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+.katki-grafik {
+    position: relative;
+    height: 320px;
+    min-width: 0;
+}
+.katki-grafik-genis {
+    height: 380px;
+}
+.katki-not {
+    margin: 10px 0 0;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+.katki-ga {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+.katki-cip {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+}
+.katki-p3 td {
+    background: var(--accent-primary-dim);
+}
+.ablation-liste {
+    display: grid;
+    gap: 6px;
+}
+@media (max-width: 1100px) {
+    .katki-ikili { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* KADEME 3 · senaryo karşılaştırıcı */
+.karsilastirici {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 16px;
+}
+@media (max-width: 1100px) {
+    .karsilastirici { grid-template-columns: minmax(0, 1fr); }
+}

@@ -11,8 +11,38 @@
 > >    
 > >    **Düzeltilmiş Bulgu:** EDD, SLACK ve FIFO arasında istatistiksel olarak anlamlı bir fark bulunamadı. Bu üç kural birbirine eşdeğerdir ve herhangi biri seçilebilir. KRİTİKLİK ise her ikisinden de anlamlı biçimde daha kötüdür (p<0.0001, Δ≈+1.33 puan).
 
-**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44, K63, K64  
-**Bkz.:** `karar_gunlugu.md`, `hafta6_filo_analiz_raporu.md`
+> [!IMPORTANT]
+> ## ⚠️ ERRATA — Hafta 14 Literatür Denetimi (30.09.2026)
+>
+> **1. Talep verisi hatalıydı (K75).** Bu raporun 30 replikasyonluk analizini besleyen
+> `src/stokastik_replikasyon.py` içindeki `ISTASYON_TUKETIM_MU` sözlüğü `stations.csv` ile
+> uyuşmuyordu: **S10 = 18 (doğrusu 11)**, **S23 = 18 (doğrusu 12)**. Toplam talep
+> 446 adet/sa (doğrusu 409) — yaklaşık **%9 fazla**. Buradaki tüm replikasyon sonuçları
+> bu hatalı talep altında üretilmiştir. Üretici artık `stations.csv`'den okumaktadır.
+>
+> **2. Wang (2008) atfı geçersizdir (K44).** Makale **s.128**'de başlar; K44'te verilen
+> "s.48 / s.52" sayfaları **mevcut değildir**. Makalede **EDD ve SLACK geçmez**. İhtiyaç
+> zamanına göre sıralamanın gerçek dayanağı **Vojdani & Drechsler (2022) s.5**'tir.
+> EDD/SLACK bir **mühendislik tasarım kararıdır**.
+>
+> **3. FIFO erratası geri alındı.** 03.09.2026'da "Herrera-Vidal atfı yanlıştı" denmişti;
+> Herrera-Vidal vd. (2026) **s.8** FIFO kuyruk disiplinini açıkça tanımlar — atıf geçerlidir.
+>
+> **4. Çoklu karşılaştırma yöntemi (K82).** Dört kural ikili t-testleriyle
+> karşılaştırılmıştır; bu, I. tip hata oranını şişirir. Doğru yöntem ANOVA + Tukey HSD'dir
+> (Herrera-Vidal s.9–10).
+>
+> **5. ⚠️ ANA BULGU REVİZE EDİLDİ.** v2 motorunda ANOVA + Tukey HSD ile:
+> yeterli filoda **F=0,003, p=0,9997**; kısıtlı filo + %50 şokta **F=1,152, p=0,3415**.
+> Tukey HSD'de hiçbir ikili fark eşiği aşmamaktadır. **"KRİTİKLİK diğer üçünden anlamlı
+> biçimde kötüdür (Δ≈1,33 puan, p<0,0001)" bulgusu v2'de desteklenmemektedir**; dört kural
+> istatistiksel olarak eşdeğerdir. Olası neden: v1'de kritiklik skoru sinyal anında
+> hesaplanıp donuyordu, v2'de canlı stok/ROP kullanılır.
+>
+> Ayrıntı: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`
+
+**Uygulanan Kararlar:** K26, K33, K34, K42, K43, K44, K63, K64 · **Revizyon:** K75, K82  
+**Bkz.:** `karar_gunlugu.md`, `hafta6_filo_analiz_raporu.md`, `hafta14_literatur_denetimi_ve_revizyon_raporu.md`
 
 
 ---

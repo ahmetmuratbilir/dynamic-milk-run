@@ -3,6 +3,33 @@
 
 > ⚠️ **SENTETİK VERİ** — Gerçek veri için `data/config.json → "real"`
 
+> [!IMPORTANT]
+> ## ⚠️ ERRATA — Hafta 14 Literatür Denetimi (30.09.2026)
+>
+> **1. "Pareto sınırı" adlandırması.** Bölüm 2'deki tablo bir Pareto cephesi değil,
+> tur sıklığına göre bir **duyarlılık taramasıdır**; baskın olmayan çözümler
+> süzülmemiştir. Gerçek iki/üç amaçlı Pareto cephesi Hafta 14'te üretilmiştir
+> (`docs/figurler/sekil1_pareto_wip_durus.png`, K80).
+>
+> **2. Statik referans eksik boyutlandırılmıştır (K73/K79).** Tabloda statik sistemin
+> tur aralığı 45→120 dk arasında değiştirilirken raf kapasitesi **sabit** tutulmuştur
+> ($N=1$). Droste & Deuse (2011) s.607–608 Şekil 4 ve VDI 5586 formülü (Urru s.406),
+> gereken rafın **tur aralığıyla orantılı** büyüdüğünü gösterir. Dolayısıyla 80–120 dk'lık
+> statik senaryoların yüksek duruş oranları, politikanın değil **eksik boyutlandırmanın**
+> sonucudur. Bölüm 4.1'deki "eşit WIP'te statik %5–7 puan üstün" çıkarımı bu nedenle
+> geçerliliğini yitirmiştir.
+>
+> **3. Hizmet süresi asimetrisi (K66).** Statik 3 dk/durak, dinamik 8 dk/durak — bkz.
+> Hafta 8 erratası.
+>
+> **4. Filo eşiği revizyonu.** Aşağıdaki ERRATA kutusundaki "%5 eşiği için 8 araç gerekir"
+> bulgusu, yukarıdaki üç sorun giderildiğinde geçerliliğini yitirmektedir: literatüre uygun
+> boyutlandırmayla **baz talepte 2 araç, +%50 şokta 3 araç** yeterlidir (K81). Yüksek filo
+> ihtiyacı fiziksel raf kısıtından değil, eksik boyutlandırma + hizmet süresi asimetrisi +
+> açık döngü birleşiminden kaynaklanmaktadır.
+>
+> Ayrıntı: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`
+
 **Uygulanan Kararlar:** K03, K04, K05, K10, K12, K14, K15, K17, K25, K37, K44, K45, K47, K48–K54  
 **Bkz.:** `docs/karar_gunlugu.md`
 

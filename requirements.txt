@@ -1,0 +1,22 @@
+# Dinamik Milk-Run ve E-Kanban Karar Destek Sistemi — Python bagimliliklari
+# Python 3.11 ile test edilmistir.
+#
+# Kurulum:
+#   python -m pip install -r requirements.txt
+#
+# NOT: ortools, protobuf>=6 gerektirir. Ayni ortamda mediapipe veya grpcio-status
+# kuruluysa surum catismasi uyarisi verebilir; bu proje etkilenmez. Catismadan
+# kacinmak icin sanal ortam onerilir:
+#   python -m venv .venv && .venv\Scripts\activate
+
+# Cekirdek (tum simulasyon ve analizler)
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+
+# Figurler (docs/figurler/*.png)
+matplotlib>=3.8
+
+# Solomon VRPTW dogrulamasi (src/solomon_dogrulama.py) — istege bagli
+ortools>=9.8
+vrplib>=1.3

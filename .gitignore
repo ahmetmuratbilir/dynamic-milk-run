@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Isletim sistemi
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Gecici / turetilmis
+*.zip
+data/benchmark/
+
+# Not: telif hakki korumali makale PDF'leri depoda tutulmamalidir.
+# Mevcut docs/papers/zip*/ klasorleri icin bkz. README "Depo duzeni" bolumu.
+
+# Makale PDF'leri ve tam metinleri depoya eklenmez (yerelde tutulur)
+docs/papers/**/*.pdf
+docs/papers/ek_kaynaklar/
+docs/papers/extracted_text/E3_Bocewicz2019_fleet_storage_tradeoff.txt
+docs/papers/extracted_text/E6_Kundu2019_kanban_DES_PSO.txt
+docs/papers/extracted_text/LOGISTIQUA_2020_paper_166.txt
+docs/papers/extracted_text/E7_Korytkowski2016_milkrun_disturbances.txt
+docs/papers/extracted_text/E8_Sugimori1977_toyota_kanban.txt
+docs/papers/extracted_text/E9_Ciemnoczolowski2013_part1_stability.txt
+docs/papers/extracted_text/E10_Ciemnoczolowski2013_part2_kanban_starvation.txt
+docs/papers/extracted_text/E4_Schmidt2016_design_guidelines.txt
+data/_dashboard_nihai_log.txt

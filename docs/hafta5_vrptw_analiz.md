@@ -7,7 +7,41 @@
 > > 2. **SLACK Formülü Düzeltmesi (K63, 20.08.2026):** Bu raporda ve Hafta 7'de uygulanan `tw_bitis - t` SLACK formülü EDD ile matematiksel olarak özdeş sıralama üretiyordu. Dinamik formüle geçilmiştir: $\text{Slack}_i(t) = \text{tw\_bitis}_i - (t + T_L + \text{TT}(0,i) + T_U)$. Bu düzeltme Hafta 5'in değil, 20 Ağustos 2026 denetiminin ürünüdür.
 > > 3. **"SLACK Üstündür" İddiasının Düzeltmesi (K64, 31.08.2026):** K63 formülüyle yapılan 30 stokastik replikasyonda EDD vs SLACK Welch t-testi: **p=0.913 → anlamlı değil.** EDD, SLACK ve FIFO birbirine istatistiksel olarak eşdeğerdir; "SLACK en iyi kuraldır" iddiası doğrulanmamıştır.
 
-**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36, K57, K63, K64 — bkz. `karar_gunlugu.md`
+> [!IMPORTANT]
+> ## ⚠️ ERRATA — Hafta 14 Literatür Denetimi (30.09.2026)
+>
+> **1. K36 darboğaz teşhisi belgelenmemiş bir kod kuralına dayanıyordu (K67).**
+> `vrptw_solver.py:131`'de `len(selected_signals) >= 5` sınırı vardır: **bir tur en fazla
+> 5 durak alabilir**. Çoğu istasyon 1 kutu istediğinden tur başına yük ~5 kutuda kalır ve
+> 25 kutuluk araçta doluluk **yapısal olarak %20'nin altına kilitlenir**. Raporlanan
+> "%18,5 doluluk → darboğaz kapasite değil zamandır" teşhisi büyük ölçüde **bu kuraldan**
+> doğmaktadır, sistemin fiziğinden değil.
+> Bu sınırın literatür dayanağı yoktur: Simić s.8 ve Urru s.408'deki "5 durak" ifadesi
+> **sistemdeki toplam istasyon sayısıdır**, tur başına sınır değildir. Klenk s.12 tur başına
+> 20–50 kutu (≈10–25 durak) raporlar. Karşılaştırma doluluk değerleri: Urru s.408 → 0,85–0,89;
+> Sevim s.67 → %69–81; Simić s.12 → 5 römorkun 3,51'i dolu.
+> Sınır kaldırıldığında doluluk **%19 → %40**'a çıkmaktadır (konsolidasyonlu sevkle birlikte).
+>
+> **2. 2-opt kodda yoktu (K34/K72).** Bu raporda ve K34'te "Nearest Neighbor + 2-opt"
+> denmektedir; v1 kodunda **2-opt hiç uygulanmamıştır** (yalnızca en yakın komşu).
+> Ayrıca 2-opt'un atfı Facchini (2022) değil, **Gendreau & Tarantilis (2010) Bölüm 1.1**
+> olmalıdır. v2'de 2-opt gerçekten kodlanmıştır.
+>
+> **3. Tur süresi kısıtı uygulanmıyordu (K72).** 90 dk üst sınırı (K17) `vrptw_solver.py:33`'te
+> okunur ama **hiçbir yerde kontrol edilmez**. v2'de Facchini (2022) s.1124 Denk. 7 biçiminde
+> uygulanmıştır.
+>
+> **4. Zaman penceresi fiilen esnekti (K72).** K35 "kesin (hard) TW" der; kod geç teslimatı
+> kabul edip `GECİKMELİ_TESLİM` olarak kaydeder. Model **VRP-RTW** (gecikme cezalı esnek
+> pencere) olarak yeniden tanımlanmıştır (Fitrie vd. 2025; Zidanne vd. 2025).
+>
+> **5. Mesafe matrisi metrik değildi (K71).** Üçgen eşitsizliği ihlal ediliyordu
+> (S1→S6 = 900 m iken S1→Depo→S6 = 180 m); **286 yönlü düğüm çifti** Floyd–Warshall
+> kapanışıyla kısalmaktadır.
+>
+> Ayrıntı: `docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md`
+
+**Uygulanan Kararlar:** K03, K04, K17, K33, K34, K35, K36, K57, K63, K64 · **Revizyon:** K67, K71, K72 — bkz. `karar_gunlugu.md`
 
 
 ---

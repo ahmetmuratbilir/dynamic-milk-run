@@ -51,10 +51,16 @@ SIM_SURE      = 480       # Vardiya suresi (K05)
 ARAC_SAYILARI = [2, 4]    # 2: H5 baseline, 4: Korosi AN_final (K37)
 DISPATCH_KURALLARI = ["KRITIKLIK", "EDD", "SLACK", "FIFO"]  # K44
 
-# Istasyon tuketim parametreleri (generate_synthetic_data.py'den alinmistir, K09-K10)
-# mu_saat: Her istasyonun ortalama saatlik tuketimi (onaylanan degerler, referans_veri.md)
-# sigma = 0.20 * mu (K10: CV=0.20)
-ISTASYON_TUKETIM_MU = {
+# Istasyon tuketim parametreleri — K75 DUZELTMESI (30.09.2026)
+# ⚠️ ERRATA: Bu sozluk daha once elle yazilmis ve stations.csv ile UYUSMUYORDU:
+#     S10: 18 yazilmis, dogrusu 11   |   S23: 18 yazilmis, dogrusu 12
+#     Toplam talep 446 adet/sa (dogrusu 409) -> yaklasik %9 fazla talep
+# Hafta 7 (30 replikasyon) ve H10 seed testleri bu hatali talep altinda uretilmistir.
+# Artik tek dogruluk kaynagi stations.csv'dir (DataLoader uzerinden okunur).
+# Bkz. docs/hafta14_literatur_denetimi_ve_revizyon_raporu.md, Bulgu A5.
+
+# Geriye donuk izlenebilirlik: H7/H10 sonuclarini ureten HATALI degerler
+ISTASYON_TUKETIM_MU_HATALI_H7 = {
     "S1":  20, "S2":  20, "S3":  15, "S4":  20, "S5":  15, "S6":  20,
     "S7":  18, "S8":  16, "S9":  20, "S10": 18, "S11": 20, "S12": 15,
     "S13": 24, "S14": 20, "S15": 18, "S16": 24, "S17": 20, "S18": 16,
@@ -62,16 +68,37 @@ ISTASYON_TUKETIM_MU = {
 }
 
 
-def uret_stokastik_tuketim(seed: int, sim_sure: int = SIM_SURE) -> pd.DataFrame:
+def _istasyon_tuketim_yukle() -> dict:
+    """stations.csv'den {istasyon_id: (mu_saat, sigma_saat)} okur (K75: tek dogruluk kaynagi)."""
+    from src.data_loader import DataLoader
+    st = DataLoader().get_stations()
+    return {r["istasyon_id"]: (float(r["ort_tuketim_saat"]), float(r["std_tuketim_saat"]))
+            for _, r in st.iterrows()}
+
+
+ISTASYON_TUKETIM = _istasyon_tuketim_yukle()
+ISTASYON_TUKETIM_MU = {k: v[0] for k, v in ISTASYON_TUKETIM.items()}
+
+
+def uret_stokastik_tuketim(seed: int, sim_sure: int = SIM_SURE,
+                           hatali_h7_degerleri: bool = False) -> pd.DataFrame:
     """
     Verilen seed ile stokastik tuketim tablosu uretir.
     Dagilis: N(mu/60, sigma/60), negatif degerler 0'a clip edilir.
     Kaynak: K10 (CV=0.20), generate_synthetic_data.py L109-L115
+
+    hatali_h7_degerleri=True: H7/H10 sonuclarini birebir reprodukte etmek icin
+    K75 oncesi hatali mu sozlugunu kullanir (yalnizca denetim amacli).
+
+    NOT (K70): Bu model dakikalik BAGIMSIZ gurultu uretir; L dakikalik toplam talebin
+    CV'si 0.20/sqrt(L) olur (L=45 icin ~%3). Onayli CV=0.20'yi saatlik rejim duzeyinde
+    korumak icin v2 motorundaki "SAATLIK_REJIM" talep modeli kullanilmalidir.
     """
     rng = np.random.default_rng(seed)
+    kaynak = ISTASYON_TUKETIM_MU_HATALI_H7 if hatali_h7_degerleri else ISTASYON_TUKETIM_MU
     kayitlar = []
     for dakika in range(sim_sure):
-        for istasyon_id, mu_saat in ISTASYON_TUKETIM_MU.items():
+        for istasyon_id, mu_saat in kaynak.items():
             mu_dk    = mu_saat / 60.0
             sigma_dk = 0.20 * mu_dk  # K10: CV=0.20
             tuketim  = max(0.0, rng.normal(mu_dk, sigma_dk))
