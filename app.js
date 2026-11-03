@@ -1,29 +1,23 @@
 /**
  * app.js - Dinamik Milk-Run & E-Kanban Karar Destek Dashboard Mantığı (2026 Refactor)
  * =================================================================================
- * 1.920 Senaryoluk Çevrimdışı Veri Ambarını (data/dashboard_scenarios.json) Okur
+ * v2 Veri Ambarını (data/dashboard_scenarios_v2.json) Okur — 1.920 P3 senaryosu + 640 statik baz
+ * Üretici: src/generate_dashboard_data_v2.py (K94). Standalone sürümde window.DASHBOARD_DATA_V2 gömülüdür.
  * 64px Sol Sidebar Navigasyonu + 5 Sekmeli Mimari
  */
 
 // ===== GLOBAL DEĞİŞKENLER VE GRAFİK NESNELERİ =====
 let scenariosData = [];
+let dashboardMeta = null;
+let statikBaz = [];
 window.chartInstances = {
     fleet: null,
     pareto: null,
     alpha: null
 };
 
-// Gerçek StaticMilkRunSimulator (tur_sikligi_dk = 80 dk Kanonik K58) Çıktıları
-const STATIC_BASELINE_MAP = {
-    1: 25.77,
-    2: 21.35,
-    3: 19.70,
-    4: 19.31,
-    5: 19.10,
-    6: 18.96,
-    7: 18.83,
-    8: 18.68
-};
+// Statik referans: yüklemede v2 statik_baz'dan türetilir (P2, T=60 dk, baz talep, VDI).
+let STATIC_BASELINE_MAP = {};
 
 // Sentetik Baz İstasyon Verileri (stations.csv)
 const BASE_STATIONS_DATA = [
@@ -130,12 +124,38 @@ function exportArrayToCSV(rows, headers, filename) {
     URL.revokeObjectURL(url);
 }
 
+// ===== v2 YARDIMCILARI (K94) =====
+function ciMetni(s) {
+    return (s && s.starv_ci95 != null) ? ' ±' + s.starv_ci95.toFixed(2) : '';
+}
+
+function renderSurumDamgasi() {
+    const el = document.getElementById('surumDamgasi');
+    if (!el || !dashboardMeta) return;
+    el.textContent = 'Motor: ' + dashboardMeta.motor + ' · ' + dashboardMeta.replikasyon +
+        ' replikasyon · üretim ' + dashboardMeta.uretim_tarihi + ' · değerler ort. ± %95 GA';
+    el.title = dashboardMeta.not || '';
+}
+
 // ===== UYGULAMA BAŞLATMA =====
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('data/dashboard_scenarios.json');
-        scenariosData = await response.json();
-        console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo.');
+        const d = window.DASHBOARD_DATA_V2 ||
+            await (await fetch('data/dashboard_scenarios_v2.json')).json();
+        scenariosData = d.senaryolar.filter(s => s.politika === 'P3');
+        dashboardMeta = d.meta;
+        window.DASHBOARD_DATA_V2_YUKLU = d;
+        statikBaz = d.statik_baz || [];
+        const yeniBaz = {};
+        statikBaz.forEach(s => {
+            if (s.politika === 'P2' && s.tur_araligi_dk === 60 &&
+                s.talep_sok_pct === 0 && s.n_modu === 'Dinamik_N') {
+                yeniBaz[s.arac_sayisi] = s.starv_pct;
+            }
+        });
+        if (Object.keys(yeniBaz).length) STATIC_BASELINE_MAP = yeniBaz;
+        renderSurumDamgasi();
+        console.log('Veri ambarı yüklendi: ' + scenariosData.length + ' senaryo (' + dashboardMeta.motor + ').');
         
         // localStorage'dan kayıtlı veri varsa yükle
         const savedData = loadRealDataFromStorage();
@@ -151,6 +171,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         initDefaultSampleRows();
         updateOzetView();
         updateWhatIfView();
+        initKatkiPaneli();
+        initDogrulamaPaneli();
 
         // Hash tab destegi
         if (window.location.hash) {
@@ -219,8 +241,8 @@ function navigateToWhatIf(fleetCount) {
                         pointHoverRadius: 8
                     },
                     {
-                        label: 'Statik Baseline (%19.31 @ 4 Araç)',
-                        data: [25.77, 21.35, 19.70, 19.31, 19.10, 18.96, 18.83, 18.68],
+                        label: 'Statik referans (P2, T=60 dk, VDI)',
+                        data: [],
                         borderColor: '#D97706',
                         borderDash: [4, 4],
                         borderWidth: 1.8,
@@ -407,7 +429,7 @@ function updateOzetView() {
     const dotStarv = document.getElementById('dotStarv');
     const cardStarv = document.getElementById('kpiCardStarv');
 
-    if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2);
+    if (elStarv) elStarv.textContent = '%' + starvPct.toFixed(2) + ciMetni(bazScenario);
     if (elStarvDk) elStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dakika kümülatif duruş';
 
     if (dotStarv && cardStarv) {
@@ -428,23 +450,37 @@ function updateOzetView() {
     if (elWip) elWip.textContent = ortWip.toFixed(1);
 
     // KPI 3: Statik vs Dinamik Farkı
-    const staticBase = STATIC_BASELINE_MAP[4] || 19.31;
-    const diffPuan = (starvPct - staticBase).toFixed(2);
+    const staticBase = STATIC_BASELINE_MAP[4];
+    const diffPuan = staticBase != null ? (starvPct - staticBase).toFixed(2) : null;
     const elFark = document.getElementById('kpiFarkVal');
-    if (elFark) elFark.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
+    if (elFark) elFark.textContent = diffPuan == null ? '—' : (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
 
     // KPI 4: Doluluk
     const elDoluluk = document.getElementById('kpiDolulukVal');
-    const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
-    if (elDoluluk) elDoluluk.textContent = '%' + dolulukEst;
+    if (elDoluluk) elDoluluk.textContent = bazScenario.doluluk_pct != null ? '%' + bazScenario.doluluk_pct.toFixed(1) : '—';
 
     // Otomatik Dinamik Yorum
     const commentEl = document.getElementById('dynamicCommentText');
     if (commentEl) {
-        commentEl.innerHTML = 
-            'Mevcut baz senaryoda (4 Araç, α=0.15, EDD) sistem <strong>%' + starvPct.toFixed(2) + '</strong> duruş oranıyla çalışmaktadır — ' +
-            'bu, statik sistemin (%' + staticBase.toFixed(2) + ') <strong>+' + diffPuan + ' puan</strong> üzerindedir (stokastik ortalamada fark: +3.06 puan). ' +
-            'Sistemin <%5.0 rekabetçilik eşiğine ulaşması için filo büyüklüğünün <strong>8 araca</strong> çıkarılması gerekmektedir.';
+        // %5 eşiğine inen en küçük filo veriden bulunur
+        let esikFilo = null;
+        for (let v = 1; v <= 8 && esikFilo === null; v++) {
+            const it = scenariosData.find(s => s.arac_sayisi === v && Math.abs(s.alpha - 0.15) < 0.01 &&
+                s.talep_sok_pct === 0 && s.dispatch_kural === 'EDD' && s.n_modu === 'Dinamik_N');
+            if (it && it.starv_pct < 5) esikFilo = v;
+        }
+        let farkCumle = '';
+        if (diffPuan != null) {
+            const f = parseFloat(diffPuan);
+            farkCumle = 'Bu değer aynı filodaki statik referansla (P2, T=60 dk: %' + staticBase.toFixed(2) + ') ' +
+                (Math.abs(f) < 0.5 ? 'pratikte aynıdır (fark ' + diffPuan + ' puan). '
+                    : 'karşılaştırıldığında <strong>' + Math.abs(f).toFixed(2) + ' puan</strong> ' + (f > 0 ? 'yüksektir. ' : 'düşüktür. '));
+        }
+        commentEl.innerHTML =
+            'Baz senaryoda (4 araç, α=0,15, EDD, politika-tutarlı boyutlandırma) dinamik sistem <strong>%' +
+            starvPct.toFixed(2) + ciMetni(bazScenario) + '</strong> duruşla çalışmaktadır. ' + farkCumle +
+            (esikFilo ? '%5 duruş eşiğine <strong>' + esikFilo + ' araç</strong>la inilmektedir. ' : '') +
+            'Yeterli filoda politikalar arasındaki fark duruşta değil stoktadır (K96, K97).';
     }
 
     // Filo Duyarlılık Eğrisini Çiz
@@ -461,6 +497,8 @@ function updateOzetView() {
             fleetData.push(item ? item.starv_pct : null);
         }
         window.chartInstances.fleet.data.datasets[0].data = fleetData;
+        window.chartInstances.fleet.data.datasets[1].data =
+            [1, 2, 3, 4, 5, 6, 7, 8].map(v => STATIC_BASELINE_MAP[v] != null ? STATIC_BASELINE_MAP[v] : null);
         window.chartInstances.fleet.update();
     }
 }
@@ -471,7 +509,7 @@ function getYorumCumlesi(starvPct, staticBase) {
     if (starvPct < 5) {
         anaYorum = '🎯 Hedefe ulaşıldı — bu senaryoda sistem rekabetçi eşiğin (%5) altında çalışıyor.';
     } else if (starvPct < 15) {
-        anaYorum = '🟡 Sistem hedefe yaklaşıyor ama henüz ulaşmadı. Filo büyüklüğünü artırmak veya α değerini yükseltmek durumu iyileştirebilir.';
+        anaYorum = '🟡 Sistem hedefe yaklaşıyor ama henüz ulaşmadı. Filo büyüklüğünü artırmak en etkili müdahaledir (güvenlik katsayısı α anlamlı etki göstermemiştir, K82).';
     } else if (starvPct < 30) {
         anaYorum = '🟠 Sistem hedefin belirgin şekilde üzerinde. Filo büyüklüğü, bu senaryodaki en etkili müdahale noktasıdır (bkz. Filo Duyarlılık Eğrisi).';
     } else {
@@ -479,7 +517,11 @@ function getYorumCumlesi(starvPct, staticBase) {
     }
 
     let karsilastirma = '';
-    if (starvPct > staticBase) {
+    if (staticBase == null) {
+        karsilastirma = '';
+    } else if (Math.abs(starvPct - staticBase) < 0.5) {
+        karsilastirma = ' Statik referansla (%' + staticBase.toFixed(2) + ') duruş pratikte aynı; fark stokta aranmalı.';
+    } else if (starvPct > staticBase) {
         karsilastirma = ' Bu senaryoda statik sistem (%' + staticBase.toFixed(2) + ') hâlâ daha avantajlı.';
     } else {
         karsilastirma = ' Bu senaryoda dinamik sistem, statik sistemi (%' + staticBase.toFixed(2) + ') geride bırakmış durumda ⚡.';
@@ -528,19 +570,19 @@ function updateWhatIfView() {
 
     const wiStarvVal = document.getElementById('wiStarvVal');
     const wiStarvDk = document.getElementById('wiStarvDk');
-    if (wiStarvVal) wiStarvVal.textContent = '%' + starvPct.toFixed(2);
+    if (wiStarvVal) wiStarvVal.textContent = '%' + starvPct.toFixed(2) + ciMetni(curScenario);
     if (wiStarvDk) wiStarvDk.textContent = starvDk.toLocaleString() + ' / 11,520 dk';
 
     const wiWipVal = document.getElementById('wiWipVal');
     if (wiWipVal) wiWipVal.textContent = ortWip.toFixed(1);
 
-    const staticBase = STATIC_BASELINE_MAP[params.arac_sayisi] || 19.31;
-    const diffPuan = (starvPct - staticBase).toFixed(2);
+    const staticBase = STATIC_BASELINE_MAP[params.arac_sayisi];
+    const diffPuan = staticBase != null ? (starvPct - staticBase).toFixed(2) : null;
     const wiFarkVal = document.getElementById('wiFarkVal');
     const wiFarkSub = document.getElementById('wiFarkSub');
 
     if (wiFarkVal) {
-        wiFarkVal.textContent = (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
+        wiFarkVal.textContent = diffPuan == null ? '—' : (diffPuan >= 0 ? '+' : '') + diffPuan + ' puan';
         wiFarkVal.style.color = diffPuan <= 0 ? '#059669' : (diffPuan <= 5 ? '#D97706' : '#E11D48');
     }
     if (wiFarkSub) {
@@ -555,8 +597,7 @@ function updateWhatIfView() {
 
     const wiDolulukVal = document.getElementById('wiDolulukVal');
     if (wiDolulukVal) {
-        const dolulukEst = Math.min(98.5, Math.max(35.0, (100 - starvPct * 0.8))).toFixed(1);
-        wiDolulukVal.textContent = '%' + dolulukEst;
+        wiDolulukVal.textContent = curScenario.doluluk_pct != null ? '%' + curScenario.doluluk_pct.toFixed(1) : '—';
     }
 
     if (window.chartInstances.pareto) {
@@ -649,10 +690,10 @@ function updateStations(params) {
         const d_dk = (st.d_saat / 60.0) * talepCarpan;
         const ropAdet = Math.ceil(d_dk * LT_dk * (1.0 + params.alpha));
         
-        let nKart = st.n;
-        if (params.n_modu === 'Dinamik_N') {
-            nKart = Math.max(1, Math.ceil(ropAdet / st.c));
-        }
+        // Motorla aynı (kanban_boyutlandir, P3): VDI N = 1 + ⌈ROP/C⌉ (K65); V1 N = max(1, ⌈ROP/C⌉)
+        const nKart = params.n_modu === 'Dinamik_N'
+            ? 1 + Math.ceil(ropAdet / st.c - 1e-9)
+            : Math.max(1, Math.ceil(ropAdet / st.c - 1e-9));
         const cap = nKart * st.c;
 
         let currentStok = st.fragile ? Math.round(ropAdet * 0.75) : Math.round(cap * 0.85);
@@ -1013,4 +1054,375 @@ function calculateSampleStats() {
                 've standart sapma <strong>σ = ' + stdCalc + ' adet/saat</strong> hesaplanarak 1. Bölümdeki tabloya aktarıldı.';
         }
     }
+}
+
+
+// ===== KADEME 2 · ANA KATKI PANELLERİ (D4, D5, D6, K97) =====
+const KATKI_RENK = { gel: '#2a78d6', dij: '#1baf7a', p1: '#8a5cd6', v1: '#d6612a' };
+const KURAL_AD = { A: 'A · Eşit kart', B: 'B · Politika-tutarlı', C: 'C · Eşit hizmet', D: 'D · Eşit WIP' };
+// Veri ambarındaki talep düzeyleri (generate_dashboard_data_v2: TALEP_SOK)
+const TALEP_DUZEYLERI = [-20, -10, 0, 10, 20];
+const TALEP_ETIKET = { '-20': '−%20', '-10': '−%10', '0': 'Baz', '10': '+%10', '20': '+%20' };
+
+function _secenekDoldur(id, degerler, etiket, varsayilan) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = degerler.map(v => '<option value="' + v + '"' + (String(v) === String(varsayilan) ? ' selected' : '') +
+        '>' + etiket(v) + '</option>').join('');
+}
+
+function _sayi(v, b) { return v == null ? '—' : Number(v).toFixed(b); }
+
+function initKatkiPaneli() {
+    if (!window.DASHBOARD_DATA_V2_YUKLU) return;
+    _secenekDoldur('polArac', [1, 2, 3, 4, 5, 6, 7, 8], v => v + ' araç', 3);
+    _secenekDoldur('polTalep', TALEP_DUZEYLERI, v => TALEP_ETIKET[v], 0);
+    _secenekDoldur('parTalep', TALEP_DUZEYLERI, v => TALEP_ETIKET[v], 0);
+    const bagla = (idler, fn) => idler.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', fn);
+    });
+    bagla(['polArac', 'polTalep', 'polNModu'], renderPolitikaTablosu);
+    bagla(['adaletKutu', 'adaletTalep'], renderAdalet);
+    bagla(['parTalep', 'parP3VDI', 'parP3V1', 'parP1', 'parP2'], renderParetoTum);
+    renderPolitikaTablosu();
+    renderAdalet();
+    renderParetoTum();
+    renderAblation();
+}
+
+// D4 · P1/P2/P3 karşılaştırması: her politika kendi kart sayısıyla
+function renderPolitikaTablosu() {
+    const tb = document.getElementById('polTablo');
+    if (!tb) return;
+    const arac = parseInt(document.getElementById('polArac').value, 10);
+    const talep = parseInt(document.getElementById('polTalep').value, 10);
+    const nModu = document.getElementById('polNModu').value;
+    const satirlar = statikBaz
+        .filter(s => s.arac_sayisi === arac && s.talep_sok_pct === talep && s.n_modu === nModu)
+        .sort((a, b) => a.politika.localeCompare(b.politika) || a.tur_araligi_dk - b.tur_araligi_dk)
+        .map(s => ({
+            ad: s.politika === 'P1' ? 'P1 · sabit takt, sabit miktar' : 'P2 · sabit takt, Kanban miktarı',
+            takt: s.tur_araligi_dk + ' dk', s
+        }));
+    const p3 = scenariosData.find(s => s.arac_sayisi === arac && s.talep_sok_pct === talep && s.n_modu === nModu &&
+        Math.abs(s.alpha - 0.15) < 0.01 && s.dispatch_kural === 'EDD');
+    if (p3) satirlar.push({ ad: 'P3 · olay tabanlı (e-Kanban)', takt: 'sinyalle', s: p3 });
+    if (!satirlar.length) { tb.innerHTML = ''; return; }
+    const enIyi = Math.min(...satirlar.map(r => r.s.starv_pct));
+    tb.innerHTML = satirlar.map(r => {
+        const s = r.s;
+        const iyi = s.starv_pct - enIyi < 0.5;
+        return '<tr' + (r.ad.startsWith('P3') ? ' class="katki-p3"' : '') + '><td><strong>' + r.ad + '</strong></td><td>' +
+            r.takt + '</td><td><span style="font-weight:700;color:' + (iyi ? 'var(--status-good)' : 'inherit') + '">%' +
+            _sayi(s.starv_pct, 2) + '</span> <span class="katki-ga">± ' + _sayi(s.starv_ci95, 2) + '</span></td><td>' +
+            _sayi(s.ort_wip, 0) + '</td><td>' + _sayi(s.toplam_kart, 0) + '</td><td>' + _sayi(s.sefer_sayisi, 1) +
+            '</td><td>' + _sayi(s.mesafe_km, 1) + '</td><td>' + _sayi(s.doluluk_pct, 1) + '</td></tr>';
+    }).join('');
+    const notEl = document.getElementById('polNot');
+    if (notEl) notEl.textContent = nModu === 'Dinamik_N'
+        ? 'Politika-tutarlı boyutlandırmada her politikanın kart sayısı kendi çevrim süresinden türetilir; T büyüdükçe P1/P2 daha fazla kart alır. Yeşil: en düşük duruşa 0,5 puan içinde olanlar. P3: α=0,15, EDD.'
+        : 'Eski boyutlandırmada (V1) kart sayısı politikadan bağımsızdır; sabit taktlı politikalar çevrim sürelerinin gerektirdiği tamponu alamaz. Düzeltilen hata budur (K65).';
+}
+
+// K97 · Dört adalet kuralı
+function renderAdalet() {
+    const ad = (window.DASHBOARD_DATA_V2_YUKLU || {}).adalet || {};
+    const kutu = document.getElementById('adaletKutu').value;
+    const talep = document.getElementById('adaletTalep').value;
+    const k = ad[kutu];
+    const tb = document.getElementById('adaletTablo');
+    if (!k) {
+        if (tb) tb.innerHTML = '<tr><td colspan="6">Adalet verisi yok. Önce <code>python -X utf8 -m src.v2_adalet_kurallari</code> çalıştırılmalı.</td></tr>';
+        return;
+    }
+    const egri = sistem => k.egriler.filter(r => r.talep === talep && r.sistem === sistem)
+        .sort((a, b) => a.ort_wip - b.ort_wip).map(r => ({ x: r.ort_wip, y: r.starv_pct }));
+    const kural = sistem => k.kurallar.filter(r => r.talep === talep && r.sistem === sistem)
+        .map(r => ({ x: r.ort_wip, y: r.starv_pct, kural: r.kural }));
+    const setler = [
+        { label: 'Geleneksel · kart taraması', data: egri('Geleneksel'), showLine: true, borderColor: KATKI_RENK.gel + '88', backgroundColor: KATKI_RENK.gel, pointRadius: 2, borderWidth: 2 },
+        { label: 'Dijital · kart taraması', data: egri('Dijital'), showLine: true, borderColor: KATKI_RENK.dij + '88', backgroundColor: KATKI_RENK.dij, pointRadius: 2, borderWidth: 2 },
+        { label: 'Geleneksel · kural', data: kural('Geleneksel'), pointRadius: 8, pointStyle: 'rectRot', backgroundColor: KATKI_RENK.gel, borderColor: '#0F172A', borderWidth: 1 },
+        { label: 'Dijital · kural', data: kural('Dijital'), pointRadius: 8, pointStyle: 'circle', backgroundColor: KATKI_RENK.dij, borderColor: '#0F172A', borderWidth: 1 }
+    ];
+    const noktalar = setler[2].data.concat(setler[3].data);
+    const xUst = 1.35 * Math.max(...noktalar.map(p => p.x));
+    const gorunur = setler[0].data.concat(setler[1].data).filter(p => p.x <= xUst).map(p => p.y);
+    const yUst = 1.15 * Math.max(2, ...noktalar.map(p => p.y), ...gorunur);
+    // Aynı noktaya düşen kurallar tek etiketle yazılır ("B=D")
+    const etiketEklentisi = {
+        id: 'kuralEtiket',
+        afterDatasetsDraw(chart) {
+            const ctx = chart.ctx;
+            [2, 3].forEach(di => {
+                const gruplar = {};
+                chart.data.datasets[di].data.forEach(r => {
+                    const anahtar = Math.round(r.x) + '|' + r.y.toFixed(2);
+                    if (!gruplar[anahtar]) gruplar[anahtar] = { r, metin: r.kural };
+                    else gruplar[anahtar].metin += '=' + r.kural;
+                });
+                Object.values(gruplar).forEach(({ r, metin }) => {
+                    const x = chart.scales.x.getPixelForValue(r.x);
+                    const y = chart.scales.y.getPixelForValue(r.y);
+                    ctx.save();
+                    ctx.font = '700 11px Outfit, sans-serif';
+                    ctx.fillStyle = di === 2 ? KATKI_RENK.gel : KATKI_RENK.dij;
+                    ctx.fillText(metin, di === 2 ? x + 9 : x - 10 - 7 * metin.length, di === 2 ? y - 8 : y + 16);
+                    ctx.restore();
+                });
+            });
+        }
+    };
+    if (window.chartInstances.adalet) window.chartInstances.adalet.destroy();
+    const cv = document.getElementById('chartAdalet');
+    if (cv) {
+        window.chartInstances.adalet = new Chart(cv.getContext('2d'), {
+            type: 'scatter',
+            data: { datasets: setler },
+            options: {
+                responsive: true, maintainAspectRatio: false, animation: false,
+                plugins: {
+                    legend: { labels: { color: '#475569', font: { family: 'Outfit', size: 11 } } },
+                    tooltip: { callbacks: { label: c => (c.raw.kural ? KURAL_AD[c.raw.kural] + ' · ' : '') + 'WIP ' + c.raw.x.toFixed(0) + ', duruş %' + c.raw.y.toFixed(2) } }
+                },
+                scales: {
+                    x: { min: 0, max: xUst, title: { display: true, text: 'Ortalama WIP (adet)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    y: { min: 0, max: yUst, title: { display: true, text: 'Hat duruş oranı (%)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+                }
+            },
+            plugins: [etiketEklentisi]
+        });
+    }
+    const renk = kim => kim === 'Dijital' ? KATKI_RENK.dij : (kim === 'Geleneksel' ? KATKI_RENK.gel : '#64748B');
+    if (tb) tb.innerHTML = k.kazanan.filter(r => r.talep === talep).map(r =>
+        '<tr><td><strong>' + KURAL_AD[r.kural] + '</strong></td><td>' + r.olcut + '</td><td><span class="katki-cip" style="background:' +
+        renk(r.kazanan) + '1f;color:' + renk(r.kazanan) + '">' + r.kazanan + '</span></td><td>' + (r.fark_durus >= 0 ? '+' : '') +
+        _sayi(r.fark_durus, 2) + ' <span class="katki-ga">± ' + _sayi(r.ga, 2) + '</span></td><td>' + (r.wip_fark_pct >= 0 ? '+' : '') +
+        _sayi(r.wip_fark_pct, 0) + '%</td><td>' + r.pareto + '</td></tr>').join('');
+}
+
+// D6 · Etkileşimli Pareto cephesi
+function renderParetoTum() {
+    const talep = parseInt(document.getElementById('parTalep').value, 10);
+    const acik = id => { const el = document.getElementById(id); return !!(el && el.checked); };
+    const nokta = (s, etiket) => ({ x: s.ort_wip, y: s.starv_pct, s, etiket });
+    const setler = [];
+    if (acik('parP3VDI')) setler.push({ label: 'P3 · VDI', data: scenariosData.filter(s => s.talep_sok_pct === talep && s.n_modu === 'Dinamik_N').map(s => nokta(s, 'P3')), backgroundColor: KATKI_RENK.dij + 'aa', pointRadius: 3 });
+    if (acik('parP3V1')) setler.push({ label: 'P3 · V1', data: scenariosData.filter(s => s.talep_sok_pct === talep && s.n_modu === 'Sabit_N').map(s => nokta(s, 'P3')), backgroundColor: KATKI_RENK.v1 + '88', pointRadius: 3 });
+    if (acik('parP1')) setler.push({ label: 'P1', data: statikBaz.filter(s => s.talep_sok_pct === talep && s.politika === 'P1').map(s => nokta(s, 'P1')), backgroundColor: KATKI_RENK.p1, pointRadius: 5, pointStyle: 'triangle' });
+    if (acik('parP2')) setler.push({ label: 'P2', data: statikBaz.filter(s => s.talep_sok_pct === talep && s.politika === 'P2').map(s => nokta(s, 'P2')), backgroundColor: KATKI_RENK.gel, pointRadius: 5, pointStyle: 'rectRot' });
+    // Görünür noktaların Pareto cephesi: daha az WIP ile daha az duruş
+    const hepsi = setler.flatMap(d => d.data).sort((a, b) => a.x - b.x || a.y - b.y);
+    const cephe = [];
+    let enAz = Infinity;
+    hepsi.forEach(p => { if (p.y < enAz - 1e-9) { cephe.push({ x: p.x, y: p.y }); enAz = p.y; } });
+    setler.push({ label: 'Pareto cephesi', data: cephe, showLine: true, borderColor: '#0F172A', borderWidth: 1.5, pointRadius: 0, stepped: 'before' });
+    if (window.chartInstances.paretoTum) window.chartInstances.paretoTum.destroy();
+    const cv = document.getElementById('chartParetoTum');
+    if (!cv) return;
+    window.chartInstances.paretoTum = new Chart(cv.getContext('2d'), {
+        type: 'scatter',
+        data: { datasets: setler },
+        options: {
+            responsive: true, maintainAspectRatio: false, animation: false,
+            plugins: {
+                legend: { labels: { color: '#475569', font: { family: 'Outfit', size: 11 } } },
+                tooltip: { callbacks: { label: c => c.raw.s ? _paretoMetin(c.raw) : 'Pareto cephesi' } }
+            },
+            scales: {
+                x: { title: { display: true, text: 'Ortalama WIP (adet)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                y: { min: 0, title: { display: true, text: 'Hat duruş oranı (%)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+            },
+            onClick: (evt, el) => {
+                if (!el.length) return;
+                const r = setler[el[0].datasetIndex].data[el[0].index];
+                const d = document.getElementById('parDetay');
+                if (d && r.s) d.textContent = _paretoMetin(r);
+            }
+        }
+    });
+}
+
+function _paretoMetin(r) {
+    const s = r.s;
+    const mod = s.n_modu === 'Dinamik_N' ? 'VDI' : 'V1';
+    const ayar = r.etiket === 'P3'
+        ? 'P3 · ' + s.arac_sayisi + ' araç · α=' + s.alpha.toFixed(2) + ' · ' + s.dispatch_kural + ' · ' + mod
+        : r.etiket + ' · T=' + s.tur_araligi_dk + ' dk · ' + s.arac_sayisi + ' araç · ' + mod;
+    return ayar + ' → duruş %' + _sayi(s.starv_pct, 2) + ' ± ' + _sayi(s.starv_ci95, 2) + ', WIP ' + _sayi(s.ort_wip, 0) +
+        ', ' + _sayi(s.toplam_kart, 0) + ' kart, ' + _sayi(s.mesafe_km, 1) + ' km';
+}
+
+// D5 · Ayrıştırma: adımlar açılıp kapatılabilir
+function renderAblation() {
+    const tumu = (window.DASHBOARD_DATA_V2_YUKLU || {}).ablation || [];
+    const ab = tumu.filter(r => r.d_starv_puan != null);
+    const liste = document.getElementById('ablationListe');
+    const cv = document.getElementById('chartAblation');
+    if (!ab.length || !liste || !cv) return;
+    const temizAd = r => r.adim.replace(/^\+ /, '');
+    liste.innerHTML = ab.map((r, i) => '<label class="katki-onay"><input type="checkbox" id="abl' + i + '" checked> ' +
+        temizAd(r) + ' <span class="katki-ga">(' + (r.d_starv_puan >= 0 ? '+' : '') + r.d_starv_puan.toFixed(2) + ')</span></label>').join('');
+    if (window.chartInstances.ablation) window.chartInstances.ablation.destroy();
+    window.chartInstances.ablation = new Chart(cv.getContext('2d'), {
+        type: 'bar',
+        data: { labels: ab.map(temizAd), datasets: [{ label: 'Duruş değişimi (puan)', data: ab.map(r => r.d_starv_puan), backgroundColor: [] }] },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false, animation: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { title: { display: true, text: 'Duruş oranına etkisi (puan)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                y: { grid: { display: false }, ticks: { color: '#334155', font: { size: 11 } } }
+            }
+        }
+    });
+    const ciz = () => {
+        const secili = ab.map((r, i) => document.getElementById('abl' + i).checked);
+        const toplam = ab.reduce((t, r, i) => t + (secili[i] ? r.d_starv_puan : 0), 0);
+        const ozet = document.getElementById('ablationToplam');
+        const bas = tumu[0];
+        if (ozet) ozet.innerHTML = 'Seçili adımların toplam etkisi: <strong>' + (toplam >= 0 ? '+' : '') + toplam.toFixed(2) +
+            ' puan</strong>' + (bas ? ' (v1 referansı %' + bas.starv_pct.toFixed(2) + ' → yaklaşık %' +
+            Math.max(0, bas.starv_pct + toplam).toFixed(2) + ')' : '') + '.';
+        const ch = window.chartInstances.ablation;
+        ch.data.datasets[0].backgroundColor = ab.map((r, i) => !secili[i] ? '#E2E8F0' : (r.d_starv_puan < 0 ? KATKI_RENK.dij : '#E11D48'));
+        ch.update();
+    };
+    ab.forEach((r, i) => document.getElementById('abl' + i).addEventListener('change', ciz));
+    ciz();
+}
+
+
+// ===== KADEME 3 · DOĞRULAMA (D7) VE SENARYO KARŞILAŞTIRICI (D8) =====
+function initDogrulamaPaneli() {
+    const d = window.DASHBOARD_DATA_V2_YUKLU;
+    if (!d) return;
+    const dg = d.dogrulama || {};
+
+    const tb = document.getElementById('saglamlikTablo');
+    if (tb) tb.innerHTML = (d.saglamlik || []).map(r =>
+        '<tr><td><strong>' + r.kod + '</strong></td><td>' + r.test + '</td><td>' + r.kosul + '</td><td>' +
+        (r.kayma_pozitif == null ? '—' : r.kayma_pozitif + '/' + r.kosul) + '</td><td>' +
+        (r.kayma_min == null ? '—' : '+' + _sayi(r.kayma_min, 2) + ' … +' + _sayi(r.kayma_max, 2)) + '</td><td>' +
+        (r.siralama_degisti == null ? '—' : r.siralama_degisti + '/' + r.kosul) + '</td><td>' + (r.not || '') + '</td></tr>').join('');
+
+    const ozet = document.getElementById('dogrulamaOzet');
+    if (ozet) ozet.textContent = 'Isınma ' + (dg.isinma_dk || 90) + ' dk · ' + (dg.isinma_yontemi || '');
+    const not = document.getElementById('dogrulamaNot');
+    if (not) {
+        const sol = dg.solomon || {}, tio = dg.tur_ici_optimallik || {};
+        not.innerHTML = 'Welch: WIP hareketli ortalaması ±%1 bandına ≈90 dk\'da girer; katı ölçütle (60 dk kesintisiz ±%2) kalıcı giriş daha geçtir (noktalı çizgiler). ' +
+            'Göstergeler ısınma dönemini içerir; 480 dk\'da duruş ort. 1,15 puan düşük, WIP %5–37 yüksek görünür, göreli sonuçlar değişmez (K99). ' +
+            'Rotalama: tur içi sıralama tam numaralamaya göre ort. %' + _sayi(tio.nn2opt_sapma_ort, 2) + ' sapma (' + (tio.orneklem || '—') + ' örnek); ' +
+            'Solomon kıyaslamasında OR-Tools\'a göre %' + _sayi(sol.nn2opt_ed_ort, 1) + ' geride (' + (sol.ornek_sayisi || '—') + ' örnek).';
+    }
+
+    const w = dg.welch || [];
+    const cvW = document.getElementById('chartWelch');
+    if (cvW && w.length) {
+        const konfigler = [...new Set(w.map(r => r.konfig))];
+        const renkler = ['#2a78d6', '#1baf7a', '#d6612a'];
+        const setler = konfigler.map((k, i) => ({
+            label: k, data: w.filter(r => r.konfig === k).map(r => ({ x: r.dakika, y: r.wip_ma })),
+            borderColor: renkler[i % 3], backgroundColor: renkler[i % 3], pointRadius: 0, borderWidth: 1.8, showLine: true
+        }));
+        konfigler.forEach((k, i) => {
+            const r = w.find(x => x.konfig === k);
+            setler.push({ label: '', data: [{ x: r.kararli_dk, y: 0 }, { x: r.kararli_dk, y: 1000 }], borderColor: renkler[i % 3],
+                borderDash: [4, 4], borderWidth: 1, pointRadius: 0, showLine: true });
+        });
+        setler.push({ label: 'Isınma 90 dk', data: [{ x: 90, y: 0 }, { x: 90, y: 1000 }], borderColor: '#0F172A', borderWidth: 1.5, pointRadius: 0, showLine: true });
+        if (window.chartInstances.welch) window.chartInstances.welch.destroy();
+        const yUst = 1.08 * Math.max(...w.map(r => r.wip_ma));
+        window.chartInstances.welch = new Chart(cvW.getContext('2d'), {
+            type: 'scatter', data: { datasets: setler },
+            options: {
+                responsive: true, maintainAspectRatio: false, animation: false,
+                plugins: { legend: { labels: { color: '#475569', font: { family: 'Outfit', size: 10 }, filter: i => !!i.text } } },
+                scales: {
+                    x: { min: 0, max: 600, title: { display: true, text: 'Dakika', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    y: { min: 0, max: yUst, title: { display: true, text: 'WIP hareketli ortalaması (adet)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+                }
+            }
+        });
+    }
+
+    const rs = dg.replikasyon_seri || [];
+    const cvR = document.getElementById('chartReplikasyon');
+    if (cvR && rs.length) {
+        // kümülatif ortalama ve %95 GA yarı genişliği (t yaklaşımı yerine 1,96)
+        const ort = [], ga = [];
+        let top = 0, top2 = 0;
+        rs.forEach((r, i) => {
+            top += r.starv_pct; top2 += r.starv_pct * r.starv_pct;
+            const n = i + 1, m = top / n;
+            const sd = n > 1 ? Math.sqrt(Math.max(0, (top2 - n * m * m) / (n - 1))) : 0;
+            ort.push({ x: n, y: m }); ga.push({ x: n, y: n > 1 ? 1.96 * sd / Math.sqrt(n) : null });
+        });
+        if (window.chartInstances.replikasyon) window.chartInstances.replikasyon.destroy();
+        window.chartInstances.replikasyon = new Chart(cvR.getContext('2d'), {
+            type: 'scatter',
+            data: { datasets: [
+                { label: 'Kümülatif ortalama duruş %', data: ort, borderColor: '#2a78d6', backgroundColor: '#2a78d6', showLine: true, pointRadius: 0, borderWidth: 2 },
+                { label: '%95 GA yarı genişliği', data: ga, borderColor: '#d6612a', backgroundColor: '#d6612a', showLine: true, pointRadius: 0, borderWidth: 1.5, borderDash: [5, 3] },
+                { label: 'Mutlak eşik 0,05 puan', data: [{ x: 1, y: 0.05 }, { x: rs.length, y: 0.05 }], borderColor: '#94A3B8', showLine: true, pointRadius: 0, borderWidth: 1 }
+            ] },
+            options: {
+                responsive: true, maintainAspectRatio: false, animation: false,
+                plugins: { legend: { labels: { color: '#475569', font: { family: 'Outfit', size: 10 } } } },
+                scales: {
+                    x: { min: 1, max: rs.length, title: { display: true, text: 'Replikasyon sayısı', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    y: { min: 0, title: { display: true, text: 'Duruş (%)', color: '#64748B' }, grid: { color: 'rgba(0,0,0,0.05)' } }
+                }
+            }
+        });
+    }
+
+    _karsilastiriciKur('karsA', { arac: 3, alpha: 0.15, talep: 0, kural: 'EDD', mod: 'Dinamik_N' });
+    _karsilastiriciKur('karsB', { arac: 3, alpha: 0.15, talep: 0, kural: 'EDD', mod: 'Sabit_N' });
+    renderKarsilastirici();
+}
+
+function _karsilastiriciKur(kapId, v) {
+    const kap = document.getElementById(kapId);
+    if (!kap) return;
+    const ek = kapId.slice(-1);
+    const sec = (ad, degerler, etiket, varsayilan) => '<label for="' + kapId + ad + '">' + (ad === 'Arac' ? ek + ' · Filo' : ad === 'Alpha' ? 'α' : ad === 'Talep' ? 'Talep' : ad === 'Kural' ? 'Sevk' : 'Boyutlandırma') +
+        '</label><select id="' + kapId + ad + '">' + degerler.map(x => '<option value="' + x + '"' + (String(x) === String(varsayilan) ? ' selected' : '') + '>' + etiket(x) + '</option>').join('') + '</select>';
+    kap.innerHTML =
+        sec('Arac', [1, 2, 3, 4, 5, 6, 7, 8], x => x + ' araç', v.arac) +
+        sec('Alpha', [0.05, 0.10, 0.15, 0.20, 0.25, 0.30], x => x.toFixed(2), v.alpha) +
+        sec('Talep', TALEP_DUZEYLERI, x => TALEP_ETIKET[x], v.talep) +
+        sec('Kural', ['EDD', 'SLACK', 'FIFO', 'KRITIKLIK'], x => x, v.kural) +
+        sec('Mod', ['Dinamik_N', 'Sabit_N'], x => x === 'Dinamik_N' ? 'VDI' : 'V1', v.mod);
+    kap.querySelectorAll('select').forEach(el => el.addEventListener('change', renderKarsilastirici));
+}
+
+function _karsSenaryo(kapId) {
+    const g = ad => document.getElementById(kapId + ad).value;
+    return scenariosData.find(s => s.arac_sayisi === parseInt(g('Arac'), 10) && Math.abs(s.alpha - parseFloat(g('Alpha'))) < 0.01 &&
+        s.talep_sok_pct === parseInt(g('Talep'), 10) && s.dispatch_kural === g('Kural') && s.n_modu === g('Mod'));
+}
+
+function renderKarsilastirici() {
+    const tb = document.getElementById('karsTablo');
+    if (!tb || !document.getElementById('karsAArac')) return;
+    const A = _karsSenaryo('karsA'), B = _karsSenaryo('karsB');
+    if (!A || !B) { tb.innerHTML = '<tr><td colspan="4">Bu konfigürasyon veri ambarında yok.</td></tr>'; return; }
+    const gostergeler = [
+        ['Duruş (%)', 'starv_pct', 2], ['Ortalama WIP (adet)', 'ort_wip', 0], ['Kart sayısı', 'toplam_kart', 0],
+        ['Sefer', 'sefer_sayisi', 1], ['Mesafe (km)', 'mesafe_km', 1], ['Araç doluluğu (%)', 'doluluk_pct', 1], ['Araç kullanımı (%)', 'arac_kullanim_pct', 1]
+    ];
+    tb.innerHTML = gostergeler.map(([ad, k, b]) => {
+        const fark = (B[k] != null && A[k] != null) ? B[k] - A[k] : null;
+        let ek = '';
+        if (k === 'starv_pct' && fark != null) {
+            const ga = Math.hypot(A.starv_ci95 || 0, B.starv_ci95 || 0);
+            ek = Math.abs(fark) <= ga ? ' <span class="katki-ga">(anlamlı değil, ± ' + ga.toFixed(2) + ')</span>' : ' <span class="katki-ga">(± ' + ga.toFixed(2) + ')</span>';
+        }
+        const ab = (x, s) => _sayi(x[k], b) + (k === 'starv_pct' ? ' <span class="katki-ga">± ' + _sayi(x.starv_ci95, 2) + '</span>' : '');
+        return '<tr><td><strong>' + ad + '</strong></td><td>' + ab(A) + '</td><td>' + ab(B) + '</td><td>' +
+            (fark == null ? '—' : (fark >= 0 ? '+' : '') + fark.toFixed(b)) + ek + '</td></tr>';
+    }).join('');
 }
