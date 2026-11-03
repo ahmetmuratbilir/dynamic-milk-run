@@ -1038,6 +1038,17 @@
 | **Dosya** | `src/v2_ortools_referansi.py` · `data/synthetic/v2_ortools_referansi_{ham,ozet}.csv` |
 | **Tarih** | 27.10.2026 |
 
+### K103 — Sugimori (1977) ve Bozer & Ciemnoczolowski (2013, Part 1) Edinildi ✅
+| Özellik | Değer |
+|---------|-------|
+| **Sugimori vd. (1977) s.561** | Formül birebir doğrulandı: $y = D(T_w+T_p)(1+lpha)/a$; *"a = Container capacity (not more than 10% of daily requirement)"*, *"α = Policy variable (not over 10%)"*. K06 artık doğrudan bu kaynağa atfedilir (Kundu vd. 2019 ikincil kaynak olarak kalabilir). |
+| **Sugimori s.562 — tezle ilgili iki not** | (1) *"Value of y is rather fixed despite variation of D. Therefore, when D increases, it is required to reduce the value of (Tp + Tw)"* → Toyota yaklaşımında talep artışına kart sayısı değil **tedarik süresi** ile yanıt verilir; K98'de uyarlanan ROP'un küçük kutularda "kart eklemekle eşdeğer" kalması bu ilkeyle tutarlıdır (Tartışma'da kullanılmalı). (2) *"Incapable shops might have to cope with the situation by means of increasing α … the top managers consider the value of α as an indicator of shop capability in improvement"* → α = 0,15 seçimi "iyileştirme kapasitesi henüz sınırlı bir atölye" varsayımı olarak gerekçelendirilebilir; K95 bu seçimin sonucu değiştirmediğini zaten göstermiştir. |
+| **Bozer & Ciemnoczolowski (2013) Part 1, s.555** | Yalın üretimde iki besleme yöntemi: *"fixed-time, unfixed quantity deliveries"* (milk run) ve *"fixed-quantity, unfixed-time deliveries"* (call system) — Smalley (2004) ve Marchwinski vd. (2008)'e atıfla. **P2 ↔ P3 sınıflandırmasının Kundu (2019)/Monden (2011) dışındaki ikinci bağımsız dayanağıdır.** Model *"sufficient kanban are available"* varsayımıyla kurulur; kanban sayısı ve duruş Part 2'ye bırakılmıştır → **Part 2 (doi:10.1080/00207543.2012.656331) hâlâ gereklidir.** |
+| **⚠️ Atıf notu** | Part 1'in yazar sırası **Bozer & Ciemnoczolowski**, Part 2'ninki **Ciemnoczolowski & Bozer**'dir. |
+| **Kalan** | Alnahhal vd. (2016) 🔴, Ciemnoczolowski & Bozer (2013) Part 2 🔴, Schmidt vd. (2016) (açık erişim, tarayıcıdan), VDI 5586 Blatt 2 (ücretli; yılı doğrulandı 2022-07). |
+| **Dosya** | `docs/papers/ek_kaynaklar/E8_…pdf`, `E9_…pdf` (yerel, git dışı) |
+| **Tarih** | 03.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

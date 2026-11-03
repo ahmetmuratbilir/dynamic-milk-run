@@ -48,7 +48,8 @@ BEKLENEN_EKSIKLER = [
     ("🔴", "Alnahhal, Ramadan & Noche (2016) — Static vs Dynamic Control",
      ["static", "versus", "dynamic control"]),
     ("🔴", "Ciemnoczolowski & Bozer (2013) — Number of Kanban and starvation",
-     ["ciemnoczolowski", "small-batch container"]),
+     # Part 1 (Bozer & Ciemnoczolowski) arşivde; eksik olan Part 2 (K103)
+     ["part2", "part 2", "number of kanban"]),
     ("🟠", "Bocewicz vd. (2019) — fleet size / storage capacity trade-off",
      ["bocewicz", "fleet size"]),
     ("🟠", "Schmidt vd. (2016) — New design guidelines",

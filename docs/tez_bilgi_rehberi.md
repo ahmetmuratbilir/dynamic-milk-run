@@ -249,7 +249,7 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 | **K03** | Araç Sayısı | 2 milk-run aracı ($A_1, A_2$) | Operasyonel sentetik varsayım | Mühendislik Varsayımı | H1 |
 | **K04** | Araç Kapasitesi | $Q_{arac} = 25$ kutu | Operasyonel sentetik varsayım | Mühendislik Varsayımı (Menanno $Q_{min}=45$) | H1 |
 | **K05** | Vardiya Süresi | 480 dakika (8 saat) | Standart tek vardiya ufku | Endüstri Standardı | H1 |
-| **K06** | Kanban Formülü | $N = \lceil (D \cdot LT \cdot (1+\alpha))/C_{kutu} \rceil$ | Standart Kanban boyutlandırma | Toyota formülü: Sugimori vd. (1977), aktaran Kundu vd. (2019) s.422 (K88) | H3 |
+| **K06** | Kanban Formülü | $N = \lceil (D \cdot LT \cdot (1+\alpha))/C_{kutu} \rceil$ | Standart Kanban boyutlandırma | Toyota formülü: Sugimori vd. (1977) s.561 (K88, K103) | H3 |
 | **K07** | Lead Time | $LT = 45$ dakika | Tedarik döngü süresi | Klenk et al. (2012) s.12 — tur süresi referansı, LT için yakın kaynak | H3 |
 | **K08** | Tampon Oranı | $\alpha = 0.15$ (%15) | Güvenlik stoku payı | Klenk et al. (2012) s.12 — %30 tampon kullanmış; bizim %15 daha temkinli, aynı mantık | H3 |
 | **K16** | TW Üst Sınır | Max +60 dakika | Zaman penceresi genişliği | Mühendislik Varsayımı | H4 |

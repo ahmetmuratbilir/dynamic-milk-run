@@ -86,6 +86,12 @@
 
 [30] [ ] Faccio vd. (2013a, 2013b) — K88'de alıntılanıyor. ⚠️ Tam künyeler alınmalı.
 
+[39] [x] Y. A. Bozer and D. D. Ciemnoczolowski, "Performance evaluation of small-batch container
+     delivery systems used in lean manufacturing – Part 1: System stability and distribution of
+     container starts," *International Journal of Production Research,* vol. 51, no. 2,
+     pp. 555–567, 2013. doi:10.1080/00207543.2012.656330. (⚠️ yazar sırası Part 2'den farklı;
+     `ek_kaynaklar/E9_…pdf`, K103)
+
 [31] [ ] Y. Monden, *Toyota Production System: An Integrated Approach to Just-in-Time,*
      4th ed. Boca Raton, FL: CRC Press, 2011. (Kundu vd. 2019 s.423 üzerinden)
 
@@ -159,7 +165,7 @@ derlenmiştir; ⚠️ tam metin görülmeden doğrudan alıntı yapılmamalıdı
 | [20] | Verein Deutscher Ingenieure (2022). *VDI 5586 Blatt 2: In-plant milk-run systems — Planning and dimensioning*. Düsseldorf. | 🟡 Orta | VDI (ücretli standart) — ✅ yıl doğrulandı: **Ausgabe 2022-07** (2016-04 taslağının yerini aldı) |
 | [21] | Kundu, K., Rossini, M. & Portioli-Staudacher, A. (2019). A study of a kanban based assembly line feeding system through integration of simulation and particle swarm optimization. *International Journal of Industrial Engineering Computations*, 10, 421–442. doi:10.5267/j.ijiec.2018.12.001 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E6_…pdf` |
 | [22] | Korytkowski, P. & Karkoszka, R. (2016). Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances. *IJAMT*, 82(5–8), 827–837. doi:10.1007/s00170-015-7442-2 | ✅ **EDİNİLDİ** | Açık erişim (CC BY 4.0) — `docs/papers/ek_kaynaklar/E7_…pdf` (03.11.2026) |
-| **[23]** | **Sugimori, Y., Kusunoki, K., Cho, F. & Uchikawa, S. (1977). Toyota production system and Kanban system: materialization of just-in-time and respect-for-human system. *International Journal of Production Research*, 15(6), 553–564.** | 🔴 **Zorunlu** | **K06 Kanban formülünün ASIL kaynağı** (K88) — Kundu vd. 2019 s.422 üzerinden tespit edildi |
+| **[23]** | **Sugimori, Y., Kusunoki, K., Cho, F. & Uchikawa, S. (1977). Toyota production system and Kanban system: materialization of just-in-time and respect-for-human system. *International Journal of Production Research*, 15(6), 553–564.** | ✅ **EDİNİLDİ** (03.11.2026) | Formül **s.561**'de birebir doğrulandı; `ek_kaynaklar/E8_…pdf`. doi:10.1080/00207547708943149 (K103) |
 
 **Not 1 —** [16] ve [17] **zorunludur**: [16] projenin ana karşılaştırmasının doğrudan
 öncülü, [17] ise "Kanban sayısı ↔ starvation" ilişkisinin kurucusudur. Her ikisi de
@@ -173,4 +179,4 @@ Gerekçeler: `docs/literatur_boslugu_analizi.md`, `karar_gunlugu.md` K86–K90.
 
 ---
 
-*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 5 ([16],[17],[19],[20],[23]) — 03.11.2026: [22] edinildi, [20] yılı doğrulandı*
+*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 4 ([16],[17],[19],[20]) — 03.11.2026: [22], [23] ve Part 1 [39] edinildi, [20] yılı doğrulandı*
