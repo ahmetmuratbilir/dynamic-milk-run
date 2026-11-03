@@ -53,7 +53,7 @@ Fabrika içi milk-run yazını bu konuda **iki ayrı kolda** gelişmiştir:
   olduğunu gösterir. Urru vd. (2018) s.407, *aynı veriyle* dört farklı yeniden sipariş
   yöntemi için planlamayı tekrarlamış ve tampon ihtiyacının 18'den 19/20/23'e çıktığını
   bulmuştur. Droste & Deuse (2011) s.607–608 gereken stokun çevrim süresiyle orantılı
-  olduğunu; Schmidt vd. (2016) s.3 ve VDI 5586 Blatt 2 (2022) ise
+  olduğunu; Schmidt vd. (2016) s.3–4 ve VDI 5586 Blatt 2 (2022) ise
   $q = 1 + \lceil n_{LT}\rceil$ formülünü verir. **Ancak bu kol politikaları performans
   açısından karşılaştırmaz.**
 - **Kol B (politika karşılaştırma/simülasyon):** Politikaları duruş ve stok açısından

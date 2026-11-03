@@ -1049,6 +1049,18 @@
 | **Dosya** | `docs/papers/ek_kaynaklar/E8_…pdf`, `E9_…pdf` (yerel, git dışı) |
 | **Tarih** | 03.11.2026 |
 
+### K104 — Ciemnoczolowski & Bozer (2013) Part 2 ve Schmidt vd. (2016) Edinildi ✅
+| Özellik | Değer |
+|---------|-------|
+| **Part 2, özet s.568** | *"Our results suggest that, in a stable MR system, the number of Kanban and the physical capacity of the tugger have a bigger impact on workstation starvation than the prescribed cycle time."* → Duruşu politika parametresinden (çevrim süresi) çok **tampon boyutu** belirler; tezin "boyutlandırma kararları politika seçiminden daha belirleyicidir" bulgusuyla aynı yöndedir. Giriş ve Tartışma'da kullanılmalı. |
+| **Part 2, s.570 Denk. 2–3** | Kanban alt sınırı $k_i^{LB} = \lceil \ell r_i - 1/(2n_i) \rceil$, $\ell r_i = 2r_i$; pratik alt sınır $\lceil 2r_i \rceil$. $r_i$ bir çevrimde tüketilen kutu sayısıdır → gereken kart **çevrim süresiyle orantılı büyür**. Politika-tutarlı boyutlandırmanın **üçüncü bağımsız dayanağı** (Droste & Deuse 2011, Urru vd. 2018 ile birlikte). |
+| **⚠️ Model farkı** | Ciemnoczolowski & Bozer "coupled" rota varsayar: bir turda toplanan kartlar **bir sonraki turda** teslim edilir → katsayı 2. Bizim P2 modelinde kalkış anındaki stok açığı **aynı turda** teslim edilir (1:1 değişim, K50); VDI formülümüz $1 + \lceil D T (1+\alpha)/C \rceil$ bu yüzden daha küçük tampon verir. Yöntem bölümünde bu varsayım farkı açıkça yazılmalıdır. |
+| **Part 2, Sonuç s.580** | Araç kapasitesi artırıldığında duruş sıfıra iner (sabit tüketim hızı varsayımıyla); *"increased vehicle capacity can be used to reduce WS starvation in lieu of increasing the number of Kanban"*. Bizim deneylerimizde araç kapasitesi hiç bağlayıcı olmadığı için (doluluk ≤ %57, K95/K101) bu kanal gözlenemez → sınırlılık olarak yazılmalı. Yazarların önerdiği gelecek çalışma (*"quantify the relative contributions of the number of Kanban and the tugger capacity to starvation"*) ayrıştırma analizimizle kısmen örtüşür. |
+| **Schmidt vd. (2016)** | İki alıntı tam metinden doğrulandı: s.1 *"not feasible to formulate the design task as an ordinary optimization problem which can be handled by a solver without any further interaction"*; tampon formülü $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ — cümle s.3'te başlar, formül **s.4**'tedir → atıflar "s.3–4" olarak düzeltildi. |
+| **Kalan** | Yalnızca **Alnahhal, Ramadan & Noche (2016)** 🔴 (RFID ile ayarlanmış e-Kanban, AEK). VDI 5586 Blatt 2 ücretlidir; yılı doğrulandığı için edinilmesi gerekmez. |
+| **Dosya** | `docs/papers/ek_kaynaklar/E10_…pdf`, `E4_…pdf` (yerel, git dışı) · `literatur_boslugu_analizi.md` §4.1.1 |
+| **Tarih** | 03.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

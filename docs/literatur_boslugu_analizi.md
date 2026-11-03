@@ -35,7 +35,7 @@ Hakem bunlardan birini bilirse makale reddedilir.
 | 5 | **Menanno, Savino & Shafiq (2023)**, P&MR 11:2179123 | IT tabanlı Kanban + milk-run; ACO+GA ile dinamik rota; **starvation %43 azalma** raporlamış. | "E-Kanban + dinamik rota entegrasyonu" |
 | 6 | **Vojdani & Drechsler (2022)**, Logistics Journal | e-Kanban + esnek rota + simülasyon; %27 az sefer, %29,39 az yol. | "e-Kanban + dinamik rota + simülasyon" |
 | 7 | **Kundu, Rossini & Portioli-Staudacher (2019)**, IJIEC 10:421–442 | DES + PSO; açıkça **"kanban boyutu ↔ kanban sayısı ödünleşimi"**ni kendi özgün katkısı ilan etmiş. | "Kanban boyutlandırma ödünleşimi" |
-| 8 | **Urru, Bonini & Echelmeyer (2018)** s.406 + **Schmidt, Meinhardt & Schulze (2016)** s.3 + **VDI 5586 Blatt 2 (2022)** | Tampon formülü $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ — "+1 değişim pozisyonu" **yerleşik standarttır**. | "VDI +1 kuralı" — bu bizim **bulgumuz değil**, uyguladığımız standarttır |
+| 8 | **Urru, Bonini & Echelmeyer (2018)** s.406 + **Schmidt, Meinhardt & Schulze (2016)** s.3–4 + **VDI 5586 Blatt 2 (2022)** | Tampon formülü $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ — "+1 değişim pozisyonu" **yerleşik standarttır**. | "VDI +1 kuralı" — bu bizim **bulgumuz değil**, uyguladığımız standarttır |
 | 9 | **Elloumi, Ammar & Benaissa (2025)**, JIPE 42(6) | Koşu-içi uyarlanabilir Kanban (AKS), PSO ile. | "Dinamik Kanban" |
 
 **Sonuç:** Yukarıdaki dokuz başlığın hiçbiri bizim özgün katkımız olarak sunulamaz.
@@ -74,8 +74,14 @@ olduğunu *gösterir*, ancak politikaları performans açısından karşılaşt�
   **eksik boyutlandırılmasına** yol açacağı belirtilir.
 - **Droste & Deuse (2011)** s.607–608, Şekil 4: 120 dk'lık çevrim 120 birim stok
   gerektirirken, çevrim 60 veya 30 dk'ya indiğinde gereken stok orantılı olarak düşer.
-- **Schmidt, Meinhardt & Schulze (2016)** s.3: $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ —
+- **Schmidt, Meinhardt & Schulze (2016)** s.3–4: $q_{A,H} = 1 + \lceil n_{LT,A,H}\rceil$ —
   VDI formülünün ikinci bağımsız teyidi.
+- **Ciemnoczolowski & Bozer (2013) Part 2** s.570, Denk. 2–3: kanban alt sınırı
+  $k_i^{LB} = \lceil 2r_i - 1/(2n_i)\rceil$, pratikte $\lceil 2r_i\rceil$; $r_i$ bir çevrimde
+  tüketilen kutu sayısıdır → gereken kart sayısı **çevrim süresiyle büyür** (üçüncü bağımsız
+  dayanak). Özet (s.568): *"the number of Kanban and the physical capacity of the tugger have
+  a bigger impact on workstation starvation than the prescribed cycle time"* — boyutlandırmanın
+  duruşu politika parametresinden daha çok belirlediği bulgumuzla aynı yöndedir (K104).
 
 **Kol B — Politika karşılaştırma/simülasyon yazını.** Politikaları performans açısından
 karşılaştırır, ancak tamponu politikanın çevrim süresinden **türetmez**.
