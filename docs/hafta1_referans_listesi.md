@@ -155,10 +155,10 @@ derlenmiştir; ⚠️ tam metin görülmeden doğrudan alıntı yapılmamalıdı
 | [16] | Alnahhal, M., Ramadan, M. & Noche, B. (2016). *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*. In: Dynamics in Logistics (Lecture Notes in Logistics). Springer. doi:10.1007/978-3-319-23512-7_70 | 🔴 Zorunlu | Springer (abonelik) |
 | [17] | Ciemnoczolowski, D. D. & Bozer, Y. A. (2013). Performance evaluation of small-batch container delivery systems used in lean manufacturing — Part 2: Number of Kanban and workstation starvation. *International Journal of Production Research*, 51(2), 568–581. doi:10.1080/00207543.2012.656331 | 🔴 Zorunlu | T&F (abonelik) |
 | [18] | Bocewicz, G., Bożejko, W., Wójcik, R. & Banaszak, Z. (2019). Milk-run routing and scheduling subject to a trade-off between vehicle fleet size and storage capacity. *Management and Production Engineering Review*, 10(3), 41–53. doi:10.24425/mper.2019.129597 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E3_…pdf` |
-| [19] | Schmidt, T., Meinhardt, I. & Schulze, F. (2016). *New design guidelines for in-plant milk-run systems*. 14th IMHRC Proceedings. TU Dresden. | 🟠 Yüksek | **Açık erişim** (MHI) — okundu, PDF arşivlenmedi |
-| [20] | Verein Deutscher Ingenieure (2022). *VDI 5586 Blatt 2: In-plant milk-run systems — Planning and dimensioning*. Düsseldorf. | 🟡 Orta | VDI (ücretli standart) |
+| [19] | Schmidt, T., Meinhardt, I. & Schulze, F. (2016). *New design guidelines for in-plant milk-run systems*. 14th IMHRC Proceedings. TU Dresden. | 🟠 Yüksek | **Açık erişim** — okundu; PDF tarayıcıdan indirilmeli (otomatik indirme engelli): https://digitalcommons.georgiasouthern.edu/cgi/viewcontent.cgi?article=1025&context=pmhr_2016 |
+| [20] | Verein Deutscher Ingenieure (2022). *VDI 5586 Blatt 2: In-plant milk-run systems — Planning and dimensioning*. Düsseldorf. | 🟡 Orta | VDI (ücretli standart) — ✅ yıl doğrulandı: **Ausgabe 2022-07** (2016-04 taslağının yerini aldı) |
 | [21] | Kundu, K., Rossini, M. & Portioli-Staudacher, A. (2019). A study of a kanban based assembly line feeding system through integration of simulation and particle swarm optimization. *International Journal of Industrial Engineering Computations*, 10, 421–442. doi:10.5267/j.ijiec.2018.12.001 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E6_…pdf` |
-| [22] | Korytkowski, P. & Karkoszka, R. (2016). Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances. *IJAMT*, 82(5–8), 827–837. doi:10.1007/s00170-015-7442-2 | 🟡 Orta | Springer *hybrid OA* — indirme bot korumasına takılıyor; kurumsal erişim gerekli |
+| [22] | Korytkowski, P. & Karkoszka, R. (2016). Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances. *IJAMT*, 82(5–8), 827–837. doi:10.1007/s00170-015-7442-2 | ✅ **EDİNİLDİ** | Açık erişim (CC BY 4.0) — `docs/papers/ek_kaynaklar/E7_…pdf` (03.11.2026) |
 | **[23]** | **Sugimori, Y., Kusunoki, K., Cho, F. & Uchikawa, S. (1977). Toyota production system and Kanban system: materialization of just-in-time and respect-for-human system. *International Journal of Production Research*, 15(6), 553–564.** | 🔴 **Zorunlu** | **K06 Kanban formülünün ASIL kaynağı** (K88) — Kundu vd. 2019 s.422 üzerinden tespit edildi |
 
 **Not 1 —** [16] ve [17] **zorunludur**: [16] projenin ana karşılaştırmasının doğrudan
@@ -173,4 +173,4 @@ Gerekçeler: `docs/literatur_boslugu_analizi.md`, `karar_gunlugu.md` K86–K90.
 
 ---
 
-*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 6 ([16],[17],[19],[20],[22],[23])*
+*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 5 ([16],[17],[19],[20],[23]) — 03.11.2026: [22] edinildi, [20] yılı doğrulandı*
