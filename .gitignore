@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Isletim sistemi
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Gecici / turetilmis
+*.zip
+data/benchmark/
+
+# Not: telif hakki korumali makale PDF'leri depoda tutulmamalidir.
+# Mevcut docs/papers/zip*/ klasorleri icin bkz. README "Depo duzeni" bolumu.
+
+# Makale PDF'leri ve tam metinleri depoya eklenmez (yerelde tutulur)
+docs/papers/**/*.pdf
+docs/papers/ek_kaynaklar/
+docs/papers/extracted_text/E3_Bocewicz2019_fleet_storage_tradeoff.txt
+docs/papers/extracted_text/E6_Kundu2019_kanban_DES_PSO.txt
+docs/papers/extracted_text/LOGISTIQUA_2020_paper_166.txt

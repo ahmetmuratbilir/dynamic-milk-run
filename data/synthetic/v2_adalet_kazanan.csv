@@ -1,0 +1,9 @@
+﻿talep,kural,fark_durus,ga,wip_fark_pct,olcut,kazanan,pareto,not
+Baz talep,A,-2.330729166666667,0.4119700051787348,1.415114247642868,duruş,Dijital,Dijital baskın,
+Baz talep,B,-0.142505787037037,0.1596794053232528,-38.54968996901362,duruş,eşit,Dijital baskın,
+Baz talep,C,0.6141493055555556,0.3426430698192187,-58.835746580518865,WIP (hizmet eşit),Dijital,baskınlık yok (takas),k=+0; k=-3
+Baz talep,D,-10.879187148570407,0.4164592108142625,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme
+Talep şoku +%50,A,-9.032118055555554,0.6995594713035597,2.8759671320229163,duruş,Dijital,Dijital baskın,
+Talep şoku +%50,B,0.042679398148148806,0.7960051710496135,-36.56418332131726,duruş,eşit,Dijital baskın,
+Talep şoku +%50,C,0.462962962962963,0.09539064582945002,-10.110219812852739,WIP (hizmet eşit),Dijital,baskınlık yok (takas),k=+1; k=+2
+Talep şoku +%50,D,-15.153580069776247,0.8301409370580195,0.0,duruş,Dijital,Dijital baskın,ara değerleme; ara değerleme

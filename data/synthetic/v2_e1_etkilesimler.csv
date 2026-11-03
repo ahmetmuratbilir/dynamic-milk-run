@@ -1,0 +1,11 @@
+faktor_1,faktor_2,etkilesim
+Filo büyüklüğü (araç),Talep düzeyi,-6.763129340277779
+Filo büyüklüğü (araç),Raf boyutlandırma,1.9111328125000004
+Filo büyüklüğü (araç),Güvenlik katsayısı α,1.1676432291666683
+Talep düzeyi,Raf boyutlandırma,-1.0569661458333335
+Güvenlik katsayısı α,Talep düzeyi,-0.8972439236111116
+Güvenlik katsayısı α,Raf boyutlandırma,0.8920355902777777
+Sevk politikası,Raf boyutlandırma,0.7425130208333344
+Sevk politikası,Talep düzeyi,0.5990668402777786
+Güvenlik katsayısı α,Sevk politikası,0.08539496527777724
+Filo büyüklüğü (araç),Sevk politikası,0.0463324652777779

@@ -1,0 +1,9 @@
+adim,starv_pct,d_starv_puan,ort_wip,d_wip,tur,mesafe_km,doluluk_pct,toplam_kart
+v1 ayarları (referans),6.85,,238.7,,43,56.98,19.0,25
++ K71 metrik mesafe,5.99,-0.86,242.8,4.1,43,54.26,19.0,25
++ K72 2-opt & tur süresi,5.03,-0.95,246.5,3.7,43,53.31,19.1,25
++ K67 durak sınırı kalktı,10.8,5.76,235.8,-10.7,37,53.47,23.1,25
++ K66 tek hizmet süresi,0.46,-10.34,322.0,86.2,91,97.81,17.1,25
++ K68 konsolidasyon,0.0,-0.46,291.2,-30.8,27,65.45,40.3,25
++ K65 VDI raf (+1 kutu),0.0,0.0,399.5,108.2,18,40.5,35.1,49
++ K70 saatlik rejim talebi,0.09,0.09,403.6,4.1,17,39.4,36.0,49
