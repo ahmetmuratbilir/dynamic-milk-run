@@ -449,7 +449,8 @@ girer. Eski haftalık raporlardaki sayılar farklı ayarla üretildi.
 
 ## 10. Sınırlılıklar ve gelecek çalışma
 
-**Sınırlılıklar**
+### Sınırlılıklar
+
 - Sentetik veri; tek fabrika düzeni (24 istasyon, 4 hat); hatlar arası mesafe bir varsayım.
 - Aracın kutu kapasitesi deneylerde hiç dolmadı; Ciemnoczolowski & Bozer'in "çekici
   kapasitesi" çok araçlı sistemimizde araç sayısıyla temsil edildi.
@@ -461,7 +462,8 @@ girer. Eski haftalık raporlardaki sayılar farklı ayarla üretildi.
   denenmedi.
 - Rotalama sezgiseli genel kıyaslamada OR-Tools'tan geride.
 
-**Gelecek çalışma**
+### Gelecek çalışma
+
 - Yayımlanmış bir vakanın (Korytkowski 2016, 10 istasyon) yeniden kurulması.
 - Gerçek fabrika verisiyle doğrulama.
 - Kart sayısının istasyon bazında optimize edildiği "her politika kendi en iyi ayarında"
