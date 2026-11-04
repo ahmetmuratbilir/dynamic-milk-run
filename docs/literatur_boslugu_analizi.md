@@ -319,7 +319,7 @@ aynı mantığı kullanır. Bu öğe katkı değil, yöntemdir.
 >    kutulu tampon) uygulandığında dijital sistemin 2,4–16,0 puan önde göründüğü, her
 >    politika kendi çevrim süresine göre boyutlandırıldığında bu farkın %80–100 küçüldüğü
 >    ya da tersine döndüğü gösterilmekte; bulgu Toyota formülü parametre bandında, üç
->    vardiyalık ufukta ve gerçekleşebilir bir mesafe ağında sınanmaktadır (52 koşul).
+>    vardiyalık ufukta ve gerçekleşebilir bir mesafe ağında sınanmaktadır (36 bağımsız koşul, 52 test hücresi).
 > 3. Modelleme kararlarının (tampon boyutlandırma, hizmet süresi simetrisi, kapalı döngü
 >    sinyal üretimi, metrik mesafe) sonuç üzerindeki etkileri **tek tek ayrıştırılarak**
 >    ölçülmekte; bu etkilerin politikalar arasındaki farktan büyük olabildiği

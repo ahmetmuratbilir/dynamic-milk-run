@@ -144,7 +144,7 @@ değişiklik gerekmez — tüm okuma `src/data_loader.py` üzerinden yapılır.
 | Replikasyon yeterliliği | Mutlak ölçütle (±0,05 puan) **n = 9** |
 | Sevk kuralları (ANOVA + Tukey) | Dört kural **eşdeğer** (p = 0,9997 / 0,3415) |
 
-| Sağlamlık (K95, K99, K100) | Boyutlandırma kayması 52/52 koşulda pozitif |
+| Sağlamlık (K95, K99, K100) | Boyutlandırma kayması 36 bağımsız koşulun 36'sında pozitif (52 test hücresi) |
 | Rotalama, fabrika senaryosu (K101) | Çevrimdışı tam bilgi referansı daha kısa yol, daha çok gecikme |
 
 **Bilinen sınırlılıklar:** sentetik veri; tek fabrika düzeni ve hatlar arası mesafe

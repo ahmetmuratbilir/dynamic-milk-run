@@ -406,7 +406,7 @@ $$\min \sum_{k \in K} \sum_{i \in V} \sum_{j \in V} t_{ij} \cdot x_{kij}$$
 - **Bulgular (Findings, nihai ayar — K105):**
   - Vojdani tasarımı (ortak iki kutulu tampon) dijital sistemi **2,4–16,0 puan** önde
     gösterir; politika-tutarlı boyutlandırmada fark %80–100 küçülür, Toyota kutularında
-    yön döner. Kayma 52/52 sağlamlık koşulunda pozitiftir (K95, K99, K100).
+    yön döner. Kayma 36 bağımsız sağlamlık koşulunun 36'sında pozitiftir (52 test hücresi; K95'teki iki Q varyantı özdeş) (K95, K99, K100).
   - Dört eşitleme kuralı farkı **−17,3 ile +2,0 puan** arasında değiştirir; Toyota
     kutularında politika-tutarlı kural geleneksel sistemi, diğer üç kural dijital sistemi
     kazandırır; Pareto yargısı kurala göre değişir.
