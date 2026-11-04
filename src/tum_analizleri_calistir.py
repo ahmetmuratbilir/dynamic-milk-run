@@ -90,6 +90,8 @@ def main():
          "src.v2_koordinat_agi", ["--rep", rep_deney]),
         ("solomon", "7/9 · Rotalama: OR-Tools çevrimdışı referansı (K101)",
          "src.v2_ortools_referansi", ["--sure", "5" if args.hizli else "15", "--rep", "2"]),
+        ("adalet", "7/9 · Kart ↔ kapasite ayrıştırması, toparlanma, tek araç (K109)",
+         "src.v2_kart_kapasite_ayristirma", []),
         ("adalet", "7/9 · Makale tabloları, nihai ayar (K105)",
          "src.v2_makale_tablolari", ["--rep", rep_deney]),
         ("dashboard", "8/9 · Dashboard v2 veri ambarı, nihai ayar (K94, K105)",

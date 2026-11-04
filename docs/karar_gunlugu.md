@@ -1107,6 +1107,19 @@
 | **Güncellenen** | `literatur_boslugu_analizi.md` §4.1.1, §4.1.3b, §5 (Alnahhal tartışma paragrafı tam metne göre yeniden yazıldı), §7; `master_makale_katalogu.md` E1; kaynakça [16]. **Edinilecek kritik kaynak kalmadı.** |
 | **Tarih** | 04.11.2026 |
 
+### K109 — İkinci Açık: Kart Sayısı ↔ Taşıma Kapasitesi Ayrıştırması, Toparlanma ve Tek Araç ✅
+| Özellik | Değer |
+|---------|-------|
+| **Açık** | Ciemnoczolowski & Bozer (2013, s.579): *"quantify the relative contributions of the number of Kanban and the tugger capacity to starvation"*; Alnahhal vd. (2014, §VI) hızlı tepki eksikliği; Bocewicz (2019, s.51) geçiş. |
+| **Tasarım** | Nihai ayar (K105). **A:** politika {P2 T=60, P3 konsolidasyon} × kart kaydırma k {−1…+2} × araç {1…4} × araç kapasitesi Q {15, 25, 35} × talep {baz, +%50} tam faktöriyel, 4 tekrar; dengeli η². **B:** 480. dk'da 120 dk +%50 darbe, aynı tohumlu darbesiz referansa göre net fazladan duruş ve toparlanma (%95 birikme anı), 12 tekrar. **C:** tek araç (Bae vd. 2016 kurgusu). Motora geçici şok seçeneği eklendi (`sok_baslangic_dk`, `sok_sure_dk`; varsayılan değişmedi, doğrulandı). |
+| **🎯 A — duruşun kaynağı** | Araç sayısı η² ≈ 0,33 (her iki politika), kart sayısı 0,33 (P2) / 0,20 (P3), **araç başına kapasite Q ≈ 0,06 (P2) / 0,00 (P3)**, talep düzeyi ≈ 0,06–0,07. **P3'te kart × araç etkileşimi 0,29** (tamamlayıcılık: kart yalnızca yeterli araç varken işe yarar), P2'de 0,01 (toplamsal); P2'de araç × Q 0,13. → Stokastik talepte duruşu **araç sayısı (zaman kapasitesi) ve kart** belirler; C&B'nin sabit tüketimde öne çıkardığı **fiziksel çekici kapasitesi** neredeyse hiç pay almaz. |
+| **🎯 B — şok** | P2: istasyon başına **+1 kart** darbe etkisini neredeyse sıfırlar (140 → 1 ist.-dk, 2 araç) ama WIP %69 artar (621 → 1051); araç 2 → 4 etkiyi 140 → 94'e indirir. P3: +1 kart 155 → 20, +2 kart → 8; **3 araçtan sonra ek araç hiçbir şey değiştirmez** (konsolidasyonda araç bağlayıcı değil). P3'te kalan küçük etkinin kuyruğu daha uzundur (toparlanma ≈ 70–230 dk ↔ P2 ≈ 50–90 dk). |
+| **🎯 C — tek araç** | Hem eşit kart hem politika-tutarlı kuralda **milk-run (P2) önde**: eşit kartta P2 T=30 %12,5 ↔ P3 anında %18,0; politika-tutarlıda P2 T=60 %7,5 ↔ P3 %17,7 (P3 %59 daha az WIP). → **Bae vd. (2016) yönü aynı modelde üretildi.** 3 araçta eşit kart kuralında dijital öndeydi (Tablo 3, Vojdani yönü). |
+| **Yorum — çelişki iki kaynaklı** | Bae (2016) ↔ Vojdani (2022) çelişkisi aynı modelde üretilebilir. Sürücü yalnızca eşitleme kuralı değil, **kapasite rejimidir**: tek araçta (doymuş) periyodik besleme kazanır, yeterli filoda eşitleme kuralı kazananı belirler. Bu, Alnahhal vd. (2016)'nın kapasiteye bağlı koşullu sonucuyla da tutarlıdır. Ana açığın ifadesi buna göre: *"çelişkili sıralamalar kapasite rejimi ve eşitleme kuralı ile açıklanabilir"*. |
+| **Sınır** | Tek ağ; Q yalnızca kutu cinsinden; C&B'nin "tugger capacity"si tek çekicinin fiziksel kapasitesidir, çok araçlı sistemde zaman kapasitesi araç sayısıyla temsil edildi (eşleme açıkça yazılmalı). Toparlanma süresi küçük etkilerde gürültülüdür. |
+| **Dosya** | `src/v2_kart_kapasite_ayristirma.py` · `data/synthetic/v2_kart_kapasite_{a_ham,a_eta,b_toparlanma,c_tek_arac}.csv` · `docs/figurler/sekil9_kart_kapasite.png` |
+| **Tarih** | 04.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

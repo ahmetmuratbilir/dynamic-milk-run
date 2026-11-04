@@ -102,6 +102,9 @@ class V2Parametre:
     mesafe_modu: str = "METRIK"          # "HAM" | "METRIK" | "KOORDINAT" (K100, K105)
     talep_modeli: str = "SAATLIK_REJIM"  # "CSV" | "NORMAL_DK_V1" | "SAATLIK_REJIM" | "POISSON"
     talep_carpani: float = 1.0           # talep şoku (tasarım D'si değişmez)
+    # K109: geçici şok — verilirse talep_carpani yalnızca [başlangıç, başlangıç + süre) dakikalarında uygulanır
+    sok_baslangic_dk: Optional[int] = None
+    sok_sure_dk: Optional[int] = None
     hiz_carpani: float = 1.0             # >1: süreler uzar
 
     # Simülasyon
@@ -208,7 +211,12 @@ class V2Veri:
             tuk = rng.poisson(mu_dk, size=(T, self.n)).astype(float)
         else:
             raise ValueError(f"Bilinmeyen talep modeli: {p.talep_modeli}")
-        return tuk * p.talep_carpani
+        if p.sok_baslangic_dk is None:
+            return tuk * p.talep_carpani
+        carpan = np.ones((T, 1))
+        bitis = T if p.sok_sure_dk is None else p.sok_baslangic_dk + p.sok_sure_dk
+        carpan[p.sok_baslangic_dk:bitis] = p.talep_carpani
+        return tuk * carpan
 
 
 # ─────────────────────────────────────────────────────────────

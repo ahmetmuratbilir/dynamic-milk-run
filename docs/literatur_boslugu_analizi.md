@@ -143,8 +143,10 @@ Periyodik (milk-run) ile olay tabanlı (talep üzerine / e-Kanban) beslemeyi kar
 | **Alnahhal vd. (2016)** s.709–710 | **Açık eşit hizmet**: duruş %3 ± 0,5'te sabitlenip başlangıç stoku her sistem için ayarlanmış (C kuralı) | Eşit duruşta e-Kanban/AEK daha az hat stoku; kapasite kıtlığında AEK en iyi → **koşullu**; bizim C kuralı sonucumuzla tutarlı |
 | **Bu çalışma (K97/K105)** | Dört kural yan yana | Aynı sistemde kurala göre **iki yönde de** sonuç üretilebilir (Toyota kutularında B → geleneksel, A/C/D → dijital) |
 
-→ **Konumlandırma cümlesi:** Yazındaki çelişkili sıralamaların bir kısmı, karşılaştırmada
-kullanılan (çoğunlukla örtük) tampon eşitleme kuralıyla açıklanabilir.
+→ **Konumlandırma cümlesi (K109 ile güncellendi):** Yazındaki çelişkili sıralamalar aynı
+modelde üretilebilmektedir: tek araçta (Bae vd. 2016 kurgusu) periyodik besleme her iki
+kuralda da öndedir, yeterli filoda ise kazananı eşitleme kuralı belirler. Çelişkinin iki
+kaynağı vardır: **kapasite rejimi** ve **tampon eşitleme kuralı**.
 
 #### 4.1.3c ⚠️ Rakip yazın: "adil karşılaştırma" üretim kontrolünde biliniyor (04.11.2026)
 
@@ -322,10 +324,12 @@ aynı mantığı kullanır. Bu öğe katkı değil, yöntemdir.
 >    sinyal üretimi, metrik mesafe) sonuç üzerindeki etkileri **tek tek ayrıştırılarak**
 >    ölçülmekte; bu etkilerin politikalar arasındaki farktan büyük olabildiği
 >    gösterilmektedir.
-> 4. Duruşta kart sayısı ile taşıma kapasitesinin payları, stokastik talep ve talep şoku
->    altında iki politika için ayrı ayrı ayrıştırılmaktadır (Ciemnoczolowski & Bozer 2013,
->    s.579'un gelecek çalışma önerisi). ⚠️ *Bu madde, ilgili deney yapıldıktan sonra
->    kullanılabilir (K107).*
+> 4. Ciemnoczolowski & Bozer (2013, s.579)'un gelecek çalışma olarak bıraktığı soru
+>    yanıtlanmaktadır: stokastik talepte duruşu araç sayısı ve kart sayısı belirler
+>    (η² ≈ 0,33 ve 0,20–0,33), çekicinin fiziksel kapasitesi neredeyse hiç pay almaz
+>    (≤ 0,06); olay tabanlı beslemede kart ve araç birbirini tamamlar (etkileşim η² 0,29).
+>    Talep darbesi karşısında istasyon başına bir ek kart, ek araçtan çok daha etkilidir,
+>    ancak stoku belirgin artırır (K109).
 >
 > *(Yöntem notu: zaman penceresi istasyon stokundan ve tüketim hızından türetilmiştir; aynı
 > mantık Lieb 2021, s.118–120'de kullanılmıştır — katkı olarak sunulmaz.)*
