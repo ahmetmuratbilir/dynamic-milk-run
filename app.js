@@ -56,15 +56,15 @@ function showTab(tabId) {
     document.querySelectorAll('.tab-pane').forEach(el => {
         el.style.display = 'none';
     });
-    document.querySelectorAll('.sidebar-btn').forEach(el => {
+    document.querySelectorAll('.sidebar-btn, .nav-btn').forEach(el => {
         el.classList.remove('active');
     });
     
     const target = document.getElementById(tabId);
     if (target) target.style.display = 'block';
     
-    const btn = document.querySelector('[data-tab="' + tabId + '"]');
-    if (btn) btn.classList.add('active');
+    document.querySelectorAll('[data-tab="' + tabId + '"]').forEach(b => b.classList.add('active'));
+    window.scrollTo(0, 0);
 
     if (tabId === 'tab-istasyon') {
         updateStations();
@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateWhatIfView();
         initKatkiPaneli();
         initDogrulamaPaneli();
+        initBulgular();
 
         // Hash tab destegi
         if (window.location.hash) {
@@ -1433,4 +1434,130 @@ function renderKarsilastirici() {
         return '<tr><td><strong>' + ad + '</strong></td><td>' + ab(A) + '</td><td>' + ab(B) + '</td><td>' +
             (fark == null ? '—' : (fark >= 0 ? '+' : '') + fark.toFixed(b)) + ek + '</td></tr>';
     }).join('');
+}
+
+
+// ===== K110 · BULGULAR SAYFASI VE "UYGULAMADA GÖSTER" =====
+function _tablo(basliklar, satirlar) {
+    return '<table><thead><tr>' + basliklar.map(b => '<th>' + b + '</th>').join('') + '</tr></thead><tbody>' +
+        satirlar.map(r => '<tr>' + r.map(h => '<td>' + h + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
+}
+
+function _kazananHucre(k) {
+    const sinif = k === 'Dijital' ? 'kazanan-dij' : (k === 'Geleneksel' ? 'kazanan-gel' : '');
+    return '<span class="' + sinif + '">' + k + '</span>';
+}
+
+function _tr(x, b) { return Number(x).toFixed(b).replace('.', ','); }
+function _isaretli(x) { return (x >= 0 ? '+' : '−') + _tr(Math.abs(x), 2); }
+
+function renderBulgular() {
+    const b = (window.DASHBOARD_DATA_V2_YUKLU || {}).bulgular;
+    if (!b) return;
+
+    // Özet sayılar
+    if (b.kurallar && b.kurallar.length) {
+        const f = b.kurallar.map(r => r.fark);
+        const el = document.getElementById('oz-aralik');
+        if (el) el.textContent = _isaretli(Math.min(...f)) + ' … ' + _isaretli(Math.max(...f));
+    }
+    if (b.eta) {
+        const arac = b.eta.find(r => r.kaynak === 'arac');
+        const q = b.eta.find(r => r.kaynak === 'Q');
+        const el = document.getElementById('oz-eta');
+        if (el && arac && q) el.textContent = '%' + Math.round(100 * arac.tumu) + ' ↔ %' + Math.round(100 * q.tumu);
+    }
+
+    // B2 · boyutlandırma tasarımı (Tablo 2)
+    const b2 = document.getElementById('b2-tablo');
+    if (b2 && b.boyutlandirma) {
+        b2.innerHTML = _tablo(['Kutu', 'Talep', 'Kurgu', 'Kart gel./dij.', 'Duruş farkı (dij. − gel.)', 'Önde'],
+            b.boyutlandirma.map(r => [r.kutu === 'toyota' ? 'Toyota' : 'Mevcut', r.talep,
+                r.kurgu === 'A' ? 'A · eşit iki kutu' : 'B · politika-tutarlı', r.kart_gel + '/' + r.kart_dij,
+                _isaretli(r.fark) + ' ± ' + _tr(r.ga, 2), _kazananHucre(r.onde)]));
+    }
+
+    // B3 · dört kural, Toyota kutuları (Tablo 3)
+    const b3 = document.getElementById('b3-tablo');
+    if (b3 && b.kurallar) {
+        b3.innerHTML = _tablo(['Talep', 'Kural', 'Kazanan', 'Duruş farkı', 'Stok farkı'],
+            b.kurallar.filter(r => r.kutu === 'toyota').map(r => [r.talep, KURAL_AD[r.kural] || r.kural,
+                _kazananHucre(r.kazanan), _isaretli(r.fark), (r.wip_fark >= 0 ? '+' : '') + Math.round(r.wip_fark) + '%']));
+    }
+
+    // B4 · tek araç (Bae) ↔ 3 araç eşit kart (Vojdani)
+    const b4 = document.getElementById('b4-tablo');
+    if (b4 && b.tek_arac) {
+        const satir = b.tek_arac.map(r => ['1 araç', r.kural, r.sistem, '%' + _tr(r.durus, 1) + ' ± ' + _tr(r.durus_ga, 1), Math.round(r.wip)]);
+        const ucA = (b.boyutlandirma || []).find(r => r.kutu === 'mevcut' && r.talep === 'Baz talep' && r.kurgu === 'A');
+        if (ucA) {
+            satir.push(['3 araç', 'A · eşit kart (iki kutu)', 'P2 · T=60', '%' + _tr(ucA.gel, 2), '—']);
+            satir.push(['3 araç', 'A · eşit kart (iki kutu)', 'P3 · konsolidasyon', '%' + _tr(ucA.dij, 2), '—']);
+        }
+        b4.innerHTML = _tablo(['Filo', 'Kural', 'Sistem', 'Duruş', 'Ort. stok'], satir);
+    }
+
+    // B5 · η² çubukları
+    const b5 = document.getElementById('b5-grafik');
+    if (b5 && b.eta) {
+        const ad = { 'k': 'Kart sayısı', 'arac': 'Araç sayısı', 'Q': 'Aracın kapasitesi', 'talep': 'Talep düzeyi', 'k × arac': 'Kart × araç' };
+        const p2 = 'P2 · T=60', p3 = 'P3 · konsolidasyon';
+        b5.innerHTML = Object.keys(ad).map(k => {
+            const r = b.eta.find(x => x.kaynak === k) || {};
+            const v2 = r[p2] || 0, v3 = r[p3] || 0;
+            return '<div class="cubuk-satir"><span>' + ad[k] + '</span><div class="cubuk-iz">' +
+                '<div class="cubuk-dolu cubuk-p2" style="width:' + Math.min(100, v2 / 0.35 * 100) + '%"></div>' +
+                '<div class="cubuk-dolu cubuk-p3" style="width:' + Math.min(100, v3 / 0.35 * 100) + '%"></div></div>' +
+                '<span>' + _tr(v2, 2) + ' / ' + _tr(v3, 2) + '</span></div>';
+        }).join('') + '<div class="cubuk-aciklama">Duruş değişkenliğindeki pay (η²) · mavi: geleneksel (P2) · yeşil: dijital (P3)</div>';
+    }
+
+    // B6 · şok
+    const b6 = document.getElementById('b6-tablo');
+    if (b6 && b.sok) {
+        b6.innerHTML = _tablo(['Sistem', 'Ek kart / istasyon', 'Araç', 'Fazladan duruş (ist.-dk)', 'Ort. stok'],
+            b.sok.filter(r => r.arac === 2 || r.arac === 4).map(r => [r.politika, '+' + r.k, r.arac,
+                Math.round(r.ek_durus), Math.round(r.wip)]));
+    }
+}
+
+function _secVeTetikle(id, deger) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.value = String(deger);
+    el.dispatchEvent(new Event('change'));
+}
+
+function _odakla(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const kart = el.closest('.data-table-card') || el;
+    kart.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    kart.classList.remove('vurgu-ani');
+    void kart.offsetWidth;
+    kart.classList.add('vurgu-ani');
+}
+
+function gosterGit(hedef) {
+    switch (hedef) {
+        case 'ablation':
+            showTab('tab-karsilastirma'); _odakla('chartAblation'); break;
+        case 'adalet-mevcut-sok':
+            showTab('tab-karsilastirma'); _secVeTetikle('adaletKutu', 'mevcut'); _secVeTetikle('adaletTalep', 'Talep şoku +%50'); _odakla('chartAdalet'); break;
+        case 'adalet-toyota-sok':
+            showTab('tab-karsilastirma'); _secVeTetikle('adaletKutu', 'toyota'); _secVeTetikle('adaletTalep', 'Talep şoku +%50'); _odakla('chartAdalet'); break;
+        case 'pol-1arac':
+            showTab('tab-karsilastirma'); _secVeTetikle('polArac', 1); _secVeTetikle('polTalep', 0); _secVeTetikle('polNModu', 'Dinamik_N'); _odakla('polTablo'); break;
+        case 'pol-v1':
+            showTab('tab-karsilastirma'); _secVeTetikle('polArac', 3); _secVeTetikle('polTalep', 0); _secVeTetikle('polNModu', 'Sabit_N'); _odakla('polTablo'); break;
+        case 'whatif':
+            showTab('tab-whatif'); break;
+        case 'dogrulama':
+            showTab('tab-dogrulama'); break;
+    }
+}
+
+function initBulgular() {
+    renderBulgular();
+    document.querySelectorAll('.goster').forEach(btn => btn.addEventListener('click', () => gosterGit(btn.dataset.hedef)));
 }

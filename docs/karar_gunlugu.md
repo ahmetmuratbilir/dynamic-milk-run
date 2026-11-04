@@ -1120,6 +1120,15 @@
 | **Dosya** | `src/v2_kart_kapasite_ayristirma.py` · `data/synthetic/v2_kart_kapasite_{a_ham,a_eta,b_toparlanma,c_tek_arac}.csv` · `docs/figurler/sekil9_kart_kapasite.png` |
 | **Tarih** | 04.11.2026 |
 
+### K110 — Dashboard Sadeleştirme ve Bulgular Sayfası; Hocaya Anlatım Metni ✅
+| Özellik | Değer |
+|---------|-------|
+| **Menü** | Simge menüsü yerine yazılı menü: Bulgular (açılış) · Özet · Politikalar ve kurallar · Ne olursa? · Doğrulama · *Ek araçlar:* İstasyonlar, Veri girişi. Her sayfanın başında tek cümlelik "bu sayfada ne var" açıklaması. Telefonda menü üstte yatay. |
+| **Bulgular sayfası** | Sekiz bulgu (model düzeltme, Vojdani tasarımı, dört kural, çelişkinin üretilmesi, kart ↔ kapasite, şok, mekanizma, sağlamlık); her biri *neden yaptık / literatürde ne vardı / programda ne yaptık / ne bulduk / hangi açığı kapatıyor* ve ilgili ekranı doğru ayarlarla açan "Uygulamada göster" düğmesi. Sayılar veriden (`bulgular_ozeti()`: makale tabloları K105 + K109). Altında "Dikkat edilmesi ve düzeltilmesi gerekenler" kutusu. |
+| **Metin** | `docs/hocaya_anlatim.md`: üç dakikalık anlatım, günün adımları, bulgular tek tek, tek cümlelik açık, dikkat edilecekler, dosyalar. |
+| **Doğrulama** | `node --check` (app.js ve standalone'daki 2 blok) geçti; Bulgular sayfası tarayıcıda veriyle doldu. |
+| **Tarih** | 04.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

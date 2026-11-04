@@ -16,56 +16,17 @@
         
         <!-- 64px SOL IKON SIDEBAR NAVIGASYONU -->
         <aside class="sidebar-nav">
-            <div class="sidebar-logo" title="Dinamik Milk-Run KDS">⚡</div>
+            <div class="sidebar-logo" title="Dinamik Milk-Run KDS">⚡<span class="logo-ad">Milk-Run KDS</span></div>
             
-            <nav class="sidebar-menu">
-                <div class="nav-item">
-                    <button class="sidebar-btn active" data-tab="tab-ozet" onclick="showTab('tab-ozet')">📊</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">📊 Özet Ekranı</div>
-                        <div class="nav-tooltip-desc">Sistemin genel sağlık durumunu ve temel KPI'ları 3 saniyede özetler.</div>
-                    </div>
-                </div>
-
-                <div class="nav-item">
-                    <button class="sidebar-btn" data-tab="tab-whatif" onclick="showTab('tab-whatif')">🎛️</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">🎛️ What-If Simülatör</div>
-                        <div class="nav-tooltip-desc">Filo, emniyet katsayısı ve talep şoku parametrelerini anlık test edin.</div>
-                    </div>
-                </div>
-
-                <div class="nav-item">
-                    <button class="sidebar-btn" data-tab="tab-istasyon" onclick="showTab('tab-istasyon')">🏭</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">🏭 İstasyon Haritası</div>
-                        <div class="nav-tooltip-desc">24 istasyonun stok ve ROP seviyelerini 6x4 ızgarada canlı izleyin.</div>
-                    </div>
-                </div>
-
-                <div class="nav-item">
-                    <button class="sidebar-btn" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')">⚖️</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">⚖️ Politikalar & Ana Katkı</div>
-                        <div class="nav-tooltip-desc">P1/P2/P3 karşılaştırması, dört adalet kuralı (K97), Pareto cephesi ve ayrıştırma.</div>
-                    </div>
-                </div>
-
-                <div class="nav-item">
-                    <button class="sidebar-btn" data-tab="tab-dogrulama" onclick="showTab('tab-dogrulama')">🔬</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">🔬 Doğrulama & Karşılaştırıcı</div>
-                        <div class="nav-tooltip-desc">Isınma, replikasyon, rotalama doğrulaması, sağlamlık testleri ve iki senaryoyu yan yana karşılaştırma.</div>
-                    </div>
-                </div>
-
-                <div class="nav-item">
-                    <button class="sidebar-btn" data-tab="tab-veri-girisi" onclick="showTab('tab-veri-girisi')">📥</button>
-                    <div class="nav-tooltip">
-                        <div class="nav-tooltip-title">📥 Veri Girişi & CSV</div>
-                        <div class="nav-tooltip-desc">Gerçek fabrika verilerini girip önizleyin ve CSV olarak indirin.</div>
-                    </div>
-                </div>
+            <nav class="sidebar-menu" aria-label="Sayfalar">
+                <button class="nav-btn active" data-tab="tab-bulgular" onclick="showTab('tab-bulgular')"><span class="nav-ikon" aria-hidden="true">📖</span><span class="nav-ad">Bulgular</span></button>
+                <button class="nav-btn" data-tab="tab-ozet" onclick="showTab('tab-ozet')"><span class="nav-ikon" aria-hidden="true">📊</span><span class="nav-ad">Özet</span></button>
+                <button class="nav-btn" data-tab="tab-karsilastirma" onclick="showTab('tab-karsilastirma')"><span class="nav-ikon" aria-hidden="true">⚖️</span><span class="nav-ad">Politikalar ve kurallar</span></button>
+                <button class="nav-btn" data-tab="tab-whatif" onclick="showTab('tab-whatif')"><span class="nav-ikon" aria-hidden="true">🎛️</span><span class="nav-ad">Ne olursa?</span></button>
+                <button class="nav-btn" data-tab="tab-dogrulama" onclick="showTab('tab-dogrulama')"><span class="nav-ikon" aria-hidden="true">🔬</span><span class="nav-ad">Doğrulama</span></button>
+                <div class="nav-grup">Ek araçlar</div>
+                <button class="nav-btn" data-tab="tab-istasyon" onclick="showTab('tab-istasyon')"><span class="nav-ikon" aria-hidden="true">🏭</span><span class="nav-ad">İstasyonlar</span></button>
+                <button class="nav-btn" data-tab="tab-veri-girisi" onclick="showTab('tab-veri-girisi')"><span class="nav-ikon" aria-hidden="true">📥</span><span class="nav-ad">Veri girişi</span></button>
             </nav>
         </aside>
 
@@ -76,7 +37,7 @@
             <header class="top-header">
                 <div class="header-title-area">
                     <h1>Dinamik Milk-Run & E-Kanban Karar Destek Sistemi</h1>
-                    <p>VRPTW Olay-Bazlı Karar Destek ve Ne-Olursa-Ne-Olur (What-If) Simülatörü</p>
+                    <p>Periyodik ve e-Kanban tabanlı fabrika içi besleme: bulgular, karşılaştırmalar ve senaryolar</p>
                 </div>
 
                 <div class="info-popover-trigger">
@@ -87,7 +48,138 @@
             </header>
 
             <!-- SEKME 1: ÖZET (Varsayılan Açık) -->
-            <div id="tab-ozet" class="tab-pane" style="display:block;">
+            <!-- BULGULAR — açılış sayfası (K110) -->
+            <div id="tab-bulgular" class="tab-pane" style="display:block;">
+                <p class="sayfa-giris">Çalışmanın hikâyesi: her bulgu için neden yaptık, literatürde ne vardı, programda ne yaptık, ne bulduk ve hangi açığı kapatıyor. "Uygulamada göster" ilgili ekranı doğru ayarlarla açar.</p>
+
+                <section class="bulgu-ozet" aria-label="Tek cümlede">
+                    <div class="ozet-cumle">
+                        <span class="kucuk-baslik">Tek cümlede</span>
+                        <p>Periyodik ve e-Kanban tabanlı fabrika içi besleme karşılaştırıldığında <strong>kazananı politika değil, karşılaştırmanın nasıl kurulduğu ve araç kapasitesi belirler</strong>. Yazındaki iki ters sonucu aynı modelde ürettik ve duruşu asıl olarak kart sayısı ile araç sayısının belirlediğini gösterdik.</p>
+                    </div>
+                    <div class="ozet-sayilar">
+                        <div><b id="oz-aralik">—</b><span>dört eşitleme kuralına göre duruş farkının aralığı (puan)</span></div>
+                        <div><b>52/52</b><span>sağlamlık koşulunda boyutlandırma etkisinin yönü aynı</span></div>
+                        <div><b id="oz-eta">—</b><span>duruş varyansında araç sayısı ↔ aracın fiziksel kapasitesi payı</span></div>
+                    </div>
+                </section>
+
+                <section class="bulgu-liste">
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">1</span><h3>Önce model düzeltildi: modelleme kararları politika farkından büyük</h3><span class="bulgu-etiket">Katkı 3 · K65–K72</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>İlk sürüm (v1) 4 araçta %24,6 duruş gösteriyordu ve "statik sistem üstün" diyordu. Literatürle karşılaştırınca bunun politika farkından değil, model kurulumundan geldiğinden şüphelendik.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>VDI 5586 ve Urru vd. (2018, s.406) her tampona "+1 değişim kutusu" ister; Sugimori (1977, s.561) kart formülünü verir. Bizim v1 modelinde 24 istasyonun 23'ünde tek kart vardı, hizmet süreleri de iki sistemde farklıydı.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Hataları tek tek düzeltip her adımın duruşa etkisini ayrı ayrı ölçtük (ayrıştırma).</dd>
+                            <dt>Ne bulduk?</dt><dd>Hizmet süresi asimetrisi tek başına 10,3 puan, eksik tampon 3,9 puan oynatıyor. Politikalar arasındaki gerçek fark ise yaklaşık 1 puan. Yani <strong>yanlış kurulan bir model, politika seçiminden daha çok şey değiştirir.</strong></dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Simülasyon yazınında doğrulama yaygın, ama hangi modelleme kararının sonucu ne kadar değiştirdiğini tek tek ölçen uygulama nadir.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="ablation">Uygulamada göster: ayrıştırma paneli →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">2</span><h3>Başka bir çalışmanın karşılaştırma tasarımı sonucu kaydırıyor</h3><span class="bulgu-etiket">Açık 1 · K93, K105</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>Hakem "kendi hatanızı düzeltmek katkı mı?" diyebilirdi. Aynı sorunun bağımsız bir yayında da sonucu etkileyip etkilemediğini görmek istedik.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Vojdani &amp; Drechsler (2022, s.5) geleneksel ve dijital sistemi karşılaştırırken iki sisteme <strong>aynı iki kutulu tamponu</strong> veriyor. Oysa Droste &amp; Deuse (2011), Urru (2018) ve Ciemnoczolowski &amp; Bozer (2013) gereken tamponun çevrim süresiyle büyüdüğünü gösteriyor. Kundu vd. (2019, s.423) bu iki politika ailesinin karşılaştırılmasını açıkça "gelecek çalışma" olarak bırakıyor.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Aynı sistemde iki kurgu: A (Vojdani'nin tasarımı, eşit iki kutu) ve B (her politika kendi çevrim süresine göre).</dd>
+                            <dt>Ne bulduk?</dt><dd><div id="b2-tablo" class="mini-tablo"></div>Vojdani tasarımı dijitali belirgin önde gösteriyor; politika-tutarlı tamponda fark küçülüyor ya da yön değiştiriyor.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Tampon boyutlandırma yazını ile politika karşılaştırma yazını hiç birleşmemiş; Kundu'nun açık bıraktığı karşılaştırmayı tamponu doğru kurarak yapıyoruz.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="adalet-mevcut-sok">Uygulamada göster: kural A ve B noktaları →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">3</span><h3>Dört eşitleme kuralı: kazanan kurala göre değişiyor</h3><span class="bulgu-etiket">Açık 1 (ana) · K97, K105</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>"Neden bu eşitleme, başkası olsa ne olurdu?" sorusunun cevabını vermek için. Yazında dört farklı eşitleme kullanılıyor, ama hiçbir çalışma bunları yan yana koymamış.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Üretim kontrolünde bu ilke biliniyor: Bonvik vd. (1997, s.797) ve Geraghty &amp; Heavey (2005) stratejileri hizmet–stok eğrisi üzerinde karşılaştırıyor; Enns &amp; Rogers (2008) adil bir kurgu kurunca sıralamanın tersine döndüğünü gösteriyor. Hat beslemede ise her çalışma <strong>tek bir taban</strong> kullanıyor: Vojdani eşit kart, Alnahhal &amp; Noche (2015) ve Alnahhal vd. (2016, s.709) eşit hizmet düzeyi.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Her iki sistemin kart sayısını tarayıp duruş–stok eğrilerini çizdik; dört kural bu eğriler üzerinde dört nokta.</dd>
+                            <dt>Ne bulduk?</dt><dd><div id="b3-tablo" class="mini-tablo"></div>Küçük (Toyota) kutularda politika-tutarlı kural geleneksel sistemi, diğer üç kural dijitali kazandırıyor. Duruş farkı kurala göre yaklaşık 20 puanlık bir aralıkta oynuyor.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd><strong>Ana açık.</strong> Üretim kontrolünde bilinen "adil karşılaştırma" ilkesini hat besleme alanına taşıyoruz ve tek noktalı karşılaştırmanın neden yanıltabileceğini sayıyla gösteriyoruz.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="adalet-toyota-sok">Uygulamada göster: dört kural, Toyota kutuları →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">4</span><h3>Yazındaki iki ters sonucu aynı modelde ürettik</h3><span class="bulgu-etiket">Açık 1 · K106, K109</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>Yazında aynı soruya ters cevaplar var. Bizim modelimiz bu çelişkiyi açıklayabiliyor mu, görmek istedik.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Bae, Evans &amp; Summers (2016, WSC) tek araçla <strong>milk-run'ı</strong> önde buluyor (talep üzerine sistemde duruş yaklaşık 4 kat). Vojdani &amp; Drechsler (2022) <strong>dijitali</strong> önde buluyor. İkisi de iki sisteme aynı rafı vermiş.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Bae'nin kurgusunu (tek araç) ve Vojdani'ninkini (yeterli filo, eşit kart) aynı modelde kurduk.</dd>
+                            <dt>Ne bulduk?</dt><dd><div id="b4-tablo" class="mini-tablo"></div>Tek araçta milk-run iki kuralda da önde (Bae'nin sonucu); 3 araçta eşit kartla dijital önde (Vojdani'nin sonucu). <strong>Çelişkinin iki kaynağı var: araç kapasitesi yeterli mi, ve tampon nasıl eşitlendi.</strong></dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Alandaki çelişkili bulguları tek bir modelde açıklıyor; Alnahhal vd. (2016)'nın "kapasiteye bağlı" sonucuyla da tutarlı.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="pol-1arac">Uygulamada göster: tek araçta politikalar →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">5</span><h3>Duruşu kart sayısı ve araç sayısı belirliyor, aracın kapasitesi değil</h3><span class="bulgu-etiket">Açık 2 · K109</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>Ciemnoczolowski &amp; Bozer (2013) bu soruyu açıkça cevapsız bırakmış; ikinci, bağımsız bir açık.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Ciemnoczolowski &amp; Bozer (2013, s.579): <em>"quantify the relative contributions of the number of Kanban and the tugger capacity to starvation"</em>. Onlar sabit tüketim varsayıp araç kapasitesi artınca duruşun sıfırlandığını buldu.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Politika × kart sayısı × araç sayısı × araç kapasitesi × talep tam faktöriyel deneyi; duruştaki değişkenliğin her faktöre düşen payı (η²).</dd>
+                            <dt>Ne bulduk?</dt><dd><div id="b5-grafik" class="mini-cubuk"></div>Değişken talepte duruşu <strong>araç sayısı ve kart sayısı</strong> belirliyor; aracın fiziksel kapasitesi neredeyse hiç pay almıyor. Dijital sistemde kart ve araç birbirini tamamlıyor: ek kart ancak yeterli araç varken işe yarıyor.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd><strong>İkinci açık:</strong> 2013'ten beri açık duran soruya stokastik talep altında cevap.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="whatif">Uygulamada göster: filo ve kartla oyna →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">6</span><h3>Talep şokunda bir ek kart, ek araçtan daha etkili ama stoğa mal oluyor</h3><span class="bulgu-etiket">Açık 2 · K109</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>Fabrikada şok olduğunda ilk soru "araç mı ekleyelim, kart mı?" olur.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Alnahhal, Ridwan &amp; Noche (2014, §VI): sistemin talep değişimine hızlı tepkisi üzerine çalışma eksik. Bocewicz vd. (2019, s.51): değişen talepte geçiş.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>480. dakikada 120 dakikalık +%50 talep darbesi; aynı rastgele sayılarla darbesiz koşuya göre fazladan duruş.</dd>
+                            <dt>Ne bulduk?</dt><dd><div id="b6-tablo" class="mini-tablo"></div>Geleneksel sistemde istasyon başına tek ek kart darbenin etkisini neredeyse siliyor ama stok yaklaşık %70 artıyor. Dijital sistemde 3 araçtan sonra araç eklemek bir şey değiştirmiyor.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Şok sonrası tepkiye dair nicel bir karar kuralı veriyor.</dd>
+                        </dl>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">7</span><h3>Neden tersine dönüyor? Tamponun karşıladığı süre farklı</h3><span class="bulgu-etiket">Mekanizma · K103, K104, K108</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>"Sonuç kurala bağlı" demek yetmez; hakem "neden?" diye sorar. Enns &amp; Rogers (2008) bunu açıklamadığı için az atıf aldı.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Alnahhal vd. (2016, s.707–708): tampon I = k(P + sᵢ) + z√(P + sᵢ), yani ikmal gelene kadar geçen süreyle büyür; klasik kanbanda talep bilgisi tren gelince iletilir. Ciemnoczolowski &amp; Bozer (2013, s.570): kart alt sınırı bir çevrimdeki tüketimle büyür. Sugimori (1977, s.562): Toyota talep artınca kart sayısını değil tedarik süresini değiştirir.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Eski (V1) ve politika-tutarlı (VDI) boyutlandırmayı aynı senaryolarda karşılaştırdık.</dd>
+                            <dt>Ne bulduk?</dt><dd>Periyodik sistemde tampon "çevrim + yol" süresini, e-Kanban'da yalnızca "yol" süresini karşılamak zorunda. Bu yüzden eşit kart vermek e-Kanban'ı kayırıyor; her politikaya kendi süresine göre tampon verilince fark kapanıyor.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Ana açığı sebebiyle birlikte açıklıyor.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="pol-v1">Uygulamada göster: eski boyutlandırmayla politikalar →</button>
+                    </article>
+
+                    <article class="bulgu">
+                        <header><span class="bulgu-no">8</span><h3>Sonuçlar sağlam</h3><span class="bulgu-etiket">Sağlamlık · K95, K99, K100, K105</span></header>
+                        <dl>
+                            <dt>Neden yaptık?</dt><dd>Parametrelerimizin bir kısmı Toyota formülünün önerdiği sınırların dışındaydı, model 8 saat çalışıyordu ve mesafe matrisi gerçekçi değildi.</dd>
+                            <dt>Literatürde ne vardı?</dt><dd>Sugimori (1977): α ve kutu boyu günlük talebin %10'unu aşmamalı. Welch yöntemi ve STRESS kılavuzu (Monks vd. 2019). Urru (2018): durak aralığı yaklaşık 21 m.</dd>
+                            <dt>Programda ne yaptık?</dt><dd>Toyota bandı, 3 vardiya, ısınma sonrası göstergeler ve koordinat tabanlı mesafe ağıyla tekrarladık; makale tabloları bu nihai ayarla üretildi.</dd>
+                            <dt>Ne bulduk?</dt><dd>Boyutlandırma etkisinin yönü 52 koşulun 52'sinde aynı. Ayrıca eski mesafe matrisi, Vojdani ile aramızdaki görünür çelişkinin de kaynağıymış.</dd>
+                            <dt>Hangi açığı kapatıyor?</dt><dd>Bulguların parametre seçiminin bir yan ürünü olmadığını gösteriyor.</dd>
+                        </dl>
+                        <button type="button" class="goster" data-hedef="dogrulama">Uygulamada göster: doğrulama sayfası →</button>
+                    </article>
+                </section>
+
+                <section class="dikkat-kutusu" aria-labelledby="dikkat-baslik">
+                    <h3 id="dikkat-baslik">Dikkat edilmesi ve düzeltilmesi gerekenler</h3>
+                    <ul>
+                        <li><strong>Makaledeki sayılar</strong> yalnızca <code>docs/makale_tablolari.md</code>'den alınmalı (nihai ayar: koordinat ağı, 3 vardiya, ısınma sonrası). Eski raporların sayıları farklı ayarla üretildi.</li>
+                        <li><strong>"Toyota kutularında üç farklı kazanan"</strong> ifadesi nihai ayarda tutmadı; doğrusu iki farklı kazanan (politika-tutarlı kuralda geleneksel, diğerlerinde dijital).</li>
+                        <li><strong>"Fikri biz bulduk" denmemeli.</strong> Adil karşılaştırma ilkesi üretim kontrolünde biliniyor (Bonvik 1997, Enns &amp; Rogers 2008). Doğru ifade: "hat besleme alanına taşıdık ve çelişkiyi açıkladık".</li>
+                        <li><strong>Eşitleme ifadesi:</strong> "tek bir taban; bazen açık, çoğunlukla örtük" ve "politikalar arası eğri yok". "Hiç kimse eşitlemeyi düşünmemiş" denmemeli.</li>
+                        <li><strong>Stoktan türetilen zaman penceresi katkı değil:</strong> Lieb (2021, TUM tezi, s.118–120) aynı mantığı kullanıyor; yöntem olarak, atıfla yazılmalı.</li>
+                        <li><strong>Sevk kuralı ve güvenlik katsayısı α</strong> arasında istatistiksel fark yok; bunlar "önemli karar" diye sunulmamalı.</li>
+                        <li><strong>İstasyonlar ekranındaki stok çubukları temsili</strong>, simülasyon çıktısı değil; sunumda "anlık stok" diye gösterilmemeli.</li>
+                        <li><strong>Sınırlılıklar yazılmalı:</strong> sentetik veri; tek fabrika düzeni; aracın fiziksel kapasitesi deneylerde hiç bağlayıcı olmadı; eşit hizmet kuralı zaman bazlı; kart sayısı tüm istasyonlarda aynı miktarda değiştirildi (Bonvik gibi tek tek optimize edilmedi).</li>
+                        <li><strong>Kaynakçada "doğrulanmalı" notlu alanlar</strong> tam metinden kontrol edilmeli; doğrulanamayan "Amos vd." atfı kaldırıldı.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div id="tab-ozet" class="tab-pane">
+                <p class="sayfa-giris">Baz senaryonun tek bakışta özeti: 4 araç, α = 0,15, politika-tutarlı boyutlandırma.</p>
                 <div class="ozet-grid">
                     
                     <!-- 2x2 Katmanlı KPI Kartları (Hero Rakamlar Nötr Beyaz) -->
@@ -172,6 +264,7 @@
 
             <!-- SEKME 2: WHAT-IF SİMÜLATÖR -->
             <div id="tab-whatif" class="tab-pane">
+                <p class="sayfa-giris">Parametreleri değiştirip önceden hesaplanmış 1920 senaryo arasında gezin. Sevk kuralı ve α'nın etkisi anlamlı değildir.</p>
                 <div class="whatif-layout">
                     
                     <!-- Sol Taraf: Slider Kontrolleri -->
@@ -314,6 +407,7 @@
 
             <!-- SEKME 3: İSTASYON HARİTASI (6x4 IZGARA) -->
             <div id="tab-istasyon" class="tab-pane">
+                <p class="sayfa-giris">24 istasyonun kart sayısı ve yeniden sipariş noktası. Stok çubukları temsilidir, simülasyon çıktısı değildir.</p>
                 <div class="stations-section">
                     
                     <div class="stations-header-bar">
@@ -370,6 +464,7 @@
 
             <!-- SEKME 4: STATİK VS DİNAMİK (ZEBRA STRIPED) -->
             <div id="tab-karsilastirma" class="tab-pane">
+                <p class="sayfa-giris">Makalenin argümanı: üç politika, dört eşitleme kuralı, Pareto cephesi ve modelleme kararlarının etkisi.</p>
                 <div style="display:flex; flex-direction:column; gap:16px;">
 
                     <!-- D4 · Politika karşılaştırması: her politika kendi kart sayısıyla -->
@@ -466,6 +561,7 @@
             </div>
 
             <div id="tab-dogrulama" class="tab-pane">
+                <p class="sayfa-giris">Modelin doğruluğu ve sonuçların sağlamlığı: ısınma, tekrar sayısı, sağlamlık testleri ve iki senaryoyu yan yana karşılaştırma.</p>
                 <div style="display:flex; flex-direction:column; gap:16px;">
 
                     <!-- D7 · Sağlamlık özeti -->
@@ -519,6 +615,7 @@
             </div>
 
             <div id="tab-veri-girisi" class="tab-pane">
+                <p class="sayfa-giris">Gerçek fabrika verisini girip simülasyonun beklediği CSV dosyalarını hazırlamak için.</p>
                 <div style="display:flex; flex-direction:column; gap:16px;">
                     
                     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:12px; padding:12px 18px;">

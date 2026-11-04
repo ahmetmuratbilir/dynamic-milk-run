@@ -246,6 +246,46 @@ def saglamlik_ozeti() -> list:
     return out
 
 
+def bulgular_ozeti() -> dict:
+    """Bulgular sayfası (K110): makale tabloları (K105) ve kart–kapasite deneyinin (K109) özetleri."""
+    out = {}
+    t1 = _csv_oku("makale_tablo1_politikalar.csv")
+    if t1:
+        out["politikalar"] = [{"talep": r["talep"], "politika": r["politika"], "takt": r["takt"],
+                               "durus": r["starv_pct"], "ga": r["starv_pct_ci95"], "wip": r["ort_wip"],
+                               "kart": r["toplam_kart"], "sefer": r["tur_sayisi"]} for r in t1]
+    t2 = _csv_oku("makale_tablo2_boyutlandirma.csv")
+    if t2:
+        df = pd.DataFrame(t2)
+        sat = []
+        for (kutu, talep, kurgu), g in df.groupby(["kutu", "talep", "kurgu"], sort=False):
+            gl = g[g["sistem"].str.startswith("Geleneksel")].iloc[0]
+            dj = g[g["sistem"].str.startswith("Dijital")].iloc[0]
+            fark = float(dj["starv_pct"] - gl["starv_pct"])
+            ga = float(np.hypot(dj["starv_pct_ci95"], gl["starv_pct_ci95"]))
+            sat.append({"kutu": kutu, "talep": talep, "kurgu": str(kurgu)[0],
+                        "gel": float(gl["starv_pct"]), "dij": float(dj["starv_pct"]),
+                        "kart_gel": int(gl["toplam_kart"]), "kart_dij": int(dj["toplam_kart"]),
+                        "fark": fark, "ga": ga,
+                        "onde": "eşit" if abs(fark) <= ga else ("Dijital" if fark < 0 else "Geleneksel")})
+        out["boyutlandirma"] = sat
+    t3 = _csv_oku("makale_tablo3_adalet_kazanan.csv")
+    if t3:
+        out["kurallar"] = [{"kutu": r["kutu"], "talep": r["talep"], "kural": r["kural"],
+                            "kazanan": r["kazanan"], "fark": r["fark_durus"], "ga": r["ga"],
+                            "wip_fark": r["wip_fark_pct"], "pareto": r["pareto"]} for r in t3]
+    e = _csv_oku("v2_kart_kapasite_a_eta.csv")
+    if e:
+        out["eta"] = e
+    b = _csv_oku("v2_kart_kapasite_b_toparlanma.csv")
+    if b:
+        out["sok"] = b
+    c = _csv_oku("v2_kart_kapasite_c_tek_arac.csv")
+    if c:
+        out["tek_arac"] = c
+    return out
+
+
 def adalet_ozeti(nihai: bool = False) -> dict:
     """K97 dört adalet kuralı: eğriler, kural noktaları ve kazananlar (mevcut + Toyota kutuları).
     nihai=True: K105 makale tablolarından (makale_tablo3_*.csv) okunur."""
@@ -338,6 +378,7 @@ def main():
         "dogrulama": dogrulama_ozeti(),
         "adalet": adalet_ozeti(nihai=args.nihai),
         "saglamlik": saglamlik_ozeti(),
+        "bulgular": bulgular_ozeti(),
     }
     ambar = _nan_temizle(ambar)
 
