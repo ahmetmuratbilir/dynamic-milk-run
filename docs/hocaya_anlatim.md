@@ -18,7 +18,7 @@ göster" düğmesi ilgili ekranı doğru ayarlarla açar.
 1. Üç dakikada anlatım
 2. Projenin hikâyesi: nereden nereye geldik
 3. Terimler sözlüğü
-4. Açıkları nasıl kapattık (tek tabloda)
+4. Açıkları nasıl kapattık (tek tabloda) · 4.1 Kapattığımız açıklar, tek tek · geliştirilebilecekler
 5. Bulgular, tek tek
 6. Sağlamlık testleri: "36 koşul" ne demek? (örnekli)
 7. Danışmanın sorabileceği sorular ve cevaplar
@@ -133,6 +133,135 @@ tabloları hazır, dashboard sadeleşti ve bulguları anlatan bir açılış say
 **Kapatmadığımız / katkı olarak sunmadığımız:** stoktan türetilen zaman penceresi (Lieb 2021,
 s.118–120'de var), "dinamik kontrol statikten iyidir" (Lieb 2021'de 18 strateji
 karşılaştırılmış), olay tabanlı kontrolde filo boyutu.
+
+### 4.1 Kapattığımız açıklar, tek tek: "şu açığı şöyle kapattık"
+
+Her açık için aynı beş satır: **açık neydi**, **nerede ilan edilmiş / nereden çıktı**,
+**nasıl kapattık**, **kanıt**, **geliştirilebilecek ne kaldı**.
+
+#### A. Makalenin katkısı olan literatür açıkları
+
+**Açık 1 — Periyodik ve e-Kanban beslemeyi karşılaştırırken rafın nasıl eşitlendiği sonucu
+belirliyor mu? (ana açık)**
+
+- **Açık neydi?** Fabrika içi besleme yazınında iki kol var ve hiç birleşmemiş. Birinci kol
+  rafın politikaya göre değiştiğini gösteriyor ama politikaları karşılaştırmıyor (Droste &
+  Deuse 2011; Urru 2018; Bocewicz 2019). İkinci kol politikaları karşılaştırıyor ama her
+  çalışma tek bir eşitleme kullanıyor ve bunu tartışmıyor (Vojdani 2022 eşit raf; Alnahhal
+  & Noche 2015 ve Alnahhal 2016 eşit hizmet düzeyi).
+- **Nerede ilan edilmiş?** Kundu vd. (2019, s.423): *"This research utilizes the fixed time,
+  variable quantity solution and does not investigate the differences with the other
+  policy. This could however be the subject of future research."*
+- **Nasıl kapattık?** Yazındaki dört eşitleme kuralını (eşit kart, her politika kendi
+  formülüyle, eşit hizmet düzeyi, eşit stok) aynı modelde uyguladık. İki sistemin kart
+  sayısını tarayıp duruş–stok eğrilerini çizdik; dört kural bu eğriler üzerinde dört nokta
+  oldu (K97, nihai ayar K105).
+- **Kanıt:** Toyota kutularında kural B geleneksel sistemi, A, C ve D dijitali kazandırıyor.
+  Duruş farkı kurala göre −17,3 ile +2,0 puan arasında. Mevcut kutularda kazanan hep dijital
+  ama fark 0,03 puandan 17,3 puana kadar değişiyor. Etkinin yönü 36 bağımsız koşulun
+  36'sında aynı.
+- **Geliştirilebilecek:** Kart sayısı tüm istasyonlarda aynı miktarda değiştirildi; Bonvik
+  (1997) gibi her istasyonu ayrı optimize eden bir karşılaştırma eklenebilir. Hangi karar
+  sorusunda hangi kuralın kullanılacağına dair bir rehber yazılabilir.
+
+**Açık 2 — Yazındaki çelişkili sonuçlar neden çıkıyor?**
+
+- **Açık neydi?** Bae, Evans & Summers (2016) tek araçla milk-run'ı, Vojdani & Drechsler
+  (2022) dijitali önde buluyor. Kimse bu çelişkiyi açıklamamış.
+- **Nereden çıktı?** Derin araştırmada iki çalışmanın tam metinleri karşılaştırıldı (K106);
+  ikisi de iki sisteme aynı rafı vermiş.
+- **Nasıl kapattık?** İki çalışmanın kurgusunu aynı modelde kurduk: Bae'den tek araç,
+  Vojdani'den yeterli filo ve eşit raf (K109).
+- **Kanıt:** Tek araçta periyodik sistem her iki kuralda da önde (%7,5–12,5'e karşı
+  %17,7–18,4). 3 araçta eşit rafla dijital önde (%0,12'ye karşı %2,54). Çelişkinin iki
+  kaynağı var: araç kapasitesi yeterli mi, ve raf nasıl eşitlendi. Bu, Alnahhal (2016)'nın
+  "kapasiteye bağlı" sonucuyla da tutarlı.
+- **Geliştirilebilecek:** Bae'nin ve Vojdani'nin kendi fabrika düzenleri birebir kurulmadı;
+  yalnızca kurguları (araç sayısı, raf eşitlemesi) aynı modelde üretildi.
+
+**Açık 3 — Sıralama neden tersine dönüyor? (mekanizma)**
+
+- **Açık neydi?** "Sonuç karşılaştırmaya bağlı" diyen en yakın çalışma (Enns & Rogers 2008)
+  nedenini açıklamıyor ve sadece 16 atıf almış.
+- **Nereden çıktı?** Derin araştırmanın yöntembilim taraması (K107).
+- **Nasıl kapattık?** Alnahhal (2016) ve Ciemnoczolowski & Bozer (2013) tam metinlerindeki
+  tampon ifadeleriyle eski (V1) ve politika-tutarlı (VDI) boyutlandırmayı karşılaştırdık
+  (K93, K104, K108).
+- **Kanıt:** Periyodik sistemin rafı "tur aralığı + yol süresi", e-Kanban'ın rafı yalnızca
+  "yol süresi" kadar tüketimi karşılamalı (Alnahhal 2016, s.707: I = k(P + sᵢ) + z√(P + sᵢ);
+  Ciemnoczolowski & Bozer 2013, s.570: kart alt sınırı bir turdaki tüketimle büyür). Eşit
+  kart bu yüzden e-Kanban'ı kayırıyor. Mevcut kutularda 3 araçta: eşit kartla geleneksel 48
+  kart alıyor, kendi formülüyle 63; dijital ile geleneksel arasındaki farkın %83–92'si kapanıyor
+  (baz talepte −2,42 → −0,20; şokta −10,82 → −1,86 puan).
+- **Geliştirilebilecek:** Mekanizma için kapalı biçimli basit bir formül (örneğin hangi tur
+  aralığında sıralamanın döneceği) türetilebilir.
+
+**Açık 4 — Duruşta kart sayısının ve taşıma kapasitesinin payı ne? (ikinci açık)**
+
+- **Açık neydi?** Ciemnoczolowski & Bozer sabit tüketim varsayıp çekici kapasitesi artınca
+  duruşun sıfırlandığını buldu; değişken tüketimde ne olacağını bırakmışlar.
+- **Nerede ilan edilmiş?** Ciemnoczolowski & Bozer (2013, s.579): *"It should be possible in
+  future research to quantify the relative contributions of the number of Kanban and the
+  tugger capacity to starvation at each WS."*
+- **Nasıl kapattık?** Politika × kart sayısı × araç sayısı × araç kapasitesi × talep tam
+  faktöriyel deneyi (192 kombinasyon × 4 tekrar); duruştaki değişkenliğin her faktöre
+  düşen payını (η²) hesapladık (K109).
+- **Kanıt:** Araç sayısı ≈ %33, kart sayısı %20–33, aracın kutu kapasitesi %0–6. E-Kanban'da
+  kart ile araç arasında %29'luk etkileşim: ek kart ancak yeterli araç varken işe yarıyor.
+- **Geliştirilebilecek:** Bizde aracın kutu kapasitesi hiç dolmadı (doluluk ≤ %57). Daha
+  dar araç kapasitesiyle (örneğin 5–10 kutu) tekrarlanırsa kapasitenin rolü daha net görülür.
+  Ciemnoczolowski & Bozer'in "çekici kapasitesi" çok araçlı sistemde araç sayısıyla temsil
+  edildi; bu eşleme makalede açıkça yazılmalı.
+
+**Açık 5 — Talep değişimine hızlı tepki: şokta ne yapmalı?**
+
+- **Açık neydi?** Talep değiştiğinde sistemin nasıl ve ne hızla toparlandığı çalışılmamış.
+- **Nerede ilan edilmiş?** Alnahhal, Ridwan & Noche (2014, §VI): *"lack of studies regarding
+  fast response of the system to any changes in material demand"*. Bocewicz vd. (2019, s.51):
+  değişen talepte geçiş.
+- **Nasıl kapattık?** 8. saatte 2 saatlik %50 talep darbesi; aynı rastgele sayılarla şoksuz
+  koşuya göre fazladan duruş ve toparlanma süresi (K109).
+- **Kanıt:** Periyodik sistemde, 2 araçla, istasyon başına +1 kart fazladan duruşu 140
+  istasyon-dakikadan 1'e indiriyor ama stok %69 artıyor; araç 2'den 4'e çıkınca ancak 94'e
+  iniyor. Dijitalde 3 araçtan sonra araç eklemek bir şey değiştirmiyor; +2 kart gerekiyor.
+- **Geliştirilebilecek:** Tek bir darbe şekli denendi (2 saat, %50). Farklı süre ve
+  büyüklükteki şoklar ile kalıcı talep değişimleri eklenebilir. Uyarlanan ROP (K98) ile
+  birlikte bir "şok politikası" karşılaştırması yapılabilir.
+
+#### B. Kendi çalışmamızda kapattığımız açıklar (hakemin itiraz edebileceği noktalar)
+
+| Açık neydi | Nereden çıktı | Nasıl kapattık | Kanıt | Kayıt |
+|---|---|---|---|---|
+| İlk model yanlış sonuç veriyordu (%24,6 duruş, "periyodik üstün") | Hafta 14 literatür denetimi | Eksik raf (+1 kutu), hizmet süresi farkı ve önceden hesaplanan sinyaller düzeltildi; her adımın etkisi ayrı ölçüldü | Duruş %24,6 → %0,4; hizmet süresi farkı tek başına 10,3 puan | K65–K72 |
+| "Kendi hatanızı düzeltmek katkı mı?" itirazı | Akademik değerlendirme | Aynı etkinin bağımsız bir yayının (Vojdani 2022) tasarımında da olduğunu gösterdik | Vojdani tasarımı dijitali 2,4–16 puan önde gösteriyor; doğru rafta fark küçülüyor | K93 |
+| α = 0,15 ve kutu boyları Toyota sınırlarının dışında | Sugimori (1977, s.561) | α 0–0,20 ve Toyota kutularıyla tekrarlandı | Etki bant içinde küçülmüyor, büyüyor (kayma +10…+18 puan) | K95 |
+| Ölçümler ısınma dönemini içeriyordu; tek vardiya | Welch analizi (K78) | 3 vardiya ve ısınma hariç ölçümle tekrarlandı | Göreli sonuçlar aynı; tablolar bu ayarla üretildi | K99, K105 |
+| Mesafe tablosu gerçekçi değildi | Üçgen eşitsizliği denetimi (K71) | Urru (2018) durak aralığıyla gerçekçi bir yerleşim kuruldu | Etki aynı; Vojdani ile görünür çelişkinin kaynağı eski tabloymuş | K100 |
+| Rotalama sezgiseli zayıf mı? | Solomon kıyaslaması (OR-Tools'tan %102 geride) | Fabrika senaryosunda tam bilgili çevrimdışı referansla kıyaslandı | Sezgisel gecikmeyi öncelikli tutuyor; referans daha kısa yolu daha çok gecikmeyle buluyor | K76, K101 |
+| Kanban formülü yanlış kaynağa atfedilmişti | K88 denetimi | Asıl kaynak Sugimori (1977) edinilip okundu | Formül s.561'de birebir doğrulandı | K88, K103 |
+| Ana bulgu "üç farklı kazanan" fazla iddialıydı | Nihai ayarla yeniden üretim | İfade "iki farklı kazanan" olarak daraltıldı | Toyota kutularında B → geleneksel, A, C, D → dijital | K105 |
+| "Bu fikir zaten biliniyor" itirazı | Derin araştırma | Rakip yazın (Bonvik 1997; Geraghty & Heavey 2005; Enns & Rogers 2008) okunup konumlandırma ona göre yapıldı | "İlkeyi bu alana taşıdık ve çelişkiyi açıkladık" | K106, K107 |
+| En yakın öncül (Alnahhal 2016) bizi çürütüyor olabilirdi | Derin araştırma tehdit taraması | Tam metin edinilip okundu | Tek kural (eşit hizmet) kullanmış; sonuçları bizim C kuralımızla tutarlı; mekanizmaya dayanak | K108 |
+| Zaman penceresi katkısı yeni değilmiş | Derin araştırma (Lieb 2021) | Katkı listesinden çıkarıldı, yöntem olarak atıfla yazılacak | — | K107 |
+| "52 koşul" sayısı şişkindi | Sağlamlık tablolarının yeniden sayılması | Kopya hücreler ayıklandı | 36 bağımsız koşul, 52 test hücresi | K110 sonrası |
+
+#### C. Hâlâ geliştirilebilecekler
+
+Bunlar şu an makale için zorunlu değil; zaman olursa sırayla bakılabilir.
+
+1. **Yayımlanmış bir vakanın yeniden kurulması** (örneğin Korytkowski & Karkoszka 2016'nın 10
+   istasyonlu hattı). Bulgunun ikinci bir sistemde de tuttuğunu gösterir; SCI-E için en
+   etkili adım.
+2. **Her politikanın kendi en iyi ayarıyla karşılaştırılması:** kart sayısını istasyon
+   bazında optimize ederek (Bonvik 1997 yaklaşımı).
+3. **Daha dar araç kapasitesiyle ikinci açığın tekrarı:** aracın kutu kapasitesi bağlayıcı
+   olunca payı değişir mi?
+4. **Mekanizma için basit bir formül:** hangi tur aralığı ve yol süresinde sıralamanın
+   döneceğini önceden söyleyen bir eşik.
+5. **Karar rehberi:** hangi soruda (raf alanı kısıtlı mı, hizmet hedefi mi var, maliyet mi
+   önemli) hangi eşitleme kuralının kullanılacağı.
+6. **Farklı şok biçimleri:** daha uzun, daha kısa, kalıcı talep değişimleri.
+7. **Gerçek fabrika verisi:** en güçlü adım; altyapı hazır.
 
 ---
 
