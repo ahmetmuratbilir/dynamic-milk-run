@@ -157,8 +157,12 @@ konumlandırılmalıdır:
 - Kanban–CONWIP karşılaştırmalarının bir kısmı **eşit WIP**, bir kısmı **eşit çıktı** tabanını
   kullanır ve sonuçlar çelişir; ayrıca kanban/CONWIP yalnızca **en çok** WIP'i kontrol eder,
   ortalama WIP sonuçtur (Framinan, Gonzalez & Ruiz-Usano 2003 derlemesi ve atıf yapanlar).
-- **Geraghty & Heavey (2005)**, OR Spectrum 27:435–457: stratejileri **hizmet düzeyi ↔ envanter
-  eğrileri** üzerinden karşılaştırır — bizim duruş–WIP eğrisi yaklaşımımızın öncülü.
+- **Geraghty & Heavey (2005)**, OR Spectrum 27:435–457 ✅ *okundu (04.11.2026)*: beş stratejinin
+  kontrol parametreleri kısmi sayımla taranır, her biri için *"minimum WIP required by each PCS
+  to achieve a targeted Service Level"* karşılaştırılır (§5, s.448–454; Tablo 4, s.453); ölçüt
+  *"Service Level vs. WIP trade-off"*. → Her stratejinin **kendi en iyi eğrisi** üzerinde
+  karşılaştırma — bizim "duruş–WIP düzleminde raporla" önerimizin üretim kontrolündeki
+  **yerleşik karşılığı** (önerimizi destekler; fikrin bize ait olmadığını da doğrular).
 - **Enns (2008)**, WSC: push–CONWIP karşılaştırmasının adil kurulması (eşit bırakma hızı).
 - Amos vd. (aktaran MDPI Processes 2022, 10(1):5): her mekanizma **önce kendi en iyi ayarına**
   getirilip öyle karşılaştırılmalı.
@@ -168,7 +172,16 @@ konumlandırılmalıdır:
 kullanılan **dört somut kuralın** (eşit kart, politika-tutarlı formül, eşit hizmet, eşit WIP)
 aynı sistemde **sayısal olarak** karşılaştırılması ve (c) alandaki **çelişkili bulguların**
 bununla açıklanabileceğinin gösterilmesidir. ⚠️ Bonvik (1997) ve Geraghty & Heavey (2005) tam
-metinleri edinilip okunmalıdır (kapalı erişim).
+metinleri edinilip okunmalıdır (kapalı erişim). — Geraghty & Heavey (2005) 04.11.2026'da
+edinildi ve okundu; Bonvik vd. (1997) hâlâ eksik.
+
+**Makale cümlesi (Tartışma):** Üretim kontrolü yazınında stratejiler hizmet düzeyi–envanter
+eğrisi üzerinden, her strateji kendi en iyi parametreleriyle karşılaştırılmaktadır (Geraghty
+& Heavey 2005). Fabrika içi hat besleme yazınında ise karşılaştırmalar çoğunlukla tek bir
+eşitleme noktasında yapılmakta ve çelişkili sonuçlar vermektedir (Bae vd. 2016; Vojdani &
+Drechsler 2022). Bu çalışma, tek noktalı karşılaştırmaların eşitleme kuralına duyarlılığını
+sayısal olarak göstermekte ve eğri tabanlı karşılaştırmanın bu alana da uygulanmasını
+önermektedir.
 
 #### 4.1.4 Boşluğun formülasyonu
 

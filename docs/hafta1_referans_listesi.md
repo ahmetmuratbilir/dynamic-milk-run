@@ -143,6 +143,25 @@
 
 ---
 
+## Konumlandırma Kaynakları (K106)
+
+[40] [x] J. Geraghty and C. Heavey, "A review and comparison of hybrid and pull-type production
+     control strategies," *OR Spectrum,* vol. 27, pp. 435–457, 2005. doi:10.1007/s00291-005-0204-z.
+     (`ek_kaynaklar/E12_…pdf`; hizmet–WIP eğrisi karşılaştırması s.448–454)
+
+[41] [x] K.-H. G. Bae, L. A. Evans, and A. Summers, "Lean design and analysis of a milk-run delivery
+     system: Case study," in *Proc. 2016 Winter Simulation Conference,* 2016, pp. 2859–2870.
+     ⚠️ sayfa aralığı doğrulanmalı (metinde s.2860 ve 2867 görülüyor). (`ek_kaynaklar/E11_…pdf`)
+
+[42] [ ] A. M. Bonvik, C. E. Couch, and S. B. Gershwin, "A comparison of production-line control
+     mechanisms," *International Journal of Production Research,* vol. 35, no. 3, pp. 789–804,
+     1997. ⚠️ edinilmedi; künye ikincil kaynaktan, doğrulanmalı.
+
+[43] [ ] S. T. Enns, "Clarifying CONWIP versus push system behavior using simulation," in *Proc.
+     2008 Winter Simulation Conference,* 2008. (açık erişim: informs-sim.org/wsc08papers/230.pdf)
+
+---
+
 ## Kaynakçaya Alınmayacaklar
 
 Arşiv kataloğundaki şu eserler konu dışıdır: Tambun vd. (2024) çoklu görevin bilişsel
