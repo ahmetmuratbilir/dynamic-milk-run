@@ -131,6 +131,45 @@ Hemen ardından şunu yazarlar:
 ailesinin karşılaştırılmasını açık bir gelecek çalışma konusu olarak ilan etmektedir.
 Bu alıntı makalenin giriş bölümünde **doğrudan kullanılmalıdır**.
 
+#### 4.1.3b 🎯 Yazında çelişen sonuçlar (04.11.2026)
+
+Periyodik (milk-run) ile olay tabanlı (talep üzerine / e-Kanban) beslemeyi karşılaştıran
+çalışmalar **birbirine ters sıralamalar** raporlamaktadır:
+
+| Çalışma | Tampon nasıl eşitlenmiş | Sonuç |
+|---|---|---|
+| **Bae, Evans & Summers (2016)**, WSC, s.2860–2867 | Her iki sistemde **aynı akış raf**; duruş "teslimler arası > 45 dk" olarak politikadan bağımsız tanımlı → örtük **eşit kart** | Tek araçla talep üzerine sistemde duruş milk-run'ın **≈4 katı**; iki araçla fark yok → **milk-run önde** |
+| **Vojdani & Drechsler (2022)** s.5–6 | Her iki sistemde **aynı iki kutulu Kanban** → eşit kart | Dijital %27 daha az sefer, %29 daha az yol → **dijital önde** (taşıma ölçütlerinde) |
+| **Alnahhal vd. (2016)** (özetten) | Bilinmiyor | **Koşullu** (araç kapasitesine bağlı) |
+| **Bu çalışma (K97/K105)** | Dört kural yan yana | Aynı sistemde kurala göre **iki yönde de** sonuç üretilebilir (Toyota kutularında B → geleneksel, A/C/D → dijital) |
+
+→ **Konumlandırma cümlesi:** Yazındaki çelişkili sıralamaların bir kısmı, karşılaştırmada
+kullanılan (çoğunlukla örtük) tampon eşitleme kuralıyla açıklanabilir.
+
+#### 4.1.3c ⚠️ Rakip yazın: "adil karşılaştırma" üretim kontrolünde biliniyor (04.11.2026)
+
+Karşılaştırma tabanının sonucu etkilediği fikri **üretim kontrolü (kanban/CONWIP)
+yazınında bilinmektedir**; makalede mutlaka atıf yapılmalı ve katkı buna göre
+konumlandırılmalıdır:
+
+- **Bonvik, Couch & Gershwin (1997)**, IJPR: mekanizmaları **eşit hizmet düzeyinde**
+  (%99,9 için gereken en az envanter) karşılaştırır.
+- Kanban–CONWIP karşılaştırmalarının bir kısmı **eşit WIP**, bir kısmı **eşit çıktı** tabanını
+  kullanır ve sonuçlar çelişir; ayrıca kanban/CONWIP yalnızca **en çok** WIP'i kontrol eder,
+  ortalama WIP sonuçtur (Framinan, Gonzalez & Ruiz-Usano 2003 derlemesi ve atıf yapanlar).
+- **Geraghty & Heavey (2005)**, OR Spectrum 27:435–457: stratejileri **hizmet düzeyi ↔ envanter
+  eğrileri** üzerinden karşılaştırır — bizim duruş–WIP eğrisi yaklaşımımızın öncülü.
+- **Enns (2008)**, WSC: push–CONWIP karşılaştırmasının adil kurulması (eşit bırakma hızı).
+- Amos vd. (aktaran MDPI Processes 2022, 10(1):5): her mekanizma **önce kendi en iyi ayarına**
+  getirilip öyle karşılaştırılmalı.
+
+**Sonuç:** "Karşılaştırma tabanı önemlidir" genel ilkesi **bizim katkımız değildir**. Katkı,
+(a) bu ilkenin **fabrika içi hat besleme / milk-run** yazınına taşınması, (b) bu alanda
+kullanılan **dört somut kuralın** (eşit kart, politika-tutarlı formül, eşit hizmet, eşit WIP)
+aynı sistemde **sayısal olarak** karşılaştırılması ve (c) alandaki **çelişkili bulguların**
+bununla açıklanabileceğinin gösterilmesidir. ⚠️ Bonvik (1997) ve Geraghty & Heavey (2005) tam
+metinleri edinilip okunmalıdır (kapalı erişim).
+
 #### 4.1.4 Boşluğun formülasyonu
 
 > Tamponun politikaya bağlı olduğunu gösteren çalışmalar (Kol A) politikaları performans
