@@ -1,0 +1,111 @@
+# Dergi uygunluğu: sentetik veriye dayalı hat besleme / milk-run / e-Kanban simülasyon makalesi (TR Dizin ve SCI-E)
+
+Değerlendirilen katkı önerisi: "Hat besleme / milk-run karşılaştırmalarında periyodik ve olay güdümlü (e-Kanban) besleme arasındaki kazanan, tampon eşitleme kuralına bağlıdır. Tek bir 24 istasyonlu sentetik simülasyon modelinde (gerçek tesis verisi yok) dört kuralı karşılaştırıyoruz ve sonuçların ödünleşim eğrisiyle (açlık–WIP Pareto) raporlanmasını öneriyoruz."
+
+Yöntem notu: 17 web araması/getirmesi yapıldı (Kasım 2026). DergiPark PDF'lerinden biri (PAJES 2026) tam metin olarak indirilip okundu. MDPI ve ScienceDirect sayfaları 403 döndürdü; bu kaynaklar için yalnızca arama özetleri kullanılabildi. "Doğrulandı" = birincil kaynakta okundu. "Arama özeti" = yalnızca arama motoru özetinde görüldü. "Çıkarım" = benim yorumum.
+
+## S1. Türk dergileri (Endüstri Mühendisliği Dergisi, JTOM, Gazi MMFD, PAJES, Sigma): kapsam, kabul beklentisi, sentetik veriye dayalı simülasyon yayımlıyorlar mı? Yakın tarihli emsaller
+
+### Takeaway
+Sentetik veriye dayalı bir milk-run simülasyon makalesi, TR Dizin'deki bir mühendislik dergisinde çok yakın zamanda yayımlandı. Sevim ve Görkemli Aykut'un PAJES 2026 makalesi, 10 istasyonlu varsayımsal bir sistem kullanıyor; 2^5 tam faktöriyel tasarım ve 5 tekrarla çalışıyor. Bu nedenle "gerçek veri yok" tek başına TR Dizin için ret gerekçesi değil. Emsal makale yine de katkısını yöntemsel bir mekanizmaya dayandırıyor (etmen tabanlı model ve açık artırma ile araç atama), yalnızca bir karşılaştırma bulgusuna değil. Gazi MMFD SCI-E kapsamında olduğu için çıtası daha yüksek. Oradaki 2025 milk-run makalesi matematiksel model ile gerçek bir vaka üzerine kurulu.
+
+### Cited Findings
+**Emsal 1: Sevim ve Görkemli Aykut (2026), PAJES 32(1):62–71, DOI 10.5505/pajes.2025.39960 (doğrulandı, tam metin okundu)**
+- Başlık: "A dynamic in-plant milk-run system via agent-based modelling" / "Etmen tabanlı modelleme yöntemi ile tesis içi dinamik bir milk-run sistemi". Geliş 20.08.2024, düzeltme 26.05.2025, kabul 02.06.2025. Gelişten kabule yaklaşık 9,5 ay geçmiş. — [PAJES makale sayfası](https://dergipark.org.tr/tr/pub/pajes/article/1813322)
+- Veri: "The effectiveness of the developed model was tested on a hypothetical system… 10 stations that work independently… identical trains". Talepler üstel dağılımlı. İstasyon koordinatları ve üretim süreleri yazarların tablosundan geliyor. Gerçek tesis verisi yok. — [PAJES tam metin PDF](https://dergipark.org.tr/tr/download/article-file/5373787)
+- Deney tasarımı: beş faktör, iki düzey, tam faktöriyel. Her deney 5 kez 7200 dakika (5 gün × 24 saat) koşturulmuş; ortalamalar raporlanmış. Model AnyLogic'te kurulmuş. Ölçütler: tren doluluk oranı, tur sayısı, tur başına mesafe ve istasyon bekleme süresi. — [PAJES tam metin PDF](https://dergipark.org.tr/tr/download/article-file/5373787)
+- Beyan edilen katkılar: (i) dinamik talep altında rotalama, çizelgeleme ve yükleme problemlerini birlikte ele alan etmen tabanlı bir milk-run modeli, (ii) yöneticiler için bir karar destek sistemi, (iii) analitik yöntemlerin gerektirdiği varsayımların kaldırılması. Model, istasyon, tren ve yönetici etmenlerinden oluşuyor; trenler açık artırma yoluyla istasyonlara atanıyor ve kalkış kararını bir mekanizma veriyor. Sonuç, "az kapasiteli çok sayıda tren" önerisi. — [PAJES tam metin PDF](https://dergipark.org.tr/tr/download/article-file/5373787)
+- Literatür taramasında Choi ve Lee (gerçek veriyle simülasyon), Faccio ve diğerleri (statik ve dinamik), Bae, Evans ve Summers (üç simülasyon modeli), Korytkowski ve Karkoszka (DES) ile Fedorko ve diğerleri (Tecnomatix) anılıyor. Belirlenen boşluk "dinamik ortamda rotalama, çizelgeleme ve yüklemeyi birlikte ele alan az çalışma" olarak tanımlanmış. — [PAJES tam metin PDF](https://dergipark.org.tr/tr/download/article-file/5373787)
+
+**Emsal 2: Arık ve Yufka (2025), Gazi MMFD 40(2):1173–1182, DOI 10.17341/gazimmfd.1505204 (arama özeti)**
+- "Montaj hattı besleme esaslı Milk-Run sistemi ile yeni bir matematiksel model yaklaşımı". Hat dengeleme, hat besleme ve milk-run'ı birleştiren çok amaçlı bir matematiksel model öneriyor. Bir derin dondurucu üreticisinin montaj hattı örnek alınmış, yani gerçek bir vaka var. Katkı türü analitik ve optimizasyon; simülasyon değil. — [Erciyes AVESİS kaydı](https://avesis.erciyes.edu.tr/yayin/94701921-1709-443b-aeaf-6d53814f2cf1/a-new-mathematical-model-approach-with-assembly-line-feeding-based-milk-run-system); [DergiPark PDF](https://dergipark.org.tr/en/download/article-file/4023147)
+
+**Emsal 3: Altın ve Sipahioğlu (2019), PAJES, "A mathematical model for in-plant Milk-Run routing" (arama özeti; 2020 öncesi, bağlam için)**
+- AGV milk-run rotaları ve periyotları için bir karma tamsayılı model öneriyor ve montaj istasyonlarına bölünmüş teslimata izin veriyor. Katkı türü matematiksel model. — [UTM/DOAJ kaydı](https://libmast.utm.my/Record/doaj.art-5dde0f1c5b3345528fbdd48388f4d0c4)
+
+**Emsal 4: dondurma fabrikasında milk-run uygulaması (DergiPark, arama özeti; yıl ve dergi doğrulanmadı)**
+- Gerçek vaka. Hat başındaki malzeme yığılması %78 azalmış, transpalet kullanımı sona ermiş. Katkı türü uygulama ve vaka çalışması. — [DergiPark PDF](https://dergipark.org.tr/tr/download/article-file/751726)
+
+**Dergi kapsamları ve indeksleri**
+- Endüstri Mühendisliği Dergisi (TMMOB MMO): ISSN 1300-3410, e-ISSN 2667-7539. 1989'dan beri yayımlanıyor, 2019'dan beri DergiPark üzerinden çalışıyor. Konuları üretim planlama, kalite kontrol, üretim sistemleri, insan-makine sistemleri ve yöneylem araştırması. "Teorik ve uygulamalı araştırma" bekliyor. Yılda üç sayı çıkıyor (Nisan, Ağustos, Aralık); eski bir MMO sayfası dört ayda bir yayın diyor. — [Dergi Hakkında](https://dergipark.org.tr/tr/pub/endustrimuhendisligi/page/7478); [MMO sayfası](https://www.mmo.org.tr/yayin-turu/endustri-muhendisligi-dergisi)
+- JTOM (Ankara Yıldırım Beyazıt Üniversitesi, Endüstri Mühendisliği Bölümü): kapsamında açıkça "Simulation", "Production and transportation", "Manufacturing and logistics", "Inventory" ve "Queuing theory" yer alıyor. Yılda iki sayı çıkıyor; değerlendirme çift kör. İngilizce, Türkçe, Arapça ve Farsça makale kabul ediyor. — [JTOM aim and scope](https://dergipark.org.tr/en/pub/jtom/aim-and-scope)
+- JTOM kabul oranları: 2022'de %83 (30/36), 2023'te %81 (34/42), 2024'te %76 (25/33), 2025'te %73 (27/37). İstatistik sayfasında listelenen indeks TR Dizin. — [JTOM rejection statistics](https://dergipark.org.tr/en/pub/jtom/rejection-statistics)
+- Gazi MMFD (ISSN 1300-1884): SCIE'de "Engineering, Multidisciplinary" kategorisinde; etki faktörü yaklaşık 1,0–1,1. Çeyreklik bilgisi kaynaklar arasında çelişiyor (Q3 ve Q2). Türkçe makale kabul ediyor. — [wos-journal.info](https://wos-journal.info/journalid/860); [journalmetrics.org](https://www.journalmetrics.org/journal/journal-of-the-faculty-of-engineering-and-architecture-of-gazi-university)
+
+### Inferences
+- Çıkarım: TR Dizin düzeyinde (PAJES, JTOM, Endüstri Mühendisliği Dergisi, Sigma) varsayımsal ve sentetik veriye dayalı simülasyon kabul edilebilir bir veri temeli sayılıyor. PAJES 2026 emsalinde 10 istasyon ve 5 tekrar var; önerilen çalışmanın 24 istasyonu ve çok sayıda koşusu deneysel ölçek bakımından bu emsalden zayıf değil.
+- Çıkarım: TR Dizin emsallerinde katkı, "yeni bir model veya mekanizma ve bunun senaryo analizi" olarak çerçeveleniyor. Önerilen katkı ise doğası gereği bir "yöntembilimsel uyarı" (kazanan, tampon eşitleme kuralına bağlıdır) ve bir "raporlama önerisi". Hakem açısından bu, "yeni bir şey önermiyor, bir duyarlılık bulgusu raporluyor" diye okunabilir. Çerçeveyi "adil karşılaştırma protokolü ve Pareto tabanlı değerlendirme çerçevesi" olarak kurmak, emsallerdeki katkı diline daha uygun düşer.
+- Çıkarım: JTOM'un kabul oranının %73–83 olması, kapsamında simülasyonu açıkça sayması ve İngilizce kabul etmesi onu en düşük riskli TR Dizin hedefi yapıyor. PAJES'te konuya çok yakın bir emsal bulunması hem bir avantaj (konu kapsamda) hem bir yükümlülük: o makale atıf yapılıp karşılaştırılmalı. Gazi MMFD SCIE'de olduğundan, buradaki 2025 milk-run makalesi gibi gerçek vaka ya da güçlü bir analitik bileşen beklenebilir.
+
+### Gaps
+- Sigma Journal of Engineering and Natural Sciences için kapsam, indeks (ESCI veya SCIE) ve konuyla ilgili 2020–2026 milk-run veya kanban simülasyon makalesi bulunamadı (arama bütçesi yetmedi).
+- PAJES ve Sigma'nın kabul ve ret oranları ile PAJES'in WoS indeks statüsü (ESCI olduğu biliniyor ama bu oturumda doğrulanmadı) kontrol edilemedi.
+- Endüstri Mühendisliği Dergisi'nin 2020–2026 sayılarında milk-run, kanban veya hat besleme simülasyonu üzerine bir makale tespit edilemedi; sayı arşivleri tek tek taranmadı.
+- Dergilerin "sentetik veri kabul edilmez" türünden açık bir yazar yönergesi olup olmadığı bulunamadı. Bulunan tüm yönergeler genel kapsam metinleriydi.
+
+## S2. SCI-E dergileri (IJPR, C&IE, Journal of Simulation, FSMJ, PMR, IJIEC, Logistics, Applied Sciences): yakın tarihli milk-run ve hat besleme simülasyon makaleleri neye katkı veriyor, gerçek veri kullanıyorlar mı? Editoryal yönergeler
+
+### Takeaway
+SCI-E'de bulunan yakın tarihli (2022–2025) milk-run ve hat besleme simülasyon makalelerinin neredeyse tamamı gerçek bir endüstriyel vakaya ya da tesis ölçümüyle doğrulamaya dayanıyor. Örnekler: Machines 2023 (beyaz eşya, Haziran 2022 ölçümleriyle doğrulama), RTLS verisiyle dijital ikiz (2025) ve IJPR 2025 kitting ve tugger. Sentetik ve stilize modeller daha çok 2015–2018 döneminde (Korytkowski ve Karkoszka'nın 10 istasyonu, Journal of Simulation 2016'daki rotalama stratejileri) ve "simülasyon artı optimizasyon" (IJIEC 2018, PSO) biçiminde görülüyor. Journal of Simulation'ın STRESS raporlama yönergesi (Monks ve diğerleri) sentetik modeller için de geçerli ve tekrarlanabilirlik, girdi ve deney tasarımı gibi konularda açık beklentiler koyuyor.
+
+### Cited Findings
+- STRESS yönergeleri: Monks, Currie, Onggo, Robinson, Kunc ve Taylor, "Strengthening the reporting of empirical simulation studies: Introducing the STRESS guidelines", Journal of Simulation 13(1):55–67, 2019, DOI 10.1080/17477778.2018.1442155. Üç ayrı 20 maddelik kontrol listesi içeriyor: STRESS-DES, STRESS-ABS ve STRESS-SD. Gerekçeleri, eksik raporlamanın simülasyon çalışmalarını tekrarlanamaz kılması. EQUATOR Network bu yönergeleri yöneylem araştırması ve yönetim bilimi simülasyon raporlaması için listeliyor. — [EQUATOR Network](https://www.equator-network.org/reporting-guidelines/strengthening-the-reporting-of-empirical-simulation-studies-introducing-the-stress-guidelines); [Loughborough repository](https://repository.lboro.ac.uk/articles/journal_contribution/Strengthening_the_reporting_of_empirical_simulation_studies_Introducing_the_STRESS_guidelines/9503495/1)
+- Machines (MDPI) 2023, 11(1):66, "Multi-Model In-Plant Logistics Using Milkruns for Flexible Assembly Systems under Disturbances: An Industry Study Case". Bir beyaz eşya üreticisinin endüstriyel vakası üzerinde DES kullanıyor; doğrulama Haziran 2022 hat ölçümleriyle yapılmış ve her senaryo 20 tekrarla koşturulmuş. Bulgu: milk-run treni yüksek değişkenlik altında avantajlı olabilir. (Arama özeti; sayfa 403 döndü.) — [MDPI](https://www.mdpi.com/2075-1702/11/1/66); [ResearchGate](https://www.researchgate.net/publication/366898513_Multi-Model_In-Plant_Logistics_Using_Milkruns_for_Flexible_Assembly_Systems_under_Disturbances_An_Industry_Study_Case)
+- "Simulation-Based Optimization of Material Supply in Automotive Production Using RTLS Data" (yaklaşık 2025): gerçek RTLS verisinden tugger treni tedarik süreci için dijital ikiz simülasyon modelleri kurulmuş ve doğrulanmış. Dergisi doğrulanmadı. — [ResearchGate](https://www.researchgate.net/publication/394736965_Simulation-Based_Optimization_of_Material_Supply_in_Automotive_Production_Using_RTLS_Data)
+- IJPR 2025 (cilt 63, sayı 19, DOI 10.1080/00207543.2025.2491783): kitting tabanlı hat besleme. Tugger tren sefer sayısı ve kapasitesi tamsayı karar değişkeni olarak modellenmiş; katkı türü optimizasyon modeli. (Arama özeti.) — [IJPR PDF](https://www.tandfonline.com/doi/pdf/10.1080/00207543.2025.2491783)
+- Production & Manufacturing Research 2023 (DOI 10.1080/21693277.2023.2200808): "Joint modelling of the order-dependent parts supply strategies sequencing, kitting and batch supply for assembly lines: insights from industrial practice". Başlıktaki "endüstriyel pratikten içgörüler" ifadesi gerçek uygulamaya dayandığını gösteriyor; özet görülemedi. — [Tandfonline](https://www.tandfonline.com/doi/full/10.1080/21693277.2023.2200808?af=R)
+- Journal of Simulation 10(2), 2016 (DOI 10.1057/jos.2015.6): "Efficiency in in-plant milk-run systems — The influence of routing strategies on system utilization and process stability". Rotalama stratejilerinin trafik ve blokaj üzerindeki etkisini simülasyonla analiz ediyor. Bir strateji karşılaştırması olduğu için önerilen çalışmaya en yakın format bu. Tarihi 2020 öncesi. — [Tandfonline](https://www.tandfonline.com/doi/full/10.1057/jos.2015.6)
+- Korytkowski ve Karkoszka, Int J Adv Manuf Technol (2016), "Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances": tipik 10 iş istasyonlu bir hat ve milk-run operatörü üzerine DES kuruyor; bozulmaların ve tampon kapasitesinin etkisini inceliyor. Stilize model; 2020 öncesi. — [Springer](https://link.springer.com/article/10.1007/s00170-015-7442-2)
+- C&IE 2015: "Dynamic material flow control in mixed model assembly lines" (Alnahhal ve Noche). Statik ve dinamik malzeme akış kontrolünü karşılaştırıyor. Aynı ekibin "Static versus dynamic control of material flow in in-plant milk run system" çalışmasında elektronik kanbanın daha düşük envanter verdiği raporlanıyor. Bu, önerilen e-Kanban–periyodik karşılaştırmasının doğrudan öncülü. (Arama özeti; sayfa 403.) — [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0360835215001187); [ResearchGate](https://www.researchgate.net/publication/300122222_Static_Versus_Dynamic_Control_of_Material_Flow_in_In-Plant_Milk_Run_System)
+- IJIEC 2018 (Kundu ve diğerleri): kanban tabanlı hat besleme. Simülasyon ile parçacık sürü optimizasyonunu (PSO) entegre ederek kanban boyutu ve sayısını eniyiliyor. Katkı türü simülasyon tabanlı optimizasyon. — [IJIEC PDF](https://www.growingscience.com/ijiec/Vol10/IJIEC_2018_22.pdf)
+- Faccio ve diğerleri (IJPR bağlantılı, yaklaşık 2013): süpermarket, kanban ve çekici tren sistemlerinin boyutlandırılması için bir çerçeve sunuyor. Uzun vadeli kararlar statik analitik modelle, kısa vadeli kararlar dinamik simülasyonla ele alınıyor; yani analitik ve simülasyon bileşenleri birlikte kullanılıyor. — [ResearchGate](https://www.researchgate.net/publication/257338716_Design_and_simulation_of_assembly_line_feeding_systems_in_the_automotive_sector_using_supermarket_kanbans_and_tow_trains_A_general_framework)
+- "Milk run routing and scheduling model for a smart manufacturing system": küresel bir otomotiv firmasının gerçek vakasıyla doğrulanmış; %18 maliyet tasarrufu ve vardiya başına yaklaşık %23 daha az tugger mesafesi raporluyor. Yöntem VRPTW. Dergisi ve yılı doğrulanmadı. — [Academia](https://www.academia.edu/89335800/A_Milk_run_routing_and_Scheduling_model_for_a_Smart_Manufacturing_System)
+- Logistics (MDPI) ve Applied Sciences'ta 2023–2024 tarihli bir milk-run simülasyon makalesi aramalarda çıkmadı. Bulunan tek MDPI örneği Machines 2023. — [arama sonucu: MDPI Machines](https://www.mdpi.com/2075-1702/11/1/66)
+
+### Inferences
+- Çıkarım: 2020 sonrası SCI-E milk-run ve hat besleme simülasyon makalelerinde baskın örüntü üç unsurdan biri ya da birkaçı: (a) gerçek tesis verisi veya ölçümle doğrulama, (b) bir optimizasyon modeli veya simülasyon tabanlı optimizasyon, (c) analitik model ile simülasyonun birleştirilmesi. Yalnızca stilize bir modelde kural karşılaştırması yapan saf DES çalışmaları 2020 öncesinde (JoS 2016, IJAMT 2016) daha yaygın görünüyor. Bu, arama örneklemine dayalı bir çıkarım; sistematik bir sayım değil.
+- Çıkarım: Önerilen katkı "kazanan, kurala bağlıdır" bulgusu ve "Pareto raporlama" önerisinden oluşuyor; bu bir yöntembilimsel uyarı makalesi. Journal of Simulation bu formata en açık SCI-E dergisi olabilir, çünkü STRESS gibi raporlama ve yöntembilim tartışmaları burada yayımlanıyor. IJPR ve C&IE'de tek bir sentetik model ve tek bir vaka olmadan masa başı ret (desk reject) riski yüksek.
+- Çıkarım: Alnahhal ve Noche'nin "e-kanban daha düşük envanter" bulgusu, önerilen çalışmanın tezine (sonuç tampon kuralına bağlıdır) doğrudan karşı argüman ya da açıklama zemini sağlıyor. Hakemler büyük olasılıkla bu çalışmaya atıf ve onunla karşılaştırma bekler.
+
+### Gaps
+- IJPR'ın "vaka tabanlı simülasyon makaleleri" üzerine bir editoryal yazısı ya da yazar yönergesi bulunamadı. IJPR ve C&IE'nin saf simülasyon makalelerine dair açık bir politikası doğrulanamadı.
+- FSMJ, PMR ve IJIEC'te 2020–2026 arasında milk-run ve e-Kanban simülasyonu üzerine bir makale tespit edilemedi (PMR 2023'teki parça tedarik makalesi dışında).
+- MDPI ve ScienceDirect sayfaları 403 döndürdüğü için Machines 2023 ve C&IE 2015 makalelerinin veri detayları yalnızca arama özetlerinden alındı.
+
+## S3. Kabul edilebilirliği en çok hangi ek unsur artırır? (gerçek vaka verisi, analitik önerme, optimizasyon, çoklu yerleşim/örnek, yayımlanmış vakalara karşı doğrulama)
+
+### Takeaway
+Bulunan emsallere göre en belirleyici ek unsur sıralaması şöyle (çıkarım):
+1. SCI-E için: gerçek bir endüstriyel vaka ya da en azından literatürde yayımlanmış bir vakanın yeniden üretilmesiyle doğrulama.
+2. Bulgunun genellenebilirliğini gösteren çoklu örnek ya da yerleşim (istasyon sayısı, talep değişkenliği ve kapasite oranı üzerinde bir tasarım).
+3. Tampon kuralının neden kazananı değiştirdiğini açıklayan basit bir analitik önerme ya da kuyruk ve envanter argümanı.
+
+TR Dizin için mevcut katkı, iyi bir deney tasarımı ve STRESS uyumlu raporlamayla büyük olasılıkla yeterli. Yine de "yalnızca bulgu" olarak değil, bir "adil karşılaştırma protokolü" olarak çerçevelenmesi gerekir.
+
+### Cited Findings
+- TR Dizin emsali gerçek veri olmadan, varsayımsal 10 istasyonlu bir sistemle kabul edildi. Ancak katkıyı yeni bir mekanizmaya (açık artırma ve kalkış kararı) ve faktöriyel deney tasarımına dayandırıyor. — [PAJES tam metin PDF](https://dergipark.org.tr/tr/download/article-file/5373787)
+- SCI-E'deki Türk dergisi Gazi MMFD'nin 2025 milk-run makalesi gerçek bir derin dondurucu hattını ve bir matematiksel modeli birlikte kullanıyor. — [Erciyes AVESİS](https://avesis.erciyes.edu.tr/yayin/94701921-1709-443b-aeaf-6d53814f2cf1/a-new-mathematical-model-approach-with-assembly-line-feeding-based-milk-run-system)
+- SCI-E simülasyon emsallerinde gerçek ölçümle doğrulama (Machines 2023, Haziran 2022 ölçümleri) ve RTLS verisiyle kurulan dijital ikiz (2025) öne çıkıyor. — [MDPI Machines](https://www.mdpi.com/2075-1702/11/1/66); [ResearchGate RTLS](https://www.researchgate.net/publication/394736965_Simulation-Based_Optimization_of_Material_Supply_in_Automotive_Production_Using_RTLS_Data)
+- Analitik model ile simülasyonun birleştirilmesi, hat besleme literatüründe yerleşik bir katkı kalıbı (Faccio ve diğerleri). — [ResearchGate](https://www.researchgate.net/publication/257338716_Design_and_simulation_of_assembly_line_feeding_systems_in_the_automotive_sector_using_supermarket_kanbans_and_tow_trains_A_general_framework)
+- Simülasyon ile optimizasyonun birleştirilmesi (kanban sayısı ve boyutu için PSO) de bir başka yerleşik kalıp. — [IJIEC 2018](https://www.growingscience.com/ijiec/Vol10/IJIEC_2018_22.pdf)
+- STRESS-DES'in 20 maddelik kontrol listesi, sentetik modellerde şeffaflık için kabul görmüş bir standart. — [EQUATOR Network](https://www.equator-network.org/reporting-guidelines/strengthening-the-reporting-of-empirical-simulation-studies-introducing-the-stress-guidelines)
+
+### Inferences
+- Çıkarım (TR Dizin; JTOM, PAJES, Endüstri Mühendisliği Dergisi): mevcut tek katkı yeterli olabilir. Bunun koşulları şunlar:
+  - Sentetik model parametreleri tablolar halinde tam verilmeli ve STRESS-DES'e uyulmalı.
+  - Tekrar sayısı ve güven aralıkları raporlanmalı.
+  - Tampon kuralı, sistem için tasarım faktörlerinden biri olarak bir deney tasarımına yerleştirilmeli.
+  - Alnahhal ve Noche ile Sevim ve Görkemli Aykut'a atıf yapılıp onlarla konumlandırma yapılmalı.
+
+  Emsalin 10 istasyon ve 5 tekrarla kabul edilmiş olması bu değerlendirmeyi destekliyor.
+- Çıkarım (SCI-E, ESCI'nin üstü; Gazi MMFD, C&IE, FSMJ, IJIEC): tek model ve tek bulgu muhtemelen sınırda kalır. En yüksek getirili tek ek unsur, kurulum maliyetine göre şöyle sıralanabilir:
+  - (a) Literatürde yayımlanmış bir vakanın (ör. Korytkowski ve Karkoszka'nın 10 istasyonu ya da Alnahhal ve Noche'nin düzeni) yeniden üretilmesi ve "kazananın değiştiğinin" o vakada da gösterilmesi. Bu yol gerçek veri gerektirmeden dış geçerlilik sağlar.
+  - (b) 24 istasyonlu tek model yerine, ölçek, talep CV'si, kapasite ve döngü süresi oranı gibi parametreler üzerinde örnek ailesi üreten bir tasarım ile "kazananın kurala bağlı olduğu" bölgelerin haritası.
+  - (c) Tampon kuralının etkisini açıklayan basit bir analitik önerme (ör. bir (s,Q) ya da periyodik gözden geçirme yaklaşımıyla).
+
+  Gerçek tesis verisi en güçlü sinyal olsa da elde edilmesi en pahalı unsur. Journal of Simulation için (a) ile (b) birlikte ve STRESS uyumu muhtemelen yeterli bir yöntembilim katkısı oluşturur. IJPR için gerçek vaka ya da analitik ve optimizasyon bileşeni neredeyse zorunlu görünüyor.
+- Çıkarım: "Pareto raporlama önerisi" tek başına zayıf bir katkı, çünkü çok amaçlı ödünleşim raporlaması genel kabul görmüş bir uygulama. Bu öneri, "tek nokta karşılaştırması yanıltıcıdır" iddiasını sayısal olarak gösteren bir sıra değişimi (rank reversal) analiziyle desteklenirse değer kazanır.
+
+### Gaps
+- Hakem raporları ya da editör yazılarında "sentetik veri nedeniyle ret" örneği bulunamadı. Gerçek vaka beklentisi yayımlanmış makalelerin örüntüsünden çıkarıldı, açık bir politikaya dayanmıyor.
+- Önerilen tezle doğrudan aynı soruyu soran bir 2020–2026 makalesi (tampon eşitleme kuralının periyodik ve olay güdümlü kazananı değiştirmesi) aramalarda bulunamadı. Bu durum katkının özgünlüğünü destekliyor ama sistematik bir tarama yapılmadı; doğrulanması gerekiyor.
