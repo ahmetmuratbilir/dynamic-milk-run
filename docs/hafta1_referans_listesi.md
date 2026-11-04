@@ -157,8 +157,16 @@
      mechanisms," *International Journal of Production Research,* vol. 35, no. 3, pp. 789–804,
      1997. doi:10.1080/002075497195713. (`ek_kaynaklar/E13_…pdf`; eşit hizmet düzeyi s.797–798)
 
-[43] [ ] S. T. Enns, "Clarifying CONWIP versus push system behavior using simulation," in *Proc.
-     2008 Winter Simulation Conference,* 2008. (açık erişim: informs-sim.org/wsc08papers/230.pdf)
+[43] [x] S. T. Enns and P. Rogers, "Clarifying CONWIP versus push system behavior using
+     simulation," in *Proc. 2008 Winter Simulation Conference,* 2008, pp. 1867–1872.
+     doi:10.1109/WSC.2008.4736277. (açık erişim; en yakın yöntemsel emsal — K107)
+
+[44] [x] M. Lieb, "Dynamische Steuerungsstrategien für innerbetriebliche Routenzugsysteme,"
+     Dr.-Ing. Dissertation, Technische Universität München, 2021. ⚠️ ilk ad ve yayın bilgisi
+     tam metinden doğrulanmalı. (stoktan türetilen teslim son tarihi s.118–120 — K107)
+
+[45] [ ] J. N. Hooker, "Testing heuristics: We have it all wrong," *Journal of Heuristics,*
+     vol. 1, pp. 33–42, 1995. (eğri raporlama önerisinin yöntemsel dayanağı — K107)
 
 ---
 

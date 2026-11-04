@@ -1084,6 +1084,19 @@
 | **Dosya** | `literatur_boslugu_analizi.md` §4.1.3b–c |
 | **Tarih** | 04.11.2026 |
 
+### K107 — Derin Araştırma: Literatür Açığı Değerlendirmesi ve Düzeltmeler ✅
+| Özellik | Değer |
+|---------|-------|
+| **Kapsam** | Dört paralel tarama (tehdit çalışmaları, ilan edilmiş boşluklar, karşılaştırma tabanı yöntembilimi, dergi uygunluğu). Notlar: `research_notes/Hat besleme literatür açığı/`; nihai rapor: `reports/Hat besleme literatür açığı.md`. |
+| **Ana açık** | **Sağlam, çürütülmedi.** Taranan hat besleme / milk-run yazınında birden çok eşitleme kuralını yan yana koyan ya da politikalar arası duruş–WIP eğrisi raporlayan çalışma bulunamadı. Yenilik alan içinde yüksek, genel olarak orta (ilke üretim kontrolünde biliniyor: Bonvik 1997, Gstettner & Kuhn 1996, Geraghty & Heavey 2005; en yakın emsal Enns & Rogers 2008, yalnızca 16 atıf). |
+| **İfade daraltmaları** | (1) "Örtük eşitleme" → **"tek bir taban; bazen açık, çoğunlukla örtük"** (Alnahhal & Noche 2015 s.117 açıkça %99 doluluk; Thürer vd. 2019 açıkça eşit stok). (2) "Eğri yok" → **"politikalar arası eğri yok"** (Bocewicz 2019, Alnahhal & Noche 2013 tek politika içinde eğri çizer). |
+| **İkinci açık** | Duruşta **kart sayısı ↔ taşıma kapasitesi** paylarının stokastik ve şoklu talepte P2/P3 için ayrıştırılması — Ciemnoczolowski & Bozer 2013 s.579'da birebir ilan; Alnahhal vd. 2014 §VI destekler. Yüksek güç, ana açıktan bağımsız. Deney yapılmadan katkı olarak yazılmaz. |
+| **Düşen katkı** | Stoktan türetilen zaman penceresi: **Lieb 2021 (TUM tezi) s.118–120'de var** → yöntem öğesi, atıfla. Lieb ayrıca 18 kontrol stratejisini karşılaştırır; "dinamik statikten iyi" ve "olay tabanlı filo boyutlandırma" yeni iddia olamaz. Destekleyici: Lieb s.119 (hat stoku verili), s.224 (kalkış modülü anlamsız ↔ K82). |
+| **Kaynakça** | Enns → Enns & Rogers (2008), s.1867–1872, doi:10.1109/WSC.2008.4736277; "Amos vd." doğrulanamadı, kaldırıldı; Lieb (2021) [44] ve Hooker (1995) [45] eklendi. |
+| **Dergi** | TR Dizin için yeterli (en düşük risk JTOM). SCI-E için sınırda: mekanizma (R+L ↔ L), karar rehberi, yayımlanmış vakanın yeniden kurulması, ikinci açık deneyi gerekir; en uygun Journal of Simulation. |
+| **Açık kalan** | Alnahhal, Ramadan & Noche (2016) tam metni (en olası tehdit; kanban sayısının nasıl belirlendiği bilinmiyor) — yazarın doktora tezi DuEPublico'da. |
+| **Tarih** | 04.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

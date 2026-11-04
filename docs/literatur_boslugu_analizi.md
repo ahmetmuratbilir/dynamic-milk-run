@@ -167,9 +167,15 @@ konumlandırılmalıdır:
   *"Service Level vs. WIP trade-off"*. → Her stratejinin **kendi en iyi eğrisi** üzerinde
   karşılaştırma — bizim "duruş–WIP düzleminde raporla" önerimizin üretim kontrolündeki
   **yerleşik karşılığı** (önerimizi destekler; fikrin bize ait olmadığını da doğrular).
-- **Enns (2008)**, WSC: push–CONWIP karşılaştırmasının adil kurulması (eşit bırakma hızı).
-- Amos vd. (aktaran MDPI Processes 2022, 10(1):5): her mekanizma **önce kendi en iyi ayarına**
-  getirilip öyle karşılaştırılmalı.
+- **Enns & Rogers (2008)**, WSC, s.1867–1872, doi:10.1109/WSC.2008.4736277 (tam metin okundu,
+  K107): CONWIP ↔ push; push'a "daha adil" sabit bırakma verilince **sıralama tersine döner**,
+  sonuç eğri üzerinde raporlanır — *"it may not be possible to conclude that either system
+  dominates"*. **En yakın emsalimiz**; yalnızca 16 atıf → "sonuç karşılaştırmaya bağlı" mesajı
+  tek başına zayıf katkıdır, mekanizma ve karar rehberiyle güçlendirilmelidir.
+- **Hooker (1995)**, J. Heuristics 1:33–42: *"the parameter settings are among the factors one
+  would investigate experimentally … the problem of fair comparison becomes a nonproblem"* →
+  "parametreyi tara, eğriyi raporla" önerimizin yöntemsel dayanağı.
+- ~~Amos vd. (aktaran MDPI Processes 2022)~~ — **doğrulanamadı (K107), kullanılmayacak.**
 
 **Sonuç:** "Karşılaştırma tabanı önemlidir" genel ilkesi **bizim katkımız değildir**. Katkı,
 (a) bu ilkenin **fabrika içi hat besleme / milk-run** yazınına taşınması, (b) bu alanda
@@ -252,11 +258,17 @@ yalnızca replikasyon ve ısınma yeterliliğini ele alır.
 gerçek farktan (≈1 puan) büyüktür. Yani modelleme kararları, politika seçiminden daha
 belirleyici olabilmektedir.
 
-### Katkı 3 — Tüketim hızından türetilen dinamik zaman penceresi
+### ~~Katkı 3~~ Yöntem öğesi — Tüketim hızından türetilen dinamik zaman penceresi
 
-**Boşluk.** Facchini vd. (2022) s.1125 sabit eşik kullanır (25 dk geç / 15 dk erken).
+> ⚠️ **K107: Katkı olarak sunulmaz.** Lieb (2021, TUM doktora tezi *"Dynamische
+> Steuerungsstrategien für innerbetriebliche Routenzugsysteme"*, s.118–120) teslim son tarihini
+> istasyon stoku + yoldaki stok + tüketimden ("Bestandsreichweite"), sistem durumu değiştikçe
+> güncelleyerek türetir. Aşağıdaki formülasyon makalede **yöntem öğesi** olarak, Lieb'e atıfla
+> ("aynı mantık izlenmiştir") yazılmalıdır.
+
+**Eski değerlendirme (tarihsel).** Facchini vd. (2022) s.1125 sabit eşik kullanır (25 dk geç / 15 dk erken).
 Taramamızda, teslim son tarihini **istasyonun anlık stokundan ve tüketim hızından**
-hesaplayan bir formülasyona rastlanmamıştır:
+hesaplayan bir formülasyona rastlanmamıştı:
 
 $$t_{starv} = t + \frac{Stok(t)}{D_{dk}}, \qquad
 TW_{bitis} = \max\Big(\min\big(t_{starv} - \tau,\; t + TW_{max}\big),\; t + LT\Big)$$
@@ -264,9 +276,8 @@ TW_{bitis} = \max\Big(\min\big(t_{starv} - \tau,\; t + TW_{max}\big),\; t + LT\B
 **Katkımız.** Pencere, istasyonun kırılganlığına göre kendiliğinden daralır; yüksek
 tüketimli istasyon otomatik olarak daha sıkı pencere alır.
 
-**⚠️ Dikkat.** Bu en dar katkıdır ve "bulunamadı ≠ yoktur". Makalede **"taranan
-literatürde rastlanmamıştır"** biçiminde ihtiyatlı yazılmalı, ana katkı olarak
-sunulmamalıdır.
+**⚠️ Dikkat (doğrulandı, K107).** "Bulunamadı ≠ yoktur" uyarısı haklı çıktı: Lieb (2021)
+aynı mantığı kullanır. Bu öğe katkı değil, yöntemdir.
 
 ---
 
@@ -311,8 +322,13 @@ sunulmamalıdır.
 >    sinyal üretimi, metrik mesafe) sonuç üzerindeki etkileri **tek tek ayrıştırılarak**
 >    ölçülmekte; bu etkilerin politikalar arasındaki farktan büyük olabildiği
 >    gösterilmektedir.
-> 4. E-Kanban sinyalinin zaman penceresi istasyonun anlık stokundan ve tüketim hızından
->    türetilerek rotalamaya bağlanmaktadır (taranan yazında bu biçimde rastlanmamıştır).
+> 4. Duruşta kart sayısı ile taşıma kapasitesinin payları, stokastik talep ve talep şoku
+>    altında iki politika için ayrı ayrı ayrıştırılmaktadır (Ciemnoczolowski & Bozer 2013,
+>    s.579'un gelecek çalışma önerisi). ⚠️ *Bu madde, ilgili deney yapıldıktan sonra
+>    kullanılabilir (K107).*
+>
+> *(Yöntem notu: zaman penceresi istasyon stokundan ve tüketim hızından türetilmiştir; aynı
+> mantık Lieb 2021, s.118–120'de kullanılmıştır — katkı olarak sunulmaz.)*
 
 ### Tartışma — Alnahhal vd. (2016) ile ilişkilendirme (ZORUNLU)
 

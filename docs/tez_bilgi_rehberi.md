@@ -87,7 +87,8 @@ kol birleştirilmemiştir; bu birleşmemenin karşılaştırma sonuçlarını ne
    arasındaki gerçek farktan (≈1 puan) **büyüktür**.
 3. **Tüketim hızından türetilen dinamik zaman penceresi** (K27/K30): teslim son tarihi
    istasyonun anlık stoku ve tüketim hızından hesaplanır; pencere istasyonun kırılganlığına
-   göre kendiliğinden daralır. *(Taranan literatürde rastlanmamıştır — ihtiyatlı yazılmalı.)*
+   göre kendiliğinden daralır. ⚠️ *K107: katkı değil, yöntem öğesidir — aynı mantık Lieb
+   (2021, TUM doktora tezi, s.118–120)'de kullanılmıştır; atıf yapılmalıdır.*
 4. **Koşullu ve dürüst raporlama:** üstünlük filo doygunluğuna bağlıdır; sevk kuralları
    arasında anlamlı fark bulunamamıştır (ANOVA p=0,9997 / 0,3415).
 
