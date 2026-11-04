@@ -185,7 +185,7 @@ derlenmiştir; ⚠️ tam metin görülmeden doğrudan alıntı yapılmamalıdı
 
 | # | Künye | Öncelik | Erişim |
 |---|-------|---------|--------|
-| [16] | Alnahhal, M., Ramadan, M. & Noche, B. (2016). *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*. In: Dynamics in Logistics (Lecture Notes in Logistics). Springer. doi:10.1007/978-3-319-23512-7_70 | 🔴 Zorunlu | Springer (abonelik) |
+| [16] | Alnahhal, M., Ramadan, M. & Noche, B. (2016). *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*. In: Dynamics in Logistics (Lecture Notes in Logistics). Springer. doi:10.1007/978-3-319-23512-7_70 | ✅ **EDİNİLDİ** (04.11.2026) | `ek_kaynaklar/E1_…pdf`; ss. 703–712; eşit duruş %3 s.709 (K108) |
 | [17] | Ciemnoczolowski, D. D. & Bozer, Y. A. (2013). Performance evaluation of small-batch container delivery systems used in lean manufacturing — Part 2: Number of Kanban and workstation starvation. *International Journal of Production Research*, 51(2), 568–581. doi:10.1080/00207543.2012.656331 | ✅ **EDİNİLDİ** (03.11.2026) | `ek_kaynaklar/E10_…pdf` — alt sınır s.570, ana bulgu s.568 (K104) |
 | [18] | Bocewicz, G., Bożejko, W., Wójcik, R. & Banaszak, Z. (2019). Milk-run routing and scheduling subject to a trade-off between vehicle fleet size and storage capacity. *Management and Production Engineering Review*, 10(3), 41–53. doi:10.24425/mper.2019.129597 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E3_…pdf` |
 | [19] | Schmidt, T., Meinhardt, I. & Schulze, F. (2016). *New design guidelines for in-plant milk-run systems*. 14th IMHRC Proceedings. TU Dresden. | ✅ **EDİNİLDİ** (03.11.2026) | Açık erişim — `ek_kaynaklar/E4_…pdf`; formül s.4 (K104) |
@@ -206,4 +206,4 @@ Gerekçeler: `docs/literatur_boslugu_analizi.md`, `karar_gunlugu.md` K86–K90.
 
 ---
 
-*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 1 ([16] Alnahhal 2016) — 03.11.2026: [17], [19], [22], [23], [39] edinildi; [20] ücretli standart, yılı doğrulandı*
+*Güncelleme: 27.10.2026 (K96) | [1]–[11] künyeleri dolduruldu, [15] düzeltildi, [24]–[38] eklendi | Edinilecek: 0 — 04.11.2026: [16] Alnahhal 2016 edinildi (K108); 03.11.2026: [17], [19], [22], [23], [39] edinildi; [20] ücretli standart, yılı doğrulandı*

@@ -1307,20 +1307,18 @@ Bu katalog, Dynamic Milk-Run & E-Kanban projesi kapsamında incelenen 11 akademi
 > PDF'ler `docs/papers/ek_kaynaklar/`, metinler `docs/papers/extracted_text/E*_…txt`
 > içindedir (yerel; telif nedeniyle git dışı). Kararlar: K87, K88, K103, K104.
 
-## E1 — Alnahhal, Ramadan & Noche (2016) 🔴 EDİNİLEMEDİ
+## E1 — Alnahhal, Ramadan & Noche (2016) ✅ EDİNİLDİ VE OKUNDU (04.11.2026)
 
 | Alan | Bilgi |
 |------|-------|
 | **Başlık** | Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System |
-| **Kaynak** | Kotzab, Pannek & Thoben (ed.), *Dynamics in Logistics* (LDIC 2014, Bremen), Lecture Notes in Logistics, Springer, 2016, ss. 703–712 · doi:10.1007/978-3-319-23512-7_70 |
-| **Yöntem** | Analitik denklemler + simülasyon |
-| **Karşılaştırılan** | Push · geleneksel Kanban · e-Kanban · önerilen *adjusted e-Kanban* (AEK, RFID tabanlı) |
-| **Ölçütler** | Envanter maliyeti + hat duruşu (starvation) |
-| **Bulgu (özetten)** | Tüketim değişkenliği düşükken push etkili; yeterli tren kapasitesinde geleneksel Kanban etkili; e-Kanban daha düşük envanter; ciddi kapasite kıtlığında AEK en iyi |
-| **⚠️ Neden kritik** | Ana karşılaştırmamızın en yakın öncülü. **Tamponu nasıl eşitledikleri bilinmiyor** (literatür boşluğu analizi §4.1.1'de "BİLİNMİYOR"). |
-| **Bizden farkı (özetten)** | Rotalar sabittir (bizde olay tabanlı); üstünlüğü bilgi akışı hızına bağlar (biz eşitleme kuralına); dört eşitleme kuralını karşılaştırmaz |
-| **Erişim yolu** | Yazarın doktora tezi aynı çalışmayı içerir: *Efficient Material Flow in Mixed Model Assembly Lines*, Universität Duisburg-Essen (Gutachter: B. Noche) — açık erişim, DuEPublico: `duepublico2.uni-due.de/receive/duepublico_mods_00039133` (tarayıcıdan indirilmeli; otomatik indirme engelli) |
-| **Edinilemezse** | Makalede yalnızca özetteki bulgularla atıf yapılır; tampon eşitleme yöntemi hakkında iddiada bulunulmaz. |
+| **Kaynak** | Kotzab, Pannek & Thoben (ed.), *Dynamics in Logistics* (LDIC 2014), Lecture Notes in Logistics, Springer, 2016, ss. 703–712 · doi:10.1007/978-3-319-23512-7_70 |
+| **Dosya** | `ek_kaynaklar/E1_Alnahhal2016_static_vs_dynamic.pdf` (10 sayfa) |
+| **Yöntem** | Analitik ifadeler + Promodel simülasyonu; 5 istasyonlu tek rota, çevrim C ∈ {30, 45, 60} dk, bin kapasitesi {0,25; 0,5; 0,75} × çevrim talebi, TBDA üstel; 20 tekrar × 40 sa |
+| **🔑 Eşitleme tabanı (s.709)** | *"investigated for a starvation level of 3 ± 0.5 %. To get this level of utilization, several trials with different starting inventory levels were tried until the appropriate one was found"* → **açık eşit hizmet düzeyi (C kuralı)**, her sistem için başlangıç stoku ayrı; çıktı hat yanı en yüksek stok (MLSI) |
+| **🔑 Tampon ifadesi (s.707)** | I = k(P + sᵢ) + z√(P + sᵢ): gereken stok ikmale kadar geçen süreye bağlı. s.708: klasik kanbanda talep bilgisi ancak tren istasyona ve depoya ulaşınca iletilir; *"if this value [sᵢ] is close to C, electronic and regular kanban systems will be almost the same"* → **R + L ↔ L mekanizmasının alandaki dayanağı** |
+| **Bulgular (s.709–711)** | Eşit duruşta AEK/e-Kanban klasik kanbandan daha az MLSI (istasyon 1'de %22,2 … istasyon 5'te %0); bin kapasitesi küçüldükçe MLSI azalır; araç kapasitesi ortalama talebin altına inince klasik kanban bozulur |
+| **Bizimle ilişki** | Tek (ama adil) taban kullanır; tabanlar arası duyarlılığı incelemez → **ana açık durur**. C kuralı sonucumuz (dijital daha az WIP) ile **tutarlı** — dış tutarlılık kanıtı. Rota sabit çevrimli (bizde olay tabanlı). |
 
 ## E2 — Ciemnoczolowski & Bozer (2013) Part 2 ✅ EDİNİLDİ VE OKUNDU (03.11.2026)
 

@@ -1097,6 +1097,16 @@
 | **Açık kalan** | Alnahhal, Ramadan & Noche (2016) tam metni (en olası tehdit; kanban sayısının nasıl belirlendiği bilinmiyor) — yazarın doktora tezi DuEPublico'da. |
 | **Tarih** | 04.11.2026 |
 
+### K108 — Alnahhal, Ramadan & Noche (2016) Okundu: Son Tehdit Kapandı ✅
+| Özellik | Değer |
+|---------|-------|
+| **Eşitleme tabanı (s.709)** | *"investigated for a starvation level of 3 ± 0.5 %. … several trials with different starting inventory levels were tried until the appropriate one was found"* → **açık eşit hizmet düzeyi**, başlangıç stoku her sistem için ayrı ayarlanmış (bizim C kuralı; Bonvik 1997 yaklaşımının milk-run karşılığı). |
+| **Ana açığa etkisi** | **Çürütmez.** Tek bir (adil) taban kullanılmış, tabanlar arası duyarlılık incelenmemiş. K107'deki daraltılmış ifade ("tek bir taban; bazen açık, çoğunlukla örtük") doğrulandı: açık taban kullanan milk-run çalışmaları Alnahhal & Noche (2015) ve Alnahhal vd. (2016). |
+| **Dış tutarlılık** | Eşit duruşta e-Kanban/AEK daha az hat stoku (s.709–711) ↔ bizim C kuralında dijital daha az WIP (Tablo 3, K105). |
+| **Mekanizmaya dayanak** | Tampon I = k(P + sᵢ) + z√(P + sᵢ) (s.707); klasik kanbanda talep bilgisi tren gelince iletilir, sᵢ → C iken iki sistem eşitlenir (s.708) → eşit kart tabanında sıralamanın olay tabanlı sistem lehine dönmesinin (R + L ↔ L) bu alandaki doğrudan dayanağı. |
+| **Güncellenen** | `literatur_boslugu_analizi.md` §4.1.1, §4.1.3b, §5 (Alnahhal tartışma paragrafı tam metne göre yeniden yazıldı), §7; `master_makale_katalogu.md` E1; kaynakça [16]. **Edinilecek kritik kaynak kalmadı.** |
+| **Tarih** | 04.11.2026 |
+
 ---
 
 *Bu dosya her yeni kararla güncellenir.*

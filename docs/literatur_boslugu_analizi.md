@@ -93,7 +93,7 @@ karşılaştırır, ancak tamponu politikanın çevrim süresinden **türetmez**
 | **Alnahhal & Noche (2015)** s.117 | Talep-odaklı ↔ Kanban ↔ kendi yöntemleri | *"K values were chosen so that fill rate is greater than or equal to 99%"* | **KISMEN** — eşitleme ölçütü *hizmet düzeyi*, çevrim süresi değil |
 | **Pekarcikova vd. (2020, 2021)** | Mevcut durum ↔ e-Kanban | `KanbanBuffer` min 10 / maks 50 / çekme 15 — sabit | **HAYIR** |
 | **Menanno vd. (2023)** s.14 | Geleneksel Kanban ↔ IT tabanlı Kanban + MRS | $Q_{min}$ 35–55 aralığı taranmış | **HAYIR** — tek sistemin optimizasyonu |
-| **Alnahhal, Ramadan & Noche (2016)** | Push ↔ Kanban ↔ e-Kanban ↔ AEK | Erişilemedi (klasörde yok); özette boyutlandırma ölçütü belirtilmiyor | **BİLİNMİYOR** ⚠️ |
+| **Alnahhal, Ramadan & Noche (2016)** s.709 | Push ↔ Kanban ↔ e-Kanban ↔ AEK | *"investigated for a starvation level of 3 ± 0.5 %. To get this level … several trials with different starting inventory levels were tried"* → **açık eşit hizmet düzeyi**, her sistem için başlangıç stoku ayrı ayarlanmış (K108) | **KISMEN** — adil tek taban (C kuralı), ama kurallar karşılaştırılmıyor |
 
 #### 4.1.2 Kol A'ya eklenen iki kaynak (26.10.2026'da edinildi ve okundu)
 
@@ -140,7 +140,7 @@ Periyodik (milk-run) ile olay tabanlı (talep üzerine / e-Kanban) beslemeyi kar
 |---|---|---|
 | **Bae, Evans & Summers (2016)**, WSC, s.2860–2867 | Her iki sistemde **aynı akış raf**; duruş "teslimler arası > 45 dk" olarak politikadan bağımsız tanımlı → örtük **eşit kart** | Tek araçla talep üzerine sistemde duruş milk-run'ın **≈4 katı**; iki araçla fark yok → **milk-run önde** |
 | **Vojdani & Drechsler (2022)** s.5–6 | Her iki sistemde **aynı iki kutulu Kanban** → eşit kart | Dijital %27 daha az sefer, %29 daha az yol → **dijital önde** (taşıma ölçütlerinde) |
-| **Alnahhal vd. (2016)** (özetten) | Bilinmiyor | **Koşullu** (araç kapasitesine bağlı) |
+| **Alnahhal vd. (2016)** s.709–710 | **Açık eşit hizmet**: duruş %3 ± 0,5'te sabitlenip başlangıç stoku her sistem için ayarlanmış (C kuralı) | Eşit duruşta e-Kanban/AEK daha az hat stoku; kapasite kıtlığında AEK en iyi → **koşullu**; bizim C kuralı sonucumuzla tutarlı |
 | **Bu çalışma (K97/K105)** | Dört kural yan yana | Aynı sistemde kurala göre **iki yönde de** sonuç üretilebilir (Toyota kutularında B → geleneksel, A/C/D → dijital) |
 
 → **Konumlandırma cümlesi:** Yazındaki çelişkili sıralamaların bir kısmı, karşılaştırmada
@@ -332,16 +332,21 @@ aynı mantığı kullanır. Bu öğe katkı değil, yöntemdir.
 
 ### Tartışma — Alnahhal vd. (2016) ile ilişkilendirme (ZORUNLU)
 
-> ⚠️ Alnahhal vd. (2016) tam metnine erişilememiştir; aşağıdaki paragraf yalnızca
-> çalışmanın özetine dayanır. Yazarın doktora tezi (Duisburg-Essen) edinilirse
-> eşitleme yöntemi kontrol edilip paragraf güncellenmelidir.
+> ✅ Tam metin okundu (04.11.2026, K108).
 
-> Bulgularımız Alnahhal vd. (2016) ile aynı yöndedir: her iki çalışmada da politikalar
-> arasındaki üstünlük koşullara bağlıdır. İki çalışma farklı mekanizmalara işaret
-> etmektedir: Alnahhal vd. üstünlüğü bilgi akışının hızına (RFID ile ayarlanmış
-> e-Kanban) ve araç kapasitesine bağlarken, bu çalışma karşılaştırmanın nasıl adil
-> kılındığının sonucu tek başına değiştirebildiğini göstermektedir. Ayrıca Alnahhal vd.
-> sabit rota varsayarken, bu çalışmada rota olay tabanlı olarak yeniden kurulmaktadır.
+> Alnahhal vd. (2016) sistemleri eşit duruş düzeyinde (%3 ± 0,5) karşılaştırmış, her
+> sistem için başlangıç stokunu ayrı ayarlamış ve eşit duruşta elektronik kanbanın daha az
+> hat stoku gerektirdiğini bulmuştur (s.709–710). Bu sonuç, bu çalışmadaki eşit hizmet
+> düzeyi kuralının (C) sonucuyla tutarlıdır. Ancak Alnahhal vd. tek bir eşitleme tabanı
+> kullanmış; bu tabanın seçimiyle sonucun nasıl değiştiğini incelememiştir. Bu çalışma aynı
+> sistemde dört tabanı yan yana koyarak, tek tabanlı karşılaştırmaların farklı çalışmalarda
+> neden ters sıralamalar verebildiğini göstermektedir. Ayrıca Alnahhal vd.'nin tampon
+> ifadesi I = k(P + sᵢ) + z√(P + sᵢ) (s.707) ve *"if this value [sᵢ] is close to C,
+> electronic and regular kanban systems will be almost the same"* (s.708) gözlemi, gereken
+> tamponun ikmal bilgisinin gecikmesine bağlı olduğunu gösterir; bu, sıralamanın eşit kart
+> tabanında neden olay tabanlı sistem lehine döndüğünün (R + L ↔ L) bu alandaki doğrudan
+> dayanağıdır. Son olarak Alnahhal vd. sabit çevrimli rota varsayarken, bu çalışmada rota
+> olay tabanlı olarak yeniden kurulmaktadır.
 
 ### Tartışma — Sugimori vd. (1977) ve uyarlanan ROP
 
@@ -381,7 +386,7 @@ bölümü; denetim: `python -X utf8 -m src.kaynak_arsivi_denetimi`.
 
 | Durum | Çalışma | Ne kattı |
 |---|---|---|
-| 🔴 **Edinilemedi** | **Alnahhal, Ramadan & Noche (2016)**, *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*, Dynamics in Logistics, Springer, doi:10.1007/978-3-319-23512-7_70 | Ana karşılaştırmanın en yakın öncülü. Yalnızca özetten atıf yapılır; yazarın açık erişimli doktora tezi (Duisburg-Essen, DuEPublico) aynı çalışmayı içerir |
+| ✅ Okundu (K108) | **Alnahhal, Ramadan & Noche (2016)**, *Static Versus Dynamic Control of Material Flow in In-Plant Milk Run System*, Dynamics in Logistics, Springer, doi:10.1007/978-3-319-23512-7_70 | Açık eşit hizmet tabanı (s.709); tampon ifadesi ve R+L ↔ L mekanizmasına dayanak (s.707–708) |
 | ✅ Okundu | **Ciemnoczolowski & Bozer (2013) Part 2**, IJPR 51(2):568–581 | Kanban alt sınırı çevrim süresiyle büyür (s.570); duruşu çevrim süresinden çok kanban sayısı belirler (s.568) — K104 |
 | ✅ Okundu | **Bozer & Ciemnoczolowski (2013) Part 1**, IJPR 51(2):555–567 | P2/P3 sınıflandırmasının ikinci dayanağı (s.555) — K103 |
 | ✅ Okundu | **Bocewicz vd. (2019)**, MPER 10(3):41–53 | Filo ↔ tampon ilkesi (s.45) — 4.1.2 |
