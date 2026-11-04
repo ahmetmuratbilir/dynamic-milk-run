@@ -1079,7 +1079,8 @@
 | **Yeni Kol B kaynağı** | **Bae, Evans & Summers (2016)**, WSC (açık erişim, `ek_kaynaklar/E11_…pdf`): milk-run ↔ talep üzerine besleme; iki sisteme **aynı raf**, duruş "teslimler arası > 45 dk" (örtük eşit kart). Tek araçla talep üzerine sistemde duruş milk-run'ın **≈4 katı** (s.2867, Sonuç). Vojdani (2022) ise dijitali önde bulur → **alanda çelişkili sıralamalar**. |
 | **Rakip yazın** | Karşılaştırma tabanının sonucu etkilediği **üretim kontrolü yazınında bilinir**: Bonvik, Couch & Gershwin (1997) eşit hizmet düzeyi; kanban–CONWIP'te eşit WIP / eşit çıktı tabanları ve çelişen sonuçlar; Geraghty & Heavey (2005) hizmet–envanter eğrileri; Enns (2008) adil push–CONWIP; Amos vd. her mekanizmanın önce optimize edilmesi. |
 | **Karar** | Ana katkı şöyle konumlanır: genel ilke yenilik **değildir**; yenilik bu ilkenin **hat besleme/milk-run alanına taşınması**, alanda kullanılan **dört somut kuralın** sayısal karşılaştırılması ve **çelişkili bulguların** (Bae 2016 ↔ Vojdani 2022) eşitleme kuralıyla açıklanabileceğinin gösterilmesidir. Giriş ve Tartışma'da üretim kontrolü yazınına atıf **zorunludur**. |
-| **Eylem** | Bonvik vd. (1997) ve Geraghty & Heavey (2005) edinilmeli (kapalı erişim). Güçlendirme seçeneği: tek araçla K97 tekrarlanıp Bae (2016) yönündeki sonucun aynı sistemde üretilip üretilmediği test edilebilir. |
+| **Kaynak durumu (04.11.2026)** | Geraghty & Heavey (2005) ve Bonvik vd. (1997) **edinildi ve okundu**: ikisi de stratejileri her biri kendi en iyi ayarıyla **hizmet düzeyi–envanter eğrisi** üzerinde karşılaştırır (G&H §5 s.448–454; Bonvik Şekil 5 ve Tablo 2, s.797–798). Önerimizin yerleşik karşılığıdır. |
+| **Eylem** | ~~Bonvik vd. (1997) ve Geraghty & Heavey (2005) edinilmeli~~ ✅. Güçlendirme seçeneği: tek araçla K97 tekrarlanıp Bae (2016) yönündeki sonucun aynı sistemde üretilip üretilmediği test edilebilir. |
 | **Dosya** | `literatur_boslugu_analizi.md` §4.1.3b–c |
 | **Tarih** | 04.11.2026 |
 

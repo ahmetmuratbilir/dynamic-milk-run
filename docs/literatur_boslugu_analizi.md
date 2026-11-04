@@ -152,8 +152,12 @@ Karşılaştırma tabanının sonucu etkilediği fikri **üretim kontrolü (kanb
 yazınında bilinmektedir**; makalede mutlaka atıf yapılmalı ve katkı buna göre
 konumlandırılmalıdır:
 
-- **Bonvik, Couch & Gershwin (1997)**, IJPR: mekanizmaları **eşit hizmet düzeyinde**
-  (%99,9 için gereken en az envanter) karşılaştırır.
+- **Bonvik, Couch & Gershwin (1997)**, IJPR 35(3):789–804 ✅ *okundu (04.11.2026)*: beş politika
+  *"the tradeoff between service level and inventory"* eğrisinde karşılaştırılır (Şekil 5,
+  s.797); ardından *"Find a configuration that gives a 99.9% service level using the least
+  possible total inventory"* (s.797) → her politika **kendi en iyi ayarıyla, eşit hizmet
+  düzeyinde** (Tablo 2, s.798). Bizim C kuralının titiz biçimi; bizde kart sayısı tüm
+  istasyonlara aynı kaydırmayla değiştirildi, istasyon bazında optimize edilmedi (sınırlılık).
 - Kanban–CONWIP karşılaştırmalarının bir kısmı **eşit WIP**, bir kısmı **eşit çıktı** tabanını
   kullanır ve sonuçlar çelişir; ayrıca kanban/CONWIP yalnızca **en çok** WIP'i kontrol eder,
   ortalama WIP sonuçtur (Framinan, Gonzalez & Ruiz-Usano 2003 derlemesi ve atıf yapanlar).
@@ -173,7 +177,7 @@ kullanılan **dört somut kuralın** (eşit kart, politika-tutarlı formül, eş
 aynı sistemde **sayısal olarak** karşılaştırılması ve (c) alandaki **çelişkili bulguların**
 bununla açıklanabileceğinin gösterilmesidir. ⚠️ Bonvik (1997) ve Geraghty & Heavey (2005) tam
 metinleri edinilip okunmalıdır (kapalı erişim). — Geraghty & Heavey (2005) 04.11.2026'da
-edinildi ve okundu; Bonvik vd. (1997) hâlâ eksik.
+edinildi ve okundu; Bonvik vd. (1997) de 04.11.2026'da edinildi ve okundu.
 
 **Makale cümlesi (Tartışma):** Üretim kontrolü yazınında stratejiler hizmet düzeyi–envanter
 eğrisi üzerinden, her strateji kendi en iyi parametreleriyle karşılaştırılmaktadır (Geraghty
