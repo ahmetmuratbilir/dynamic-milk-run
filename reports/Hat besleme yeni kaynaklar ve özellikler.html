@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hat besleme yeni kaynaklar</title><style>
+:root{--bg:#f7f6f2;--kart:#ffffff;--yazi:#1d2733;--ikincil:#4f5966;--vurgu:#1f5f99;--cizgi:#dcd8cc;--alinti:#eef3f8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15191f;--kart:#1d232b;--yazi:#e8e6e1;--ikincil:#aab3be;--vurgu:#7fb2e5;--cizgi:#333b45;--alinti:#1f2a36}}
+:root[data-theme="dark"]{--bg:#15191f;--kart:#1d232b;--yazi:#e8e6e1;--ikincil:#aab3be;--vurgu:#7fb2e5;--cizgi:#333b45;--alinti:#1f2a36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--yazi);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 80px}
+h1{font-size:32px;line-height:1.2;margin:0 0 8px}
+h2{font-size:24px;margin:48px 0 12px;padding-top:16px;border-top:2px solid var(--cizgi);color:var(--vurgu)}
+h3{font-size:19px;margin:28px 0 8px}
+p,li{color:var(--yazi)}
+hr{border:0;border-top:1px solid var(--cizgi);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:15px;background:var(--kart);display:block;overflow-x:auto}
+th,td{border:1px solid var(--cizgi);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--alinti)}
+blockquote{margin:16px 0;padding:14px 18px;background:var(--alinti);border-left:4px solid var(--vurgu);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+strong{color:var(--yazi)}
+code{background:var(--alinti);padding:1px 5px;border-radius:4px}
+</style></head>
+<body><main><h1>Yeni yazın iddiamızı çürütmüyor, sınırlarını çiziyor</h1>
+<p>2023–2026 arasında yayımlanan tesis içi milk-run ve çekici tren çalışmaları iki iddiamızı da çürütmüyor. Hiçbiri eşitleme kuralını deney değişkeni yapmıyor. Hiçbiri de duruşu kanban sayısı, araç sayısı ve araç kapasitesi arasında stokastik talep altında ayrıştırmıyor. Taranan 26 kaydın büyük kısmı ya deterministik rotalama ve çizelgeleme modeli, ya da dijital sistemi şirketin mevcut (önceki) durumuyla karşılaştıran çalışmalar. Bu ikinci grup (Menanno vd. 2023; Facchini vd. 2024; Akkad ve Bányai 2023) "tek ve örtük taban" tespitimizi güncel örneklerle <strong>güçlendiriyor</strong>. Tek kısmi tehdit <strong>Tappia vd. (2025, IJCIM)</strong>. Bu çalışma gerçek zamanlı ve periyodik gözden geçirmeli beslemeyi iki tabanda karşılaştırıyor: eşit tampon ve eşit hizmet hedefi. Ama tabanı kavramsal bir değişken olarak ele almıyor, kazanan hiçbir tabanda değişmiyor ve sistem AMR filosu. Makalede mutlaka atıf alıp ayrıştırılmalı. Özeti alınamayan Li vd. (2026, C&amp;OR) gönderimden önce okunmalı. Modele en ucuz ve en değerli eklemeler ana bulgunun sınırlarını sınayanlar: her politikanın kendi en iyi kart ayarında karşılaştırılması (Bonvik vd. 1997 tarzı), araç arızası ve tur gecikmesi, e-Kanban sinyal kaybı. Bunlara bir de dar araç kapasitesiyle ikinci açığın tekrarı eklenmeli, çünkü deneyimizde araç kapasitesi hiç bağlamadı ve kapasitenin düşük η² payı bu yüzden tartışmaya açık. Kaynakçada en büyük risk, Kundu vd.'nin (2019) "politika karşılaştırması iyi çalışılmış" derken atıf verdiği beş kanonik eserin ve iki temel derlemenin eksik olması. Ayrıca Bae vd. (2016) sayfa aralığı ve Lieb (2021) yazar adı yanlış, metinde atıf yapılan Alnahhal, Ridwan ve Noche (2014) ise listede hiç yok.</p>
+<h2>Yeni çalışmalar dijital üstünlüğü hep mevcut duruma karşı ölçüyor</h2>
+<p>Tarama OpenAlex, Crossref ve Semantic Scholar üzerinden ve 2022 sonrası tarih filtresiyle yapıldı. Bozer ve Ciemnoczolowski (2013) Kısım 1'e, Alnahhal ve Noche'nin (2015) çalışmalarına ve Faccio vd.'ye (2013) atıf yapan 2023 sonrası eserler de çekildi. Yalnızca DOI'si Crossref'te doğrulanan eserler alındı (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/yeni_calismalar_2023_2026.md">tarama notu</a>). Sonuç net: <strong>karşılaştırma tabanını açıkça değişken yapan ya da kıyas yanlılığını tartışan 2023–2026 tarihli bir hat besleme çalışması bulunamadı.</strong> Bunun yerine baskın örüntü, dijital veya dinamik sistemi şirketin önceki uygulamasıyla kıyaslamak. Menanno, Savino ve Shafiq (2023) IT tabanlı Kanban'ı yapay zekâ ile birleştirip <strong>istasyon açlığında %43, WIP'te %22 düşüş</strong> raporluyor; taban tesisin önceki durumu, kart ya da hizmet eşitlemesi özette yok (<a href="https://www.tandfonline.com/doi/full/10.1080/21693277.2023.2179123">T&amp;F</a>). Facchini, Mossa, Sassanelli ve Digiesi (2024, IJPR) IoT destekli dinamik tugger rotalamasını "mevcut tesis içi lojistik stratejisine" karşı değerlendiriyor (<a href="https://doi.org/10.1080/00207543.2023.2254408">DOI</a>). Adenipekun, Limère ve Schmid (2025) şirketin mevcut atamasına göre <strong>%56 maliyet düşüşü</strong> buluyor (<a href="https://doi.org/10.1287/inte.2023.0039">DOI</a>). Bu çalışmalar Vojdani ve Drechsler (2022) çizgisindeki "dijital önde" yargısını tekrarlıyor. Tabanı tartışmadıkları için de giriş bölümümüzdeki "tek ve çoğunlukla örtük taban" cümlesinin güncel dayanağı olabiliyorlar.</p>
+<p>İkinci destek kümesi kapasite rejimiyle ilgili. Bulgu 4 şunu söylüyor: tek araçta periyodik sistem önde, yeterli filoda ise eşit rafla dijital önde (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, Açık 2</a>). Tappia vd. (2025) da karşılaştırmanın filo kapasitesi rejimine bağlı olduğunu bağımsız bir sistemde gösteriyor. AMR kullanımı %70'in üzerindeyken gerçek zamanlı çizelgelemenin üstünlüğü büyük. Filo büyüdükçe kapasite yeterli hâle geliyor ve <strong>gerçek zamanlı veri kullanılmadan da düşük boş kalma</strong> elde ediliyor (<a href="https://pure.tue.nl/ws/files/356606327/Part_feeding_scheduling_for_mixed-model_assembly_lines_with_autonomous_mobile_robots_benefits_of_using_real-time_data.pdf">TU/e tam metin</a>). Ancak kıt kapasitedeki yön ters. Tappia'da kıt filoda dinamik politika en büyük farkla önde; bizde ve Bae vd.'de tek araçta periyodik sistem önde. Ortak nokta, sıralamanın kapasite rejimine bağlı olması; yönün kendisi aynı değil. Bir hakem bu farkı sorabilir. Olası açıklama şu, ama bir çıkarım: Tappia'nın dinamik politikası sistem durumunu kullanan optimize bir çizelge. Bizim P3'ümüz ise tek araçta sık ve küçük turlarla aracı doyuruyor. Bu ayrım Tartışma'da açıkça yazılmalı. Sevim ve Görkemli Aykut (2026, PAJES) etmen tabanlı dinamik milk-run modelinden <strong>"sistem boyutuna uygun, düşük kapasiteli çok sayıda tren"</strong> önerisi çıkarıyor (<a href="https://dergipark.org.tr/tr/pub/pajes/article/1813322">DergiPark</a>). Bu, araç sayısının araç kapasitesinden belirleyici olduğu η² bulgumuzla niteliksel olarak tutarlı. Peng vd. (2024, JORS) de çekici kapasitesindeki değişimin toplam maliyeti bölünen yol sayısı üzerinden etkilediğini gösteriyor (<a href="https://doi.org/10.1080/01605682.2024.2310042">DOI</a>). Pencere dışında kalan bir kanıt da var: WSC 2016'daki milk-run vakasında tek trende talebe dayalı sistem toplam açlığı yaklaşık <strong>dört katına</strong> çıkarıyor, iki trende fark kayboluyor (<a href="https://www.informs-sim.org/wsc16papers/251.pdf">WSC16 PDF</a>). Proje kayıtları aynı "≈4 kat" bulgusunu Bae vd.'ye (2016) atfediyor (<a href="../docs/karar_gunlugu.md">karar günlüğü</a>). Bu yüzden bu PDF büyük olasılıkla aynı makale, ama eşleşme ayrıca teyit edilmedi.</p>
+<p>Aşağıdaki tablo makaleye girmeye aday 2023–2026 çalışmalarını listeliyor. Geri kalanlar bizim iddiamız açısından nötr ve yalnızca literatür paragrafında toplu olarak anılabilir. Bunlar deterministik rotalama, yükleme ve çatışma önleme modelleri (Xia vd. 2023; Gündüz Mengübaş vd. 2024; Diefenbach vd. 2023), stratejik hat besleme modelleri (Schmid vd. 2024; Verplancke vd. 2026) ve tesis dışı milk-run (Baals vd. 2026) (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/yeni_calismalar_2023_2026.md">tarama tablosu</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Çalışma</th>
+<th>Künye, DOI</th>
+<th>Açık erişim</th>
+<th>Ne katıyor</th>
+<th>Bize etkisi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tappia, Moretti, Mohring, Adan (2025)</td>
+<td>IJCIM 38(4):485–500, <a href="https://doi.org/10.1080/0951192X.2024.2380276">10.1080/0951192X.2024.2380276</a></td>
+<td>Evet (TU/e Pure)</td>
+<td>Gerçek zamanlı çizelgeleme, periyodik gözden geçirmeli statik plana göre boş kalmayı %93–95 azaltıyor; fark filo büyüdükçe küçülüyor; eşit hizmette depolama–filo ödünleşimi doğrusal değil</td>
+<td>Destek (kapasite rejimi) ve <strong>kısmi tehdit</strong> (iki taban)</td>
+</tr>
+<tr>
+<td>Menanno, Savino, Shafiq (2023)</td>
+<td>PMR 11(1):2179123, <a href="https://doi.org/10.1080/21693277.2023.2179123">10.1080/21693277.2023.2179123</a></td>
+<td>Evet</td>
+<td>IT-Kanban ve yapay zekâ: açlık −%43, WIP −%22, önce-sonra kıyası</td>
+<td>Destek (örtük taban); listede [7] var</td>
+</tr>
+<tr>
+<td>Facchini, Mossa, Sassanelli, Digiesi (2024)</td>
+<td>IJPR 62(1–2):536–555, <a href="https://doi.org/10.1080/00207543.2023.2254408">10.1080/00207543.2023.2254408</a></td>
+<td>Hayır</td>
+<td>IoT dinamik tugger rotalama, mevcut stratejiye karşı</td>
+<td>Destek (örtük taban); listede yok</td>
+</tr>
+<tr>
+<td>Akkad ve Bányai (2023)</td>
+<td>Processes 11(3):799, <a href="https://doi.org/10.3390/pr11030799">10.3390/pr11030799</a></td>
+<td>Evet</td>
+<td>Siber-fiziksel milk-run: performans ve enerji iyileşmesi; taban özette yok</td>
+<td>Zayıf destek</td>
+</tr>
+<tr>
+<td>Sevim ve Görkemli Aykut (2026)</td>
+<td>PAJES 32(1):62–71, <a href="https://doi.org/10.5505/pajes.2025.39960">10.5505/pajes.2025.39960</a></td>
+<td>Evet</td>
+<td>Çok sayıda düşük kapasiteli tren önerisi; TR Dizin emsali</td>
+<td>Dolaylı destek (Bulgu 5); listede [6] var</td>
+</tr>
+<tr>
+<td>Peng, Wu, Shao, Xia (2024)</td>
+<td>JORS 75(11):2185–2199, <a href="https://doi.org/10.1080/01605682.2024.2310042">10.1080/01605682.2024.2310042</a></td>
+<td>Hayır</td>
+<td>Çekici kapasitesi maliyeti yol sayısı üzerinden etkiliyor</td>
+<td>Dolaylı destek (Bulgu 5)</td>
+</tr>
+<tr>
+<td>Helber, Kellenbrink, Südbeck (2023/24)</td>
+<td>OR Spectrum 46(3):669–708, <a href="https://doi.org/10.1007/s00291-023-00737-9">10.1007/s00291-023-00737-9</a></td>
+<td>Evet</td>
+<td>Sabit frekanslı, tamamlama düzeyine kadar (order-up-to) stokastik ikmalin akış hattı verimine etkisi, analitik</td>
+<td>Nötr; P2'yi (R,S) olarak modelleme dayanağı</td>
+</tr>
+<tr>
+<td>Li, Si, Mei, Wang (2026)</td>
+<td>C&amp;OR 194:107565, <a href="https://doi.org/10.1016/j.cor.2026.107565">10.1016/j.cor.2026.107565</a></td>
+<td>Hayır</td>
+<td>Doğrudan ve tamponlu teslimat stratejisi seçimi; özet alınamadı</td>
+<td><strong>Doğrulanmadı, okunmalı</strong></td>
+</tr>
+<tr>
+<td>Chen, Rahman, Zhou vd. (2023)</td>
+<td>C&amp;IE 178:109101, <a href="https://doi.org/10.1016/j.cie.2023.109101">10.1016/j.cie.2023.109101</a></td>
+<td>Evet (Newcastle deposu)</td>
+<td>Gerçek zamanlı veriyle proaktif besleme; özet kısmi</td>
+<td>Olası "dijital önde" desteği, doğrulanmadı</td>
+</tr>
+<tr>
+<td>Miqueo vd. (2023)</td>
+<td>Machines 11(1):66, <a href="https://doi.org/10.3390/machines11010066">10.3390/machines11010066</a></td>
+<td>Evet</td>
+<td>Beyaz eşya DES vakası, milk-run hattı aksaklıklardan koruyor; Bozer ve Ciemnoczolowski'ye atıf</td>
+<td>Nötr; tam metin okunamadı</td>
+</tr>
+<tr>
+<td>Zhou ve Wen (2024)</td>
+<td>C&amp;IE 190:110080, <a href="https://doi.org/10.1016/j.cie.2024.110080">10.1016/j.cie.2024.110080</a></td>
+<td>Hayır</td>
+<td>RL destekli çok amaçlı milk-run besleme ve çizelgeleme</td>
+<td>Nötr; listede [26] var; C&amp;IE emsali</td>
+</tr>
+<tr>
+<td>Elloumi, Ammar, Benaissa (2025)</td>
+<td>JIPE 42(6):612–624, <a href="https://doi.org/10.1080/21681015.2025.2474082">10.1080/21681015.2025.2474082</a></td>
+<td>Bilinmiyor</td>
+<td>Uyarlanabilir kanban, simülasyonla optimizasyon</td>
+<td>Nötr; listede [4] var, DOI eksik</td>
+</tr>
+</tbody>
+</table>
+<h2>Tappia vd. (2025) tek kısmi tehdit ve dört noktada ayrışıyor</h2>
+<p>Tappia vd. iki karşılaştırma tabanı kullanıyor. Ana deneyde kurulum eşit: <strong>3 AMR, istasyon ve parça tipi başına 2 yük birimi tampon, 23 istasyonlu U-hat, 92 parça tipi</strong>. Bu kurulumda gerçek zamanlı dinamik yaklaşım boş kalmayı statik FCFS'ye göre %95, statik optimizeye göre %93 azaltıyor. Hat stoğu da %10,9 ve %9 düşüyor. Bölüm 6.3'te ise boş kalma en çok %0,5 olacak biçimde sabitleniyor ve her politika için gereken depolama ile filo büyüklüğü arasındaki ödünleşim çiziliyor. Gerçek zamanlı yaklaşımın noktaları her filo büyüklüğünde orijine daha yakın (<a href="https://pure.tue.nl/ws/files/356606327/Part_feeding_scheduling_for_mixed-model_assembly_lines_with_autonomous_mobile_robots_benefits_of_using_real-time_data.pdf">TU/e tam metin</a>). Bir hakem bu çalışmaya bakıp "çok tabanlı kıyas zaten yapıldı" diyebilir. İtiraza dört farkla yanıt verilebilir. Birincisi, Tappia vd. tabanı adlandırmıyor ve sorunsallaştırmıyor; ikinci taban bir duyarlılık analizi olarak duruyor. İkincisi, <strong>kazanan iki tabanda da değişmiyor</strong>; bizde ise Toyota kutularında B kuralı geleneksel sistemi, A, C ve D kuralları dijitali kazandırıyor (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, Açık 1</a>). Üçüncüsü, eşit kart ve politikaya uygun (VDI 5586 / Urru 2018) boyutlandırma tabanları yok; tampon büyüklüğü kutu boyunun oransal küçültülmesiyle temsil ediliyor ve kart sayısı ayrı bir faktör değil. Dördüncüsü, sistem sabit rotalı tugger ya da milk-run değil, AMR filosu. "Periyodik" ölçüt de sabit taktlı milk-run değil, beklenen tüketime göre üretilmiş statik bir plan. Literatür bölümüne önerilen ayrıştırma cümlesi: <em>"Tappia vd. (2025) gerçek zamanlı ve statik beslemeyi eşit tampon ve eşit hizmet hedefinde karşılaştırır; ancak tabanı adlandırmaz ve sıralama iki tabanda da değişmez. Bu çalışma dört eşitleme kuralını tek bir sabit rotalı çekici tren modelinde yan yana koyarak sıralamanın kurala ve araç sayısı rejimine göre değiştiğini gösterir."</em></p>
+<p>Kalan riskler okunamamış metinlerden geliyor, okunmuş bir tehditten değil. <strong>Li vd. (2026, C&amp;OR)</strong> başlığına göre bir besleme stratejisi seçim problemi çalışıyor ve Alnahhal ve Noche'ye (2015) atıf veriyor. Özeti alınamadığı için tehdit olup olmadığı belirsiz (<a href="https://doi.org/10.1016/j.cor.2026.107565">DOI</a>). Chen vd. (2023) ile Miqueo vd. (2023) için de yalnız özet düzeyinde bilgi var. Daha eski iki büyük tehdit ise kapanmış durumda. Alnahhal, Ramadan ve Noche (2016) tam metinden okundu: tek kural (eşit hizmet) kullanıyor ve sonuçları bizim C kuralımızla tutarlı (K108) (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, B tablosu</a>). Lieb (2021) "stoktan türetilen zaman penceresi" katkısını önceden yapmış olduğu için o katkı listeden çıkarıldı (K107) (<a href="https://d-nb.info/1236343093/34">DNB</a>). Arama kapsamı da sınırlı. Google Scholar, Scopus ve WoS doğrudan sorgulanamadı. Ciemnoczolowski ve Bozer (2013) Kısım 2'ye ve Vojdani ve Drechsler (2022) ile Bae vd. (2016) çalışmalarına 2023 sonrası atıf yapanlar çekilemedi. IFAC-PapersOnLine, Procedia CIRP ve Almanca Logistics Journal bildirileri eksik kalmış olabilir (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/yeni_calismalar_2023_2026.md">tarama notu, boşluklar</a>). Bu nedenle makalede "yok" yerine <strong>"taradığımız yazında rastlanmadı"</strong> ifadesi korunmalı.</p>
+<h2>İkinci açık 2026 itibarıyla açık, ama araç kapasitesi hiç bağlamadı</h2>
+<p>2023–2026 dinamik tugger yazını ağırlıkla deterministik optimizasyondan oluşuyor: rotalama, çizelgeleme, yükleme, elektrikli araç şarjı ve çatışma önleme. Stokastik talep altında kart sayısı, araç sayısı ve araç kapasitesini birlikte değiştirip açlık varyansını ayrıştıran bir çalışma bulunamadı (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/yeni_calismalar_2023_2026.md">tarama notu, S2</a>). En yakın sonuç yine Tappia vd. (2025). Hedef boş kalmada filo küçüldükçe gereken depolama artıyor ve küçük filoda bir AMR eklemek depolama ihtiyacını belirgin biçimde düşürüyor. Ama kart sayısı ayrı bir faktör değil (<a href="https://pure.tue.nl/ws/files/356606327/Part_feeding_scheduling_for_mixed-model_assembly_lines_with_autonomous_mobile_robots_benefits_of_using_real-time_data.pdf">TU/e tam metin</a>). Dolayısıyla Ciemnoczolowski ve Bozer'in (2013, s.579) <em>"quantify the relative contributions of the number of Kanban and the tugger capacity to starvation"</em> çağrısına verdiğimiz yanıt bu tarama kapsamında önceliğini koruyor (<a href="../docs/papers/extracted_text/E10_Ciemnoczolowski2013_part2_kanban_starvation.txt">yerel tam metin</a>). Bulgumuz şu: araç sayısı η² ≈ %33, kart sayısı %20–33, aracın kutu kapasitesi %0–6; e-Kanban'da kart ile araç arasında %29'luk bir etkileşim var (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, Bulgu 5</a>). Bu bulgu Sevim ve Görkemli Aykut (2026) ile Peng vd. (2024) üzerinden dışarıdan da destekleniyor. Listede olmayan kanonik dayanak ise <strong>Emde ve Boysen (2012, EJOR)</strong>. Bu çalışma çekici sayısı ve kapasitesi ile hat yanı stok arasındaki ödünleşimi inceliyor ve "optimal çizelgeler optimal rotalardan daha önemli" sonucuna varıyor (<a href="https://doi.org/10.1016/j.ejor.2011.09.013">DOI</a>; <a href="https://ideas.repec.org/a/eee/ejores/v217y2012i2p287-299.html">IDEAS</a>). Bu yorum yalnız özetten geliyor, tam metinden doğrulanmalı.</p>
+<p>Bulgunun zayıf noktası hakemin göreceği yerde. Deneyimizde aracın kutu kapasitesi hiç dolmadı, doluluk <strong>en çok %57</strong> (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, Açık 4</a>). Bağlamayan bir kısıtın η² payının düşük çıkması kısmen tarama aralığının bir sonucu. Ciemnoczolowski ve Bozer de "tugger capacity" derken filo büyüklüğünü değil, tek bir çekicinin fiziksel kapasitesini kastediyor (<a href="Hat besleme literatür açığı.md">önceki rapor</a>). Bu yüzden "kapasite önemsiz" cümlesi ancak kapasitenin bağladığı bir rejimde (örneğin araç başına 5–10 kutu) tekrarlanırsa savunulabilir. Aksi halde doğru ifade "kapasite, bağlamadığı aralıkta önemsiz" olur. İkinci yöntemsel açık tekrar sayısı: faktöriyel deney 192 kombinasyonun her biri için <strong>yalnız 4 tekrar</strong> içeriyor (<a href="../docs/hocaya_anlatim.md">hocaya anlatım, Bulgu 5</a>). Hoad, Robinson ve Davies (2010) tekrar sayısının otomatik seçimi için standart kaynak ve listede yok (<a href="https://doi.org/10.1057/jors.2009.121">DOI</a>). Faktöriyel tasarım ve η² ayrıştırması için Kleijnen (2015) eklenmeli (<a href="https://doi.org/10.1007/978-3-319-18087-8">DOI</a>). η²'nin kendi yöntem kaynağı (örneğin Cohen 1988) aranmadı. Kesinti faktörlerini çok yönlü ANOVA ile sunmanın alan içi emsali de hazır: Korytkowski ve Karkoszka (2016) altı faktörlü 2²3²4² tasarım (360 senaryo × 3 tekrar) kullanıyor (<a href="https://doi.org/10.1007/s00170-015-7442-2">DOI</a>).</p>
+<h2>Üç ucuz uzantı ana bulgunun sınırlarını sınıyor</h2>
+<p>Yazında açıkça "gelecek çalışma" diye ilan edilen ve birden fazla bağımsız kaynakta geçen iki uzantı var. Birincisi <strong>araç arızası ve tur gecikmesi</strong>. Zhou ve Zhu (2020) modellerinin çekicilerin bozulmadığı varsayımına dayandığını yazıp <em>"tow train breakdowns … downtime of the assembly line"</em> konularını öneriyor (<a href="https://doi.org/10.1108/AA-01-2019-0013">DOI</a>). Türkçe yazındaki en yakın emsal Sevim ve Görkemli Aykut (2026) da <em>"station failures, inability to supply raw materials, train breakdowns"</em> diye yazıyor (<a href="https://dergipark.org.tr/tr/pub/pajes/article/1813322">DergiPark</a>). Korytkowski ve Karkoszka (2016) ise tur gecikmesini deney faktörü yapıyor ve uç durumda bile verimin <strong>en çok %15</strong> düştüğünü buluyor (<a href="https://doi.org/10.1007/s00170-015-7442-2">DOI</a>). İkincisi <strong>uyarlanabilir kanban ve ürün karması değişimi</strong>. Kundu vd. (2019, s.439) uyarlanabilir kanbanı ve varyant talep oranının simülasyon içinde değişmesini öneriyor (<a href="https://www.growingscience.com/ijiec/Vol10/IJIEC_2018_22.pdf">IJIEC</a>). Elloumi vd. (2025) çok ürünlü belirsiz ortamı ve kart ayarlamalarındaki aşırı düzeltme sorununu işaret ediyor (<a href="https://doi.org/10.1080/21681015.2025.2474082">DOI</a>). Bu ikinci uzantının çekirdeği (<code>dinamik_n</code>, K74) modelde zaten var. Eksik olan, ürün karması kaymasının talep modeline eklenmesi.</p>
+<p>Üçüncü bir küme e-Kanban'ın kendi zaafına dokunuyor. Facchini vd. (2022) malzemelerin <strong>%8'inin geç teslim edildiğini</strong> raporlayıp <em>"a more reliable data dissemination protocol"</em> öneriyor (<a href="https://www.sciencedirect.com/science/article/pii/S2405896322018420">ScienceDirect</a>). Menanno vd. (2023) fiziksel kart sisteminde <em>"missed cards"</em> ve kart kaybını aktarıyor (<a href="https://www.tandfonline.com/doi/full/10.1080/21693277.2023.2179123">T&amp;F</a>). Moretti, Tappia ve Melacini (2021) gerçek zamanlı verinin değerinin hâlâ ölçülmesi gerektiğini yazıyor (<a href="https://tore.tuhh.de/dspace-cris-server/api/core/bitstreams/4e9151cb-1f7f-4b8a-8b1a-347942ca4e4d/content">TUHH PDF</a>). Ciemnoczolowski ve Bozer (2013, s.579) ise aynı rotaya birden fazla çekici ekleyen <em>"chase method"</em> yönteminin açlığa etkisini açık soru olarak bırakıyor (<a href="../docs/papers/extracted_text/E10_Ciemnoczolowski2013_part2_kanban_starvation.txt">yerel tam metin</a>). Her politikayı kendi en iyi ayarında karşılaştırmak yazında bir "gelecek çalışma" ilanı değil, yerleşik bir yöntem. Bonvik, Couch ve Gershwin (1997, s.797–798) hedefi <em>"99.9% service level using the least possible total inventory"</em> olarak koyuyor ve her politikanın en iyi konfigürasyonunu 30 tekrarla raporluyor (<a href="../docs/papers/extracted_text/E13_Bonvik1997_production_line_control.txt">yerel tam metin</a>). Kundu vd. (2019, s.423) de Faccio vd.'yi (2013a) aktararak Toyota formülünün bütünleşik bir yaklaşım olmadan "kayda değer sonuç veremeyebileceğini" not ediyor (<a href="https://www.growingscience.com/ijiec/Vol10/IJIEC_2018_22.pdf">IJIEC</a>).</p>
+<p>Aşağıdaki tabloda efor tahminleri mevcut kod yapısına (<code>V2Parametre</code>, <code>n_ozel</code>, <code>dinamik_n</code>, <code>hiz_carpani</code>, <code>kutu_basi_servis_dk</code>, talep şoku altyapısı) bakılarak yapıldı ve çıkarım niteliğinde (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/eklenebilecek_ozellikler.md">özellik notu</a>). Dar kapasite tekrarı yazında bir uzantı ilanı değil. Ama ikinci açığın kendi sorusundan çıkıyor ve en ucuz kalem olduğu için listeye alındı.</p>
+<table>
+<thead>
+<tr>
+<th>Öncelik</th>
+<th>Uzantı</th>
+<th>Dayanak</th>
+<th>Katkı</th>
+<th>Efor</th>
+<th>En çok yarar sağladığı dergi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dar araç kapasitesiyle (5–10 kutu) ikinci açığın tekrarı ve tekrar sayısının gerekçelendirilmesi</td>
+<td>C&amp;B 2013 s.579; Bulgu 5 doluluk ≤%57; Hoad vd. 2010</td>
+<td>İkinci açığın en zayıf noktasını kapatır</td>
+<td>Çok düşük (parametre ve koşu)</td>
+<td>Hepsi; C&amp;IE ve J Sim için zorunluya yakın</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Her politika kendi optimumunda: hedef açlık ≤ ε altında en az WIP, istasyon bazında greedy kart tahsisi, ortak rastgele sayılarla (CRN)</td>
+<td>Bonvik vd. 1997; Kundu vd. 2019</td>
+<td>Beşinci, "adil üst sınır" kuralı; "Toyota formülü P2'yi haksız cezalandırıyor" itirazını kapatır; sonuç ne çıkarsa çıksın yayımlanabilir</td>
+<td>Düşük–orta</td>
+<td>J Sim, C&amp;IE, JTOM</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Araç arızası / tur gecikmesi (gecikme olasılığı ve süresi ya da MTBF/MTTR)</td>
+<td>Zhou ve Zhu 2020; Sevim ve Görkemli Aykut 2026; Korytkowski ve Karkoszka 2016; Alnahhal ve Noche 2015</td>
+<td>Talep şokunun arz tarafındaki karşılığı; P3'ün boştaki araçla telafi yeteneğini sınar; η²'ye yeni faktör</td>
+<td>Düşük (≈30–60 satır)</td>
+<td>JTOM, EMD, C&amp;IE</td>
+</tr>
+<tr>
+<td>4</td>
+<td>e-Kanban sinyal gecikmesi/kaybı ve fiziksel kart kaybı</td>
+<td>Facchini vd. 2022; Menanno vd. 2023; Alnahhal vd. 2014, 2016; Moretti vd. 2021</td>
+<td>P3 avantajının kaybolduğu sinyal güvenilirliği eşiğini (kırılma noktası eğrisi) verir</td>
+<td>Düşük (iki parametre)</td>
+<td>JTOM, EMD (Endüstri 4.0 bağlantısı), C&amp;IE</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Aynı takvimde çoklu araç için faz kaydırma ("chase method")</td>
+<td>C&amp;B 2013 s.579</td>
+<td>P2 için adil bir iyileştirme kuralı; birebir ilana yanıt</td>
+<td>Düşük</td>
+<td>C&amp;IE, J Sim</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Süpermarket toplayıcı kapasitesi (sonlu toplayıcı, kutu başına toplama süresi)</td>
+<td>Kundu vd. 2019 ("water spider"); Simić vd. 2020</td>
+<td>P3'ün sık ve küçük turlarının gizli maliyetini görünür kılar; kazananı değiştirebilir</td>
+<td>Düşük–orta</td>
+<td>C&amp;IE, FSMJ</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Kutu başına stokastik yükleme–boşaltma süresi (ergonomi vekili)</td>
+<td>Keuntje vd. 2017; Urru vd. 2018</td>
+<td>Gerçekçilik; durak başı sabit sürenin P3'ü cezalandırıp cezalandırmadığını sınar</td>
+<td>Düşük</td>
+<td>J Sim</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Ürün karması kayması (istasyonlar arası talep oranının vardiya içinde değişmesi)</td>
+<td>Kundu vd. 2019 s.439; Elloumi vd. 2025; Zhou ve Zhu 2020</td>
+<td>Toyota N'inin yanlış istasyona yığılmasını sınar</td>
+<td>Düşük–orta</td>
+<td><strong>FSMJ</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Yayımlanmış bir vakanın yeniden üretimi (Korytkowski 2016 hattı ya da C&amp;B analitik sonuçları)</td>
+<td>Korytkowski ve Karkoszka 2016; Körösi ve Duchoň 2026</td>
+<td>Sentetik veri eleştirisine en güçlü yanıt; dış geçerlilik</td>
+<td>Orta</td>
+<td><strong>J Sim</strong>, C&amp;IE</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Düzensiz (lumpy) talep, bileşik Poisson</td>
+<td>Alnahhal ve Noche 2015 s.118; Körösi ve Duchoň 2026</td>
+<td>Toyota/ROP'un normal varsayımını zorlar</td>
+<td>Düşük</td>
+<td>İkincil</td>
+</tr>
+<tr>
+<td>—</td>
+<td>AGV, batarya, sıkışma, RL, dijital ikiz</td>
+<td>Tugger trene özgü, birebir doğrulanmış ilan bulunamadı</td>
+<td>Yalnız kapsam genişletir, odak kaydırır</td>
+<td>Orta–yüksek</td>
+<td>Kaçınılmalı; yalnız "gelecek çalışma" cümlesinde anılmalı</td>
+</tr>
+</tbody>
+</table>
+<p>Öncelik 2, 3 ve 4 yeni bir konu açmıyor. Üçü de "kazanan eşitleme kuralına bağlıdır" bulgusunun sınır koşullarını test ediyor, bu yüzden hakem gözünde kapsam şişirme gibi durmuyorlar. Arıza ve sinyal kaybı mevcut talep şokuyla birlikte bir "talep şoku, arz şoku, bilgi şoku" üçlüsü oluşturuyor. Bu üçlü tek bir faktöriyel η² tablosunda sunulabilir; Korytkowski ve Karkoszka'nın ANOVA tasarımı bunun emsali (<a href="https://doi.org/10.1007/s00170-015-7442-2">DOI</a>). Öncelik 2'nin değeri sonucun yönünden bağımsız. P2 kendi optimumunda P3'e yetişirse ana mesaj "e-Kanban'ın avantajı bir boyutlandırma artefaktı" olur. Yetişemezse P3 lehine elimizdeki en adil kanıt olur (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/eklenebilecek_ozellikler.md">özellik notu</a>).</p>
+<p>Dergi hedefine göre seçim değişiyor. <strong>TR Dizin</strong> için (JTOM, Endüstri Mühendisliği Dergisi) en iyi paket arıza ve gecikme, politika başına optimum ve sinyal güvenilirliği. Arıza maddesi, Türkçe yazındaki en yakın emsalin (Sevim ve Görkemli Aykut 2026) kendi gelecek çalışma cümlesine doğrudan yanıt veriyor. O emsal varsayımsal 10 istasyonla ve 5 tekrarla kabul edildi (<a href="https://dergipark.org.tr/tr/download/article-file/5373787">PAJES tam metin</a>). JTOM'un kapsamı simülasyonu, envanteri ve üretim-taşımayı açıkça sayıyor; kabul oranı <strong>2022'de %83, 2025'te %73</strong> (<a href="https://dergipark.org.tr/en/pub/jtom/aim-and-scope">kapsam</a>; <a href="https://dergipark.org.tr/en/pub/jtom/rejection-statistics">istatistik</a>). Endüstri Mühendisliği Dergisi'nin kapsamı üretim sistemlerini ve yöneylem araştırmasını içeriyor (<a href="https://dergipark.org.tr/tr/pub/endustrimuhendisligi/page/7478">Dergi Hakkında</a>). Ancak 2020–2026 arasında bu dergide bir milk-run emsali bulunamadı. <strong>SCI-E</strong> tarafında Journal of Simulation yöntem ve doğrulama ağırlıklı. Burada politika başına optimum (CRN ile simülasyonla optimizasyon) ve yayımlanmış bir vakanın yeniden üretimi en değerli ikili; raporlama da STRESS-DES kontrol listesine uydurulmalı (<a href="https://www.equator-network.org/reporting-guidelines/strengthening-the-reporting-of-empirical-simulation-studies-introducing-the-stress-guidelines">EQUATOR</a>). Dergi rotalama stratejisi karşılaştıran bir çekici tren simülasyonunu daha önce yayımladı (Staab vd. 2016) (<a href="https://doi.org/10.1057/jos.2015.6">DOI</a>). C&amp;IE model ve karar odaklı. Burada politika başına optimum ile arızanın birleştiği faktöriyel tasarım öne çıkıyor; Alnahhal ve Noche (2015) ve Zhou ve Wen (2024) bu dergide yayımlandı (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0360835215001187">ScienceDirect</a>). FSMJ karma modelli ve esnek üretim odaklı. Bu dergiye ürün karması kayması özgü bir bağlantı kurar ve Golz vd. (2012) FSMJ'de yayımlanmış kanonik bir hat besleme çalışması (<a href="https://doi.org/10.1007/s10696-011-9116-1">DOI</a>). FSMJ'de 2018–2026 arasında çekici tren simülasyonu yayımlanıp yayımlanmadığı ise doğrulanmadı. Dergi bazlı bu öncelikler yayımlanmış örüntülerden çıkarılmış yargılar; hakem raporlarına dayanmıyor.</p>
+<h2>Kanonik eksikler konumlandırmayı, künye hataları güvenilirliği zayıflatıyor</h2>
+<p>En kritik eksik konumlandırmayla ilgili. Kundu vd. (2019, s.423) "besleme politikası karşılaştırması iyi çalışılmış" derken beş esere atıf veriyor: <strong>Limère vd. 2012, Golz vd. 2012, Sali vd. 2015, Faccio 2014, Caputo ve Pelagagge 2011</strong>. Bunların hiçbiri listemizde yok (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/eksik_kritik_kaynaklar.md">eksik kaynak notu</a>). Bu eserler besleme <em>biçimini</em> karşılaştırıyor (hat yanı stoklama, kitleme, sıralama); biz ise ikmal <em>tetikleyicisini</em> (periyodik ve e-Kanban) karşılaştırıyoruz. Bu ayrım açıkça yazılmazsa hakem "politika karşılaştırması zaten yapılmış" diyebilir. Alanın referans haritası olan iki derleme de eksik: Boysen vd. (2015, EJOR) ve Kilic ve Durmusoglu (2015). Üçüncü boşluk kavramsal çerçevede. Hopp ve Spearman'ın (2004) "çekme, WIP'e üst sınır koymaktır" tanımına göre P2 ve P3'ün ikisi de kart sınırlı çekme sistemi. Karşılaştırmamız bu yüzden itme ile çekme arasında değil, tetiklemenin zamana mı miktara mı bağlı olduğu arasında. Bonvik ve Enns analojisi bu tanım üzerine kurulmalı (<a href="https://doi.org/10.1287/msom.1030.0028">DOI</a>). Lolli vd. (2016) ve Gamberini vd. (2013) en yakın kanban besleme politikası karşılaştırmaları ve ikisi de açık erişimli. Özetlerine göre periyodik ve olay tabanlı tetiklemeyi karşılaştırmıyorlar, ama tam metinden kontrol edilmeleri gerekiyor.</p>
+<table>
+<thead>
+<tr>
+<th>Öncelik</th>
+<th>Eksik eser</th>
+<th>Künye ve DOI</th>
+<th>Neden</th>
+<th>Makaledeki yeri</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tappia vd. 2025</td>
+<td>IJCIM 38(4):485–500, <a href="https://doi.org/10.1080/0951192X.2024.2380276">10.1080/0951192X.2024.2380276</a></td>
+<td>Tek kısmi tehdit; ayrıştırma zorunlu</td>
+<td>Literatür + Tartışma</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Alnahhal, Ridwan, Noche 2014</td>
+<td>GOL 2014, IEEE, s.85–92, <a href="https://doi.org/10.1109/GOL.2014.6887421">10.1109/GOL.2014.6887421</a></td>
+<td>Metinde atıf var (Açık 5, Bulgu 6), listede yok</td>
+<td>Literatür, Bulgu 6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kundu'nun beşlisi</td>
+<td>Limère vd. 2012 IJPR 50(15):4046–4060 <a href="https://doi.org/10.1080/00207543.2011.588625">10.1080/00207543.2011.588625</a>; Golz vd. 2012 FSMJ 24(2):119–141 <a href="https://doi.org/10.1007/s10696-011-9116-1">10.1007/s10696-011-9116-1</a>; Sali vd. 2015 IJPR 53(5):1439–1459 <a href="https://doi.org/10.1080/00207543.2014.944630">10.1080/00207543.2014.944630</a>; Faccio 2014 IJAMT 72(1–4):543–560 <a href="https://doi.org/10.1007/s00170-014-5675-0">10.1007/s00170-014-5675-0</a>; Caputo ve Pelagagge 2011 IMDS 111(1):84–112 <a href="https://doi.org/10.1108/02635571111099749">10.1108/02635571111099749</a></td>
+<td>Besleme biçimi ve ikmal tetikleyicisi ayrımı</td>
+<td>Literatür (konumlandırma)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>İki derleme</td>
+<td>Boysen vd. 2015 EJOR 242(1):107–120 <a href="https://doi.org/10.1016/j.ejor.2014.09.065">10.1016/j.ejor.2014.09.065</a>; Kilic ve Durmusoglu 2015 Assembly Automation 35(1):57–68 <a href="https://doi.org/10.1108/AA-05-2014-047">10.1108/AA-05-2014-047</a></td>
+<td>Alanın referans haritası</td>
+<td>Giriş</td>
+</tr>
+<tr>
+<td>5</td>
+<td>İtme/çekme kurucuları</td>
+<td>Hopp ve Spearman 2004 MSOM 6(2):133–148 <a href="https://doi.org/10.1287/msom.1030.0028">10.1287/msom.1030.0028</a>; Spearman ve Zazanis 1992 OR 40(3):521–532 <a href="https://doi.org/10.1287/opre.40.3.521">10.1287/opre.40.3.521</a>; Spearman vd. 1990 IJPR 28(5):879–894 <a href="https://doi.org/10.1080/00207549008942761">10.1080/00207549008942761</a></td>
+<td>Karşılaştırma tabanının kavramsal temeli</td>
+<td>Giriş + Yöntem</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Simülasyon yöntemi</td>
+<td>Sargent 2013 J Sim 7(1):12–24 <a href="https://doi.org/10.1057/jos.2012.20">10.1057/jos.2012.20</a>; Kleijnen 2015 <a href="https://doi.org/10.1007/978-3-319-18087-8">10.1007/978-3-319-18087-8</a>; Hoad vd. 2010 JORS 61(11):1632–1644 <a href="https://doi.org/10.1057/jors.2009.121">10.1057/jors.2009.121</a> ve 61(9):1389–1403 <a href="https://doi.org/10.1057/jors.2009.87">10.1057/jors.2009.87</a>; Monks vd. 2019 STRESS, J Sim 13(1):55–67 <a href="https://doi.org/10.1080/17477778.2018.1442155">10.1080/17477778.2018.1442155</a></td>
+<td>Doğrulama/geçerleme, deney tasarımı, 4 tekrar sorusu, ısınma</td>
+<td>Yöntem</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Aynı TUM ekibi</td>
+<td>Klenk, Galka, Günthner 2015 IFAC-PoL 48(3):1882–1887 <a href="https://doi.org/10.1016/j.ifacol.2015.06.361">10.1016/j.ifacol.2015.06.361</a> (açık erişim); Staab vd. 2016 J Sim 10(2):137–143 <a href="https://doi.org/10.1057/jos.2015.6">10.1057/jos.2015.6</a></td>
+<td>Klenk 2012 ve Lieb 2021'e atıf yapan makaleden beklenir; Klenk 2015 hizmet düzeyiyle işletim stratejilerini kıyaslıyor</td>
+<td>Literatür + Bulgu 6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Milk-run tanım ve periyodik tasarım</td>
+<td>Kilic, Durmusoglu, Baskak 2012 IJAMT 62(9–12):1135–1146 <a href="https://doi.org/10.1007/s00170-011-3875-4">10.1007/s00170-011-3875-4</a>; Kilic ve Durmusoglu 2013 IJAMT 69(5–8):977–992 <a href="https://doi.org/10.1007/s00170-013-5082-y">10.1007/s00170-013-5082-y</a>; Satoglu ve Sahin 2013 IJAMT 65(1–4):319–332 <a href="https://doi.org/10.1007/s00170-012-4171-7">10.1007/s00170-012-4171-7</a></td>
+<td>P1/P2/P3 tanımları ve P2 boyutlandırması; Türk yazarlar TR Dizin hakemine tanıdık</td>
+<td>Giriş + Yöntem</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Kanban boyutlandırma</td>
+<td>Faccio, Gamberi, Persona 2013a IJPR 51(10):2997–3017 <a href="https://doi.org/10.1080/00207543.2012.751516">10.1080/00207543.2012.751516</a>; Faccio vd. 2013b J Manag Control 24(2):187–208 <a href="https://doi.org/10.1007/s00187-013-0175-1">10.1007/s00187-013-0175-1</a>; Nomura ve Takakuwa 2006 IJSIMM 5(4):155–166 <a href="https://doi.org/10.2507/IJSIMM05(4)3.066">10.2507/IJSIMM05(4)3.066</a>; Bortolini vd. 2015 Assembly Automation 35(1):128–136 <a href="https://doi.org/10.1108/AA-05-2014-039">10.1108/AA-05-2014-039</a></td>
+<td>Sugimori formülünün sınırı, sabit güzergâhta kutu sayısı optimizasyonu</td>
+<td>Yöntem</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Çekici tren planlama kanonu</td>
+<td>Emde ve Boysen 2012 EJOR 217(2):287–299 <a href="https://doi.org/10.1016/j.ejor.2011.09.013">10.1016/j.ejor.2011.09.013</a>; Emde ve Gendreau 2017 EJOR 260(1):255–267 <a href="https://doi.org/10.1016/j.ejor.2016.12.012">10.1016/j.ejor.2016.12.012</a>; Battini, Boysen, Emde 2013 <a href="https://doi.org/10.1007/s00187-012-0154-y">10.1007/s00187-012-0154-y</a>; Schmid ve Limère 2019 IJPR 57(24):7586–7609 <a href="https://doi.org/10.1080/00207543.2019.1581957">10.1080/00207543.2019.1581957</a></td>
+<td>Filo/kapasite ve stok ödünleşimi; güncel sınıflandırma</td>
+<td>Literatür + Bulgu 5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2023–2026 destek seti</td>
+<td>Facchini vd. 2024; Peng vd. 2024; Akkad ve Bányai 2023 (DOI'ler ilk tabloda)</td>
+<td>Örtük taban örüntüsü ve kapasite rejimi</td>
+<td>Literatür + Tartışma</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Okunacak yakın karşılaştırmalar</td>
+<td>Lolli vd. 2016 IJPR 54(14):4228–4239 <a href="https://doi.org/10.1080/00207543.2015.1117675">10.1080/00207543.2015.1117675</a>; Gamberini vd. 2013 IFAC 46(9):1914–1919 <a href="https://doi.org/10.3182/20130619-3-RU-3018.00481">10.3182/20130619-3-RU-3018.00481</a></td>
+<td>Tehdit taraması; Lolli'nin hizmete göre operatör sayısı belirlemesi C kuralına benziyor</td>
+<td>Literatür, okumaya bağlı</td>
+</tr>
+</tbody>
+</table>
+<p>Listedeki künye hataları üç türe ayrılıyor. Bazıları yanlış bilgi, bazıları eksik bilgi, bazıları da kullanılmaması gereken atıflar. Doğrulamalar doi.org içerik anlaşması (Crossref CSL-JSON) ve yerel PDF'lerle yapıldı (<a href="../research_notes/Hat besleme yeni kaynaklar ve özellikler/eksik_kritik_kaynaklar.md">eksik kaynak notu, S3</a>). En ciddi hata Bae vd. (2016). Yerel PDF'in ilk sayfası 2855; listedeki 2859–2870 aralığı yanlış. Proje kayıtlarındaki "s.2867" alıntısı da doğru aralığın dışında kalıyor ve yeniden eşlenmeli (<a href="../docs/karar_gunlugu.md">karar günlüğü</a>; <a href="../docs/literatur_boslugu_analizi.md">literatür boşluğu analizi</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Girdi</th>
+<th>Sorun</th>
+<th>Düzeltme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[41] Bae vd. 2016</td>
+<td>Sayfa 2859–2870 yanlış; metindeki s.2860 ve s.2867 atıfları şüpheli</td>
+<td>s.<strong>2855–2866</strong>, doi:10.1109/WSC.2016.7822321 (<a href="https://doi.org/10.1109/WSC.2016.7822321">DOI</a>); sayfa atıfları yerel PDF'in basılı numaralarıyla yeniden eşlenmeli</td>
+</tr>
+<tr>
+<td>[44] Lieb 2021</td>
+<td>İlk ad "M." yazılmış</td>
+<td><strong>C. Lieb</strong> (Christian), Dissertation, Lehrstuhl fml, TU München, 2021 (<a href="https://mec.ed.tum.de/en/fml/research/dissertations">TUM fml tez listesi</a>); bir notta yıl 2020 geçiyor, yıl başlık sayfasından teyit edilmeli</td>
+</tr>
+<tr>
+<td>Eksik girdi</td>
+<td>Alnahhal, Ridwan, Noche 2014 metinde var, listede yok</td>
+<td>GOL 2014, IEEE, s.85–92, doi:10.1109/GOL.2014.6887421 (<a href="https://doi.org/10.1109/GOL.2014.6887421">DOI</a>)</td>
+</tr>
+<tr>
+<td>[24] Urru vd. 2018</td>
+<td>Sayı eksik</td>
+<td>vol. 51, <strong>no. 9</strong>, s.404–409, doi:10.1016/j.ifacol.2018.07.066 (<a href="https://doi.org/10.1016/j.ifacol.2018.07.066">DOI</a>)</td>
+</tr>
+<tr>
+<td>[5] Simić vd.</td>
+<td>Cilt ve sayı belirsiz</td>
+<td><em>Expert Systems</em> <strong>38(1)</strong>, art. e12546, 2021 (çevrimiçi 2020), doi:10.1111/exsy.12546 (<a href="https://doi.org/10.1111/exsy.12546">DOI</a>)</td>
+</tr>
+<tr>
+<td>[40] Geraghty ve Heavey 2005</td>
+<td>Sayı eksik</td>
+<td><em>OR Spectrum</em> 27(<strong>2–3</strong>):435–457 (<a href="https://doi.org/10.1007/s00291-005-0204-z">DOI</a>)</td>
+</tr>
+<tr>
+<td>[9] Droste ve Deuse 2012</td>
+<td>Sayfa yok</td>
+<td>Crossref'e göre s.<strong>604–610</strong>, doi:10.1007/978-3-642-23860-4_99 (katalogda 605–610; basılı ilk sayfa PDF'ten teyit edilmeli) (<a href="https://doi.org/10.1007/978-3-642-23860-4_99">DOI</a>)</td>
+</tr>
+<tr>
+<td>[29] Chee vd. 2012</td>
+<td>Künye yok</td>
+<td>S. L. Chee, M. Y. Chong, J. F. Chin, <em>J. Industrial Engineering and Management</em> 5(2):382–405, doi:10.3926/jiem.352 (<a href="https://doi.org/10.3926/jiem.352">DOI</a>)</td>
+</tr>
+<tr>
+<td>[30] Faccio vd. 2013a/b</td>
+<td>Künye yok</td>
+<td>2013a ve 2013b yukarıdaki tabloda, öncelik 9</td>
+</tr>
+<tr>
+<td>[7] Menanno vd. 2023</td>
+<td>Sayı ve DOI yok</td>
+<td>vol. 11, <strong>no. 1</strong>, art. 2179123, doi:10.1080/21693277.2023.2179123</td>
+</tr>
+<tr>
+<td>[4] Elloumi vd. 2025</td>
+<td>DOI yok</td>
+<td>doi:10.1080/21681015.2025.2474082 (<a href="https://doi.org/10.1080/21681015.2025.2474082">DOI</a>)</td>
+</tr>
+<tr>
+<td>[6] Sevim ve Görkemli Aykut 2026</td>
+<td>DOI yok</td>
+<td>doi:10.5505/pajes.2025.39960; İngilizce gönderimde dergideki İngilizce başlık kullanılmalı: "A dynamic in-plant milk-run system via agent-based modelling" (<a href="https://dergipark.org.tr/tr/pub/pajes/article/1813322">DergiPark</a>)</td>
+</tr>
+<tr>
+<td>[45] Hooker 1995</td>
+<td>DOI yok</td>
+<td>doi:10.1007/BF02430364 (<a href="https://api.openalex.org/works/doi:10.1007/BF02430364">OpenAlex</a>)</td>
+</tr>
+<tr>
+<td>[11] Vojdani ve Drechsler 2022</td>
+<td>DOI/URN yok</td>
+<td>Logistics Journal Proceedings 2022/5609 olarak indekslenmiş; DOI/URN DNB kataloğundan elle alınmalı (<a href="https://logistics-journal.de/proceedings/2022/5609">kayıt</a>)</td>
+</tr>
+<tr>
+<td>[17] C&amp;B 2013 Kısım 2</td>
+<td>DOI 10.1080/00207543.2012.656331 Crossref'te ayrıca doğrulanmadı</td>
+<td>Yayıncı sayfasından tek seferlik teyit</td>
+</tr>
+<tr>
+<td>Bortolini vd. 2015 (eklenirse)</td>
+<td>Kundu (2019) bu eseri "Faccio, Cohen, Bortolini…" diye veriyor</td>
+<td>Crossref künyesi kullanılmalı; ilk yazar Bortolini (<a href="https://doi.org/10.1108/AA-05-2014-039">DOI</a>)</td>
+</tr>
+<tr>
+<td>"Amos vd.", "Hormes (2025) TUM tezi"</td>
+<td>Doğrulanamadı ya da bulunamadı</td>
+<td>Kullanılmamalı (<a href="Hat besleme literatür açığı.md">önceki rapor</a>)</td>
+</tr>
+<tr>
+<td>[37] Montgomery, [34] OR-Tools</td>
+<td>Baskı ve sürüm yok</td>
+<td>Kullanılan baskı ve sürüm yazılmalı (<a href="../docs/hafta1_referans_listesi.md">referans listesi</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2>Sonuç</h2>
+<p>Yeni yazın tablonun yönünü değiştirmiyor ama ağırlık merkezini kaydırıyor. 2023–2026 çalışmaları "dijital önde" yargısını tabanı tartışmadan tekrarladıkça, birinci açık zayıflamak yerine daha görünür hâle geliyor. Tappia vd. (2025) ise iki tabanlı kıyasın bu alanda artık yapılabildiğini, ama sonucun hâlâ değişmez sanıldığını gösteriyor. Bu durum katkımızı "taban sonucu değiştirir" iddiasından "tabanın değiştirdiği sonucun araç kapasitesi rejimiyle etkileştiği" iddiasına doğru keskinleştiriyor. Tappia'nın kapasite rejimi bulgusu, Bae ile Vojdani arasındaki çelişki ve η² ayrıştırması aynı olguya işaret ediyor: olay tabanlı beslemenin değeri sabit bir özellik değil, filo kapasitesinin bir fonksiyonu. Kıt kapasitede bu fonksiyonun yönü, akıllı çizelgelenen AMR filosunda ve sabit rotalı çekici trende ters. Bu ters yön bir zayıflık değil, makalenin Tartışma bölümüne taşıyabileceği yeni bir soru. İki açık bu noktada birleşiyor ve makalenin tek bir hikâye anlatmasını sağlıyor.</p>
+<p>İkinci önemli çıkarım, en ucuz eklemelerin en savunmacı eklemeler olduğu. Dar kapasite tekrarı, politika başına optimum ve arz ile bilgi şokları yeni bir konu açmıyor. Hakemin soracağı üç soruyu ("kapasite bağlasaydı?", "P2'ye adil davrandınız mı?", "sinyal kusurluysa?") önceden yanıtlıyor. Kaynakça tarafında ise risk bilimsel değil, itibar riski. Kundu'nun beşlisi ve iki derleme eksikken makale yazını taramamış gibi okunur. Bae sayfa aralığı gibi tek bir yanlış künye de, ana karşılaştırmanın dayandığı çelişki kanıtına gölge düşürür.</p>
+<h2>Öncelik sırasıyla eylem listesi</h2>
+<table>
+<thead>
+<tr>
+<th>Sıra</th>
+<th>Tür</th>
+<th>Eylem</th>
+<th>Gerekçe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oku + atıf</td>
+<td>Tappia vd. (2025) tam metnini oku (açık erişim). Literatüre ve Tartışma'ya önerilen ayrıştırma cümlesini koy. Kapasite rejimi bulgusunu Bulgu 4'e destek olarak bağla</td>
+<td>Tek kısmi tehdit, aynı zamanda en güçlü yeni destek</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Oku</td>
+<td>Li vd. (2026, C&amp;OR, doi:10.1016/j.cor.2026.107565) özet ve tam metnini edin</td>
+<td>Özeti alınamayan tek olası politika seçimi tehdidi</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Düzelt</td>
+<td>Bae vd. 2016 → s.2855–2866 ve DOI. <code>karar_gunlugu.md</code> ile <code>literatur_boslugu_analizi.md</code> içindeki s.2860 ve s.2867 atıflarını yerel PDF'e göre yeniden eşle</td>
+<td>Çelişki kanıtının dayandığı künye yanlış</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Düzelt</td>
+<td>[44] "M. Lieb" → "C. Lieb"; yılı (2020 mi 2021 mi) başlık sayfasından teyit et</td>
+<td>Yazar adı yanlış</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Atıf</td>
+<td>Alnahhal, Ridwan ve Noche (2014), GOL, s.85–92, doi:10.1109/GOL.2014.6887421 kaynakçaya ekle</td>
+<td>Metinde var, listede yok</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Atıf</td>
+<td>Kundu'nun beşlisini, Boysen vd. 2015 ve Kilic ve Durmusoglu 2015 derlemelerini ekle. "Besleme biçimi ile ikmal tetikleyicisi" ayrımını tek paragrafta yaz</td>
+<td>Konumlandırmanın en kırılgan noktası</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Modele ekle</td>
+<td>Araç başına 5–10 kutuluk dar kapasiteyle ikinci açığı tekrarla. Tekrar sayısını artır ya da güven aralığı yarı genişliğiyle gerekçelendir (Hoad vd. 2010)</td>
+<td>Kapasite hiç bağlamadı (≤%57); 4 tekrar zayıf</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Modele ekle</td>
+<td>Her politika kendi optimumunda (hedef açlık ≤ ε, en az WIP, istasyon bazında greedy kart tahsisi, CRN); beşinci kural olarak sun</td>
+<td>En yüksek katkı/efor; tüm hedef dergiler</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Atıf</td>
+<td>Hopp ve Spearman 2004, Spearman ve Zazanis 1992, Spearman vd. 1990; P2 ve P3'ü "iki kart sınırlı çekme sistemi" olarak tanımla</td>
+<td>Bonvik ve Enns analojisinin kavramsal temeli</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Atıf</td>
+<td>Sargent 2013, Kleijnen 2015, Hoad vd. 2010a/b, STRESS (Monks vd. 2019); raporlamayı STRESS-DES'e uydur</td>
+<td>Yöntem bölümü, özellikle J Sim için</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Modele ekle</td>
+<td>Araç arızası / tur gecikmesi (Korytkowski'nin gecikme olasılığı ve süresi düzeyleri emsal). Talep şokuyla birlikte tek η² tablosunda sun</td>
+<td>Birden çok kaynakta ilan edilmiş; TR emsale doğrudan yanıt</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Modele ekle</td>
+<td>e-Kanban sinyal gecikmesi/kaybı ve fiziksel kart kaybı; P3 avantajının kaybolduğu kırılma noktası eğrisini çiz</td>
+<td>Endüstri 4.0 bağlantısı; JTOM ve EMD için değerli</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Atıf</td>
+<td>Emde ve Boysen 2012, Sevim ve Görkemli Aykut 2026, Peng vd. 2024 → Bulgu 5 tartışması. Menanno 2023, Facchini 2024, Akkad ve Bányai 2023 → "örtük taban" cümlesi</td>
+<td>Güncel ve kanonik dış destek</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Oku</td>
+<td>Lolli vd. 2016, Gamberini vd. 2013 (açık erişim), Klenk vd. 2015, Chen vd. 2023, Emde ve Boysen 2012 tam metinleri</td>
+<td>Tehdit taraması ve özet düzeyindeki yorumların teyidi</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Düzelt</td>
+<td>Urru no. 9 ve DOI; Simić 38(1) e12546; Geraghty 27(2–3); Droste 604–610 teyidi; Chee tam künye; Faccio 2013a/b; Menanno no. 1 ve DOI; Elloumi, Sevim, Hooker DOI'leri; Montgomery baskısı; OR-Tools sürümü</td>
+<td>Eksik künyeler</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Teyit</td>
+<td>Vojdani ve Drechsler 2022 DOI/URN (DNB); C&amp;B Kısım 2 DOI'si (Crossref). C&amp;B 2013 Kısım 2, Bae 2016 ve Vojdani 2022'ye atıf yapanları Google Scholar ve Scopus'ta elle tara</td>
+<td>"Taradığımız yazında" kaydını daraltmak için</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Modele ekle (dergiye göre)</td>
+<td>J Sim: yayımlanmış vakanın yeniden üretimi (Korytkowski 2016) ve kutu başına stokastik yükleme süresi. C&amp;IE: faz kaydırma ("chase method") ve süpermarket toplayıcı kapasitesi. FSMJ: ürün karması kayması ve Golz vd. 2012 atfı</td>
+<td>Hedef derginin beklentisine özgü güçlendirme</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Kaçın</td>
+<td>RL, dijital ikiz, batarya ve AGV modellemesini ana katkıya ekleme; yalnız "gelecek çalışma" cümlesinde an</td>
+<td>Tugger trene özgü doğrulanmış ilan yok, efor yüksek, odak kayar</td>
+</tr>
+</tbody>
+</table></main></body></html>

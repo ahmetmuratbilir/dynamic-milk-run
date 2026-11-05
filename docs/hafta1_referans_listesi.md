@@ -150,8 +150,8 @@
      (`ek_kaynaklar/E12_…pdf`; hizmet–WIP eğrisi karşılaştırması s.448–454)
 
 [41] [x] K.-H. G. Bae, L. A. Evans, and A. Summers, "Lean design and analysis of a milk-run delivery
-     system: Case study," in *Proc. 2016 Winter Simulation Conference,* 2016, pp. 2859–2870.
-     ⚠️ sayfa aralığı doğrulanmalı (metinde s.2860 ve 2867 görülüyor). (`ek_kaynaklar/E11_…pdf`)
+     system: Case study," in *Proc. 2016 Winter Simulation Conference,* 2016, pp. 2855–2866. doi:10.1109/WSC.2016.7822321.
+     ✅ sayfa aralığı yerel PDF ve Crossref ile doğrulandı (05.11.2026): 45 dk duruş tanımı s.2861, "≈4 kat" sonucu s.2865. (`ek_kaynaklar/E11_…pdf`)
 
 [42] [x] A. M. Bonvik, C. E. Couch, and S. B. Gershwin, "A comparison of production-line control
      mechanisms," *International Journal of Production Research,* vol. 35, no. 3, pp. 789–804,
@@ -189,7 +189,7 @@ derlenmiştir; ⚠️ tam metin görülmeden doğrudan alıntı yapılmamalıdı
 | [17] | Ciemnoczolowski, D. D. & Bozer, Y. A. (2013). Performance evaluation of small-batch container delivery systems used in lean manufacturing — Part 2: Number of Kanban and workstation starvation. *International Journal of Production Research*, 51(2), 568–581. doi:10.1080/00207543.2012.656331 | ✅ **EDİNİLDİ** (03.11.2026) | `ek_kaynaklar/E10_…pdf` — alt sınır s.570, ana bulgu s.568 (K104) |
 | [18] | Bocewicz, G., Bożejko, W., Wójcik, R. & Banaszak, Z. (2019). Milk-run routing and scheduling subject to a trade-off between vehicle fleet size and storage capacity. *Management and Production Engineering Review*, 10(3), 41–53. doi:10.24425/mper.2019.129597 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E3_…pdf` |
 | [19] | Schmidt, T., Meinhardt, I. & Schulze, F. (2016). *New design guidelines for in-plant milk-run systems*. 14th IMHRC Proceedings. TU Dresden. | ✅ **EDİNİLDİ** (03.11.2026) | Açık erişim — `ek_kaynaklar/E4_…pdf`; formül s.4 (K104) |
-| [20] | Verein Deutscher Ingenieure (2022). *VDI 5586 Blatt 2: In-plant milk-run systems — Planning and dimensioning*. Düsseldorf. | 🟡 Orta | VDI (ücretli standart) — ✅ yıl doğrulandı: **Ausgabe 2022-07** (2016-04 taslağının yerini aldı) |
+| [20] | Verein Deutscher Ingenieure (2022). *VDI 5586 Blatt 2: In-plant milk-run systems — Planning and dimensioning*. Düsseldorf. | 🟡 Orta | VDI (ücretli standart) — ✅ yıl doğrulandı: **Ausgabe 2022-07** (2016-04 taslağının yerini aldı). 🟡 **Önizleme edinildi** (05.11.2026, 4 s., `ek_kaynaklar/E14_…pdf`): başlık "Routenzugsysteme – Planung und Dimensionierung", boyutlandırma §6.2 s.11–18 (önizlemede yok). s.4 sembol tablosu $q_{A,H}$ "Haltepunkt H'de A parçasının tampon yeri sayısı" ve $n_{LT,A,H}$ tanımlarını veriyor → Urru vd. (2018) s.406'daki $q_{A,H}=1+\lceil k\cdot n_{UL,A,H}\rceil$ gösterimiyle örtüşüyor; "+1" kuralının kendisi hâlâ ikincil kaynaktan (Urru). Ayrıca Blatt 1 (2016-04 Entwurf, "Grundlagen, Gestaltung und Praxisbeispiele") önizlemesi: `E15_…pdf`, 2 s., formül yok. |
 | [21] | Kundu, K., Rossini, M. & Portioli-Staudacher, A. (2019). A study of a kanban based assembly line feeding system through integration of simulation and particle swarm optimization. *International Journal of Industrial Engineering Computations*, 10, 421–442. doi:10.5267/j.ijiec.2018.12.001 | ✅ **EDİNİLDİ** | `docs/papers/ek_kaynaklar/E6_…pdf` |
 | [22] | Korytkowski, P. & Karkoszka, R. (2016). Simulation-based efficiency analysis of an in-plant milk-run operator under disturbances. *IJAMT*, 82(5–8), 827–837. doi:10.1007/s00170-015-7442-2 | ✅ **EDİNİLDİ** | Açık erişim (CC BY 4.0) — `docs/papers/ek_kaynaklar/E7_…pdf` (03.11.2026) |
 | **[23]** | **Sugimori, Y., Kusunoki, K., Cho, F. & Uchikawa, S. (1977). Toyota production system and Kanban system: materialization of just-in-time and respect-for-human system. *International Journal of Production Research*, 15(6), 553–564.** | ✅ **EDİNİLDİ** (03.11.2026) | Formül **s.561**'de birebir doğrulandı; `ek_kaynaklar/E8_…pdf`. doi:10.1080/00207547708943149 (K103) |

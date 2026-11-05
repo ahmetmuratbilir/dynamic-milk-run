@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projeyi Basitçe Anlatıyorum</title><style>
+:root{--bg:#f7f6f2;--kart:#ffffff;--yazi:#1d2733;--ikincil:#4f5966;--vurgu:#1f5f99;--cizgi:#dcd8cc;--alinti:#eef3f8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15191f;--kart:#1d232b;--yazi:#e8e6e1;--ikincil:#aab3be;--vurgu:#7fb2e5;--cizgi:#333b45;--alinti:#1f2a36}}
+:root[data-theme="dark"]{--bg:#15191f;--kart:#1d232b;--yazi:#e8e6e1;--ikincil:#aab3be;--vurgu:#7fb2e5;--cizgi:#333b45;--alinti:#1f2a36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--yazi);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 80px}
+h1{font-size:32px;line-height:1.2;margin:0 0 8px}
+h2{font-size:24px;margin:48px 0 12px;padding-top:16px;border-top:2px solid var(--cizgi);color:var(--vurgu)}
+h3{font-size:19px;margin:28px 0 8px}
+p,li{color:var(--yazi)}
+hr{border:0;border-top:1px solid var(--cizgi);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:15px;background:var(--kart);display:block;overflow-x:auto}
+th,td{border:1px solid var(--cizgi);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--alinti)}
+blockquote{margin:16px 0;padding:14px 18px;background:var(--alinti);border-left:4px solid var(--vurgu);border-radius:0 8px 8px 0}
+blockquote p{margin:0}
+strong{color:var(--yazi)}
+code{background:var(--alinti);padding:1px 5px;border-radius:4px}
+</style></head>
+<body><main><h1>Projeyi Basitçe Anlatıyorum</h1>
+<p>Bu belge projeyi hiç bilmeyen birine anlatır gibi yazıldı. Sunumdaki her sayının ne dediği
+ve her kısaltmanın anlamı aşağıda var.</p>
+<hr />
+<h2>1. Fabrikada ne oluyor?</h2>
+<p>Bir montaj hattı düşün: yan yana <strong>24 masa</strong> var, her birine <strong>istasyon</strong> diyoruz.
+Her istasyonda bir işçi parça takıyor. Parçalar istasyonun yanındaki <strong>kutularda</strong> duruyor.</p>
+<p>Kutu boşalırsa işçi bekler, hat durur. Buna <strong>duruş</strong> diyoruz. Duruş kötüdür.</p>
+<p>Kutuları doldurmak için fabrikanın içinde küçük bir <strong>tren</strong> (çekici araç) dolaşıyor.
+Depodan parçaları alıyor, istasyonları tek tek gezip boş kutuların yerine dolularını bırakıyor.
+Sabahları kapı kapı süt dağıtan sütçüye benzediği için buna <strong>milk-run</strong> (sütçü turu) deniyor.</p>
+<h2>2. Tren ne zaman yola çıksın? İki yol var</h2>
+<p><strong>Geleneksel yol (P2): saat başı tur</strong>
+- Tren her <strong>60 dakikada bir</strong> yola çıkıyor, hiç beklemiyor.
+- Hangi istasyon ne kadar parça istiyorsa onu götürüyor. İstek, kutudaki <strong>kanban kartıyla</strong> bildiriliyor.
+- Tıpkı her saat başı geçen belediye otobüsü gibi.</p>
+<p><strong>Dijital yol (P3): çağırınca gelen tren (e-Kanban)</strong>
+- Kutudaki parça belli bir seviyenin altına düşünce sistem anında elektronik bir sinyal gönderiyor.
+- Tren bu sinyali alınca yola çıkıyor.
+- <strong>Konsolidasyon:</strong> tren boş yere tek bir kutu için gitmesin diye birkaç çağrıyı toplayıp öyle çıkıyor.
+- Taksi çağırmak gibi düşünebilirsin.</p>
+<p>(Projede bir de P1 var: saat başı tur ve her seferinde hep aynı miktar. Ana karşılaştırma P2 ile P3 arasında.)</p>
+<h2>3. Kart ne demek? Neden önemli?</h2>
+<ul>
+<li><strong>Kanban</strong> Japonca "kart" demek. Her dolu kutunun bir kartı var.</li>
+<li>Kutu boşalınca kart depoya gidiyor ve "bana bir kutu daha getir" demiş oluyor.</li>
+<li><strong>e-Kanban</strong> aynı işi yapan elektronik kart.</li>
+<li><strong>Kart sayısı (N)</strong>, hatta en fazla kaç kutu bulunabileceğini belirliyor.</li>
+<li>Kart çoksa hatta çok kutu birikir. Duruş azalır ama ortalık stokla dolar.</li>
+<li>Kart azsa ortalık temiz kalır ama parça biter, hat durur.</li>
+</ul>
+<p>Yani her zaman bir <strong>takas</strong> var: stok arttıkça duruş azalır.</p>
+<h2>4. Neyi ölçüyoruz?</h2>
+<table>
+<thead>
+<tr>
+<th>Ölçü</th>
+<th>Ne demek</th>
+<th>İyi olan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Duruş (%)</strong></td>
+<td>İstasyonların zamanının yüzde kaçında parça yokluğundan beklediği</td>
+<td>Düşük</td>
+</tr>
+<tr>
+<td><strong>WIP</strong> (Work In Process, "süreçteki iş")</td>
+<td>Hatta ortalama ne kadar parça bekliyor, yani stok</td>
+<td>Düşük</td>
+</tr>
+</tbody>
+</table>
+<p>İkisini aynı anda düşürmek zor. Biri azalınca öbürü genelde artıyor.</p>
+<h2>5. Sorun ne? Neden bu çalışmayı yapıyoruz?</h2>
+<p>Daha önce yazılmış makaleler birbirini tutmuyor:
+- <strong>Bae vd. 2016:</strong> "Saat başı tur (geleneksel) daha iyi" diyor.
+- <strong>Vojdani &amp; Drechsler 2022:</strong> "Çağırınca gelen (dijital) daha iyi" diyor.
+- <strong>Alnahhal vd. 2016:</strong> "Duruma göre değişir" diyor.</p>
+<p>Biz şunu fark ettik: Bu yarışlar <strong>adil kurulmamış olabilir.</strong></p>
+<p>Bir koşu düşün: bir koşucunun sırtında 10 kilo, öbürünün sırtında 2 kilo çanta var.
+Kazananı söylemeden önce çantaları nasıl eşitlediğine bakman lazım.</p>
+<p>Bizim konumuzda "çanta" <strong>kart sayısı</strong>. Makaleler iki sisteme kartı farklı yollarla dağıtmış.
+- <strong>Üretim planlamada</strong> bu konu biliniyor: Bonvik 1997, Geraghty &amp; Heavey 2005, Enns &amp; Rogers 2008 "karşılaştırmayı neye göre eşitlediğin sonucu değiştirir" diyor.
+- <strong>Hat beslemede</strong> (milk-run) kimse buna bakmamış. Herkes tek bir yolla eşitlemiş ve geçmiş.
+- <strong>Kundu vd. 2019</strong> (s.423) "bu politikaları karşılaştırmak gelecekte yapılacak iş" diye yazmış.</p>
+<p><strong>İşte boşluk (literatür açığı) bu.</strong></p>
+<h2>6. Biz ne yaptık?</h2>
+<p>Bilgisayarda sahte ama gerçekçi bir fabrika kurduk. Buna <strong>benzetim</strong> (simülasyon) diyoruz.
+<strong>Python</strong> ile yazdık. Veriler <strong>sentetik</strong>, yani gerçek bir fabrikadan değil, gerçekçi
+olsun diye bizim ürettiğimiz veriler.</p>
+<ul>
+<li>24 istasyon, parçaları taşıyan 3 tren (bazı deneylerde 1, 2 veya 4).</li>
+<li>Bir gün = 1440 dakika boyunca çalıştırıyoruz.</li>
+<li>İlk 90 dakikayı saymıyoruz. Bu <strong>ısınma süresi</strong>; sistem yeni açıldığında her şey dolu olduğu için o kısım yanıltıcı.</li>
+<li>Her deneyi <strong>12 kez</strong> tekrarlıyoruz (<strong>replikasyon</strong>), çünkü talep rastgele. Tek seferlik şans olmasın.</li>
+<li><strong>Ortak rastgele sayılar (CRN, Common Random Numbers):</strong> iki sistemi aynı müşteri talebiyle yarıştırıyoruz. Biri şanslı gün, öbürü şanssız gün yaşamasın.</li>
+</ul>
+<p>Sonra yarışı <strong>dört farklı adil kuralla</strong> kurduk.</p>
+<h2>7. Dört eşitleme kuralı (A, B, C, D)</h2>
+<table>
+<thead>
+<tr>
+<th>Kural</th>
+<th>Basit anlamı</th>
+<th>Koşu benzetmesi</th>
+<th>Kim kullanmış</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A · Eşit kart</strong></td>
+<td>İki sisteme de aynı sayıda kart veriyoruz</td>
+<td>İkisine de aynı çanta</td>
+<td>Vojdani 2022</td>
+</tr>
+<tr>
+<td><strong>B · Politika-tutarlı</strong></td>
+<td>Her sistem kendi kitabındaki formülle kart sayısını hesaplıyor</td>
+<td>Herkes kendi antrenörünün dediği çantayı taşıyor</td>
+<td>VDI 5586, Urru 2018</td>
+</tr>
+<tr>
+<td><strong>C · Eşit hizmet</strong></td>
+<td>İkisinde de duruş en fazla %1 olsun; sonra hangisinin daha az stokla bunu yaptığına bakıyoruz</td>
+<td>İkisi de aynı sürede bitirsin, hangisi daha az yorulmuş?</td>
+<td>Alnahhal 2015</td>
+</tr>
+<tr>
+<td><strong>D · Eşit WIP</strong></td>
+<td>İkisine aynı miktarda stok veriyoruz, hangisi daha az duruyor ona bakıyoruz</td>
+<td>Aynı yükle kim daha hızlı?</td>
+<td>(bizim eklediğimiz)</td>
+</tr>
+</tbody>
+</table>
+<h2>8. Sonuçlar ve sayılar ne diyor?</h2>
+<h3>Önce sayıları okumayı öğrenelim</h3>
+<ul>
+<li><strong>Δ duruş</strong> (Δ "delta" okunur, "fark" demek) = dijitalin duruşu − geleneksel sistemin duruşu.</li>
+<li><strong>Eksi</strong> çıkarsa dijital daha az duruyor, yani <strong>dijital iyi</strong>.</li>
+<li><strong>Artı</strong> çıkarsa geleneksel daha az duruyor, yani <strong>geleneksel iyi</strong>.</li>
+<li><strong>Puan</strong> = yüzde puanı. Örnek: dijital %2, geleneksel %13 durursa fark −11 puan olur.</li>
+<li><strong>± (artı-eksi)</strong> = güven aralığı (%95). "Deneyi tekrar etsek sonuç büyük ihtimalle bu aralıkta çıkar" demek. ± küçükse sonuç sağlam.</li>
+<li><strong>Toyota kutuları:</strong> her kutu bir günlük ihtiyacın en fazla %10'unu alıyor (küçük kutular). Toyota'nın kuralı bu (Sugimori 1977).</li>
+<li><strong>Mevcut kutular:</strong> veri setindeki asıl kutular, daha büyükler.</li>
+</ul>
+<h3>Bulgu 1: Kazanan, kurala göre değişiyor (sunum slayt 5)</h3>
+<p>Toyota kutularıyla, normal talepte:</p>
+<table>
+<thead>
+<tr>
+<th>Kural</th>
+<th>Δ duruş</th>
+<th>Okunuşu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A · Eşit kart</td>
+<td>−11,27</td>
+<td>Dijital 11 puan daha az duruyor → <strong>dijital kazanır</strong></td>
+</tr>
+<tr>
+<td>B · Politika-tutarlı</td>
+<td>+0,11</td>
+<td>Geleneksel biraz daha az duruyor → <strong>geleneksel kazanır</strong></td>
+</tr>
+<tr>
+<td>C · Eşit hizmet</td>
+<td>+0,12</td>
+<td>Duruşlar neredeyse eşit, ama dijital bunu <strong>%36 daha az stokla</strong> yapıyor → <strong>dijital kazanır</strong></td>
+</tr>
+<tr>
+<td>D · Eşit WIP</td>
+<td>−7,69</td>
+<td>Aynı stokla dijital 7,7 puan daha az duruyor → <strong>dijital kazanır</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aynı fabrika, aynı tren, aynı talep. Sadece "adil" kuralını değiştirdik ve kazanan değişti.</strong>
+Fark −17,3 puan ile +2,0 puan arasında oynuyor.</p>
+<p><strong>Talep şoku +%50:</strong> gün ortasında talep birden yüzde 50 artıyor, yani sipariş patlaması.
+Bu durumda da tablo aynı: B'de geleneksel kazanıyor (+1,97), diğer kurallarda dijital.</p>
+<h3>Bulgu 2: İki kavgalı makalenin ikisini de haklı çıkardık (slayt 6)</h3>
+<ul>
+<li><strong>Tek trenle</strong> (tren kıt): geleneksel %7,5–12,5 duruyor, dijital %17,7–18,4 duruyor. <strong>Geleneksel iyi</strong>, Bae'nin dediği çıkıyor.</li>
+<li>Neden? Herkes aynı anda çağırınca tek tren yetişemiyor, oysa saat başı tur düzenli.</li>
+<li><strong>3 trenle, eşit kartla:</strong> dijital %0,12, geleneksel %2,54 duruyor. <strong>Dijital iyi</strong>, Vojdani'nin dediği çıkıyor.</li>
+</ul>
+<p>Yani çelişkinin <strong>iki sebebi</strong> var:
+1. <strong>Kapasite rejimi:</strong> tren sayısı yeterli mi, kıt mı?
+2. <strong>Eşitleme kuralı:</strong> yarış nasıl kurulmuş?</p>
+<h3>Neden böyle oluyor? (mekanizma, slayt 7)</h3>
+<ul>
+<li><strong>Geleneksel:</strong> Bir sonraki tur 60 dakika sonra. Kutu, "turun gelmesini bekleme süresi + yol süresi" boyunca yetecek kadar parça tutmak zorunda. Bu yüzden çok stok gerekiyor.</li>
+<li><strong>Dijital:</strong> Çağırınca geliyor. Kutunun yalnızca "yol süresi" boyunca yetmesi yeterli. Daha az stok yetiyor.</li>
+</ul>
+<p>Kural B'de formül geleneksel sisteme zaten <strong>fazladan kart</strong> veriyor. O yüzden orada geleneksel öne geçiyor.
+(Bu açıklama Alnahhal 2016 s.707–708 ve Ciemnoczolowski &amp; Bozer 2013 s.570 ile uyumlu.)</p>
+<h3>Bulgu 3: İkinci açık, yani kart mı önemli tren mi? (slayt 8)</h3>
+<p>Ciemnoczolowski &amp; Bozer 2013 (s.579) "kart sayısı mı, araç sayısı mı daha çok etkiler, bakılmalı" demiş. Biz baktık.</p>
+<p><strong>η² (eta-kare):</strong> duruştaki bütün iniş çıkışın yüzde kaçını bu etkenin açıkladığını gösteriyor. 0 ile 1 arasında.
+- <strong>Tren sayısı:</strong> ≈ 0,33, yani duruş değişiminin <strong>üçte biri</strong> tren sayısından.
+- <strong>Kart sayısı:</strong> 0,20–0,33, yani o da çok önemli.
+- <strong>Trenin taşıma kapasitesi (Q):</strong> 0–0,06, yani <strong>neredeyse hiç önemli değil.</strong></p>
+<p><strong>Şok deneyi:</strong> talep birden artınca her istasyona <strong>1 kart fazla</strong> verirsek fazladan duruş
+140 istasyon-dakikadan <strong>1'e</strong> düşüyor. Ama stok <strong>%69 artıyor</strong>. Bedava değil, yine takas var.</p>
+<p><strong>İstasyon-dakika:</strong> 1 istasyon 1 dakika durdu demek. 10 istasyon 14'er dakika durursa 140 istasyon-dakika olur.</p>
+<h3>Sağlamlık: Şans değil mi? (slayt 9)</h3>
+<ul>
+<li><strong>Kayma</strong> = (B kuralındaki fark) − (A kuralındaki fark). Kural değişince sonuç ne kadar kaydı, onu ölçüyor.</li>
+<li>Örnek: Toyota kutuları, şok, α=0,05 → A'da −5,19, B'de +12,37 → <strong>kayma +17,56 puan.</strong></li>
+<li>Bunu farklı ayarlarla <strong>36 bağımsız koşulda</strong> denedik (tabloda 52 hücre var ama bazıları birbirinin tekrarı). <strong>36'nın 36'sında</strong> kayma aynı yönde (pozitif) çıktı.</li>
+<li><strong>Welch testi:</strong> iki grubun ortalaması gerçekten farklı mı, yoksa tesadüf mü, ona bakan istatistik testi.</li>
+<li><strong>OR-Tools:</strong> Google'ın rota bulma kütüphanesi. Bizim trenin rotası çok mu kötü diye kıyas noktası olarak kullandık.</li>
+</ul>
+<h2>9. Kısaltmalar sözlüğü</h2>
+<table>
+<thead>
+<tr>
+<th>Kısaltma</th>
+<th>Açılımı</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1 / P2 / P3</strong></td>
+<td>Politika 1/2/3</td>
+<td>P1 saat başı + sabit miktar; P2 saat başı + kart kadar; P3 çağırınca gelen (dijital)</td>
+</tr>
+<tr>
+<td><strong>Kanban</strong></td>
+<td>Japonca "kart"</td>
+<td>Kutuya bağlı sipariş kartı</td>
+</tr>
+<tr>
+<td><strong>e-Kanban</strong></td>
+<td>Elektronik kanban</td>
+<td>Kartın dijital hali, sinyal anında gidiyor</td>
+</tr>
+<tr>
+<td><strong>ROP</strong></td>
+<td>Reorder Point, yeniden sipariş noktası</td>
+<td>"Kutu bu seviyeye düşünce çağır" eşiği</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>Kart sayısı</td>
+<td>Hatta en çok kaç kutu bulunabileceği</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>Kutu kapasitesi</td>
+<td>Bir kutuda kaç parça var</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>Takt / periyot</td>
+<td>Geleneksel turun aralığı (60 dk)</td>
+</tr>
+<tr>
+<td><strong>Q</strong></td>
+<td>Araç kapasitesi</td>
+<td>Trenin bir turda taşıyabileceği yük</td>
+</tr>
+<tr>
+<td><strong>α (alfa)</strong></td>
+<td>Emniyet payı</td>
+<td>Formüle eklenen yedek oranı (Toyota: %10'dan az)</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Talep</td>
+<td>Bir istasyonun dakikada / günde kullandığı parça</td>
+</tr>
+<tr>
+<td><strong>WIP</strong></td>
+<td>Work In Process</td>
+<td>Hatta bekleyen stok</td>
+</tr>
+<tr>
+<td><strong>VDI</strong></td>
+<td>Verein Deutscher Ingenieure (Alman Mühendisler Birliği)</td>
+<td>Standart yayımlayan kurum</td>
+</tr>
+<tr>
+<td><strong>VDI 5586</strong></td>
+<td>Bu birliğin fabrika içi çekici tren standardı (Blatt 2, Temmuz 2022: "Planlama ve boyutlandırma")</td>
+<td>Her rafa 1 yedek kutu ekleme (+1) kuralı bu standarttan; biz Urru 2018 üzerinden aktarıyoruz</td>
+</tr>
+<tr>
+<td><strong>Toyota formülü</strong></td>
+<td>Sugimori 1977</td>
+<td>Kart sayısı ≈ talep × süre × (1+α) / kutu kapasitesi</td>
+</tr>
+<tr>
+<td><strong>η²</strong></td>
+<td>Eta-kare</td>
+<td>Bir etkenin sonuçtaki değişimin ne kadarını açıkladığı</td>
+</tr>
+<tr>
+<td><strong>±</strong></td>
+<td>Güven aralığı (%95)</td>
+<td>Sonucun ne kadar oynayabileceği</td>
+</tr>
+<tr>
+<td><strong>Δ</strong></td>
+<td>Delta</td>
+<td>Fark</td>
+</tr>
+<tr>
+<td><strong>CRN</strong></td>
+<td>Common Random Numbers</td>
+<td>İki sistemi aynı rastgele talep ile yarıştırma</td>
+</tr>
+<tr>
+<td><strong>Pareto</strong></td>
+<td>—</td>
+<td>Duruş–stok grafiğinde "ikisinde de daha iyi olan" sistemi bulma yöntemi</td>
+</tr>
+<tr>
+<td><strong>VRP</strong></td>
+<td>Vehicle Routing Problem</td>
+<td>Trenin hangi sırayla istasyonları gezeceği problemi</td>
+</tr>
+<tr>
+<td><strong>OR-Tools</strong></td>
+<td>Google Operations Research Tools</td>
+<td>Rota bulma yazılımı</td>
+</tr>
+<tr>
+<td><strong>TR Dizin</strong></td>
+<td>—</td>
+<td>Türkiye'nin ulusal dergi dizini</td>
+</tr>
+<tr>
+<td><strong>SCI-E</strong></td>
+<td>Science Citation Index Expanded</td>
+<td>Uluslararası, daha zor dergi listesi</td>
+</tr>
+<tr>
+<td><strong>JTOM</strong></td>
+<td>Journal of Turkish Operations Management</td>
+<td>Hedef dergimiz (TR Dizin)</td>
+</tr>
+</tbody>
+</table>
+<h2>10. Hocaya tek nefeste</h2>
+<blockquote>
+<p>"Hat beslemede saat başı tur ile çağırınca gelen sistemi karşılaştıran makaleler zıt sonuçlar
+buluyor. Biz aynı sistemde dört farklı adil karşılaştırma kuralı denedik ve kazananın kurala göre
+değiştiğini gösterdik. Çelişkinin iki sebebi var: tren yeterli mi, kıt mı; ve yarış nasıl
+eşitlenmiş. Ayrıca kartın ve trenin duruştaki payını ayırdık: tren sayısı ve kart önemli, trenin
+kapasitesi neredeyse önemsiz."</p>
+</blockquote>
+<p><strong>Zayıf yanlarımız (hoca sorarsa dürüstçe):</strong>
+- Veri sentetik, gerçek fabrika verisi değil.
+- VDI 5586 ücretli bir standart. Önizlemesinden adını, tarihini (Temmuz 2022) ve sembollerini doğruladık. "+1 kutu" formülünü ise bu standardı aktaran Urru vd. 2018 (s.406) makalesinden aldık.
+- Kart sayısını tüm istasyonlarda aynı miktarda değiştirdik. Daha ince ayar yapılabilir.</p></main></body></html>

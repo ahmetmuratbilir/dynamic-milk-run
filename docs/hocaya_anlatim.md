@@ -93,7 +93,8 @@ bulunmadı; bir katkımız düştü (zaman penceresi, Lieb 2021'de var); yerine 
 
 **İkinci açık.** Ciemnoczolowski & Bozer'in (2013) sorusunu deneyle cevapladık.
 
-**Bugün.** Bütün kaynaklar tam metinden okundu (tek eksik ücretli bir standart), makale
+**Bugün.** Bütün kaynaklar tam metinden okundu. Tek istisna ücretli VDI 5586 standardı: önizlemesiyle
+künye ve sembol gösterimi doğrulandı, "+1" formülü Urru vd. (2018, s.406) üzerinden aktarılıyor. Makale
 tabloları hazır, dashboard sadeleşti ve bulguları anlatan bir açılış sayfası eklendi.
 
 ---
@@ -276,7 +277,10 @@ hangi açığı kapatıyor, dashboard'da nerede.
   diyordu. Literatürle karşılaştırınca bunun model kurulumundan geldiğinden şüphelendik.
 - **Literatürde ne vardı?** VDI 5586 standardı ve Urru ve arkadaşları (2018, s.406) her
   rafa bir "değişim kutusu" eklenmesini ister. Kart sayısı formülü Toyota'dan gelir
-  (Sugimori ve arkadaşları 1977, s.561).
+  (Sugimori ve arkadaşları 1977, s.561). Standardın adı ve tarihi önizlemeden doğrulandı:
+  VDI 5586 Blatt 2 "Routenzugsysteme – Planung und Dimensionierung", Temmuz 2022. Boyutlandırma
+  bölümü §6.2, s.11–18. s.4'teki sembol tablosu Urru'nun kullandığı $q_{A,H}$ ve $n_{LT,A,H}$
+  terimlerini aynen tanımlıyor.
 - **Ne aldık?** Toyota formülünü ve "+1 kutu" kuralını.
 - **Programda ne yaptık?** Hataları tek tek düzeltip her adımın etkisini ayrı ayrı ölçtük
   (ayrıştırma).

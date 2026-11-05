@@ -138,7 +138,7 @@ Periyodik (milk-run) ile olay tabanlı (talep üzerine / e-Kanban) beslemeyi kar
 
 | Çalışma | Tampon nasıl eşitlenmiş | Sonuç |
 |---|---|---|
-| **Bae, Evans & Summers (2016)**, WSC, s.2860–2867 | Her iki sistemde **aynı akış raf**; duruş "teslimler arası > 45 dk" olarak politikadan bağımsız tanımlı → örtük **eşit kart** | Tek araçla talep üzerine sistemde duruş milk-run'ın **≈4 katı**; iki araçla fark yok → **milk-run önde** |
+| **Bae, Evans & Summers (2016)**, WSC, s.2861–2865 | Her iki sistemde **aynı akış raf**; duruş "teslimler arası > 45 dk" olarak politikadan bağımsız tanımlı → örtük **eşit kart** | Tek araçla talep üzerine sistemde duruş milk-run'ın **≈4 katı**; iki araçla fark yok → **milk-run önde** |
 | **Vojdani & Drechsler (2022)** s.5–6 | Her iki sistemde **aynı iki kutulu Kanban** → eşit kart | Dijital %27 daha az sefer, %29 daha az yol → **dijital önde** (taşıma ölçütlerinde) |
 | **Alnahhal vd. (2016)** s.709–710 | **Açık eşit hizmet**: duruş %3 ± 0,5'te sabitlenip başlangıç stoku her sistem için ayarlanmış (C kuralı) | Eşit duruşta e-Kanban/AEK daha az hat stoku; kapasite kıtlığında AEK en iyi → **koşullu**; bizim C kuralı sonucumuzla tutarlı |
 | **Bu çalışma (K97/K105)** | Dört kural yan yana | Aynı sistemde kurala göre **iki yönde de** sonuç üretilebilir (Toyota kutularında B → geleneksel, A/C/D → dijital) |
